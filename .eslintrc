@@ -1,3 +1,15 @@
 {
-  "extends": ["next", "next/core-web-vitals"]
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    // override eslint rules here
+    "react/self-closing-comp": "warn",
+    "react/display-name": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-console": "warn",
+    "prefer-arrow-callback": "warn"
+  }
 }
