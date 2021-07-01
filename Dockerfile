@@ -1,19 +1,20 @@
 FROM node:alpine
 
-ENV PORT 3000
+ENV PORT 80
 
 # Create app directory
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
 
 # Installing dependencies
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN ["yarn", "install", "--production"]
 
-RUN npx next telemetry disable
+RUN ["npx", "next", "telemetry", "disable"]
 
 # Copying source files
 COPY . ./
+RUN ["yarn", "build"]
 
 # Running the app
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
