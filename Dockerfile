@@ -8,9 +8,9 @@ WORKDIR /usr/app
 
 # Installing dependencies
 COPY package.json yarn.lock ./
-RUN ["yarn", "install", "--production"]
+RUN ["yarn", "install"]
 
-RUN ["npx", "next", "telemetry", "disable"]
+RUN ["yarn", "next", "telemetry", "disable"]
 
 # Copying source files
 COPY . ./
