@@ -6,9 +6,21 @@
   ],
   "rules": {
     // override eslint rules here
+
+    // react
     "react/self-closing-comp": "warn",
     "react/display-name": "off",
     "react-hooks/exhaustive-deps": "off",
+
+    // typescript
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+
+    // misc
     "no-console": "warn",
     "prefer-arrow-callback": "warn"
   }
