@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 
 const Home: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists</title>
       </Head>
       <div>Home</div>
-      <div className="font-mono">code</div>
+      <code className="text-9xl">Code</code>
     </>
   );
 };
