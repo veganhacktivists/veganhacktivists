@@ -1,3 +1,14 @@
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
 env:
   REGISTRY: ${{ secrets.DIGITALOCEAN_REGISTRY_HOST}}
   IMAGE_NAME: ${{ github.event.repository.name }}
