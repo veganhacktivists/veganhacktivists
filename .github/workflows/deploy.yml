@@ -36,7 +36,7 @@ deploy:
       with:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_SECRET_KEY }}
         envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND
         script: |
           # Stop running container
@@ -46,6 +46,6 @@ deploy:
           # Run a new container from a new image
           docker run -d \
           --restart always \
-          -p 3000:3000 \
+          -p 80:80 \
           --name $(echo $IMAGE_NAME) \
           $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
