@@ -8,6 +8,12 @@ Install the dependencies:
 yarn install
 ```
 
+Install the hooks:
+
+```
+yarn husky install
+```
+
 Run the development server:
 
 ```bash
