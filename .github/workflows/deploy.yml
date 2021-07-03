@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
         default: 'warning'
       tags:
@@ -22,6 +22,7 @@ on:
 env:
   REGISTRY: ${{ secrets.DIGITALOCEAN_REGISTRY_HOST}}
   IMAGE_NAME: ${{ github.event.repository.name }}
+  HUSKY_SKIP_INSTALL: 1
 
 jobs:
 
