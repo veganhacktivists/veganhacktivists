@@ -4,7 +4,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Vegan Hacktivists</title>
+        <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <div>Home</div>
       <code className="text-9xl">Code</code>

@@ -13,6 +13,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="shortcut icon" href="/favicon.png" />
+          {/* Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
