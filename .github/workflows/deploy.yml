@@ -52,20 +52,21 @@ jobs:
     if: github.event_name == 'push'
     needs: build_and_push
 
-    - name: Deploy to Docker Host
-      uses: wshihadeh/docker-deployment-action@v1
-      with:
-        remote_docker_host: ${{ secrets.DIGITALOCEAN_REGISTRY_HOST}}
-        ssh_private_key: ${{ secrets.SSH_SECRET_KEY }}
-        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-        deployment_mode: docker-compose
-        copy_stack_file: true
-        deploy_path: /home/deploy
-        stack_file_name: docker-compose.yaml
-        keep_files: 5
-        args: up -d
-        docker_prune: 'false'
-        pull_images_first: 'false'
+    steps:
+      - name: Deploy to Docker Host
+        uses: wshihadeh/docker-deployment-action@v1
+        with:
+          remote_docker_host: ${{ secrets.DIGITALOCEAN_REGISTRY_HOST}}
+          ssh_private_key: ${{ secrets.SSH_SECRET_KEY }}
+          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          deployment_mode: docker-compose
+          copy_stack_file: true
+          deploy_path: /home/deploy
+          stack_file_name: docker-compose.yaml
+          keep_files: 5
+          args: up -d
+          docker_prune: 'false'
+          pull_images_first: 'false'
 
   #   steps:
   #     - name: Deploy to Digital Ocean droplet via SSH action
