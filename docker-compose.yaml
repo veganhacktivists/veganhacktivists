@@ -1,7 +1,7 @@
 services:
 
   frontend:
-    build: registry.digitalocean.com/veganhacktivists/vh-site:latest
+    image: registry.digitalocean.com/veganhacktivists/vh-site
     restart: always
     labels:
       # Enable Traefik for this specific "backend" service
