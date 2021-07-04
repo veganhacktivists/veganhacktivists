@@ -67,7 +67,7 @@ jobs:
              --label traefik.http.routers.app-http.rule=Host("new.veganhacktivists.org") \
              --label traefik.docker.network=traefik-public \
              --label traefik.http.routers.app-https.entrypoints=https \
-             --label traefik.http.routers.app-https.rule=Host("new.veganhacktivists.org") \
+             --label "traefik.http.routers.app-https.rule=Host(`new.veganhacktivists.org`)" \
              --label traefik.http.routers.app-https.tls=true \
              --label traefik.http.routers.app-https.tls.certresolver=le \
              --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
