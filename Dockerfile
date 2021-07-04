@@ -1,5 +1,8 @@
 FROM node:alpine
 
+ENV PORT 80
+EXPOSE 80
+
 # Create app directory
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
@@ -13,7 +16,5 @@ RUN ["yarn", "next", "telemetry", "disable"]
 # Copying source files
 COPY . ./
 RUN ["yarn", "build"]
-EXPOSE 3000
-
 # Running the app
 CMD ["yarn", "start"]
