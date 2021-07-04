@@ -1,5 +1,7 @@
 FROM node:alpine
 
+ENV PORT 80
+
 # Create app directory
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
