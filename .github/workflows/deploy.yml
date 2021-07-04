@@ -16,9 +16,6 @@ on:
       tags:
         description: 'Test scenario tags'
 
-
-
-
 env:
   REGISTRY: ${{ secrets.DIGITALOCEAN_REGISTRY_HOST}}
   IMAGE_NAME: ${{ github.event.repository.name }}
