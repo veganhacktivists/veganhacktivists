@@ -73,6 +73,5 @@ jobs:
              --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
              --label traefik.http.middlewares.https-redirect.redirectscheme.permanent=true \
              --label traefik.http.routers.app-http.middlewares=https-redirect \
-             --network=traefik-public
-             --name $(echo $IMAGE_NAME) \
-             $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest
+             --network=traefik-public \
+             --name $(echo $IMAGE_NAME) $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest
