@@ -64,6 +64,7 @@ jobs:
              --label traefik.enable=true \
              --label traefik.docker.network=traefik-public \
              --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
+             --label traefik.http.middlewares.https-redirect.redirectscheme.permanent=true \
              --label traefik.http.routers.app-http.middlewares=https-redirect \
              --label traefik.http.routers.app-http.rule=Host\(\`new.veganhacktivists.org\`\) \
              --label traefik.http.routers.app-http.entrypoints=http \
@@ -74,4 +75,3 @@ jobs:
              --label traefik.http.services.app.loadbalancer.server.port=80 \
              --network=traefik-public \
              --name $(echo $IMAGE_NAME) $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest
-             # --label traefik.http.middlewares.https-redirect.redirectscheme.permanent=true \
