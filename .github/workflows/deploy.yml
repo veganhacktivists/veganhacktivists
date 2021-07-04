@@ -75,4 +75,4 @@ jobs:
              --label traefik.http.routers.$(echo $IMAGE_NAME)-http.middlewares=https-redirect \
              --network=traefik-public
              --name $(echo $IMAGE_NAME) \
-             $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+             $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest
