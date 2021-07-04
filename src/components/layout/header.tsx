@@ -3,7 +3,7 @@ import Link from "next/link";
 import logo from "../../../public/images/logo.png";
 
 const LeftSide: React.FC = () => {
-  const ratio = 0.27;
+  const ratio = 0.5;
 
   return (
     <div className="bg-black relative w-full md:w-min md:p-5 md:pl-44">
