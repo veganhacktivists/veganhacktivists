@@ -1,6 +1,6 @@
 services:
 
-  frontend:
+  vh-site:
     image: registry.digitalocean.com/veganhacktivists/vh-site
     restart: always
     labels:
