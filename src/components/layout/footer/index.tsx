@@ -20,11 +20,13 @@ const Logo: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-grey-dark text-white fixed w-full bottom-0 left-0 flex flex-wrap justify-around px-0 md:p-10">
-      <Links />
-      <Social />
-      <Logo />
-    </footer>
+    <div>
+      <footer className="bg-grey-dark text-white mt-auto w-full bottom-0 left-0 flex-col md:flex-row flex flex-wrap justify-around p-10 text-center items-center">
+        <Links />
+        <Social />
+        <Logo />
+      </footer>
+    </div>
   );
 };
 

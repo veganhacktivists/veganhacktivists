@@ -58,7 +58,7 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
 
 const Links: React.FC = () => {
   return (
-    <div className="text-xl">
+    <div className="text-xl text-left">
       <ul>
         {links.map((link, i) => (
           <MyLink key={i} {...link} />

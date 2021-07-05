@@ -40,7 +40,7 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = "" }) => {
     "p-5",
     "py-6",
     "transition duration-500",
-    "hover:bg-gray",
+    "hover:bg-gray-dark",
     className,
     { underline: active }
   );
@@ -61,11 +61,15 @@ const RightSide: React.FC = () => {
         <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
       ))}
       {/* Colors TBD.Why is Tailwind's grey blue-ish??? */}
-      <NavBarItem label="Join" href={`/join`} className="bg-gray font-bold" />
+      <NavBarItem
+        label="Join"
+        href={`/join`}
+        className="bg-gray hover:bg-gray-dark font-bold"
+      />
       <NavBarItem
         label="Support"
         href={`/support`}
-        className="bg-bubblegum font-bold"
+        className="bg-bubblegum hover:bg-strawberry font-bold"
       />
     </div>
   );
