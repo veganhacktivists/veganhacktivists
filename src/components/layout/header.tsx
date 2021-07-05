@@ -43,20 +43,20 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className }) => {
 const RightSide: React.FC = () => {
   return (
     <div className="font-mono text-2xl pr-24 text-right bg-black text-white flex-1 h-full hidden md:flex ml-auto justify-end align-middle uppercase font-semibold">
-      {["about", "services", "projects", "people", "blog", "contact"].map(
+      {["about", "services", "projects", "people", "blog"].map(
         (menuElem) => (
           <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
         )
       )}
       {/* Colors TBD.Why is Tailwind's grey blue-ish??? */}
       <NavBarItem
-        label="Join Us"
-        href={`/joinUs`}
+        label="Join"
+        href={`/join`}
         className="bg-gray font-bold"
       />
       <NavBarItem
-        label="Support Us"
-        href={`/supportUs`}
+        label="Support"
+        href={`/support`}
         className="bg-bubblegum font-bold"
       />
     </div>
