@@ -7,7 +7,9 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <div>Home</div>
-      <code className="text-9xl">Code</code>
+      <div>
+        <code className="text-9xl leading-normal">Code</code>
+      </div>
     </>
   );
 };
