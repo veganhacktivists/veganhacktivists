@@ -9,8 +9,7 @@ const Social: React.FC = () => {
         <code>Contact Us</code>
       </div>
       <div className="max-w-xs m-auto">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-        malesuada est nisl
+        If you have project ideas, suggestions, questions or anything else, get in touch!
       </div>
       <div className="font-bold pt-5 text-lg">
         <a href="mailto:hello@veganhacktivists.org">
