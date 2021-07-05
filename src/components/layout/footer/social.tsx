@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Social: React.FC = () => {
   return (
-    <div>
+    <div className="pt-10">
       <div className="text-4xl font-semibold uppercase">
         <code>Contact Us</code>
       </div>
