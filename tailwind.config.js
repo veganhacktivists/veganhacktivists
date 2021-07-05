@@ -34,7 +34,11 @@ module.exports = {
       sans: "PT Sans",
       italic: "Bitter",
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        "-10": "-10",
+      },
+    },
   },
   variants: {
     extend: {},
