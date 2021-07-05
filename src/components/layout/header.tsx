@@ -8,7 +8,7 @@ const LeftSide: React.FC = () => {
   const ratio = 0.5;
 
   return (
-    <div className="bg-black relative w-full md:w-min md:p-5 md:pr-10 md:pl-40">
+    <div className="bg-black relative w-full lg:w-min md:p-5 md:pr-10 md:pl-40">
       <Link href="/" passHref>
         <a>
           <Image
@@ -56,7 +56,7 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = "" }) => {
 
 const RightSide: React.FC = () => {
   return (
-    <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full hidden md:flex ml-auto justify-end align-middle uppercase font-semibold">
+    <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full hidden lg:flex ml-auto justify-end align-middle uppercase font-semibold">
       {["about", "services", "projects", "people", "blog"].map((menuElem) => (
         <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
       ))}

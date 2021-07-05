@@ -11,8 +11,8 @@ const Logo: React.FC = () => {
         src={roundLogo}
         layout="fixed"
         alt="VH Round Logo"
-        width={roundLogo.width / 2}
-        height={roundLogo.height / 2}
+        width={roundLogo.width * 0.4}
+        height={roundLogo.height * 0.4}
         loading="lazy"
       />
     </div>

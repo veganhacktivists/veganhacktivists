@@ -1,14 +1,20 @@
 interface ICircle {
-  color: string;
-  radius: number;
   cx: number;
   cy: number;
-  thickness: string;
+  radius: number;
+  color?: string;
   opacity?: number;
+  thickness?: string;
 }
 
 const Circle: React.FC<ICircle> = (props) => {
-  const { color, thickness, radius, opacity = 1, ...trimmedProps } = props;
+  const {
+    radius,
+    color = "grey",
+    opacity = 1,
+    thickness = "20px",
+    ...trimmedProps
+  } = props;
 
   return (
     <svg className={`text-${color} overflow-visible`}>
