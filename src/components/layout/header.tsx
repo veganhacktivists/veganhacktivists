@@ -1,14 +1,18 @@
+import React, { useEffect, useState } from "react";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/images/VH-logo-web-white.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
-    <div className="bg-black relative w-full lg:w-min md:p-5 md:pr-10 md:pl-40">
+    <div className="bg-black relative flex p-5 md:pr-10 md:pl-40 w-full xl:w-min align-middle items-center">
       <Link href="/" passHref>
         <a>
           <Image
@@ -21,6 +25,16 @@ const LeftSide: React.FC = () => {
           />
         </a>
       </Link>
+      {/* <div className="block xl:hidden text-white w-full text-right p-10">
+        <FontAwesomeIcon
+          icon={faBars}
+          size="2x"
+          onClick={() => {
+            setMenuOpen((open) => !open);
+          }}
+          className="cursor-pointer"
+        />
+      </div> */}
     </div>
   );
 };
@@ -54,13 +68,12 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = "" }) => {
   );
 };
 
-const RightSide: React.FC = () => {
+const NavbarItems: React.FC = () => {
   return (
-    <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full hidden lg:flex ml-auto justify-end align-middle uppercase font-semibold">
+    <>
       {["about", "services", "projects", "people", "blog"].map((menuElem) => (
         <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
       ))}
-      {/* Colors TBD.Why is Tailwind's grey blue-ish??? */}
       <NavBarItem
         label="Join"
         href={`/join`}
@@ -71,7 +84,41 @@ const RightSide: React.FC = () => {
         href={`/support`}
         className="bg-bubblegum hover:bg-strawberry font-bold"
       />
-    </div>
+    </>
+  );
+};
+
+const RightSide: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  return (
+    <>
+      <div className="block xl:hidden text-white absolute text-right p-10 right-0 top-0">
+        <FontAwesomeIcon
+          icon={faBars}
+          size="2x"
+          onClick={() => {
+            setMenuOpen((open) => !open);
+          }}
+          className="cursor-pointer"
+        />
+        <div
+          className={classNames(
+            "font-mono text-2xl px-16 m-auto w-full bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative",
+            "lg:flex",
+            "bg-black",
+            "flex-grow",
+            "items-center",
+            menuOpen ? " flex flex-col" : " hidden"
+          )}
+        >
+          {menuOpen && <NavbarItems />}
+        </div>
+      </div>
+      <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full ml-auto justify-end align-middle uppercase font-semibold hidden xl:flex flex-nowrap">
+        <NavbarItems />
+      </div>
+    </>
   );
 };
 

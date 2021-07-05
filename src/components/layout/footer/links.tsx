@@ -35,7 +35,7 @@ const links: ILinks[] = [
 const MyLink: React.FC<ILinks & { level?: number }> = ({
   label,
   href,
-  links,
+  links = [],
   level = 0,
 }) => {
   const classes = classNames({ "font-black": level === 0, "pl-5": level > 0 });
