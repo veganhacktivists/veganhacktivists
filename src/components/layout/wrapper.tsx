@@ -4,4 +4,8 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
+export const MainWrapper: React.FC = ({ children }) => {
+  return <main className="mx-16 text-center">{children}</main>;
+};
+
 export default PageWrapper;
