@@ -1,8 +1,8 @@
-import Circle from "components/decoration/circle";
-import Image from "next/image";
-import roundLogo from "../../../../public/images/VH_Logo_Crest_Tagline.png";
-import Links from "./links";
-import Social from "./social";
+import Circle from 'components/decoration/circle';
+import Image from 'next/image';
+import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
+import Links from './links';
+import Social from './social';
 
 const Logo: React.FC = () => {
   return (

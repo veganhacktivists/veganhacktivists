@@ -10,9 +10,9 @@ interface ICircle {
 const Circle: React.FC<ICircle> = (props) => {
   const {
     radius,
-    color = "grey",
+    color = 'grey',
     opacity = 1,
-    thickness = "20px",
+    thickness = '20px',
     ...trimmedProps
   } = props;
 

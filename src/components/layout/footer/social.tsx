@@ -1,6 +1,6 @@
-import { faInstagram, faPatreon } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
+import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 const Social: React.FC = () => {
   return (
@@ -9,7 +9,8 @@ const Social: React.FC = () => {
         <code>Contact Us</code>
       </div>
       <div className="max-w-xs m-auto">
-        If you have project ideas, suggestions, questions or anything else, get in touch!
+        If you have project ideas, suggestions, questions or anything else, get
+        in touch!
       </div>
       <div className="font-bold pt-5 text-lg">
         <a href="mailto:hello@veganhacktivists.org">

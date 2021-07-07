@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next";
+import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = ({}) => {
   return { props: {} };

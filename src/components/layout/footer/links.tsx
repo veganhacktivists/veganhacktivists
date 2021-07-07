@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import Link from "next/link";
+import classNames from 'classnames';
+import Link from 'next/link';
 
 interface ILinks {
   label: string;
@@ -9,27 +9,27 @@ interface ILinks {
 
 const links: ILinks[] = [
   {
-    label: "About",
-    href: "/about",
+    label: 'About',
+    href: '/about',
     links: [
-      { label: "Our Story", href: "/our_story" },
-      { label: "Our Values", href: "/our_values" },
-      { label: "Our Mission", href: "/our_mission" },
+      { label: 'Our Story', href: '/our_story' },
+      { label: 'Our Values', href: '/our_values' },
+      { label: 'Our Mission', href: '/our_mission' },
     ],
   },
-  { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
+  { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
   {
-    label: "People",
-    href: "/people",
+    label: 'People',
+    href: '/people',
     links: [
-      { label: "Our Team", href: "/our_team" },
-      { label: "Advisors & Partners", href: "/our_team" },
+      { label: 'Our Team', href: '/our_team' },
+      { label: 'Advisors & Partners', href: '/our_team' },
     ],
   },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Join Us", href: "/join_us" },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact' },
+  { label: 'Join Us', href: '/join_us' },
 ];
 
 const MyLink: React.FC<ILinks & { level?: number }> = ({
@@ -38,7 +38,7 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
   links = [],
   level = 0,
 }) => {
-  const classes = classNames({ "font-black": level === 0, "pl-5": level > 0 });
+  const classes = classNames({ 'font-black': level === 0, 'pl-5': level > 0 });
 
   return (
     <li>

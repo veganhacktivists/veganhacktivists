@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import classNames from "classnames";
-import { useRouter } from "next/dist/client/router";
-import Image from "next/image";
-import Link from "next/link";
-import logo from "../../../public/images/VH-logo-web-white.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from 'react';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import Link from 'next/link';
+import logo from '../../../public/images/VH-logo-web-white.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -34,16 +34,16 @@ interface INavbarItem {
   className?: string;
 }
 
-const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = "" }) => {
+const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
   const { pathname } = useRouter();
 
   const active = pathname.startsWith(href);
 
   const classes = classNames(
-    "p-5",
-    "py-6",
-    "transition duration-500",
-    "hover:bg-gray-dark",
+    'p-5',
+    'py-6',
+    'transition duration-500',
+    'hover:bg-gray-dark',
     className,
     { underline: active }
   );
@@ -60,17 +60,17 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = "" }) => {
 const NavbarItems: React.FC = () => {
   return (
     <>
-      {["about", "services", "projects", "people", "blog"].map((menuElem) => (
+      {['about', 'services', 'projects', 'people', 'blog'].map((menuElem) => (
         <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
       ))}
       <NavBarItem
         label="Join"
-        href={`/join`}
+        href={'/join'}
         className="bg-gray hover:bg-gray-dark font-bold"
       />
       <NavBarItem
         label="Support"
-        href={`/support`}
+        href={'/support'}
         className="bg-bubblegum hover:bg-strawberry font-bold"
       />
     </>
@@ -93,12 +93,12 @@ const RightSide: React.FC = () => {
         />
         <div
           className={classNames(
-            "font-mono text-2xl px-16 m-auto w-full bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative",
-            "lg:flex",
-            "bg-black",
-            "flex-grow",
-            "items-center",
-            menuOpen ? " flex flex-col" : " hidden"
+            'font-mono text-2xl px-16 m-auto w-full bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative',
+            'lg:flex',
+            'bg-black',
+            'flex-grow',
+            'items-center',
+            menuOpen ? ' flex flex-col' : ' hidden'
           )}
         >
           {menuOpen && <NavbarItems />}

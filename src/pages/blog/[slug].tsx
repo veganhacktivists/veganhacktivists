@@ -1,4 +1,4 @@
-import type { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from 'next';
 
 interface IBlogEntry {
   slug: string;
@@ -6,7 +6,7 @@ interface IBlogEntry {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [{ params: { slug: "1" } }], fallback: true };
+  return { paths: [{ params: { slug: '1' } }], fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

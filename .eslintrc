@@ -28,6 +28,7 @@
 
     // misc
     "no-console": ["warn"],
-    "prefer-arrow-callback": ["warn"]
+    "prefer-arrow-callback": ["warn"],
+    "quotes": ["warn", "single"]
   }
 }
