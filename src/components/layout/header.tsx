@@ -44,6 +44,7 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
     'py-6',
     'transition duration-500',
     'hover:bg-gray-dark',
+    'text-center',
     className,
     { underline: active }
   );
@@ -93,11 +94,13 @@ const RightSide: React.FC = () => {
         />
         <div
           className={classNames(
-            'font-mono text-2xl px-16 m-auto w-full bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative',
+            'font-mono text-2xl m-auto bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative',
             'lg:flex',
             'bg-black',
             'flex-grow',
             'items-center',
+            'items-stretch',
+            'w-64',
             menuOpen ? ' flex flex-col' : ' hidden'
           )}
         >
