@@ -19,6 +19,7 @@
         "prefer": "type-imports"
       }
     ],
+    "@typescript-eslint/array-type": ["warn", { "default": "array-simple" }],
 
     // misc
     "no-console": "warn",
