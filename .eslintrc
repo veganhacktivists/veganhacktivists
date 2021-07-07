@@ -8,9 +8,14 @@
     // override eslint rules here
 
     // react
-    "react/self-closing-comp": "warn",
-    "react/display-name": "off",
+    "react/self-closing-comp": ["warn"],
+    "react/function-component-definition": [
+      "warn",
+      { "namedComponents": "arrow-function" }
+    ],
     "react-hooks/exhaustive-deps": "off",
+    "react/jsx-fragments": ["warn"],
+    "react/jsx-pascal-case": ["error"],
 
     // typescript
     "@typescript-eslint/consistent-type-imports": [
@@ -22,7 +27,7 @@
     "@typescript-eslint/array-type": ["warn", { "default": "array-simple" }],
 
     // misc
-    "no-console": "warn",
-    "prefer-arrow-callback": "warn"
+    "no-console": ["warn"],
+    "prefer-arrow-callback": ["warn"]
   }
 }
