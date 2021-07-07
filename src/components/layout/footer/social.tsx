@@ -19,12 +19,18 @@ const Social: React.FC = () => {
       </div>
       <div className="flex content-center justify-center px-3 pt-5">
         <Link href="https://www.instagram.com/veganhacktivists/" passHref>
-          <a className="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+          <a
+            aria-label="Follow us on Instagram!"
+            className="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+          >
             <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
           </a>
         </Link>
         <Link href="https://www.patreon.com/veganhacktivists" passHref>
-          <a className="bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+          <a
+            aria-label="Support Us on Patreon!"
+            className="bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+          >
             <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
           </a>
         </Link>
