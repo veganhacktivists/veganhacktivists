@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import { useRouter } from "next/dist/client/router";
@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
     <div className="bg-black relative flex p-5 md:pr-10 md:pl-40 w-full xl:w-min align-middle items-center">
@@ -25,16 +24,6 @@ const LeftSide: React.FC = () => {
           />
         </a>
       </Link>
-      {/* <div className="block xl:hidden text-white w-full text-right p-10">
-        <FontAwesomeIcon
-          icon={faBars}
-          size="2x"
-          onClick={() => {
-            setMenuOpen((open) => !open);
-          }}
-          className="cursor-pointer"
-        />
-      </div> */}
     </div>
   );
 };
