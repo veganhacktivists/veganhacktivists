@@ -4,8 +4,7 @@ import { IButton } from "./buttons";
 const BaseButton: React.FC<IButton> = (props) => {
 
     const {
-        linkUrl,
-        style
+        linkUrl
     } = props;
   
     return (
@@ -13,11 +12,7 @@ const BaseButton: React.FC<IButton> = (props) => {
         {/* if linkUrl has value */}
         {linkUrl &&
           <Link href={linkUrl} passHref>
-            <a>
-              <div className={style}>
-                {props.children}
-              </div>
-            </a>
+              {props.children}
           </Link>
         }
         {/* if linkUrl does not have value */}

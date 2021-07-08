@@ -1,7 +1,8 @@
-import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import ExternalLinkButton from '../../decoration/buttons/externalLinkButton';
+import PatreonButton from '../../decoration/buttons/iconButtons/patreonButton';
 
 const Social: React.FC = () => {
   return (
@@ -27,14 +28,7 @@ const Social: React.FC = () => {
             <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
           </a>
         </Link>
-        <Link href="https://www.patreon.com/veganhacktivists" passHref>
-          <a
-            aria-label="Support Us on Patreon!"
-            className="bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2 mx-2"
-          >
-            <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
-          </a>
-        </Link>
+        <PatreonButton linkUrl="https://www.patreon.com/veganhacktivists" label="Support Us on Patreon!"></PatreonButton>
       </div>
       <div className="pt-10">
         <ExternalLinkButton linkUrl="https://www.patreon.com/veganhacktivists">
