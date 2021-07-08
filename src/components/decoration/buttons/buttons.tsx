@@ -1,13 +1,123 @@
-import ExternalLinkButton from './externalLinkButton';
-import InstagramButton from './iconButtons/instagramButton';
-import PatreonButton from './iconButtons/patreonButton';
-import SubmitButton from './submitButton';
+import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 export interface ButtonProps {
   linkUrl?: string;
   label?: string;
   style?: string;
 }
+
+const BaseButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+  
+  return linkUrl
+    ? <Link href={linkUrl} passHref>
+        {children}
+      </Link>
+    : <button type="submit">
+        {children}
+      </button>
+};
+
+// TODO: define what a submit should look like
+const SubmitButton: React.FC<ButtonProps> = (props) => {
+  
+  return (
+    <BaseButton></BaseButton>
+  );
+
+};
+
+//TODO: define light button classes
+
+const LightButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+  
+  return (
+    <BaseButton linkUrl={linkUrl}>
+      <a>
+          <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+              {children}
+          </div>
+      </a>
+    </BaseButton>
+  );
+};
+
+//TODO: define dark button classes
+
+const DarkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+  
+  return (
+      <BaseButton linkUrl={linkUrl}>
+          <a>
+              <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+                  {children}
+              </div>
+          </a>
+      </BaseButton>
+  );
+};
+
+const ExternalLinkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+  
+  return (
+    <BaseButton linkUrl={linkUrl}>
+      <a>
+          <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+              {children}
+          </div>
+      </a>
+    </BaseButton>
+  );
+};
+
+const IconButton: React.FC<ButtonProps> = (props) => {
+
+  const {
+      linkUrl,
+      label,
+      style
+  } = props;
+
+  return (
+    <BaseButton linkUrl={linkUrl}>
+        <a
+          aria-label={label}
+          className={style}
+        >
+          {props.children}
+        </a>
+    </BaseButton>
+  );
+};
+
+const PatreonButton: React.FC<ButtonProps> = (props) => {
+
+  const {
+    linkUrl,
+    label
+  } = props;
+  
+    return (
+      <IconButton linkUrl={linkUrl} label={label} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      </IconButton>
+    );
+};
+
+const InstagramButton: React.FC<ButtonProps> = (props) => {
+
+  const {
+    linkUrl,
+    label
+  } = props;
+  
+    return (
+      <IconButton linkUrl={linkUrl} label={label} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
+      </IconButton>
+    );
+};
 
 export { ExternalLinkButton, SubmitButton, PatreonButton, InstagramButton };
 
