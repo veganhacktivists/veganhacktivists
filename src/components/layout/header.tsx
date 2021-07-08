@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
@@ -79,7 +79,19 @@ const NavbarItems: React.FC = () => {
 };
 
 const RightSide: React.FC = () => {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setMenuOpen(false);
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
 
   return (
     <>
@@ -94,14 +106,8 @@ const RightSide: React.FC = () => {
         />
         <div
           className={classNames(
-            'font-mono text-2xl m-auto bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative',
-            'lg:flex',
-            'bg-black',
-            'flex-grow',
-            'items-center',
-            'items-stretch',
-            'w-64',
-            menuOpen ? ' flex flex-col' : ' hidden'
+            'font-mono text-2xl m-auto bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative lg:flex bg-black flex-grow items-center items-stretch w-64',
+            menuOpen ? 'flex flex-col' : 'hidden'
           )}
         >
           {menuOpen && <NavbarItems />}
