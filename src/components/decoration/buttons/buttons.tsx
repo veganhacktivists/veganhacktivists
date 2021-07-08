@@ -1,7 +1,7 @@
 import SubmitButton from './submitButton';
 
 export interface IButton {
-  text: string;
+  linkUrl?: string;
 }
 
 export default SubmitButton;

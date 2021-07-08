@@ -1,13 +1,31 @@
+import Link from "next/link";
 import { IButton } from "./buttons";
 
 const BaseButton: React.FC<IButton> = (props) => {
 
     const {
-        text
+        linkUrl
     } = props;
   
     return (
-      <button type="submit">{text}</button>
+      <>
+        {/* if linkUrl has value */}
+        {linkUrl &&
+          <Link href={linkUrl} passHref>
+            <a>
+              <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+                {props.children}
+              </div>
+            </a>
+          </Link>
+        }
+        {/* if linkUrl does not have value */}
+        {!linkUrl &&
+          <button type="submit">
+            {props.children}
+          </button>
+        }
+      </>
     );
 };
   

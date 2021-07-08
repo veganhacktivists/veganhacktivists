@@ -1,14 +1,11 @@
 import BaseButton from "./baseButton";
 import { IButton } from "./buttons";
 
+// TODO: define what a submit should look like
 const SubmitButton: React.FC<IButton> = (props) => {
-
-    const {
-        text
-    } = props;
   
     return (
-      <BaseButton text={text}></BaseButton>
+      <BaseButton></BaseButton>
     );
 };
   
