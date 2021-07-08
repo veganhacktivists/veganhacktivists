@@ -7,22 +7,13 @@ const BaseButton: React.FC<IButton> = (props) => {
         linkUrl
     } = props;
   
-    return (
-      <>
-        {/* if linkUrl has value */}
-        {linkUrl &&
-          <Link href={linkUrl} passHref>
-              {props.children}
-          </Link>
-        }
-        {/* if linkUrl does not have value */}
-        {!linkUrl &&
-          <button type="submit">
-            {props.children}
-          </button>
-        }
-      </>
-    );
+    return linkUrl
+      ? <Link href={linkUrl} passHref>
+          {props.children}
+        </Link>
+      : <button type="submit">
+          {props.children}
+        </button>
 };
   
 export default BaseButton;
