@@ -1,18 +1,14 @@
 import Link from "next/link";
 import { ButtonProps } from "./buttons";
 
-const BaseButton: React.FC<ButtonProps> = (props) => {
-
-    const {
-        linkUrl
-    } = props;
+const BaseButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
   
     return linkUrl
       ? <Link href={linkUrl} passHref>
-          {props.children}
+          {children}
         </Link>
       : <button type="submit">
-          {props.children}
+          {children}
         </button>
 };
   
