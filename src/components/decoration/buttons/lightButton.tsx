@@ -3,7 +3,7 @@ import { ButtonProps } from "./buttons";
 
 //TODO: define primary button classes
 
-const PrimaryButton: React.FC<ButtonProps> = (props) => {
+const LightButton: React.FC<ButtonProps> = (props) => {
 
     const {
         linkUrl
@@ -20,4 +20,4 @@ const PrimaryButton: React.FC<ButtonProps> = (props) => {
     );
 };
   
-export default PrimaryButton;
+export default LightButton;
