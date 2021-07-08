@@ -1,6 +1,4 @@
-import ExternalLinkButton from '../../decoration/buttons/externalLinkButton';
-import InstagramButton from '../../decoration/buttons/iconButtons/instagramButton';
-import PatreonButton from '../../decoration/buttons/iconButtons/patreonButton';
+import { ExternalLinkButton, InstagramButton, PatreonButton } from '../../decoration/buttons/buttons';
 
 const Social: React.FC = () => {
   return (
