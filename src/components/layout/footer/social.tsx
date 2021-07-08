@@ -1,6 +1,7 @@
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import ExternalLinkButton from '../../decoration/buttons/externalLinkButton';
 
 const Social: React.FC = () => {
   return (
@@ -36,16 +37,12 @@ const Social: React.FC = () => {
         </Link>
       </div>
       <div className="pt-10">
-        <Link href="https://www.patreon.com/veganhacktivists" passHref>
-          <a>
-            <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
-              <div className="font-italic text-xl capitalize">
-                Support us on
-              </div>
-              <div className="text-4xl uppercase font-bold">Patreon</div>
-            </div>
-          </a>
-        </Link>
+        <ExternalLinkButton linkUrl="https://www.patreon.com/veganhacktivists">
+          <div className="font-italic text-xl capitalize">
+            Support us on
+          </div>
+          <div className="text-4xl uppercase font-bold">Patreon</div>
+        </ExternalLinkButton>
       </div>
     </div>
   );
