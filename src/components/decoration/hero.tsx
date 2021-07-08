@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface IHero {
   imageBackground: string | StaticImageData;
@@ -15,15 +16,14 @@ const getStyle = (imageBackground: string | StaticImageData) =>
       };
 
 const Hero: React.FC<IHero> = ({ imageBackground, alignment, children }) => {
-  const alignmentClass =
-    alignment === 'right' ? 'justify-end' : 'justify-start';
+  const classes = classNames('bg-center', 'bg-cover', 'bg-no-repeat', 'flex', {
+    'justify-start': alignment === 'left',
+    'justify-end': alignment === 'right',
+  });
   const style = getStyle(imageBackground);
 
   return (
-    <div
-      className={`bg-center bg-cover bg-no-repeat flex ${alignmentClass} content-center`}
-      style={style}
-    >
+    <div className={classes} style={style}>
       <div className="flex flex-col justify-center">{children}</div>
     </div>
   );

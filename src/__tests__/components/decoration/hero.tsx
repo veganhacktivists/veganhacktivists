@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Hero from '../../../components/decoration/hero';
 
-it('renders correctly when proving a URL string', () => {
+it('should render correctly when providing a URL string', () => {
   const { asFragment } = render(
     <Hero
       imageBackground="https://via.placeholder.com/500x500"
@@ -12,7 +12,7 @@ it('renders correctly when proving a URL string', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it('renders correctly when proving static image data', () => {
+it('should render correctly when providing static image data', () => {
   const { asFragment } = render(
     <Hero
       imageBackground={{
