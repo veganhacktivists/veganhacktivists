@@ -4,7 +4,8 @@ import { IButton } from "./buttons";
 const BaseButton: React.FC<IButton> = (props) => {
 
     const {
-        linkUrl
+        linkUrl,
+        style
     } = props;
   
     return (
@@ -13,7 +14,7 @@ const BaseButton: React.FC<IButton> = (props) => {
         {linkUrl &&
           <Link href={linkUrl} passHref>
             <a>
-              <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+              <div className={style}>
                 {props.children}
               </div>
             </a>

@@ -5,7 +5,7 @@ import { IButton } from "./buttons";
 const SubmitButton: React.FC<IButton> = (props) => {
   
     return (
-      <BaseButton></BaseButton>
+      <BaseButton style="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform"></BaseButton>
     );
 };
   
