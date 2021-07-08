@@ -63,7 +63,7 @@ It is also recommended to activate the `Editor: Format on save` option.
 
 ## Grab a card
 
-Steps for working on a card:
+Steps for working on a card from [our Trello board](https://trello.com/b/7FMaTCuc/veganhacktivistsorg):
 
 - Grab a card from the `Things to do` column and drag it to the `In Progress` column
 - Create a new branch `feature/my-new-feature` off the `main` branch
@@ -77,7 +77,7 @@ Feel free to ask other team members to review Pull Requests.
 
 ### How should URLs be formatted?
 
-URLs should use dashes (-) instead of underscores (\_), so `/this-is/my/page` instead of `/this_is/my/page`?
+URLs should use dashes (`-`) instead of underscores (`_`), so `/this-is/my/page` instead of `/this_is/my/page`?
 
 ## Resources
 
