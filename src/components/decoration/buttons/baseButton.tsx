@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { IButton } from "./buttons";
+import { ButtonProps } from "./buttons";
 
-const BaseButton: React.FC<IButton> = (props) => {
+const BaseButton: React.FC<ButtonProps> = (props) => {
 
     const {
         linkUrl

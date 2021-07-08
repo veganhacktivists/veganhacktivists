@@ -1,9 +1,9 @@
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IButton } from "../buttons";
+import { ButtonProps } from "../buttons";
 import IconButton from "./IconButton";
 
-const InstagramButton: React.FC<IButton> = (props) => {
+const InstagramButton: React.FC<ButtonProps> = (props) => {
 
   const {
     linkUrl,

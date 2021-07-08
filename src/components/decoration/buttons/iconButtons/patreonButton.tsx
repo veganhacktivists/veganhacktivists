@@ -1,9 +1,9 @@
 import { faPatreon } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IButton } from "../buttons";
+import { ButtonProps } from "../buttons";
 import IconButton from "./IconButton";
 
-const PatreonButton: React.FC<IButton> = (props) => {
+const PatreonButton: React.FC<ButtonProps> = (props) => {
 
   const {
     linkUrl,

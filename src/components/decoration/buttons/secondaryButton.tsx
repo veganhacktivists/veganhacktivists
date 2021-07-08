@@ -1,9 +1,9 @@
 import BaseButton from "./baseButton";
-import { IButton } from "./buttons";
+import { ButtonProps } from "./buttons";
 
 //TODO: define secondary button classes
 
-const SecondaryButton: React.FC<IButton> = (props) => {
+const SecondaryButton: React.FC<ButtonProps> = (props) => {
 
     const {
         linkUrl
