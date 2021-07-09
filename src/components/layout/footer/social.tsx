@@ -1,4 +1,8 @@
-import { ExternalLinkButton, InstagramButton, PatreonButton } from '../../decoration/buttons/buttons';
+import {
+  ExternalLinkButton,
+  InstagramButton,
+  PatreonButton,
+} from '../../decoration/buttons/buttons';
 
 const Social: React.FC = () => {
   return (
@@ -16,14 +20,18 @@ const Social: React.FC = () => {
         </a>
       </div>
       <div className="flex content-center justify-center px-3 pt-5">
-        <InstagramButton linkUrl="https://www.instagram.com/veganhacktivists/" label="Follow us on Instagram!"></InstagramButton>
-        <PatreonButton linkUrl="https://www.patreon.com/veganhacktivists" label="Support Us on Patreon!"></PatreonButton>
+        <InstagramButton
+          linkurl="https://www.instagram.com/veganhacktivists/"
+          aria-label="Follow us on Instagram!"
+         />
+        <PatreonButton
+          linkurl="https://www.patreon.com/veganhacktivists"
+          aria-label="Support Us on Patreon!"
+         />
       </div>
       <div className="pt-10">
-        <ExternalLinkButton linkUrl="https://www.patreon.com/veganhacktivists">
-          <div className="font-italic text-xl capitalize">
-            Support us on
-          </div>
+        <ExternalLinkButton linkurl="https://www.patreon.com/veganhacktivists">
+          <div className="font-italic text-xl capitalize">Support us on</div>
           <div className="text-4xl uppercase font-bold">Patreon</div>
         </ExternalLinkButton>
       </div>
