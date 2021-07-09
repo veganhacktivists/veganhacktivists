@@ -88,7 +88,7 @@ const PatreonButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <IconButton
       {...props}
-      className="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+      className="bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2 mx-2"
     >
       <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
     </IconButton>
