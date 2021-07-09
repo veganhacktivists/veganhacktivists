@@ -23,17 +23,17 @@ const BaseButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
 const SubmitButton: React.FC<ButtonProps> = (props) => {
   
   return (
-    <BaseButton></BaseButton>
+    <BaseButton {...props}></BaseButton>
   );
 
 };
 
 //TODO: define light button classes
 
-const LightButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   
   return (
-    <BaseButton linkUrl={linkUrl}>
+    <BaseButton {...props}>
       <a>
           <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
               {children}
@@ -45,10 +45,10 @@ const LightButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
 
 //TODO: define dark button classes
 
-const DarkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+const DarkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   
   return (
-      <BaseButton linkUrl={linkUrl}>
+      <BaseButton {...props}>
           <a>
               <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
                   {children}
@@ -58,10 +58,10 @@ const DarkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
   );
 };
 
-const ExternalLinkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
+const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   
   return (
-    <BaseButton linkUrl={linkUrl}>
+    <BaseButton {...props}>
       <a>
           <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
               {children}
@@ -71,49 +71,30 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ linkUrl, children }) => {
   );
 };
 
-const IconButton: React.FC<ButtonProps> = (props) => {
-
-  const {
-      linkUrl,
-      label,
-      style
-  } = props;
+const IconButton: React.FC<ButtonProps> = ({children, style, ...props}) => {
 
   return (
-    <BaseButton linkUrl={linkUrl}>
-        <a
-          aria-label={label}
-          className={style}
-        >
-          {props.children}
+    <BaseButton {...props}>
+        <a {...props}>
+          {children}
         </a>
     </BaseButton>
   );
 };
 
-const PatreonButton: React.FC<ButtonProps> = (props) => {
-
-  const {
-    linkUrl,
-    label
-  } = props;
+const PatreonButton: React.FC<ButtonProps> = ({children, ...props}) => {
   
     return (
-      <IconButton linkUrl={linkUrl} label={label} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+      <IconButton {...props} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
         <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
       </IconButton>
     );
 };
 
-const InstagramButton: React.FC<ButtonProps> = (props) => {
-
-  const {
-    linkUrl,
-    label
-  } = props;
+const InstagramButton: React.FC<ButtonProps> = ({children, ...props}) => {
   
     return (
-      <IconButton linkUrl={linkUrl} label={label} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
+      <IconButton {...props} style="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2">
         <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
       </IconButton>
     );
