@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface IHero {
+interface HeroProps {
   imageBackground: string | StaticImageData;
   alignment: 'right' | 'left';
 }
@@ -15,7 +15,11 @@ const getStyle = (imageBackground: string | StaticImageData) =>
         height: `${imageBackground.height}px`,
       };
 
-const Hero: React.FC<IHero> = ({ imageBackground, alignment, children }) => {
+const Hero: React.FC<HeroProps> = ({
+  imageBackground,
+  alignment,
+  children,
+}) => {
   const classes = classNames('bg-center', 'bg-cover', 'bg-no-repeat', 'flex', {
     'justify-start': alignment === 'left',
     'justify-end': alignment === 'right',
