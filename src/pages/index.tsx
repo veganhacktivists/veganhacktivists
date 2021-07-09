@@ -15,14 +15,14 @@ const Home: React.FC = () => {
         We <code className="text-9xl">Code</code> for the{' '}
         <span className="font-italic">animals</span>
         <Hero imageBackground={heroBackground.src} alignment="right">
-          <p className="m-32">
+          <div className="m-32">
             <Image
               src={heroTagline.src}
               width={heroTagline.width}
               height={heroTagline.height}
               alt="Compassion, Creativity, Code"
             />
-          </p>
+          </div>
         </Hero>
       </div>
     </>
