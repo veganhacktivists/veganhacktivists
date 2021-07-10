@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly when providing a URL string 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-center bg-cover bg-no-repeat flex justify-end"
+    style="background-image: url(https://via.placeholder.com/500x500);"
+  >
+    <div
+      class="flex flex-col justify-center"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly when providing static image data 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-center bg-cover bg-no-repeat flex justify-start"
+    style="background-image: url(https://via.placeholder.com/500x500); width: 500px; height: 500px;"
+  >
+    <div
+      class="flex flex-col justify-center"
+    />
+  </div>
+</DocumentFragment>
+`;
