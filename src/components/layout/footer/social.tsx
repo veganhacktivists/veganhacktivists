@@ -2,7 +2,7 @@ import {
   ExternalLinkButton,
   InstagramButton,
   PatreonButton,
-} from '../../decoration/buttons/buttons';
+} from '../../decoration/buttons';
 
 const Social: React.FC = () => {
   return (
@@ -23,11 +23,11 @@ const Social: React.FC = () => {
         <InstagramButton
           linkurl="https://www.instagram.com/veganhacktivists/"
           aria-label="Follow us on Instagram!"
-         />
+        />
         <PatreonButton
           linkurl="https://www.patreon.com/veganhacktivists"
           aria-label="Support Us on Patreon!"
-         />
+        />
       </div>
       <div className="pt-10">
         <ExternalLinkButton linkurl="https://www.patreon.com/veganhacktivists">

@@ -13,7 +13,7 @@ const BaseButton: React.FC<ButtonProps> = ({ linkurl, children }) => {
     <>
       {/* it's an external link */}
       {linkurl &&
-        (linkurl.startsWith('https://') || linkurl.startsWith('https://')) && (
+        (linkurl.startsWith('http://') || linkurl.startsWith('https://')) && (
           <Link href={linkurl} passHref>
             {children}
           </Link>
