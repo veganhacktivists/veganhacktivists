@@ -11,13 +11,13 @@ const LeftSide: React.FC = () => {
   const ratio = 0.5;
 
   return (
-    <div className="bg-black relative flex p-5 md:pr-10 md:pl-40 w-full xl:w-min align-middle items-center">
+    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-40 max-w-full w-full xl:w-min align-middle items-center">
       <Link href="/" passHref>
-        <a>
+        <a className="min-w-min md:min-w-max">
           <Image
-            src={logo}
+            src={logo.src}
             alt="Vegan Hacktivists Logo"
-            layout="fixed"
+            layout="intrinsic"
             loading="eager"
             width={logo.width * ratio}
             height={logo.height * ratio}
@@ -95,7 +95,7 @@ const RightSide: React.FC = () => {
 
   return (
     <>
-      <div className="block xl:hidden text-white absolute text-right p-10 right-0 top-0">
+      <div className="block xl:hidden text-white absolute text-right p-5 right-0 top-0">
         <FontAwesomeIcon
           icon={faBars}
           size="2x"
@@ -106,7 +106,7 @@ const RightSide: React.FC = () => {
         />
         <div
           className={classNames(
-            'font-mono text-2xl m-auto bg-black text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative lg:flex bg-black flex-grow items-center items-stretch w-64',
+            'font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative lg:flex bg-black flex-grow items-stretch w-64',
             menuOpen ? 'flex flex-col' : 'hidden'
           )}
         >
