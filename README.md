@@ -8,7 +8,7 @@ Team Avocado is the new JavaScript focused team of the Vegan Hacktivists. We're 
 
 We're using Next.js and Tailwind for that. In [this trello board](https://trello.com/b/7FMaTCuc/veganhacktivistsorg) you can find more stuff in the info column, for example, some of the images to be used, fonts, colors... On the board you can also access the `Things to do` cards. If you are doubting which card to pick first, talk to [Joaquín [TL] 🇪🇸](https://github.com/JoaquinTrinanes) and we'll take a look at the available ones or even create others, in order for you to get used to the project.
 
-Because this team is so new I still have to document all of this somewhere, so reach out to the **#🥑vegan-hacktivists** channel on Discord if you need anything or something is missing! 💚
+Because this team is so new we still have to document all of this somewhere, so reach out to the **#🥑vegan-hacktivists** channel on Discord if you need anything or something is missing! 💚
 
 ## Table of contents
 
