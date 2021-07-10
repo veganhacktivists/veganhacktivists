@@ -11,18 +11,17 @@ const Home: React.FC = () => {
       <Head>
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
-      <div className="text-7xl">
-        <Hero imageBackground={heroBackground.src} alignment="right">
-          <div className="m-32">
-            <Image
-              src={heroTagline.src}
-              width={heroTagline.width}
-              height={heroTagline.height}
-              alt="Compassion, Creativity, Code"
-            />
-          </div>
-        </Hero>
-      </div>
+      <Hero imageBackground={heroBackground.src} alignment="right">
+        <div>
+          <Image
+            src={heroTagline.src}
+            width={heroTagline.width}
+            height={heroTagline.height}
+            alt="Compassion, Creativity, Code"
+          />
+        </div>
+      </Hero>
+      <div className="min-h-screen">Rest of the page</div>
     </>
   );
 };
