@@ -26,9 +26,7 @@ const Home: React.FC = () => {
           lectus
         </div>
         <div className="relative mx-auto mt-10">
-          <LightButton href="/about">
-            <div className="p-2 text-2xl">Learn More</div>
-          </LightButton>
+          <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
       <div className="min-h-screen">Rest of the page</div>

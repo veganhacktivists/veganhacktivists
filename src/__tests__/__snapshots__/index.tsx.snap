@@ -46,13 +46,9 @@ exports[`Application renders correctly 1`] = `
         />
         <a>
           <div
-            class="bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform"
+            class="p-3 px-4 text-2xl bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform"
           >
-            <div
-              class="p-2 text-2xl"
-            >
-              Learn More
-            </div>
+            Learn More
           </div>
         </a>
       </div>

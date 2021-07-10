@@ -38,7 +38,7 @@ const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform">
+        <div className="p-3 px-4 text-2xl bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform">
           {children}
         </div>
       </a>
