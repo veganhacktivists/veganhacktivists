@@ -21,16 +21,16 @@ const Social: React.FC = () => {
       </div>
       <div className="flex content-center justify-center px-3 pt-5">
         <InstagramButton
-          linkurl="https://www.instagram.com/veganhacktivists/"
+          href="https://www.instagram.com/veganhacktivists/"
           aria-label="Follow us on Instagram!"
         />
         <PatreonButton
-          linkurl="https://www.patreon.com/veganhacktivists"
+          href="https://www.patreon.com/veganhacktivists"
           aria-label="Support Us on Patreon!"
         />
       </div>
       <div className="pt-10">
-        <ExternalLinkButton linkurl="https://www.patreon.com/veganhacktivists">
+        <ExternalLinkButton href="https://www.patreon.com/veganhacktivists">
           <div className="font-italic text-xl capitalize">Support us on</div>
           <div className="text-4xl uppercase font-bold">Patreon</div>
         </ExternalLinkButton>

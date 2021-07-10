@@ -2,29 +2,27 @@ import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-export interface ButtonProps {
-  linkurl?: string;
-  'aria-label'?: string;
-  className?: string;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: string;
 }
 
-const BaseButton: React.FC<ButtonProps> = ({ linkurl, children }) => {
+const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
   return (
     <>
       {/* it's an external link */}
-      {linkurl &&
-        (linkurl.startsWith('http://') || linkurl.startsWith('https://')) && (
-          <Link href={linkurl} passHref>
-            {children}
-          </Link>
-        )}
+      {(href?.startsWith('http://') || href?.startsWith('https://')) && (
+        <Link href={href} passHref>
+          {children}
+        </Link>
+      )}
       {/* it's an internal link */}
-      {linkurl &&
-        !(linkurl.startsWith('https://') || linkurl.startsWith('https://')) && (
-          <a href={linkurl}>{children}</a>
+      {href &&
+        !(href.startsWith('https://') || href.startsWith('https://')) && (
+          <a href={href}>{children}</a>
         )}
       {/* it's a submit button */}
-      {!linkurl && <button type="submit">{children}</button>}
+      {!href && <button type="submit">{children}</button>}
     </>
   );
 };
@@ -40,7 +38,7 @@ const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+        <div className="bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform">
           {children}
         </div>
       </a>
@@ -104,4 +102,11 @@ const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-export { ExternalLinkButton, SubmitButton, PatreonButton, InstagramButton };
+export {
+  ExternalLinkButton,
+  SubmitButton,
+  PatreonButton,
+  InstagramButton,
+  LightButton,
+  DarkButton,
+};

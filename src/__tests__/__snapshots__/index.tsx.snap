@@ -33,6 +33,29 @@ exports[`Application renders correctly 1`] = `
           />
         </div>
       </div>
+      <div
+        class="relative text-white font-bold mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc lectus
+      </div>
+      <div
+        class="relative mx-auto mt-10"
+      >
+        <a
+          href="/about"
+        />
+        <a>
+          <div
+            class="bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform"
+          >
+            <div
+              class="p-2 text-2xl"
+            >
+              Learn More
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
   <div
