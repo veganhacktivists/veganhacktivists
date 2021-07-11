@@ -2,7 +2,7 @@ interface ICircle {
   cx: number;
   cy: number;
   radius: number;
-  color?: string;
+  color?: 'grey' | 'grey-dark';
   opacity?: number;
   thickness?: string;
 }
