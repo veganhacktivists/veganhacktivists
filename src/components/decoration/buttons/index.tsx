@@ -19,10 +19,9 @@ const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
         </Link>
       )}
       {/* it's an internal link */}
-      {href &&
-        !(href.startsWith('https://') || href.startsWith('https://')) && (
-          <a href={href}>{children}</a>
-        )}
+      {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
+        <a href={href}>{children}</a>
+      )}
       {/* it's a submit button */}
       {!href && <button type="submit">{children}</button>}
     </>

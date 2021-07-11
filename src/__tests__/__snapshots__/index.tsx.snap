@@ -85,6 +85,15 @@ exports[`Application renders correctly 1`] = `
       </span>
        It means the world to us and the animals to have your support.
     </p>
+    <button
+      type="submit"
+    >
+      <a>
+        <div
+          class="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 ease-linear duration-500"
+        />
+      </a>
+    </button>
   </div>
   <div
     class="min-h-screen"
