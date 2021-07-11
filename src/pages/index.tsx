@@ -22,8 +22,7 @@ const Home: React.FC = () => {
           />
         </div>
         <div className="relative text-white font-bold mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc
-          lectus
+          Fighting for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
