@@ -2,10 +2,11 @@ import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
+import type { AriaAttributes } from 'react';
 
-export interface ButtonProps
-  extends Partial<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+export interface ButtonProps extends AriaAttributes {
   href?: string;
+  className?: string;
 }
 
 const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
