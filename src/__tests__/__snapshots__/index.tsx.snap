@@ -34,7 +34,7 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="relative text-white font-bold mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+        class="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
       >
         Fighting for the animal rights movement since 2019.
       </div>
@@ -53,6 +53,38 @@ exports[`Application renders correctly 1`] = `
         </a>
       </div>
     </div>
+  </div>
+  <div
+    class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+  >
+    <p>
+      We're a group of passionate Vegan Activists that volunteer our time and skills towards 
+      <b>
+        vegan projects worth supporting.
+      </b>
+       Every project we work on aims to help spread compassion through Veganism by supporting both vegans, non-vegans and activists in some way.
+    </p>
+    <br />
+    <p>
+      Every project we release is 
+      <b>
+        100% free to use for everyone.
+      </b>
+       We don't do premium versions, microtransactions, advertisements, or sell user data - ever.
+    </p>
+    <br />
+    <p>
+      <b>
+        We do this for the animals
+      </b>
+       - we do this because coding is our way of doing our part for activism. If you want to support us, please consider a small donation via our 
+      <span
+        class="text-pink"
+      >
+        Patreon!
+      </span>
+       It means the world to us and the animals to have your support.
+    </p>
   </div>
   <div
     class="min-h-screen"
