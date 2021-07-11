@@ -1,9 +1,10 @@
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import Link from 'next/link';
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends Partial<React.ButtonHTMLAttributes<HTMLButtonElement>> {
   href?: string;
 }
 
@@ -35,12 +36,14 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
 //TODO: define light button classes
 
 const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+  const classes = classNames(
+    'hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500'
+  );
+
   return (
     <BaseButton {...props}>
       <a>
-        <div className="p-3 px-4 text-2xl bg-white text-grey-dark hover:bg-green border-l-8 border-green py-2 transition-transform">
-          {children}
-        </div>
+        <div className={classes}>{children}</div>
       </a>
     </BaseButton>
   );
@@ -52,7 +55,7 @@ const DarkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 ease-linear duration-500">
           {children}
         </div>
       </a>
@@ -64,7 +67,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 transition-transform">
+        <div className="hover:shadow-fill-strawberry bg-fuchsia border-l-8 border-strawberry py-2 ease-linear duration-500">
           {children}
         </div>
       </a>
@@ -80,6 +83,7 @@ const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PatreonButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <IconButton
@@ -91,6 +95,7 @@ const PatreonButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <IconButton
