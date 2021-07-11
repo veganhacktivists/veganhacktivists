@@ -3,7 +3,7 @@
 exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="relative lg:-top-20 lg:-mb-20 p-10 md:p-32 bg-scroll md:bg-fixed bg-cover bg-no-repeat flex justify-end"
+    class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end bg-center"
     style="background-image: url(/foo.png);"
   >
     <div
@@ -34,7 +34,7 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="relative text-white font-bold mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+        class="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
       >
         Fighting for the animal rights movement since 2019.
       </div>

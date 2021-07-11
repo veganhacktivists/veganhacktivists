@@ -11,7 +11,7 @@ const LeftSide: React.FC = () => {
   const ratio = 0.5;
 
   return (
-    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-40 max-w-full w-full xl:w-min align-middle items-center">
+    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-10 max-w-full w-full xl:w-min align-middle items-center">
       <Link href="/" passHref>
         <a className="min-w-min md:min-w-max">
           <Image
