@@ -45,10 +45,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-      transitionProperty: ['hover', 'focus'],
-      backgroundPosition: ['hover', 'focus'],
-    },
+    extend: {},
   },
   plugins: [],
 };
