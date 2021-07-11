@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import heroBackground from '../../public/images/VH-hero-bg.png';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
-import { LightButton } from '../components/decoration/buttons';
+import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 
 const Home: React.FC = () => {
@@ -49,6 +49,9 @@ const Home: React.FC = () => {
           <span className="text-pink">Patreon!</span> It means the world to us
           and the animals to have your support.
         </p>
+        <div className="relative mx-auto mt-10 md:w-1/3">
+          <DarkButton href="/mission">Our Mission</DarkButton>
+        </div>
       </div>
       <div className="min-h-screen">Rest of the page</div>
     </>
