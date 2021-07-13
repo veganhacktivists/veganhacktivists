@@ -19,7 +19,7 @@ const colors = {
   strawberry: '#ED184A',
   fuchsia: '#ED2384',
   bubblegum: '#F171A2',
-  pink: '#EC4899',
+  pink: '#ED2384',
 };
 
 module.exports = {
