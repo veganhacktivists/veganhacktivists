@@ -6,16 +6,13 @@ interface Circle {
   thickness?: string;
   xAlign?: 'left' | 'right';
   yAlign?: 'top' | 'bottom';
-  radiuszoom?: number;
+  radiusZoom?: number;
   cx?: number;
   cy?: number;
 }
 
 const Circle: React.FC<Circle> = (props) => {
   const { width: windowWidth = 0 } = useWindowSize();
-  const { radiuszoom = 1 } = props;
-
-  const radius = (windowWidth / 3) * radiuszoom;
 
   const {
     color = 'white',
@@ -23,10 +20,13 @@ const Circle: React.FC<Circle> = (props) => {
     thickness = '20px',
     yAlign = 'top',
     xAlign = 'left',
-    cx = radius,
-    cy = radius,
+    radiusZoom = 1,
     ...trimmedProps
   } = props;
+
+  const radius = (windowWidth / 3) * radiusZoom;
+
+  const { cx = radius, cy = radius } = props;
 
   const xPos = xAlign == 'left' ? 'left-0' : 'right-0';
   const yPos = yAlign == 'top' ? 'top-0' : 'bottom-0';

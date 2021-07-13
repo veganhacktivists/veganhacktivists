@@ -7,8 +7,44 @@ exports[`should render correctly when providing a URL string 1`] = `
     style="background-image: url(https://via.placeholder.com/500x500);"
   >
     <div
-      class="flex flex-col justify-center w-1/2"
+      class="flex flex-col justify-center w-1/2 z-10"
     />
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4
+    "
+        height="546.1333333333333"
+        width="546.1333333333333"
+      >
+        <circle
+          class="stroke-current"
+          cx="273.06666666666666"
+          cy="273.06666666666666"
+          fill-opacity="0"
+          opacity="0.5"
+          r="273.06666666666666"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4
+    "
+        height="887.4666666666667"
+        width="887.4666666666667"
+      >
+        <circle
+          class="stroke-current"
+          cx="443.73333333333335"
+          cy="443.73333333333335"
+          fill-opacity="0"
+          opacity="0.5"
+          r="443.73333333333335"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -20,8 +56,44 @@ exports[`should render correctly when providing static image data 1`] = `
     style="background-image: url(https://via.placeholder.com/500x500); width: 500px; height: 500px;"
   >
     <div
-      class="flex flex-col justify-center w-1/2"
+      class="flex flex-col justify-center w-1/2 z-10"
     />
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4
+    "
+        height="546.1333333333333"
+        width="546.1333333333333"
+      >
+        <circle
+          class="stroke-current"
+          cx="273.06666666666666"
+          cy="273.06666666666666"
+          fill-opacity="0"
+          opacity="0.5"
+          r="273.06666666666666"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4
+    "
+        height="887.4666666666667"
+        width="887.4666666666667"
+      >
+        <circle
+          class="stroke-current"
+          cx="443.73333333333335"
+          cy="443.73333333333335"
+          fill-opacity="0"
+          opacity="0.5"
+          r="443.73333333333335"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
   </div>
 </DocumentFragment>
 `;
