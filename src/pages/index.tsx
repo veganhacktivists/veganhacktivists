@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Hero from '../components/decoration/hero';
 import { LightButton } from '../components/decoration/buttons';
-import heroBackground from '../../public/images/VH-hero-bg.png';
+import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 
 const Home: React.FC = () => {
