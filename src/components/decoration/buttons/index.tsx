@@ -19,10 +19,9 @@ const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
         </Link>
       )}
       {/* it's an internal link */}
-      {href &&
-        !(href.startsWith('https://') || href.startsWith('https://')) && (
-          <a href={href}>{children}</a>
-        )}
+      {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
+        <a href={href}>{children}</a>
+      )}
       {/* it's a submit button */}
       {!href && <button type="submit">{children}</button>}
     </>
@@ -53,12 +52,14 @@ const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 //TODO: define dark button classes
 
 const DarkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+  const classes = classNames(
+    'hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500'
+  );
+
   return (
     <BaseButton {...props}>
       <a>
-        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 ease-linear duration-500">
-          {children}
-        </div>
+        <div className={classes}>{children}</div>
       </a>
     </BaseButton>
   );
