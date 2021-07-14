@@ -44,23 +44,23 @@ const Home: React.FC = () => {
           height={pixelHeart.height / 3}
           alt="Compassion, Creativity, Code"
         />
-        <p className="mb-16">
-          <span className="italic text-3xl">We are </span>
-          <b className="text-4xl">VEGAN HACKTIVISTS</b>
+        <p className="mb-16 text-grey-dark">
+          <span className="font-italic text-3xl">We are </span>
+          <span className="text-5xl font-mono font-semibold">
+            VEGAN HACKTIVISTS
+          </span>
         </p>
-        <p>
+        <p className="pb-5">
           We&apos;re a group of passionate Vegan Activists that volunteer our
           time and skills towards <b>vegan projects worth supporting.</b> Every
           project we work on aims to help spread compassion through Veganism by
           supporting both vegans, non-vegans and activists in some way.
         </p>
-        <br />
-        <p>
+        <p className="pb-5">
           Every project we release is <b>100% free to use for everyone.</b> We
           don&apos;t do premium versions, microtransactions, advertisements, or
           sell user data - ever.
         </p>
-        <br />
         <p>
           <b>We do this for the animals</b> - we do this because coding is our
           way of doing our part for activism. If you want to support us, please
@@ -73,16 +73,12 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-grey-light">
-        <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
-          <br />
-          <br />
-          <p>
-            <span className="italic text-3xl">Featured </span>
-            <b className="text-4xl">PROJECTS</b>
+        <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl pt-10">
+          <p className="text-grey-dark">
+            <span className="font-italic text-3xl">Featured </span>
+            <b className="text-5xl font-mono">PROJECTS</b>
           </p>
-          <br />
-          <br />
-          <div className="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2">
+          <div className="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2 pt-16">
             <div>
               <a href="https://activisthub.org">
                 <Image
@@ -170,11 +166,9 @@ const Home: React.FC = () => {
               <p>Vegan Cheat Sheet</p>
             </div>
           </div>
-          <div className="relative mx-auto mt-10 md:w-1/3">
+          <div className="relative mx-auto mt-10 md:w-1/3 pb-10">
             <DarkButton href="/projects">See All Projects</DarkButton>
           </div>
-          <br />
-          <br />
         </div>
       </div>
       <div className="min-h-screen">Rest of the page</div>
