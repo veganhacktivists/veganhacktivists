@@ -43,8 +43,7 @@ exports[`Application renders correctly 1`] = `
       >
         <a
           href="/about"
-        />
-        <a>
+        >
           <div
             class="hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500"
           >

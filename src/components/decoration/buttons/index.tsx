@@ -43,9 +43,7 @@ const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 
   return (
     <BaseButton {...props}>
-      <a>
-        <div className={classes}>{children}</div>
-      </a>
+      <div className={classes}>{children}</div>
     </BaseButton>
   );
 };
