@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           Fighting for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
-          <LightButton href="/about">Learn More</LightButton>
+          <LightButton href="/about/our-mission">Learn More</LightButton>
         </div>
       </Hero>
       <div className="min-h-screen">Rest of the page</div>
