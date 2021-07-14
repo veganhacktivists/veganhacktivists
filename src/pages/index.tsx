@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import heroBackground from '../../public/images/VH-hero-bg.png';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
+import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 
@@ -28,7 +29,17 @@ const Home: React.FC = () => {
           <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+      <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+        <Image
+          src={pixelHeart.src}
+          width={pixelHeart.width / 3}
+          height={pixelHeart.height / 3}
+          alt="Compassion, Creativity, Code"
+        />
+        <p className="mb-16">
+          <span className="italic text-3xl">We are </span>
+          <b className="text-4xl">VEGAN HACKTIVISTS</b>
+        </p>
         <p>
           We&apos;re a group of passionate Vegan Activists that volunteer our
           time and skills towards <b>vegan projects worth supporting.</b> Every
