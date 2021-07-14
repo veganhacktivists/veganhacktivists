@@ -84,21 +84,25 @@ const Home: React.FC = () => {
           <br />
           <div className="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2">
             <div>
-              <Image
-                src={activistHub.src}
-                width={activistHub.width}
-                height={activistHub.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://activisthub.org">
+                <Image
+                  src={activistHub.src}
+                  width={activistHub.width}
+                  height={activistHub.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Activist Hub</p>
             </div>
             <div>
-              <Image
-                src={animalRebellion.src}
-                width={animalRebellion.width}
-                height={animalRebellion.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://animalrebellion.org">
+                <Image
+                  src={animalRebellion.src}
+                  width={animalRebellion.width}
+                  height={animalRebellion.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Animal Rebellion</p>
             </div>
             <div>
@@ -111,53 +115,63 @@ const Home: React.FC = () => {
               <p>Animal Rights Map</p>
             </div>
             <div>
-              <Image
-                src={dailyDozen.src}
-                width={dailyDozen.width}
-                height={dailyDozen.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://animalrightsmap.org">
+                <Image
+                  src={dailyDozen.src}
+                  width={dailyDozen.width}
+                  height={dailyDozen.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Daily Dozen</p>
             </div>
             <div>
-              <Image
-                src={dailyNooch.src}
-                width={dailyNooch.width}
-                height={dailyNooch.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://dailynooch.org">
+                <Image
+                  src={dailyNooch.src}
+                  width={dailyNooch.width}
+                  height={dailyNooch.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Daily Nooch</p>
             </div>
             <div>
-              <Image
-                src={sehati.src}
-                width={sehati.width}
-                height={sehati.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://www.sehatianimalsanctuary.org">
+                <Image
+                  src={sehati.src}
+                  width={sehati.width}
+                  height={sehati.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Sehati</p>
             </div>
             <div>
-              <Image
-                src={veganBootcamp.src}
-                width={veganBootcamp.width}
-                height={veganBootcamp.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://veganbootcamp.org">
+                <Image
+                  src={veganBootcamp.src}
+                  width={veganBootcamp.width}
+                  height={veganBootcamp.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Vegan Bootcamp</p>
             </div>
             <div>
-              <Image
-                src={veganCheatSheet.src}
-                width={veganCheatSheet.width}
-                height={veganCheatSheet.height}
-                alt="Compassion, Creativity, Code"
-              />
+              <a href="https://vegancheatsheet.org">
+                <Image
+                  src={veganCheatSheet.src}
+                  width={veganCheatSheet.width}
+                  height={veganCheatSheet.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
               <p>Vegan Cheat Sheet</p>
             </div>
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3">
-            <DarkButton href="/mission">See All Projects</DarkButton>
+            <DarkButton href="/projects">See All Projects</DarkButton>
           </div>
           <br />
           <br />
