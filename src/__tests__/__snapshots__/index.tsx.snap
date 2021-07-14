@@ -42,11 +42,10 @@ exports[`Application renders correctly 1`] = `
         class="relative mx-auto mt-10"
       >
         <a
-          href="/about"
-        />
-        <a>
+          href="/about/our-mission"
+        >
           <div
-            class="hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
           >
             Learn More
           </div>

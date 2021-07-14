@@ -5,9 +5,14 @@ import Link from 'next/link';
 import type { AriaAttributes } from 'react';
 
 export interface ButtonProps extends AriaAttributes {
+  primary?: boolean;
   href?: string;
   className?: string;
 }
+
+const baseButtonClasses = classNames(
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500'
+);
 
 const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
   return (
@@ -19,10 +24,11 @@ const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
         </Link>
       )}
       {/* it's an internal link */}
-      {href &&
-        !(href.startsWith('https://') || href.startsWith('https://')) && (
-          <a href={href}>{children}</a>
-        )}
+      {href && !(href.startsWith('https://') || href.startsWith('https://')) && (
+        <Link href={href}>
+          <a>{children}</a>
+        </Link>
+      )}
       {/* it's a submit button */}
       {!href && <button type="submit">{children}</button>}
     </>
@@ -36,30 +42,46 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
 
 //TODO: define light button classes
 
-const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const LightButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
   const classes = classNames(
-    'hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500'
+    baseButtonClasses,
+    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
+    primary ? 'border-strawberry' : '',
+    className
   );
 
   return (
     <BaseButton {...props}>
-      <a>
-        <div className={classes}>{children}</div>
-      </a>
+      <div className={classes}>{children}</div>
     </BaseButton>
   );
 };
 
 //TODO: define dark button classes
 
-const DarkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const DarkButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
+  const classes = classNames(
+    baseButtonClasses,
+    primary
+      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      : 'hover:shadow-fill-green bg-grey-dark border-green',
+    'text-white',
+    className
+  );
+
   return (
     <BaseButton {...props}>
-      <a>
-        <div className="bg-fuchsia hover:bg-strawberry border-l-8 border-strawberry py-2 ease-linear duration-500">
-          {children}
-        </div>
-      </a>
+      <div className={classes}>{children}</div>
     </BaseButton>
   );
 };
