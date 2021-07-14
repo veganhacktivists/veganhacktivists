@@ -1,6 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
+import activistHub from '../../public/images/ActivistHub.png';
+import animalRebellion from '../../public/images/AnimalRebellion.png';
+import animalRightsMap from '../../public/images/AnimalRightsMap.png';
+import dailyDozen from '../../public/images/DailyDozen.png';
+import dailyNooch from '../../public/images/DailyNooch.png';
+import sehati from '../../public/images/Sehati.png';
+import veganBootcamp from '../../public/images/VeganBootcamp.png';
+import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.png';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -62,6 +70,97 @@ const Home: React.FC = () => {
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
           <DarkButton href="/mission">Our Mission</DarkButton>
+        </div>
+      </div>
+      <div className="bg-grey-light">
+        <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+          <br />
+          <br />
+          <p>
+            <span className="italic text-3xl">Featured </span>
+            <b className="text-4xl">PROJECTS</b>
+          </p>
+          <br />
+          <br />
+          <div className="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2">
+            <div>
+              <Image
+                src={activistHub.src}
+                width={activistHub.width}
+                height={activistHub.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Activist Hub</p>
+            </div>
+            <div>
+              <Image
+                src={animalRebellion.src}
+                width={animalRebellion.width}
+                height={animalRebellion.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Animal Rebellion</p>
+            </div>
+            <div>
+              <Image
+                src={animalRightsMap.src}
+                width={animalRightsMap.width}
+                height={animalRightsMap.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Animal Rights Map</p>
+            </div>
+            <div>
+              <Image
+                src={dailyDozen.src}
+                width={dailyDozen.width}
+                height={dailyDozen.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Daily Dozen</p>
+            </div>
+            <div>
+              <Image
+                src={dailyNooch.src}
+                width={dailyNooch.width}
+                height={dailyNooch.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Daily Nooch</p>
+            </div>
+            <div>
+              <Image
+                src={sehati.src}
+                width={sehati.width}
+                height={sehati.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Sehati</p>
+            </div>
+            <div>
+              <Image
+                src={veganBootcamp.src}
+                width={veganBootcamp.width}
+                height={veganBootcamp.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Vegan Bootcamp</p>
+            </div>
+            <div>
+              <Image
+                src={veganCheatSheet.src}
+                width={veganCheatSheet.width}
+                height={veganCheatSheet.height}
+                alt="Compassion, Creativity, Code"
+              />
+              <p>Vegan Cheat Sheet</p>
+            </div>
+          </div>
+          <div className="relative mx-auto mt-10 md:w-1/3">
+            <DarkButton href="/mission">See All Projects</DarkButton>
+          </div>
+          <br />
+          <br />
         </div>
       </div>
       <div className="min-h-screen">Rest of the page</div>
