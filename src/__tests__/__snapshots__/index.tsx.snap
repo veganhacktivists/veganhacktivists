@@ -80,18 +80,18 @@ exports[`Application renders correctly 1`] = `
       />
     </div>
     <p
-      class="mb-16"
+      class="mb-16 text-grey-dark"
     >
       <span
-        class="italic text-3xl"
+        class="font-italic text-3xl"
       >
         We are 
       </span>
-      <b
-        class="text-4xl"
+      <span
+        class="text-5xl font-mono font-semibold"
       >
         VEGAN HACKTIVISTS
-      </b>
+      </span>
     </p>
     <p>
       We're a group of passionate Vegan Activists that volunteer our time and skills towards 
@@ -143,14 +143,16 @@ exports[`Application renders correctly 1`] = `
     >
       <br />
       <br />
-      <p>
+      <p
+        class="text-grey-dark"
+      >
         <span
-          class="italic text-3xl"
+          class="font-italic text-3xl"
         >
           Featured 
         </span>
         <b
-          class="text-4xl"
+          class="text-5xl font-mono"
         >
           PROJECTS
         </b>

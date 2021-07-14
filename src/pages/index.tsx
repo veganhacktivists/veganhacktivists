@@ -44,9 +44,11 @@ const Home: React.FC = () => {
           height={pixelHeart.height / 3}
           alt="Compassion, Creativity, Code"
         />
-        <p className="mb-16">
-          <span className="italic text-3xl">We are </span>
-          <b className="text-4xl">VEGAN HACKTIVISTS</b>
+        <p className="mb-16 text-grey-dark">
+          <span className="font-italic text-3xl">We are </span>
+          <span className="text-5xl font-mono font-semibold">
+            VEGAN HACKTIVISTS
+          </span>
         </p>
         <p>
           We&apos;re a group of passionate Vegan Activists that volunteer our
@@ -76,9 +78,9 @@ const Home: React.FC = () => {
         <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
           <br />
           <br />
-          <p>
-            <span className="italic text-3xl">Featured </span>
-            <b className="text-4xl">PROJECTS</b>
+          <p className="text-grey-dark">
+            <span className="font-italic text-3xl">Featured </span>
+            <b className="text-5xl font-mono">PROJECTS</b>
           </p>
           <br />
           <br />
