@@ -22,7 +22,7 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <Hero
-        imageBackground={heroBackground.src}
+        imageBackground={heroBackground}
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
@@ -34,6 +34,7 @@ const Home: React.FC = () => {
             width={heroTagline.width}
             height={heroTagline.height}
             alt="Compassion, Creativity, Code"
+            priority
           />
         </div>
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">

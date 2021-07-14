@@ -4,8 +4,11 @@ exports[`should render correctly when providing a URL string 1`] = `
 <DocumentFragment>
   <div
     class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end"
-    style="background-image: url(https://via.placeholder.com/500x500);"
   >
+    <img
+      alt=""
+      src="https://via.placeholder.com/500x500"
+    />
     <div
       class="flex flex-col justify-center w-1/2 z-10"
     />
@@ -53,8 +56,11 @@ exports[`should render correctly when providing static image data 1`] = `
 <DocumentFragment>
   <div
     class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start"
-    style="background-image: url(https://via.placeholder.com/500x500); width: 500px; height: 500px;"
   >
+    <img
+      alt=""
+      src="[object Object]"
+    />
     <div
       class="flex flex-col justify-center w-1/2 z-10"
     />

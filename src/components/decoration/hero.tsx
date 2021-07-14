@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import type { ImageProps } from 'next/image';
+import Image from 'next/image';
 import Circle from './circle';
 
 interface HeroClassNames {
@@ -6,19 +8,10 @@ interface HeroClassNames {
   content?: string;
 }
 interface HeroProps {
-  imageBackground: string | StaticImageData;
+  imageBackground: ImageProps['src'];
   alignment: 'right' | 'left';
   classNameMapping?: HeroClassNames;
 }
-
-const getStyle = (imageBackground: string | StaticImageData) =>
-  typeof imageBackground === 'string'
-    ? { backgroundImage: `url("${imageBackground}")` }
-    : {
-        backgroundImage: `url("${imageBackground.src}")`,
-        width: `${imageBackground.width}px`,
-        height: `${imageBackground.height}px`,
-      };
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
@@ -49,10 +42,17 @@ const Hero: React.FC<HeroProps> = ({
     classNameMapping?.content
   );
 
-  const style = getStyle(imageBackground);
-
   return (
-    <div className={containerClasses} style={style}>
+    <div className={containerClasses}>
+      <Image
+        alt=""
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        src={imageBackground as any}
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        priority
+      />
       <div className={contentClasses}>{children}</div>
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} />
