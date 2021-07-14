@@ -93,22 +93,24 @@ exports[`Application renders correctly 1`] = `
         VEGAN HACKTIVISTS
       </span>
     </p>
-    <p>
+    <p
+      class="pb-5"
+    >
       We're a group of passionate Vegan Activists that volunteer our time and skills towards 
       <b>
         vegan projects worth supporting.
       </b>
        Every project we work on aims to help spread compassion through Veganism by supporting both vegans, non-vegans and activists in some way.
     </p>
-    <br />
-    <p>
+    <p
+      class="pb-5"
+    >
       Every project we release is 
       <b>
         100% free to use for everyone.
       </b>
        We don't do premium versions, microtransactions, advertisements, or sell user data - ever.
     </p>
-    <br />
     <p>
       <b>
         We do this for the animals
@@ -139,10 +141,8 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey-light"
   >
     <div
-      class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
+      class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl pt-10"
     >
-      <br />
-      <br />
       <p
         class="text-grey-dark"
       >
@@ -157,10 +157,8 @@ exports[`Application renders correctly 1`] = `
           PROJECTS
         </b>
       </p>
-      <br />
-      <br />
       <div
-        class="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2"
+        class="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2 pt-16"
       >
         <div>
           <a
@@ -408,7 +406,7 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="relative mx-auto mt-10 md:w-1/3"
+        class="relative mx-auto mt-10 md:w-1/3 pb-10"
       >
         <a
           href="/projects"
@@ -420,8 +418,6 @@ exports[`Application renders correctly 1`] = `
           </div>
         </a>
       </div>
-      <br />
-      <br />
     </div>
   </div>
   <div
