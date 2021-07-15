@@ -42,7 +42,6 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
     'p-5',
     'py-6',
     'transition duration-500',
-    'hover:bg-gray-dark',
     'text-center',
     className,
     { underline: active }
@@ -61,7 +60,12 @@ const NavbarItems: React.FC = () => {
   return (
     <>
       {['about', 'services', 'projects', 'people', 'blog'].map((menuElem) => (
-        <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
+        <NavBarItem
+          key={menuElem}
+          label={menuElem}
+          href={`/${menuElem}`}
+          className="hover:bg-gray-dark"
+        />
       ))}
       <NavBarItem
         label="Join"
@@ -71,7 +75,7 @@ const NavbarItems: React.FC = () => {
       <NavBarItem
         label="Support"
         href={'/support'}
-        className="bg-bubblegum hover:bg-strawberry font-bold"
+        className="bg-magenta-light hover:bg-red font-bold"
       />
     </>
   );

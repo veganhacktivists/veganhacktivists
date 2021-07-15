@@ -37,7 +37,7 @@ const colors = {
   magenta: {
     DEFAULT: '#ED2384',
     dark: '#D31579',
-    light: 'F171A4',
+    light: '#F171A4',
   },
   purple: {
     DEFAULT: '#7E3C96',
