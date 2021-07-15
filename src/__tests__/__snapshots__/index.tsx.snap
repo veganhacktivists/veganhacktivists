@@ -472,5 +472,180 @@ exports[`Application renders correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+  >
+    <p
+      class="text-grey-dark pb-5"
+    >
+      <span
+        class="font-italic font-semibold text-3xl"
+      >
+        On the 
+      </span>
+      <b
+        class="text-5xl font-mono"
+      >
+        BLOG
+      </b>
+    </p>
+    <p
+      class="pb-5"
+    >
+      We regularly post project updates, announcements, interviews, and other fun stuff here! Thanks for reading!
+    </p>
+  </div>
+  <div
+    class="grid grid-cols-3 gap-4 px-32 pb-5"
+  >
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    class="relative mx-auto mt-10 md:w-1/3 pb-16"
+  >
+    <a
+      href="/projects"
+    >
+      <div
+        class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono text-sm"
+      >
+        See All Projects
+      </div>
+    </a>
+  </div>
 </DocumentFragment>
 `;

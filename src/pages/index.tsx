@@ -233,7 +233,7 @@ const Home: React.FC = () => {
           other fun stuff here! Thanks for reading!
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-4 px-32 pb-5">
+      <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16">
         <div className="overflow-hidden w-full">
           <Image
             src={blogCow.src}
@@ -242,12 +242,6 @@ const Home: React.FC = () => {
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
           />
-          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
-          </div>
-          <GreenButton href="/">Read More</GreenButton>
         </div>
         <div className="overflow-hidden w-full">
           <Image
@@ -257,12 +251,6 @@ const Home: React.FC = () => {
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
           />
-          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
-          </div>
-          <GreenButton href="/">Read More</GreenButton>
         </div>
         <div className="overflow-hidden w-full">
           <Image
@@ -272,6 +260,26 @@ const Home: React.FC = () => {
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
           />
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey">
+        <div className="overflow-hidden w-full">
+          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+          <GreenButton href="/">Read More</GreenButton>
+        </div>
+        <div className="overflow-hidden w-full">
+          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+          <GreenButton href="/">Read More</GreenButton>
+        </div>
+        <div className="overflow-hidden w-full">
           <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
             <p className="font-semibold text-2xl">
               Developers! Join Our New Open Source Community - VH: Playground
@@ -280,10 +288,12 @@ const Home: React.FC = () => {
           <GreenButton href="/">Read More</GreenButton>
         </div>
       </div>
-      <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
-        <LightButton href="/projects" className="font-mono text-sm">
-          See All Projects
-        </LightButton>
+      <div className="bg-grey">
+        <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
+          <LightButton href="/projects" className="font-mono text-sm font-bold">
+            SEE OUR POSTS
+          </LightButton>
+        </div>
       </div>
     </>
   );
