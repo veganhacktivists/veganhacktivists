@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WhiteButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="border-2 border-gray-200 border-opacity-50 p-3"
+  >
+    Foo
+  </button>
+</DocumentFragment>
+`;
