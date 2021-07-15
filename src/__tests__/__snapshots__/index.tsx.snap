@@ -56,7 +56,7 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
           >
             Learn More
           </div>
@@ -172,10 +172,9 @@ exports[`Application renders correctly 1`] = `
     >
       <a
         href="/mission"
-      />
-      <a>
+      >
         <div
-          class="hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
         >
           Our Mission
         </div>
@@ -457,10 +456,9 @@ exports[`Application renders correctly 1`] = `
       >
         <a
           href="/projects"
-        />
-        <a>
+        >
           <div
-            class="hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
           >
             See All Projects
           </div>

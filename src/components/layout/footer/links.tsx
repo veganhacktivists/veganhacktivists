@@ -10,11 +10,11 @@ interface ILinks {
 const links: ILinks[] = [
   {
     label: 'About',
-    href: '/about',
+    href: '/about/our-story',
     links: [
-      { label: 'Our Story', href: '/our_story' },
-      { label: 'Our Values', href: '/our_values' },
-      { label: 'Our Mission', href: '/our_mission' },
+      { label: 'Our Story', href: '/about/our-story' },
+      { label: 'Our Values', href: '/about/our-values' },
+      { label: 'Our Mission', href: '/about/our-mission' },
     ],
   },
   { label: 'Services', href: '/services' },
