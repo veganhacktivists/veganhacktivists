@@ -4,6 +4,7 @@ import React from 'react';
 import activistHub from '../../public/images/ActivistHub.png';
 import animalRebellion from '../../public/images/AnimalRebellion.png';
 import animalRightsMap from '../../public/images/AnimalRightsMap.png';
+import blogCow from '../../public/images/Blog-cow.jpg';
 import dailyDozen from '../../public/images/DailyDozen.png';
 import dailyNooch from '../../public/images/DailyNooch.png';
 import sehati from '../../public/images/Sehati.png';
@@ -13,7 +14,11 @@ import heroBackground from '../../public/images/VH-hero-bg.png';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import teamIcons from '../../public/images/VH-team-icons.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
-import { DarkButton, LightButton } from '../components/decoration/buttons';
+import {
+  DarkButton,
+  GreenButton,
+  LightButton,
+} from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 
 const Home: React.FC = () => {
@@ -217,6 +222,68 @@ const Home: React.FC = () => {
             </LightButton>
           </div>
         </div>
+      </div>
+      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+        <p className="text-grey-dark pb-5">
+          <span className="font-italic font-semibold text-3xl">On the </span>
+          <b className="text-5xl font-mono">BLOG</b>
+        </p>
+        <p className="pb-5">
+          We regularly post project updates, announcements, interviews, and
+          other fun stuff here! Thanks for reading!
+        </p>
+      </div>
+      <div className="grid grid-cols-3 gap-4 px-32 pb-5">
+        <div className="overflow-hidden w-full">
+          <Image
+            src={blogCow.src}
+            width={blogCow.width}
+            height={blogCow.height}
+            className="w-full bg-cover"
+            alt="Compassion, Creativity, Code"
+          />
+          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+          <GreenButton href="/">Read More</GreenButton>
+        </div>
+        <div className="overflow-hidden w-full">
+          <Image
+            src={blogCow.src}
+            width={blogCow.width}
+            height={blogCow.height}
+            className="w-full bg-cover"
+            alt="Compassion, Creativity, Code"
+          />
+          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+          <GreenButton href="/">Read More</GreenButton>
+        </div>
+        <div className="overflow-hidden w-full">
+          <Image
+            src={blogCow.src}
+            width={blogCow.width}
+            height={blogCow.height}
+            className="w-full bg-cover"
+            alt="Compassion, Creativity, Code"
+          />
+          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+          <GreenButton href="/">Read More</GreenButton>
+        </div>
+      </div>
+      <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
+        <LightButton href="/projects" className="font-mono text-sm">
+          See All Projects
+        </LightButton>
       </div>
     </>
   );
