@@ -5,7 +5,7 @@ const About: React.FC = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    push('/about/our-mission');
+    push('/about/our-mission', {}, { shallow: true });
   }, []);
   return <></>;
 };
