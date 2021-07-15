@@ -70,7 +70,7 @@ module.exports = {
     },
     boxShadow: {
       'fill-green': `inset 350px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-strawberry': `inset 350px 0 0 0 ${colors.strawberry}`,
+      'fill-red': `inset 350px 0 0 0 ${colors.red.DEFAULT}`,
     },
   },
   variants: {

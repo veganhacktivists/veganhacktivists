@@ -183,7 +183,6 @@ const Home: React.FC = () => {
           <br />
         </div>
       </div>
-      <div className="min-h-screen">Rest of the page</div>
     </>
   );
 };
