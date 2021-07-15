@@ -46,7 +46,7 @@ const colors = {
 };
 
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
-colors.grey = colors.gray;
+colors.gray = colors.grey;
 colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
