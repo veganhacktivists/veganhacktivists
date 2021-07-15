@@ -90,7 +90,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="hover:shadow-fill-strawberry bg-fuchsia border-l-8 border-strawberry py-2 ease-linear duration-500">
+        <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
           {children}
         </div>
       </a>
@@ -123,7 +123,7 @@ const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <IconButton
       {...props}
-      className="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+      className="bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2 mx-2"
     >
       <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
     </IconButton>

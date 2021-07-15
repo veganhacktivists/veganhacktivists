@@ -421,10 +421,5 @@ exports[`Application renders correctly 1`] = `
       <br />
     </div>
   </div>
-  <div
-    class="min-h-screen"
-  >
-    Rest of the page
-  </div>
 </DocumentFragment>
 `;
