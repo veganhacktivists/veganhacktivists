@@ -11,6 +11,7 @@ import veganBootcamp from '../../public/images/VeganBootcamp.png';
 import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.png';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
+import teamIcons from '../../public/images/VH-team-icons.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
@@ -194,6 +195,12 @@ const Home: React.FC = () => {
               JOIN OUR TEAM
             </span>
           </p>
+          <Image
+            src={teamIcons.src}
+            width={teamIcons.width}
+            height={teamIcons.height}
+            alt="Compassion, Creativity, Code"
+          />
           <p className="pb-5 text-white">
             Are you a developer, designer, writer, or other creative
             professional wanting to use skills for the animals? We&apos;re
