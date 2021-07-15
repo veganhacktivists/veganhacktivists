@@ -57,16 +57,19 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      borderWidth: {
+        3: '3px',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+    },
     colors,
     fontFamily: {
       mono: ['Rajdhani', 'monospace'],
       sans: 'PT Sans',
       italic: 'Bitter',
-    },
-    extend: {
-      zIndex: {
-        '-10': '-10',
-      },
     },
     boxShadow: {
       'fill-green': `inset 350px 0 0 0 ${colors.green.DEFAULT}`,
