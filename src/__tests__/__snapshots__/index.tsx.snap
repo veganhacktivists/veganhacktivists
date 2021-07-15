@@ -55,7 +55,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute left-0 bottom-0 bg-green w-32 h-32 opacity-100"
