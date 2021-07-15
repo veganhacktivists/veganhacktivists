@@ -3,7 +3,7 @@
 exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="relative lg:-top-20 lg:-mb-20 p-10 md:p-32 bg-scroll md:bg-fixed bg-cover bg-no-repeat flex justify-end"
+    class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end bg-center"
     style="background-image: url(/foo.png);"
   >
     <div
@@ -43,10 +43,9 @@ exports[`Application renders correctly 1`] = `
       >
         <a
           href="/about"
-        />
-        <a>
+        >
           <div
-            class="hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
           >
             Learn More
           </div>
@@ -130,7 +129,7 @@ exports[`Application renders correctly 1`] = `
         href="/mission"
       >
         <div
-          class="hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
         >
           Our Mission
         </div>
@@ -399,18 +398,13 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
           >
             See All Projects
           </div>
         </a>
       </div>
     </div>
-  </div>
-  <div
-    class="min-h-screen"
-  >
-    Rest of the page
   </div>
 </DocumentFragment>
 `;

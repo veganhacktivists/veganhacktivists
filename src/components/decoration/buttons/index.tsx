@@ -5,9 +5,14 @@ import Link from 'next/link';
 import type { AriaAttributes } from 'react';
 
 export interface ButtonProps extends AriaAttributes {
+  primary?: boolean;
   href?: string;
   className?: string;
 }
+
+const baseButtonClasses = classNames(
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500'
+);
 
 const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
   return (
@@ -20,7 +25,9 @@ const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <a href={href}>{children}</a>
+        <Link href={href}>
+          <a>{children}</a>
+        </Link>
       )}
       {/* it's a submit button */}
       {!href && <button type="submit">{children}</button>}
@@ -35,25 +42,41 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
 
 //TODO: define light button classes
 
-const LightButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const LightButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
   const classes = classNames(
-    'hover:shadow-fill-green p-3 px-4 text-2xl text-grey-dark border-l-8 border-green py-2 bg-w-x2 bg-white ease-linear duration-500'
+    baseButtonClasses,
+    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
+    primary ? 'border-strawberry' : '',
+    className
   );
 
   return (
     <BaseButton {...props}>
-      <a>
-        <div className={classes}>{children}</div>
-      </a>
+      <div className={classes}>{children}</div>
     </BaseButton>
   );
 };
 
 //TODO: define dark button classes
 
-const DarkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const DarkButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
   const classes = classNames(
-    'hover:shadow-fill-green p-3 px-4 text-2xl text-white border-l-8 border-green py-2 bg-w-x2 bg-black ease-linear duration-500'
+    baseButtonClasses,
+    primary
+      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      : 'hover:shadow-fill-green bg-grey-dark border-green',
+    'text-white',
+    className
   );
 
   return (
@@ -67,7 +90,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
       <a>
-        <div className="hover:shadow-fill-strawberry bg-fuchsia border-l-8 border-strawberry py-2 ease-linear duration-500">
+        <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
           {children}
         </div>
       </a>
@@ -100,7 +123,7 @@ const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <IconButton
       {...props}
-      className="bg-white hover:bg-strawberry text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+      className="bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2 mx-2"
     >
       <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
     </IconButton>

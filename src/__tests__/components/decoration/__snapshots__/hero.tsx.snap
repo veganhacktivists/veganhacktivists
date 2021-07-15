@@ -3,7 +3,7 @@
 exports[`should render correctly when providing a URL string 1`] = `
 <DocumentFragment>
   <div
-    class="relative lg:-top-20 lg:-mb-20 p-10 md:p-32 bg-scroll md:bg-fixed bg-cover bg-no-repeat flex justify-end"
+    class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end"
     style="background-image: url(https://via.placeholder.com/500x500);"
   >
     <div
@@ -16,7 +16,7 @@ exports[`should render correctly when providing a URL string 1`] = `
 exports[`should render correctly when providing static image data 1`] = `
 <DocumentFragment>
   <div
-    class="relative lg:-top-20 lg:-mb-20 p-10 md:p-32 bg-scroll md:bg-fixed bg-cover bg-no-repeat flex justify-start"
+    class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start"
     style="background-image: url(https://via.placeholder.com/500x500); width: 500px; height: 500px;"
   >
     <div

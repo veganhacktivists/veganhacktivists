@@ -21,7 +21,13 @@ const Home: React.FC = () => {
       <Head>
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
-      <Hero imageBackground={heroBackground.src} alignment="right">
+      <Hero
+        imageBackground={heroBackground.src}
+        alignment="right"
+        classNameMapping={{
+          container: 'bg-center',
+        }}
+      >
         <div>
           <Image
             src={heroTagline.src}
@@ -197,7 +203,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="min-h-screen">Rest of the page</div>
     </>
   );
 };
