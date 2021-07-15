@@ -55,7 +55,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
+    class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5"
   >
     <div
       style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -141,10 +141,10 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey-light"
   >
     <div
-      class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl pt-10"
+      class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl pt-10 px-5"
     >
       <p
-        class="text-grey-dark"
+        class="text-grey-dark pb-5"
       >
         <span
           class="font-italic text-3xl"
@@ -157,8 +157,11 @@ exports[`Application renders correctly 1`] = `
           PROJECTS
         </b>
       </p>
+      <p>
+        Every project we release is 100% free for everyone, we don’t do premium versions, advertisments, or sell user data what-so-ever.
+      </p>
       <div
-        class="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2 pt-16"
+        class="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16"
       >
         <div>
           <a
@@ -181,15 +184,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Activist Hub
-          </p>
         </div>
         <div>
           <a
@@ -212,15 +213,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Animal Rebellion
-          </p>
         </div>
         <div>
           <div
@@ -240,14 +239,12 @@ exports[`Application renders correctly 1`] = `
             <noscript />
             <img
               alt="Compassion, Creativity, Code"
+              class="rounded-2xl"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
-          <p>
-            Animal Rights Map
-          </p>
         </div>
         <div>
           <a
@@ -270,15 +267,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Daily Dozen
-          </p>
         </div>
         <div>
           <a
@@ -301,15 +296,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Daily Nooch
-          </p>
         </div>
         <div>
           <a
@@ -332,15 +325,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Sehati
-          </p>
         </div>
         <div>
           <a
@@ -363,15 +354,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Vegan Bootcamp
-          </p>
         </div>
         <div>
           <a
@@ -394,15 +383,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Vegan Cheat Sheet
-          </p>
         </div>
       </div>
       <div

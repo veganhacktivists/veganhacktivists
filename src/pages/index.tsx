@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           alt="Compassion, Creativity, Code"
         />
         <p className="mb-16 text-grey-dark">
-          <span className="font-italic text-3xl">We are </span>
+          <span className="font-italic font-semibold text-3xl">We are </span>
           <span className="text-5xl font-mono font-semibold">
             VEGAN HACKTIVISTS
           </span>
@@ -73,9 +73,11 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-grey-light">
-        <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl pt-10 px-5">
+        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-10 px-5">
           <p className="text-grey-dark pb-5">
-            <span className="font-italic text-3xl">Featured </span>
+            <span className="font-italic font-semibold text-3xl">
+              Featured{' '}
+            </span>
             <b className="text-5xl font-mono">PROJECTS</b>
           </p>
           <p>
@@ -170,8 +172,28 @@ const Home: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="relative mx-auto mt-10 md:w-1/3 pb-10">
+          <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
             <DarkButton href="/projects">See All Projects</DarkButton>
+          </div>
+        </div>
+      </div>
+      <div className="bg-black">
+        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+          <p className="mb-16 text-grey-dark pt-16">
+            <span className="text-5xl font-mono font-bold text-white">
+              JOIN OUR TEAM
+            </span>
+          </p>
+          <p className="pb-5 text-white">
+            Are you a developer, designer, writer, or other creative
+            professional wanting to use skills for the animals? We&apos;re
+            always looking for more vegan activist volunteers to join our team!
+            If you&apos;re interested and have the time to spare, click to see
+            our positions.
+          </p>
+          <div className="relative mx-auto mt-10 md:w-1/3 pb-16 flex">
+            <LightButton href="/team">Meet the Team</LightButton>
+            <LightButton href="/join">Apply to Join</LightButton>
           </div>
         </div>
       </div>
