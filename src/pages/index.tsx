@@ -75,7 +75,9 @@ const Home: React.FC = () => {
           and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/mission">Our Mission</DarkButton>
+          <DarkButton href="/mission" className="font-mono text-sm">
+            Our Mission
+          </DarkButton>
         </div>
       </div>
       <div className="bg-grey-light">
@@ -179,7 +181,9 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
-            <DarkButton href="/projects">See All Projects</DarkButton>
+            <DarkButton href="/projects" className="font-mono text-sm">
+              See All Projects
+            </DarkButton>
           </div>
         </div>
       </div>
@@ -197,9 +201,13 @@ const Home: React.FC = () => {
             If you&apos;re interested and have the time to spare, click to see
             our positions.
           </p>
-          <div className="relative mx-auto mt-10 md:w-1/3 pb-16 flex">
-            <LightButton href="/team">Meet the Team</LightButton>
-            <LightButton href="/join">Apply to Join</LightButton>
+          <div className="mb-5 flex justify-center flex-wrap">
+            <LightButton href="/team" className="m-5 font-mono text-sm">
+              Meet the Team
+            </LightButton>
+            <LightButton href="/join" className="m-5 font-mono text-sm">
+              Apply to Join
+            </LightButton>
           </div>
         </div>
       </div>
