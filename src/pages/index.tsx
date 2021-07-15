@@ -14,6 +14,17 @@ import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
+import SquareField from '../components/decoration/squares/square_field';
+
+const HERO_DECORATION_SQUARES = [
+  { color: 'green', size: 32, left: 0, bottom: 0 },
+  { color: 'white', size: 16, left: 32, bottom: 0 },
+  { color: 'white', size: 16, right: 64, bottom: 0 },
+  { color: 'magenta', size: 32, right: 0, bottom: 0 },
+  { color: 'yellow', size: 32, left: 32, top: 0 },
+  { color: 'yellow_orange', size: 16, left: 16, top: 32 },
+  { color: 'red', size: 32, right: 32, top: 0 },
+];
 
 const Home: React.FC = () => {
   return (
@@ -43,6 +54,7 @@ const Home: React.FC = () => {
           <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
+      <SquareField squares={HERO_DECORATION_SQUARES} />
       <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
         <Image
           src={pixelHeart.src}
