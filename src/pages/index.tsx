@@ -40,7 +40,7 @@ const Home: React.FC = () => {
           Fighting for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
-          <LightButton href="/about/our-mission">Learn More</LightButton>
+          <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
       <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
