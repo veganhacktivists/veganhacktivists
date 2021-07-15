@@ -12,14 +12,16 @@ interface SquareFieldSquareProps extends SquareProps {
 
 interface SquareFieldProps {
   squares: SquareFieldSquareProps[];
+  className?: string;
 }
 
 const classNameFromPosition = (key: string, value?: number) =>
   Number.isInteger(value) ? `${key}-${value}` : null;
 
-const SquareField: React.FC<SquareFieldProps> = ({ squares }) => {
+const SquareField: React.FC<SquareFieldProps> = ({ squares, className }) => {
+  const classes = classNames('relative', 'overflow-visible', className);
   return (
-    <div className="relative overflow-visible">
+    <div className={classes}>
       {squares.map(({ left, right, top, bottom, ...squareFields }, idx) => {
         const positionClassNames = classNames(
           'absolute',

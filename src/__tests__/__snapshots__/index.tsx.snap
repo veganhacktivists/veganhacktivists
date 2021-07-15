@@ -55,6 +55,31 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-green w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-64 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-magenta w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-16 top-32 bg-yellow_orange w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 top-0 bg-red w-32 h-32 opacity-100"
+    />
+  </div>
+  <div
     class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
   >
     <div

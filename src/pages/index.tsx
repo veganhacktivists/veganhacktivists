@@ -54,7 +54,10 @@ const Home: React.FC = () => {
           <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
-      <SquareField squares={HERO_DECORATION_SQUARES} />
+      <SquareField
+        squares={HERO_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
         <Image
           src={pixelHeart.src}
