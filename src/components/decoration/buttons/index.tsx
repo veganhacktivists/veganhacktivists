@@ -1,3 +1,4 @@
+import React from 'react';
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
@@ -8,6 +9,7 @@ export interface ButtonProps extends AriaAttributes {
   primary?: boolean;
   href?: string;
   className?: string;
+  active?: boolean;
 }
 
 const baseButtonClasses = classNames(
@@ -130,6 +132,22 @@ const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
+const WhiteButton: React.FC<ButtonProps> = ({
+  children,
+  className,
+  active,
+}) => {
+  const classes = classNames(
+    'border-2 border-gray-200 border-opacity-50 p-3',
+    {
+      'bg-gray': active,
+      'text-white': active,
+    },
+    className
+  );
+  return <button className={classes}>{children}</button>;
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -137,4 +155,5 @@ export {
   InstagramButton,
   LightButton,
   DarkButton,
+  WhiteButton,
 };
