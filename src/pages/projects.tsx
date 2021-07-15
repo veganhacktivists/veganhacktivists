@@ -127,9 +127,7 @@ const Projects: React.FC = () => (
     <div className="content-center mx-auto mt-32 text-2xl bg-black py-32">
       <h2 className="text-6xl uppercase font-bold text-white">Join our team</h2>
       <div className="mx-auto md:w-1/6 mt-10 uppercase">
-        <p>
-          <LightButton href="/join">Learn more</LightButton>
-        </p>
+        <LightButton href="/join">Learn more</LightButton>
       </div>
     </div>
   </div>
