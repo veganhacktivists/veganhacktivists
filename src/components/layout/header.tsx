@@ -11,9 +11,9 @@ const LeftSide: React.FC = () => {
   const ratio = 0.5;
 
   return (
-    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-10 max-w-full w-full xl:w-min align-middle items-center">
+    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-10 max-w-full w-full xl:w-max align-middle items-center">
       <Link href="/" passHref>
-        <a className="min-w-min md:min-w-max">
+        <a className="md:min-w-max">
           <Image
             src={logo.src}
             alt="Vegan Hacktivists Logo"
@@ -43,16 +43,14 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
     'p-5',
     'py-6',
     'transition duration-500',
-    'hover:bg-gray-dark',
     'text-center',
-    className,
-    { underline: active }
+    className
   );
 
   return (
     <Link href={href} passHref>
       <a className={classes}>
-        <code>{label}</code>
+        <code className={classNames({ 'border-b-3': active })}>{label}</code>
       </a>
     </Link>
   );
@@ -62,7 +60,12 @@ const NavbarItems: React.FC = () => {
   return (
     <>
       {['about', 'services', 'projects', 'people', 'blog'].map((menuElem) => (
-        <NavBarItem key={menuElem} label={menuElem} href={`/${menuElem}`} />
+        <NavBarItem
+          key={menuElem}
+          label={menuElem}
+          href={`/${menuElem}`}
+          className="hover:bg-gray-dark"
+        />
       ))}
       <NavBarItem
         label="Join"
@@ -72,7 +75,7 @@ const NavbarItems: React.FC = () => {
       <NavBarItem
         label="Support"
         href={'/support'}
-        className="bg-bubblegum hover:bg-strawberry font-bold"
+        className="bg-magenta-light hover:bg-red font-bold"
       />
     </>
   );

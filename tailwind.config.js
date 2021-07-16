@@ -37,7 +37,7 @@ const colors = {
   magenta: {
     DEFAULT: '#ED2384',
     dark: '#D31579',
-    light: 'F171A4',
+    light: '#F171A4',
   },
   purple: {
     DEFAULT: '#7E3C96',
@@ -70,20 +70,23 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      borderWidth: {
+        3: '3px',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+    },
     colors,
     fontFamily: {
       mono: ['Rajdhani', 'monospace'],
       sans: 'PT Sans',
       italic: 'Bitter',
     },
-    extend: {
-      zIndex: {
-        '-10': '-10',
-      },
-    },
     boxShadow: {
       'fill-green': `inset 350px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-strawberry': `inset 350px 0 0 0 ${colors.strawberry}`,
+      'fill-red': `inset 350px 0 0 0 ${colors.red.DEFAULT}`,
     },
   },
   variants: {
