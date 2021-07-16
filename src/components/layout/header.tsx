@@ -21,6 +21,7 @@ const LeftSide: React.FC = () => {
             loading="eager"
             width={logo.width * ratio}
             height={logo.height * ratio}
+            priority
           />
         </a>
       </Link>

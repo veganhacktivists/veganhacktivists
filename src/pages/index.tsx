@@ -1,6 +1,6 @@
+import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react';
 import activistHub from '../../public/images/ActivistHub.png';
 import animalRebellion from '../../public/images/AnimalRebellion.png';
 import animalRightsMap from '../../public/images/AnimalRightsMap.png';
@@ -10,7 +10,7 @@ import dailyNooch from '../../public/images/DailyNooch.png';
 import sehati from '../../public/images/Sehati.png';
 import veganBootcamp from '../../public/images/VeganBootcamp.png';
 import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
-import heroBackground from '../../public/images/VH-hero-bg.png';
+import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import teamIcons from '../../public/images/VH-team-icons.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -20,6 +20,17 @@ import {
   LightButton,
 } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
+import SquareField from '../components/decoration/squares';
+
+const HERO_DECORATION_SQUARES = [
+  { color: 'green', size: 32, left: 0, bottom: 0 },
+  { color: 'white', size: 16, left: 32, bottom: 0 },
+  { color: 'white', size: 16, right: 64, bottom: 0 },
+  { color: 'magenta', size: 32, right: 0, bottom: 0 },
+  { color: 'yellow', size: 32, left: 32, top: 0 },
+  { color: 'yellow_orange', size: 16, left: 16, top: 32 },
+  { color: 'red', size: 32, right: 32, top: 0 },
+];
 
 const Home: React.FC = () => {
   return (
@@ -28,18 +39,20 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <Hero
-        imageBackground={heroBackground.src}
+        imageBackground={heroBackground}
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
         }}
       >
-        <div>
+        <div className="md:px-16">
           <Image
-            src={heroTagline.src}
-            width={heroTagline.width}
-            height={heroTagline.height}
+            src={heroTagline}
+            width={heroTagline.width * 0.65}
+            height={heroTagline.height * 0.65}
             alt="Compassion, Creativity, Code"
+            quality={100}
+            priority
           />
         </div>
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
@@ -49,6 +62,10 @@ const Home: React.FC = () => {
           <LightButton href="/about">Learn More</LightButton>
         </div>
       </Hero>
+      <SquareField
+        squares={HERO_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5">
         <Image
           src={pixelHeart.src}

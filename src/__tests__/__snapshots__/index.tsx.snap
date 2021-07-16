@@ -4,12 +4,25 @@ exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end bg-center"
-    style="background-image: url(/foo.png);"
   >
     <div
-      class="flex flex-col justify-center w-1/2"
+      style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
     >
-      <div>
+      <img
+        alt=""
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center w-1/2 z-10"
+    >
+      <div
+        class="md:px-16"
+      >
         <div
           style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
         >
@@ -20,15 +33,15 @@ exports[`Application renders correctly 1`] = `
               alt=""
               aria-hidden="true"
               role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzI1IiBoZWlnaHQ9IjMyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
-          <noscript />
           <img
             alt="Compassion, Creativity, Code"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=%2Ffoo.png&w=750&q=100"
+            srcset="/_next/image?url=%2Ffoo.png&w=384&q=100 1x, /_next/image?url=%2Ffoo.png&w=750&q=100 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
@@ -52,6 +65,67 @@ exports[`Application renders correctly 1`] = `
         </a>
       </div>
     </div>
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4
+    "
+        height="614.4"
+        width="614.4"
+      >
+        <circle
+          class="stroke-current"
+          cx="307.2"
+          cy="307.2"
+          fill-opacity="0"
+          opacity="0.1"
+          r="307.2"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4
+    "
+        height="709.9733333333334"
+        width="709.9733333333334"
+      >
+        <circle
+          class="stroke-current"
+          cx="354.9866666666667"
+          cy="354.9866666666667"
+          fill-opacity="0"
+          opacity="0.5"
+          r="354.9866666666667"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-green w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-64 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-magenta w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-16 top-32 bg-yellow_orange w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 top-0 bg-red w-32 h-32 opacity-100"
+    />
   </div>
   <div
     class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5"
@@ -496,7 +570,7 @@ exports[`Application renders correctly 1`] = `
     </p>
   </div>
   <div
-    class="grid grid-cols-3 gap-4 px-32 pb-5"
+    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16"
   >
     <div
       class="overflow-hidden w-full"
@@ -524,24 +598,6 @@ exports[`Application renders correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
       </div>
-      <div
-        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
-      >
-        <p
-          class="font-semibold text-2xl"
-        >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
-      </div>
-      <a
-        href="/"
-      >
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
-        >
-          Read More
-        </div>
-      </a>
     </div>
     <div
       class="overflow-hidden w-full"
@@ -569,24 +625,6 @@ exports[`Application renders correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
       </div>
-      <div
-        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
-      >
-        <p
-          class="font-semibold text-2xl"
-        >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
-      </div>
-      <a
-        href="/"
-      >
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
-        >
-          Read More
-        </div>
-      </a>
     </div>
     <div
       class="overflow-hidden w-full"
@@ -614,6 +652,58 @@ exports[`Application renders correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
       </div>
+    </div>
+  </div>
+  <div
+    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey"
+  >
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
       <div
         class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
       >
@@ -635,17 +725,21 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative mx-auto mt-10 md:w-1/3 pb-16"
+    class="bg-grey"
   >
-    <a
-      href="/projects"
+    <div
+      class="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20"
     >
-      <div
-        class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono text-sm"
+      <a
+        href="/projects"
       >
-        See All Projects
-      </div>
-    </a>
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono text-sm font-bold"
+        >
+          SEE OUR POSTS
+        </div>
+      </a>
+    </div>
   </div>
 </DocumentFragment>
 `;
