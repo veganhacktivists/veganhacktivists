@@ -6,8 +6,8 @@ import {
 
 const Social: React.FC = () => {
   return (
-    <div className="pt-10">
-      <div className="text-4xl font-semibold uppercase">
+    <div className="pt-10 text-left">
+      <div className="text-4xl font-semibold uppercase mb-1">
         <code>Contact Us</code>
       </div>
       <div className="max-w-xs m-auto">
@@ -19,8 +19,9 @@ const Social: React.FC = () => {
           hello@veganhacktivists.org
         </a>
       </div>
-      <div className="flex content-center justify-center px-3 pt-5">
+      <div className="flex pt-5">
         <InstagramButton
+          className="mr-2"
           href="https://www.instagram.com/veganhacktivists/"
           aria-label="Follow us on Instagram!"
         />
@@ -29,7 +30,7 @@ const Social: React.FC = () => {
           aria-label="Support Us on Patreon!"
         />
       </div>
-      <div className="pt-10">
+      <div className="pt-10 text-center">
         <ExternalLinkButton href="https://www.patreon.com/veganhacktivists">
           <div className="font-italic text-xl capitalize">Support us on</div>
           <div className="text-4xl uppercase font-bold">Patreon</div>
