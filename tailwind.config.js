@@ -86,8 +86,8 @@ module.exports = {
       italic: 'Bitter',
     },
     boxShadow: {
-      'fill-green': `inset 350px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-red': `inset 350px 0 0 0 ${colors.red.DEFAULT}`,
+      'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
+      'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
     },
   },
   variants: {

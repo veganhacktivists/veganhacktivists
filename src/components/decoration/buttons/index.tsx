@@ -11,7 +11,7 @@ export interface ButtonProps extends AriaAttributes {
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
