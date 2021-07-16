@@ -7,26 +7,20 @@ interface CircleProps {
   xAlign?: 'left' | 'right';
   yAlign?: 'top' | 'bottom';
   radiusZoom?: number;
-  cx?: number;
-  cy?: number;
 }
 
-const Circle: React.FC<CircleProps> = (props) => {
+const Circle: React.FC<CircleProps> = ({
+  color = 'white',
+  opacity = 0.5,
+  thickness = '20px',
+  yAlign = 'top',
+  xAlign = 'left',
+  radiusZoom = 1,
+  ...trimmedProps
+}) => {
   const { width: windowWidth = 0 } = useWindowSize();
 
-  const {
-    color = 'white',
-    opacity = 0.5,
-    thickness = '20px',
-    yAlign = 'top',
-    xAlign = 'left',
-    radiusZoom = 1,
-    ...trimmedProps
-  } = props;
-
   const radius = (windowWidth / 3) * radiusZoom;
-
-  const { cx = radius, cy = radius } = props;
 
   const xPos = xAlign == 'left' ? 'left-0' : 'right-0';
   const yPos = yAlign == 'top' ? 'top-0' : 'bottom-0';
@@ -51,8 +45,8 @@ const Circle: React.FC<CircleProps> = (props) => {
         fillOpacity={0}
         opacity={opacity}
         className="stroke-current"
-        cx={cx}
-        cy={cy}
+        cx={radius}
+        cy={radius}
       />
     </svg>
   );
