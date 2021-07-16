@@ -51,10 +51,24 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
-  purge: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-  ],
+  purge: {
+    content: [
+      './src/components/**/*.{js,ts,jsx,tsx}',
+      './src/pages/**/*.{js,ts,jsx,tsx}',
+    ],
+    safelist: [
+      /^bg-/,
+      /^w-/,
+      /^h-/,
+      /^opacity-/,
+      /^left-/,
+      /^right-/,
+      /^top-/,
+      /^bottom-/,
+      /^text-/,
+      /^-?translate-/,
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {

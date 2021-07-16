@@ -4,10 +4,21 @@ exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end bg-center"
-    style="background-image: url(/foo.png);"
   >
     <div
-      class="flex flex-col justify-center w-1/2"
+      style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+    >
+      <img
+        alt=""
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center w-1/2 z-10"
     >
       <div>
         <div
@@ -20,15 +31,15 @@ exports[`Application renders correctly 1`] = `
               alt=""
               aria-hidden="true"
               role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
-          <noscript />
           <img
             alt="Compassion, Creativity, Code"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
+            srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
@@ -52,6 +63,67 @@ exports[`Application renders correctly 1`] = `
         </a>
       </div>
     </div>
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4
+    "
+        height="614.4"
+        width="614.4"
+      >
+        <circle
+          class="stroke-current"
+          cx="307.2"
+          cy="307.2"
+          fill-opacity="0"
+          opacity="0.1"
+          r="307.2"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4
+    "
+        height="709.9733333333334"
+        width="709.9733333333334"
+      >
+        <circle
+          class="stroke-current"
+          cx="354.9866666666667"
+          cy="354.9866666666667"
+          fill-opacity="0"
+          opacity="0.5"
+          r="354.9866666666667"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-green w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-64 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-magenta w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-16 top-32 bg-yellow_orange w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 top-0 bg-red w-32 h-32 opacity-100"
+    />
   </div>
   <div
     class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
