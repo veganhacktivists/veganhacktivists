@@ -39,11 +39,11 @@ const Home: React.FC = () => {
           container: 'bg-center',
         }}
       >
-        <div>
+        <div className="md:px-16">
           <Image
             src={heroTagline.src}
-            width={heroTagline.width * 0.9}
-            height={heroTagline.height * 0.9}
+            width={heroTagline.width * 0.65}
+            height={heroTagline.height * 0.65}
             alt="Compassion, Creativity, Code"
             priority
           />
