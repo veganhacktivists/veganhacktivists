@@ -1,4 +1,4 @@
-import { getAllIdsOfType, getAllOfType, getById } from 'lib/cms';
+// import { getAllIdsOfType, getAllOfType, getById } from 'lib/cms';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 
@@ -8,9 +8,9 @@ interface BlogEntry {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const teamIds = await getAllIdsOfType('team');
-  const allTeams = await getAllOfType('team');
-  const teamAvocado = await getById(teamIds[0]);
+  // const teamIds = await getAllIdsOfType('team');
+  // const allTeams = await getAllOfType('team');
+  // const teamAvocado = await getById(teamIds[0]);
 
   return { paths: [{ params: { slug: '1' } }], fallback: true };
 };
