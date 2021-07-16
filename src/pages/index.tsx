@@ -120,17 +120,18 @@ const Home: React.FC = () => {
               </a>
             </div>
             <div>
-              <a href="https://animalrebellion.org">
+              <a href="https://veganbootcamp.org">
                 <Image
                   className="rounded-2xl"
-                  src={animalRebellion.src}
-                  width={animalRebellion.width}
-                  height={animalRebellion.height}
+                  src={veganBootcamp.src}
+                  width={veganBootcamp.width}
+                  height={veganBootcamp.height}
                   alt="Compassion, Creativity, Code"
                 />
               </a>
             </div>
             <div>
+			 <a href="https://animalrightsmap.org">
               <Image
                 className="rounded-2xl"
                 src={animalRightsMap.src}
@@ -138,14 +139,26 @@ const Home: React.FC = () => {
                 height={animalRightsMap.height}
                 alt="Compassion, Creativity, Code"
               />
+			  </a>
             </div>
             <div>
-              <a href="https://animalrightsmap.org">
+              <a href="https://5minutes5vegans.org">
                 <Image
                   className="rounded-2xl"
-                  src={dailyDozen.src}
-                  width={dailyDozen.width}
-                  height={dailyDozen.height}
+                  src={5minutes5vegans.src}
+                  width={5minutes5vegans.width}
+                  height={5minutes5vegans.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
+            </div>
+            <div>
+              <a href="https://vegancheatsheet.org">
+                <Image
+                  className="rounded-2xl"
+                  src={veganCheatSheet.src}
+                  width={veganCheatSheet.width}
+                  height={veganCheatSheet.height}
                   alt="Compassion, Creativity, Code"
                 />
               </a>
@@ -161,35 +174,24 @@ const Home: React.FC = () => {
                 />
               </a>
             </div>
-            <div>
-              <a href="https://www.sehatianimalsanctuary.org">
+			<div>
+              <a href="https://mydailydozen.org">
                 <Image
                   className="rounded-2xl"
-                  src={sehati.src}
-                  width={sehati.width}
-                  height={sehati.height}
+                  src={DailyDozen.src}
+                  width={DailyDozen.width}
+                  height={DailyDozen.height}
                   alt="Compassion, Creativity, Code"
                 />
               </a>
             </div>
-            <div>
-              <a href="https://veganbootcamp.org">
+			<div>
+              <a href="https://VeganActivism.org">
                 <Image
                   className="rounded-2xl"
-                  src={veganBootcamp.src}
-                  width={veganBootcamp.width}
-                  height={veganBootcamp.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://vegancheatsheet.org">
-                <Image
-                  className="rounded-2xl"
-                  src={veganCheatSheet.src}
-                  width={veganCheatSheet.width}
-                  height={veganCheatSheet.height}
+                  src={VeganActivism.src}
+                  width={VeganActivism.width}
+                  height={VeganActivism.height}
                   alt="Compassion, Creativity, Code"
                 />
               </a>
