@@ -24,7 +24,7 @@
         "prefer": "type-imports"
       }
     ],
-    "@typescript-eslint/array-type": ["warn", { "default": "array-simple" }],
+    "@typescript-eslint/array-type": ["warn", { "default": "array" }],
 
     // misc
     "no-console": ["warn"],
