@@ -7,6 +7,7 @@ import animalRightsMap from '../../public/images/AnimalRightsMap.png';
 import blogCow from '../../public/images/Blog-cow.jpg';
 import dailyDozen from '../../public/images/DailyDozen.png';
 import dailyNooch from '../../public/images/DailyNooch.png';
+import minutesvegans from '../../public/images/minutesvegans.png';
 import sehati from '../../public/images/Sehati.png';
 import veganBootcamp from '../../public/images/VeganBootcamp.png';
 import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
