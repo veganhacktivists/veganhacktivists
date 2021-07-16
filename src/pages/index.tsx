@@ -145,9 +145,9 @@ const Home: React.FC = () => {
               <a href="https://5minutes5vegans.org">
                 <Image
                   className="rounded-2xl"
-                  src={5minutes5vegans.src}
-                  width={5minutes5vegans.width}
-                  height={5minutes5vegans.height}
+                  src={minutesvegans.src}
+                  width={minutesvegans.width}
+                  height={minutesvegans.height}
                   alt="Compassion, Creativity, Code"
                 />
               </a>
