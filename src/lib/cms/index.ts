@@ -1,7 +1,7 @@
 import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
-type Slug = string;
+type AvaliableContentTypes = 'team' | 'teamMember';
 
 const client = createClient({
   space: process.env['CF_SPACE_ID'] || '',
@@ -14,12 +14,22 @@ export const previewClient = createClient({
   host: 'preview.contentful.com',
 });
 
-export const getById: <T>(id: Slug) => Promise<Entry<T>> = async (id) => {
+export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
   return await client.getEntry(id);
 };
 
+export const getAllOfType: (
+  pageContentType: AvaliableContentTypes
+) => Promise<unknown[]> = async (pageContentType) => {
+  const entries = await client.getEntries({
+    content_type: pageContentType,
+  });
+
+  return entries.items;
+};
+
 export const getAllIdsOfType: (
-  pageContentType: string
+  pageContentType: AvaliableContentTypes
 ) => Promise<Entry<unknown>['sys']['id'][]> = async (pageContentType) => {
   const entries = await client.getEntries({
     content_type: pageContentType,
