@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
   AboutButtons,
   AboutHero,
@@ -8,6 +9,9 @@ import {
 const OurMission: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Our Mission | Vegan Hacktivists</title>
+      </Head>
       <AboutHero />
       <div className="m-10">
         <AboutButtons />
