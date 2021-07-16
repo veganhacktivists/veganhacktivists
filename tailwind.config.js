@@ -66,6 +66,7 @@ module.exports = {
       /^top-/,
       /^bottom-/,
       /^text-/,
+      /^-?translate-/,
     ],
   },
   darkMode: false, // or 'media' or 'class'
