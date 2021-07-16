@@ -96,7 +96,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-grey-light">
-        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-10 px-5">
+        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
           <p className="text-grey-dark pb-5">
             <span className="font-italic font-semibold text-3xl">
               Featured{' '}
@@ -203,7 +203,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-black">
-        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-6">
           <p className="mb-16 text-grey-dark pt-16">
             <span className="text-5xl font-mono font-bold text-white">
               JOIN OUR TEAM
@@ -222,7 +222,7 @@ const Home: React.FC = () => {
             If you&apos;re interested and have the time to spare, click to see
             our positions.
           </p>
-          <div className="mb-5 flex justify-center flex-wrap">
+          <div className="flex justify-center flex-wrap">
             <LightButton href="/team" className="m-5 font-mono text-sm">
               Meet the Team
             </LightButton>
@@ -232,12 +232,12 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
         <p className="text-grey-dark pb-5">
           <span className="font-italic font-semibold text-3xl">On the </span>
           <b className="text-5xl font-mono">BLOG</b>
         </p>
-        <p className="pb-5">
+        <p className="pb-16">
           We regularly post project updates, announcements, interviews, and
           other fun stuff here! Thanks for reading!
         </p>
