@@ -80,19 +80,11 @@ const Home: React.FC = () => {
           </span>
         </p>
         <p className="pb-5">
-          We&apos;re a group of passionate Vegan Activists that volunteer our
-          time and skills towards <b>vegan projects worth supporting.</b> Every
-          project we work on aims to help spread compassion through Veganism by
-          supporting both vegans, non-vegans and activists in some way.
-        </p>
-        <p className="pb-5">
-          Every project we release is <b>100% free to use for everyone.</b> We
-          don&apos;t do premium versions, microtransactions, advertisements, or
-          sell user data - ever.
+          We&apos;re a diverse community of passionate vegan activists from all around the world, <b>volunteering our time and skills</b> towards the animal rights movement. We build free technology with the goal of reducing or stopping the mass amounts of suffering caused by factory farming and other forms of animal exploitation.
         </p>
         <p>
           <b>We do this for the animals</b> - we do this because coding is our
-          way of doing our part for activism. If you want to support us, please
+          way of doing our part for activism. If you believe in the work we do and want to support us, please
           consider a small donation via our{' '}
           <span className="text-pink">Patreon!</span> It means the world to us
           and the animals to have your support.
@@ -112,7 +104,7 @@ const Home: React.FC = () => {
             <b className="text-5xl font-mono">PROJECTS</b>
           </p>
           <p>
-            Every project we release is 100% free for everyone, we don’t do
+            Every project we release is <b>100% free for everyone</b>, we don’t do
             premium versions, advertisments, or sell user data what-so-ever.
           </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
