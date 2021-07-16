@@ -40,8 +40,6 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
   return <BaseButton {...props} />;
 };
 
-//TODO: define light button classes
-
 const LightButton: React.FC<ButtonProps> = ({
   children,
   primary,
@@ -62,8 +60,6 @@ const LightButton: React.FC<ButtonProps> = ({
   );
 };
 
-//TODO: define dark button classes
-
 const DarkButton: React.FC<ButtonProps> = ({
   children,
   primary,
@@ -75,6 +71,28 @@ const DarkButton: React.FC<ButtonProps> = ({
     primary
       ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
+    'text-white',
+    className
+  );
+
+  return (
+    <BaseButton {...props}>
+      <div className={classes}>{children}</div>
+    </BaseButton>
+  );
+};
+
+const GreenButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
+  const classes = classNames(
+    baseButtonClasses,
+    primary
+      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      : 'hover:shadow-fill-green bg-green-light border-green',
     'text-white',
     className
   );
@@ -137,4 +155,5 @@ export {
   InstagramButton,
   LightButton,
   DarkButton,
+  GreenButton,
 };
