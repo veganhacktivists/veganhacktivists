@@ -1,7 +1,5 @@
-import useWindowSize from '../../utils/hooks/useWindowSize';
-
 interface CircleProps {
-  color?: 'grey' | 'grey-dark';
+  color?: string;
   opacity?: number;
   thickness?: string;
   xAlign?: 'left' | 'right';
@@ -18,35 +16,33 @@ const Circle: React.FC<CircleProps> = ({
   radiusZoom = 1,
   ...trimmedProps
 }) => {
-  const { width: windowWidth = 0 } = useWindowSize();
-
-  const radius = (windowWidth / 3) * radiusZoom;
+  const radius = (100 * radiusZoom) / 3;
 
   const xPos = xAlign == 'left' ? 'left-0' : 'right-0';
   const yPos = yAlign == 'top' ? 'top-0' : 'bottom-0';
 
   let xTransform = 'translate-x-1/4';
-  let yTransform = windowWidth > 1300 ? 'translate-y-3/4' : 'translate-y-2/4';
+  let yTransform = 'translate-y-2/4 lg:translate-y-3/4';
 
-  if (xAlign == 'left') xTransform = '-' + xTransform;
-  if (yAlign == 'top') yTransform = '-' + yTransform;
+  if (xAlign == 'left') xTransform = '-translate-x-1/4';
+  if (yAlign == 'top') yTransform = '-translate-y-2/4 lg:-translate-y-3/4';
 
   return (
     <svg
-      width={radius * 2}
-      height={radius * 2}
+      width={radius * 2 + 'vw'}
+      height={radius * 2 + 'vw'}
       className={`text-${color} overflow-visible absolute ${yPos} ${xPos} transform ${xTransform} ${yTransform}
     `}
     >
       <circle
         {...trimmedProps}
-        r={radius}
+        r={radius + 'vw'}
         strokeWidth={thickness}
         fillOpacity={0}
         opacity={opacity}
         className="stroke-current"
-        cx={radius}
-        cy={radius}
+        cx={radius + 'vw'}
+        cy={radius + 'vw'}
       />
     </svg>
   );
