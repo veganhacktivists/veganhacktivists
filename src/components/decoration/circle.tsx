@@ -1,6 +1,6 @@
 import useWindowSize from '../../utils/hooks/useWindowSize';
 
-interface Circle {
+interface CircleProps {
   color?: 'grey' | 'grey-dark';
   opacity?: number;
   thickness?: string;
@@ -11,7 +11,7 @@ interface Circle {
   cy?: number;
 }
 
-const Circle: React.FC<Circle> = (props) => {
+const Circle: React.FC<CircleProps> = (props) => {
   const { width: windowWidth = 0 } = useWindowSize();
 
   const {
