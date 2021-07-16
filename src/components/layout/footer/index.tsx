@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
       <Social />
       <Logo />
       <div className="absolute -z-10 inset-0">
-        <Circle />
-        <Circle xAlign="right" yAlign="bottom" />
+        <Circle opacity={0.1} />
+        <Circle xAlign="right" yAlign="bottom" opacity={0.1} />
       </div>
     </footer>
   );

@@ -125,11 +125,14 @@ const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const PatreonButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
       {...props}
-      className="bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+      className={classNames(
+        'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2',
+        className
+      )}
     >
       <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
     </IconButton>
@@ -137,11 +140,14 @@ const PatreonButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InstagramButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
       {...props}
-      className="bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2 mx-2"
+      className={classNames(
+        'bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2',
+        className
+      )}
     >
       <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
     </IconButton>
