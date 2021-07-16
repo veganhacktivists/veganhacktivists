@@ -20,6 +20,7 @@ const LeftSide: React.FC = () => {
             layout="intrinsic"
             width={logo.width * ratio}
             height={logo.height * ratio}
+            priority
           />
         </a>
       </Link>
