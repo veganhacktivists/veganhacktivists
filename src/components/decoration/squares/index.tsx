@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import type { SquareProps } from './square';
-import Square from './square';
 
 interface SquareFieldSquareProps extends SquareProps {
   left?: number;
@@ -14,6 +12,35 @@ interface SquareFieldProps {
   squares: SquareFieldSquareProps[];
   className?: string;
 }
+
+export interface SquareProps {
+  size: number;
+  color?: string;
+  opacity?: number;
+  className?: string;
+}
+
+const Square: React.FC<SquareProps> = (props) => {
+  const {
+    // width an height in quarter-rem (tailwind dimensions)
+    size,
+    // color in tailwind palette colors (including custom)
+    color = 'white',
+    // opacity in percent
+    opacity = 100,
+    className = '',
+  } = props;
+
+  const svgClassNames = classNames(
+    className,
+    `bg-${color}`,
+    `w-${size}`,
+    `h-${size}`,
+    `opacity-${opacity}`
+  );
+
+  return <div className={svgClassNames} />;
+};
 
 const classNameFromPosition = (key: string, value?: number) =>
   Number.isInteger(value) ? `${key}-${value}` : null;
