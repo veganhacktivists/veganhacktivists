@@ -45,6 +45,7 @@ const Home: React.FC = () => {
             width={heroTagline.width * 0.65}
             height={heroTagline.height * 0.65}
             alt="Compassion, Creativity, Code"
+            quality={100}
             priority
           />
         </div>
