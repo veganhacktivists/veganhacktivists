@@ -42,8 +42,8 @@ const Home: React.FC = () => {
         <div>
           <Image
             src={heroTagline.src}
-            width={heroTagline.width}
-            height={heroTagline.height}
+            width={heroTagline.width * 0.9}
+            height={heroTagline.height * 0.9}
             alt="Compassion, Creativity, Code"
             priority
           />
