@@ -55,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({
       />
       <div className={contentClasses}>{children}</div>
       <div className="absolute inset-0 overflow-hidden">
-        <Circle xAlign="right" radiusZoom={0.9} />
+        <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
         <Circle yAlign="bottom" radiusZoom={1.04} />
       </div>
     </div>

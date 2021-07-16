@@ -77,7 +77,7 @@ exports[`Application renders correctly 1`] = `
           cx="307.2"
           cy="307.2"
           fill-opacity="0"
-          opacity="0.5"
+          opacity="0.1"
           r="307.2"
           stroke-width="20px"
         />
