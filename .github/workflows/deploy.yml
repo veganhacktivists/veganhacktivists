@@ -57,6 +57,7 @@ jobs:
            KEY: ${{ secrets.SSH_SECRET_KEY }}
            envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND
            script: |
+             bash /home/deploy/clean.sh
              docker stop $(echo $IMAGE_NAME)
              docker rm $(echo $IMAGE_NAME)
              docker run -d \
