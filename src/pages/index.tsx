@@ -207,9 +207,9 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-black">
-        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-6">
-          <p className="mb-16 text-grey-dark pt-16">
-            <span className="text-5xl font-mono font-bold text-white">
+        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12">
+          <p className="mb-12 text-grey-dark pt-16">
+            <span className="text-5xl font-mono text-white">
               JOIN OUR TEAM
             </span>
           </p>
@@ -219,7 +219,7 @@ const Home: React.FC = () => {
             height={teamIcons.height}
             alt="Compassion, Creativity, Code"
           />
-          <p className="pb-5 text-white">
+          <p className="pb-5 mt-16 text-white">
             Are you a developer, designer, writer, or other creative
             professional wanting to use skills for the animals? We&apos;re
             always looking for more vegan activist volunteers to join our team!
