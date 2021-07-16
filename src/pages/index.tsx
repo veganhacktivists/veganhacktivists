@@ -1,6 +1,8 @@
+import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react';
+import { DarkButton, LightButton } from '../components/decoration/buttons';
+import Hero from '../components/decoration/hero';
 import activistHub from '../../public/images/ActivistHub.png';
 import animalRebellion from '../../public/images/AnimalRebellion.png';
 import animalRightsMap from '../../public/images/AnimalRightsMap.png';
@@ -9,11 +11,9 @@ import dailyNooch from '../../public/images/DailyNooch.png';
 import sehati from '../../public/images/Sehati.png';
 import veganBootcamp from '../../public/images/VeganBootcamp.png';
 import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
-import heroBackground from '../../public/images/VH-hero-bg.png';
+import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
-import { DarkButton, LightButton } from '../components/decoration/buttons';
-import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 
 const HERO_DECORATION_SQUARES = [
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <Hero
-        imageBackground={heroBackground.src}
+        imageBackground={heroBackground}
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
@@ -45,6 +45,7 @@ const Home: React.FC = () => {
             width={heroTagline.width}
             height={heroTagline.height}
             alt="Compassion, Creativity, Code"
+            priority
           />
         </div>
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
