@@ -58,13 +58,11 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
 
 const Links: React.FC = () => {
   return (
-    <div className="text-xl text-left">
-      <ul>
-        {links.map((link, i) => (
-          <MyLink key={i} {...link} />
-        ))}
-      </ul>
-    </div>
+    <ul className="text-xl text-left">
+      {links.map((link, i) => (
+        <MyLink key={i} {...link} />
+      ))}
+    </ul>
   );
 };
 export default Links;
