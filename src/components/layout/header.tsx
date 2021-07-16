@@ -18,7 +18,6 @@ const LeftSide: React.FC = () => {
             src={logo.src}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"
-            loading="eager"
             width={logo.width * ratio}
             height={logo.height * ratio}
             priority

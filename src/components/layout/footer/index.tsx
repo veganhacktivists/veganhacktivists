@@ -5,14 +5,14 @@ import Links from './links';
 import Social from './social';
 
 const Logo: React.FC = () => (
-  <Image
-    src={roundLogo}
-    alt="VH Round Logo"
-    width={roundLogo.width * 0.4}
-    height={roundLogo.height * 0.4}
-    loading="lazy"
-    className="pt-10 md:pt-0"
-  />
+  <div className="pt-10 md:pt-0">
+    <Image
+      src={roundLogo}
+      alt="VH Round Logo"
+      width={roundLogo.width * 0.4}
+      height={roundLogo.height * 0.4}
+    />
+  </div>
 );
 
 const Footer: React.FC = () => {
