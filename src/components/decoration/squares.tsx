@@ -42,8 +42,15 @@ const Square: React.FC<SquareProps> = (props) => {
   return <div className={svgClassNames} />;
 };
 
-const classNameFromPosition = (key: string, value?: number) =>
-  Number.isInteger(value) ? `${key}-${value}` : null;
+const classNameFromPosition = (key: string, value?: number) => {
+  if (value === undefined || !Number.isInteger(value)) {
+    return null;
+  }
+  if (value < 0) {
+    return `-${key}-${value * -1}`;
+  }
+  return `${key}-${value}`;
+};
 
 const SquareField: React.FC<SquareFieldProps> = ({ squares, className }) => {
   const classes = classNames('relative', 'overflow-visible', className);
