@@ -5,7 +5,7 @@ import activistHub from '../../public/images/ActivistHub.png';
 import animalRebellion from '../../public/images/AnimalRebellion.png';
 import animalRightsMap from '../../public/images/AnimalRightsMap.png';
 import blogCow from '../../public/images/Blog-cow.jpg';
-import dailyDozen from '../../public/images/DailyDozen.png';
+import DailyDozen from '../../public/images/DailyDozen.png';
 import dailyNooch from '../../public/images/DailyNooch.png';
 import minutesvegans from '../../public/images/minutesvegans.png';
 import sehati from '../../public/images/Sehati.png';
