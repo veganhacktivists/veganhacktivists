@@ -69,34 +69,34 @@ exports[`Application renders correctly 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
-        height="614.4"
-        width="614.4"
+        height="60vw"
+        width="60vw"
       >
         <circle
           class="stroke-current"
-          cx="307.2"
-          cy="307.2"
+          cx="30vw"
+          cy="30vw"
           fill-opacity="0"
           opacity="0.1"
-          r="307.2"
+          r="30vw"
           stroke-width="20px"
         />
       </svg>
       <svg
-        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
-        height="709.9733333333334"
-        width="709.9733333333334"
+        height="69.33333333333333vw"
+        width="69.33333333333333vw"
       >
         <circle
           class="stroke-current"
-          cx="354.9866666666667"
-          cy="354.9866666666667"
+          cx="34.666666666666664vw"
+          cy="34.666666666666664vw"
           fill-opacity="0"
           opacity="0.5"
-          r="354.9866666666667"
+          r="34.666666666666664vw"
           stroke-width="20px"
         />
       </svg>
