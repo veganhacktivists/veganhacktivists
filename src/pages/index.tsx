@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           container: 'bg-center',
         }}
       >
-        <div className="md:px-16">
+        <div className="md:p-16">
           <Image
             src={heroTagline}
             width={heroTagline.width * 0.65}
