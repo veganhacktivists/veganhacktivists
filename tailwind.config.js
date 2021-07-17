@@ -51,26 +51,43 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
-  purge: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-  ],
+  purge: {
+    content: [
+      './src/components/**/*.{js,ts,jsx,tsx}',
+      './src/pages/**/*.{js,ts,jsx,tsx}',
+    ],
+    safelist: [
+      /^bg-/,
+      /^w-/,
+      /^h-/,
+      /^opacity-/,
+      /^left-/,
+      /^right-/,
+      /^top-/,
+      /^bottom-/,
+      /^text-/,
+      /^-?translate-/,
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      borderWidth: {
+        3: '3px',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+    },
     colors,
     fontFamily: {
       mono: ['Rajdhani', 'monospace'],
       sans: 'PT Sans',
       italic: 'Bitter',
     },
-    extend: {
-      zIndex: {
-        '-10': '-10',
-      },
-    },
     boxShadow: {
-      'fill-green': `inset 350px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-red': `inset 350px 0 0 0 ${colors.red.DEFAULT}`,
+      'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
+      'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
     },
   },
   variants: {

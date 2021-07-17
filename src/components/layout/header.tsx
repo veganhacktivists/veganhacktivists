@@ -18,9 +18,9 @@ const LeftSide: React.FC = () => {
             src={logo.src}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"
-            loading="eager"
             width={logo.width * ratio}
             height={logo.height * ratio}
+            priority
           />
         </a>
       </Link>
@@ -44,14 +44,13 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
     'py-6',
     'transition duration-500',
     'text-center',
-    className,
-    { underline: active }
+    className
   );
 
   return (
     <Link href={href} passHref>
       <a className={classes}>
-        <code>{label}</code>
+        <code className={classNames({ 'border-b-3': active })}>{label}</code>
       </a>
     </Link>
   );
