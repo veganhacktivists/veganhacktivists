@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Hero from '../components/decoration/hero';
-import { LightButton, WhiteButton } from '../components/decoration/buttons';
+import { DarkButton, WhiteButton } from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-pig2-hero.jpg';
 import heroTagline from '../../public/images/VH-projects-hero-text.png';
 import activistHubCover from '../../public/images/ActivistHub.png';
 import sehatiSanctuaryCover from '../../public/images/Sehati.png';
+import JoinTheTeam from '../components/layout/joinTheTeam';
 
 interface ProjectProps {
   cover: StaticImageData;
@@ -30,11 +31,14 @@ const Project: React.FC<ProjectProps> = ({
     <div className="text-left" style={{ width: 700 }}>
       <h1 className="text-4xl font-bold">{title}</h1>
       <p className="my-3">
-        <span className="font-bold">{date}</span> - {team}
+        <span className="font-bold text-grey">{date}</span> -{' '}
+        <span className="uppercase font-bold">{team}</span>
       </p>
       {children}
-      <div className="mt-10">
-        <LightButton href={href}>{siteName}</LightButton>
+      <div className="mt-10 w-min">
+        <DarkButton href={href} className="font-mono">
+          {siteName}
+        </DarkButton>
       </div>
     </div>
   </div>
@@ -96,19 +100,19 @@ const Projects: React.FC = () => (
         />
       </div>
     </Hero>
-    <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+    <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
       <p className="mb-16">
-        <span className="italic text-3xl">Our </span>
-        <b className="text-4xl uppercase">projects</b>
+        <span className="font-italic text-3xl">Our </span>
+        <b className="font-mono text-5xl uppercase">projects</b>
       </p>
       <p>
         We&apos;re constantly working on new projects every month, whether
         they&apos;re ideas of our own or supporting organizations and activists
         that reach out to us. Below is a list of our work, and which of our
-        teams that worked on it.
+        teams worked on it.
       </p>
     </div>
-    <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl">
+    <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
       <p className="space-x-4">
         <WhiteButton className="w-40 uppercase" active>
           View all
@@ -124,12 +128,7 @@ const Projects: React.FC = () => (
         </Project>
       ))}
     </div>
-    <div className="content-center mx-auto mt-32 text-2xl bg-black py-32">
-      <h2 className="text-6xl uppercase font-bold text-white">Join our team</h2>
-      <div className="mx-auto md:w-1/6 mt-10 uppercase">
-        <LightButton href="/join">Learn more</LightButton>
-      </div>
-    </div>
+    <JoinTheTeam />
   </div>
 );
 
