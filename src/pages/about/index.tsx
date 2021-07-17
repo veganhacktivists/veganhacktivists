@@ -1,6 +1,6 @@
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
-export const getStaticProps: GetStaticProps = () => ({
+export const getServerSideProps: GetServerSideProps = async () => ({
   redirect: {
     destination: '/about/our-mission',
     permanent: true,
