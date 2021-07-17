@@ -58,7 +58,7 @@ const NavButton: React.FC<{ href: string }> = ({ href, children }) => {
 export const AboutButtons: React.FC = () => {
   return (
     <div className="mb-5 flex justify-center flex-wrap">
-      <NavButton href="/about">OUR MISSION</NavButton>
+      <NavButton href="/about/our-mission">OUR MISSION</NavButton>
       <NavButton href="/about/our-story">OUR STORY</NavButton>
       <NavButton href="/about/our-values">OUR VALUES</NavButton>
     </div>
