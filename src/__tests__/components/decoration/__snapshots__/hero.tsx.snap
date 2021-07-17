@@ -34,16 +34,16 @@ exports[`should render correctly when providing a URL string 1`] = `
       <svg
         class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
-        height="69.33333333333333vw"
-        width="69.33333333333333vw"
+        height="68vw"
+        width="68vw"
       >
         <circle
           class="stroke-current"
-          cx="34.666666666666664vw"
-          cy="34.666666666666664vw"
+          cx="34vw"
+          cy="34vw"
           fill-opacity="0"
           opacity="0.5"
-          r="34.666666666666664vw"
+          r="34vw"
           stroke-width="20px"
         />
       </svg>
@@ -86,16 +86,16 @@ exports[`should render correctly when providing static image data 1`] = `
       <svg
         class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
-        height="69.33333333333333vw"
-        width="69.33333333333333vw"
+        height="68vw"
+        width="68vw"
       >
         <circle
           class="stroke-current"
-          cx="34.666666666666664vw"
-          cy="34.666666666666664vw"
+          cx="34vw"
+          cy="34vw"
           fill-opacity="0"
           opacity="0.5"
-          r="34.666666666666664vw"
+          r="34vw"
           stroke-width="20px"
         />
       </svg>
