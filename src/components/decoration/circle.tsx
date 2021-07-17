@@ -16,7 +16,7 @@ const Circle: React.FC<CircleProps> = ({
   radiusZoom = 1,
   ...trimmedProps
 }) => {
-  const radius = (100 * radiusZoom) / 3;
+  const radius = Math.floor((100 * radiusZoom) / 3);
 
   const xPos = xAlign == 'left' ? 'left-0' : 'right-0';
   const yPos = yAlign == 'top' ? 'top-0' : 'bottom-0';
