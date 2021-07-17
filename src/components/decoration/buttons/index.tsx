@@ -1,6 +1,8 @@
+import React from 'react';
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import type { LinkProps } from 'next/link';
 import Link from 'next/link';
 import type { AriaAttributes } from 'react';
 
@@ -8,24 +10,26 @@ export interface ButtonProps extends AriaAttributes {
   primary?: boolean;
   href?: string;
   className?: string;
+  active?: boolean;
+  linkProps?: Partial<LinkProps>;
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer'
 );
 
-const BaseButton: React.FC<ButtonProps> = ({ href, children }) => {
+const BaseButton: React.FC<ButtonProps> = ({ href, children, linkProps }) => {
   return (
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <Link href={href} passHref>
+        <Link {...linkProps} href={href} passHref>
           {children}
         </Link>
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link href={href}>
+        <Link {...linkProps} href={href}>
           <a>{children}</a>
         </Link>
       )}
@@ -154,6 +158,28 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   );
 };
 
+const WhiteButton: React.FC<ButtonProps> = ({
+  children,
+  active,
+  className = '',
+  ...props
+}) => {
+  const classes = classNames(
+    'border-2 border-gray-200 border-opacity-50 p-3',
+    {
+      'bg-gray': active,
+      'text-white': active,
+    },
+    className
+  );
+
+  return (
+    <BaseButton {...props}>
+      <div className={classes}>{children}</div>
+    </BaseButton>
+  );
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -161,5 +187,6 @@ export {
   InstagramButton,
   LightButton,
   DarkButton,
+  WhiteButton,
   GreenButton,
 };

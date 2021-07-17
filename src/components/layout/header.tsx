@@ -125,7 +125,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="flex z-10">
+    <nav className="flex z-20">
       <LeftSide />
       <RightSide />
     </nav>
