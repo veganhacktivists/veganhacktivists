@@ -38,6 +38,7 @@ const Hero: React.FC<HeroProps> = ({
     'flex-col',
     'justify-center',
     'w-1/2',
+    'z-10',
     classNameMapping?.content
   );
 
