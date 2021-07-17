@@ -7,7 +7,10 @@ const colors = {
   grey: {
     DEFAULT: '#454545',
     dark: '#292929',
+    darker: '#1D1D1D',
     light: '#CACACA',
+    lighter: '#B4B4B4',
+    background: '#E2E2E2',
   },
   // Colors
   green: {
