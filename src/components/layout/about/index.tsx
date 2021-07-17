@@ -3,7 +3,7 @@ import { DarkButton } from 'components/decoration/buttons';
 import Image from 'next/image';
 import Hero from '../../decoration/hero';
 import SquareField from '../../decoration/squares';
-import heroBackground from '../../../../public/images/VH-pigs-hero.png';
+import heroBackground from '../../../../public/images/VH-pigs-hero.jpg';
 import heroTagline from '../../../../public/images/VH-Mission-Hero-Text.png';
 
 type SubSectionContent = {
@@ -58,7 +58,7 @@ const NavButton: React.FC<{ href: string }> = ({ href, children }) => {
 export const AboutButtons: React.FC = () => {
   return (
     <div className="mb-5 flex justify-center flex-wrap">
-      <NavButton href="/about/our-mission">OUR MISSION</NavButton>
+      <NavButton href="/about">OUR MISSION</NavButton>
       <NavButton href="/about/our-story">OUR STORY</NavButton>
       <NavButton href="/about/our-values">OUR VALUES</NavButton>
     </div>
