@@ -10,7 +10,7 @@ const FOOTER_TOP_DECORATION_SQUARES = [
 ];
 
 const FOOTER_DECORATION_SQUARES = [
-  { color: 'gray', size: 16, lefft: 0, top: 0 },
+  { color: 'gray', size: 16, left: 0, top: 0 },
   { color: 'gray-darker', size: 16, left: 16, top: 0 },
   { color: 'gray', size: 16, right: 16, top: 0 },
 ];
