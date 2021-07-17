@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           container: 'bg-center',
         }}
       >
-        <div className="">
+        <div className="md:p-12">
           <Image
             src={heroTagline}
             width={heroTagline.width * 0.65}
@@ -82,12 +82,16 @@ const Home: React.FC = () => {
           </span>
         </p>
         <p className="pb-5">
-          We&apos;re a diverse community of passionate vegan activists from all around the world, <b>volunteering our time and skills</b> towards the animal rights movement. We build free technology with the goal of reducing or stopping the mass amounts of suffering caused by factory farming and other forms of animal exploitation.
+          We&apos;re a diverse community of passionate vegan activists from all
+          around the world, <b>volunteering our time and skills</b> towards the
+          animal rights movement. We build free technology with the goal of
+          reducing or stopping the mass amounts of suffering caused by factory
+          farming and other forms of animal exploitation.
         </p>
         <p>
           <b>We do this for the animals</b> - we do this because coding is our
-          way of doing our part for activism. If you believe in the work we do and want to support us, please
-          consider a small donation via our{' '}
+          way of doing our part for activism. If you believe in the work we do
+          and want to support us, please consider a small donation via our{' '}
           <span className="text-pink">Patreon!</span> It means the world to us
           and the animals to have your support.
         </p>
@@ -106,8 +110,8 @@ const Home: React.FC = () => {
             <b className="text-5xl font-mono">PROJECTS</b>
           </p>
           <p>
-            Every project we release is <b>100% free for everyone</b>, we don’t do
-            premium versions, advertisments, or sell user data what-so-ever.
+            Every project we release is <b>100% free for everyone</b>, we don’t
+            do premium versions, advertisments, or sell user data what-so-ever.
           </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
             <div>
@@ -133,15 +137,15 @@ const Home: React.FC = () => {
               </a>
             </div>
             <div>
-			 <a href="https://animalrightsmap.org">
-              <Image
-                className="rounded-2xl"
-                src={animalRightsMap.src}
-                width={animalRightsMap.width}
-                height={animalRightsMap.height}
-                alt="Compassion, Creativity, Code"
-              />
-			  </a>
+              <a href="https://animalrightsmap.org">
+                <Image
+                  className="rounded-2xl"
+                  src={animalRightsMap.src}
+                  width={animalRightsMap.width}
+                  height={animalRightsMap.height}
+                  alt="Compassion, Creativity, Code"
+                />
+              </a>
             </div>
             <div>
               <a href="https://5minutes5vegans.org">
@@ -176,7 +180,7 @@ const Home: React.FC = () => {
                 />
               </a>
             </div>
-			<div>
+            <div>
               <a href="https://mydailydozen.org">
                 <Image
                   className="rounded-2xl"
@@ -187,7 +191,7 @@ const Home: React.FC = () => {
                 />
               </a>
             </div>
-			<div>
+            <div>
               <a href="https://VeganActivism.org">
                 <Image
                   className="rounded-2xl"
@@ -209,9 +213,7 @@ const Home: React.FC = () => {
       <div className="bg-black">
         <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12">
           <p className="mb-12 text-grey-dark pt-16">
-            <span className="text-5xl font-mono text-white">
-              JOIN OUR TEAM
-            </span>
+            <span className="text-5xl font-mono text-white">JOIN OUR TEAM</span>
           </p>
           <Image
             src={teamIcons.src}
