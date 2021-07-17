@@ -1,13 +1,14 @@
-import { useRouter } from 'next/dist/client/router';
-import { useEffect } from 'react';
+import type { GetStaticProps } from 'next';
+
+export const getStaticProps: GetStaticProps = () => ({
+  redirect: {
+    destination: '/about/our-mission',
+    permanent: true,
+  },
+});
 
 const About: React.FC = () => {
-  const { push } = useRouter();
-
-  useEffect(() => {
-    push('/about/our-mission', {}, { shallow: true });
-  }, []);
-  return <></>;
+  return null;
 };
 
 export default About;
