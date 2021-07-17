@@ -4,12 +4,25 @@ exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end bg-center"
-    style="background-image: url(/foo.png);"
   >
+    <div
+      style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+    >
+      <img
+        alt=""
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
+      />
+    </div>
     <div
       class="flex flex-col justify-center w-1/2"
     >
-      <div>
+      <div
+        class="md:p-12"
+      >
         <div
           style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
         >
@@ -20,15 +33,15 @@ exports[`Application renders correctly 1`] = `
               alt=""
               aria-hidden="true"
               role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzI1IiBoZWlnaHQ9IjMyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
-          <noscript />
           <img
             alt="Compassion, Creativity, Code"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=%2Ffoo.png&w=750&q=100"
+            srcset="/_next/image?url=%2Ffoo.png&w=384&q=100 1x, /_next/image?url=%2Ffoo.png&w=750&q=100 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
@@ -45,16 +58,77 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
           >
             Learn More
           </div>
         </a>
       </div>
     </div>
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+    "
+        height="60vw"
+        width="60vw"
+      >
+        <circle
+          class="stroke-current"
+          cx="30vw"
+          cy="30vw"
+          fill-opacity="0"
+          opacity="0.1"
+          r="30vw"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+    "
+        height="69.33333333333333vw"
+        width="69.33333333333333vw"
+      >
+        <circle
+          class="stroke-current"
+          cx="34.666666666666664vw"
+          cy="34.666666666666664vw"
+          fill-opacity="0"
+          opacity="0.5"
+          r="34.666666666666664vw"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
   </div>
   <div
-    class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-green w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-64 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-magenta w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-16 top-32 bg-yellow_orange w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 top-0 bg-red w-32 h-32 opacity-100"
+    />
+  </div>
+  <div
+    class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5"
   >
     <div
       style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -79,40 +153,33 @@ exports[`Application renders correctly 1`] = `
       />
     </div>
     <p
-      class="mb-16"
+      class="mb-16 text-grey-dark"
     >
       <span
-        class="italic text-3xl"
+        class="font-italic font-semibold text-3xl"
       >
         We are 
       </span>
-      <b
-        class="text-4xl"
+      <span
+        class="text-5xl font-mono font-semibold"
       >
         VEGAN HACKTIVISTS
-      </b>
+      </span>
     </p>
-    <p>
-      We're a group of passionate Vegan Activists that volunteer our time and skills towards 
+    <p
+      class="pb-5"
+    >
+      We're a diverse community of passionate vegan activists from all around the world, 
       <b>
-        vegan projects worth supporting.
+        volunteering our time and skills
       </b>
-       Every project we work on aims to help spread compassion through Veganism by supporting both vegans, non-vegans and activists in some way.
+       towards the animal rights movement. We build free technology with the goal of reducing or stopping the mass amounts of suffering caused by factory farming and other forms of animal exploitation.
     </p>
-    <br />
-    <p>
-      Every project we release is 
-      <b>
-        100% free to use for everyone.
-      </b>
-       We don't do premium versions, microtransactions, advertisements, or sell user data - ever.
-    </p>
-    <br />
     <p>
       <b>
         We do this for the animals
       </b>
-       - we do this because coding is our way of doing our part for activism. If you want to support us, please consider a small donation via our 
+       - we do this because coding is our way of doing our part for activism. If you believe in the work we do and want to support us, please consider a small donation via our 
       <span
         class="text-pink"
       >
@@ -127,7 +194,7 @@ exports[`Application renders correctly 1`] = `
         href="/mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green bg-grey-dark border-green text-white font-mono text-sm"
         >
           Our Mission
         </div>
@@ -138,26 +205,31 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey-light"
   >
     <div
-      class="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
+      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5"
     >
-      <br />
-      <br />
-      <p>
+      <p
+        class="text-grey-dark pb-5"
+      >
         <span
-          class="italic text-3xl"
+          class="font-italic font-semibold text-3xl"
         >
           Featured 
         </span>
         <b
-          class="text-4xl"
+          class="text-5xl font-mono"
         >
           PROJECTS
         </b>
       </p>
-      <br />
-      <br />
+      <p>
+        Every project we release is 
+        <b>
+          100% free for everyone
+        </b>
+        , we don’t do premium versions, advertisments, or sell user data what-so-ever.
+      </p>
       <div
-        class="grid md:grid-cols-4 md:gap-2 sm:grid-cols-2 sm:gap-2"
+        class="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16"
       >
         <div>
           <a
@@ -180,166 +252,13 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Activist Hub
-          </p>
-        </div>
-        <div>
-          <a
-            href="https://animalrebellion.org"
-          >
-            <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-            >
-              <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                />
-              </div>
-              <noscript />
-              <img
-                alt="Compassion, Creativity, Code"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </a>
-          <p>
-            Animal Rebellion
-          </p>
-        </div>
-        <div>
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-              />
-            </div>
-            <noscript />
-            <img
-              alt="Compassion, Creativity, Code"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
-          <p>
-            Animal Rights Map
-          </p>
-        </div>
-        <div>
-          <a
-            href="https://animalrightsmap.org"
-          >
-            <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-            >
-              <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                />
-              </div>
-              <noscript />
-              <img
-                alt="Compassion, Creativity, Code"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </a>
-          <p>
-            Daily Dozen
-          </p>
-        </div>
-        <div>
-          <a
-            href="https://dailynooch.org"
-          >
-            <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-            >
-              <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                />
-              </div>
-              <noscript />
-              <img
-                alt="Compassion, Creativity, Code"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </a>
-          <p>
-            Daily Nooch
-          </p>
-        </div>
-        <div>
-          <a
-            href="https://www.sehatianimalsanctuary.org"
-          >
-            <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-            >
-              <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                />
-              </div>
-              <noscript />
-              <img
-                alt="Compassion, Creativity, Code"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </a>
-          <p>
-            Sehati
-          </p>
         </div>
         <div>
           <a
@@ -362,15 +281,71 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Vegan Bootcamp
-          </p>
+        </div>
+        <div>
+          <a
+            href="https://animalrightsmap.org"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://5minutes5vegans.org"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </a>
         </div>
         <div>
           <a
@@ -393,32 +368,376 @@ exports[`Application renders correctly 1`] = `
               <noscript />
               <img
                 alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
           </a>
-          <p>
-            Vegan Cheat Sheet
-          </p>
+        </div>
+        <div>
+          <a
+            href="https://dailynooch.org"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://mydailydozen.org"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://VeganActivism.org"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Compassion, Creativity, Code"
+                class="rounded-2xl"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </a>
         </div>
       </div>
       <div
-        class="relative mx-auto mt-10 md:w-1/3"
+        class="relative mx-auto mt-10 md:w-1/3 pb-16"
       >
         <a
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-linear duration-500 hover:shadow-fill-green bg-grey-dark border-green text-white"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green bg-grey-dark border-green text-white font-mono text-sm"
           >
             See All Projects
           </div>
         </a>
       </div>
-      <br />
-      <br />
+    </div>
+  </div>
+  <div
+    class="bg-black"
+  >
+    <div
+      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12"
+    >
+      <p
+        class="mb-12 text-grey-dark pt-16"
+      >
+        <span
+          class="text-5xl font-mono text-white"
+        >
+          JOIN OUR TEAM
+        </span>
+      </p>
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+      <p
+        class="pb-5 mt-16 text-white"
+      >
+        Are you a developer, designer, writer, or other creative professional wanting to use skills for the animals? We're always looking for more vegan activist volunteers to join our team! If you're interested and have the time to spare, click to see our positions.
+      </p>
+      <div
+        class="flex justify-center flex-wrap"
+      >
+        <a
+          href="/team"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white m-5 font-mono text-sm"
+          >
+            Meet the Team
+          </div>
+        </a>
+        <a
+          href="/join"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white m-5 font-mono text-sm"
+          >
+            Apply to Join
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16"
+  >
+    <p
+      class="text-grey-dark pb-5"
+    >
+      <span
+        class="font-italic font-semibold text-3xl"
+      >
+        On the 
+      </span>
+      <b
+        class="text-5xl font-mono"
+      >
+        BLOG
+      </b>
+    </p>
+    <p
+      class="pb-16"
+    >
+      We regularly post project updates, announcements, interviews, and other fun stuff here! Thanks for reading!
+    </p>
+  </div>
+  <div
+    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16"
+  >
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          class="w-full bg-cover"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey"
+  >
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+    <div
+      class="overflow-hidden w-full"
+    >
+      <div
+        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+      >
+        <p
+          class="font-semibold text-2xl"
+        >
+          Developers! Join Our New Open Source Community - VH: Playground
+        </p>
+      </div>
+      <a
+        href="/"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green bg-green-light border-green text-white"
+        >
+          Read More
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    class="bg-grey"
+  >
+    <div
+      class="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20"
+    >
+      <a
+        href="/projects"
+      >
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono text-sm font-bold"
+        >
+          SEE OUR POSTS
+        </div>
+      </a>
     </div>
   </div>
 </DocumentFragment>
