@@ -202,7 +202,23 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="bg-grey-light"
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-gray-background w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-gray-background w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 top-0 bg-white w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
+    class="bg-grey-background"
   >
     <div
       class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5"
@@ -480,6 +496,19 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute left-0 top-0 bg-gray w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-gray-background w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-32 bottom-0 bg-gray-lighter w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
     class="bg-black"
   >
     <div
@@ -544,6 +573,16 @@ exports[`Application renders correctly 1`] = `
         </a>
       </div>
     </div>
+  </div>
+  <div
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute right-0 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 top-0 bg-gray-lighter w-16 h-16 opacity-100"
+    />
   </div>
   <div
     class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16"
@@ -652,6 +691,13 @@ exports[`Application renders correctly 1`] = `
         />
       </div>
     </div>
+  </div>
+  <div
+    class="relative overflow-visible hidden md:block"
+  >
+    <div
+      class="absolute right-0 bottom-0 bg-gray-lighter w-16 h-16 opacity-100"
+    />
   </div>
   <div
     class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey"
