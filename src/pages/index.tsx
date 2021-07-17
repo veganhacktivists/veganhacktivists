@@ -32,6 +32,28 @@ const HERO_DECORATION_SQUARES = [
   { color: 'red', size: 32, right: 32, top: 0 },
 ];
 
+const PROJECT_DECORATION_SQUARES = [
+  { color: 'gray-background', size: 16, left: 0, bottom: 0 },
+  { color: 'white', size: 16, left: 32, top: 0 },
+  { color: 'gray-background', size: 16, right: 0, bottom: 0 },
+  { color: 'white', size: 16, right: 0, top: 0 },
+];
+
+const JOIN_DECORATION_SQUARES = [
+  { color: 'gray', size: 32, left: 0, top: 0 },
+  { color: 'gray-background', size: 16, left: 32, top: 0 },
+  { color: 'gray-lighter', size: 16, left: 32, bottom: 0 },
+];
+
+const BLOG_DECORATION_SQUARES = [
+  { color: 'white', size: 16, right: 0, bottom: 0 },
+  { color: 'gray-lighter', size: 16, right: 0, top: 0 },
+];
+
+const BLOG_INNER_DECORATION_SQUARES = [
+  { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
+];
+
 const Home: React.FC = () => {
   return (
     <>
@@ -99,7 +121,11 @@ const Home: React.FC = () => {
           </DarkButton>
         </div>
       </div>
-      <div className="bg-grey-light">
+      <SquareField
+        squares={PROJECT_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
+      <div className="bg-grey-background">
         <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
           <p className="text-grey-dark pb-5">
             <span className="font-italic font-semibold text-3xl">
@@ -208,7 +234,15 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+      <SquareField
+        squares={JOIN_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <JoinTheTeam />
+      <SquareField
+        squares={BLOG_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
         <p className="text-grey-dark pb-5">
           <span className="font-italic font-semibold text-3xl">On the </span>
@@ -248,6 +282,10 @@ const Home: React.FC = () => {
           />
         </div>
       </div>
+      <SquareField
+        squares={BLOG_INNER_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey">
         <div className="overflow-hidden w-full">
           <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
