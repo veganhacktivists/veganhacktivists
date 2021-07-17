@@ -7,6 +7,7 @@ import heroTagline from '../../public/images/VH-projects-hero-text.png';
 import activistHubCover from '../../public/images/ActivistHub.png';
 import sehatiSanctuaryCover from '../../public/images/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import SquareField from '../components/decoration/squares';
 
 interface ProjectProps {
   cover: StaticImageData;
@@ -82,6 +83,21 @@ const projects = [
   },
 ];
 
+const HERO_DECORATION_SQUARES = [
+  { color: 'white', size: 16, left: 0, bottom: 0 },
+  { color: 'orange', size: 16, left: 0, top: 0 },
+  { color: 'magenta', size: 32, left: 16, bottom: 0 },
+  { color: 'yellow', size: 32, right: 0, top: -16 },
+  { color: 'yellow_orange', size: 16, right: 32, bottom: 16 },
+  { color: 'white', size: 16, right: 32, bottom: 0 },
+];
+
+const JOIN_DECORATION_SQUARES = [
+  { color: 'white', size: 16, left: 0, top: 0 },
+  { color: 'gray-lighter', size: 16, left: 0, bottom: 0 },
+  { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
+];
+
 const Projects: React.FC = () => (
   <div>
     <Hero
@@ -100,6 +116,10 @@ const Projects: React.FC = () => (
         />
       </div>
     </Hero>
+    <SquareField
+      squares={HERO_DECORATION_SQUARES}
+      className="hidden md:block"
+    />
     <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
       <p className="mb-16">
         <span className="font-italic text-3xl">Our </span>
@@ -128,6 +148,10 @@ const Projects: React.FC = () => (
         </Project>
       ))}
     </div>
+    <SquareField
+      squares={JOIN_DECORATION_SQUARES}
+      className="hidden md:block"
+    />
     <JoinTheTeam />
   </div>
 );
