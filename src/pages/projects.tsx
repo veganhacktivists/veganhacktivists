@@ -8,6 +8,7 @@ import activistHubCover from '../../public/images/ActivistHub.png';
 import sehatiSanctuaryCover from '../../public/images/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
+import Head from 'next/head';
 
 interface ProjectProps {
   cover: StaticImageData;
@@ -99,61 +100,66 @@ const JOIN_DECORATION_SQUARES = [
 ];
 
 const Projects: React.FC = () => (
-  <div>
-    <Hero
-      imageBackground={heroBackground.src}
-      alignment="left"
-      classNameMapping={{
-        container: 'bg-center',
-      }}
-    >
-      <div className="p-16">
-        <Image
-          src={heroTagline.src}
-          width={heroTagline.width}
-          height={heroTagline.height}
-          alt="Building projects with impact"
-        />
+  <>
+    <Head>
+      <title>Projects | Vegan Hacktivists</title>
+    </Head>
+    <div>
+      <Hero
+        imageBackground={heroBackground.src}
+        alignment="left"
+        classNameMapping={{
+          container: 'bg-center',
+        }}
+      >
+        <div className="p-16">
+          <Image
+            src={heroTagline.src}
+            width={heroTagline.width}
+            height={heroTagline.height}
+            alt="Building projects with impact"
+          />
+        </div>
+      </Hero>
+      <SquareField
+        squares={HERO_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
+      <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+        <h1 className="mb-16">
+          <span className="font-italic text-3xl">Our </span>
+          <b className="font-mono text-5xl uppercase">projects</b>
+        </h1>
+        <p>
+          We&apos;re constantly working on new projects every month, whether
+          they&apos;re ideas of our own or supporting organizations and
+          activists that reach out to us. Below is a list of our work, and which
+          of our teams worked on it.
+        </p>
       </div>
-    </Hero>
-    <SquareField
-      squares={HERO_DECORATION_SQUARES}
-      className="hidden md:block"
-    />
-    <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
-      <h1 className="mb-16">
-        <span className="font-italic text-3xl">Our </span>
-        <b className="font-mono text-5xl uppercase">projects</b>
-      </h1>
-      <p>
-        We&apos;re constantly working on new projects every month, whether
-        they&apos;re ideas of our own or supporting organizations and activists
-        that reach out to us. Below is a list of our work, and which of our
-        teams worked on it.
-      </p>
+      <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
+        <p className="space-x-4">
+          <WhiteButton className="w-40 uppercase" active>
+            View all
+          </WhiteButton>
+          <WhiteButton className="w-40">2021</WhiteButton>
+          <WhiteButton className="w-40">2020</WhiteButton>
+          <WhiteButton className="w-40">2019</WhiteButton>
+          <WhiteButton className="w-40">2018</WhiteButton>
+        </p>
+        {projects.map(({ content, ...project }) => (
+          <Project key={project.title} {...project}>
+            {content}
+          </Project>
+        ))}
+      </div>
+      <SquareField
+        squares={JOIN_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
+      <JoinTheTeam />
     </div>
-    <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
-      <p className="space-x-4">
-        <WhiteButton className="w-40 uppercase" active>
-          View all
-        </WhiteButton>
-        <WhiteButton className="w-40">2021</WhiteButton>
-        <WhiteButton className="w-40">2020</WhiteButton>
-        <WhiteButton className="w-40">2019</WhiteButton>
-        <WhiteButton className="w-40">2018</WhiteButton>
-      </p>
-      {projects.map(({ content, ...project }) => (
-        <Project key={project.title} {...project}>
-          {content}
-        </Project>
-      ))}
-    </div>
-    <SquareField
-      squares={JOIN_DECORATION_SQUARES}
-      className="hidden md:block"
-    />
-    <JoinTheTeam />
-  </div>
+  </>
 );
 
 export default Projects;
