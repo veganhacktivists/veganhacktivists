@@ -107,7 +107,7 @@ const Projects: React.FC = () => (
         container: 'bg-center',
       }}
     >
-      <div>
+      <div className="p-16">
         <Image
           src={heroTagline.src}
           width={heroTagline.width}
@@ -121,10 +121,10 @@ const Projects: React.FC = () => (
       className="hidden md:block"
     />
     <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
-      <p className="mb-16">
+      <h1 className="mb-16">
         <span className="font-italic text-3xl">Our </span>
         <b className="font-mono text-5xl uppercase">projects</b>
-      </p>
+      </h1>
       <p>
         We&apos;re constantly working on new projects every month, whether
         they&apos;re ideas of our own or supporting organizations and activists
