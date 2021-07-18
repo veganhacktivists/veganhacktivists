@@ -21,7 +21,9 @@ exports[`should render correctly 1`] = `
       <div
         class="flex flex-col justify-center w-1/2 z-10"
       >
-        <div>
+        <div
+          class="p-16"
+        >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
           >
@@ -108,7 +110,7 @@ exports[`should render correctly 1`] = `
     <div
       class="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl"
     >
-      <p
+      <h1
         class="mb-16"
       >
         <span
@@ -121,7 +123,7 @@ exports[`should render correctly 1`] = `
         >
           projects
         </b>
-      </p>
+      </h1>
       <p>
         We're constantly working on new projects every month, whether they're ideas of our own or supporting organizations and activists that reach out to us. Below is a list of our work, and which of our teams worked on it.
       </p>
