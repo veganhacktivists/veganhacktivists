@@ -112,8 +112,15 @@ const Home: React.FC = () => {
           <b>We do this for the animals</b> - we do this because coding is our
           way of doing our part for activism. If you believe in the work we do
           and want to support us, please consider a small donation via our{' '}
-          <span className="text-pink">Patreon!</span> It means the world to us
-          and the animals to have your support.
+          <a
+            className="text-pink"
+            href="https://www.patreon.com/veganhacktivists"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Patreon
+          </a>
+          ! It means the world to us and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
           <DarkButton href="/about/our-mission" className="font-mono text-sm">

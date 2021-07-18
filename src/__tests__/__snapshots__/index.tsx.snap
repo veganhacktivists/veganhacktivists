@@ -180,12 +180,15 @@ exports[`Application renders correctly 1`] = `
         We do this for the animals
       </b>
        - we do this because coding is our way of doing our part for activism. If you believe in the work we do and want to support us, please consider a small donation via our 
-      <span
+      <a
         class="text-pink"
+        href="https://www.patreon.com/veganhacktivists"
+        rel="noreferrer"
+        target="_blank"
       >
-        Patreon!
-      </span>
-       It means the world to us and the animals to have your support.
+        Patreon
+      </a>
+      ! It means the world to us and the animals to have your support.
     </p>
     <div
       class="relative mx-auto mt-10 md:w-1/3"
