@@ -116,7 +116,7 @@ const Home: React.FC = () => {
           and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/mission" className="font-mono text-sm">
+          <DarkButton href="/about/our-mission" className="font-mono text-sm">
             Our Mission
           </DarkButton>
         </div>
