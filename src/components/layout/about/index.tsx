@@ -91,6 +91,7 @@ export const AboutHero: React.FC = () => {
             width={heroTagline.width * 0.5}
             height={heroTagline.height * 0.5}
             alt="Data-Driven Activism"
+            priority
           />
         </div>
       </Hero>
