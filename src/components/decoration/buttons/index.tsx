@@ -53,7 +53,7 @@ const LightButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
-    primary ? 'border-strawberry' : '',
+    primary ? 'border-pink' : '',
     className
   );
 
@@ -73,7 +73,7 @@ const DarkButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     active
-      ? 'hover:shadow-fill-strawberry bg-fuchsia border-pink'
+      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -95,7 +95,7 @@ const GreenButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     primary
-      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
       : 'hover:shadow-fill-green bg-green-light border-green',
     'text-white',
     className
