@@ -181,7 +181,7 @@ exports[`Application renders correctly 1`] = `
       </b>
        - we do this because coding is our way of doing our part for activism. If you believe in the work we do and want to support us, please consider a small donation via our 
       <a
-        class="text-pink"
+        class="text-pink font-semibold"
         href="https://www.patreon.com/veganhacktivists"
         rel="noreferrer"
         target="_blank"

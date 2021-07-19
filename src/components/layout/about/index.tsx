@@ -46,7 +46,7 @@ const NavButton: React.FC<{ href: string }> = ({ href, children }) => {
 
   return (
     <DarkButton
-      primary={pathname === href}
+      active={pathname === href}
       href={href}
       className="m-5 font-mono text-sm"
       linkProps={{ scroll: false }}
