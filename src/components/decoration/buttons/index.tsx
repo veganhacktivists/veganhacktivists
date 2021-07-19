@@ -66,14 +66,14 @@ const LightButton: React.FC<ButtonProps> = ({
 
 const DarkButton: React.FC<ButtonProps> = ({
   children,
-  primary,
+  active,
   className = '',
   ...props
 }) => {
   const classes = classNames(
     baseButtonClasses,
-    primary
-      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+    active
+      ? 'hover:shadow-fill-strawberry bg-fuchsia border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
