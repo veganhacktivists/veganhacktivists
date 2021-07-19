@@ -61,6 +61,7 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <Hero
+        main
         imageBackground={heroBackground}
         alignment="right"
         classNameMapping={{

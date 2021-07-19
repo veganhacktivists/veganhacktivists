@@ -81,6 +81,10 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
+      height: {
+        'screen-header': 'calc(100vh - 4rem)',
+        'screen/2': '50vh',
+      },
     },
     colors,
     fontFamily: {
