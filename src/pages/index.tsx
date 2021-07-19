@@ -113,7 +113,7 @@ const Home: React.FC = () => {
           way of doing our part for activism. If you believe in the work we do
           and want to support us, please consider a small donation via our{' '}
           <a
-            className="text-pink"
+            className="text-pink font-semibold"
             href="https://www.patreon.com/veganhacktivists"
             target="_blank"
             rel="noreferrer"
