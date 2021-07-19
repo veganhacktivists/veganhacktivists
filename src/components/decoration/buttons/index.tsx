@@ -123,7 +123,9 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <a {...props}>{children}</a>
+      <a {...props} target="_blank" rel="noreferrer">
+        {children}
+      </a>
     </BaseButton>
   );
 };
