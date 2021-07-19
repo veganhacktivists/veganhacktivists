@@ -118,6 +118,7 @@ const Projects: React.FC = () => (
             width={heroTagline.width}
             height={heroTagline.height}
             alt="Building projects with impact"
+            priority
           />
         </div>
       </Hero>
