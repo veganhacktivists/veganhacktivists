@@ -21,8 +21,8 @@ const LeftSide: React.FC = () => {
 
   return (
     <div className={classes}>
-      <Link href="/" passHref>
-        <a className="">
+      <Link href="/">
+        <a>
           <Image
             src={logo.src}
             alt="Vegan Hacktivists Logo"
@@ -107,7 +107,7 @@ const RightSide: React.FC = () => {
 
   return (
     <>
-      <div className="block xl:hidden text-white text-right p-5">
+      <div className="block xl:hidden text-white text-right p-5 bg-black">
         <FontAwesomeIcon
           icon={faBars}
           size="2x"
@@ -123,7 +123,7 @@ const RightSide: React.FC = () => {
           )}
         >
           {menuOpen && (
-            <div className="bg-black absolute right-10 flex flex-col">
+            <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
               <NavbarItems />
             </div>
           )}
@@ -138,7 +138,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="flex z-20 bg-black">
+    <nav className="flex z-20">
       <LeftSide />
       <RightSide />
     </nav>
