@@ -82,7 +82,9 @@ module.exports = {
         '-10': '-10',
       },
       height: {
-        'screen-header': 'calc(100vh - 4rem)',
+        'screen-header': '93vh',
+        'screen-header-small': '85vh',
+        'screen-60%': '60vh',
         'screen/2': '50vh',
       },
     },
