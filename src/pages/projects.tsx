@@ -10,42 +10,6 @@ import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
 import Head from 'next/head';
 
-interface ProjectProps {
-  cover: StaticImageData;
-  title: string;
-  date: string;
-  team: string;
-  href: string;
-  siteName: string;
-}
-
-const Project: React.FC<ProjectProps> = ({
-  cover,
-  title,
-  date,
-  team,
-  children,
-  href,
-  siteName,
-}) => (
-  <div className="flex space-x-8">
-    <Image src={cover} alt={title} width={500} />
-    <div className="text-left" style={{ width: 700 }}>
-      <h1 className="text-4xl font-bold">{title}</h1>
-      <p className="my-3">
-        <span className="font-bold text-grey">{date}</span> -{' '}
-        <span className="uppercase font-bold">{team}</span>
-      </p>
-      {children}
-      <div className="mt-10 w-min">
-        <DarkButton href={href} className="font-mono">
-          {siteName}
-        </DarkButton>
-      </div>
-    </div>
-  </div>
-);
-
 const projects = [
   {
     title: 'Activist Hub',
@@ -148,11 +112,30 @@ const Projects: React.FC = () => (
           <WhiteButton className="w-40">2019</WhiteButton>
           <WhiteButton className="w-40">2018</WhiteButton>
         </p>
-        {projects.map(({ content, ...project }) => (
-          <Project key={project.title} {...project}>
-            {content}
-          </Project>
-        ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
+          {projects.map(
+            ({ title, content, siteName, href, date, cover, team }) => (
+              <div key={title}>
+                <div>
+                  <Image src={cover} alt={title} />
+                </div>
+                <div className="col-span-2 text-left">
+                  <h1 className="text-4xl font-bold">{title}</h1>
+                  <p className="my-3">
+                    <span className="font-bold text-grey">{date}</span> -{' '}
+                    <span className="uppercase font-bold">{team}</span>
+                  </p>
+                  <div>{content}</div>
+                  <div className="mt-10 w-min">
+                    <DarkButton href={href} className="font-mono">
+                      {siteName}
+                    </DarkButton>
+                  </div>
+                </div>
+              </div>
+            )
+          )}
+        </div>
       </div>
       <SquareField
         squares={JOIN_DECORATION_SQUARES}
