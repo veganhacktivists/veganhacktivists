@@ -10,6 +10,11 @@ module.exports = {
         destination: '/about/our-mission',
         permanent: true,
       },
+      {
+        source: '/people',
+        destination: '/people/team',
+        permanent: true,
+      },
     ];
   },
 };

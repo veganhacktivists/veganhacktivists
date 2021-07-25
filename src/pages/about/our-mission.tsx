@@ -1,10 +1,6 @@
 import Head from 'next/head';
-import {
-  AboutButtons,
-  AboutHero,
-  SubSection,
-  FirstSubSection,
-} from 'components/layout/about';
+import { AboutButtons, AboutHero } from 'components/layout/about';
+import { SubSection, FirstSubSection } from 'components/decoration/text-blocks';
 
 const OurMission: React.FC = () => {
   return (

@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import type { LinkProps } from 'next/link';
 import Link from 'next/link';
-import type { AriaAttributes } from 'react';
+import type { AriaAttributes, ButtonHTMLAttributes } from 'react';
+import { useRouter } from 'next/router';
 
-export interface ButtonProps extends AriaAttributes {
+export interface ButtonProps
+  extends AriaAttributes,
+    ButtonHTMLAttributes<unknown> {
   primary?: boolean;
   href?: string;
   className?: string;
@@ -18,7 +21,12 @@ const baseButtonClasses = classNames(
   'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer'
 );
 
-const BaseButton: React.FC<ButtonProps> = ({ href, children, linkProps }) => {
+const BaseButton: React.FC<ButtonProps> = ({
+  href,
+  children,
+  linkProps,
+  ...props
+}) => {
   return (
     <>
       {/* it's an external link */}
@@ -34,7 +42,11 @@ const BaseButton: React.FC<ButtonProps> = ({ href, children, linkProps }) => {
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && <button type="submit">{children}</button>}
+      {!href && (
+        <button {...props} type="submit">
+          {children}
+        </button>
+      )}
     </>
   );
 };
@@ -50,6 +62,7 @@ const LightButton: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
+  console.log(className);
   const classes = classNames(
     baseButtonClasses,
     'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
@@ -57,6 +70,7 @@ const LightButton: React.FC<ButtonProps> = ({
     className
   );
 
+  console.log(classes);
   return (
     <BaseButton {...props}>
       <div className={classes}>{children}</div>
@@ -73,7 +87,7 @@ const DarkButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     primary
-      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      ? 'hover:shadow-fill-red bg-fuchsia border-red'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -95,7 +109,7 @@ const GreenButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     primary
-      ? 'hover:shadow-fill-strawberry bg-fuchsia border-strawberry'
+      ? 'hover:shadow-fill-red bg-fuchsia border-red'
       : 'hover:shadow-fill-green bg-green-light border-green',
     'text-white',
     className
@@ -180,6 +194,28 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 };
 
+const NavButton: React.FC<ButtonProps & { href: string }> = ({
+  href,
+  className = '',
+  children,
+}) => {
+  const { pathname } = useRouter();
+  const atLocation = pathname === href;
+
+  const classes = classNames('m-5 font-mono text-sm', className);
+
+  return (
+    <DarkButton
+      primary={atLocation}
+      href={href}
+      className={classes}
+      linkProps={{ scroll: false }}
+    >
+      {children}
+    </DarkButton>
+  );
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -189,4 +225,5 @@ export {
   DarkButton,
   WhiteButton,
   GreenButton,
+  NavButton,
 };

@@ -554,7 +554,7 @@ exports[`Application renders correctly 1`] = `
         class="flex justify-center flex-wrap"
       >
         <a
-          href="/team"
+          href="/people/team"
         >
           <div
             class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white m-5 font-mono text-sm"
