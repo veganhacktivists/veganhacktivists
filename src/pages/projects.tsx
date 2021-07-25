@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
@@ -15,6 +15,7 @@ const projects = [
     title: 'Activist Hub',
     cover: activistHubCover,
     date: 'APR 2021',
+    year: 2021,
     team: 'Team Watermelon',
     content: (
       <p>
@@ -33,6 +34,7 @@ const projects = [
     title: 'Sehati Sanctuary',
     cover: sehatiSanctuaryCover,
     date: 'MAR 2021',
+    year: 2021,
     team: 'Team Eggplant',
     content: (
       <p>
@@ -63,87 +65,111 @@ const JOIN_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const Projects: React.FC = () => (
-  <>
-    <Head>
-      <title>Projects | Vegan Hacktivists</title>
-    </Head>
-    <div>
-      <Hero
-        imageBackground={heroBackground.src}
-        alignment="left"
-        classNameMapping={{
-          container: 'bg-center',
-        }}
-      >
-        <div>
-          <Image
-            src={heroTagline.src}
-            width={heroTagline.width * 0.7}
-            height={heroTagline.height * 0.7}
-            alt="Building projects with impact"
-            priority
-          />
-        </div>
-      </Hero>
-      <SquareField
-        squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-      <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
-        <h1 className="mb-16">
-          <span className="font-italic text-3xl">Our </span>
-          <b className="font-mono text-5xl uppercase">projects</b>
-        </h1>
-        <p>
-          We&apos;re constantly working on new projects every month, whether
-          they&apos;re ideas of our own or supporting organizations and
-          activists that reach out to us. Below is a list of our work, and which
-          of our teams worked on it.
-        </p>
-      </div>
-      <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
-        <p className="space-x-4">
-          <WhiteButton className="w-40 uppercase" active>
-            View all
-          </WhiteButton>
-          <WhiteButton className="w-40">2021</WhiteButton>
-          <WhiteButton className="w-40">2020</WhiteButton>
-          <WhiteButton className="w-40">2019</WhiteButton>
-          <WhiteButton className="w-40">2018</WhiteButton>
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
-          {projects.map(
-            ({ title, content, siteName, href, date, cover, team }) => (
-              <div key={title}>
-                <div>
-                  <Image src={cover} alt={title} />
-                </div>
-                <div className="col-span-2 text-left">
-                  <h1 className="text-4xl font-bold">{title}</h1>
-                  <p className="my-3">
-                    <span className="font-bold text-grey">{date}</span> -{' '}
-                    <span className="uppercase font-bold">{team}</span>
-                  </p>
-                  <div>{content}</div>
-                  <div className="mt-10 w-min">
-                    <DarkButton href={href} className="font-mono">
-                      {siteName}
-                    </DarkButton>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
-        </div>
-      </div>
-      <SquareField
-        squares={JOIN_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-      <JoinTheTeam />
-    </div>
-  </>
+const projectsYears = Array.from(
+  { length: new Date().getFullYear() - 2017 },
+  (_, index) => 2018 + index
 );
+
+const Projects: React.FC = () => {
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+
+  const projectsForSelectedYear = selectedYear
+    ? projects.filter(({ year }) => year === selectedYear)
+    : projects;
+
+  return (
+    <>
+      <Head>
+        <title>Projects | Vegan Hacktivists</title>
+      </Head>
+      <div>
+        <Hero
+          imageBackground={heroBackground.src}
+          alignment="left"
+          classNameMapping={{
+            container: 'bg-center',
+          }}
+          main
+        >
+          <div>
+            <Image
+              src={heroTagline.src}
+              width={heroTagline.width * 0.7}
+              height={heroTagline.height * 0.7}
+              alt="Building projects with impact"
+              priority
+            />
+          </div>
+        </Hero>
+        <SquareField
+          squares={HERO_DECORATION_SQUARES}
+          className="hidden md:block"
+        />
+        <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase">projects</b>
+          </h1>
+          <p>
+            We&apos;re constantly working on new projects every month, whether
+            they&apos;re ideas of our own or supporting organizations and
+            activists that reach out to us. Below is a list of our work, and
+            which of our teams worked on it.
+          </p>
+        </div>
+        <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
+          <p className="space-x-4">
+            <WhiteButton
+              className="w-40 uppercase"
+              active={selectedYear === null}
+              onClick={() => setSelectedYear(null)}
+            >
+              View all
+            </WhiteButton>
+            {projectsYears.map((year) => (
+              <WhiteButton
+                key={year}
+                className="w-40"
+                onClick={() => setSelectedYear(year)}
+                active={selectedYear === year}
+              >
+                {year}
+              </WhiteButton>
+            ))}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
+            {projectsForSelectedYear.map(
+              ({ title, content, siteName, href, date, cover, team }) => (
+                <Fragment key={title}>
+                  <div>
+                    <Image src={cover} alt={title} />
+                  </div>
+                  <div className="col-span-2 text-left">
+                    <h1 className="text-4xl font-bold">{title}</h1>
+                    <p className="my-3">
+                      <span className="font-bold text-grey">{date}</span> -{' '}
+                      <span className="uppercase font-bold">{team}</span>
+                    </p>
+                    <div>{content}</div>
+                    <div className="mt-10 w-min">
+                      <DarkButton href={href} className="font-mono">
+                        {siteName}
+                      </DarkButton>
+                    </div>
+                  </div>
+                </Fragment>
+              )
+            )}
+          </div>
+        </div>
+        <SquareField
+          squares={JOIN_DECORATION_SQUARES}
+          className="hidden md:block"
+        />
+        <JoinTheTeam />
+      </div>
+    </>
+  );
+};
 
 export default Projects;
