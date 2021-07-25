@@ -43,6 +43,7 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
+    'md:py-20',
     classNameMapping?.content
   );
 
