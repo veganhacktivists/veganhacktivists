@@ -1,7 +1,6 @@
-import type { Entry } from 'contentful';
+import type { CONTENT_TYPE } from '../../@types/generated/contentful';
+import type { Entry, EntryCollection } from 'contentful';
 import { createClient } from 'contentful';
-
-type AvaliableContentTypes = 'team' | 'teamMember';
 
 const client = createClient({
   space: process.env['CF_SPACE_ID'] || '',
@@ -18,18 +17,20 @@ export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
   return await client.getEntry(id);
 };
 
-export const getAllOfType: (
-  pageContentType: AvaliableContentTypes
-) => Promise<unknown[]> = async (pageContentType) => {
-  const entries = await client.getEntries({
-    content_type: pageContentType,
+export const getContents = async <T>(
+  contentType: CONTENT_TYPE,
+  queries?: Record<string, unknown>
+): Promise<Entry<T>[]> => {
+  const response = await client.getEntries({
+    content_type: contentType,
+    ...queries,
   });
-
-  return entries.items;
+  return response.items as Entry<T>[];
+  // return response.items.map((entry: Entry<unknown>) => entry.fields as T);
 };
 
 export const getAllIdsOfType: (
-  pageContentType: AvaliableContentTypes
+  pageContentType: CONTENT_TYPE
 ) => Promise<Entry<unknown>['sys']['id'][]> = async (pageContentType) => {
   const entries = await client.getEntries({
     content_type: pageContentType,
