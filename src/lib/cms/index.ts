@@ -1,5 +1,5 @@
 import type { CONTENT_TYPE } from '../../@types/generated/contentful';
-import type { Entry, EntryCollection } from 'contentful';
+import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
 const client = createClient({
@@ -26,6 +26,8 @@ export const getContents = async <T>(
     ...queries,
   });
   return response.items as Entry<T>[];
+
+  // I'd rather return the metadata too because id and such seems useful...
   // return response.items.map((entry: Entry<unknown>) => entry.fields as T);
 };
 
