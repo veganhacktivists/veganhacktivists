@@ -23,7 +23,6 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const containerClasses = classNames(
     'relative',
-    'md:-top-20 md:-mb-20',
     'p-10 md:p-32',
     'bg-scroll',
     'bg-cover',
@@ -33,6 +32,7 @@ const Hero: React.FC<HeroProps> = ({
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
       'h-screen-header-small xl:h-screen-header': main,
+      'md:-top-20 md:-mb-20': main,
       'xl:h-screen-60%': !main,
     },
     classNameMapping?.container
@@ -43,7 +43,6 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
-    'md:py-20',
     classNameMapping?.content
   );
 
