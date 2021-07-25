@@ -3,7 +3,7 @@
 exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end h-screen-header-small xl:h-screen-header bg-center"
+    class="relative md:-top-20 md:-mb-20 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end h-screen-header-small xl:h-screen-header bg-center"
   >
     <div
       style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"

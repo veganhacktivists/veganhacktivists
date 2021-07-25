@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60% bg-center"
+      class="relative md:-top-20 md:-mb-20 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60% bg-center"
     >
       <div
         style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
@@ -22,7 +22,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
-          class="p-16"
+          class="md:p-12 md:pt-24"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
