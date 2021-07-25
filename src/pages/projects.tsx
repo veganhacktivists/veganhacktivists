@@ -112,11 +112,11 @@ const Projects: React.FC = () => (
           container: 'bg-center',
         }}
       >
-        <div className="p-16">
+        <div>
           <Image
             src={heroTagline.src}
-            width={heroTagline.width}
-            height={heroTagline.height}
+            width={heroTagline.width * 0.7}
+            height={heroTagline.height * 0.7}
             alt="Building projects with impact"
             priority
           />
