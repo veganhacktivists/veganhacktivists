@@ -17,7 +17,7 @@ on:
 
 env:
   REGISTRY: ${{ secrets.PRIVATE_REGISTRY }}
-  IMAGE_NAME: 'vh-site-stg'
+  IMAGE_NAME: ${{ github.event.repository.name }}-stg
   HUSKY_SKIP_INSTALL: 1
 
 jobs:
