@@ -107,7 +107,7 @@ const RightSide: React.FC = () => {
 
   return (
     <>
-      <div className="block xl:hidden text-white text-right p-5 bg-black">
+      <div className="block xl:hidden text-white text-right p-5 bg-black flex-1">
         <FontAwesomeIcon
           icon={faBars}
           size="2x"
@@ -138,7 +138,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="flex z-20">
+    <nav className="flex z-20 w-full">
       <LeftSide />
       <RightSide />
     </nav>
