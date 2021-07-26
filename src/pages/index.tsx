@@ -1,13 +1,13 @@
-import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import React from 'react';
+import blogCow from '../../public/images/Blog-cow.jpg';
 import activistHub from '../../public/images/projects/ActivistHub.png';
 import animalRightsMap from '../../public/images/projects/AnimalRightsMap.png';
-import blogCow from '../../public/images/Blog-cow.jpg';
 import DailyDozen from '../../public/images/projects/DailyDozen.png';
-import VeganActivism from '../../public/images/projects/VeganActivism.jpg';
 import dailyNooch from '../../public/images/projects/DailyNooch.png';
 import minutesvegans from '../../public/images/projects/minutesvegans.png';
+import VeganActivism from '../../public/images/projects/VeganActivism.jpg';
 import veganBootcamp from '../../public/images/projects/VeganBootcamp.png';
 import veganCheatSheet from '../../public/images/projects/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
@@ -325,6 +325,40 @@ const Home: React.FC = () => {
           <LightButton href="/projects" className="font-mono text-sm font-bold">
             SEE OUR POSTS
           </LightButton>
+        </div>
+      </div>
+      <div className="bg-grey space-y-0">
+        <div className="inline-block">
+          <div className="content-center mx-auto bg-white">
+            <div className="overflow-hidden w-full">
+              <Image
+                src={blogCow.src}
+                width={blogCow.width / 1.3}
+                height={blogCow.height / 2}
+                className="w-full bg-cover"
+                alt="Compassion, Creativity, Code"
+              />
+            </div>
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
+        </div>
+        <div className="inline-block">
+          <div className="content-center mx-auto bg-white">
+            <div className="overflow-hidden w-full">
+              <Image
+                src={blogCow.src}
+                width={blogCow.width / 1.3}
+                height={blogCow.height / 2}
+                className="w-full bg-cover"
+                alt="Compassion, Creativity, Code"
+              />
+            </div>
+            <p className="font-semibold text-2xl">
+              Developers! Join Our New Open Source Community - VH: Playground
+            </p>
+          </div>
         </div>
       </div>
     </>
