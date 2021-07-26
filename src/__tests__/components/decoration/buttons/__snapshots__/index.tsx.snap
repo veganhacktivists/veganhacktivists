@@ -2,11 +2,16 @@
 
 exports[`WhiteButton should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="border-2 border-gray-200 border-opacity-50 p-3"
+  <a
     href="https://example.org"
+    rel="noreferrer"
+    target="_blank"
   >
-    Foo
-  </div>
+    <div
+      class="border-2 border-gray-200 border-opacity-50 p-3"
+    >
+      Foo
+    </div>
+  </a>
 </DocumentFragment>
 `;
