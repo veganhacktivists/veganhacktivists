@@ -233,12 +233,17 @@ exports[`should render correctly 1`] = `
           <div
             class="mt-10 w-min"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+            <a
               href="https://activisthub.org"
+              rel="noreferrer"
+              target="_blank"
             >
-              ActivistHub.org
-            </div>
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+              >
+                ActivistHub.org
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -297,12 +302,17 @@ exports[`should render correctly 1`] = `
           <div
             class="mt-10 w-min"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+            <a
               href="https://sehatisanctuary.org"
+              rel="noreferrer"
+              target="_blank"
             >
-              SehatiSanctuary.org
-            </div>
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+              >
+                SehatiSanctuary.org
+              </div>
+            </a>
           </div>
         </div>
       </div>
