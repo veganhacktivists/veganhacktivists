@@ -13,7 +13,7 @@ const GrantsPollinationProject: React.FC = () => {
             alt="Logo of The Pollination Project"
           />
         </div>
-        <div className="flex-1 py-8 px-1 md:px-10 bg-gray-background text-center md:text-left text-2xl">
+        <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
             Important: Even if you qualify with us, you&apos;ll have to qualify
             with The Pollination Project too, who generously funds our grant
