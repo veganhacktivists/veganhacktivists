@@ -8,8 +8,8 @@ const colors = {
     DEFAULT: '#454545',
     dark: '#292929',
     darker: '#1D1D1D',
-    light: '#CACACA',
-    lighter: '#B4B4B4',
+    light: '#B4B4B4',
+    lighter: '#CACACA',
     background: '#E2E2E2',
   },
   // Colors
