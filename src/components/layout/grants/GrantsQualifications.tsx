@@ -62,15 +62,16 @@ const GrantsQualifications: React.FC = () => {
         </p>
         <p className="mt-12 text-2xl">
           <b>
-            If this sounds good, we&apos;d love to hear from you!
+            If this sounds good, we&apos;d love to hear from you!{' '}
             <a
               className="underline"
-              href="https://www.google.com"
-              target="_blank" rel="noreferrer"
+              href="https://www.google.com" // TODO
+              target="_blank"
+              rel="noreferrer"
             >
-              {' '}
-              Apply here.{' '}
+              Apply here
             </a>
+            .
           </b>
         </p>
       </div>
