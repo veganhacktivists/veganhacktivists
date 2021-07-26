@@ -28,10 +28,10 @@ const GrantsPollinationProject: React.FC = () => {
         </p>
         <p className="mt-4">Learn more about The Pollination Project here:</p>
         <LightButton
-          className="mt-6 font-mono text-md font-bold inline-block"
-          href="https://thepollinationproject.com"
+          className="mt-6 font-mono text-md font-bold inline-block uppercase"
+          href="https://thepollinationproject.org"
         >
-          THEPOLLINATIONPROJECT.COM
+          ThePollinationProject.org
         </LightButton>
       </div>
     </div>
