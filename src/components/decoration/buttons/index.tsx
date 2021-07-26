@@ -18,23 +18,32 @@ const baseButtonClasses = classNames(
   'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer'
 );
 
-const BaseButton: React.FC<ButtonProps> = ({ href, children, linkProps }) => {
+const BaseButton: React.FC<ButtonProps> = ({
+  href,
+  children,
+  linkProps,
+  ...props
+}) => {
   return (
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <Link {...linkProps} href={href} passHref>
+        <a href={href} target="_blank" rel="noreferrer" {...props}>
           {children}
-        </Link>
+        </a>
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href}>
+        <Link {...linkProps} href={href} {...props}>
           <a>{children}</a>
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && <button type="submit">{children}</button>}
+      {!href && (
+        <button type="submit" {...props}>
+          {children}
+        </button>
+      )}
     </>
   );
 };
@@ -121,13 +130,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 };
 
 const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return (
-    <BaseButton {...props}>
-      <a {...props} target="_blank" rel="noreferrer">
-        {children}
-      </a>
-    </BaseButton>
-  );
+  return <BaseButton {...props}>{children}</BaseButton>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
