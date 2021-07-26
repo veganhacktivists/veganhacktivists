@@ -35,7 +35,7 @@ const GrantsPerks: React.FC = () => {
       </h4>
       <p className="text-2xl mt-4 leading-loose">
         <div>
-          A 30 minute per month zoom call to help advise you and your team
+          A 30 minute per month zoom call to help advise you and your team.
         </div>
         <div>Advice includes technology, marketing, strategy and more.</div>
       </p>
