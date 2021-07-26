@@ -120,11 +120,9 @@ const GreenButton: React.FC<ButtonProps> = ({
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <a>
-        <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
-          {children}
-        </div>
-      </a>
+      <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
+        {children}
+      </div>
     </BaseButton>
   );
 };
