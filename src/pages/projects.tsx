@@ -123,6 +123,7 @@ const Projects: React.FC = () => {
             <WhiteButton
               className="w-40 uppercase"
               active={selectedYear === null}
+              type="button"
               onClick={() => setSelectedYear(null)}
             >
               View all
@@ -131,6 +132,7 @@ const Projects: React.FC = () => {
               <WhiteButton
                 key={year}
                 className="w-40"
+                type="button"
                 onClick={() => setSelectedYear(year)}
                 active={selectedYear === year}
               >

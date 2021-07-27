@@ -133,7 +133,7 @@ exports[`should render correctly 1`] = `
         class="space-x-4"
       >
         <button
-          type="submit"
+          type="button"
         >
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 bg-gray text-white w-40 uppercase"
@@ -142,7 +142,7 @@ exports[`should render correctly 1`] = `
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
@@ -151,7 +151,7 @@ exports[`should render correctly 1`] = `
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
@@ -160,7 +160,7 @@ exports[`should render correctly 1`] = `
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
@@ -169,7 +169,7 @@ exports[`should render correctly 1`] = `
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
