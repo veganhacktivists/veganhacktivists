@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-pig2-hero.jpg';
@@ -8,7 +9,7 @@ import activistHubCover from '../../public/images/projects/ActivistHub.png';
 import sehatiSanctuaryCover from '../../public/images/projects/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
-import Head from 'next/head';
+import SuggestAnIdea from '../components/layout/suggestAnIdea';
 
 const projects = [
   {
@@ -166,6 +167,7 @@ const Projects: React.FC = () => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
+        <SuggestAnIdea />
         <JoinTheTeam />
       </div>
     </>

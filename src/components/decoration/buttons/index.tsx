@@ -2,9 +2,9 @@ import React from 'react';
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import type { LinkProps } from 'next/link';
 import Link from 'next/link';
-import type { AriaAttributes } from 'react';
+import type { LinkProps } from 'next/link';
+import type { AriaAttributes, MouseEventHandler } from 'react';
 
 export interface ButtonProps extends AriaAttributes {
   primary?: boolean;
@@ -12,6 +12,8 @@ export interface ButtonProps extends AriaAttributes {
   className?: string;
   active?: boolean;
   linkProps?: Partial<LinkProps>;
+  onClick?: MouseEventHandler;
+  type?: 'submit' | 'reset' | 'button';
 }
 
 const baseButtonClasses = classNames(
@@ -22,6 +24,8 @@ const BaseButton: React.FC<ButtonProps> = ({
   href,
   children,
   linkProps,
+  onClick,
+  type = 'submit',
   ...props
 }) => {
   return (
@@ -40,7 +44,7 @@ const BaseButton: React.FC<ButtonProps> = ({
       )}
       {/* it's a submit button */}
       {!href && (
-        <button type="submit" {...props}>
+        <button onClick={onClick} type={type} {...props}>
           {children}
         </button>
       )}
