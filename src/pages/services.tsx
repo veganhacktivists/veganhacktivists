@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -96,13 +96,28 @@ const Service: React.FC<ServiceProps> = ({
     { 'min-height': '300px' }
   );
 
+  const [showAccent, setShowAccent] = useState<boolean>(false);
+
+  const accentClassnames = classNames('transition duration-150', {
+    'opacity-0': !showAccent,
+  });
+
   return (
     <div className={rootClassnames}>
-      <div className={iconWrapperClassnames}>
-        <Image src={icon} alt={title} />
-        {/* <SquareField
-          squares={[{ color: 'white', size: 16, left: 0, top: 0 }]}
-        /> */}
+      <div
+        className={iconWrapperClassnames}
+        onMouseEnter={() => setShowAccent(true)}
+        onMouseLeave={() => setShowAccent(false)}
+      >
+        <div className={accentClassnames}>
+          <SquareField
+            squares={[{ color: iconAccentColor, size: 16, left: 0, top: 0 }]}
+          />
+        </div>
+
+        <div className="p-10">
+          <Image src={icon} alt={title} />
+        </div>
       </div>
       <div className={contentWrapperClassnames}>
         <h1 className="text-4xl font-bold">{title}</h1>
