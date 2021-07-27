@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="relative md:-top-20 md:-mb-20 p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60% bg-center"
+      class="relative p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60% bg-center"
     >
       <div
         style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
