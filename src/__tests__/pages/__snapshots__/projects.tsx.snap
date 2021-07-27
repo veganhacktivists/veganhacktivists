@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="relative p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60% bg-center"
+      class="relative p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start h-screen-header-small xl:h-screen-header md:-top-20 md:-mb-20 bg-center"
     >
       <div
         style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
@@ -129,83 +129,84 @@ exports[`should render correctly 1`] = `
     <div
       class="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20"
     >
-      <p
-        class="space-x-4"
+      <div
+        class="flex flex-wrap place-content-center justify-center"
       >
         <button
-          type="submit"
+          type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 bg-gray text-white w-40 uppercase"
+            class="border-2 border-gray-200 border-opacity-50 p-3 bg-gray text-white w-40 uppercase flex-1 m-1"
           >
             View all
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2021
+            2018
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
-          >
-            2020
-          </div>
-        </button>
-        <button
-          type="submit"
-        >
-          <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
             2019
           </div>
         </button>
         <button
-          type="submit"
+          type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2018
+            2020
           </div>
         </button>
-      </p>
-      <div
-        class="flex space-x-8"
-      >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <button
+          type="button"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
+            2021
+          </div>
+        </button>
+      </div>
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4"
+      >
+        <div>
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
             <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              alt="Activist Hub"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
-          <noscript />
-          <img
-            alt="Activist Hub"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
         </div>
         <div
-          class="text-left"
-          style="width: 700px;"
+          class="col-span-2 text-left"
         >
           <h1
             class="text-4xl font-bold"
@@ -227,9 +228,11 @@ exports[`should render correctly 1`] = `
               Team Watermelon
             </span>
           </p>
-          <p>
-            The days of wondering whether or not our activism is effective are over. Activist Hub is the world's first street outreach dashboard that provides volunteers with the ability to monitor and understand their effectiveness through real data and analytics (DnA). Personal and group results will help everyone interested in making informed and strategic decisions for the animals!
-          </p>
+          <div>
+            <p>
+              The days of wondering whether or not our activism is effective are over. Activist Hub is the world's first street outreach dashboard that provides volunteers with the ability to monitor and understand their effectiveness through real data and analytics (DnA). Personal and group results will help everyone interested in making informed and strategic decisions for the animals!
+            </p>
+          </div>
           <div
             class="mt-10 w-min"
           >
@@ -246,35 +249,32 @@ exports[`should render correctly 1`] = `
             </a>
           </div>
         </div>
-      </div>
-      <div
-        class="flex space-x-8"
-      >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-        >
+        <div>
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
           >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
             <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              alt="Sehati Sanctuary"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
-          <noscript />
-          <img
-            alt="Sehati Sanctuary"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
         </div>
         <div
-          class="text-left"
-          style="width: 700px;"
+          class="col-span-2 text-left"
         >
           <h1
             class="text-4xl font-bold"
@@ -296,9 +296,11 @@ exports[`should render correctly 1`] = `
               Team Eggplant
             </span>
           </p>
-          <p>
-            Sehati Animal Sanctuary is the first farmed animal sanctuary in Indonesia which provides a loving haven to animals rescued from needless exploitation, violence, and slaughter. The sanctuary supports human-animal bonding and serves to educate the public about animal rights in order to reduce worldwide animal suffering.
-          </p>
+          <div>
+            <p>
+              Sehati Animal Sanctuary is the first farmed animal sanctuary in Indonesia which provides a loving haven to animals rescued from needless exploitation, violence, and slaughter. The sanctuary supports human-animal bonding and serves to educate the public about animal rights in order to reduce worldwide animal suffering.
+            </p>
+          </div>
           <div
             class="mt-10 w-min"
           >
@@ -329,6 +331,64 @@ exports[`should render correctly 1`] = `
       <div
         class="absolute right-0 bottom-0 bg-gray-lighter w-16 h-16 opacity-100"
       />
+    </div>
+    <div
+      class="bg-gray md:p-36 flex flex-row justify-center"
+    >
+      <div
+        class="bg-green flex p-2 md:p-8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            alt="Lamp"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+          />
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-left p-3 md:p-10"
+      >
+        <h4
+          class="text-2xl mb-3 md:mb-8"
+        >
+          Have an idea for a project?
+        </h4>
+        <p
+          class="mb-3 md:mb-8"
+        >
+          <strong
+            class="font-bold"
+          >
+            We're all ears
+          </strong>
+          ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </p>
+        <a
+          href="/projects"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white w-72"
+          >
+            Suggest a project idea
+          </div>
+        </a>
+      </div>
     </div>
     <div
       class="bg-black"
