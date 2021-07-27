@@ -136,26 +136,41 @@ exports[`should render correctly 1`] = `
             class="flex-none hidden lg:block bg-magenta"
           >
             <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              class="transition duration-150 opacity-0"
             >
               <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
+                class="relative overflow-visible"
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                <div
+                  class="absolute left-0 top-0 bg-red w-16 h-16 opacity-100"
                 />
               </div>
-              <noscript />
-              <img
-                alt="Websites"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
+            </div>
+            <div
+              class="p-10"
+            >
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                  />
+                </div>
+                <noscript />
+                <img
+                  alt="Websites"
+                  decoding="async"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
             </div>
           </div>
           <div
@@ -182,26 +197,41 @@ exports[`should render correctly 1`] = `
             class="flex-none hidden lg:block bg-green"
           >
             <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              class="transition duration-150 opacity-0"
             >
               <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
+                class="relative overflow-visible"
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                <div
+                  class="absolute left-0 top-0 bg-green-dark w-16 h-16 opacity-100"
                 />
               </div>
-              <noscript />
-              <img
-                alt="Projects"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
+            </div>
+            <div
+              class="p-10"
+            >
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                  />
+                </div>
+                <noscript />
+                <img
+                  alt="Projects"
+                  decoding="async"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
             </div>
           </div>
           <div
@@ -228,26 +258,41 @@ exports[`should render correctly 1`] = `
             class="flex-none hidden lg:block bg-yellow"
           >
             <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              class="transition duration-150 opacity-0"
             >
               <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
+                class="relative overflow-visible"
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                <div
+                  class="absolute left-0 top-0 bg-yellow-dark w-16 h-16 opacity-100"
                 />
               </div>
-              <noscript />
-              <img
-                alt="Funding"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
+            </div>
+            <div
+              class="p-10"
+            >
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                  />
+                </div>
+                <noscript />
+                <img
+                  alt="Funding"
+                  decoding="async"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
             </div>
           </div>
           <div
@@ -274,26 +319,41 @@ exports[`should render correctly 1`] = `
             class="flex-none hidden lg:block bg-orange"
           >
             <div
-              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              class="transition duration-150 opacity-0"
             >
               <div
-                style="box-sizing: border-box; display: block; max-width: 100%;"
+                class="relative overflow-visible"
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                <div
+                  class="absolute left-0 top-0 bg-orange-dark w-16 h-16 opacity-100"
                 />
               </div>
-              <noscript />
-              <img
-                alt="Advice"
-                decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
+            </div>
+            <div
+              class="p-10"
+            >
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                  />
+                </div>
+                <noscript />
+                <img
+                  alt="Advice"
+                  decoding="async"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
             </div>
           </div>
           <div
