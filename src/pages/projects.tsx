@@ -119,9 +119,9 @@ const Projects: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
-          <p className="space-x-4">
+          <div className="flex flex-wrap place-content-center justify-center">
             <WhiteButton
-              className="w-40 uppercase"
+              className="w-40 uppercase flex-1 m-1"
               active={selectedYear === null}
               type="button"
               onClick={() => setSelectedYear(null)}
@@ -131,7 +131,7 @@ const Projects: React.FC = () => {
             {projectsYears.map((year) => (
               <WhiteButton
                 key={year}
-                className="w-40"
+                className="w-40 flex-1 m-1"
                 type="button"
                 onClick={() => setSelectedYear(year)}
                 active={selectedYear === year}
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
                 {year}
               </WhiteButton>
             ))}
-          </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
             {projectsForSelectedYear.map(
               ({ title, content, siteName, href, date, cover, team }) => (

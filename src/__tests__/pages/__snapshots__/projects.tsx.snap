@@ -129,14 +129,14 @@ exports[`should render correctly 1`] = `
     <div
       class="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20"
     >
-      <p
-        class="space-x-4"
+      <div
+        class="flex flex-wrap place-content-center justify-center"
       >
         <button
           type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 bg-gray text-white w-40 uppercase"
+            class="border-2 border-gray-200 border-opacity-50 p-3 bg-gray text-white w-40 uppercase flex-1 m-1"
           >
             View all
           </div>
@@ -145,7 +145,7 @@ exports[`should render correctly 1`] = `
           type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
             2018
           </div>
@@ -154,7 +154,7 @@ exports[`should render correctly 1`] = `
           type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
             2019
           </div>
@@ -163,7 +163,7 @@ exports[`should render correctly 1`] = `
           type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
             2020
           </div>
@@ -172,12 +172,12 @@ exports[`should render correctly 1`] = `
           type="button"
         >
           <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40"
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
             2021
           </div>
         </button>
-      </p>
+      </div>
       <div
         class="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4"
       >
