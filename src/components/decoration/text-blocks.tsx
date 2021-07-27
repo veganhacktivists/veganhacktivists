@@ -16,7 +16,7 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
         <span className="font-italic text-2xl mr-2">{firstWord}</span>
         <span className="font-bold font-mono text-4xl">{remainingWords}</span>
       </h1>
-      <p className="max-w-2xl m-auto text-2xl font-mono ">{children}</p>
+      <p className="max-w-2xl m-auto text-2xl font-mono">{children}</p>
     </div>
   );
 };
