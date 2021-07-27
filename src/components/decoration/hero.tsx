@@ -11,6 +11,7 @@ interface HeroProps {
   imageBackground: ImageProps['src'];
   alignment: 'right' | 'left';
   classNameMapping?: HeroClassNames;
+  main?: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -18,10 +19,10 @@ const Hero: React.FC<HeroProps> = ({
   alignment,
   children,
   classNameMapping,
+  main = false,
 }) => {
   const containerClasses = classNames(
     'relative',
-    'md:-top-20 md:-mb-20',
     'p-10 md:p-32',
     'bg-scroll',
     'bg-cover',
@@ -30,6 +31,9 @@ const Hero: React.FC<HeroProps> = ({
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
+      'h-screen-header-small xl:h-screen-header': main,
+      'md:-top-20 md:-mb-20': main,
+      'xl:h-screen-60%': !main,
     },
     classNameMapping?.container
   );

@@ -66,7 +66,7 @@ const LightButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
-    primary ? 'border-strawberry' : '',
+    primary ? 'border-pink' : '',
     className
   );
 
@@ -80,14 +80,14 @@ const LightButton: React.FC<ButtonProps> = ({
 
 const DarkButton: React.FC<ButtonProps> = ({
   children,
-  primary,
+  active,
   className = '',
   ...props
 }) => {
   const classes = classNames(
     baseButtonClasses,
-    primary
-      ? 'hover:shadow-fill-red bg-fuchsia border-red'
+    active
+      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -109,7 +109,7 @@ const GreenButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     primary
-      ? 'hover:shadow-fill-red bg-fuchsia border-red'
+      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
       : 'hover:shadow-fill-green bg-green-light border-green',
     'text-white',
     className
@@ -137,7 +137,9 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <a {...props}>{children}</a>
+      <a {...props} target="_blank" rel="noreferrer">
+        {children}
+      </a>
     </BaseButton>
   );
 };

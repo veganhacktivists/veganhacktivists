@@ -4,16 +4,25 @@ import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../../public/images/VH-logo-web-white.png';
+import logoBig from '../../../public/images/VH-logo-web-white.png';
+import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
+  const { pathname } = useRouter();
+  const isRootPage = pathname === '/';
+
+  const logo = isRootPage ? logoBig : logoOneLine;
+
+  const classes = classNames(
+    'bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle items-center flex-shrink'
+  );
 
   return (
-    <div className="bg-black relative flex p-5 pr-5 md:pr-10 md:pl-10 max-w-full w-full xl:w-max align-middle items-center">
-      <Link href="/" passHref>
-        <a className="md:min-w-max">
+    <div className={classes}>
+      <Link href="/">
+        <a>
           <Image
             src={logo.src}
             alt="Vegan Hacktivists Logo"
@@ -98,7 +107,7 @@ const RightSide: React.FC = () => {
 
   return (
     <>
-      <div className="block xl:hidden text-white absolute text-right p-5 right-0 top-0">
+      <div className="block xl:hidden text-white text-right p-5 bg-black flex-1">
         <FontAwesomeIcon
           icon={faBars}
           size="2x"
@@ -109,11 +118,15 @@ const RightSide: React.FC = () => {
         />
         <div
           className={classNames(
-            'font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 relative lg:flex bg-black flex-grow items-stretch w-64',
+            'font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 lg:flex flex-grow items-stretch w-64 max-w-min',
             menuOpen ? 'flex flex-col' : 'hidden'
           )}
         >
-          {menuOpen && <NavbarItems />}
+          {menuOpen && (
+            <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
+              <NavbarItems />
+            </div>
+          )}
         </div>
       </div>
       <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full ml-auto justify-end align-middle uppercase font-semibold hidden xl:flex flex-nowrap">
@@ -125,7 +138,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="flex z-20">
+    <nav className="flex z-20 w-full">
       <LeftSide />
       <RightSide />
     </nav>

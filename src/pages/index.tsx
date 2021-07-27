@@ -1,15 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import activistHub from '../../public/images/ActivistHub.png';
-import animalRightsMap from '../../public/images/AnimalRightsMap.png';
+import activistHub from '../../public/images/projects/ActivistHub.png';
+import animalRightsMap from '../../public/images/projects/AnimalRightsMap.png';
 import blogCow from '../../public/images/Blog-cow.jpg';
-import DailyDozen from '../../public/images/DailyDozen.png';
-import VeganActivism from '../../public/images/VeganActivism.jpg';
-import dailyNooch from '../../public/images/DailyNooch.png';
-import minutesvegans from '../../public/images/minutesvegans.png';
-import veganBootcamp from '../../public/images/VeganBootcamp.png';
-import veganCheatSheet from '../../public/images/VeganCheatSheet.jpeg';
+import DailyDozen from '../../public/images/projects/DailyDozen.png';
+import VeganActivism from '../../public/images/projects/VeganActivism.jpg';
+import dailyNooch from '../../public/images/projects/DailyNooch.png';
+import minutesvegans from '../../public/images/projects/minutesvegans.png';
+import veganBootcamp from '../../public/images/projects/VeganBootcamp.png';
+import veganCheatSheet from '../../public/images/projects/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -61,6 +61,7 @@ const Home: React.FC = () => {
         <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
       </Head>
       <Hero
+        main
         imageBackground={heroBackground}
         alignment="right"
         classNameMapping={{
@@ -112,11 +113,18 @@ const Home: React.FC = () => {
           <b>We do this for the animals</b> - we do this because coding is our
           way of doing our part for activism. If you believe in the work we do
           and want to support us, please consider a small donation via our{' '}
-          <span className="text-pink">Patreon!</span> It means the world to us
-          and the animals to have your support.
+          <a
+            className="text-pink font-semibold"
+            href="https://www.patreon.com/veganhacktivists"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Patreon
+          </a>
+          ! It means the world to us and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/mission" className="font-mono text-sm">
+          <DarkButton href="/about/our-mission" className="font-mono text-sm">
             Our Mission
           </DarkButton>
         </div>
