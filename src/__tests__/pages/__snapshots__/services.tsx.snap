@@ -128,168 +128,188 @@ exports[`should render correctly 1`] = `
     <div
       class="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
     >
-      <div
-        class="flex space-x-8 content-center bg-gray-background"
-      >
+      <div>
         <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="flex w-full xl:w-3/5 m-auto min-height"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="flex-none hidden lg:block bg-magenta"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Websites"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
           </div>
-          <noscript />
-          <img
-            alt="Websites"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
-        </div>
-        <div
-          class="text-left m-6"
-          style="width: 700px;"
-        >
-          <h1
-            class="text-3xl font-bold"
+          <div
+            class="text-left p-4 bg-gray-background min-height"
           >
-            Websites
-          </h1>
-          <p
-            class="my-3"
-          >
-            If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves. We'll also take care of hosting using a dynamic dedicated server w/ Cloudflare protection and domain privacy
-          </p>
+            <h1
+              class="text-4xl font-bold"
+            >
+              Websites
+            </h1>
+            <p
+              class="my-3"
+            >
+              If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves. We'll also take care of hosting using a dynamic dedicated server w/ Cloudflare protection and domain privacy
+            </p>
+          </div>
         </div>
       </div>
-      <div
-        class="flex space-x-8 content-center bg-gray-background"
-      >
+      <div>
         <div
-          class="text-left m-6"
-          style="width: 700px;"
-        >
-          <h1
-            class="text-3xl font-bold"
-          >
-            Projects
-          </h1>
-          <p
-            class="my-3"
-          >
-            Do you have an idea that would help bring us closer to a vegan world? A new website? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we love it, we'll help you build it using our resources and team
-          </p>
-        </div>
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="flex w-full xl:w-3/5 m-auto min-height flex-row-reverse"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="flex-none hidden lg:block bg-green"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Projects"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
           </div>
-          <noscript />
-          <img
-            alt="Projects"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
+          <div
+            class="text-left p-4 bg-gray-background min-height"
+          >
+            <h1
+              class="text-4xl font-bold"
+            >
+              Projects
+            </h1>
+            <p
+              class="my-3"
+            >
+              Do you have an idea that would help bring us closer to a vegan world? A new website? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we love it, we'll help you build it using our resources and team
+            </p>
+          </div>
         </div>
       </div>
-      <div
-        class="flex space-x-8 content-center bg-gray-background"
-      >
+      <div>
         <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="flex w-full xl:w-3/5 m-auto min-height"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="flex-none hidden lg:block bg-yellow"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Funding"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
           </div>
-          <noscript />
-          <img
-            alt="Funding"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
-        </div>
-        <div
-          class="text-left m-6"
-          style="width: 700px;"
-        >
-          <h1
-            class="text-3xl font-bold"
+          <div
+            class="text-left p-4 bg-gray-background min-height"
           >
-            Funding
-          </h1>
-          <p
-            class="my-3"
-          >
-            We're lucky enough to have a generous benefactor that allows us to fund vegan activists and small grassroot vegan organizations! Looking to start a cube of truth in your area? Interested in other types of street activism but need funding for vegan cupcakes, stickers, signs? What about support for camera gear, graphic design, development or transportation? Request funding!
-          </p>
+            <h1
+              class="text-4xl font-bold"
+            >
+              Funding
+            </h1>
+            <p
+              class="my-3"
+            >
+              We're lucky enough to have a generous benefactor that allows us to fund vegan activists and small grassroot vegan organizations! Looking to start a cube of truth in your area? Interested in other types of street activism but need funding for vegan cupcakes, stickers, signs? What about support for camera gear, graphic design, development or transportation? Request funding!
+            </p>
+          </div>
         </div>
       </div>
-      <div
-        class="flex space-x-8 content-center bg-gray-background"
-      >
+      <div>
         <div
-          class="text-left m-6"
-          style="width: 700px;"
-        >
-          <h1
-            class="text-3xl font-bold"
-          >
-            Advice
-          </h1>
-          <p
-            class="my-3"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae elit turpis. Nunc rhoncus nec sem nec tempor. Sed id finibus enim. Sed sollicitudin odio volutpat, fermentum nibh sed, vestibulum neque. Ut eu lectus at nibh consequat aliquam fermentum id velit.
-          </p>
-        </div>
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="flex w-full xl:w-3/5 m-auto min-height flex-row-reverse"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="flex-none hidden lg:block bg-orange"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                />
+              </div>
+              <noscript />
+              <img
+                alt="Advice"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
           </div>
-          <noscript />
-          <img
-            alt="Advice"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
+          <div
+            class="text-left p-4 bg-gray-background min-height"
+          >
+            <h1
+              class="text-4xl font-bold"
+            >
+              Advice
+            </h1>
+            <p
+              class="my-3"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae elit turpis. Nunc rhoncus nec sem nec tempor. Sed id finibus enim. Sed sollicitudin odio volutpat, fermentum nibh sed, vestibulum neque. Ut eu lectus at nibh consequat aliquam fermentum id velit.
+            </p>
+          </div>
         </div>
       </div>
     </div>
