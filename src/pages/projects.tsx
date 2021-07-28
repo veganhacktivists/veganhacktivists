@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
               ({ title, content, siteName, href, date, cover, team }) => (
                 <Fragment key={title}>
                   <div>
-                    <Image src={cover} alt={title} />
+                    <Image src={cover} alt={title} loading="eager" />
                   </div>
                   <div className="col-span-2 text-left">
                     <h1 className="text-4xl font-bold">{title}</h1>
