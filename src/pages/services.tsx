@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -81,7 +81,7 @@ const Service: React.FC<ServiceProps> = ({
   align,
 }) => {
   const rootClassnames = classNames(
-    'flex w-full xl:w-3/5 m-auto',
+    'flex w-full xl:w-3/5 m-auto group',
     { 'min-height': '300px' },
     { 'flex-row-reverse': align === ServiceCoverAlignment.RIGHT }
   );
@@ -96,25 +96,14 @@ const Service: React.FC<ServiceProps> = ({
     { 'min-height': '300px' }
   );
 
-  const [showAccent, setShowAccent] = useState<boolean>(false);
-
-  const accentClassnames = classNames('transition duration-150', {
-    'opacity-0': !showAccent,
-  });
-
   return (
     <div className={rootClassnames}>
-      <div
-        className={iconWrapperClassnames}
-        onMouseEnter={() => setShowAccent(true)}
-        onMouseLeave={() => setShowAccent(false)}
-      >
-        <div className={accentClassnames}>
+      <div className={iconWrapperClassnames}>
+        <div className="transition duration-150 opacity-0 group-hover:opacity-100">
           <SquareField
-            squares={[{ color: iconAccentColor, size: 16, left: 0, top: 0 }]}
+            squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}
           />
         </div>
-
         <div className="p-10">
           <Image src={icon} alt={title} />
         </div>
