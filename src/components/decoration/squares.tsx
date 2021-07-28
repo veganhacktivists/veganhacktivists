@@ -20,17 +20,12 @@ export interface SquareProps {
   className?: string;
 }
 
-const Square: React.FC<SquareProps> = (props) => {
-  const {
-    // width an height in quarter-rem (tailwind dimensions)
-    size,
-    // color in tailwind palette colors (including custom)
-    color = 'white',
-    // opacity in percent
-    opacity = 100,
-    className = '',
-  } = props;
-
+const Square: React.FC<SquareProps> = ({
+  size,
+  color = 'white',
+  opacity = 100,
+  className = '',
+}) => {
   const svgClassNames = classNames(
     className,
     `bg-${color}`,
