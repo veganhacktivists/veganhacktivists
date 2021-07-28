@@ -2,45 +2,52 @@ import { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
-import type { TeamName } from 'components/layout/people';
+import type { GetStaticProps } from 'next';
+import type {
+  ITeamFields,
+  ITeam,
+  ITeamMember,
+} from '../../@types/generated/contentful';
 import { PeopleHero } from 'components/layout/people';
 import { FirstSubSection } from 'components/decoration/text-blocks';
-import { mockPeople, mockTeams } from './mockData';
-import { LightButton, WhiteButton } from 'components/decoration/buttons';
+import { WhiteButton } from 'components/decoration/buttons';
+import { getContents } from 'lib/cms';
 
-type Team = {
-  image: StaticImageData;
-  selectedImage: StaticImageData;
-  teamName: TeamName;
-  color: string;
+export const getStaticProps: GetStaticProps = async () => {
+  const teams = await getContents<ITeamFields>('team');
+  const teamMembers = await getContents<ITeamFields>('teamMember');
+  return {
+    props: { teams, teamMembers },
+  };
 };
 
-type Person = {
-  image: StaticImageData | undefined;
-  teamName: TeamName;
-  tags: string[];
-  name: string;
-};
-
-const TeamMemberCard: React.FC<{ person: Person; teamColor: string }> = ({
-  person,
+const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
+  member,
   teamColor,
 }) => {
-  const { name, teamName, tags } = person;
+  const { name, team, position, image } = member.fields;
+  const { name: teamName } = team.fields;
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        <div className={`bg-${teamColor} w-8 h-8`} />
+        {image && (
+          <Image
+            src={`https:${image.fields.file.url}`}
+            width={image.fields.file.details.size}
+            height={image.fields.file.details.size}
+            alt={name}
+          />
+        )}
+        <div
+          style={{ backgroundColor: teamColor }}
+          className={'absolute w-8 h-8'}
+        />
       </div>
       <div className="font-bold">{name}</div>
       <div>
-        {tags.map((t, i) => (
-          <span className="mx-1" key={i}>
-            {t};
-          </span>
-        ))}
-        <div className={`text-${teamColor} font-bold`}>
-          TEAM {teamName.toUpperCase()}
+        <span className="mx-1">{position};</span>
+        <div style={{ color: teamColor }} className={'font-bold'}>
+          {teamName.toUpperCase()}
         </div>
       </div>
     </div>
@@ -48,72 +55,80 @@ const TeamMemberCard: React.FC<{ person: Person; teamColor: string }> = ({
 };
 
 const TeamSelector: React.FC<{
-  teams: Team[];
-  selectedTeam: TeamName | undefined;
-  selectCallback: (arg0: TeamName | undefined) => void;
+  teams: ITeam[];
+  selectedTeam: string | undefined;
+  selectCallback: (arg0: string | undefined) => void;
 }> = ({ teams, selectedTeam, selectCallback }) => {
+  const [hovered, setHovered] = useState<string | undefined>();
+
+  const getBackgroundColor = (name: string, color: string) => {
+    if (selectedTeam === name || hovered === name) {
+      return color;
+    }
+    return 'white';
+  };
+
   return (
-    <div className="flex h-28 max-w-5xl m-auto mb-10">
+    <div className="flex flex-wrap justify-center overflow-x-auto max-w-5xl m-auto mb-10">
       <button
-        className={`w-64 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
+        className={`w-28 h-28 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
           selectedTeam === undefined ? 'bg-grey text-white' : 'bg-white'
         }`}
         onClick={() => selectCallback(undefined)}
       >
         View all
       </button>
-      {teams.map(({ teamName, image, selectedImage, color }) => (
-        <button
-          className={`w-64 hover:bg-${color} flex-grow-0 transition-colors ${
-            selectedTeam === teamName ? `bg-${color}` : 'bg-white'
-          }`}
-          onClick={() => selectCallback(teamName)}
-          key={teamName}
-        >
-          <Image
-            src={image.src}
-            width={image.width}
-            height={image.height}
-            alt={teamName}
-          />
-          {/* {selectedTeam === teamName ? (
-            <Image
-              src={selectedImage.src}
-              width={selectedImage.width}
-              height={selectedImage.height}
-              alt={teamName}
-            />
-          ) : (
-            <Image
-              src={image.src}
-              width={image.width}
-              height={image.height}
-              alt={teamName}
-            />
-          )} */}
-        </button>
-      ))}
+      {teams
+        .map((t) => t.fields)
+        .map(({ name, color, icon, sprite }) => (
+          <button
+            style={{ backgroundColor: getBackgroundColor(name, color) }}
+            className={'w-28 h-28 flex-grow-0 transition-colors'}
+            onClick={() => selectCallback(name)}
+            onMouseEnter={() => setHovered(name)}
+            onMouseLeave={() =>
+              setHovered((curr) => (curr === name ? undefined : curr))
+            }
+            key={name}
+          >
+            {sprite ? (
+              <Image
+                src={`https:${sprite.fields.file.url}`}
+                width={sprite.fields.file.details.size}
+                height={sprite.fields.file.details.size}
+                alt={name}
+              />
+            ) : (
+              <div className="text-4xl">{icon}</div>
+            )}
+          </button>
+        ))}
     </div>
   );
 };
 
-const MemberList: React.FC<{ people: Person[]; teams: Team[] }> = ({
-  people,
+const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
+  members,
   teams,
 }) => {
   const colorMap = useMemo(() => {
     if (!teams) return {};
     return teams.reduce((acc, curr) => {
-      acc[curr.teamName] = curr.color;
+      const { name: teamName, color } = curr.fields;
+
+      acc[teamName] = color;
       return acc;
     }, {} as Record<string, string>);
   }, [teams]);
 
   return (
     <div className="flex flex-wrap justify-center ">
-      {people.map((p, i) => (
-        <div className="m-5" key={i}>
-          <TeamMemberCard person={p} teamColor={colorMap[p.teamName]} />
+      {members.map((m) => (
+        <div className="m-5" key={m.sys.id}>
+          <TeamMemberCard
+            member={m}
+            teamColor={colorMap[m.fields.team.fields.name]}
+          />
         </div>
       ))}
     </div>
@@ -129,30 +144,38 @@ function useViewMore(pageSize = 9) {
   return { pageSize, viewMore, pageNumber };
 }
 
-function usePeople(
+function useFilteredMembers(
+  allMembers: ITeamMember[],
   selectedTeam: string | undefined,
   pageSize: number,
   pageNumber: number
 ) {
-  const allPeople = mockPeople;
   const filteredByTeam = selectedTeam
-    ? mockPeople.filter((p) => p.teamName == selectedTeam)
-    : allPeople;
+    ? allMembers.filter((p) => p.fields.team.fields.name === selectedTeam)
+    : allMembers;
 
   const paged = filteredByTeam.slice(0, pageSize * pageNumber);
 
   return {
-    loading: false,
-    people: paged as Person[],
-    totalPeople: filteredByTeam.length,
+    members: paged as ITeamMember[],
+    totalMembers: filteredByTeam.length,
   };
 }
 
-const OurTeam: React.FC = () => {
-  const [selectedTeam, setSelectedTeam] = useState<TeamName | undefined>();
-  const { pageNumber, pageSize, viewMore } = useViewMore();
+const Team: React.FC<{ teams: ITeam[]; teamMembers: ITeamMember[] }> = ({
+  teams,
+  teamMembers,
+}) => {
+  const [selectedTeam, setSelectedTeam] = useState<string | undefined>();
 
-  const { people, totalPeople } = usePeople(selectedTeam, pageSize, pageNumber);
+  const { pageNumber, pageSize, viewMore } = useViewMore();
+  const { members, totalMembers } = useFilteredMembers(
+    teamMembers,
+    selectedTeam,
+    pageSize,
+    pageNumber
+  );
+
   return (
     <>
       <Head>
@@ -171,10 +194,10 @@ const OurTeam: React.FC = () => {
         <TeamSelector
           selectedTeam={selectedTeam}
           selectCallback={setSelectedTeam}
-          teams={mockTeams}
+          teams={teams}
         />
-        <MemberList people={people} teams={mockTeams} />
-        {people.length < totalPeople && (
+        <MemberList members={members} teams={teams} />
+        {members.length < totalMembers && (
           <WhiteButton
             className="border-2 border-grey"
             onClick={() => viewMore()}
@@ -187,4 +210,4 @@ const OurTeam: React.FC = () => {
   );
 };
 
-export default OurTeam;
+export default Team;

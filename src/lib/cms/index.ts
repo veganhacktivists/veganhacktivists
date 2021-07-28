@@ -2,6 +2,8 @@ import type { CONTENT_TYPE } from '../../@types/generated/contentful';
 import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
+console.log(process.env);
+
 const client = createClient({
   space: process.env['CF_SPACE_ID'] || '',
   accessToken: process.env['CF_DELIVERY_ACCESS_TOKEN'] || '',

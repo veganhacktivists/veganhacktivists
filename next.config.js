@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [],
+    domains: ['images.ctfassets.net'],
   },
   async redirects() {
     return [
