@@ -81,31 +81,35 @@ const Service: React.FC<ServiceProps> = ({
   align,
 }) => {
   const rootClassnames = classNames(
-    'flex w-full xl:w-3/5 m-auto group',
-    { 'min-height': '300px' },
-    { 'flex-row-reverse': align === ServiceCoverAlignment.RIGHT }
+    'flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group',
+    {
+      'flex-row-reverse': align === ServiceCoverAlignment.RIGHT,
+    }
   );
 
   const iconWrapperClassnames = classNames(
-    'flex-none hidden lg:block',
+    'w-full md:max-w-xs',
     `bg-${iconBgColor}`
   );
 
   const contentWrapperClassnames = classNames(
-    'text-left p-4 bg-gray-background',
-    { 'min-height': '300px' }
+    'flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background'
   );
 
   return (
     <div className={rootClassnames}>
       <div className={iconWrapperClassnames}>
-        <div className="transition duration-150 opacity-0 group-hover:opacity-100">
+        <div className="transition ease-in duration-300 opacity-0 group-hover:opacity-100">
           <SquareField
             squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}
           />
         </div>
         <div className="p-10">
-          <Image src={icon} alt={title} />
+          <Image
+            src={icon}
+            layout="responsive"
+            alt="Logo of The Pollination Project"
+          />
         </div>
       </div>
       <div className={contentWrapperClassnames}>
@@ -150,7 +154,7 @@ const Services: React.FC = () => (
           <b className="font-mono text-5xl uppercase">services</b>
         </h1>
       </div>
-      <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20">
+      <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20">
         {SERVICE_BLOCKS.map(
           ({ title, content, icon, iconBgColor, iconAccentColor }, index) => (
             <div key={title}>

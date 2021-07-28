@@ -126,17 +126,17 @@ exports[`should render correctly 1`] = `
       </h1>
     </div>
     <div
-      class="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
+      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
     >
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto group min-height"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
         >
           <div
-            class="flex-none hidden lg:block bg-magenta"
+            class="w-full md:max-w-xs bg-magenta"
           >
             <div
-              class="transition duration-150 opacity-0 group-hover:opacity-100"
+              class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
@@ -150,22 +150,14 @@ exports[`should render correctly 1`] = `
               class="p-10"
             >
               <div
-                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
                 <div
-                  style="box-sizing: border-box; display: block; max-width: 100%;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                  />
-                </div>
+                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                />
                 <noscript />
                 <img
-                  alt="Websites"
+                  alt="Logo of The Pollination Project"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -174,7 +166,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left p-4 bg-gray-background min-height"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
           >
             <h1
               class="text-4xl font-bold"
@@ -191,13 +183,13 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto group min-height flex-row-reverse"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
         >
           <div
-            class="flex-none hidden lg:block bg-green"
+            class="w-full md:max-w-xs bg-green"
           >
             <div
-              class="transition duration-150 opacity-0 group-hover:opacity-100"
+              class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
@@ -211,22 +203,14 @@ exports[`should render correctly 1`] = `
               class="p-10"
             >
               <div
-                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
                 <div
-                  style="box-sizing: border-box; display: block; max-width: 100%;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                  />
-                </div>
+                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                />
                 <noscript />
                 <img
-                  alt="Projects"
+                  alt="Logo of The Pollination Project"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -235,7 +219,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left p-4 bg-gray-background min-height"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
           >
             <h1
               class="text-4xl font-bold"
@@ -252,13 +236,13 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto group min-height"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
         >
           <div
-            class="flex-none hidden lg:block bg-yellow"
+            class="w-full md:max-w-xs bg-yellow"
           >
             <div
-              class="transition duration-150 opacity-0 group-hover:opacity-100"
+              class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
@@ -272,22 +256,14 @@ exports[`should render correctly 1`] = `
               class="p-10"
             >
               <div
-                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
                 <div
-                  style="box-sizing: border-box; display: block; max-width: 100%;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                  />
-                </div>
+                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                />
                 <noscript />
                 <img
-                  alt="Funding"
+                  alt="Logo of The Pollination Project"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -296,7 +272,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left p-4 bg-gray-background min-height"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
           >
             <h1
               class="text-4xl font-bold"
@@ -313,13 +289,13 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto group min-height flex-row-reverse"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
         >
           <div
-            class="flex-none hidden lg:block bg-orange"
+            class="w-full md:max-w-xs bg-orange"
           >
             <div
-              class="transition duration-150 opacity-0 group-hover:opacity-100"
+              class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
@@ -333,22 +309,14 @@ exports[`should render correctly 1`] = `
               class="p-10"
             >
               <div
-                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
               >
                 <div
-                  style="box-sizing: border-box; display: block; max-width: 100%;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                    style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-                  />
-                </div>
+                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                />
                 <noscript />
                 <img
-                  alt="Advice"
+                  alt="Logo of The Pollination Project"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -357,7 +325,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left p-4 bg-gray-background min-height"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
           >
             <h1
               class="text-4xl font-bold"
