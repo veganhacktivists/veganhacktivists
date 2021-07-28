@@ -130,19 +130,19 @@ exports[`should render correctly 1`] = `
     >
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto min-height"
+          class="flex w-full xl:w-3/5 m-auto group min-height"
         >
           <div
             class="flex-none hidden lg:block bg-magenta"
           >
             <div
-              class="transition duration-150 opacity-0"
+              class="transition duration-150 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute left-0 top-0 bg-red w-16 h-16 opacity-100"
+                  class="absolute right-0 top-0 bg-red w-16 h-16 opacity-100"
                 />
               </div>
             </div>
@@ -191,19 +191,19 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto min-height flex-row-reverse"
+          class="flex w-full xl:w-3/5 m-auto group min-height flex-row-reverse"
         >
           <div
             class="flex-none hidden lg:block bg-green"
           >
             <div
-              class="transition duration-150 opacity-0"
+              class="transition duration-150 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute left-0 top-0 bg-green-dark w-16 h-16 opacity-100"
+                  class="absolute right-0 top-0 bg-green-dark w-16 h-16 opacity-100"
                 />
               </div>
             </div>
@@ -252,19 +252,19 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto min-height"
+          class="flex w-full xl:w-3/5 m-auto group min-height"
         >
           <div
             class="flex-none hidden lg:block bg-yellow"
           >
             <div
-              class="transition duration-150 opacity-0"
+              class="transition duration-150 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute left-0 top-0 bg-yellow-dark w-16 h-16 opacity-100"
+                  class="absolute right-0 top-0 bg-yellow-dark w-16 h-16 opacity-100"
                 />
               </div>
             </div>
@@ -313,19 +313,19 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 m-auto min-height flex-row-reverse"
+          class="flex w-full xl:w-3/5 m-auto group min-height flex-row-reverse"
         >
           <div
             class="flex-none hidden lg:block bg-orange"
           >
             <div
-              class="transition duration-150 opacity-0"
+              class="transition duration-150 opacity-0 group-hover:opacity-100"
             >
               <div
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute left-0 top-0 bg-orange-dark w-16 h-16 opacity-100"
+                  class="absolute right-0 top-0 bg-orange-dark w-16 h-16 opacity-100"
                 />
               </div>
             </div>
