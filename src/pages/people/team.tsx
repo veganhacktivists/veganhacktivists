@@ -58,10 +58,10 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
 
 const TeamSelector: React.FC<{
   teams: ITeam[];
-  selectedTeam: string | undefined;
-  selectCallback: (arg0: string | undefined) => void;
+  selectedTeam: string | null;
+  selectCallback: (arg0: string | null) => void;
 }> = ({ teams, selectedTeam, selectCallback }) => {
-  const [hovered, setHovered] = useState<string | undefined>();
+  const [hovered, setHovered] = useState<string | null>();
 
   const getBackgroundColor = (name: string, color: string) => {
     if (selectedTeam === name || hovered === name) {
@@ -74,9 +74,9 @@ const TeamSelector: React.FC<{
     <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
       <button
         className={`w-28 h-28 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
-          selectedTeam === undefined ? 'bg-grey text-white' : 'bg-white'
+          selectedTeam === null ? 'bg-grey text-white' : 'bg-white'
         }`}
-        onClick={() => selectCallback(undefined)}
+        onClick={() => selectCallback(null)}
       >
         View all
       </button>
@@ -89,7 +89,7 @@ const TeamSelector: React.FC<{
             onClick={() => selectCallback(name)}
             onMouseEnter={() => setHovered(name)}
             onMouseLeave={() =>
-              setHovered((curr) => (curr === name ? undefined : curr))
+              setHovered((curr) => (curr === name ? null : curr))
             }
             key={name}
           >
@@ -148,7 +148,7 @@ function useViewMore(pageSize = 9) {
 
 function useFilteredMembers(
   allMembers: ITeamMember[],
-  selectedTeam: string | undefined,
+  selectedTeam: string | null,
   pageSize: number,
   pageNumber: number
 ) {
@@ -184,7 +184,7 @@ const Team: React.FC<{ teams: ITeam[]; teamMembers: ITeamMember[] }> = ({
   teams,
   teamMembers,
 }) => {
-  const [selectedTeam, setSelectedTeam] = useState<string | undefined>();
+  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
