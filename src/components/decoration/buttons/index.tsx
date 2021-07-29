@@ -43,7 +43,7 @@ const BaseButton: React.FC<ButtonProps> = ({
       )}
       {/* it's a submit button */}
       {!href && (
-        <button {...props} type="submit">
+        <button type="submit" {...props}>
           {children}
         </button>
       )}

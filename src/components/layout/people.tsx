@@ -5,20 +5,8 @@ import SquareField from '../decoration/squares';
 import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.jpg';
 import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
 
-export enum TeamName {
-  Brocolli = 'brocolli',
-  Eggplant = 'eggplant',
-  Carrot = 'carrot',
-  Strawberry = 'strawberry',
-  Avocado = 'avocado',
-  Mango = 'mango',
-  Watermelon = 'watermelon',
-  Peach = 'peach',
-  Bannana = 'bananna',
-}
-
 export enum Site {
-  Parteon = 'patreon',
+  Patreon = 'patreon',
   Reddit = 'reddit',
   Twitter = 'twitter',
   Instagram = 'instagram',

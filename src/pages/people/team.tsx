@@ -10,10 +10,10 @@ import type {
 } from '../../@types/generated/contentful';
 import { PeopleButtons, PeopleHero } from 'components/layout/people';
 import { FirstSubSection } from 'components/decoration/text-blocks';
-import { LightButton, WhiteButton } from 'components/decoration/buttons';
+import { WhiteButton } from 'components/decoration/buttons';
 import { getContents } from 'lib/cms';
-import CarrotImage from '../../../public/images/fruit and veg/carrot_nobg.png';
 import SquareField from 'components/decoration/squares';
+import JoinTheTeam from 'components/layout/joinTheTeam';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getContents<ITeamFields>('team');
@@ -48,8 +48,8 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
       <div className="font-bold">{name}</div>
       <div>
         <span className="mx-1">{position};</span>
-        <div style={{ color: teamColor }} className={'font-bold'}>
-          {teamName.toUpperCase()}
+        <div style={{ color: teamColor }} className="font-bold uppercase">
+          {teamName}
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@ const TeamSelector: React.FC<{
     if (selectedTeam === name || hovered === name) {
       return color;
     }
-    return 'white';
+    return undefined;
   };
 
   return (
@@ -137,21 +137,21 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   );
 };
 
-function useViewMore(pageSize = 9) {
+const useViewMore = (pageSize = 9) => {
   const [pageNumber, setPageNumber] = useState(1);
   const viewMore = useCallback(() => {
     setPageNumber((curr) => curr + 1);
   }, []);
 
   return { pageSize, viewMore, pageNumber };
-}
+};
 
-function useFilteredMembers(
+const useFilteredMembers = (
   allMembers: ITeamMember[],
   selectedTeam: string | null,
   pageSize: number,
   pageNumber: number
-) {
+) => {
   return useMemo(() => {
     const filteredByTeam = selectedTeam
       ? allMembers.filter((p) => p.fields.team.fields.name === selectedTeam)
@@ -164,7 +164,7 @@ function useFilteredMembers(
       totalMembers: filteredByTeam.length,
     };
   }, [allMembers, selectedTeam, pageSize, pageNumber]);
-}
+};
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -180,10 +180,12 @@ const TEAM_SQUARES2 = [
   { color: 'grey', size: 16, right: 16, top: 0 },
 ];
 
-const Team: React.FC<{ teams: ITeam[]; teamMembers: ITeamMember[] }> = ({
-  teams,
-  teamMembers,
-}) => {
+interface TeamProps {
+  teams: ITeam[];
+  teamMembers: ITeamMember[];
+}
+
+const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
@@ -236,22 +238,7 @@ const Team: React.FC<{ teams: ITeam[]; teamMembers: ITeamMember[] }> = ({
         </FirstSubSection>
       </div>
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
-      <div className="bg-grey-darker m-auto py-24">
-        <Image
-          src={CarrotImage}
-          width={CarrotImage.width / 2}
-          height={CarrotImage.height / 2}
-          alt="Carrot"
-        />
-        <div className="text-grey-background text-4xl font-mono font-bold">
-          JOIN OUR TEAM
-        </div>
-        <div className="max-w-xs m-auto">
-          <LightButton className=" m-5 font-mono text-sm" href="/join">
-            Learn More
-          </LightButton>
-        </div>
-      </div>
+      <JoinTheTeam />
     </>
   );
 };
