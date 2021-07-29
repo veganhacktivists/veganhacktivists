@@ -205,7 +205,7 @@ const Team: React.FC<{ teams: ITeam[]; teamMembers: ITeamMember[] }> = ({
         <FirstSubSection header="Our Team">
           Our passionate vegan activist volunteer team listed below – thank you
           so much to each and every one of them. We’re constantly looking to
-          expand our team of developers, designers, and content creators.
+          expand our team of developers, designers, and content creators.{' '}
           <Link passHref href={'/join'}>
             <a className="text-magenta underline">Apply to join us!</a>
           </Link>
