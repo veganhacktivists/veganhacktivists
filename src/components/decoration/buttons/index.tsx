@@ -62,7 +62,6 @@ const LightButton: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  console.log(className);
   const classes = classNames(
     baseButtonClasses,
     'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
@@ -70,7 +69,6 @@ const LightButton: React.FC<ButtonProps> = ({
     className
   );
 
-  console.log(classes);
   return (
     <BaseButton {...props}>
       <div className={classes}>{children}</div>
@@ -87,7 +85,7 @@ const DarkButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     active
-      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
+      ? 'hover:shadow-fill-pink bg-magenta border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -208,7 +206,7 @@ const NavButton: React.FC<ButtonProps & { href: string }> = ({
 
   return (
     <DarkButton
-      primary={atLocation}
+      active={atLocation}
       href={href}
       className={classes}
       linkProps={{ scroll: false }}
