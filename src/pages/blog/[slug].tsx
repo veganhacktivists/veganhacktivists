@@ -1,5 +1,4 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/dist/client/router';
 
 interface BlogEntry {
   slug: string;
@@ -25,10 +24,8 @@ export const getStaticProps: GetStaticProps<
   return { props: blog };
 };
 
-const BlogEntry: React.FC<BlogEntry> = ({ slug }) => {
-  const { isFallback } = useRouter();
-
-  return <div>Blog with ID {slug}</div>;
-};
+const BlogEntry: React.FC<BlogEntry> = ({ slug }) => (
+  <div>Blog with ID {slug}</div>
+);
 
 export default BlogEntry;

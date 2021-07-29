@@ -2,10 +2,14 @@ import React from 'react';
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import type { LinkProps } from 'next/link';
 import Link from 'next/link';
-import type { AriaAttributes, ButtonHTMLAttributes } from 'react';
 import { useRouter } from 'next/router';
+import type { LinkProps } from 'next/link';
+import type {
+  AriaAttributes,
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+} from 'react';
 
 export interface ButtonProps
   extends AriaAttributes,
@@ -15,6 +19,8 @@ export interface ButtonProps
   className?: string;
   active?: boolean;
   linkProps?: Partial<LinkProps>;
+  onClick?: MouseEventHandler;
+  type?: 'submit' | 'reset' | 'button';
 }
 
 const baseButtonClasses = classNames(
@@ -31,22 +37,18 @@ const BaseButton: React.FC<ButtonProps> = ({
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <Link {...linkProps} href={href} passHref>
+        <a href={href} target="_blank" rel="noreferrer" {...props}>
           {children}
-        </Link>
+        </a>
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href}>
+        <Link {...linkProps} href={href} {...props}>
           <a>{children}</a>
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && (
-        <button type="submit" {...props}>
-          {children}
-        </button>
-      )}
+      {!href && <button {...props}>{children}</button>}
     </>
   );
 };
@@ -123,23 +125,15 @@ const GreenButton: React.FC<ButtonProps> = ({
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <a>
-        <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
-          {children}
-        </div>
-      </a>
+      <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
+        {children}
+      </div>
     </BaseButton>
   );
 };
 
 const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return (
-    <BaseButton {...props}>
-      <a {...props} target="_blank" rel="noreferrer">
-        {children}
-      </a>
-    </BaseButton>
-  );
+  return <BaseButton {...props}>{children}</BaseButton>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
