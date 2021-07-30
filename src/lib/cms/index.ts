@@ -5,6 +5,7 @@ import { createClient } from 'contentful';
 const client = createClient({
   space: process.env['CF_SPACE_ID'] || '',
   accessToken: process.env['CF_DELIVERY_ACCESS_TOKEN'] || '',
+  environment: process.env['CF_ENVIRONMENT'] || 'master',
 });
 
 export const previewClient = createClient({
@@ -26,9 +27,6 @@ export const getContents = async <T>(
     ...queries,
   });
   return response.items as Entry<T>[];
-
-  // I'd rather return the metadata too because id and such seems useful...
-  // return response.items.map((entry: Entry<unknown>) => entry.fields as T);
 };
 
 export const getAllIdsOfType: (
