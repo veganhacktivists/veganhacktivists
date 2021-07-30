@@ -46,20 +46,15 @@ export const PeopleHero: React.FC = () => {
     <>
       <Hero
         imageBackground={heroBackground.src}
+        tagline={{
+          image: heroTagline,
+          alt: 'Our Community of Passionate Activists',
+        }}
         alignment="left"
         classNameMapping={{
           container: 'bg-center',
         }}
-      >
-        <div>
-          <Image
-            src={heroTagline.src}
-            width={heroTagline.width}
-            height={heroTagline.height}
-            alt="Our Community of Passionate Activists"
-          />
-        </div>
-      </Hero>
+      />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
