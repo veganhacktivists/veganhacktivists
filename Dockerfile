@@ -11,10 +11,14 @@ WORKDIR /usr/app
 COPY package.json yarn.lock ./
 RUN ["yarn", "install"]
 
-RUN ["yarn", "next", "telemetry", "disable"]
-
 # Copying source files
 COPY . ./
+
+ARG CF_SPACE_ID
+ARG CF_DELIVERY_ACCESS_TOKEN
+ARG CF_PREVIEW_ACCESS_TOKEN
+ARG CF_ENVIRONMENT
+
 RUN ["yarn", "build"]
 # Running the app
 CMD ["yarn", "start"]
