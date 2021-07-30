@@ -15,8 +15,8 @@ const GrantsHero: React.FC = () => {
       <div>
         <Image
           src={heroTagline.src}
-          width={heroTagline.width * 0.65}
-          height={heroTagline.height * 0.65}
+          width={heroTagline.width * 0.75}
+          height={heroTagline.height * 0.75}
           alt="Grants for a kinder world"
           layout="intrinsic"
           priority
