@@ -3,14 +3,13 @@ import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
 const client = createClient({
-  space: process.env['CF_SPACE_ID'] || '',
-  accessToken: process.env['CF_DELIVERY_ACCESS_TOKEN'] || '',
-  environment: process.env['CF_ENVIRONMENT'] || 'master',
+  space: process.env.CF_SPACE_ID || '',
+  accessToken: process.env.CF_DELIVERY_ACCESS_TOKEN || '',
 });
 
 export const previewClient = createClient({
-  space: process.env['CF_SPACE_ID'] || '',
-  accessToken: process.env['CF_PREVIEW_ACCESS_TOKEN'] || '',
+  space: process.env.CF_SPACE_ID || '',
+  accessToken: process.env.CF_PREVIEW_ACCESS_TOKEN || '',
   host: 'preview.contentful.com',
 });
 
