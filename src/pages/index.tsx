@@ -63,21 +63,15 @@ const Home: React.FC = () => {
       <Hero
         main
         imageBackground={heroBackground}
+        tagline={{
+          image: heroTagline,
+          alt: 'Compassion, Creativity, Code',
+        }}
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
         }}
       >
-        <div className="md:p-12">
-          <Image
-            src={heroTagline}
-            width={heroTagline.width * 0.65}
-            height={heroTagline.height * 0.65}
-            alt="Compassion, Creativity, Code"
-            quality={100}
-            priority
-          />
-        </div>
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
           Fighting for the animal rights movement since 2019.
         </div>

@@ -3,14 +3,14 @@
 exports[`should render correctly when providing a URL string 1`] = `
 <DocumentFragment>
   <div
-    class="relative p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-end xl:h-screen-60%"
+    class="relative p-10 md:p-32 flex justify-end xl:h-screen-60%"
   >
     <img
       alt=""
       src="https://via.placeholder.com/500x500"
     />
     <div
-      class="flex flex-col justify-center w-1/2 z-10"
+      class="flex flex-col justify-center w-1/2 z-10 md:px-40"
     />
     <div
       class="absolute inset-0 overflow-hidden"
@@ -55,14 +55,14 @@ exports[`should render correctly when providing a URL string 1`] = `
 exports[`should render correctly when providing static image data 1`] = `
 <DocumentFragment>
   <div
-    class="relative p-10 md:p-32 bg-scroll bg-cover bg-no-repeat flex justify-start xl:h-screen-60%"
+    class="relative p-10 md:p-32 flex justify-start xl:h-screen-60%"
   >
     <img
       alt=""
       src="[object Object]"
     />
     <div
-      class="flex flex-col justify-center w-1/2 z-10"
+      class="flex flex-col justify-center w-1/2 z-10 md:px-40"
     />
     <div
       class="absolute inset-0 overflow-hidden"

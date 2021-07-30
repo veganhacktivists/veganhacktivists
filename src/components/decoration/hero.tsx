@@ -9,6 +9,10 @@ interface HeroClassNames {
 }
 interface HeroProps {
   imageBackground: ImageProps['src'];
+  tagline: {
+    image: StaticImageData;
+    alt: string;
+  };
   alignment: 'right' | 'left';
   classNameMapping?: HeroClassNames;
   main?: boolean;
@@ -16,6 +20,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
+  tagline,
   alignment,
   children,
   classNameMapping,
@@ -24,9 +29,9 @@ const Hero: React.FC<HeroProps> = ({
   const containerClasses = classNames(
     'relative',
     'p-10 md:p-32',
-    'bg-scroll',
-    'bg-cover',
-    'bg-no-repeat',
+    // 'bg-scroll',
+    // 'bg-cover',
+    // 'bg-no-repeat',
     'flex',
     {
       'justify-start': alignment === 'left',
@@ -43,6 +48,7 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
+    'md:px-40',
     classNameMapping?.content
   );
 
@@ -57,7 +63,12 @@ const Hero: React.FC<HeroProps> = ({
         objectPosition="center"
         priority
       />
-      <div className={contentClasses}>{children}</div>
+      <div className={contentClasses}>
+        {tagline && (
+          <Image layout="intrinsic" src={tagline.image} alt={tagline.alt} />
+        )}
+        {children}
+      </div>
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
         <Circle yAlign="bottom" radiusZoom={1.04} />

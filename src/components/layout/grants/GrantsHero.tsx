@@ -6,23 +6,13 @@ import heroTagline from '../../../../public/images/grants/VH-grants-hero-text.pn
 const GrantsHero: React.FC = () => {
   return (
     <Hero
-      imageBackground={heroBackground.src}
+      imageBackground={heroBackground}
+      tagline={{ image: heroTagline, alt: 'Grants for a kinder world' }}
       alignment="left"
       classNameMapping={{
         container: 'bg-center',
       }}
-    >
-      <div>
-        <Image
-          src={heroTagline.src}
-          width={heroTagline.width}
-          height={heroTagline.height}
-          alt="Grants for a kinder world"
-          layout="intrinsic"
-          priority
-        />
-      </div>
-    </Hero>
+    />
   );
 };
 
