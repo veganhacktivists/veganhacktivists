@@ -29,9 +29,6 @@ const Hero: React.FC<HeroProps> = ({
   const containerClasses = classNames(
     'relative',
     'p-10 md:p-32',
-    // 'bg-scroll',
-    // 'bg-cover',
-    // 'bg-no-repeat',
     'flex',
     {
       'justify-start': alignment === 'left',
@@ -65,7 +62,12 @@ const Hero: React.FC<HeroProps> = ({
       />
       <div className={contentClasses}>
         {tagline && (
-          <Image layout="intrinsic" src={tagline.image} alt={tagline.alt} />
+          <Image
+            layout="intrinsic"
+            src={tagline.image}
+            alt={tagline.alt}
+            priority
+          />
         )}
         {children}
       </div>
