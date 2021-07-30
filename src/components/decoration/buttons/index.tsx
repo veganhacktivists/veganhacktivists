@@ -3,10 +3,17 @@ import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import type { LinkProps } from 'next/link';
-import type { AriaAttributes, MouseEventHandler } from 'react';
+import type {
+  AriaAttributes,
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+} from 'react';
 
-export interface ButtonProps extends AriaAttributes {
+export interface ButtonProps
+  extends AriaAttributes,
+    ButtonHTMLAttributes<unknown> {
   primary?: boolean;
   href?: string;
   className?: string;
@@ -24,8 +31,6 @@ const BaseButton: React.FC<ButtonProps> = ({
   href,
   children,
   linkProps,
-  onClick,
-  type = 'submit',
   ...props
 }) => {
   return (
@@ -43,11 +48,7 @@ const BaseButton: React.FC<ButtonProps> = ({
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && (
-        <button onClick={onClick} type={type} {...props}>
-          {children}
-        </button>
-      )}
+      {!href && <button {...props}>{children}</button>}
     </>
   );
 };
@@ -86,7 +87,7 @@ const DarkButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     active
-      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
+      ? 'hover:shadow-fill-pink bg-magenta border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -187,6 +188,28 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 };
 
+const NavButton: React.FC<ButtonProps & { href: string }> = ({
+  href,
+  className = '',
+  children,
+}) => {
+  const { pathname } = useRouter();
+  const atLocation = pathname === href;
+
+  const classes = classNames('m-5 font-mono text-sm', className);
+
+  return (
+    <DarkButton
+      active={atLocation}
+      href={href}
+      className={classes}
+      linkProps={{ scroll: false }}
+    >
+      {children}
+    </DarkButton>
+  );
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -196,4 +219,5 @@ export {
   DarkButton,
   WhiteButton,
   GreenButton,
+  NavButton,
 };
