@@ -11,8 +11,6 @@ WORKDIR /usr/app
 COPY package.json yarn.lock ./
 RUN ["yarn", "install"]
 
-RUN ["yarn", "next", "telemetry", "disable"]
-
 # Copying source files
 COPY . ./
 RUN ["yarn", "build"]
