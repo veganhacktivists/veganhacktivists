@@ -7,7 +7,7 @@ import type {
   ITeamFields,
   ITeam,
   ITeamMember,
-} from '../../@types/generated/contentful';
+} from '../../types/generated/contentful';
 import { PeopleButtons, PeopleHero } from 'components/layout/people';
 import { FirstSubSection } from 'components/decoration/text-blocks';
 import { WhiteButton } from 'components/decoration/buttons';
