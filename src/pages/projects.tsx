@@ -90,7 +90,6 @@ const Projects: React.FC = () => {
           classNameMapping={{
             container: 'bg-center',
           }}
-          main
         >
           <div>
             <Image
