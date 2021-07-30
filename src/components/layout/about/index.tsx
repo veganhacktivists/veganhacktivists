@@ -88,8 +88,8 @@ export const AboutHero: React.FC = () => {
         <div>
           <Image
             src={heroTagline.src}
-            width={heroTagline.width * 0.5}
-            height={heroTagline.height * 0.5}
+            width={heroTagline.width * 0.3}
+            height={heroTagline.height * 0.3}
             alt="Data-Driven Activism"
             layout="intrinsic"
             priority
