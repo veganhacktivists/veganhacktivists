@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output src/@types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -31,6 +32,8 @@
     "@typescript-eslint/parser": "^4.28.1",
     "autoprefixer": "^10.2.6",
     "babel-jest": "^27.0.6",
+    "contentful-management": "^7.30.0",
+    "contentful-typescript-codegen": "^3.2.2",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
     "husky": "^7.0.0",
