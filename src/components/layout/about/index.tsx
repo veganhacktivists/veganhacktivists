@@ -80,22 +80,15 @@ export const AboutHero: React.FC = () => {
     <>
       <Hero
         imageBackground={heroBackground.src}
+        tagline={{
+          image: heroTagline,
+          alt: 'Data-Driven Activism',
+        }}
         alignment="left"
         classNameMapping={{
           container: 'bg-center',
         }}
-      >
-        <div>
-          <Image
-            src={heroTagline.src}
-            width={heroTagline.width * 0.35}
-            height={heroTagline.height * 0.35}
-            alt="Data-Driven Activism"
-            layout="intrinsic"
-            priority
-          />
-        </div>
-      </Hero>
+      />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
