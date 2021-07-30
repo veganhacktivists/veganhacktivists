@@ -94,8 +94,8 @@ const Projects: React.FC = () => {
           <div>
             <Image
               src={heroTagline.src}
-              width={heroTagline.width * 0.7}
-              height={heroTagline.height * 0.7}
+              width={heroTagline.width * 0.6}
+              height={heroTagline.height * 0.6}
               alt="Building projects with impact"
               priority
             />
