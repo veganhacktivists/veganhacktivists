@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
-import { DarkButton } from 'components/decoration/buttons';
+import { DarkButton } from '../../decoration/buttons';
 import Image from 'next/image';
 import Hero from '../../decoration/hero';
 import SquareField from '../../decoration/squares';
@@ -88,8 +88,8 @@ export const AboutHero: React.FC = () => {
         <div>
           <Image
             src={heroTagline.src}
-            width={heroTagline.width * 0.3}
-            height={heroTagline.height * 0.3}
+            width={heroTagline.width * 0.35}
+            height={heroTagline.height * 0.35}
             alt="Data-Driven Activism"
             layout="intrinsic"
             priority
