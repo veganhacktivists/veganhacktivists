@@ -1,4 +1,4 @@
-import type { CONTENT_TYPE } from '../../@types/generated/contentful';
+import type { CONTENT_TYPE } from '../../types/generated/contentful';
 import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
