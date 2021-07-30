@@ -86,22 +86,15 @@ const Projects: React.FC = () => {
       <div>
         <Hero
           imageBackground={heroBackground.src}
+          tagline={{
+            image: heroTagline,
+            alt: 'Building projects with impact',
+          }}
           alignment="left"
           classNameMapping={{
             container: 'bg-center',
           }}
-          main
-        >
-          <div>
-            <Image
-              src={heroTagline.src}
-              width={heroTagline.width * 0.7}
-              height={heroTagline.height * 0.7}
-              alt="Building projects with impact"
-              priority
-            />
-          </div>
-        </Hero>
+        />
         <SquareField
           squares={HERO_DECORATION_SQUARES}
           className="hidden md:block"

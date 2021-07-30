@@ -1,5 +1,4 @@
-import { NavButton } from 'components/decoration/buttons';
-import Image from 'next/image';
+import { NavButton } from '../../decoration/buttons';
 import Hero from '../../decoration/hero';
 import SquareField from '../../decoration/squares';
 import heroBackground from '../../../../public/images/VH-pigs-hero.jpg';
@@ -29,22 +28,15 @@ export const AboutHero: React.FC = () => {
     <>
       <Hero
         imageBackground={heroBackground.src}
+        tagline={{
+          image: heroTagline,
+          alt: 'Data-Driven Activism',
+        }}
         alignment="left"
         classNameMapping={{
           container: 'bg-center',
         }}
-      >
-        <div>
-          <Image
-            src={heroTagline.src}
-            width={heroTagline.width * 0.5}
-            height={heroTagline.height * 0.5}
-            alt="Data-Driven Activism"
-            layout="intrinsic"
-            priority
-          />
-        </div>
-      </Hero>
+      />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
