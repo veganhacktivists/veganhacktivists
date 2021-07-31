@@ -62,12 +62,14 @@ const Hero: React.FC<HeroProps> = ({
       />
       <div className={contentClasses}>
         {tagline && (
-          <Image
-            layout="intrinsic"
-            src={tagline.image}
-            alt={tagline.alt}
-            priority
-          />
+          <div>
+            <Image
+              layout="intrinsic"
+              src={tagline.image}
+              alt={tagline.alt}
+              priority
+            />
+          </div>
         )}
         {children}
       </div>
