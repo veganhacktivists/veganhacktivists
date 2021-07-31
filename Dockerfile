@@ -9,7 +9,7 @@ WORKDIR /usr/app
 
 # Installing dependencies
 COPY package.json yarn.lock ./
-RUN ["yarn", "install"]
+RUN ["yarn", "install", "--frozen-lockfile"]
 
 # Copying source files
 COPY . ./
