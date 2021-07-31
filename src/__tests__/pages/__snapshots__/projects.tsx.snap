@@ -19,7 +19,7 @@ exports[`should render correctly 1`] = `
         />
       </div>
       <div
-        class="flex flex-col justify-center w-1/2 z-10 md:px-10 lg:px-20 xl:px-40"
+        class="flex flex-col justify-center w-1/2 z-10 md:px-0 lg:px-20 2xl:px-40"
       >
         <div>
           <div
