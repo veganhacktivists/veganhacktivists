@@ -83,7 +83,7 @@ module.exports = {
       },
       minHeight: {
         'screen-header': '93vh',
-        'screen-header-small': '90vh',
+        'screen-header-small': '93vh',
         'screen-60%': '60vh',
         'screen/2': '50vh',
       },
