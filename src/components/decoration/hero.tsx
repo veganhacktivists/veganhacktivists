@@ -33,9 +33,9 @@ const Hero: React.FC<HeroProps> = ({
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
-      'h-screen-header-small xl:h-screen-header': main,
-      'md:-top-20 md:-mb-20': main,
-      'xl:h-screen-60%': !main,
+      'min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20':
+        main,
+      'xl:min-h-screen-60%': !main,
     },
     classNameMapping?.container
   );
@@ -45,7 +45,8 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
-    'md:px-40',
+    'md:px-10 lg:px-20 xl:px-40',
+    { 'pt-10 xl:mt-0': main },
     classNameMapping?.content
   );
 
@@ -57,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({
         src={imageBackground as any}
         layout="fill"
         objectFit="cover"
-        objectPosition="center"
+        objectPosition={main ? 'top' : 'center'}
         priority
       />
       <div className={contentClasses}>
