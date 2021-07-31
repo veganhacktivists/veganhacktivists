@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
-    'md:px-10 lg:px-20 xl:px-40',
+    'md:px-0 lg:px-20 2xl:px-40',
     { 'pt-10 xl:mt-0': main },
     classNameMapping?.content
   );
