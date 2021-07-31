@@ -61,8 +61,8 @@ module.exports = {
     ],
     safelist: [
       /^bg-/,
-      /^w-/,
-      /^h-/,
+      /^-?w-/,
+      /^-?h-/,
       /^opacity-/,
       /^-?left-/,
       /^-?right-/,
@@ -81,9 +81,9 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
-      height: {
+      minHeight: {
         'screen-header': '93vh',
-        'screen-header-small': '85vh',
+        'screen-header-small': '90vh',
         'screen-60%': '60vh',
         'screen/2': '50vh',
       },
