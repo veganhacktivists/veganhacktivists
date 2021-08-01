@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
       'justify-end': alignment === 'right',
       'min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20':
         main,
-      'h-screen-60%': !main,
+      'md:h-160': !main,
     },
     classNameMapping?.container
   );
@@ -45,11 +45,9 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
-    'md:px-0 lg:px-20 2xl:px-40',
     { 'pt-10 xl:mt-0': main },
     classNameMapping?.content
   );
-
   return (
     <div className={containerClasses}>
       <Image
@@ -63,11 +61,13 @@ const Hero: React.FC<HeroProps> = ({
       />
       <div className={contentClasses}>
         {tagline && (
-          <div>
+          <div className="px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40">
             <Image
               layout="intrinsic"
               src={tagline.image}
               alt={tagline.alt}
+              // width={tagline.image.width * taglineRatio}
+              // height={tagline.image.height * taglineRatio}
               priority
             />
           </div>
