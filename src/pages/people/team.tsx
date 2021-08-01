@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const teamMembers = await getContents<ITeamFields>('teamMember');
   return {
     props: { teams, teamMembers },
+    revalidate: 120,
   };
 };
 
