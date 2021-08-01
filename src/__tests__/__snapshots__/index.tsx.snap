@@ -18,9 +18,11 @@ exports[`Application renders correctly 1`] = `
       />
     </div>
     <div
-      class="flex flex-col justify-center w-1/2 z-10 md:px-0 lg:px-20 2xl:px-40 pt-10 xl:mt-0"
+      class="flex flex-col justify-center w-1/2 z-10 pt-10 xl:mt-0"
     >
-      <div>
+      <div
+        class="px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40"
+      >
         <div
           style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
         >
