@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
       'justify-end': alignment === 'right',
       'min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20':
         main,
-      'xl:min-h-screen-60%': !main,
+      'h-screen-60%': !main,
     },
     classNameMapping?.container
   );
@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
-    'md:px-0 lg:px-20 2xl:px-40',
+    'md:px-0 lg:px-20 2xl:px-60',
     { 'pt-10 xl:mt-0': main },
     classNameMapping?.content
   );

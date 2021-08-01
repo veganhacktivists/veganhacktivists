@@ -81,6 +81,9 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
+      height: {
+        'screen-60%': '60vh',
+      },
       minHeight: {
         'screen-header': '93vh',
         'screen-header-small': '93vh',
