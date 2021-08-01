@@ -100,6 +100,7 @@ const TeamSelector: React.FC<{
                 width={sprite.fields.file.details.size}
                 height={sprite.fields.file.details.size}
                 alt={name}
+                priority
               />
             ) : (
               <div className="text-4xl">{icon}</div>
