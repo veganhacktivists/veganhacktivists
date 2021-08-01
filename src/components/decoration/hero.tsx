@@ -61,7 +61,11 @@ const Hero: React.FC<HeroProps> = ({
       />
       <div className={contentClasses}>
         {tagline && (
-          <div className="px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40">
+          <div
+            className={classNames({
+              'px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40': !main,
+            })}
+          >
             <Image
               layout="intrinsic"
               src={tagline.image}
