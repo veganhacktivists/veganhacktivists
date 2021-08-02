@@ -97,8 +97,8 @@ const TeamSelector: React.FC<{
             {sprite ? (
               <Image
                 src={`https:${sprite.fields.file.url}`}
-                width={100}
-                height={100}
+                width={65}
+                height={65}
                 alt={name}
                 priority
               />
