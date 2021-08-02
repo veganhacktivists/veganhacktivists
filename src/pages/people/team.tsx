@@ -207,9 +207,11 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       <div className="max-w-7xl m-auto p-16">
         <PeopleButtons />
         <FirstSubSection header="Our Team">
-          Our passionate vegan activist volunteer team listed below – thank you
-          so much to each and every one of them. We’re constantly looking to
-          expand our team of developers, designers, and content creators.{' '}
+		  We’re so grateful to have so many passionate vegan volunteers with 
+		  us supporting the movement. Each team below is run independently 
+		  from each-other and are assigned to different projects or organizations. 
+		  Interested in joining? We’re constantly looking to expand our team!
+		  {' '}
           <Link passHref href={'/join'}>
             <a className="text-magenta underline">Apply to join us!</a>
           </Link>
