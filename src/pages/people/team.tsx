@@ -79,14 +79,14 @@ const TeamSelector: React.FC<{
         }`}
         onClick={() => selectCallback(null)}
       >
-        View all
+        All
       </button>
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite }) => (
           <button
             style={{ backgroundColor: getBackgroundColor(name, color) }}
-            className={'w-18 h-18 flex-grow-0 transition-colors'}
+            className={'w-20 h-20 flex-grow-0 transition-colors'}
             onClick={() => selectCallback(name)}
             onMouseEnter={() => setHovered(name)}
             onMouseLeave={() =>
@@ -97,8 +97,8 @@ const TeamSelector: React.FC<{
             {sprite ? (
               <Image
                 src={`https:${sprite.fields.file.url}`}
-                width={65}
-                height={65}
+                width={75}
+                height={75}
                 alt={name}
                 priority
               />
