@@ -12,34 +12,46 @@ const OurMission: React.FC = () => {
       <div className="m-10">
         <AboutButtons />
         <div>
-          <FirstSubSection header="Our MISSION">
-            Our mission is to build new, data-driven, disruptive, and innovative
-            projects to help end animal exploitation. We believe the animal
-            rights movement has four fundamental areas it can improve on that we
-            aim to solve through our work.
-          </FirstSubSection>
-          <SubSection header="We need more data in our movement.">
+		  <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase text-black">mission</b>
+          </h1>
+          <p>
+            Our mission is to build new, data-driven, disruptive, and innovative 
+			projects to help see an end to animal exploitation. We believe the 
+			animal rights movement has five fundamental areas it can improve on 
+			that we aim to solve through the work that we do.
+          </p>
+        </div>
+          <SubSection header="1. We need more data in our movement.">
             We can’t realistically track or be confident that the projects and
             organizations out there right now are as effective as they can be.
             We strongly believe this is the largest issue in growing our
             movement, and so we aim to build, utilize, and gather data through
             our projects and network – and then share that data.
           </SubSection>
-          <SubSection header="We need more competition, too.">
+          <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
             growing and improving our movements’ effectiveness. Competition puts
-            heat on other organizations and projects to keep building,
+            healthy pressure on other organizations and projects to keep building,
             improving, and innovating – and gives them more data on what works,
             and what doesn’t work.
           </SubSection>
-          <SubSection header="We need more innovation and collaboration.">
+          <SubSection header="3. We need to be more innovative.">
             We believe the movement has a lot of room and potential to be more
-            innovative in its approaches. We aim to help organizations and
-            activists by giving them the network and tools to promote more
-            collaboration, and utilize their massive networks to help each other
-            with pressure campaigns, data evaluation, etc.
+            innovative in its approaches. We promote, both through our work and
+			our advisory program, to think outside of the box, to make innovation
+			a core consideration of every part of the building process.
           </SubSection>
-          <SubSection header="We need more vegans to become active.">
+		  <SubSection header="4. And we need to start collaborating.">
+            We aim to help organizations and activists connect and collaborate 
+			in more meaningful ways. We need to utilize our networks with the 
+			idea of supporting our shared goals, whether that means sharing data, 
+			helping allocate resources and people, or general support in 
+			organizational challanges.
+          </SubSection>
+          <SubSection header="5. Finally, we need more vegans to become active.">
             Only a tiny percentage of the world is vegan, and a fraction within
             are active. Most organizations focus on converting vegans whether
             through health, environmental, or ethical reasons. We believe that

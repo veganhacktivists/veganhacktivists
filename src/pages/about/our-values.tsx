@@ -12,14 +12,19 @@ const OurMission: React.FC = () => {
       <div className="m-10">
         <AboutButtons />
         <div>
-          <FirstSubSection header="Our Values">
-            We know that promoting and embracing strong core values for our
-            organization is vital in recruiting diverse and talented volunteers
-            from all over the world. By making our community safe and welcoming
-            for everyone, we build a more productive work environment in which
-            all of us can thrive and be the best version of ourselves when
-            fighting for the animals.
-          </FirstSubSection>
+		  <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase text-black">values</b>
+          </h1>
+          <p>
+			We know that embracing strong core values for our organization is vital 
+			in recruiting diverse and talented volunteers from all over the world. 
+			By making our community welcoming and safe for everyone, we build a more 
+			productive environment in which all of us can thrive and be the best 
+			version of ourselves when fighting for the animals.
+          </p>
+        </div>
 
           <SubSection header="Animal Liberation">
             We value and respect the lives of all animals and denounce all forms
@@ -30,7 +35,7 @@ const OurMission: React.FC = () => {
           <SubSection header="Non-violence">
             We practice a love-based organizational approach. We exercise
             kindness, compassion, and nonviolence. We encourage every member to
-            fearlessly and openly communicate with leaders.
+            fearlessly and openly communicate with their leaders and peers.
           </SubSection>
 
           <SubSection header="Safe Community">

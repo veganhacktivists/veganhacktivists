@@ -73,20 +73,12 @@ const TeamSelector: React.FC<{
 
   return (
     <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
-      <button
-        className={`w-28 h-28 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
-          selectedTeam === null ? 'bg-grey text-white' : 'bg-white'
-        }`}
-        onClick={() => selectCallback(null)}
-      >
-        View all
-      </button>
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite }) => (
           <button
             style={{ backgroundColor: getBackgroundColor(name, color) }}
-            className={'w-28 h-28 flex-grow-0 transition-colors'}
+            className={'w-20 h-20 flex-grow-0 transition-colors'}
             onClick={() => selectCallback(name)}
             onMouseEnter={() => setHovered(name)}
             onMouseLeave={() =>
@@ -97,8 +89,8 @@ const TeamSelector: React.FC<{
             {sprite ? (
               <Image
                 src={`https:${sprite.fields.file.url}`}
-                width={100}
-                height={100}
+                width={75}
+                height={75}
                 alt={name}
                 priority
               />
@@ -204,16 +196,20 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <title>Our Team | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
-      <div className="max-w-7xl m-auto p-16">
-        <PeopleButtons />
-        <FirstSubSection header="Our Team">
-          Our passionate vegan activist volunteer team listed below – thank you
-          so much to each and every one of them. We’re constantly looking to
-          expand our team of developers, designers, and content creators.{' '}
-          <Link passHref href={'/join'}>
-            <a className="text-magenta underline">Apply to join us!</a>
-          </Link>
-        </FirstSubSection>
+      <div>
+		<div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase text-black">team</b>
+          </h1>
+          <p>
+		  We’re so grateful to have so many passionate vegan 
+		  volunteers with us supporting the movement! Each team 
+		  below is run independently from each other and are assigned 
+		  to different projects or organizations. Please click one of the icons below!
+          </p>
+        </div>
+		
         <TeamSelector
           selectedTeam={selectedTeam}
           selectCallback={setSelectedTeam}
@@ -232,11 +228,17 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-24 px-10">
         <FirstSubSection header="Our Community">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis,
-          risus in consectetur pretium, sem mauris pellentesque ex, vel sodales
-          justo odio sit amet purus. Cras iaculis bibendum lorem a elementum.
-          Integer vel tellus neque. Nam sed nisi at diam mattis bibendum ut ac
-          erat. Etiam ac ultrices tortor
+          We’re not just volunteers, but we’re a community. 
+		  We know each other personally, we play games together, 
+		  talk about our lives, meet up in person at events, and 
+		  share daily. A strong community is not only key for a 
+		  volunteer organization, it’s vital to keeping us happy, 
+		  healthy, and active for the animals. Interested in joining? 
+		  We’re constantly looking to expand our team! 
+		  {' '}
+          <Link passHref href={'/join'}>
+            <a className="text-magenta underline">Apply to join us!</a>
+          </Link>
         </FirstSubSection>
       </div>
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
