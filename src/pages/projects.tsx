@@ -99,10 +99,10 @@ const Projects: React.FC = () => {
           squares={HERO_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
           <h1 className="mb-16">
             <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase">projects</b>
+            <b className="font-mono text-5xl uppercase text-black">projects</b>
           </h1>
           <p>
             We&apos;re constantly working on new projects every month, whether
