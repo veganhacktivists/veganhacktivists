@@ -73,14 +73,6 @@ const TeamSelector: React.FC<{
 
   return (
     <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
-      <button
-        className={`w-18 h-18 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
-          selectedTeam === null ? 'bg-grey text-white' : 'bg-white'
-        }`}
-        onClick={() => selectCallback(null)}
-      >
-        All
-      </button>
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite }) => (
