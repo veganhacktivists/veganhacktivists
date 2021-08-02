@@ -74,7 +74,7 @@ const TeamSelector: React.FC<{
   return (
     <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
       <button
-        className={`w-28 h-28 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
+        className={`w-18 h-18 font-bold flex-grow-0 font-mono text-2xl hover:bg-grey hover:text-white transition-colors ${
           selectedTeam === null ? 'bg-grey text-white' : 'bg-white'
         }`}
         onClick={() => selectCallback(null)}
@@ -86,7 +86,7 @@ const TeamSelector: React.FC<{
         .map(({ name, color, icon, sprite }) => (
           <button
             style={{ backgroundColor: getBackgroundColor(name, color) }}
-            className={'w-28 h-28 flex-grow-0 transition-colors'}
+            className={'w-18 h-18 flex-grow-0 transition-colors'}
             onClick={() => selectCallback(name)}
             onMouseEnter={() => setHovered(name)}
             onMouseLeave={() =>
