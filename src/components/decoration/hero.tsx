@@ -33,9 +33,8 @@ const Hero: React.FC<HeroProps> = ({
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
-      'min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20':
-        main,
-      'md:h-96': !main,
+      'h-screen-header sm:-top-20 sm:-mb-20': main,
+      'md:h-450px max-h-96': !main,
     },
     classNameMapping?.container
   );

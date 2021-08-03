@@ -3,7 +3,7 @@
 exports[`should render correctly when providing a URL string 1`] = `
 <DocumentFragment>
   <div
-    class="relative p-10 md:p-32 flex justify-end md:h-160"
+    class="relative p-10 md:p-32 flex justify-end md:h-450px max-h-96"
   >
     <img
       alt=""
@@ -55,7 +55,7 @@ exports[`should render correctly when providing a URL string 1`] = `
 exports[`should render correctly when providing static image data 1`] = `
 <DocumentFragment>
   <div
-    class="relative p-10 md:p-32 flex justify-start md:h-160"
+    class="relative p-10 md:p-32 flex justify-start md:h-450px max-h-96"
   >
     <img
       alt=""
