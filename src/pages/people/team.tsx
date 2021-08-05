@@ -9,8 +9,8 @@ import type {
   ITeam,
   ITeamMember,
 } from '../../types/generated/contentful';
-import { PeopleHero } from 'components/layout/people';
-import { FirstSubSection } from 'components/decoration/text-blocks';
+import { PeopleHero, PeopleButtons } from 'components/layout/people';
+import { FirstSubSection } from 'components/decoration/textBlocks';
 import { WhiteButton } from 'components/decoration/buttons';
 import { getContents } from 'lib/cms';
 import SquareField from 'components/decoration/squares';
@@ -199,19 +199,14 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <title>Our Team | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
-      <div>
-        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-          <h1 className="mb-16">
-            <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase text-black">team</b>
-          </h1>
-          <p>
-            We’re so grateful to have so many passionate vegan volunteers with
-            us supporting the movement! Each team below is run independently
-            from each other and are assigned to different projects or
-            organizations. Please click one of the icons below!
-          </p>
-        </div>
+      <div className="m-10">
+        <PeopleButtons />
+        <FirstSubSection header="Our Team">
+          We&apos;re so grateful to have so many passionate vegan volunteers
+          with us supporting the movement! Each team below is run independently
+          from each other and are assigned to different projects or
+          organizations. Please click one of the icons below!
+        </FirstSubSection>
 
         <TeamSelector
           selectedTeam={selectedTeam}

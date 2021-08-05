@@ -15,8 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
 import { PeopleButtons, PeopleHero } from 'components/layout/people';
-import { FirstSubSection } from 'components/decoration/text-blocks';
-// TODO: Will likely become something like IAdvisor, but using this for now since it should end up similar
+import { FirstSubSection } from 'components/decoration/textBlocks';
 import type {
   ISocialLinks,
   ITeamMember,
@@ -71,9 +70,7 @@ const SocialLinks: React.FC<{ socialLinks: ISocialLinks }> = ({
 };
 
 const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
-  const { name, image, socialLinks } = advisor.fields;
-  // TODO: This will probably also come from the fields, but temporarily using the ITeamMember type, so just hard-coding for now
-  const subtitle = 'Ethics over Habits';
+  const { name, image, socialLinks, position } = advisor.fields;
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
@@ -89,12 +86,12 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
       </div>
       <div className="text-left w-5/6 mx-auto my-0">
         <div className="font-bold">{name}</div>
-        <div>{subtitle}</div>
-        {socialLinks !== undefined ? (
+        <div>{position}</div>
+        {socialLinks !== undefined && (
           <div className="mt-6">
             <SocialLinks socialLinks={socialLinks} />
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );
@@ -106,7 +103,6 @@ interface AdvisorsProps {
 const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
   return (
     <>
-      {' '}
       <Head>
         <title>Our Advisors | Vegan Hacktivists</title>
       </Head>
@@ -114,9 +110,9 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
       <div className="m-10">
         <PeopleButtons />
         <FirstSubSection header="Our Advisors">
-          {
-            'We\'re so incredibly thankful to have a team of experienced advisors that support us with their personal feedback for our current and past projects.'
-          }
+          We&apos;re so incredibly thankful to have a team of experienced
+          advisors that support us with their personal feedback for our current
+          and past projects.
         </FirstSubSection>
         <div className="flex flex-wrap justify-center ">
           {advisors.map((advisor) => (
