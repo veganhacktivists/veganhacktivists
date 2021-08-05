@@ -11,12 +11,14 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
   const remainingWords = tokenizedHeader.join(' ');
 
   return (
-    <div className="mb-14">
-      <h1>
-        <span className="font-italic text-2xl mr-2">{firstWord}</span>
-        <span className="font-bold font-mono text-4xl">{remainingWords}</span>
+    <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+      <h1 className="mb-16">
+        <span className="font-italic text-3xl">{firstWord}</span>{' '}
+        <span className="font-mono font-bold text-5xl uppercase text-black">
+          {remainingWords}
+        </span>
       </h1>
-      <p className="max-w-2xl m-auto text-2xl font-mono">{children}</p>
+      <p>{children}</p>
     </div>
   );
 };

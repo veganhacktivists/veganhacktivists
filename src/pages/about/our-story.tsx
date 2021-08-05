@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { AboutButtons, AboutHero } from 'components/layout/about';
-import { SubSection } from 'components/decoration/textBlocks';
+import { FirstSubSection, SubSection } from 'components/decoration/textBlocks';
 
 const OurMission: React.FC = () => {
   return (
@@ -11,18 +11,12 @@ const OurMission: React.FC = () => {
       <AboutHero />
       <div className="m-10">
         <AboutButtons />
-        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-          <h1 className="mb-16">
-            <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase text-black">story</b>
-          </h1>
-          <p>
-            We started in 2019 as a one-person team with the goal of building a
-            simple animal rights tech project. After the launch of our first
-            project, VeganActivism.org, we were overwhelmed by the response of
-            people wanting to help us build more projects for the movement!
-          </p>
-        </div>
+        <FirstSubSection header="Our story">
+          We started in 2019 as a one-person team with the goal of building a
+          simple animal rights tech project. After the launch of our first
+          project, VeganActivism.org, we were overwhelmed by the response of
+          people wanting to help us build more projects for the movement!
+        </FirstSubSection>
         <SubSection header="Since that day we’ve grown to 100+ volunteers.">
           Most of which are mainly composed of developers, designers, and other
           types of content creators that work closely together in teams. As time

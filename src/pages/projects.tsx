@@ -10,6 +10,7 @@ import sehatiSanctuaryCover from '../../public/images/projects/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
 import SuggestAnIdea from '../components/layout/suggestAnIdea';
+import { FirstSubSection } from '../components/decoration/textBlocks';
 
 const projects = [
   {
@@ -99,18 +100,12 @@ const Projects: React.FC = () => {
           squares={HERO_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-          <h1 className="mb-16">
-            <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase text-black">projects</b>
-          </h1>
-          <p>
-            We&apos;re constantly working on new projects every month, whether
-            they&apos;re ideas of our own or supporting organizations and
-            activists that reach out to us. Below is a list of our work, and
-            which of our teams worked on it.
-          </p>
-        </div>
+        <FirstSubSection header="Our projects">
+          We&apos;re constantly working on new projects every month, whether
+          they&apos;re ideas of our own or supporting organizations and
+          activists that reach out to us. Below is a list of our work, and which
+          of our teams worked on it.
+        </FirstSubSection>
         <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
           <div className="flex flex-wrap place-content-center justify-center">
             <WhiteButton
