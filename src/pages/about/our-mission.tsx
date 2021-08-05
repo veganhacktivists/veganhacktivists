@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { AboutButtons, AboutHero } from 'components/layout/about';
-import { SubSection } from 'components/decoration/textBlocks';
+import { SubSection, FirstSubSection } from 'components/decoration/textBlocks';
 
 const OurMission: React.FC = () => {
   return (
@@ -11,19 +11,13 @@ const OurMission: React.FC = () => {
       <AboutHero />
       <div className="m-10">
         <AboutButtons />
+        <FirstSubSection header="Our mission">
+          Our mission is to build new, data-driven, disruptive, and innovative
+          projects to help see an end to animal exploitation. We believe the
+          animal rights movement has five fundamental areas it can improve on
+          that we aim to solve through the work that we do.
+        </FirstSubSection>
         <div>
-          <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-            <h1 className="mb-16">
-              <span className="font-italic text-3xl">Our </span>
-              <b className="font-mono text-5xl uppercase text-black">mission</b>
-            </h1>
-            <p>
-              Our mission is to build new, data-driven, disruptive, and
-              innovative projects to help see an end to animal exploitation. We
-              believe the animal rights movement has five fundamental areas it
-              can improve on that we aim to solve through the work that we do.
-            </p>
-          </div>
           <SubSection header="1. We need more data in our movement.">
             We can’t realistically track or be confident that the projects and
             organizations out there right now are as effective as they can be.

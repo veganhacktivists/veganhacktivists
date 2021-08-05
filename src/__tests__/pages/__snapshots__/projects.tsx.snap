@@ -116,13 +116,14 @@ exports[`should render correctly 1`] = `
         <span
           class="font-italic text-3xl"
         >
-          Our 
+          Our
         </span>
-        <b
-          class="font-mono text-5xl uppercase text-black"
+         
+        <span
+          class="font-mono font-bold text-5xl uppercase text-black"
         >
           projects
-        </b>
+        </span>
       </h1>
       <p>
         We're constantly working on new projects every month, whether they're ideas of our own or supporting organizations and activists that reach out to us. Below is a list of our work, and which of our teams worked on it.

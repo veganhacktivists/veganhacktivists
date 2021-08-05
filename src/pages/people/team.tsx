@@ -121,20 +121,22 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   }, [teams]);
 
   return (
-    <div className="flex flex-wrap justify-center ">
-      {members.map((m) => (
-        <div className="m-5" key={m.sys.id}>
-          <TeamMemberCard
-            member={m}
-            teamColor={colorMap[m.fields.team!.fields.name]}
-          />
-        </div>
-      ))}
+    <div className="md:mx-auto md:w-4/6">
+      <div className="flex flex-wrap justify-start">
+        {members.map((m) => (
+          <div className="m-5" key={m.sys.id}>
+            <TeamMemberCard
+              member={m}
+              teamColor={colorMap[m.fields.team!.fields.name]}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-const useViewMore = (pageSize = 9) => {
+const useViewMore = (pageSize = 8) => {
   const [pageNumber, setPageNumber] = useState(1);
   const viewMore = useCallback(() => {
     setPageNumber((curr) => curr + 1);
@@ -201,7 +203,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       <PeopleHero />
       <div className="m-10">
         <PeopleButtons />
-        <FirstSubSection header="Our Team">
+        <FirstSubSection header="Our team">
           We&apos;re so grateful to have so many passionate vegan volunteers
           with us supporting the movement! Each team below is run independently
           from each other and are assigned to different projects or
@@ -216,16 +218,16 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
           <WhiteButton
-            className="border-2 border-grey"
+            className="border-2 border-grey uppercase"
             onClick={() => viewMore()}
           >
-            VIEW MORE
+            View more
           </WhiteButton>
         )}
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-24 px-10">
-        <FirstSubSection header="Our Community">
+        <FirstSubSection header="Our community">
           We’re not just volunteers, but we’re a community. We know each other
           personally, we play games together, talk about our lives, meet up in
           person at events, and share daily. A strong community is not only key

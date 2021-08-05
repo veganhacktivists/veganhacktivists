@@ -109,7 +109,7 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
       <PeopleHero />
       <div className="m-10">
         <PeopleButtons />
-        <FirstSubSection header="Our Advisors">
+        <FirstSubSection header="Our advisors">
           We&apos;re so incredibly thankful to have a team of experienced
           advisors that support us with their personal feedback for our current
           and past projects.
