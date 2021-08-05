@@ -29,7 +29,9 @@ export const getContents: <T>(
     content_type: contentType,
     ...fieldsQuery,
   });
-  return response.items as Entry<T>[];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return response.items as Entry<any>[];
 };
 
 export const getAllIdsOfType: (
