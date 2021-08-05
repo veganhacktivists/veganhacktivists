@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -31,7 +32,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   teamColor,
 }) => {
   const { name, team, position, image } = member.fields;
-  const { name: teamName } = team.fields;
+  const { name: teamName } = team!.fields;
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
@@ -125,7 +126,7 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
         <div className="m-5" key={m.sys.id}>
           <TeamMemberCard
             member={m}
-            teamColor={colorMap[m.fields.team.fields.name]}
+            teamColor={colorMap[m.fields.team!.fields.name]}
           />
         </div>
       ))}
@@ -150,7 +151,7 @@ const useFilteredMembers = (
 ) => {
   return useMemo(() => {
     const filteredByTeam = selectedTeam
-      ? allMembers.filter((p) => p.fields.team.fields.name === selectedTeam)
+      ? allMembers.filter((p) => p.fields.team!.fields.name === selectedTeam)
       : allMembers;
 
     const paged = filteredByTeam.slice(0, pageSize * pageNumber);

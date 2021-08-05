@@ -21,37 +21,12 @@ import type {
   ISocialLinks,
   ITeamMember,
 } from '../../types/generated/contentful';
-// TODO: Will use this once CMS set up for advisors
-// import { getContents } from 'lib/cms';
+import { getContents } from 'lib/cms';
 
 export const getStaticProps: GetStaticProps = async () => {
-  // TODO: Delete hardcoded advisors below and use from CMS once available
-  // const advisors = await getContents<{ITeamMember}>('advisors');
-  const advisors = [1, 2, 3, 4].map((id) => ({
-    sys: {
-      id,
-    },
-    fields: {
-      name: `John Doe ${id}`,
-      image: {
-        fields: {
-          file: {
-            url: '//placekitten.com/300/300',
-            details: {
-              size: 300,
-            },
-          },
-        },
-      },
-      socialLinks: {
-        facebook: '#',
-        twitter: '#',
-        email: '#',
-        youtube: '#',
-        github: '#',
-      },
-    },
-  }));
+  const advisors = await getContents<ITeamMember>('teamMember', {
+    type: 'advisor',
+  });
 
   return {
     props: { advisors },
