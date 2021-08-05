@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="relative p-10 md:p-32 flex justify-start md:h-450px max-h-96 bg-center"
+      class="relative flex justify-start  bg-center"
     >
       <div
         style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
@@ -22,7 +22,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
-          class="px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40"
+          class="py-20 md:py-40 lg:py-40"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -34,15 +34,15 @@ exports[`should render correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
             </div>
             <img
               alt="Supporting the Animal Rights Movement"
               decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
+              src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+              srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
