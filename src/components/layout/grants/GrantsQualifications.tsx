@@ -56,8 +56,7 @@ const GrantsQualifications: React.FC = () => {
         </GrantsQualificationsStep>
         <p className="mt-12 text-2xl font-thin">
           <i>
-            Ideally, we love funding people that have a plan to utilize
-            technology in their projects!
+            Ideally, we love supporting people who utilize technology in their work!
           </i>
         </p>
         <p className="mt-12 text-2xl">
