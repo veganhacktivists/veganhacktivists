@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { AboutButtons, AboutHero } from 'components/layout/about';
-import { SubSection, FirstSubSection } from 'components/decoration/text-blocks';
+import { SubSection } from 'components/decoration/textBlocks';
 
 const OurMission: React.FC = () => {
   return (
@@ -12,18 +12,18 @@ const OurMission: React.FC = () => {
       <div className="m-10">
         <AboutButtons />
         <div>
-		  <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-          <h1 className="mb-16">
-            <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase text-black">mission</b>
-          </h1>
-          <p>
-            Our mission is to build new, data-driven, disruptive, and innovative 
-			projects to help see an end to animal exploitation. We believe the 
-			animal rights movement has five fundamental areas it can improve on 
-			that we aim to solve through the work that we do.
-          </p>
-        </div>
+          <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+            <h1 className="mb-16">
+              <span className="font-italic text-3xl">Our </span>
+              <b className="font-mono text-5xl uppercase text-black">mission</b>
+            </h1>
+            <p>
+              Our mission is to build new, data-driven, disruptive, and
+              innovative projects to help see an end to animal exploitation. We
+              believe the animal rights movement has five fundamental areas it
+              can improve on that we aim to solve through the work that we do.
+            </p>
+          </div>
           <SubSection header="1. We need more data in our movement.">
             We can’t realistically track or be confident that the projects and
             organizations out there right now are as effective as they can be.
@@ -34,22 +34,23 @@ const OurMission: React.FC = () => {
           <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
             growing and improving our movements’ effectiveness. Competition puts
-            healthy pressure on other organizations and projects to keep building,
-            improving, and innovating – and gives them more data on what works,
-            and what doesn’t work.
+            healthy pressure on other organizations and projects to keep
+            building, improving, and innovating – and gives them more data on
+            what works, and what doesn’t work.
           </SubSection>
           <SubSection header="3. We need to be more innovative.">
             We believe the movement has a lot of room and potential to be more
             innovative in its approaches. We promote, both through our work and
-			our advisory program, to think outside of the box, to make innovation
-			a core consideration of every part of the building process.
+            our advisory program, to think outside of the box, to make
+            innovation a core consideration of every part of the building
+            process.
           </SubSection>
-		  <SubSection header="4. And we need to start collaborating.">
-            We aim to help organizations and activists connect and collaborate 
-			in more meaningful ways. We need to utilize our networks with the 
-			idea of supporting our shared goals, whether that means sharing data, 
-			helping allocate resources and people, or general support in 
-			organizational challanges.
+          <SubSection header="4. And we need to start collaborating.">
+            We aim to help organizations and activists connect and collaborate
+            in more meaningful ways. We need to utilize our networks with the
+            idea of supporting our shared goals, whether that means sharing
+            data, helping allocate resources and people, or general support in
+            organizational challanges.
           </SubSection>
           <SubSection header="5. Finally, we need more vegans to become active.">
             Only a tiny percentage of the world is vegan, and a fraction within

@@ -24,15 +24,23 @@ const GrantsPerks: React.FC = () => {
         Professional design creation
       </h4>
       <p className="text-2xl mt-4 leading-loose">
-        <div>We&apos;ll design your group or project a new logo, or give your existing designs a facelift. This includes social media elements like banners, posts, icons and more.</div>
+        <div>
+          We&apos;ll design your group or project a new logo, or give your
+          existing designs a facelift. This includes social media elements like
+          banners, posts, icons and more.
+        </div>
       </p>
-	  <h4 className="text-3xl font-semibold mt-12">
+      <h4 className="text-3xl font-semibold mt-12">
         Professional content creation
       </h4>
       <p className="text-2xl mt-4 leading-loose">
-        <div>We can help with any written content creation, including checking your existing content, grammar, spelling, and the creation of content that helps with promoting your work.</div>
+        <div>
+          We can help with any written content creation, including checking your
+          existing content, grammar, spelling, and the creation of content that
+          helps with promoting your work.
+        </div>
       </p>
-	  
+
       <h4 className="text-3xl font-semibold mt-12">
         Free Monthly advisory calls
       </h4>
