@@ -5,7 +5,7 @@ import PollinationProjectLogo from '../../../../public/images/grants/Pollination
 const GrantsPollinationProject: React.FC = () => {
   return (
     <>
-      <div className="flex max-w-screen-lg mx-auto flex-row mt-24 flex-wrap">
+      <div className="flex max-w-screen-lg mx-auto flex-row mt-12 flex-wrap">
         <div className="w-screen md:max-w-sm">
           <Image
             src={PollinationProjectLogo}
