@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output src/@types/generated/contentful.d.ts"
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
