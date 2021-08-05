@@ -17,7 +17,9 @@ import JoinTheTeam from 'components/layout/joinTheTeam';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getContents<ITeamFields>('team');
-  const teamMembers = await getContents<ITeamFields>('teamMember');
+  const teamMembers = await getContents<ITeamFields>('teamMember', {
+    type: 'team',
+  });
   return {
     props: { teams, teamMembers },
     revalidate: 120,
