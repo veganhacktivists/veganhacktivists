@@ -2,7 +2,7 @@ import { NavButton } from '../../decoration/buttons';
 import Hero from '../../decoration/hero';
 import SquareField from '../../decoration/squares';
 import heroBackground from '../../../../public/images/VH-pigs-hero.jpg';
-import heroTagline from '../../../../public/images/VH-Mission-Hero-Text.png';
+import heroTagline from '../../../../public/images/about/hero-tagline.png';
 
 export const AboutButtons: React.FC = () => {
   return (

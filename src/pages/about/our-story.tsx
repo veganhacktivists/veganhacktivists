@@ -11,34 +11,44 @@ const OurMission: React.FC = () => {
       <AboutHero />
       <div className="m-10">
         <AboutButtons />
-        <FirstSubSection header="Our Story">
-          The Vegan Hacktivists started as a one-man team with the goal of
-          launching one project per month to help further the vegan cause by
-          supporting both vegans, non-vegans and activists. After launching our
-          first project (midnight, New Year’s Day of 2019) VeganActivism.org, we
-          were overwhelmed by the response and generosity that came from the
-          community offering to volunteer!
-        </FirstSubSection>
-        <SubSection>
-          Since that day we’ve grown to 80+ volunteers of developers, designers,
-          and content creators that work close together in small teams working
-          on several projects at a time. As time went on, we slowly gathered the
-          attention and support of several well-known activists, organizations,
-          and vegan communities. We’re incredibly grateful to have had the
-          chance to support organizations such as Meat The Victims, Animal
-          Rebellion, The Save Movement, and others!
+        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase text-black">story</b>
+          </h1>
+          <p>
+            We started in 2019 as a one-person team with the goal of building a
+            simple animal rights tech project. After the launch of our first
+            project, VeganActivism.org, we were overwhelmed by the response of
+            people wanting to help us build more projects for the movement!
+          </p>
+        </div>
+        <SubSection header="Since that day we’ve grown to 100+ volunteers.">
+          Most of which are mainly composed of developers, designers, and other
+          types of content creators that work closely together in teams. As time
+          went on, we quickly gathered the attention and support of several
+          well-known vegan activists, organizations, and communities. We’re so
+          grateful to have had the chance to support and work with so many
+          amazing organizations and activists!
         </SubSection>
         <SubSection>
-          We currently have 5 teams, team sweet potato 🍠, team broccoli 🥦,
-          team eggplant 🍆, team banana 🍌 and team carrot 🥕 — these teams have
-          their own developers, designers, and team leaders that manage their
-          assigned projects respectively. Whether it’s an idea of our own that
-          we think could help further the vegan cause, or if it’s an
-          organization or activist that’s approached us for help, we work
-          non-stop to hit our goal for spreading peace and compassion through
-          our animal rights activism. We do this for the animals, we do this
-          because coding is our way of doing our part for activism. Every
-          project we release is 100% free to use for everyone, we don’t do
+          We have seven development teams, one design team, one content team,
+          and one specialist team, making up a total of 10 active teams in the
+          Vegan Hacktivists. Each team has around 8 members, and each team has
+          it’s own leadership and seperate independent work that they do. Some
+          are building new projects, some are maintaining our most active
+          projects, while others are building tech and supporting other
+          organizations that requested our help.
+        </SubSection>
+        <SubSection>
+          Whether it’s an idea of our own to help further the vegan cause, or if
+          it’s an organization or activist that’s approached us for help, we
+          work non-stop to hit our goals through our animal rights activism. We
+          do this for the animals, we do this because coding is our way of
+          supporting the movement.
+        </SubSection>
+        <SubSection>
+          Every project we release is 100% free to use for everyone, we don’t do
           premium versions, microtransactions, sell user data, or do
           advertisements whatsoever. If you want to support us, please consider
           a small donation via our Patreon, it means the world to us to have

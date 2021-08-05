@@ -8,7 +8,7 @@ import type {
   ITeam,
   ITeamMember,
 } from '../../types/generated/contentful';
-import { PeopleButtons, PeopleHero } from 'components/layout/people';
+import { PeopleHero } from 'components/layout/people';
 import { FirstSubSection } from 'components/decoration/text-blocks';
 import { WhiteButton } from 'components/decoration/buttons';
 import { getContents } from 'lib/cms';
@@ -17,7 +17,9 @@ import JoinTheTeam from 'components/layout/joinTheTeam';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getContents<ITeamFields>('team');
-  const teamMembers = await getContents<ITeamFields>('teamMember');
+  const teamMembers = await getContents<ITeamFields>('teamMember', {
+    type: 'team',
+  });
   return {
     props: { teams, teamMembers },
     revalidate: 120,
@@ -196,18 +198,20 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <title>Our Team | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
-      <div className="max-w-7xl m-auto p-16">
-        <PeopleButtons />
-        <FirstSubSection header="Our Team">
-		  We’re so grateful to have so many passionate vegan volunteers with 
-		  us supporting the movement. Each team below is run independently 
-		  from each-other and are assigned to different projects or organizations. 
-		  Interested in joining? We’re constantly looking to expand our team!
-		  {' '}
-          <Link passHref href={'/join'}>
-            <a className="text-magenta underline">Apply to join us!</a>
-          </Link>
-        </FirstSubSection>
+      <div>
+        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+          <h1 className="mb-16">
+            <span className="font-italic text-3xl">Our </span>
+            <b className="font-mono text-5xl uppercase text-black">team</b>
+          </h1>
+          <p>
+            We’re so grateful to have so many passionate vegan volunteers with
+            us supporting the movement! Each team below is run independently
+            from each other and are assigned to different projects or
+            organizations. Please click one of the icons below!
+          </p>
+        </div>
+
         <TeamSelector
           selectedTeam={selectedTeam}
           selectCallback={setSelectedTeam}
@@ -226,11 +230,15 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-24 px-10">
         <FirstSubSection header="Our Community">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis,
-          risus in consectetur pretium, sem mauris pellentesque ex, vel sodales
-          justo odio sit amet purus. Cras iaculis bibendum lorem a elementum.
-          Integer vel tellus neque. Nam sed nisi at diam mattis bibendum ut ac
-          erat. Etiam ac ultrices tortor
+          We’re not just volunteers, but we’re a community. We know each other
+          personally, we play games together, talk about our lives, meet up in
+          person at events, and share daily. A strong community is not only key
+          for a volunteer organization, it’s vital to keeping us happy, healthy,
+          and active for the animals. Interested in joining? We’re constantly
+          looking to expand our team!{' '}
+          <Link passHref href={'/join'}>
+            <a className="text-magenta underline">Apply to join us!</a>
+          </Link>
         </FirstSubSection>
       </div>
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />

@@ -3,7 +3,7 @@
 exports[`Application renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="relative p-10 md:p-32 flex justify-end min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20 bg-center"
+    class="relative flex justify-end h-screen-header sm:-top-20 sm:-mb-20 bg-center"
   >
     <div
       style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
@@ -33,15 +33,15 @@ exports[`Application renders correctly 1`] = `
               alt=""
               aria-hidden="true"
               role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
           <img
             alt="Compassion, Creativity, Code"
             decoding="async"
-            src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-            srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
+            src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+            srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>

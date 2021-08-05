@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-pig2-hero.jpg';
-import heroTagline from '../../public/images/VH-projects-hero-text.png';
+import heroTagline from '../../public/images/projects/hero-tagline.png';
 import activistHubCover from '../../public/images/projects/ActivistHub.png';
 import sehatiSanctuaryCover from '../../public/images/projects/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
@@ -99,10 +99,10 @@ const Projects: React.FC = () => {
           squares={HERO_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+        <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
           <h1 className="mb-16">
             <span className="font-italic text-3xl">Our </span>
-            <b className="font-mono text-5xl uppercase">projects</b>
+            <b className="font-mono text-5xl uppercase text-black">projects</b>
           </h1>
           <p>
             We&apos;re constantly working on new projects every month, whether
