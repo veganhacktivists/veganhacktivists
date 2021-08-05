@@ -34,8 +34,6 @@ const Hero: React.FC<HeroProps> = ({
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
       'h-screen-header sm:-top-20 sm:-mb-20': main,
-      '': !main,
-      // 'md:h-450px max-h-96': !main,
     },
     classNameMapping?.container
   );
@@ -66,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({
         {tagline && (
           <div
             className={classNames({
-              'py-20 md:py-40 lg:py-40': !main,
+              'py-20 md:py-20 lg:py-20': !main,
             })}
           >
             <Image

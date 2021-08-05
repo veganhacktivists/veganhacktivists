@@ -3,7 +3,7 @@
 exports[`should render correctly when providing a URL string 1`] = `
 <DocumentFragment>
   <div
-    class="relative flex justify-end "
+    class="relative flex justify-end"
   >
     <img
       alt=""
@@ -55,7 +55,7 @@ exports[`should render correctly when providing a URL string 1`] = `
 exports[`should render correctly when providing static image data 1`] = `
 <DocumentFragment>
   <div
-    class="relative flex justify-start "
+    class="relative flex justify-start"
   >
     <img
       alt=""
