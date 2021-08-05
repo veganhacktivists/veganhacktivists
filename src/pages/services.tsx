@@ -141,11 +141,19 @@ const Services: React.FC = () => (
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="text-grey content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl">
+      <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
         <h1 className="mb-16">
           <span className="font-italic text-3xl">Our </span>
-          <b className="font-mono text-5xl uppercase">services</b>
+          <b className="font-mono text-5xl uppercase text-black">services</b>
         </h1>
+        <p>
+          Aside from building our own projects, we also serve the greater
+          community! If you’re an animal rights activist, organization, or just
+          a vegan who needs help - let us know! Please keep in mind that while
+          all of our services are free this unfortunately means we have to be
+          selective with who we can help with our limited resources. Ask us
+          either way!
+        </p>
       </div>
       <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20">
         {SERVICE_BLOCKS.map(

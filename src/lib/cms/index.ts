@@ -17,13 +17,17 @@ export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
   return await client.getEntry(id);
 };
 
-export const getContents = async <T>(
+export const getContents: <T>(
   contentType: CONTENT_TYPE,
-  queries?: Record<string, unknown>
-): Promise<Entry<T>[]> => {
+  query?: Record<string, unknown>
+) => Promise<Entry<T>[]> = async (contentType, query = {}) => {
+  const fieldsQuery = Object.fromEntries(
+    Object.entries(query).map(([field, value]) => [`fields.${field}`, value])
+  );
+
   const response = await client.getEntries({
     content_type: contentType,
-    ...queries,
+    ...fieldsQuery,
   });
   return response.items as Entry<T>[];
 };

@@ -28,14 +28,14 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const containerClasses = classNames(
     'relative',
-    'p-10 md:p-32',
+    // 'py-10 md:py-32',
     'flex',
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
-      'min-h-screen-header-small xl:min-h-screen-header sm:-top-20 sm:-mb-20':
-        main,
-      'md:h-160': !main,
+      'h-screen-header sm:-top-20 sm:-mb-20': main,
+      '': !main,
+      // 'md:h-450px max-h-96': !main,
     },
     classNameMapping?.container
   );
@@ -48,6 +48,9 @@ const Hero: React.FC<HeroProps> = ({
     { 'pt-10 xl:mt-0': main },
     classNameMapping?.content
   );
+
+  const taglineRatio = 0.6;
+
   return (
     <div className={containerClasses}>
       <Image
@@ -63,15 +66,15 @@ const Hero: React.FC<HeroProps> = ({
         {tagline && (
           <div
             className={classNames({
-              'px-2 md:px-0 lg:px-14 xl:px-20 2xl:p-40': !main,
+              'py-20 md:py-40 lg:py-40': !main,
             })}
           >
             <Image
               layout="intrinsic"
               src={tagline.image}
               alt={tagline.alt}
-              // width={tagline.image.width * taglineRatio}
-              // height={tagline.image.height * taglineRatio}
+              width={tagline.image.width * taglineRatio}
+              height={tagline.image.height * taglineRatio}
               priority
             />
           </div>

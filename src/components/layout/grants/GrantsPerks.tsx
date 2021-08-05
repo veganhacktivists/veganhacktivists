@@ -11,7 +11,7 @@ const GrantsPerks: React.FC = () => {
         alt="Heart icon"
       />
       <h3 className="text-4xl font-semibold mb-10 mt-12">
-        In addition to up to $1000 in seed funding, VH Grants include:
+        In addition to $1000 in seed funding, VH Grants include:
       </h3>
       <h4 className="text-3xl font-semibold mt-12">
         Free SquareSpace website subscription
@@ -21,15 +21,26 @@ const GrantsPerks: React.FC = () => {
         <div>You own, we pay - just keep active!</div>
       </p>
       <h4 className="text-3xl font-semibold mt-12">
-        Free Professional content creation
+        Professional design creation
       </h4>
       <p className="text-2xl mt-4 leading-loose">
-        <div>We can create a new logo, or give existing designs a facelift</div>
-        <div>We can design other elements like social media banners</div>
-        <div>We can help with any written content</div>
-        <div>Our writers can check your work, grammar, spelling, etc.</div>
-        <div>We can help create content that describes your work</div>
+        <div>
+          We&apos;ll design your group or project a new logo, or give your
+          existing designs a facelift. This includes social media elements like
+          banners, posts, icons and more.
+        </div>
       </p>
+      <h4 className="text-3xl font-semibold mt-12">
+        Professional content creation
+      </h4>
+      <p className="text-2xl mt-4 leading-loose">
+        <div>
+          We can help with any written content creation, including checking your
+          existing content, grammar, spelling, and the creation of content that
+          helps with promoting your work.
+        </div>
+      </p>
+
       <h4 className="text-3xl font-semibold mt-12">
         Free Monthly advisory calls
       </h4>
