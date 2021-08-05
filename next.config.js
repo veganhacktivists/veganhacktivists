@@ -1,8 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    // TODO: Remove placekitten before merging advisors page
-    domains: ['images.ctfassets.net', 'placekitten.com'],
+    domains: ['images.ctfassets.net'],
   },
   async redirects() {
     return [
