@@ -9,12 +9,12 @@ import type {
   ITeam,
   ITeamMember,
 } from '../../types/generated/contentful';
-import { PeopleHero, PeopleButtons } from 'components/layout/people';
-import { FirstSubSection } from 'components/decoration/textBlocks';
-import { WhiteButton } from 'components/decoration/buttons';
-import { getContents } from 'lib/cms';
-import SquareField from 'components/decoration/squares';
-import JoinTheTeam from 'components/layout/joinTheTeam';
+import { PeopleHero, PeopleButtons } from '../../components/layout/people';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
+import { WhiteButton } from '../../components/decoration/buttons';
+import { getContents } from '../../lib/cms';
+import SquareField from '../../components/decoration/squares';
+import JoinTheTeam from '../../components/layout/joinTheTeam';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getContents<ITeamFields>('team');

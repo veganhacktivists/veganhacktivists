@@ -14,13 +14,13 @@ import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
-import { PeopleButtons, PeopleHero } from 'components/layout/people';
-import { FirstSubSection } from 'components/decoration/textBlocks';
+import { PeopleButtons, PeopleHero } from '../../components/layout/people';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
 import type {
   ISocialLinks,
   ITeamMember,
 } from '../../types/generated/contentful';
-import { getContents } from 'lib/cms';
+import { getContents } from '../../lib/cms';
 
 export const getStaticProps: GetStaticProps = async () => {
   const advisors = await getContents<ITeamMember>('teamMember', {

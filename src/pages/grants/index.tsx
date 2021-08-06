@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import SquareField from 'components/decoration/squares';
+import SquareField from '../../components/decoration/squares';
 import {
   GrantsHero,
   GrantsHeading,
@@ -8,8 +8,8 @@ import {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
-} from 'components/layout/grants';
-import JoinTheTeam from 'components/layout/joinTheTeam';
+} from '../../components/layout/grants';
+import JoinTheTeam from '../../components/layout/joinTheTeam';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
