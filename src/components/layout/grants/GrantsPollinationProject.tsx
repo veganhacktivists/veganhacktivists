@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { LightButton } from 'components/decoration/buttons';
+import { LightButton } from '../../decoration/buttons';
 import PollinationProjectLogo from '../../../../public/images/grants/PollinationProject-Logo.jpg';
 
 const GrantsPollinationProject: React.FC = () => {

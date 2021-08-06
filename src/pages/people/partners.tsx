@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { PeopleHero, PeopleButtons } from 'components/layout/people';
-import { FirstSubSection } from 'components/decoration/textBlocks';
+import { PeopleHero, PeopleButtons } from '../../components/layout/people';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
 
 const People: React.FC = () => {
   return (

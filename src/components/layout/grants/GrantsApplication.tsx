@@ -1,4 +1,4 @@
-import { DarkButton } from 'components/decoration/buttons';
+import { DarkButton } from '../../decoration/buttons';
 
 const GrantsApplication: React.FC = () => {
   return (

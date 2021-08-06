@@ -1,4 +1,4 @@
-import { NavButton } from 'components/decoration/buttons';
+import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
 import SquareField from '../decoration/squares';
 import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.jpg';
