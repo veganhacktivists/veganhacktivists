@@ -59,7 +59,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
     <>
       <div>Blog with slug {slug}</div>
       {documentToReactComponents(content)}
-      <div>Author: {author.fields.name}</div>
+      {author && <div>Author: {author.fields.name}</div>}
     </>
   );
 };
