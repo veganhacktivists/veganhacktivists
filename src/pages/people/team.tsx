@@ -122,7 +122,7 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 
   return (
     <div className="md:mx-auto md:w-4/6">
-      <div className="flex flex-wrap justify-start justify-center">
+      <div className="flex flex-wrap justify-center">
         {members.map((m) => (
           <div className="m-5" key={m.sys.id}>
             <TeamMemberCard

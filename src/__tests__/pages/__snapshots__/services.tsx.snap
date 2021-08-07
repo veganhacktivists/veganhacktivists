@@ -180,7 +180,7 @@ exports[`should render correctly 1`] = `
             <p
               class="my-3"
             >
-              If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves. We'll also take care of hosting using a dynamic dedicated server w/ Cloudflare protection and domain privacy
+              If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
           </div>
         </div>
@@ -233,7 +233,7 @@ exports[`should render correctly 1`] = `
             <p
               class="my-3"
             >
-              Do you have an idea that would help bring us closer to a vegan world? A new website? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we love it, we'll help you build it using our resources and team
+              Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!
             </p>
           </div>
         </div>
@@ -286,7 +286,7 @@ exports[`should render correctly 1`] = `
             <p
               class="my-3"
             >
-              We're lucky enough to have a generous benefactor that allows us to fund vegan activists and small grassroot vegan organizations! Looking to start a cube of truth in your area? Interested in other types of street activism but need funding for vegan cupcakes, stickers, signs? What about support for camera gear, graphic design, development or transportation? Request funding!
+              We're lucky enough to have a generous donor that lets us fund vegan activists and small grassroot vegan organizations! Need funding for vegan food, stickers, signs, or equipment? We also fund camera gear, graphic design, development and transportation needs! Let us know!
             </p>
           </div>
         </div>
@@ -339,7 +339,7 @@ exports[`should render correctly 1`] = `
             <p
               class="my-3"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae elit turpis. Nunc rhoncus nec sem nec tempor. Sed id finibus enim. Sed sollicitudin odio volutpat, fermentum nibh sed, vestibulum neque. Ut eu lectus at nibh consequat aliquam fermentum id velit.
+              We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
             </p>
           </div>
         </div>
