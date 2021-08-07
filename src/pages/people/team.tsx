@@ -136,7 +136,7 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   );
 };
 
-const useViewMore = (pageSize = 8) => {
+const useViewMore = (pageSize = 12) => {
   const [pageNumber, setPageNumber] = useState(1);
   const viewMore = useCallback(() => {
     setPageNumber((curr) => curr + 1);
