@@ -7,7 +7,7 @@ const PageWrapper: React.FC = ({ children }) => {
 };
 
 export const MainWrapper: React.FC = ({ children }) => {
-  return <main className="text-center">{children}</main>;
+  return <main className="text-center min-h-160">{children}</main>;
 };
 
 export default PageWrapper;

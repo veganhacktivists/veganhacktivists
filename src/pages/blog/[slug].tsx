@@ -54,13 +54,13 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
     return <div>Loading...</div>;
   }
 
-  const { slug, author, content } = blog.fields;
+  const { title, author, content } = blog.fields;
   return (
-    <>
-      <div>Blog with slug {slug}</div>
+    <div>
+      <h1 className="text-3xl">{title}</h1>
       {documentToReactComponents(content)}
       {author && <div>Author: {author.fields.name}</div>}
-    </>
+    </div>
   );
 };
 
