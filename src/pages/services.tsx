@@ -89,7 +89,7 @@ const Service: React.FC<ServiceProps> = ({
   );
 
   const iconWrapperClassnames = classNames(
-    'w-full md:max-w-xs',
+    'flex flex-col w-full md:max-w-xs',
     `bg-${iconBgColor}`
   );
 
@@ -105,7 +105,7 @@ const Service: React.FC<ServiceProps> = ({
             squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}
           />
         </div>
-        <div className="p-10">
+        <div className="p-10 my-auto w-full">
           <Image
             src={icon}
             layout="responsive"
