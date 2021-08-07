@@ -108,10 +108,10 @@ exports[`should render correctly 1`] = `
       />
     </div>
     <div
-      class="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl"
+      class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-16"
+        class="mb-8"
       >
         <span
           class="font-italic text-3xl"
@@ -137,7 +137,7 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
         >
           <div
-            class="w-full md:max-w-xs bg-magenta"
+            class="flex flex-col w-full md:max-w-xs bg-magenta"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -151,7 +151,7 @@ exports[`should render correctly 1`] = `
               </div>
             </div>
             <div
-              class="p-10"
+              class="p-10 my-auto w-full"
             >
               <div
                 style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -190,7 +190,7 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
         >
           <div
-            class="w-full md:max-w-xs bg-green"
+            class="flex flex-col w-full md:max-w-xs bg-green"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -204,7 +204,7 @@ exports[`should render correctly 1`] = `
               </div>
             </div>
             <div
-              class="p-10"
+              class="p-10 my-auto w-full"
             >
               <div
                 style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -243,7 +243,7 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
         >
           <div
-            class="w-full md:max-w-xs bg-yellow"
+            class="flex flex-col w-full md:max-w-xs bg-yellow"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -257,7 +257,7 @@ exports[`should render correctly 1`] = `
               </div>
             </div>
             <div
-              class="p-10"
+              class="p-10 my-auto w-full"
             >
               <div
                 style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -296,7 +296,7 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
         >
           <div
-            class="w-full md:max-w-xs bg-orange"
+            class="flex flex-col w-full md:max-w-xs bg-orange"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -310,7 +310,7 @@ exports[`should render correctly 1`] = `
               </div>
             </div>
             <div
-              class="p-10"
+              class="p-10 my-auto w-full"
             >
               <div
                 style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"

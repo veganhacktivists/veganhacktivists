@@ -108,10 +108,10 @@ exports[`should render correctly 1`] = `
       />
     </div>
     <div
-      class="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl"
+      class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-16"
+        class="mb-8"
       >
         <span
           class="font-italic text-3xl"
