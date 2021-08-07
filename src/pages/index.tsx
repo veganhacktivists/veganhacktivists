@@ -83,7 +83,7 @@ const Home: React.FC = () => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5">
+      <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
         <Image
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
