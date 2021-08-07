@@ -3,6 +3,71 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IBlogEntryFields {
+  /** slug */
+  slug: string;
+
+  /** content */
+  content: Document;
+
+  /** author */
+  author: ITeamMember;
+}
+
+export interface IBlogEntry extends Entry<IBlogEntryFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "blogEntry";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IProjectFields {
+  /** name */
+  name: string;
+
+  /** description */
+  description: Document;
+
+  /** image */
+  image: Asset;
+
+  /** team */
+  team: ITeam;
+
+  /** url */
+  url: string;
+
+  /** date */
+  date: string;
+}
+
+export interface IProject extends Entry<IProjectFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "project";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ISocialLinksFields {
   /** twitter */
   twitter?: string | undefined;
@@ -117,7 +182,12 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
-export type CONTENT_TYPE = "socialLinks" | "team" | "teamMember";
+export type CONTENT_TYPE =
+  | "blogEntry"
+  | "project"
+  | "socialLinks"
+  | "team"
+  | "teamMember";
 
 export type LOCALE_CODE = "en-US";
 
