@@ -20,7 +20,7 @@ const OurMission: React.FC = () => {
           project, VeganActivism.org, we were overwhelmed by the response of
           people wanting to help us build more projects for the movement!
         </FirstSubSection>
-        <SubSection header="Since that day we’ve grown to 100+ volunteers.">
+        <SubSection header="Since that day we’ve grown to 100+ volunteers">
           Most of which are mainly composed of developers, designers, and other
           types of content creators that work closely together in teams. As time
           went on, we quickly gathered the attention and support of several
@@ -44,8 +44,8 @@ const OurMission: React.FC = () => {
           do this for the animals, we do this because coding is our way of
           supporting the movement.
         </SubSection>
-        <SubSection>
-          Every project we release is 100% free to use for everyone, we don’t do
+        <SubSection header="Every project we release is 100% free to use for everyone">
+          We think promoting veganism should never be behind a paywall, we do not do
           premium versions, microtransactions, sell user data, or do
           advertisements whatsoever. If you want to support us, please consider
           a small donation via our Patreon, it means the world to us to have
