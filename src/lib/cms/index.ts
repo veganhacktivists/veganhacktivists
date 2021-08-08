@@ -1,4 +1,8 @@
-import type { CONTENT_TYPE } from '../../types/generated/contentful';
+import type {
+  CONTENT_TYPE,
+  IBlogEntry,
+  IBlogEntryFields,
+} from '../../types/generated/contentful';
 import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
 
@@ -16,6 +20,16 @@ export const previewClient = createClient({
 export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
   return await client.getEntry(id);
 };
+
+export const getBlogPreviewBySlug: (slug: string) => Promise<IBlogEntry> =
+  async (slug) => {
+    const response = await previewClient.getEntries({
+      'fields.slug': slug,
+      content_type: 'blogEntry',
+    });
+
+    return response.items[0] as IBlogEntry;
+  };
 
 export const getContents: <T>(
   contentType: CONTENT_TYPE,
@@ -44,5 +58,17 @@ export const getAllIdsOfType: (
 
   return entries.items.map((entry) => entry.sys.id);
 };
+
+export const getAllBlogSlugs: () => Promise<IBlogEntry['fields']['slug'][]> =
+  async () => {
+    const entries = await client.getEntries({
+      content_type: 'blogEntry',
+      select: 'fields.slug',
+    });
+
+    return (entries.items as Entry<IBlogEntryFields>[]).map(
+      (entry) => entry.fields.slug
+    );
+  };
 
 export default client;
