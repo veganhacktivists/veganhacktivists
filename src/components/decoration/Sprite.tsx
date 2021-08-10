@@ -1,57 +1,60 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useSpring, animated } from '@react-spring/web';
 
 import Image from 'next/image';
-// import chicken from '../../../public/images/sprite_chicken.png';
+import chicken from '../../../public/images/sprite_chicken.gif';
+import pig from '../../../public/images/sprite_pig.gif';
+import sheep from '../../../public/images/sprite_sheep.gif';
 import cow from '../../../public/images/sprite_cow.gif';
-// import pig from '../../../public/images/sprite_pig.png';
-// import sheep from '../../../public/images/sprite_sheep.png';
+import useWindowSize from '../../hooks/useWindowSize';
 
 interface SpriteProps {
-  animal: 'chicken' | 'cow' | 'pig' | 'sheep';
-  secondsToTraverse: number; // in seconds
+  image: StaticImageData;
+  secondsToTraverse?: number;
 }
 
-const Sprite: React.FC<SpriteProps> = ({ animal, secondsToTraverse = 5 }) => {
-  const [isMovingRight, setIsMovingRight] = useState(true);
-  const spriteEl = useRef(null);
-  useEffect(() => {
-    let startAnimation: NodeJS.Timeout;
-    const animate = () => {
-      startAnimation = setInterval(() => {
-        setIsMovingRight(!isMovingRight);
-        if (spriteEl.current !== null) {
-          spriteEl.current.style.left =
-            spriteEl.current.style.left == '200px'
-              ? 'calc(100% - 200px)'
-              : '200px';
-          spriteEl.current.classList.toggle('rotate-y-180');
-        }
-      }, secondsToTraverse * 1000);
-    };
-    animate();
-    return () => {
-      clearInterval(startAnimation);
-    };
-  }, [spriteEl]);
+const Sprite: React.FC<SpriteProps> = ({ image, secondsToTraverse = 10 }) => {
+  const spriteRef = useRef<HTMLDivElement>(null);
+
+  const { width } = useWindowSize();
+  const initialPosition = '200px';
+  const spring = useSpring({
+    from: {
+      left: initialPosition,
+    },
+    to: {
+      left: `${Math.max((width || 0) - 300, 0)}px`,
+    },
+    loop: { reverse: true },
+    onRest: ({ value }) => {
+      if (spriteRef.current === null) {
+        return;
+      }
+      const arrivedLeftSide = value.left === initialPosition;
+
+      spriteRef.current.classList.toggle('rotate-y-180', arrivedLeftSide);
+    },
+    config: { duration: secondsToTraverse * 1000 },
+  });
+
+  const ratio = 1;
+
   return (
-    <div className="relative" style={{ height: `${cow.height}px` }}>
-      <div
-        ref={spriteEl}
-        className="absolute"
-        style={{
-          left: '190px',
-          transition: `left ${secondsToTraverse}s linear`,
-        }}
-      >
-        <Image
-          src={cow.src}
-          alt={`${animal} sprite`}
-          width={cow.width}
-          height={cow.height}
-        />
-      </div>
-    </div>
+    <animated.div
+      ref={spriteRef}
+      className="none md:absolute rotate-y-180"
+      style={{ ...spring, height: `${image.height}px` }}
+    >
+      <Image
+        src={image}
+        height={image.height * ratio}
+        width={image.width * ratio}
+        alt=""
+      />
+    </animated.div>
   );
 };
+
+export { cow, chicken, sheep, pig };
 
 export default Sprite;

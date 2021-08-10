@@ -6,7 +6,7 @@ import {
 } from '../../lib/cms';
 import type { IBlogEntry } from '../../types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 import Image from 'next/image';
 
 interface BlogEntryProps {

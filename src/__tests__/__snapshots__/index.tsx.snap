@@ -203,14 +203,9 @@ exports[`Application renders correctly 1`] = `
         </div>
       </a>
     </div>
-  </div>
-  <div
-    class="relative"
-    style="height: 500px;"
-  >
     <div
-      class="absolute"
-      style="left: 190px; transition: left 5s linear;"
+      class="none md:absolute rotate-y-180"
+      style="left: 200px; height: 500px;"
     >
       <div
         style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -228,7 +223,7 @@ exports[`Application renders correctly 1`] = `
         </div>
         <noscript />
         <img
-          alt="cow sprite"
+          alt=""
           decoding="async"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
