@@ -12,7 +12,7 @@ exports[`should render correctly 1`] = `
         class="mb-12 text-grey-dark pt-16"
       >
         <span
-          class="text-5xl font-mono font-uppercase text-white"
+          class="text-5xl font-mono uppercase text-white"
         >
           Meet our team
         </span>
