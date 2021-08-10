@@ -7,6 +7,9 @@ export interface IBlogEntryFields {
   /** slug */
   slug: string;
 
+  /** title */
+  title: string;
+
   /** content */
   content: Document;
 

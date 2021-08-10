@@ -1,6 +1,7 @@
 import type {
   CONTENT_TYPE,
   IBlogEntry,
+  IBlogEntryFields,
 } from '../../types/generated/contentful';
 import type { Entry } from 'contentful';
 import { createClient } from 'contentful';
@@ -57,5 +58,17 @@ export const getAllIdsOfType: (
 
   return entries.items.map((entry) => entry.sys.id);
 };
+
+export const getAllBlogSlugs: () => Promise<IBlogEntry['fields']['slug'][]> =
+  async () => {
+    const entries = await client.getEntries({
+      content_type: 'blogEntry',
+      select: 'fields.slug',
+    });
+
+    return (entries.items as Entry<IBlogEntryFields>[]).map(
+      (entry) => entry.fields.slug
+    );
+  };
 
 export default client;

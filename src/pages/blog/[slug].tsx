@@ -1,14 +1,25 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import { getBlogPreviewBySlug, getContents } from '../../lib/cms';
+import {
+  getAllBlogSlugs,
+  getBlogPreviewBySlug,
+  getContents,
+} from '../../lib/cms';
 import type { IBlogEntry } from '../../types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import Image from 'next/image';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [{ params: { slug: '1' } }], fallback: true };
+  const allSlugs = await getAllBlogSlugs();
+
+  return {
+    paths: allSlugs.map((slug) => ({ params: { slug } })),
+    fallback: true,
+  };
 };
 
 export const getStaticProps: GetStaticProps = async ({
@@ -16,7 +27,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview = false,
 }) => {
   const blog = await getEntryOrPreview(params.slug as string, preview);
-
   if (!blog) {
     return {
       notFound: true,
@@ -42,12 +52,31 @@ const getEntryOrPreview: (
 };
 
 const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
-  const { slug, author, content } = blog.fields;
+  if (!blog) {
+    return <div>Loading...</div>;
+  }
+
+  const { title, author, content } = blog.fields;
   return (
-    <>
-      <div>Blog with slug {slug}</div>
-      {documentToReactComponents(content)}
-    </>
+    <div>
+      <h1 className="text-3xl">{title}</h1>
+      {documentToReactComponents(content, {
+        renderNode: {
+          // eslint-disable-next-line react/display-name
+          [BLOCKS.EMBEDDED_ASSET]: (node) => (
+            <>
+              <Image
+                src={'https:' + node.data?.target?.fields?.file?.url}
+                alt={node.data?.target?.fields?.title}
+                width={node.data?.target?.fields?.file?.details?.image.width}
+                height={node.data?.target?.fields?.file?.details?.image.height}
+              />
+            </>
+          ),
+        },
+      })}
+      {author && <div>Author: {author.fields.name}</div>}
+    </div>
   );
 };
 
