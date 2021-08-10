@@ -329,35 +329,47 @@ const Home: React.FC = () => {
       </div>
       <div className="bg-grey space-y-0">
         <div className="inline-block">
-          <div className="content-center mx-auto bg-white">
+          <div className="mx-auto bg-white">
             <div className="overflow-hidden w-full">
               <Image
                 src={blogCow.src}
-                width={blogCow.width / 1.3}
+                width={blogCow.width / 2}
                 height={blogCow.height / 2}
                 className="w-full bg-cover"
                 alt="Compassion, Creativity, Code"
               />
             </div>
-            <p className="mb-12 text-grey-dark pt-16">
-              <span className="text-5xl font-mono">JOIN OUR TEAM</span>
-            </p>
+            <div className="text-left ml-12 break-words max-w-sm">
+              <p className="mb-12 text-grey-dark pt-16">
+                <b className="text-5xl font-mono">APPLY FOR A GRANT</b>
+              </p>
+              <p className="mb-12 font-semibold text-2xl">
+                Lorem ipsum dolor sit amen consecitur adispicing elit
+              </p>
+              <DarkButton>APPLY NOW</DarkButton>
+            </div>
           </div>
         </div>
         <div className="inline-block">
-          <div className="content-center mx-auto bg-white">
+          <div className="mx-auto bg-white">
             <div className="overflow-hidden w-full">
               <Image
                 src={blogCow.src}
-                width={blogCow.width / 1.3}
+                width={blogCow.width / 2}
                 height={blogCow.height / 2}
                 className="w-full bg-cover"
                 alt="Compassion, Creativity, Code"
               />
             </div>
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
+            <div className="text-left ml-12 break-words max-w-sm">
+              <p className="mb-12 text-grey-light pt-16">
+                <b className="text-5xl font-mono">OUR ANNUAL IMPACT REVIEW</b>
+              </p>
+              <p className="mb-12 font-semibold text-2xl">
+                Lorem ipsum dolor sit amen consecitur adispicing elit
+              </p>
+              <DarkButton>SEE THE REVIEW</DarkButton>
+            </div>
           </div>
         </div>
       </div>
