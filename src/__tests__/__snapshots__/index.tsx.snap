@@ -796,7 +796,7 @@ exports[`Application renders correctly 1`] = `
       class="inline-block"
     >
       <div
-        class="content-center mx-auto bg-white"
+        class="mx-auto bg-white"
       >
         <div
           class="overflow-hidden w-full"
@@ -811,7 +811,7 @@ exports[`Application renders correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzg0LjYxNTM4NDYxNTM4NDYiIGhlaWdodD0iMjUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg=="
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
             </div>
@@ -825,22 +825,40 @@ exports[`Application renders correctly 1`] = `
             />
           </div>
         </div>
-        <p
-          class="mb-12 text-grey-dark pt-16"
+        <div
+          class="text-left ml-12 break-words max-w-sm"
         >
-          <span
-            class="text-5xl font-mono"
+          <p
+            class="mb-12 text-grey-dark pt-16"
           >
-            JOIN OUR TEAM
-          </span>
-        </p>
+            <b
+              class="text-5xl font-mono"
+            >
+              APPLY FOR A GRANT
+            </b>
+          </p>
+          <p
+            class="mb-12 font-semibold text-2xl"
+          >
+            Lorem ipsum dolor sit amen consecitur adispicing elit
+          </p>
+          <button
+            type="submit"
+          >
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+            >
+              APPLY NOW
+            </div>
+          </button>
+        </div>
       </div>
     </div>
     <div
       class="inline-block"
     >
       <div
-        class="content-center mx-auto bg-white"
+        class="mx-auto bg-white"
       >
         <div
           class="overflow-hidden w-full"
@@ -855,7 +873,7 @@ exports[`Application renders correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzg0LjYxNTM4NDYxNTM4NDYiIGhlaWdodD0iMjUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg=="
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
             </div>
@@ -869,11 +887,33 @@ exports[`Application renders correctly 1`] = `
             />
           </div>
         </div>
-        <p
-          class="font-semibold text-2xl"
+        <div
+          class="text-left ml-12 break-words max-w-sm"
         >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
+          <p
+            class="mb-12 text-grey-light pt-16"
+          >
+            <b
+              class="text-5xl font-mono"
+            >
+              OUR ANNUAL IMPACT REVIEW
+            </b>
+          </p>
+          <p
+            class="mb-12 font-semibold text-2xl"
+          >
+            Lorem ipsum dolor sit amen consecitur adispicing elit
+          </p>
+          <button
+            type="submit"
+          >
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+            >
+              SEE THE REVIEW
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   </div>
