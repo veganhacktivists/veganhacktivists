@@ -339,8 +339,8 @@ const Home: React.FC = () => {
                 alt="Compassion, Creativity, Code"
               />
             </div>
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
+            <p className="mb-12 text-grey-dark pt-16">
+              <span className="text-5xl font-mono">JOIN OUR TEAM</span>
             </p>
           </div>
         </div>
