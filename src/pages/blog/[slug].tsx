@@ -6,6 +6,8 @@ import {
 } from '../../lib/cms';
 import type { IBlogEntry } from '../../types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import Image from 'next/image';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -58,7 +60,21 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
   return (
     <div>
       <h1 className="text-3xl">{title}</h1>
-      {documentToReactComponents(content)}
+      {documentToReactComponents(content, {
+        renderNode: {
+          // eslint-disable-next-line react/display-name
+          [BLOCKS.EMBEDDED_ASSET]: (node) => (
+            <>
+              <Image
+                src={'https:' + node.data?.target?.fields?.file?.url}
+                alt={node.data?.target?.fields?.title}
+                width={node.data?.target?.fields?.file?.details?.image.width}
+                height={node.data?.target?.fields?.file?.details?.image.height}
+              />
+            </>
+          ),
+        },
+      })}
       {author && <div>Author: {author.fields.name}</div>}
     </div>
   );
