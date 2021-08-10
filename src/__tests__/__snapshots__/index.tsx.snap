@@ -826,9 +826,13 @@ exports[`Application renders correctly 1`] = `
           </div>
         </div>
         <p
-          class="font-semibold text-2xl"
+          class="mb-12 text-grey-dark pt-16"
         >
-          Developers! Join Our New Open Source Community - VH: Playground
+          <span
+            class="text-5xl font-mono"
+          >
+            JOIN OUR TEAM
+          </span>
         </p>
       </div>
     </div>
