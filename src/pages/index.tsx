@@ -21,6 +21,7 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import Sprite from '../components/decoration/Sprite';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -123,6 +124,7 @@ const Home: React.FC = () => {
           </DarkButton>
         </div>
       </div>
+      <Sprite animal="cow" />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
