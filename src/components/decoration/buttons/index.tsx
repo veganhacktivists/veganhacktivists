@@ -142,11 +142,13 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
     <IconButton
       {...props}
       className={classNames(
-        'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2',
+        'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-2 py-2',
         className
       )}
     >
-      <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      <div className="h-8 w-8 flex justify-center items-center">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      </div>
     </IconButton>
   );
 };
@@ -157,11 +159,13 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
     <IconButton
       {...props}
       className={classNames(
-        'bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2',
+        'bg-white hover:bg-red text-grey hover:text-white rounded-full px-2 py-2',
         className
       )}
     >
-      <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
+      <div className="h-8 w-8 flex justify-center items-center">
+        <FontAwesomeIcon size="2x" icon={faInstagram} />
+      </div>
     </IconButton>
   );
 };
