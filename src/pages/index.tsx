@@ -21,6 +21,8 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import { FirstSubSection } from '../components/decoration/textBlocks';
+import FeaturedProject from '../components/layout/index/featuredProject';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -128,105 +130,47 @@ const Home: React.FC = () => {
       />
       <div className="bg-grey-background">
         <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
-          <p className="text-grey-dark pb-5">
-            <span className="font-italic font-semibold text-3xl">
-              Featured{' '}
-            </span>
-            <b className="text-5xl font-mono">PROJECTS</b>
-          </p>
-          <p>
+          <FirstSubSection header="Featured projects">
             Every project we release is <b>100% free for everyone</b>, we don’t
             do premium versions, advertisments, or sell user data what-so-ever.
-          </p>
+          </FirstSubSection>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
-            <div>
-              <a href="https://activisthub.org">
-                <Image
-                  className="rounded-2xl"
-                  src={activistHub.src}
-                  width={activistHub.width}
-                  height={activistHub.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://veganbootcamp.org">
-                <Image
-                  className="rounded-2xl"
-                  src={veganBootcamp.src}
-                  width={veganBootcamp.width}
-                  height={veganBootcamp.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://animalrightsmap.org">
-                <Image
-                  className="rounded-2xl"
-                  src={animalRightsMap.src}
-                  width={animalRightsMap.width}
-                  height={animalRightsMap.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://5minutes5vegans.org">
-                <Image
-                  className="rounded-2xl"
-                  src={minutesvegans.src}
-                  width={minutesvegans.width}
-                  height={minutesvegans.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://vegancheatsheet.org">
-                <Image
-                  className="rounded-2xl"
-                  src={veganCheatSheet.src}
-                  width={veganCheatSheet.width}
-                  height={veganCheatSheet.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://dailynooch.org">
-                <Image
-                  className="rounded-2xl"
-                  src={dailyNooch.src}
-                  width={dailyNooch.width}
-                  height={dailyNooch.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://mydailydozen.org">
-                <Image
-                  className="rounded-2xl"
-                  src={DailyDozen.src}
-                  width={DailyDozen.width}
-                  height={DailyDozen.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://VeganActivism.org">
-                <Image
-                  className="rounded-2xl"
-                  src={VeganActivism.src}
-                  width={VeganActivism.width}
-                  height={VeganActivism.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
+            {[
+              {
+                href: 'https://activisthub.org',
+                image: activistHub,
+              },
+              {
+                href: 'https://veganbootcamp.org',
+                image: veganBootcamp,
+              },
+              {
+                href: 'https://animalrightsmap.org',
+                image: animalRightsMap,
+              },
+              {
+                href: 'https://5minutes5vegans.org',
+                image: minutesvegans,
+              },
+              {
+                href: 'https://vegancheatsheet.org',
+                image: veganCheatSheet,
+              },
+              {
+                href: 'https://dailynooch.org',
+                image: dailyNooch,
+              },
+              {
+                href: 'https://mydailydozen.org',
+                image: DailyDozen,
+              },
+              {
+                href: 'https://VeganActivism.org',
+                image: VeganActivism,
+              },
+            ].map((project) => (
+              <FeaturedProject key={project.href} {...project} />
+            ))}
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
             <DarkButton href="/projects" className="font-mono text-sm">
