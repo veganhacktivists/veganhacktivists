@@ -5,7 +5,6 @@ import type {
   IBlogEntryFields,
   IProjectFields,
   ITeamFields,
-  ITeamMemberFields,
 } from '../../types/generated/contentful';
 
 export const getBlogPreviewBySlug: (slug: string) => Promise<IBlogEntry> =
@@ -51,3 +50,18 @@ export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
 
   return projects;
 };
+
+export const getFeaturedProjects: () => Promise<Entry<IProjectFields>[]> =
+  async () => {
+    const projects = await getContents<IProjectFields>({
+      contentType: 'project',
+      query: {
+        isFeatured: true,
+      },
+      other: {
+        order: '-fields.date',
+      },
+    });
+
+    return projects;
+  };

@@ -1,21 +1,11 @@
-import Image from 'next/image';
+import type { IProjectFields } from '../../../types/generated/contentful';
+import ContentfulImage from '../ContentfulImage';
 
-interface FeaturedProjectProps {
-  href: string;
-  image: StaticImageData;
-}
-
-const FeaturedProject: React.FC<FeaturedProjectProps> = ({ href, image }) => {
+const FeaturedProject: React.FC<IProjectFields> = ({ url, image }) => {
   return (
-    <div>
-      <a href={href} target="_blank" rel="noreferrer">
-        <Image
-          className="rounded-2xl"
-          src={image}
-          // width={image.width}
-          // height={image.height}
-          alt={href}
-        />
+    <div className="rounded-2xl overflow-hidden">
+      <a href={url} target="_blank" rel="noreferrer">
+        <ContentfulImage image={image} alt={url} />
       </a>
     </div>
   );
