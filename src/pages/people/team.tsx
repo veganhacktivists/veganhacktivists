@@ -15,11 +15,15 @@ import { WhiteButton } from '../../components/decoration/buttons';
 import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
+import { getActiveTeams } from '../../lib/cms/helpers';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teams = await getContents<ITeamFields>('team');
-  const teamMembers = await getContents<ITeamFields>('teamMember', {
-    type: 'team',
+  const teams = await getActiveTeams();
+  const teamMembers = await getContents<ITeamFields>({
+    contentType: 'teamMember',
+    query: {
+      type: 'team',
+    },
   });
   return {
     props: { teams, teamMembers },

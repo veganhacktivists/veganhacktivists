@@ -5,52 +5,14 @@ import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-pig2-hero.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
-import activistHubCover from '../../public/images/projects/ActivistHub.png';
-import sehatiSanctuaryCover from '../../public/images/projects/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
 import SuggestAnIdea from '../components/layout/suggestAnIdea';
 import { FirstSubSection } from '../components/decoration/textBlocks';
-
-const projects = [
-  {
-    title: 'Activist Hub',
-    cover: activistHubCover,
-    date: 'APR 2021',
-    year: 2021,
-    team: 'Team Watermelon',
-    content: (
-      <p>
-        The days of wondering whether or not our activism is effective are over.
-        Activist Hub is the world&apos;s first street outreach dashboard that
-        provides volunteers with the ability to monitor and understand their
-        effectiveness through real data and analytics (DnA). Personal and group
-        results will help everyone interested in making informed and strategic
-        decisions for the animals!
-      </p>
-    ),
-    siteName: 'ActivistHub.org',
-    href: 'https://activisthub.org',
-  },
-  {
-    title: 'Sehati Sanctuary',
-    cover: sehatiSanctuaryCover,
-    date: 'MAR 2021',
-    year: 2021,
-    team: 'Team Eggplant',
-    content: (
-      <p>
-        Sehati Animal Sanctuary is the first farmed animal sanctuary in
-        Indonesia which provides a loving haven to animals rescued from needless
-        exploitation, violence, and slaughter. The sanctuary supports
-        human-animal bonding and serves to educate the public about animal
-        rights in order to reduce worldwide animal suffering.
-      </p>
-    ),
-    siteName: 'SehatiSanctuary.org',
-    href: 'https://sehatisanctuary.org',
-  },
-];
+import type { IProject } from '../types/generated/contentful';
+import type { GetStaticProps } from 'next';
+import { getProjects } from '../lib/cms/helpers';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -72,12 +34,28 @@ const projectsYears = Array.from(
   (_, index) => 2018 + index
 );
 
-const Projects: React.FC = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await getProjects();
+
+  return {
+    props: { projects },
+  };
+};
+
+interface ProjectsProps {
+  projects: IProject[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
-  const projectsForSelectedYear = selectedYear
-    ? projects.filter(({ year }) => year === selectedYear)
-    : projects;
+  const projectsForSelectedYear =
+    selectedYear !== null
+      ? projects.filter(
+          (project) =>
+            new Date(project.fields.date).getFullYear() === selectedYear
+        )
+      : projects;
 
   return (
     <>
@@ -129,28 +107,61 @@ const Projects: React.FC = () => {
             ))}
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
-            {projectsForSelectedYear.map(
-              ({ title, content, siteName, href, date, cover, team }) => (
-                <Fragment key={title}>
-                  <div>
-                    <Image src={cover} alt={title} loading="eager" />
-                  </div>
+            {projectsForSelectedYear.map((project) => {
+              const {
+                name,
+                description,
+                url,
+                date: dateStr,
+                image,
+                team,
+              } = project.fields;
+
+              const date = new Date(dateStr);
+
+              return (
+                <Fragment key={name}>
+                  {image?.fields.file.url && (
+                    <div>
+                      {/* TODO: extract to ContentfulImage component */}
+                      <Image
+                        src={'https:' + image?.fields.file.url}
+                        alt={name}
+                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        width={image.fields.file.details.image!.width}
+                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        height={image.fields.file.details.image!.height}
+                        loading="eager"
+                      />
+                    </div>
+                  )}
                   <div className="col-span-2 text-left">
-                    <h1 className="text-4xl font-bold">{title}</h1>
+                    <h1 className="text-4xl font-bold">{name}</h1>
                     <p className="my-3">
-                      <span className="font-bold text-grey">{date}</span> -{' '}
-                      <span className="uppercase font-bold">{team}</span>
+                      <span className="font-bold text-grey uppercase">
+                        {new Intl.DateTimeFormat('en', {
+                          month: 'short',
+                          year: 'numeric',
+                        }).format(date)}
+                      </span>{' '}
+                      -{' '}
+                      <span
+                        className="uppercase font-bold"
+                        style={{ color: team.fields.color }}
+                      >
+                        {team?.fields.name}
+                      </span>
                     </p>
-                    <div>{content}</div>
+                    <div>{documentToReactComponents(description)}</div>
                     <div className="mt-10 w-min">
-                      <DarkButton href={href} className="font-mono">
-                        {siteName}
+                      <DarkButton href={url} className="font-mono">
+                        {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
                       </DarkButton>
                     </div>
                   </div>
                 </Fragment>
-              )
-            )}
+              );
+            })}
           </div>
         </div>
         <SquareField

@@ -184,30 +184,6 @@ exports[`should render correctly 1`] = `
       <div
         class="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4"
       >
-        <div>
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-              />
-            </div>
-            <img
-              alt="Activist Hub"
-              decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
-        </div>
         <div
           class="col-span-2 text-left"
         >
@@ -220,22 +196,19 @@ exports[`should render correctly 1`] = `
             class="my-3"
           >
             <span
-              class="font-bold text-grey"
+              class="font-bold text-grey uppercase"
             >
-              APR 2021
+              Apr 2021
             </span>
              - 
             <span
               class="uppercase font-bold"
+              style="color: black;"
             >
-              Team Watermelon
+              Test Team
             </span>
           </p>
-          <div>
-            <p>
-              The days of wondering whether or not our activism is effective are over. Activist Hub is the world's first street outreach dashboard that provides volunteers with the ability to monitor and understand their effectiveness through real data and analytics (DnA). Personal and group results will help everyone interested in making informed and strategic decisions for the animals!
-            </p>
-          </div>
+          <div />
           <div
             class="mt-10 w-min"
           >
@@ -247,33 +220,9 @@ exports[`should render correctly 1`] = `
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
               >
-                ActivistHub.org
+                activisthub.org
               </div>
             </a>
-          </div>
-        </div>
-        <div>
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-              />
-            </div>
-            <img
-              alt="Sehati Sanctuary"
-              decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
           </div>
         </div>
         <div
@@ -288,22 +237,19 @@ exports[`should render correctly 1`] = `
             class="my-3"
           >
             <span
-              class="font-bold text-grey"
+              class="font-bold text-grey uppercase"
             >
-              MAR 2021
+              Mar 2021
             </span>
              - 
             <span
               class="uppercase font-bold"
+              style="color: black;"
             >
-              Team Eggplant
+              Test Team
             </span>
           </p>
-          <div>
-            <p>
-              Sehati Animal Sanctuary is the first farmed animal sanctuary in Indonesia which provides a loving haven to animals rescued from needless exploitation, violence, and slaughter. The sanctuary supports human-animal bonding and serves to educate the public about animal rights in order to reduce worldwide animal suffering.
-            </p>
-          </div>
+          <div />
           <div
             class="mt-10 w-min"
           >
@@ -315,7 +261,7 @@ exports[`should render correctly 1`] = `
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
               >
-                SehatiSanctuary.org
+                sehatisanctuary.org
               </div>
             </a>
           </div>
