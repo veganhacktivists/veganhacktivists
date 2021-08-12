@@ -21,7 +21,6 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
-import { FirstSubSection } from '../components/decoration/textBlocks';
 import FeaturedProject from '../components/layout/index/featuredProject';
 
 const HERO_DECORATION_SQUARES = [
@@ -130,10 +129,16 @@ const Home: React.FC = () => {
       />
       <div className="bg-grey-background">
         <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
-          <FirstSubSection header="Featured projects">
+          <p className="text-grey-dark pb-5">
+            <span className="font-italic font-semibold text-3xl">
+              Featured{' '}
+            </span>
+            <b className="text-5xl font-mono">PROJECTS</b>
+          </p>
+          <p>
             Every project we release is <b>100% free for everyone</b>, we don’t
             do premium versions, advertisments, or sell user data what-so-ever.
-          </FirstSubSection>
+          </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
             {[
               {
