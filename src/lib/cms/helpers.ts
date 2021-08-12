@@ -3,8 +3,8 @@ import client, { getContents, previewClient } from '.';
 import type {
   IBlogEntry,
   IBlogEntryFields,
+  IProjectFields,
   ITeamFields,
-  ITeamMember,
   ITeamMemberFields,
 } from '../../types/generated/contentful';
 
@@ -31,21 +31,23 @@ export const getAllBlogSlugs: () => Promise<IBlogEntry['fields']['slug'][]> =
   };
 
 export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
-  const teams = await getContents<ITeamFields>('team', {
-    // 'isInactive[ne]': true,
-    ne: { isInactive: true },
+  const teams = await getContents<ITeamFields>({
+    contentType: 'team',
+    query: {
+      ne: { isInactive: true },
+    },
   });
 
   return teams;
 };
 
-export const getActiveTeamMemebrs: () => Promise<Entry<ITeamMemberFields>[]> =
-  async () => {
-    const teams = await getContents<ITeamMemberFields>('team', {
-      ne: {
-        'team.fields.isInactive': false,
-      },
-    });
+export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
+  const projects = await getContents<IProjectFields>({
+    contentType: 'project',
+    other: {
+      order: '-fields.date',
+    },
+  });
 
-    return teams;
-  };
+  return projects;
+};

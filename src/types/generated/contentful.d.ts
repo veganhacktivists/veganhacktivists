@@ -129,6 +129,9 @@ export interface ITeamFields {
 
   /** sprite */
   sprite?: Asset | undefined;
+
+  /** isInactive */
+  isInactive?: boolean | undefined;
 }
 
 export interface ITeam extends Entry<ITeamFields> {

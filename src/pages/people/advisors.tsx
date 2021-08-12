@@ -23,27 +23,16 @@ import type {
 import { getContents } from '../../lib/cms';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const advisors = await getContents<ITeamMember>('teamMember', {
-    type: 'advisor',
+  const advisors = await getContents<ITeamMember>({
+    contentType: 'teamMember',
+    query: {
+      type: 'advisor',
+    },
   });
 
   return {
     props: { advisors },
   };
-};
-
-// TODO: Maybe this constant and the component below are useful across the app and better belong in some shared place
-const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
-  facebook: faFacebookSquare,
-  twitter: faTwitterSquare,
-  instagram: faInstagramSquare,
-  github: faGithubSquare,
-  website: faInternetExplorer,
-  linkedIn: faLinkedin,
-  // TODO: Do we have an icon for this?
-  activistHub: faInstagramSquare,
-  youtube: faYoutubeSquare,
-  email: faEnvelopeSquare,
 };
 
 const SocialLinks: React.FC<{ socialLinks: ISocialLinks }> = ({

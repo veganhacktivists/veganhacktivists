@@ -1,13 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import {
-  getAllBlogSlugs,
-  getBlogPreviewBySlug,
-  getContents,
-} from '../../lib/cms';
+import { getContents } from '../../lib/cms';
 import type { IBlogEntry } from '../../types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 import Image from 'next/image';
+import { getAllBlogSlugs, getBlogPreviewBySlug } from '../../lib/cms/helpers';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -48,7 +45,9 @@ const getEntryOrPreview: (
     return await getBlogPreviewBySlug(slug);
   }
 
-  return (await getContents('blogEntry', { slug }))[0] as IBlogEntry;
+  return (
+    await getContents({ contentType: 'blogEntry', query: { slug } })
+  )[0] as IBlogEntry;
 };
 
 const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
