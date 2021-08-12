@@ -25,7 +25,6 @@ import JoinTheTeam from '../components/layout/joinTheTeam';
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
   { color: 'white', size: 16, left: 32, bottom: 0 },
-  { color: 'white', size: 16, right: 64, bottom: 0 },
   { color: 'magenta', size: 32, right: 0, bottom: 0 },
   { color: 'yellow', size: 32, left: 32, top: 0 },
   { color: 'yellow_orange', size: 16, left: 16, top: 32 },

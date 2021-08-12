@@ -112,9 +112,6 @@ exports[`Application renders correctly 1`] = `
       class="absolute left-32 bottom-0 bg-white w-16 h-16 opacity-100"
     />
     <div
-      class="absolute right-64 bottom-0 bg-white w-16 h-16 opacity-100"
-    />
-    <div
       class="absolute right-0 bottom-0 bg-magenta w-32 h-32 opacity-100"
     />
     <div
