@@ -1,15 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import activistHub from '../../public/images/projects/ActivistHub.png';
-import animalRightsMap from '../../public/images/projects/AnimalRightsMap.png';
 import blogCow from '../../public/images/Blog-cow.jpg';
-import DailyDozen from '../../public/images/projects/DailyDozen.png';
-import VeganActivism from '../../public/images/projects/VeganActivism.jpg';
-import dailyNooch from '../../public/images/projects/DailyNooch.png';
-import minutesvegans from '../../public/images/projects/minutesvegans.png';
-import veganBootcamp from '../../public/images/projects/VeganBootcamp.png';
-import veganCheatSheet from '../../public/images/projects/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -22,6 +14,9 @@ import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import FeaturedProject from '../components/layout/index/featuredProject';
+import type { IProject } from '../types/generated/contentful';
+import type { GetStaticProps } from 'next';
+import { getFeaturedProjects } from '../lib/cms/helpers';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -54,7 +49,17 @@ const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const Home: React.FC = () => {
+interface HomeProps {
+  featuredProjects: IProject[];
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const featuredProjects = await getFeaturedProjects();
+
+  return { props: { featuredProjects } };
+};
+
+const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
@@ -140,41 +145,8 @@ const Home: React.FC = () => {
             do premium versions, advertisments, or sell user data what-so-ever.
           </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
-            {[
-              {
-                href: 'https://activisthub.org',
-                image: activistHub,
-              },
-              {
-                href: 'https://veganbootcamp.org',
-                image: veganBootcamp,
-              },
-              {
-                href: 'https://animalrightsmap.org',
-                image: animalRightsMap,
-              },
-              {
-                href: 'https://5minutes5vegans.org',
-                image: minutesvegans,
-              },
-              {
-                href: 'https://vegancheatsheet.org',
-                image: veganCheatSheet,
-              },
-              {
-                href: 'https://dailynooch.org',
-                image: dailyNooch,
-              },
-              {
-                href: 'https://mydailydozen.org',
-                image: DailyDozen,
-              },
-              {
-                href: 'https://VeganActivism.org',
-                image: VeganActivism,
-              },
-            ].map((project) => (
-              <FeaturedProject key={project.href} {...project} />
+            {featuredProjects.map((project) => (
+              <FeaturedProject key={project.sys.id} {...project.fields} />
             ))}
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
