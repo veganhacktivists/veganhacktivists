@@ -5,6 +5,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import Image from 'next/image';
 import { getAllBlogSlugs, getBlogPreviewBySlug } from '../../lib/cms/helpers';
+import ContentfulImage from '../../components/layout/ContentfulImage';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -64,11 +65,9 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
           // eslint-disable-next-line react/display-name
           [BLOCKS.EMBEDDED_ASSET]: (node) => (
             <>
-              <Image
-                src={'https:' + node.data?.target?.fields?.file?.url}
+              <ContentfulImage
+                image={node.data?.target}
                 alt={node.data?.target?.fields?.title}
-                width={node.data?.target?.fields?.file?.details?.image.width}
-                height={node.data?.target?.fields?.file?.details?.image.height}
               />
             </>
           ),

@@ -13,6 +13,7 @@ import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import ContentfulImage from '../components/layout/ContentfulImage';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -121,18 +122,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
               return (
                 <Fragment key={name}>
-                  {image?.fields.file.url && (
+                  {image && (
                     <div>
-                      {/* TODO: extract to ContentfulImage component */}
-                      <Image
-                        src={'https:' + image?.fields.file.url}
-                        alt={name}
-                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                        width={image.fields.file.details.image!.width}
-                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                        height={image.fields.file.details.image!.height}
-                        loading="eager"
-                      />
+                      <ContentfulImage image={image} alt={name} />
                     </div>
                   )}
                   <div className="col-span-2 text-left">

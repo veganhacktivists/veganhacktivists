@@ -16,6 +16,7 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
+import ContentfulImage from '../../components/layout/ContentfulImage';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -40,14 +41,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        {image && (
-          <Image
-            src={`https:${image.fields.file.url}`}
-            width={image.fields.file.details.size}
-            height={image.fields.file.details.size}
-            alt={name}
-          />
-        )}
+        {image && <ContentfulImage image={image} alt={name} />}
         <div
           style={{ backgroundColor: teamColor }}
           className={'absolute w-8 h-8'}
@@ -94,11 +88,11 @@ const TeamSelector: React.FC<{
             key={name}
           >
             {sprite ? (
-              <Image
-                src={`https:${sprite.fields.file.url}`}
+              <ContentfulImage
+                image={sprite}
+                alt={name}
                 width={75}
                 height={75}
-                alt={name}
                 priority
               />
             ) : (

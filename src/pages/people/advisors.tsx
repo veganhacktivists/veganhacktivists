@@ -21,6 +21,7 @@ import type {
   ITeamMember,
 } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
+import ContentfulImage from '../../components/layout/ContentfulImage';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   facebook: faFacebookSquare,
@@ -76,14 +77,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        {image && (
-          <Image
-            src={`https:${image.fields.file.url}`}
-            width={image.fields.file.details.size}
-            height={image.fields.file.details.size}
-            alt={name}
-          />
-        )}
+        {image && <ContentfulImage image={image} alt={name} />}
         <div className={'absolute w-8 h-8'} />
       </div>
       <div className="text-left w-5/6 mx-auto my-0">
