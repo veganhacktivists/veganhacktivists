@@ -34,15 +34,15 @@ exports[`should render correctly 1`] = `
                 alt=""
                 aria-hidden="true"
                 role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
             </div>
             <img
               alt="Building projects with impact"
               decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=640&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+              src="/_next/image?url=%2Ffoo.png&w=750&q=75"
+              srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
