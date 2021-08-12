@@ -22,6 +22,19 @@ import type {
 } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
 
+const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
+  facebook: faFacebookSquare,
+  twitter: faTwitterSquare,
+  instagram: faInstagramSquare,
+  github: faGithubSquare,
+  website: faInternetExplorer,
+  linkedIn: faLinkedin,
+  // TODO: Do we have an icon for this?
+  activistHub: faInstagramSquare,
+  youtube: faYoutubeSquare,
+  email: faEnvelopeSquare,
+};
+
 export const getStaticProps: GetStaticProps = async () => {
   const advisors = await getContents<ITeamMember>({
     contentType: 'teamMember',
