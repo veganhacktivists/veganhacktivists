@@ -223,32 +223,27 @@ exports[`Application renders correctly 1`] = `
     <div
       class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5"
     >
-      <div
-        class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
+      <p
+        class="text-grey-dark pb-5"
       >
-        <h1
-          class="mb-8"
+        <span
+          class="font-italic font-semibold text-3xl"
         >
-          <span
-            class="font-italic text-3xl"
-          >
-            Featured
-          </span>
-           
-          <span
-            class="font-mono font-bold text-5xl uppercase text-black"
-          >
-            projects
-          </span>
-        </h1>
-        <p>
-          Every project we release is 
-          <b>
-            100% free for everyone
-          </b>
-          , we don’t do premium versions, advertisments, or sell user data what-so-ever.
-        </p>
-      </div>
+          Featured 
+        </span>
+        <b
+          class="text-5xl font-mono"
+        >
+          PROJECTS
+        </b>
+      </p>
+      <p>
+        Every project we release is 
+        <b>
+          100% free for everyone
+        </b>
+        , we don’t do premium versions, advertisments, or sell user data what-so-ever.
+      </p>
       <div
         class="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16"
       >
