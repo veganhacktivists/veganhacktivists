@@ -9,6 +9,10 @@ interface HeroClassNames {
 }
 interface HeroProps {
   imageBackground: ImageProps['src'];
+  tagline: {
+    image: StaticImageData;
+    alt: string;
+  };
   alignment: 'right' | 'left';
   classNameMapping?: HeroClassNames;
   main?: boolean;
@@ -16,6 +20,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
+  tagline,
   alignment,
   children,
   classNameMapping,
@@ -23,17 +28,12 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const containerClasses = classNames(
     'relative',
-    'p-10 md:p-32',
-    'bg-scroll',
-    'bg-cover',
-    'bg-no-repeat',
+    // 'py-10 md:py-32',
     'flex',
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
-      'h-screen-header-small xl:h-screen-header': main,
-      'md:-top-20 md:-mb-20': main,
-      'xl:h-screen-60%': !main,
+      'md:h-screen-header md:min-h-160 md:-top-20 md:-mb-20': main,
     },
     classNameMapping?.container
   );
@@ -43,8 +43,11 @@ const Hero: React.FC<HeroProps> = ({
     'justify-center',
     'w-1/2',
     'z-10',
+    { 'py-10 xl:mt-0': main },
     classNameMapping?.content
   );
+
+  const taglineHeight = 566 * 0.6;
 
   return (
     <div className={containerClasses}>
@@ -54,13 +57,32 @@ const Hero: React.FC<HeroProps> = ({
         src={imageBackground as any}
         layout="fill"
         objectFit="cover"
-        objectPosition="center"
+        objectPosition={main ? 'top' : 'center'}
         priority
       />
-      <div className={contentClasses}>{children}</div>
+      <div className={contentClasses}>
+        {tagline && (
+          <div
+            className={classNames({
+              'py-20 md:py-20 lg:py-20': !main,
+            })}
+          >
+            <Image
+              src={tagline.image}
+              alt={tagline.alt}
+              width={
+                (tagline.image.width / tagline.image.height) * taglineHeight
+              }
+              height={taglineHeight}
+              priority
+            />
+          </div>
+        )}
+        {children}
+      </div>
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
-        <Circle yAlign="bottom" radiusZoom={1.04} />
+        <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />
       </div>
     </div>
   );

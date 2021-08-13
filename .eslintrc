@@ -25,6 +25,14 @@
       }
     ],
     "@typescript-eslint/array-type": ["warn", { "default": "array" }],
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          "undefined": "mark the property as optional (`?`) instead of specifying the type as `undefined`"
+        }
+      }
+    ],
 
     // misc
     "no-console": ["warn"],

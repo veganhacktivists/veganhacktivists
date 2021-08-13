@@ -23,8 +23,8 @@ const links: ILinks[] = [
     label: 'People',
     href: '/people',
     links: [
-      { label: 'Our Team', href: '/our_team' },
-      { label: 'Advisors & Partners', href: '/our_team' },
+      { label: 'Our Team', href: '/people/team' },
+      { label: 'Advisors & Partners', href: '/people/advisors' },
     ],
   },
   { label: 'Blog', href: '/blog' },

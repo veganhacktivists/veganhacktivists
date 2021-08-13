@@ -2,39 +2,53 @@ import React from 'react';
 import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import type { LinkProps } from 'next/link';
 import Link from 'next/link';
-import type { AriaAttributes } from 'react';
+import { useRouter } from 'next/router';
+import type { LinkProps } from 'next/link';
+import type {
+  AriaAttributes,
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+} from 'react';
 
-export interface ButtonProps extends AriaAttributes {
+export interface ButtonProps
+  extends AriaAttributes,
+    ButtonHTMLAttributes<unknown> {
   primary?: boolean;
   href?: string;
   className?: string;
   active?: boolean;
   linkProps?: Partial<LinkProps>;
+  onClick?: MouseEventHandler;
+  type?: 'submit' | 'reset' | 'button';
 }
 
 const baseButtonClasses = classNames(
   'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer'
 );
 
-const BaseButton: React.FC<ButtonProps> = ({ href, children, linkProps }) => {
+const BaseButton: React.FC<ButtonProps> = ({
+  href,
+  children,
+  linkProps,
+  ...props
+}) => {
   return (
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <Link {...linkProps} href={href} passHref>
+        <a href={href} target="_blank" rel="noreferrer" {...props}>
           {children}
-        </Link>
+        </a>
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href}>
+        <Link {...linkProps} href={href} {...props}>
           <a>{children}</a>
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && <button type="submit">{children}</button>}
+      {!href && <button {...props}>{children}</button>}
     </>
   );
 };
@@ -73,7 +87,7 @@ const DarkButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     baseButtonClasses,
     active
-      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
+      ? 'hover:shadow-fill-pink bg-magenta border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
     className
@@ -111,23 +125,15 @@ const GreenButton: React.FC<ButtonProps> = ({
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <a>
-        <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
-          {children}
-        </div>
-      </a>
+      <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
+        {children}
+      </div>
     </BaseButton>
   );
 };
 
 const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return (
-    <BaseButton {...props}>
-      <a {...props} target="_blank" rel="noreferrer">
-        {children}
-      </a>
-    </BaseButton>
-  );
+  return <BaseButton {...props}>{children}</BaseButton>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -136,11 +142,13 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
     <IconButton
       {...props}
       className={classNames(
-        'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-1 py-2',
+        'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-2 py-2',
         className
       )}
     >
-      <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      <div className="h-8 w-8 flex justify-center items-center">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      </div>
     </IconButton>
   );
 };
@@ -151,11 +159,13 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
     <IconButton
       {...props}
       className={classNames(
-        'bg-white hover:bg-red text-grey hover:text-white rounded-full px-1 py-2',
+        'bg-white hover:bg-red text-grey hover:text-white rounded-full px-2 py-2',
         className
       )}
     >
-      <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
+      <div className="h-8 w-8 flex justify-center items-center">
+        <FontAwesomeIcon size="2x" icon={faInstagram} />
+      </div>
     </IconButton>
   );
 };
@@ -182,6 +192,28 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 };
 
+const NavButton: React.FC<ButtonProps & { href: string }> = ({
+  href,
+  className = '',
+  children,
+}) => {
+  const { pathname } = useRouter();
+  const atLocation = pathname === href;
+
+  const classes = classNames('m-5 font-mono text-sm', className);
+
+  return (
+    <DarkButton
+      active={atLocation}
+      href={href}
+      className={classes}
+      linkProps={{ scroll: false }}
+    >
+      {children}
+    </DarkButton>
+  );
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -191,4 +223,5 @@ export {
   DarkButton,
   WhiteButton,
   GreenButton,
+  NavButton,
 };

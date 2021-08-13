@@ -1,15 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react';
 import blogCow from '../../public/images/Blog-cow.jpg';
-import activistHub from '../../public/images/projects/ActivistHub.png';
-import animalRightsMap from '../../public/images/projects/AnimalRightsMap.png';
-import DailyDozen from '../../public/images/projects/DailyDozen.png';
-import dailyNooch from '../../public/images/projects/DailyNooch.png';
-import minutesvegans from '../../public/images/projects/minutesvegans.png';
-import VeganActivism from '../../public/images/projects/VeganActivism.jpg';
-import veganBootcamp from '../../public/images/projects/VeganBootcamp.png';
-import veganCheatSheet from '../../public/images/projects/VeganCheatSheet.jpeg';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -22,11 +13,14 @@ import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import FeaturedProject from '../components/layout/index/featuredProject';
+import type { IProject } from '../types/generated/contentful';
+import type { GetStaticProps } from 'next';
+import { getFeaturedProjects } from '../lib/cms/helpers';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
   { color: 'white', size: 16, left: 32, bottom: 0 },
-  { color: 'white', size: 16, right: 64, bottom: 0 },
   { color: 'magenta', size: 32, right: 0, bottom: 0 },
   { color: 'yellow', size: 32, left: 32, top: 0 },
   { color: 'yellow_orange', size: 16, left: 16, top: 32 },
@@ -55,7 +49,17 @@ const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const Home: React.FC = () => {
+interface HomeProps {
+  featuredProjects: IProject[];
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const featuredProjects = await getFeaturedProjects();
+
+  return { props: { featuredProjects } };
+};
+
+const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
@@ -64,21 +68,15 @@ const Home: React.FC = () => {
       <Hero
         main
         imageBackground={heroBackground}
+        tagline={{
+          image: heroTagline,
+          alt: 'Compassion, Creativity, Code',
+        }}
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
         }}
       >
-        <div className="md:p-12">
-          <Image
-            src={heroTagline}
-            width={heroTagline.width * 0.65}
-            height={heroTagline.height * 0.65}
-            alt="Compassion, Creativity, Code"
-            quality={100}
-            priority
-          />
-        </div>
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
           Fighting for the animal rights movement since 2019.
         </div>
@@ -90,7 +88,7 @@ const Home: React.FC = () => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto my-32 md:w-1/2 drop-shadow-2xl text-2xl px-5">
+      <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
         <Image
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -147,94 +145,9 @@ const Home: React.FC = () => {
             do premium versions, advertisments, or sell user data what-so-ever.
           </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
-            <div>
-              <a href="https://activisthub.org">
-                <Image
-                  className="rounded-2xl"
-                  src={activistHub.src}
-                  width={activistHub.width}
-                  height={activistHub.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://veganbootcamp.org">
-                <Image
-                  className="rounded-2xl"
-                  src={veganBootcamp.src}
-                  width={veganBootcamp.width}
-                  height={veganBootcamp.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://animalrightsmap.org">
-                <Image
-                  className="rounded-2xl"
-                  src={animalRightsMap.src}
-                  width={animalRightsMap.width}
-                  height={animalRightsMap.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://5minutes5vegans.org">
-                <Image
-                  className="rounded-2xl"
-                  src={minutesvegans.src}
-                  width={minutesvegans.width}
-                  height={minutesvegans.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://vegancheatsheet.org">
-                <Image
-                  className="rounded-2xl"
-                  src={veganCheatSheet.src}
-                  width={veganCheatSheet.width}
-                  height={veganCheatSheet.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://dailynooch.org">
-                <Image
-                  className="rounded-2xl"
-                  src={dailyNooch.src}
-                  width={dailyNooch.width}
-                  height={dailyNooch.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://mydailydozen.org">
-                <Image
-                  className="rounded-2xl"
-                  src={DailyDozen.src}
-                  width={DailyDozen.width}
-                  height={DailyDozen.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
-            <div>
-              <a href="https://VeganActivism.org">
-                <Image
-                  className="rounded-2xl"
-                  src={VeganActivism.src}
-                  width={VeganActivism.width}
-                  height={VeganActivism.height}
-                  alt="Compassion, Creativity, Code"
-                />
-              </a>
-            </div>
+            {featuredProjects.map((project) => (
+              <FeaturedProject key={project.sys.id} {...project.fields} />
+            ))}
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
             <DarkButton href="/projects" className="font-mono text-sm">

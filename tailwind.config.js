@@ -8,8 +8,8 @@ const colors = {
     DEFAULT: '#454545',
     dark: '#292929',
     darker: '#1D1D1D',
-    light: '#CACACA',
-    lighter: '#B4B4B4',
+    light: '#B4B4B4',
+    lighter: '#CACACA',
     background: '#E2E2E2',
   },
   // Colors
@@ -48,6 +48,14 @@ const colors = {
   },
 };
 
+const heights = {
+  '450px': '450px',
+  'screen-60%': '60vh',
+  'screen-header': 'calc(100vh - 74px)',
+  'screen/2': '50vh',
+  160: '40rem',
+};
+
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
 colors.gray = colors.grey;
 colors.pink = colors.magenta;
@@ -61,8 +69,8 @@ module.exports = {
     ],
     safelist: [
       /^bg-/,
-      /^w-/,
-      /^h-/,
+      /^-?w-/,
+      /^-?h-/,
       /^opacity-/,
       /^-?left-/,
       /^-?right-/,
@@ -81,12 +89,8 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
-      height: {
-        'screen-header': '93vh',
-        'screen-header-small': '85vh',
-        'screen-60%': '60vh',
-        'screen/2': '50vh',
-      },
+      height: heights,
+      minHeight: heights,
     },
     colors,
     fontFamily: {
