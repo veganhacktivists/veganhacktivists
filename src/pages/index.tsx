@@ -20,6 +20,7 @@ import {
 } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
+import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 
 const HERO_DECORATION_SQUARES = [
@@ -327,52 +328,7 @@ const Home: React.FC = () => {
           </LightButton>
         </div>
       </div>
-      <div className="bg-grey space-y-0">
-        <div className="inline-block">
-          <div className="mx-auto bg-white">
-            <div className="overflow-hidden w-full">
-              <Image
-                src={blogCow.src}
-                width={blogCow.width / 2}
-                height={blogCow.height / 2}
-                className="w-full bg-cover"
-                alt="Compassion, Creativity, Code"
-              />
-            </div>
-            <div className="text-left ml-12 break-words max-w-sm">
-              <p className="mb-12 text-grey-dark pt-16">
-                <b className="text-5xl font-mono">APPLY FOR A GRANT</b>
-              </p>
-              <p className="mb-12 font-semibold text-2xl">
-                Lorem ipsum dolor sit amen consecitur adispicing elit
-              </p>
-              <DarkButton>APPLY NOW</DarkButton>
-            </div>
-          </div>
-        </div>
-        <div className="inline-block">
-          <div className="mx-auto bg-white">
-            <div className="overflow-hidden w-full">
-              <Image
-                src={blogCow.src}
-                width={blogCow.width / 2}
-                height={blogCow.height / 2}
-                className="w-full bg-cover"
-                alt="Compassion, Creativity, Code"
-              />
-            </div>
-            <div className="text-left ml-12 break-words max-w-sm">
-              <p className="mb-12 text-grey-light pt-16">
-                <b className="text-5xl font-mono">OUR ANNUAL IMPACT REVIEW</b>
-              </p>
-              <p className="mb-12 font-semibold text-2xl">
-                Lorem ipsum dolor sit amen consecitur adispicing elit
-              </p>
-              <DarkButton>SEE THE REVIEW</DarkButton>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Grants />
     </>
   );
 };
