@@ -4,7 +4,7 @@ import { DarkButton } from '../decoration/buttons';
 
 const Grants: React.FC = () => {
   return (
-    <div className="bg-grey space-y-0">
+    <div className="bg-grey space-y-0 pb-12">
       <div className="inline-block">
         <div className="mx-auto bg-white">
           <div className="overflow-hidden w-full">
@@ -16,7 +16,7 @@ const Grants: React.FC = () => {
               alt="Compassion, Creativity, Code"
             />
           </div>
-          <div className="text-left ml-12 break-words max-w-sm">
+          <div className="text-left ml-12 break-words max-w-sm pb-8">
             <p className="mb-12 text-grey-dark pt-16">
               <b className="text-5xl font-mono">APPLY FOR A GRANT</b>
             </p>
@@ -38,7 +38,7 @@ const Grants: React.FC = () => {
               alt="Compassion, Creativity, Code"
             />
           </div>
-          <div className="text-left ml-12 break-words max-w-sm">
+          <div className="text-left ml-12 break-words max-w-sm pb-8">
             <p className="mb-12 text-grey-light pt-16">
               <b className="text-5xl font-mono">OUR ANNUAL IMPACT REVIEW</b>
             </p>
