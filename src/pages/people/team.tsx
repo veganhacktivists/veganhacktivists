@@ -16,6 +16,7 @@ import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/ContentfulImage';
+import { useHash } from '../../hooks/useHash';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -182,12 +183,12 @@ interface TeamProps {
 }
 
 const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
-  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+  const [team, setTeam] = useHash();
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
     teamMembers,
-    selectedTeam,
+    team,
     pageSize,
     pageNumber
   );
@@ -208,8 +209,14 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         </FirstSubSection>
 
         <TeamSelector
-          selectedTeam={selectedTeam}
-          selectCallback={setSelectedTeam}
+          selectedTeam={team}
+          selectCallback={(team) => {
+            if (team === null) {
+              setTeam('');
+            } else {
+              setTeam(team);
+            }
+          }}
           teams={teams}
         />
         <MemberList members={members} teams={teams} />
