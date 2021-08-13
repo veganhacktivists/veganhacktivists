@@ -33,17 +33,16 @@ const OurMission: React.FC = () => {
           fearlessly and openly communicate with their leaders and peers.
         </SubSection>
 
-        <SubSection header="Safe Community">
-          We believe in building and fostering inclusive communities regardless
-          of race, gender, species, age, sexual orientation, or political
-          affiliation. We strive to be diverse and embrace growth in improving
-          ourselves.
-        </SubSection>
-
         <SubSection header="Farmed Animals">
           We believe farmed animals are in most need of our support, and thus as
           an organization we encourage and focus primarily on farmed animal
           liberation within our activism, projects, and support.
+        </SubSection>
+
+        <SubSection header="Open Feedback">
+          We value the viewpoints, feedback, and criticisms from every person,
+          we believe everyone has something of value to contribute to the
+          discussion. We always listen first, then respond constructively.
         </SubSection>
 
         <SubSection header="Open Feedback">
