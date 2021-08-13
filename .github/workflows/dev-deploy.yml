@@ -34,7 +34,7 @@ jobs:
       - name: Build container image
         with:
           envs: CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT
-        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) --build-arg ***REMOVED***$CF_SPACE_ID --build-arg ***REMOVED***$CF_DELIVERY_ACCESS_TOKEN --build-arg ***REMOVED***$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT -f Dockerfile.dev
+        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT -f Dockerfile.dev
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -64,9 +64,9 @@ jobs:
             docker rm $(echo $IMAGE_NAME)
             docker run -d \
             --restart always \
-            --env ***REMOVED***$CF_SPACE_ID \
-            --env ***REMOVED***$CF_DELIVERY_ACCESS_TOKEN \
-            --env ***REMOVED***$CF_PREVIEW_ACCESS_TOKEN \
+            --env CF_SPACE_ID=$CF_SPACE_ID \
+            --env CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN \
+            --env CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN \
             --env CF_ENVIRONMENT=$CF_ENVIRONMENT \
             --label traefik.enable=true \
             --label traefik.docker.network=traefik-public \

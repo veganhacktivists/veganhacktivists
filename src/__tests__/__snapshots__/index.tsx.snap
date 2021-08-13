@@ -555,7 +555,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="bg-grey space-y-0"
+    class="bg-grey space-y-0 pb-12"
   >
     <div
       class="inline-block"
@@ -575,7 +575,6 @@ exports[`Application renders correctly 1`] = `
               <img
                 alt=""
                 aria-hidden="true"
-                role="presentation"
                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
@@ -584,6 +583,7 @@ exports[`Application renders correctly 1`] = `
             <img
               alt="Compassion, Creativity, Code"
               class="w-full bg-cover"
+              data-nimg="true"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -591,7 +591,7 @@ exports[`Application renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="text-left ml-12 break-words max-w-sm"
+          class="text-left ml-12 break-words max-w-sm pb-8"
         >
           <p
             class="mb-12 text-grey-dark pt-16"
@@ -607,9 +607,7 @@ exports[`Application renders correctly 1`] = `
           >
             Lorem ipsum dolor sit amen consecitur adispicing elit
           </p>
-          <button
-            type="submit"
-          >
+          <button>
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
             >
@@ -637,7 +635,6 @@ exports[`Application renders correctly 1`] = `
               <img
                 alt=""
                 aria-hidden="true"
-                role="presentation"
                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
@@ -646,6 +643,7 @@ exports[`Application renders correctly 1`] = `
             <img
               alt="Compassion, Creativity, Code"
               class="w-full bg-cover"
+              data-nimg="true"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -653,7 +651,7 @@ exports[`Application renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="text-left ml-12 break-words max-w-sm"
+          class="text-left ml-12 break-words max-w-sm pb-8"
         >
           <p
             class="mb-12 text-grey-light pt-16"
@@ -669,9 +667,7 @@ exports[`Application renders correctly 1`] = `
           >
             Lorem ipsum dolor sit amen consecitur adispicing elit
           </p>
-          <button
-            type="submit"
-          >
+          <button>
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
             >
