@@ -12,7 +12,7 @@ import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import ContentfulImage from '../components/layout/ContentfulImage';
+import ContentfulImage from '../components/layout/contentfulImage';
 import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [

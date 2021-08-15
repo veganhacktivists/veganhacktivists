@@ -13,7 +13,7 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
-import Sprite, { cow } from '../components/decoration/Sprite';
+import Sprite, { cow } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';

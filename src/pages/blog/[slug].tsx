@@ -4,7 +4,7 @@ import type { IBlogEntry } from '../../types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { getAllBlogSlugs, getBlogPreviewBySlug } from '../../lib/cms/helpers';
-import ContentfulImage from '../../components/layout/ContentfulImage';
+import ContentfulImage from '../../components/layout/contentfulImage';
 
 interface BlogEntryProps {
   blog: IBlogEntry;

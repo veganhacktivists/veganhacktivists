@@ -15,7 +15,7 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
-import ContentfulImage from '../../components/layout/ContentfulImage';
+import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
 
 export const getStaticProps: GetStaticProps = async () => {
