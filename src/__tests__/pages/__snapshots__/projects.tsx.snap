@@ -230,7 +230,7 @@ exports[`should render correctly 1`] = `
                 </div>
               </a>
               <span
-                class="uppercase font-bold sm:pl-5"
+                class="font-bold sm:pl-5"
               >
                 <span
                   class="text-grey"
@@ -292,7 +292,7 @@ exports[`should render correctly 1`] = `
                 </div>
               </a>
               <span
-                class="uppercase font-bold sm:pl-5"
+                class="font-bold sm:pl-5"
               >
                 <span
                   class="text-grey"

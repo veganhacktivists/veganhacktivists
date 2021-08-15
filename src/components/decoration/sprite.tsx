@@ -16,15 +16,19 @@ interface SpriteProps {
 
 const Sprite: React.FC<SpriteProps> = ({
   image,
-  secondsToTraverse = 40,
+  secondsToTraverse = 10,
   scale = 0.5,
 }) => {
   const [reverse, setReverse] = useState<boolean>(false);
 
   const { width = 0 } = useWindowSize();
 
-  const initialPositionPx = 3 * 64;
-  const finalPositionPx = width ? width - 64 * 2.5 : initialPositionPx;
+  const pixelSize = 64;
+
+  const initialPositionPx = 3 * pixelSize;
+  const finalPositionPx = width
+    ? width - pixelSize - 20 - image.width * scale
+    : initialPositionPx;
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
 
