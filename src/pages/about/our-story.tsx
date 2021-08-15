@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import VH_PixelPig from '../../public/images/VH_PixelPig.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
