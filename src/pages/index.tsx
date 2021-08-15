@@ -13,6 +13,7 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import Sprite, { cow } from '../components/decoration/Sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -128,6 +129,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           </DarkButton>
         </div>
       </div>
+      <Sprite image={cow} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
