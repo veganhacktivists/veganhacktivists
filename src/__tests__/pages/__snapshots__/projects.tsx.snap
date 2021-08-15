@@ -151,16 +151,7 @@ exports[`should render correctly 1`] = `
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2018
-          </div>
-        </button>
-        <button
-          type="button"
-        >
-          <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
-          >
-            2019
+            2021
           </div>
         </button>
         <button
@@ -178,7 +169,16 @@ exports[`should render correctly 1`] = `
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2021
+            2019
+          </div>
+        </button>
+        <button
+          type="button"
+        >
+          <div
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
+          >
+            2018
           </div>
         </button>
       </div>

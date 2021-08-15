@@ -29,24 +29,25 @@ const JOIN_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const projectsYears = Array.from(
-  { length: new Date().getFullYear() - 2017 },
-  (_, index) => 2018 + index
-);
-
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
+  const projectYears = Array.from(
+    new Set(
+      projects.map((project) => new Date(project.fields.date).getFullYear())
+    )
+  ).sort((a, b) => b - a);
 
   return {
-    props: { projects },
+    props: { projects, projectYears },
   };
 };
 
 interface ProjectsProps {
   projects: IProject[];
+  projectYears: number[];
 }
 
-const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   const projectsForSelectedYear =
@@ -94,7 +95,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             >
               View all
             </WhiteButton>
-            {projectsYears.map((year) => (
+            {projectYears.map((year) => (
               <WhiteButton
                 key={year}
                 className="w-40 flex-1 m-1"
