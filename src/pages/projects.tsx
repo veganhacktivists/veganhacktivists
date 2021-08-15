@@ -139,6 +139,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                         layout="fixed"
                         height={imageSize}
                         width={imageSize}
+                        priority={i < 4}
                       />
                     </div>
                   )}
