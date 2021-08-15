@@ -1,5 +1,5 @@
 import type { Entry } from 'contentful';
-import client, { getContents, previewClient } from '.';
+import client, { getContents, getPreviewClient } from '.';
 import type {
   IBlogEntry,
   IBlogEntryFields,
@@ -9,6 +9,7 @@ import type {
 
 export const getBlogPreviewBySlug: (slug: string) => Promise<IBlogEntry> =
   async (slug) => {
+    const previewClient = getPreviewClient();
     const response = await previewClient.getEntries({
       'fields.slug': slug,
       content_type: 'blogEntry',
