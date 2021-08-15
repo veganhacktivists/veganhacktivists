@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import VH_PixelChicken from '../../public/images/VH_PixelChicken.png';
+import PixelChicken from '../../public/images/VH_PixelChicken.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
