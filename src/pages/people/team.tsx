@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useCallback, useMemo, useState } from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import type { GetStaticProps } from 'next';
@@ -15,11 +14,17 @@ import { WhiteButton } from '../../components/decoration/buttons';
 import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
+import { getActiveTeams } from '../../lib/cms/helpers';
+import ContentfulImage from '../../components/layout/ContentfulImage';
+import { useHash } from '../../hooks/useHash';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teams = await getContents<ITeamFields>('team');
-  const teamMembers = await getContents<ITeamFields>('teamMember', {
-    type: 'team',
+  const teams = await getActiveTeams();
+  const teamMembers = await getContents<ITeamFields>({
+    contentType: 'teamMember',
+    query: {
+      type: 'team',
+    },
   });
   return {
     props: { teams, teamMembers },
@@ -36,14 +41,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        {image && (
-          <Image
-            src={`https:${image.fields.file.url}`}
-            width={image.fields.file.details.size}
-            height={image.fields.file.details.size}
-            alt={name}
-          />
-        )}
+        {image && <ContentfulImage image={image} alt={name} />}
         <div
           style={{ backgroundColor: teamColor }}
           className={'absolute w-8 h-8'}
@@ -90,11 +88,11 @@ const TeamSelector: React.FC<{
             key={name}
           >
             {sprite ? (
-              <Image
-                src={`https:${sprite.fields.file.url}`}
+              <ContentfulImage
+                image={sprite}
+                alt={name}
                 width={75}
                 height={75}
-                alt={name}
                 priority
               />
             ) : (
@@ -185,12 +183,12 @@ interface TeamProps {
 }
 
 const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
-  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+  const [team, setTeam] = useHash();
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
     teamMembers,
-    selectedTeam,
+    team,
     pageSize,
     pageNumber
   );
@@ -211,8 +209,14 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         </FirstSubSection>
 
         <TeamSelector
-          selectedTeam={selectedTeam}
-          selectCallback={setSelectedTeam}
+          selectedTeam={team}
+          selectCallback={(team) => {
+            if (team === null) {
+              setTeam('');
+            } else {
+              setTeam(team);
+            }
+          }}
           teams={teams}
         />
         <MemberList members={members} teams={teams} />

@@ -30,11 +30,9 @@ const Join: React.FC = () => (
         alt: 'You are their voice',
       }}
       alignment="left"
-      main
     />
     <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
       <h1 className="mb-16">
-        {/*<span className="font-italic text-3xl"></span>*/}
         <span className="font-mono text-5xl uppercase text-black font-bold">
           Join our team
         </span>

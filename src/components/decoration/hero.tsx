@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
     classNameMapping?.content
   );
 
-  const taglineRatio = 0.6;
+  const taglineHeight = 566 * 0.6;
 
   return (
     <div className={containerClasses}>
@@ -68,11 +68,12 @@ const Hero: React.FC<HeroProps> = ({
             })}
           >
             <Image
-              layout="intrinsic"
               src={tagline.image}
               alt={tagline.alt}
-              width={tagline.image.width * taglineRatio}
-              height={tagline.image.height * taglineRatio}
+              width={
+                (tagline.image.width / tagline.image.height) * taglineHeight
+              }
+              height={taglineHeight}
               priority
             />
           </div>
@@ -81,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({
       </div>
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
-        <Circle yAlign="bottom" radiusZoom={1.04} />
+        <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />
       </div>
     </div>
   );

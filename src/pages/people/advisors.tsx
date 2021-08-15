@@ -1,5 +1,4 @@
 import type { GetStaticProps } from 'next';
-import Image from 'next/image';
 import Head from 'next/head';
 import {
   faInternetExplorer,
@@ -21,18 +20,8 @@ import type {
   ITeamMember,
 } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
+import ContentfulImage from '../../components/layout/ContentfulImage';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const advisors = await getContents<ITeamMember>('teamMember', {
-    type: 'advisor',
-  });
-
-  return {
-    props: { advisors },
-  };
-};
-
-// TODO: Maybe this constant and the component below are useful across the app and better belong in some shared place
 const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   facebook: faFacebookSquare,
   twitter: faTwitterSquare,
@@ -44,6 +33,19 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   activistHub: faInstagramSquare,
   youtube: faYoutubeSquare,
   email: faEnvelopeSquare,
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const advisors = await getContents<ITeamMember>({
+    contentType: 'teamMember',
+    query: {
+      type: 'advisor',
+    },
+  });
+
+  return {
+    props: { advisors },
+  };
 };
 
 const SocialLinks: React.FC<{ socialLinks: ISocialLinks }> = ({
@@ -74,14 +76,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        {image && (
-          <Image
-            src={`https:${image.fields.file.url}`}
-            width={image.fields.file.details.size}
-            height={image.fields.file.details.size}
-            alt={name}
-          />
-        )}
+        {image && <ContentfulImage image={image} alt={name} />}
         <div className={'absolute w-8 h-8'} />
       </div>
       <div className="text-left w-5/6 mx-auto my-0">

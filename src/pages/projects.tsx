@@ -1,56 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
-import heroBackground from '../../public/images/VH-pig2-hero.jpg';
+import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
-import activistHubCover from '../../public/images/projects/ActivistHub.png';
-import sehatiSanctuaryCover from '../../public/images/projects/Sehati.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
 import SuggestAnIdea from '../components/layout/suggestAnIdea';
 import { FirstSubSection } from '../components/decoration/textBlocks';
-
-const projects = [
-  {
-    title: 'Activist Hub',
-    cover: activistHubCover,
-    date: 'APR 2021',
-    year: 2021,
-    team: 'Team Watermelon',
-    content: (
-      <p>
-        The days of wondering whether or not our activism is effective are over.
-        Activist Hub is the world&apos;s first street outreach dashboard that
-        provides volunteers with the ability to monitor and understand their
-        effectiveness through real data and analytics (DnA). Personal and group
-        results will help everyone interested in making informed and strategic
-        decisions for the animals!
-      </p>
-    ),
-    siteName: 'ActivistHub.org',
-    href: 'https://activisthub.org',
-  },
-  {
-    title: 'Sehati Sanctuary',
-    cover: sehatiSanctuaryCover,
-    date: 'MAR 2021',
-    year: 2021,
-    team: 'Team Eggplant',
-    content: (
-      <p>
-        Sehati Animal Sanctuary is the first farmed animal sanctuary in
-        Indonesia which provides a loving haven to animals rescued from needless
-        exploitation, violence, and slaughter. The sanctuary supports
-        human-animal bonding and serves to educate the public about animal
-        rights in order to reduce worldwide animal suffering.
-      </p>
-    ),
-    siteName: 'SehatiSanctuary.org',
-    href: 'https://sehatisanctuary.org',
-  },
-];
+import type { IProject } from '../types/generated/contentful';
+import type { GetStaticProps } from 'next';
+import { getProjects } from '../lib/cms/helpers';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import ContentfulImage from '../components/layout/ContentfulImage';
+import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -67,17 +30,34 @@ const JOIN_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const projectsYears = Array.from(
-  { length: new Date().getFullYear() - 2017 },
-  (_, index) => 2018 + index
-);
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await getProjects();
+  const projectYears = Array.from(
+    new Set(
+      projects.map((project) => new Date(project.fields.date).getFullYear())
+    )
+  ).sort((a, b) => b - a);
 
-const Projects: React.FC = () => {
+  return {
+    props: { projects, projectYears },
+  };
+};
+
+interface ProjectsProps {
+  projects: IProject[];
+  projectYears: number[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
-  const projectsForSelectedYear = selectedYear
-    ? projects.filter(({ year }) => year === selectedYear)
-    : projects;
+  const projectsForSelectedYear =
+    selectedYear !== null
+      ? projects.filter(
+          (project) =>
+            new Date(project.fields.date).getFullYear() === selectedYear
+        )
+      : projects;
 
   return (
     <>
@@ -116,7 +96,7 @@ const Projects: React.FC = () => {
             >
               View all
             </WhiteButton>
-            {projectsYears.map((year) => (
+            {projectYears.map((year) => (
               <WhiteButton
                 key={year}
                 className="w-40 flex-1 m-1"
@@ -128,29 +108,67 @@ const Projects: React.FC = () => {
               </WhiteButton>
             ))}
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
-            {projectsForSelectedYear.map(
-              ({ title, content, siteName, href, date, cover, team }) => (
-                <Fragment key={title}>
-                  <div>
-                    <Image src={cover} alt={title} loading="eager" />
-                  </div>
-                  <div className="col-span-2 text-left">
-                    <h1 className="text-4xl font-bold">{title}</h1>
-                    <p className="my-3">
-                      <span className="font-bold text-grey">{date}</span> -{' '}
-                      <span className="uppercase font-bold">{team}</span>
-                    </p>
-                    <div>{content}</div>
-                    <div className="mt-10 w-min">
-                      <DarkButton href={href} className="font-mono">
-                        {siteName}
+          <div className="w-3/4">
+            {projectsForSelectedYear.map((project, i) => {
+              const {
+                name,
+                description,
+                url,
+                date: dateStr,
+                image,
+                team,
+              } = project.fields;
+
+              const date = new Date(dateStr);
+              const imageSize = 300;
+              return (
+                <div
+                  key={name}
+                  className={classNames(
+                    'flex flex-col sm:flex-row justify-between',
+                    {
+                      'mt-10': i !== 0,
+                    }
+                  )}
+                >
+                  {image && (
+                    <div className="flex-shrink">
+                      <ContentfulImage
+                        image={image}
+                        alt={name}
+                        layout="fixed"
+                        height={imageSize}
+                        width={imageSize}
+                        priority={i < 4}
+                      />
+                    </div>
+                  )}
+                  <div className="sm:pl-10 col-span-2 text-left">
+                    <h1 className="text-4xl font-bold mb-5">{name}</h1>
+                    <div className="text-xl">
+                      {documentToReactComponents(description)}
+                    </div>
+                    <div className="mt-10 flex flex-wrap items-center">
+                      <DarkButton href={url} className="font-mono">
+                        {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
                       </DarkButton>
+                      <span className="uppercase font-bold sm:pl-5">
+                        <span className="text-grey">
+                          {new Intl.DateTimeFormat('en', {
+                            month: 'short',
+                            year: 'numeric',
+                          }).format(date)}
+                        </span>{' '}
+                        -{' '}
+                        <span style={{ color: team.fields.color }}>
+                          {team?.fields.name}
+                        </span>
+                      </span>
                     </div>
                   </div>
-                </Fragment>
-              )
-            )}
+                </div>
+              );
+            })}
           </div>
         </div>
         <SquareField

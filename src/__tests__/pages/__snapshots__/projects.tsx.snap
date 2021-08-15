@@ -11,6 +11,7 @@ exports[`should render correctly 1`] = `
       >
         <img
           alt=""
+          data-nimg="true"
           decoding="async"
           sizes="100vw"
           src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
@@ -33,16 +34,16 @@ exports[`should render correctly 1`] = `
               <img
                 alt=""
                 aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
               />
             </div>
             <img
               alt="Building projects with impact"
+              data-nimg="true"
               decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=640&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+              src="/_next/image?url=%2Ffoo.png&w=750&q=75"
+              srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
           </div>
@@ -78,7 +79,7 @@ exports[`should render correctly 1`] = `
             cx="34vw"
             cy="34vw"
             fill-opacity="0"
-            opacity="0.5"
+            opacity="0.2"
             r="34vw"
             stroke-width="20px"
           />
@@ -150,16 +151,7 @@ exports[`should render correctly 1`] = `
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2018
-          </div>
-        </button>
-        <button
-          type="button"
-        >
-          <div
-            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
-          >
-            2019
+            2021
           </div>
         </button>
         <button
@@ -177,147 +169,144 @@ exports[`should render correctly 1`] = `
           <div
             class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
           >
-            2021
+            2019
+          </div>
+        </button>
+        <button
+          type="button"
+        >
+          <div
+            class="border-2 border-gray-200 border-opacity-50 p-3 w-40 flex-1 m-1"
+          >
+            2018
           </div>
         </button>
       </div>
       <div
-        class="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4"
+        class="w-3/4"
       >
-        <div>
+        <div
+          class="flex flex-col sm:flex-row justify-between"
+        >
           <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            class="flex-shrink"
           >
             <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 300px; height: 300px;"
             >
               <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                alt="Activist Hub"
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=https%3Anull&w=640&q=75"
+                srcset="/_next/image?url=https%3Anull&w=384&q=75 1x, /_next/image?url=https%3Anull&w=640&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
-            <img
-              alt="Activist Hub"
-              decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          </div>
+          <div
+            class="sm:pl-10 col-span-2 text-left"
+          >
+            <h1
+              class="text-4xl font-bold"
+            >
+              Activist Hub
+            </h1>
+            <div
+              class="text-xl"
             />
+            <div
+              class="mt-10 flex flex-wrap items-center"
+            >
+              <a
+                href="https://activisthub.org"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <div
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+                >
+                  activisthub.org
+                </div>
+              </a>
+              <span
+                class="uppercase font-bold sm:pl-5"
+              >
+                <span
+                  class="text-grey"
+                >
+                  Apr 2021
+                </span>
+                 - 
+                <span
+                  style="color: black;"
+                >
+                  Test Team
+                </span>
+              </span>
+            </div>
           </div>
         </div>
         <div
-          class="col-span-2 text-left"
+          class="flex flex-col sm:flex-row justify-between mt-10"
         >
-          <h1
-            class="text-4xl font-bold"
-          >
-            Activist Hub
-          </h1>
-          <p
-            class="my-3"
-          >
-            <span
-              class="font-bold text-grey"
-            >
-              APR 2021
-            </span>
-             - 
-            <span
-              class="uppercase font-bold"
-            >
-              Team Watermelon
-            </span>
-          </p>
-          <div>
-            <p>
-              The days of wondering whether or not our activism is effective are over. Activist Hub is the world's first street outreach dashboard that provides volunteers with the ability to monitor and understand their effectiveness through real data and analytics (DnA). Personal and group results will help everyone interested in making informed and strategic decisions for the animals!
-            </p>
-          </div>
           <div
-            class="mt-10 w-min"
-          >
-            <a
-              href="https://activisthub.org"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
-              >
-                ActivistHub.org
-              </div>
-            </a>
-          </div>
-        </div>
-        <div>
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            class="flex-shrink"
           >
             <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 300px; height: 300px;"
             >
               <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                alt="Sehati Sanctuary"
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=https%3Anull&w=640&q=75"
+                srcset="/_next/image?url=https%3Anull&w=384&q=75 1x, /_next/image?url=https%3Anull&w=640&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
             </div>
-            <img
-              alt="Sehati Sanctuary"
-              decoding="async"
-              src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
-              srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
-        </div>
-        <div
-          class="col-span-2 text-left"
-        >
-          <h1
-            class="text-4xl font-bold"
-          >
-            Sehati Sanctuary
-          </h1>
-          <p
-            class="my-3"
-          >
-            <span
-              class="font-bold text-grey"
-            >
-              MAR 2021
-            </span>
-             - 
-            <span
-              class="uppercase font-bold"
-            >
-              Team Eggplant
-            </span>
-          </p>
-          <div>
-            <p>
-              Sehati Animal Sanctuary is the first farmed animal sanctuary in Indonesia which provides a loving haven to animals rescued from needless exploitation, violence, and slaughter. The sanctuary supports human-animal bonding and serves to educate the public about animal rights in order to reduce worldwide animal suffering.
-            </p>
           </div>
           <div
-            class="mt-10 w-min"
+            class="sm:pl-10 col-span-2 text-left"
           >
-            <a
-              href="https://sehatisanctuary.org"
-              rel="noreferrer"
-              target="_blank"
+            <h1
+              class="text-4xl font-bold"
             >
-              <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+              Sehati Sanctuary
+            </h1>
+            <div
+              class="text-xl"
+            />
+            <div
+              class="mt-10 flex flex-wrap items-center"
+            >
+              <a
+                href="https://sehatisanctuary.org"
+                rel="noreferrer"
+                target="_blank"
               >
-                SehatiSanctuary.org
-              </div>
-            </a>
+                <div
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+                >
+                  sehatisanctuary.org
+                </div>
+              </a>
+              <span
+                class="uppercase font-bold sm:pl-5"
+              >
+                <span
+                  class="text-grey"
+                >
+                  Mar 2021
+                </span>
+                 - 
+                <span
+                  style="color: black;"
+                >
+                  Test Team
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -350,7 +339,6 @@ exports[`should render correctly 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -358,6 +346,7 @@ exports[`should render correctly 1`] = `
           <noscript />
           <img
             alt="Lamp"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
@@ -417,7 +406,6 @@ exports[`should render correctly 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -425,6 +413,7 @@ exports[`should render correctly 1`] = `
           <noscript />
           <img
             alt="Compassion, Creativity, Code"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
