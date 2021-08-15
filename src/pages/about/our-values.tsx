@@ -17,11 +17,11 @@ const OurMission: React.FC = () => {
       <div className="m-10">
         <AboutButtons />
         <FirstSubSection header="Our values">
-          We know that embracing strong core values for our organization is
-          vital in recruiting diverse and talented volunteers from all over the
-          world. By making our community welcoming and safe for everyone, we
-          build a more productive environment in which all of us can thrive and
-          be the best version of ourselves when fighting for the animals.
+          We embrace strong core values for our organization and recruit 
+		  diverse and talented volunteers. By making our community open 
+		  and safe for everyone, we build an environment in which all of 
+		  us can be the best version of ourselves when fighting for the 
+		  animals.
         </FirstSubSection>
         <Image
           src={PixelChicken.src}
