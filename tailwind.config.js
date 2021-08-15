@@ -48,7 +48,7 @@ const colors = {
   },
 };
 
-const heights = {
+const sizes = {
   '450px': '450px',
   'screen-60%': '60vh',
   'screen-header': 'calc(100vh - 74px)',
@@ -89,8 +89,9 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
-      height: heights,
-      minHeight: heights,
+      height: sizes,
+      width: sizes,
+      minHeight: sizes,
     },
     colors,
     fontFamily: {

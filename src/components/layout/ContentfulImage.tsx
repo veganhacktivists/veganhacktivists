@@ -5,11 +5,13 @@ import Image from 'next/image';
 interface ContentfulImageProps extends Partial<ImageProps> {
   image: Asset;
   alt: string;
+  ratio?: number;
 }
 
 const ContentfulImage: React.FC<ContentfulImageProps> = ({
   image,
   alt,
+  ratio = 1,
   ...props
 }) => {
   const { url, details } = image.fields.file;
@@ -22,8 +24,8 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
   return (
     <Image
       src={'https:' + url}
-      width={width}
-      height={height}
+      width={width * ratio}
+      height={height * ratio}
       alt={alt}
       {...props}
     />

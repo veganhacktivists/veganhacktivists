@@ -13,6 +13,7 @@ import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../components/layout/ContentfulImage';
+import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -107,8 +108,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               </WhiteButton>
             ))}
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-3/4">
-            {projectsForSelectedYear.map((project) => {
+          <div className="w-3/4">
+            {projectsForSelectedYear.map((project, i) => {
               const {
                 name,
                 description,
@@ -119,39 +120,52 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               } = project.fields;
 
               const date = new Date(dateStr);
-
+              const imageSize = 300;
               return (
-                <Fragment key={name}>
+                <div
+                  key={name}
+                  className={classNames(
+                    'flex flex-col sm:flex-row justify-between',
+                    {
+                      'mt-10': i !== 0,
+                    }
+                  )}
+                >
                   {image && (
-                    <div>
-                      <ContentfulImage image={image} alt={name} />
+                    <div className="flex-shrink">
+                      <ContentfulImage
+                        image={image}
+                        alt={name}
+                        layout="fixed"
+                        height={imageSize}
+                        width={imageSize}
+                      />
                     </div>
                   )}
-                  <div className="col-span-2 text-left">
+                  <div className="sm:pl-10 col-span-2 text-left">
                     <h1 className="text-4xl font-bold">{name}</h1>
-                    <p className="my-3">
-                      <span className="font-bold text-grey uppercase">
-                        {new Intl.DateTimeFormat('en', {
-                          month: 'short',
-                          year: 'numeric',
-                        }).format(date)}
-                      </span>{' '}
-                      -{' '}
-                      <span
-                        className="uppercase font-bold"
-                        style={{ color: team.fields.color }}
-                      >
-                        {team?.fields.name}
-                      </span>
-                    </p>
-                    <div>{documentToReactComponents(description)}</div>
-                    <div className="mt-10 w-min">
+                    <div className="text-xl">
+                      {documentToReactComponents(description)}
+                    </div>
+                    <div className="mt-10 flex flex-wrap items-center">
                       <DarkButton href={url} className="font-mono">
                         {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
                       </DarkButton>
+                      <span className="uppercase font-bold sm:pl-5">
+                        <span className="text-grey">
+                          {new Intl.DateTimeFormat('en', {
+                            month: 'short',
+                            year: 'numeric',
+                          }).format(date)}
+                        </span>{' '}
+                        -{' '}
+                        <span style={{ color: team.fields.color }}>
+                          {team?.fields.name}
+                        </span>
+                      </span>
                     </div>
                   </div>
-                </Fragment>
+                </div>
               );
             })}
           </div>
