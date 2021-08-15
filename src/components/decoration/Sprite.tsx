@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 import Image from 'next/image';
@@ -6,50 +6,51 @@ import chicken from '../../../public/images/sprite_chicken.gif';
 import pig from '../../../public/images/sprite_pig.gif';
 import sheep from '../../../public/images/sprite_sheep.gif';
 import cow from '../../../public/images/sprite_cow.gif';
-import useWindowSize from '../../hooks/useWindowSize';
 
 interface SpriteProps {
   image: StaticImageData;
   secondsToTraverse?: number;
+  scale?: number;
 }
 
-const Sprite: React.FC<SpriteProps> = ({ image, secondsToTraverse = 10 }) => {
-  const spriteRef = useRef<HTMLDivElement>(null);
+const Sprite: React.FC<SpriteProps> = ({
+  image,
+  secondsToTraverse = 10,
+  scale = 0.5,
+}) => {
+  const [reverse, setReverse] = useState<boolean>(false);
 
-  const { width } = useWindowSize();
-  const initialPosition = '200px';
+  const initialPosition = '15vw';
   const spring = useSpring({
     from: {
       left: initialPosition,
     },
     to: {
-      left: `${Math.max((width || 0) - 300, 0)}px`,
+      left: '85vw',
     },
-    loop: { reverse: true },
-    onRest: ({ value }) => {
-      if (spriteRef.current === null) {
-        return;
-      }
-      const arrivedLeftSide = value.left === initialPosition;
-
-      spriteRef.current.classList.toggle('rotate-y-180', arrivedLeftSide);
+    reverse: reverse,
+    onRest: () => {
+      setReverse((reverse) => !reverse);
     },
     config: { duration: secondsToTraverse * 1000 },
   });
 
-  const ratio = 1;
-
   return (
     <animated.div
-      ref={spriteRef}
-      className="none md:absolute rotate-y-180"
-      style={{ ...spring, height: `${image.height}px` }}
+      className="none md:absolute"
+      style={{
+        ...spring,
+        height: image.height * scale,
+        translateY: -image.height * scale,
+        rotateY: reverse ? undefined : 180,
+      }}
     >
       <Image
         src={image}
-        height={image.height * ratio}
-        width={image.width * ratio}
+        height={image.height * scale}
+        width={image.width * scale}
         alt=""
+        loading="eager"
       />
     </animated.div>
   );

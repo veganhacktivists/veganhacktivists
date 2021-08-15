@@ -123,8 +123,8 @@ const Home: React.FC = () => {
             Our Mission
           </DarkButton>
         </div>
-        <Sprite image={cow} />
       </div>
+      <Sprite image={cow} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
