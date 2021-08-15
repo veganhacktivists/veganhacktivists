@@ -203,7 +203,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute overflow-hidden"
+    class="absolute z-20"
     style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div

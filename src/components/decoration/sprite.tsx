@@ -16,15 +16,15 @@ interface SpriteProps {
 
 const Sprite: React.FC<SpriteProps> = ({
   image,
-  secondsToTraverse = 60,
+  secondsToTraverse = 40,
   scale = 0.5,
 }) => {
   const [reverse, setReverse] = useState<boolean>(false);
 
-  const { width } = useWindowSize();
+  const { width = 0 } = useWindowSize();
 
   const initialPositionPx = 3 * 64;
-  const finalPositionPx = (width || 0) - 16;
+  const finalPositionPx = width ? width - 64 * 2.5 : initialPositionPx;
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
 
@@ -40,7 +40,7 @@ const Sprite: React.FC<SpriteProps> = ({
       setReverse((reverse) => !reverse);
     },
     config: {
-      duration: secondsToTraverse * 1000,
+      duration: secondsToTraverse * 1000 * (width / 1920),
     },
   });
 
@@ -50,7 +50,7 @@ const Sprite: React.FC<SpriteProps> = ({
 
   return (
     <animated.div
-      className="absolute overflow-hidden"
+      className="absolute z-20"
       style={{
         ...spring,
         height: image.height * scale,
