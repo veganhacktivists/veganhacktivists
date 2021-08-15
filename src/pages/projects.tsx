@@ -152,7 +152,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                       <DarkButton href={url} className="font-mono">
                         {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
                       </DarkButton>
-                      <span className="uppercase font-bold sm:pl-5">
+                      <span className="font-bold sm:pl-5">
                         <span className="text-grey">
                           {new Intl.DateTimeFormat('en', {
                             month: 'short',
