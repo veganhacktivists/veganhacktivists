@@ -144,7 +144,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                     </div>
                   )}
                   <div className="sm:pl-10 col-span-2 text-left">
-                    <h1 className="text-4xl font-bold">{name}</h1>
+                    <h1 className="text-4xl font-bold mb-5">{name}</h1>
                     <div className="text-xl">
                       {documentToReactComponents(description)}
                     </div>
