@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
-import heroBackground from '../../public/images/VH-pig2-hero.jpg';
+import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
