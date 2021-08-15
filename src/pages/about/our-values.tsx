@@ -25,9 +25,9 @@ const OurMission: React.FC = () => {
               for the animals.
           </FirstSubSection>
 		  <Image
-          src={VH_PixelChicken.src}
-          width={VH_PixelChicken.width / 3}
-          height={VH_PixelChicken.height / 3}
+          src={PixelChicken.src}
+          width={PixelChicken.width / 3}
+          height={PixelChicken.height / 3}
           alt="Our values"
         />
           <SubSection header="Animal Liberation">

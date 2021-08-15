@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import VH_PixelPig from '../../public/images/VH_PixelPig.png';
+import PixelPig from '../../public/images/VH_PixelPig.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
@@ -23,9 +23,9 @@ const OurMission: React.FC = () => {
           people wanting to help us build more projects for the movement!
         </FirstSubSection>
 		<Image
-          src={VH_PixelPig.src}
-          width={VH_PixelPig.width / 3}
-          height={VH_PixelPig.height / 3}
+          src={PixelPig.src}
+          width={PixelPig.width / 3}
+          height={PixelPig.height / 3}
           alt="Our story"
         />
         <SubSection header="Since that day we’ve grown to 100+ volunteers">

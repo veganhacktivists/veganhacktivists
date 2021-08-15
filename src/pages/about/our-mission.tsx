@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import VH_PixelCow from '../../public/images/VH_PixelCow.png';
+import PixelCow from '../../public/images/VH_PixelCow.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   SubSection,
@@ -23,9 +23,9 @@ const OurMission: React.FC = () => {
           that we aim to solve through the work that we do.
         </FirstSubSection>
 		<Image
-          src={VH_PixelCow.src}
-          width={VH_PixelCow.width / 3}
-          height={VH_PixelCow.height / 3}
+          src={PixelCow.src}
+          width={PixelCow.width / 3}
+          height={PixelCow.height / 3}
           alt="Our mission"
         />
         <div>
