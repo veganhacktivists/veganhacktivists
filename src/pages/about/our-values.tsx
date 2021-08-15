@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import PixelChicken from '../../public/images/VH_PixelChicken.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
@@ -22,6 +24,12 @@ const OurMission: React.FC = () => {
               us can thrive and be the best version of ourselves when fighting
               for the animals.
           </FirstSubSection>
+		  <Image
+          src={PixelChicken.src}
+          width={PixelChicken.width / 3}
+          height={PixelChicken.height / 3}
+          alt="Our values"
+        />
           <SubSection header="Animal Liberation">
             We value and respect the lives of all animals and denounce all forms
             of violence and exploitation against them. We believe animals have
