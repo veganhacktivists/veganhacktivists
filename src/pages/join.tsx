@@ -96,9 +96,9 @@ const Join: React.FC = () => (
         <LightButton>Join VH: Playground</LightButton>
       </div>
     </div>
-    <div className="mt-16 md:w-1/2 mx-auto mb-16">
+    <div className="mt-16 md:w-7/12 mx-auto mb-16">
       <h1 className="mb-8 text-3xl font-mono">Available Positions</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
         <JobRole
           image={codeLogo}
           color="green"

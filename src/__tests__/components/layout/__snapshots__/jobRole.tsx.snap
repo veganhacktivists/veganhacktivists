@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col justify-between gap-4 bg-gray-background"
+    class="flex flex-col justify-between gap-6 bg-gray-background"
   >
     <div
       class="bg-red md:h-40 flex flex-col justify-center"

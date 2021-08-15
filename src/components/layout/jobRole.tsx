@@ -15,7 +15,7 @@ const JobRole: React.FC<JobRoleProps> = ({
   title,
   description,
 }) => (
-  <div className="flex flex-col justify-between gap-4 bg-gray-background">
+  <div className="flex flex-col justify-between gap-6 bg-gray-background">
     <div className={`bg-${color} md:h-40 flex flex-col justify-center`}>
       <Image alt={title} src={image} objectFit="contain" />
     </div>

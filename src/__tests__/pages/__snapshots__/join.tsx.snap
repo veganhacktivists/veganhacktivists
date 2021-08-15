@@ -260,15 +260,15 @@ exports[`should render correctly 1`] = `
     <p
       class="mt-16"
     >
-      Please be familiar with
+      Please be familiar with 
       <strong>
         Discord
       </strong>
-       for team communication,
+       for team communication, 
       <strong>
         Trello
       </strong>
-      for tracking and workflow,
+      for tracking and workflow, 
       <strong>
         Figma
       </strong>
@@ -293,7 +293,7 @@ exports[`should render correctly 1`] = `
       <p
         class="mb-4"
       >
-        Join
+        Join 
         <strong>
           VH: Playground
         </strong>
@@ -316,7 +316,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="mt-16 md:w-1/2 mx-auto mb-16"
+    class="mt-16 md:w-7/12 mx-auto mb-16"
   >
     <h1
       class="mb-8 text-3xl font-mono"
@@ -324,10 +324,10 @@ exports[`should render correctly 1`] = `
       Available Positions
     </h1>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-4"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12"
     >
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-green md:h-40 flex flex-col justify-center"
@@ -381,7 +381,7 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-orange md:h-40 flex flex-col justify-center"
@@ -434,7 +434,7 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-magenta md:h-40 flex flex-col justify-center"
@@ -487,7 +487,7 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-yellow md:h-40 flex flex-col justify-center"
@@ -541,7 +541,7 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-red md:h-40 flex flex-col justify-center"
@@ -594,7 +594,7 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col justify-between gap-4 bg-gray-background"
+        class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
           class="bg-purple md:h-40 flex flex-col justify-center"
