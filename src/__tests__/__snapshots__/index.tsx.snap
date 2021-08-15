@@ -203,22 +203,12 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="none md:absolute"
-    style="left: 15vw; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+    class="absolute overflow-hidden"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
-      style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
     >
-      <div
-        style="box-sizing: border-box; display: block; max-width: 100%;"
-      >
-        <img
-          alt=""
-          aria-hidden="true"
-          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-          style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-        />
-      </div>
       <img
         alt=""
         data-nimg="true"
