@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import PixelCow from '../../public/images/VH_PixelCow.png';
+import PixelCow from '../../../public/images/VH_PixelCow.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   SubSection,
@@ -22,7 +22,7 @@ const OurMission: React.FC = () => {
           animal rights movement has five fundamental areas it can improve on
           that we aim to solve through the work that we do.
         </FirstSubSection>
-		<Image
+        <Image
           src={PixelCow.src}
           width={PixelCow.width / 3}
           height={PixelCow.height / 3}

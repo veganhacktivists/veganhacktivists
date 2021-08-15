@@ -50,7 +50,7 @@ exports[`Application renders correctly 1`] = `
       <div
         class="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
       >
-        Fighting for the animal rights movement since 2019.
+        Building for the animal rights movement since 2019.
       </div>
       <div
         class="relative mx-auto mt-10"
