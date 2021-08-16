@@ -7,6 +7,12 @@ RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
+
+ARG CF_SPACE_ID
+ARG CF_DELIVERY_ACCESS_TOKEN
+ARG CF_PREVIEW_ACCESS_TOKEN
+ARG CF_ENVIRONMENT
+
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
@@ -22,6 +28,7 @@ ARG CF_SPACE_ID
 ARG CF_DELIVERY_ACCESS_TOKEN
 ARG CF_PREVIEW_ACCESS_TOKEN
 ARG CF_ENVIRONMENT
+ARG PORT=3000
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
@@ -31,9 +38,9 @@ COPY --from=builder /app/package.json ./package.json
 
 USER node
 
-EXPOSE 3000
+EXPOSE ${PORT}
+ENV PORT=${PORT}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["yarn", "start"]
-
