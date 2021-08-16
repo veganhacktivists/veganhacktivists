@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Home from '../pages';
-import type { IProjectFields } from '../types/generated/contentful';
+import type { IProject } from '../types/generated/contentful';
 
-const featuredProjects: IProjectFields[] = [];
+const featuredProjects: IProject[] = [];
 
 test('Application renders without failing', () => {
   render(<Home featuredProjects={featuredProjects} />);

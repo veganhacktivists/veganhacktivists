@@ -23,10 +23,11 @@ const OurMission: React.FC = () => {
           that we aim to solve through the work that we do.
         </FirstSubSection>
         <Image
-          src={PixelCow.src}
+          src={PixelCow}
           width={PixelCow.width / 3}
           height={PixelCow.height / 3}
           alt="Our mission"
+          placeholder="empty"
         />
         <div>
           <SubSection header="1. We need more data in our movement.">

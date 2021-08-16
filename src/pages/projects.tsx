@@ -66,7 +66,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
       </Head>
       <div>
         <Hero
-          imageBackground={heroBackground.src}
+          imageBackground={heroBackground}
           tagline={{
             image: heroTagline,
             alt: 'Building projects with impact',

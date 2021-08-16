@@ -10,7 +10,6 @@ const projects = [
   {
     fields: {
       name: 'Activist Hub',
-      image,
       date: '2021-04-01',
       year: 2021,
       team: { fields: { name: 'Test Team', color: 'black', icon: '' } },
@@ -20,7 +19,6 @@ const projects = [
   {
     fields: {
       name: 'Sehati Sanctuary',
-      image,
       date: '2021-03-01',
       year: 2021,
       team: { fields: { name: 'Test Team', color: 'black', icon: '' } },
