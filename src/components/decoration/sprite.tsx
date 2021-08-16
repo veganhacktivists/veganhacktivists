@@ -70,6 +70,7 @@ const Sprite: React.FC<SpriteProps> = ({
         alt=""
         loading="eager"
         layout="fixed"
+        placeholder="empty"
       />
     </animated.div>
   );

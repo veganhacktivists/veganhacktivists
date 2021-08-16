@@ -11,6 +11,7 @@ const GrantsPollinationProject: React.FC = () => {
             src={PollinationProjectLogo}
             layout="responsive"
             alt="Logo of The Pollination Project"
+            placeholder="blur"
           />
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
