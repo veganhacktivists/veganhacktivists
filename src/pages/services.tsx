@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 
 import Hero from '../components/decoration/hero';
+import InfoBox from '../components/info-box';
 import SquareField from '../components/decoration/squares';
 
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';
@@ -12,7 +12,6 @@ import fundingIcon from '../../public/images/services/Services-icon-funding.png'
 import projectIcon from '../../public/images/services/Services-icon-project.png';
 import webIcon from '../../public/images/services/Services-icon-web.png';
 
-import classNames from 'classnames';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 
 const HERO_DECORATION_SQUARES = [
@@ -59,68 +58,6 @@ const SERVICE_BLOCKS = [
   },
 ];
 
-enum ServiceCoverAlignment {
-  LEFT,
-  RIGHT,
-}
-
-interface ServiceProps {
-  title: string;
-  content: string;
-  icon: StaticImageData;
-  iconBgColor: string;
-  iconAccentColor: string;
-  align: ServiceCoverAlignment;
-}
-
-const Service: React.FC<ServiceProps> = ({
-  title,
-  content,
-  icon,
-  iconBgColor,
-  iconAccentColor,
-  align,
-}) => {
-  const rootClassnames = classNames(
-    'flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group',
-    {
-      'flex-row-reverse': align === ServiceCoverAlignment.RIGHT,
-    }
-  );
-
-  const iconWrapperClassnames = classNames(
-    'flex flex-col w-full md:max-w-xs',
-    `bg-${iconBgColor}`
-  );
-
-  const contentWrapperClassnames = classNames(
-    'flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background'
-  );
-
-  return (
-    <div className={rootClassnames}>
-      <div className={iconWrapperClassnames}>
-        <div className="transition ease-in duration-300 opacity-0 group-hover:opacity-100">
-          <SquareField
-            squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}
-          />
-        </div>
-        <div className="p-10 my-auto w-full">
-          <Image
-            src={icon}
-            layout="responsive"
-            alt="Logo of The Pollination Project"
-          />
-        </div>
-      </div>
-      <div className={contentWrapperClassnames}>
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <p className="my-3">{content}</p>
-      </div>
-    </div>
-  );
-};
-
 const Services: React.FC = () => (
   <>
     <Head>
@@ -154,19 +91,16 @@ const Services: React.FC = () => (
         {SERVICE_BLOCKS.map(
           ({ title, content, icon, iconBgColor, iconAccentColor }, index) => (
             <div key={title}>
-              <Service
+              <InfoBox
                 key={title}
                 title={title}
-                content={content}
                 icon={icon}
                 iconBgColor={iconBgColor}
                 iconAccentColor={iconAccentColor}
-                align={
-                  index % 2 === 0
-                    ? ServiceCoverAlignment.LEFT
-                    : ServiceCoverAlignment.RIGHT
-                }
-              />
+                align={index % 2 === 0 ? 'left' : 'right'}
+              >
+                <p className="my-3">{content}</p>
+              </InfoBox>
             </div>
           )
         )}
