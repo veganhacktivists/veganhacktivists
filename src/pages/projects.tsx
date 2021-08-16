@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import { DarkButton, WhiteButton } from '../components/decoration/buttons';
-import heroBackground from '../../public/images/VH-pig2-hero.jpg';
+import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
@@ -12,7 +12,7 @@ import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import ContentfulImage from '../components/layout/ContentfulImage';
+import ContentfulImage from '../components/layout/contentfulImage';
 import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [
@@ -66,7 +66,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
       </Head>
       <div>
         <Hero
-          imageBackground={heroBackground.src}
+          imageBackground={heroBackground}
           tagline={{
             image: heroTagline,
             alt: 'Building projects with impact',
@@ -144,7 +144,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                     </div>
                   )}
                   <div className="sm:pl-10 col-span-2 text-left">
-                    <h1 className="text-4xl font-bold">{name}</h1>
+                    <h1 className="text-4xl font-bold mb-5">{name}</h1>
                     <div className="text-xl">
                       {documentToReactComponents(description)}
                     </div>
@@ -152,7 +152,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                       <DarkButton href={url} className="font-mono">
                         {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
                       </DarkButton>
-                      <span className="uppercase font-bold sm:pl-5">
+                      <span className="font-bold sm:pl-5">
                         <span className="text-grey">
                           {new Intl.DateTimeFormat('en', {
                             month: 'short',

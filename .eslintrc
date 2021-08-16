@@ -33,6 +33,7 @@
         }
       }
     ],
+    "@typescript-eslint/no-empty-function": ["warn"],
 
     // misc
     "no-console": ["warn"],

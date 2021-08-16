@@ -13,6 +13,7 @@ import {
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import Sprite, { cow } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -90,10 +91,11 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       />
       <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
         <Image
-          src={pixelHeart.src}
+          src={pixelHeart}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
           alt="Compassion, Creativity, Code"
+          placeholder="empty"
         />
         <p className="mb-16 text-grey-dark">
           <span className="font-italic font-semibold text-3xl">We are </span>
@@ -128,6 +130,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           </DarkButton>
         </div>
       </div>
+      <Sprite image={cow} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
@@ -178,29 +181,32 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16">
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow.src}
+            src={blogCow}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
+            placeholder="empty"
           />
         </div>
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow.src}
+            src={blogCow}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
+            placeholder="empty"
           />
         </div>
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow.src}
+            src={blogCow}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
+            placeholder="empty"
           />
         </div>
       </div>

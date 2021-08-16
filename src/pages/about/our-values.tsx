@@ -17,17 +17,17 @@ const OurMission: React.FC = () => {
       <div className="m-10">
         <AboutButtons />
         <FirstSubSection header="Our values">
-          We embrace strong core values for our organization and recruit 
-		  diverse and talented volunteers. By making our community open 
-		  and safe for everyone, we build an environment in which all of 
-		  us can be the best version of ourselves when fighting for the 
-		  animals.
+          We embrace strong core values for our organization and recruit diverse
+          and talented volunteers. By making our community open and safe for
+          everyone, we build an environment in which all of us can be the best
+          version of ourselves when fighting for the animals.
         </FirstSubSection>
         <Image
-          src={PixelChicken.src}
+          src={PixelChicken}
           width={PixelChicken.width / 3}
           height={PixelChicken.height / 3}
           alt="Our values"
+          placeholder="empty"
         />
         <SubSection header="Animal Liberation">
           We value and respect the lives of all animals and denounce all forms

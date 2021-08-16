@@ -15,7 +15,7 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
-import ContentfulImage from '../../components/layout/ContentfulImage';
+import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -205,7 +205,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           We&apos;re so grateful to have so many passionate vegan volunteers
           with us supporting the movement! Each team below is run independently
           from each other and are assigned to different projects or
-          organizations. Please click one of the icons below!
+          organizations. <b>Please click one of the icons below!</b>
         </FirstSubSection>
 
         <TeamSelector

@@ -20,7 +20,7 @@ import type {
   ITeamMember,
 } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
-import ContentfulImage from '../../components/layout/ContentfulImage';
+import ContentfulImage from '../../components/layout/contentfulImage';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   facebook: faFacebookSquare,

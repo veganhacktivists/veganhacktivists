@@ -9,6 +9,7 @@ interface HeroClassNames {
 }
 interface HeroProps {
   imageBackground: ImageProps['src'];
+  backgroundImageProps?: Partial<ImageProps>;
   tagline: {
     image: StaticImageData;
     alt: string;
@@ -20,6 +21,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
+  backgroundImageProps = {},
   tagline,
   alignment,
   children,
@@ -59,6 +61,8 @@ const Hero: React.FC<HeroProps> = ({
         objectFit="cover"
         objectPosition={main ? 'top' : 'center'}
         priority
+        placeholder="blur"
+        {...backgroundImageProps}
       />
       <div className={contentClasses}>
         {tagline && (
@@ -75,6 +79,7 @@ const Hero: React.FC<HeroProps> = ({
               }
               height={taglineHeight}
               priority
+              placeholder="empty"
             />
           </div>
         )}

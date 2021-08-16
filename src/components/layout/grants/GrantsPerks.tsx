@@ -5,10 +5,11 @@ const GrantsPerks: React.FC = () => {
   return (
     <div className="p-12 max-w-screen-lg mx-auto">
       <Image
-        src={PixelHeart.src}
+        src={PixelHeart}
         width={PixelHeart.width * 0.5}
         height={PixelHeart.height * 0.5}
         alt="Heart icon"
+        placeholder="empty"
       />
       <h3 className="text-4xl font-semibold mb-10 mt-12">
         In addition to $1000 in seed funding, VH Grants include:

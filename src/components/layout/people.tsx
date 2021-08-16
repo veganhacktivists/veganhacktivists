@@ -44,7 +44,7 @@ export const PeopleHero: React.FC = () => {
   return (
     <>
       <Hero
-        imageBackground={heroBackground.src}
+        imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
           alt: 'Our Community of Passionate Activists',
@@ -53,6 +53,7 @@ export const PeopleHero: React.FC = () => {
         classNameMapping={{
           container: 'bg-center',
         }}
+        backgroundImageProps={{ placeholder: 'empty' }}
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
