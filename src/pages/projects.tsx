@@ -1,18 +1,23 @@
 import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
-import { DarkButton, WhiteButton } from '../components/decoration/buttons';
+import {
+  DarkButton,
+  LightButton,
+  WhiteButton,
+} from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
+import lampImage from '../../public/images/Services-icon-project.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
-import SuggestAnIdea from '../components/layout/suggestAnIdea';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../components/layout/contentfulImage';
+import InfoBox from '../components/info-box';
 import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [
@@ -175,7 +180,23 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <SuggestAnIdea />
+        <div className="bg-gray md:py-36 flex flex-row justify-center">
+          <InfoBox
+            title="Have an idea for a project?"
+            icon={lampImage}
+            iconBgColor="green"
+            iconAccentColor="green-dark"
+          >
+            <p className="my-5 text-xl">
+              <strong className="font-bold">We&apos;re all ears</strong>! Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua
+            </p>
+            <div className="flex justify-start">
+              <LightButton href="/projects">Suggest a project idea</LightButton>
+            </div>
+          </InfoBox>
+        </div>
         <JoinTheTeam />
       </div>
     </>
