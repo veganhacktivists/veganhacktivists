@@ -3,9 +3,7 @@ import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 
 interface ContentfulImageProps
-  extends Partial<
-    Omit<ImageProps, 'src' | 'alt' | 'placeholder' | 'blurDataURL'>
-  > {
+  extends Partial<Omit<ImageProps, 'src' | 'alt'>> {
   image: Asset;
   alt: string;
   ratio?: number;
