@@ -7,6 +7,7 @@ import pig from '../../../public/images/sprite_pig.gif';
 import sheep from '../../../public/images/sprite_sheep.gif';
 import cow from '../../../public/images/sprite_cow.gif';
 import useWindowSize from '../../hooks/useWindowSize';
+import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
 
 interface SpriteProps {
   image: StaticImageData;
@@ -16,15 +17,23 @@ interface SpriteProps {
 
 const Sprite: React.FC<SpriteProps> = ({
   image,
-  secondsToTraverse = 60,
+  secondsToTraverse = 40,
   scale = 0.5,
 }) => {
   const [reverse, setReverse] = useState<boolean>(false);
 
-  const { width } = useWindowSize();
+  const mdSize = useWindowBreakpoint('md');
 
-  const initialPositionPx = 3 * 64;
-  const finalPositionPx = (width || 0) - 16;
+  const { width = mdSize + 1 } = useWindowSize();
+
+  const isMdScreen = width <= mdSize;
+
+  const pixelSize = 64;
+
+  const initialPositionPx = isMdScreen ? 0 : 3 * pixelSize;
+  const finalPositionPx = isMdScreen
+    ? width - image.width * scale
+    : width - pixelSize - 20 - image.width * scale;
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
 
@@ -40,17 +49,13 @@ const Sprite: React.FC<SpriteProps> = ({
       setReverse((reverse) => !reverse);
     },
     config: {
-      duration: secondsToTraverse * 1000,
+      duration: secondsToTraverse * 1000 * (width / 1920),
     },
   });
 
-  if (finalPositionPx <= 0 || initialPositionPx >= finalPositionPx) {
-    return null;
-  }
-
   return (
     <animated.div
-      className="absolute overflow-hidden"
+      className="absolute z-20"
       style={{
         ...spring,
         height: image.height * scale,
