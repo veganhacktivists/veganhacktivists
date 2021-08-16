@@ -1,13 +1,14 @@
 version: "3"
-
 services:
-  web:
+  vh-site:
     build:
-      context: .
-    restart: always
+      context: ./
+      args:
+        - CF_SPACE_ID=$CF_SPACE_ID
+        - CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN
+        - CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN
+        - CF_ENVIRONMENT=$CF_ENVIRONMENT
+  nginx:
+    build: ./nginx
     ports:
       - 80:80
-
-networks:
-  traefik-public:
-    external: false
