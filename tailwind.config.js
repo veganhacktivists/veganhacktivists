@@ -1,4 +1,5 @@
 const twColors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 const colors = {
   // Grays
@@ -48,7 +49,7 @@ const colors = {
   },
 };
 
-const heights = {
+const sizes = {
   '450px': '450px',
   'screen-60%': '60vh',
   'screen-header': 'calc(100vh - 74px)',
@@ -60,6 +61,15 @@ const heights = {
 colors.gray = colors.grey;
 colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
+
+// Rotate Y utility (used on Sprite animations)
+const rotateY = plugin(function ({ addUtilities }) {
+  addUtilities({
+    '.rotate-y-180': {
+      transform: 'rotateY(180deg)',
+    },
+  });
+});
 
 module.exports = {
   purge: {
@@ -89,8 +99,9 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
-      height: heights,
-      minHeight: heights,
+      height: sizes,
+      width: sizes,
+      minHeight: sizes,
     },
     colors,
     fontFamily: {
@@ -107,5 +118,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [rotateY],
 };

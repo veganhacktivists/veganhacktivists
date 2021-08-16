@@ -44,7 +44,7 @@ const SERVICE_BLOCKS = [
   {
     title: 'Funding',
     content:
-      'We\'re lucky enough to have a generous donor that lets us fund vegan activists and small grassroot vegan organizations! Need funding for vegan food, stickers, signs, or equipment? We also fund camera gear, graphic design, development and transportation needs! Let us know!',
+      'We\'re very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we\'re looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.',
     icon: fundingIcon,
     iconBgColor: 'yellow',
     iconAccentColor: 'yellow-dark',

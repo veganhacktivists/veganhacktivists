@@ -13,6 +13,7 @@ import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
+import Sprite, { cow } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -78,7 +79,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         }}
       >
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
-          Fighting for the animal rights movement since 2019.
+          Building for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
@@ -128,6 +129,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           </DarkButton>
         </div>
       </div>
+      <Sprite image={cow} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"

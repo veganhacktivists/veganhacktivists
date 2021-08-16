@@ -15,27 +15,30 @@ const LeftSide: React.FC = () => {
 
   return (
     <div className="bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle items-center flex-shrink">
+      {/* root */}
       <Link href="/">
-        <a>
-          {isRootPage ? (
-            <Image
-              src={logoBig.src}
-              alt="Vegan Hacktivists Logo"
-              layout="intrinsic"
-              width={logoBig.width * ratio}
-              height={logoBig.height * ratio}
-              priority
-            />
-          ) : (
-            <Image
-              src={logoOneLine.src}
-              alt="Vegan Hacktivists Logo"
-              layout="intrinsic"
-              width={logoOneLine.width * ratio}
-              height={logoOneLine.height * ratio}
-              priority
-            />
-          )}
+        <a className={classNames({ hidden: !isRootPage })}>
+          <Image
+            src={logoBig.src}
+            alt="Vegan Hacktivists Logo"
+            layout="intrinsic"
+            width={logoBig.width * ratio}
+            height={logoBig.height * ratio}
+            priority
+          />
+        </a>
+      </Link>
+      {/* others */}
+      <Link href="/">
+        <a className={classNames({ hidden: isRootPage })}>
+          <Image
+            src={logoOneLine.src}
+            alt="Vegan Hacktivists Logo"
+            layout="intrinsic"
+            width={logoOneLine.width * ratio}
+            height={logoOneLine.height * ratio}
+            priority
+          />
         </a>
       </Link>
     </div>

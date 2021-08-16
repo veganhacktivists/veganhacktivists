@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import PixelPig from '../../../public/images/VH_PixelPig.png';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
@@ -20,6 +22,12 @@ const OurMission: React.FC = () => {
           project, VeganActivism.org, we were overwhelmed by the response of
           people wanting to help us build more projects for the movement!
         </FirstSubSection>
+        <Image
+          src={PixelPig.src}
+          width={PixelPig.width / 3}
+          height={PixelPig.height / 3}
+          alt="Our story"
+        />
         <SubSection header="Since that day we’ve grown to 100+ volunteers">
           Most of which are mainly composed of developers, designers, and other
           types of content creators that work closely together in teams. As time
