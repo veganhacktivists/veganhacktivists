@@ -53,6 +53,7 @@ export const PeopleHero: React.FC = () => {
         classNameMapping={{
           container: 'bg-center',
         }}
+        backgroundImageProps={{ placeholder: 'empty' }}
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
