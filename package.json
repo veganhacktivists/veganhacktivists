@@ -49,6 +49,9 @@
     "typescript": "4.3.5"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jestSetup.js"
+    ],
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [
       "<rootDir>/.next/",
