@@ -28,7 +28,7 @@ ARG CF_SPACE_ID
 ARG CF_DELIVERY_ACCESS_TOKEN
 ARG CF_PREVIEW_ACCESS_TOKEN
 ARG CF_ENVIRONMENT
-ARG PORT=3000
+ARG PORT=80
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
