@@ -45,6 +45,7 @@ COPY --from=builder --chown=node:node /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
+RUN deluser --remove-home node && addgroup -S node -g 10001 && adduser -S -G node -u 10001 node
 USER node
 
 EXPOSE ${PORT}
