@@ -1,11 +1,11 @@
 import { DarkButton } from './buttons';
 
-type LinkCardProps = {
+interface LinkCardProps {
   header: string;
   text: string;
   buttonText: string;
   color: string;
-};
+}
 
 const LinkCard: React.FC<LinkCardProps> = ({
   header,
