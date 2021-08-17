@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import React from 'react';
-import InfoBox from '../../components/info-box';
+import InfoBox from '../../components/infoBox';
 import lampImage from '../../public/images/Services-icon-project.png';
 
 it('should display the title correctly', () => {

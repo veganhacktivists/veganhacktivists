@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 import Hero from '../components/decoration/hero';
-import InfoBox from '../components/info-box';
+import InfoBox from '../components/infoBox';
 import SquareField from '../components/decoration/squares';
 
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';

@@ -17,7 +17,7 @@ import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../components/layout/contentfulImage';
-import InfoBox from '../components/info-box';
+import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
 
 const HERO_DECORATION_SQUARES = [
