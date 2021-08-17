@@ -4,6 +4,11 @@ services:
   web:
     build:
       context: .
+      args:
+        - CF_SPACE_ID=$CF_SPACE_ID
+        - CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN
+        - CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN
+        - CF_ENVIRONMENT=$CF_ENVIRONMENT
     restart: always
     ports:
       - 80:80

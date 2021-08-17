@@ -1,5 +1,5 @@
+version: "3"
 services:
-
   vh-site:
     image: registry.digitalocean.com/veganhacktivists/vh-site
     restart: always
