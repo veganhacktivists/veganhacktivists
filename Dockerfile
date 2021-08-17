@@ -34,13 +34,19 @@ ARG CF_PREVIEW_ACCESS_TOKEN
 ARG CF_ENVIRONMENT
 ARG PORT=80
 
+ENV CF_SPACE_ID=$CF_SPACE_ID
+ENV CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN
+ENV CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN
+ENV CF_ENVIRONMENT=$CF_ENVIRONMENT
+
+RUN deluser --remove-home node && addgroup -S node -g 10000 && adduser -S -G node -u 10001 node
+
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=node:node /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-RUN deluser --remove-home node && addgroup -S node -g 10000 && adduser -S -G node -u 10001 node
 USER node
 
 EXPOSE ${PORT}
