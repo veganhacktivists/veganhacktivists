@@ -25,12 +25,11 @@ const GrantsQualificationsStep: React.FC<GrantsQualificationsStepProps> = ({
     <div className="flex flex-row my-6">
       <div className="w-24 h-24 bg-gray-darker flex-shrink-0 flex items-center justify-center">
         <Image
-          src={numberIcon}
+          src={numberIcon.src}
           height={numberIcon.height * 0.35}
           width={numberIcon.width * 0.35}
           alt="Step 1"
           className="self-center"
-          placeholder="blur"
         />
       </div>
       <p className="text-white text-2xl text-left ml-8">{children}</p>

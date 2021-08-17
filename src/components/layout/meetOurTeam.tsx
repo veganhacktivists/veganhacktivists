@@ -12,11 +12,10 @@ const MeetOurTeam: React.FC = () => {
           </span>
         </p>
         <Image
-          src={teamIcons}
+          src={teamIcons.src}
           width={teamIcons.width}
           height={teamIcons.height}
           alt="Compassion, Creativity, Code"
-          placeholder="empty"
         />
         <div className="flex justify-center flex-wrap">
           <LightButton href="/people/team" className="m-5 font-mono text-sm">

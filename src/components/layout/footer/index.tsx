@@ -23,7 +23,6 @@ const Logo: React.FC = () => (
       width={roundLogo.width * 0.4}
       height={roundLogo.height * 0.4}
       loading="eager"
-      placeholder="empty"
     />
   </div>
 );

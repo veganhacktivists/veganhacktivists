@@ -29,7 +29,6 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
       width={width * ratio}
       height={height * ratio}
       alt={alt}
-      placeholder="empty"
       {...props}
     />
   );

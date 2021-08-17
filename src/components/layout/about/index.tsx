@@ -27,7 +27,7 @@ export const AboutHero: React.FC = () => {
   return (
     <>
       <Hero
-        imageBackground={heroBackground}
+        imageBackground={heroBackground.src}
         tagline={{
           image: heroTagline,
           alt: 'Data-Driven Activism',

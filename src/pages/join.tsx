@@ -24,7 +24,7 @@ const Join: React.FC = () => (
       <title>Join us | Vegan Hacktivists</title>
     </Head>
     <Hero
-      imageBackground={heroBackground}
+      imageBackground={heroBackground.src}
       tagline={{
         image: heroTagline,
         alt: 'You are their voice',

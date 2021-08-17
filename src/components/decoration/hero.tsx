@@ -61,7 +61,6 @@ const Hero: React.FC<HeroProps> = ({
         objectFit="cover"
         objectPosition={main ? 'top' : 'center'}
         priority
-        placeholder="blur"
         {...backgroundImageProps}
       />
       <div className={contentClasses}>
@@ -79,7 +78,6 @@ const Hero: React.FC<HeroProps> = ({
               }
               height={taglineHeight}
               priority
-              placeholder="empty"
             />
           </div>
         )}
