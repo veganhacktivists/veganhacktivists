@@ -205,7 +205,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           We&apos;re so grateful to have so many passionate vegan volunteers
           with us supporting the movement! Each team below is run independently
           from each other and are assigned to different projects or
-          organizations. <b>Please click one of the icons below!</b> 
+          organizations. <b>Please click one of the icons below!</b>
         </FirstSubSection>
 
         <TeamSelector
