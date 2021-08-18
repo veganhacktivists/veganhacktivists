@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Push image to Container Registry
-        run: docker push $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+        run: docker push ${REGISTRY}/${IMAGE_NAME}:$(echo $GITHUB_SHA | head -c7)
 
   deploy:
     runs-on: ubuntu-latest
@@ -59,8 +59,8 @@ jobs:
           envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT
           script: |
             bash /home/deploy/clean.sh
-            docker stop $(echo $IMAGE_NAME)
-            docker rm $(echo $IMAGE_NAME)
+            docker stop $IMAGE_NAME
+            docker rm $IMAGE_NAME
             docker run -d \
             --restart always \
             --env CF_SPACE_ID=$CF_SPACE_ID \
@@ -80,4 +80,4 @@ jobs:
             --label traefik.http.routers.app-https.entrypoints=https \
             --label traefik.http.services.app.loadbalancer.server.port=80 \
             --network=traefik-public \
-            --name $(echo $IMAGE_NAME) $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+            --name $IMAGE_NAME ${REGISTRY}/${IMAGE_NAME}:$(echo $GITHUB_SHA | head -c7)
