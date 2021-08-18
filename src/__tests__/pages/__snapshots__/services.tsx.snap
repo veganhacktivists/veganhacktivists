@@ -180,17 +180,19 @@ exports[`should render correctly 1`] = `
               Websites
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
-            <button>
+            <a
+              href="/contact"
+            >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
-                Add text like this!
+                Apply for a free website!
               </div>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -241,10 +243,19 @@ exports[`should render correctly 1`] = `
               Projects
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!
             </p>
+            <a
+              href="/contact"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Let's connect and discuss your idea!
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -295,10 +306,19 @@ exports[`should render correctly 1`] = `
               Funding
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               We're very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.
             </p>
+            <a
+              href="/grants"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Learn about our Grant program!
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -349,10 +369,19 @@ exports[`should render correctly 1`] = `
               Advice
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
             </p>
+            <a
+              href="/contact"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Ask for advice, contact us!
+              </div>
+            </a>
           </div>
         </div>
       </div>

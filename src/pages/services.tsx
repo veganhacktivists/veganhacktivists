@@ -32,7 +32,7 @@ interface ServiceProps {
   align: 'left' | 'right';
   content: React.ReactNode;
   button?: {
-    text: string;
+    text: React.ReactNode;
     href: string;
   };
 }
@@ -107,8 +107,12 @@ const Service: React.FC<ServiceProps> = ({
         iconAccentColor={iconAccentColor}
         align={align}
       >
-        <p className="my-3 mb-7">{content}</p>
-        {button && <DarkButton href={button.href}>{button.text}</DarkButton>}
+        <p className="mt-3 mb-7">{content}</p>
+        {button && (
+          <DarkButton className="max-w-md" href={button.href}>
+            {button.text}
+          </DarkButton>
+        )}
       </InfoBox>
     </div>
   );

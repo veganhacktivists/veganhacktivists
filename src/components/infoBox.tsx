@@ -23,7 +23,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     <div
       className={classNames(
         'flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group',
-        align === 'right' && 'flex-row-reverse'
+        { 'flex-row-reverse': align === 'right' }
       )}
     >
       <div className={`flex flex-col w-full md:max-w-xs bg-${iconBgColor}`}>
