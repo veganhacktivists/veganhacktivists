@@ -26,7 +26,7 @@ const GrantsPollinationProject: React.FC = () => {
             encourage you to apply directly instead!{' '}
           </p>
           <LightButton
-            className="mt-6 font-mono text-md font-bold inline-block uppercase"
+            className="mt-6 font-mono text-md font-semibold inline-block uppercase"
             href="https://thepollinationproject.org"
           >
             ThePollinationProject.org
