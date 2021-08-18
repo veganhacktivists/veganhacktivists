@@ -62,7 +62,7 @@ const GrantsQualifications: React.FC = () => {
           </i>
         </p>
 		<div className="flex justify-center">
-		<LightButton href="https://thepollinationproject.org/" className="w-96 content-center m-5 font-mono text-sm font-semibold">
+		<LightButton href="https://thepollinationproject.org/" className="font-semibold w-96 content-center m-5 font-mono text-sm font-semibold">
             Apply directly instead
           </LightButton>
 		</div>
