@@ -80,7 +80,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
         <div className={'absolute w-8 h-8'} />
       </div>
       <div className="text-left w-5/6 mx-auto my-0">
-        <div className="font-bold">{name}</div>
+        <div className="text-2xl font-bold">{name}</div>
         <div>{position}</div>
         {socialLinks !== undefined && (
           <div className="mt-6">
