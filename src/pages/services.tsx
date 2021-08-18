@@ -13,6 +13,7 @@ import projectIcon from '../../public/images/services/Services-icon-project.png'
 import webIcon from '../../public/images/services/Services-icon-web.png';
 
 import { FirstSubSection } from '../components/decoration/textBlocks';
+import { DarkButton } from '../components/decoration/buttons';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -23,7 +24,20 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
-const SERVICE_BLOCKS = [
+interface ServiceProps {
+  title: string;
+  icon: StaticImageData;
+  iconBgColor: string;
+  iconAccentColor: string;
+  align: 'left' | 'right';
+  content: React.ReactNode;
+  button?: {
+    text: string;
+    href: string;
+  };
+}
+
+const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Websites',
     content:
@@ -31,6 +45,10 @@ const SERVICE_BLOCKS = [
     icon: webIcon,
     iconBgColor: 'magenta',
     iconAccentColor: 'red',
+    button: {
+      text: 'Add text like this!',
+      href: '',
+    },
   },
   {
     title: 'Projects',
@@ -57,6 +75,32 @@ const SERVICE_BLOCKS = [
     iconAccentColor: 'orange-dark',
   },
 ];
+
+const Service: React.FC<ServiceProps> = ({
+  title,
+  content,
+  icon,
+  iconBgColor,
+  iconAccentColor,
+  align,
+  button,
+}) => {
+  return (
+    <div key={title}>
+      <InfoBox
+        key={title}
+        title={title}
+        icon={icon}
+        iconBgColor={iconBgColor}
+        iconAccentColor={iconAccentColor}
+        align={align}
+      >
+        <p className="my-3">{content}</p>
+        {button && <DarkButton href={button.href}>{button.text}</DarkButton>}
+      </InfoBox>
+    </div>
+  );
+};
 
 const Services: React.FC = () => (
   <>
@@ -88,22 +132,13 @@ const Services: React.FC = () => (
         way!
       </FirstSubSection>
       <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20">
-        {SERVICE_BLOCKS.map(
-          ({ title, content, icon, iconBgColor, iconAccentColor }, index) => (
-            <div key={title}>
-              <InfoBox
-                key={title}
-                title={title}
-                icon={icon}
-                iconBgColor={iconBgColor}
-                iconAccentColor={iconAccentColor}
-                align={index % 2 === 0 ? 'left' : 'right'}
-              >
-                <p className="my-3">{content}</p>
-              </InfoBox>
-            </div>
-          )
-        )}
+        {SERVICE_BLOCKS.map((service, index) => (
+          <Service
+            key={service.title}
+            align={index % 2 === 0 ? 'left' : 'right'}
+            {...service}
+          />
+        ))}
       </div>
     </div>
   </>
