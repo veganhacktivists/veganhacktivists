@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
-        <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
+        <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
       </Head>
       <Hero
         main
