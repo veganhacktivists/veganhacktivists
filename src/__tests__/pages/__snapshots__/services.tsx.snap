@@ -184,6 +184,13 @@ exports[`should render correctly 1`] = `
             >
               If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
+            <button>
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+              >
+                Add text like this!
+              </div>
+            </button>
           </div>
         </div>
       </div>
