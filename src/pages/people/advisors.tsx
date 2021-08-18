@@ -75,7 +75,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   const { name, image, socialLinks, position } = advisor.fields;
   return (
     <div className="w-64">
-      <div className="bg-grey w-100 h-64 flex justify-end mb-2">
+      <div className="bg-grey flex justify-end mb-2">
         {image && <ContentfulImage image={image} alt={name} />}
         <div className={'absolute w-8 h-8'} />
       </div>
