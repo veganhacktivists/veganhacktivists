@@ -105,9 +105,9 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
       <div className="m-10">
         <PeopleButtons />
         <FirstSubSection header="Our advisors">
-          We&apos;re so incredibly thankful to have a team of experienced
-          advisors that support us with their personal feedback for our current
-          and past projects.
+          We&apos;re so incredibly thankful to have a team of experienced 
+		  advisors that support us! Advisors lend thier experience by 
+		  providing valuable personal feedback for our projects and organization.
         </FirstSubSection>
         <div className="flex flex-wrap justify-center ">
           {advisors.map((advisor) => (
