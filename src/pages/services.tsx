@@ -46,8 +46,8 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconBgColor: 'magenta',
     iconAccentColor: 'red',
     button: {
-      text: 'Add text like this!',
-      href: '',
+      text: 'Apply for a free website!',
+      href: '/contact',
     },
   },
   {
@@ -57,6 +57,10 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     icon: projectIcon,
     iconBgColor: 'green',
     iconAccentColor: 'green-dark',
+    button: {
+      text: 'Let\'s connect and discuss your idea!',
+      href: '/contact',
+    },
   },
   {
     title: 'Funding',
@@ -65,6 +69,10 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     icon: fundingIcon,
     iconBgColor: 'yellow',
     iconAccentColor: 'yellow-dark',
+    button: {
+      text: 'Learn about our Grant program!',
+      href: '/grants',
+    },
   },
   {
     title: 'Advice',
@@ -73,6 +81,10 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     icon: adviceIcon,
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',
+    button: {
+      text: 'Ask for advice, contact us!',
+      href: '/contact',
+    },
   },
 ];
 
@@ -95,7 +107,7 @@ const Service: React.FC<ServiceProps> = ({
         iconAccentColor={iconAccentColor}
         align={align}
       >
-        <p className="my-3">{content}</p>
+        <p className="my-3 mb-7">{content}</p>
         {button && <DarkButton href={button.href}>{button.text}</DarkButton>}
       </InfoBox>
     </div>
