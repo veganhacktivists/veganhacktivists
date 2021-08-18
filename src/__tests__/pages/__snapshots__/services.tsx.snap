@@ -162,7 +162,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -172,7 +172,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -216,7 +216,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -226,7 +226,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -270,7 +270,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -280,7 +280,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -324,7 +324,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -334,7 +334,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
