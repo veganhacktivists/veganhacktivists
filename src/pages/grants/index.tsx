@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import SquareField from '../../components/decoration/squares';
+import Sprite, { pig } from '../../components/decoration/sprite';
 import {
   GrantsHero,
   GrantsHeading,
@@ -52,7 +53,16 @@ const OurMission: React.FC = () => {
         className="hidden md:block"
       />
 
-      <GrantsSubHeading />
+      <div className="p-12 bg-yellow pb-20">
+      <p className="text-2xl max-w-screen-md font-mono text-center mx-auto">
+        We&apos;re very happy to be able to offer up to
+        <b> $1000 USD in seed funding grants </b>
+        for oustanding, and effective, animal rights activism! Specifically
+        we&apos;re looking for individual or grassroots groups whose primary
+        purpose is to help reduce suffering for non-human farmed animals.
+      </p>
+    </div>
+	<Sprite image={pig} />
       <SquareField
         squares={GRANTS_SUBHEADING_SQUARES}
         className="hidden md:block"
