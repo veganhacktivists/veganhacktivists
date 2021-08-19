@@ -59,7 +59,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconBgColor: 'green',
     iconAccentColor: 'green-dark',
     button: {
-      text: 'Let\'s connect and discuss your idea!',
+      text: 'Let\'s chat about your idea!',
       href: '/contact',
     },
   },
