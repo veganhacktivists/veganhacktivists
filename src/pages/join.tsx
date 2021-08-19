@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
+import type { CandidateRequirementProps } from '../components/layout/candidateRequirement';
 import CandidateRequirement from '../components/layout/candidateRequirement';
 import JobRole from '../components/layout/jobRole';
 import heroBackground from '../../public/images/joinUs/VH-chicken2-hero-nocircles.jpg';
@@ -18,6 +19,30 @@ import bubbleLogo from '../../public/images/joinUs/VH-icon-translator.png';
 import { LightButton } from '../components/decoration/buttons';
 import MeetOurTeam from '../components/layout/meetOurTeam';
 import Sprite, { sheep } from '../components/decoration/sprite';
+
+const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
+  {
+    description: 'Vegan for at least 2 months',
+    image: heartLogo,
+    color: 'green',
+  },
+  {
+    description: 'Minimum 2 years experience in the field you\'re applying for',
+    image: checkLogo,
+    color: 'yellow',
+  },
+  {
+    description:
+      'A portfolio/resume that illustrates your skills and experience',
+    image: resumeLogo,
+    color: 'magenta',
+  },
+  {
+    description: 'Ability to volunteer at least 4 hours per week',
+    image: clockLogo,
+    color: 'orange',
+  },
+];
 
 const Join: React.FC = () => (
   <>
@@ -50,26 +75,9 @@ const Join: React.FC = () => (
         </span>
       </h2>
       <div className="flex flex-col gap-4">
-        <CandidateRequirement
-          image={heartLogo}
-          description="Vegan for at least 2 months"
-          color="green"
-        />
-        <CandidateRequirement
-          image={checkLogo}
-          description="Minimum 2 years experience in the field you're applying for"
-          color="yellow"
-        />
-        <CandidateRequirement
-          image={resumeLogo}
-          description="A portfolio/resume that illustrates your skills and experience"
-          color="magenta"
-        />
-        <CandidateRequirement
-          image={clockLogo}
-          description="Ability to volunteer at least 4 hours per week"
-          color="orange"
-        />
+        {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
+          <CandidateRequirement key={i} {...requirement} />
+        ))}
       </div>
       <p className="mt-16">
         Please be familiar with <strong>Discord</strong> for team communication,{' '}

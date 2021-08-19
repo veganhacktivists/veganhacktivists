@@ -1,31 +1,32 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface CandidateRequirementProps {
+export interface CandidateRequirementProps {
   image: StaticImageData;
-  description: string;
+  description: React.ReactNode;
   color: 'green' | 'yellow' | 'magenta' | 'orange';
 }
+
+const iconSize = 60;
 
 const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   image,
   description,
   color,
 }) => (
-  <div className="flex flex-row items-center gap-4">
-    <div
-      className={`w-1/8 bg-${color}`}
-      style={{ width: 50, height: 50, minWidth: 50, minHeight: 50 }}
-    >
+  <div className="flex flex-col md:flex-row items-center gap-4 px-2 md:px-0">
+    <div className={`bg-${color} p-1 pb-0`}>
       <Image
-        alt={description}
         src={image}
-        width={50}
-        height={50}
-        placeholder="blur"
+        alt=""
+        width={iconSize}
+        height={iconSize}
+        layout="fixed"
+        className="relative my-auto"
+        priority
       />
     </div>
-    <p className="w-5/8 text-left md:text-xl">{description}</p>
+    <p className="w-5/8 text-center md:text-left md:text-xl">{description}</p>
   </div>
 );
 
