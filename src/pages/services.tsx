@@ -70,7 +70,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconBgColor: 'yellow',
     iconAccentColor: 'yellow-dark',
     button: {
-      text: 'Learn about our Grant program!',
+      text: 'Learn about our grant program!',
       href: '/grants',
     },
   },
