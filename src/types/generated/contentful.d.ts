@@ -52,6 +52,9 @@ export interface IProjectFields {
 
   /** date */
   date: string;
+
+  /** isFeatured */
+  isFeatured?: boolean | undefined;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -169,6 +172,9 @@ export interface ITeamMemberFields {
 
   /** type */
   type: "team" | "advisor" | "partner";
+
+  /** description */
+  description?: Document | undefined;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {

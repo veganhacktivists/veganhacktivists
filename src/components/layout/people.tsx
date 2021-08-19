@@ -44,7 +44,7 @@ export const PeopleHero: React.FC = () => {
   return (
     <>
       <Hero
-        imageBackground={heroBackground}
+        imageBackground={heroBackground.src}
         tagline={{
           image: heroTagline,
           alt: 'Our Community of Passionate Activists',

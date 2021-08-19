@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
-        <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
+        <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
       </Head>
       <Hero
         main
@@ -91,11 +91,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       />
       <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
         <Image
-          src={pixelHeart}
+          src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
           alt="Compassion, Creativity, Code"
-          placeholder="empty"
         />
         <p className="mb-16 text-grey-dark">
           <span className="font-italic font-semibold text-3xl">We are </span>
@@ -181,32 +180,29 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16">
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow}
+            src={blogCow.src}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
-            placeholder="empty"
           />
         </div>
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow}
+            src={blogCow.src}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
-            placeholder="empty"
           />
         </div>
         <div className="overflow-hidden w-full">
           <Image
-            src={blogCow}
+            src={blogCow.src}
             width={blogCow.width}
             height={blogCow.height}
             className="w-full bg-cover"
             alt="Compassion, Creativity, Code"
-            placeholder="empty"
           />
         </div>
       </div>

@@ -1,19 +1,25 @@
 import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
-import { DarkButton, WhiteButton } from '../components/decoration/buttons';
+import {
+  DarkButton,
+  LightButton,
+  WhiteButton,
+} from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
+import lampImage from '../../public/images/Services-icon-project.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
-import SuggestAnIdea from '../components/layout/suggestAnIdea';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../components/layout/contentfulImage';
+import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
+import Sprite, { chicken } from '../components/decoration/sprite';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -66,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
       </Head>
       <div>
         <Hero
-          imageBackground={heroBackground}
+          imageBackground={heroBackground.src}
           tagline={{
             image: heroTagline,
             alt: 'Building projects with impact',
@@ -175,7 +181,27 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <SuggestAnIdea />
+        <div className="bg-gray md:py-36 flex flex-row justify-center">
+          <InfoBox
+            title="Have an idea for a project?"
+            icon={lampImage}
+            iconBgColor="green"
+            iconAccentColor="green-dark"
+          >
+            <p className="my-5 text-xl">
+              <strong className="font-bold">We&apos;re all ears! </strong>
+              We&apos;d love to hear your ideas for projects that can help
+              empower the animal rights movement, if we like it, we&apos;ll
+              build it! While we do get a lot of project suggestions every
+              month, we do consider every single one. If you rather build it
+              yourself and want advice, no problem - get in touch!
+            </p>
+            <div className="flex justify-start font-semibold">
+              <LightButton href="/projects">Suggest a project idea</LightButton>
+            </div>
+          </InfoBox>
+        </div>
+        <Sprite image={chicken} />
         <JoinTheTeam />
       </div>
     </>

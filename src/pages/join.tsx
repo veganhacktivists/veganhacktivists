@@ -17,6 +17,7 @@ import penLogo from '../../public/images/joinUs/VH-icon-writer.png';
 import bubbleLogo from '../../public/images/joinUs/VH-icon-translator.png';
 import { LightButton } from '../components/decoration/buttons';
 import MeetOurTeam from '../components/layout/meetOurTeam';
+import Sprite, { sheep } from '../components/decoration/sprite';
 
 const Join: React.FC = () => (
   <>
@@ -24,7 +25,7 @@ const Join: React.FC = () => (
       <title>Join us | Vegan Hacktivists</title>
     </Head>
     <Hero
-      imageBackground={heroBackground}
+      imageBackground={heroBackground.src}
       tagline={{
         image: heroTagline,
         alt: 'You are their voice',
@@ -78,7 +79,7 @@ const Join: React.FC = () => (
         <strong>GitHub</strong> for dev collaboration.
       </p>
     </div>
-    <div className="bg-black text-white text-xl pt-16 pb-16">
+    <div className="bg-black text-white text-xl pt-16 pb-20">
       <div className="mx-auto md:w-1/2">
         <h1 className="mb-8 text-4xl font-bold font-mono">
           Attention Developers!
@@ -96,7 +97,8 @@ const Join: React.FC = () => (
         <LightButton>Join VH: Playground</LightButton>
       </div>
     </div>
-    <div className="mt-16 md:w-7/12 mx-auto mb-16">
+    <Sprite image={sheep} />
+    <div className="mt-16 md:w-1/2 mx-auto mb-16">
       <h1 className="mb-8 text-3xl font-mono">Available Positions</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
         <JobRole

@@ -11,11 +11,10 @@ const JoinTheTeam: React.FC = () => {
           <span className="text-5xl font-mono text-white">JOIN OUR TEAM</span>
         </p>
         <Image
-          src={teamIcons}
+          src={teamIcons.src}
           width={teamIcons.width}
           height={teamIcons.height}
           alt="Compassion, Creativity, Code"
-          placeholder="empty"
         />
         <p className="pb-5 mt-16 text-white">
           Are you a developer, designer, writer, or other creative professional
@@ -24,10 +23,16 @@ const JoinTheTeam: React.FC = () => {
           interested and have the time to spare, click to see our positions.
         </p>
         <div className="flex justify-center flex-wrap">
-          <LightButton href="/people/team" className="m-5 font-mono text-sm">
+          <LightButton
+            href="/people/team"
+            className="m-5 font-mono text-sm font-semibold"
+          >
             Meet the Team
           </LightButton>
-          <LightButton href="/join" className="m-5 font-mono text-sm">
+          <LightButton
+            href="/join"
+            className="m-5 font-mono text-sm font-semibold"
+          >
             Apply to Join
           </LightButton>
         </div>

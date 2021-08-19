@@ -23,11 +23,10 @@ const OurMission: React.FC = () => {
           people wanting to help us build more projects for the movement!
         </FirstSubSection>
         <Image
-          src={PixelPig}
+          src={PixelPig.src}
           width={PixelPig.width / 3}
           height={PixelPig.height / 3}
           alt="Our story"
-          placeholder="empty"
         />
         <SubSection header="Since that day we’ve grown to 100+ volunteers">
           Most of which are mainly composed of developers, designers, and other

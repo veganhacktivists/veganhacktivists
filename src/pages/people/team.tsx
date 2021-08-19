@@ -2,6 +2,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import type {
   ITeamFields,
@@ -17,6 +18,8 @@ import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
+import Sprite, { chicken } from '../../components/decoration/sprite';
+import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -230,19 +233,22 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         )}
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-24 px-10">
+      <div className="bg-grey-light pb-10 pt-16 px-10">
+        <Image
+          src={PixelHeart.src}
+          width={PixelHeart.width / 3}
+          height={PixelHeart.height / 3}
+          alt="Our community"
+        />
         <FirstSubSection header="Our community">
           We’re not just volunteers, but we’re a community. We know each other
           personally, we play games together, talk about our lives, meet up in
           person at events, and share daily. A strong community is not only key
           for a volunteer organization, it’s vital to keeping us happy, healthy,
-          and active for the animals. Interested in joining? We’re constantly
-          looking to expand our team!{' '}
-          <Link passHref href={'/join'}>
-            <a className="text-magenta underline">Apply to join us!</a>
-          </Link>
+          and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
+      <Sprite image={chicken} />
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
       <JoinTheTeam />
     </>
