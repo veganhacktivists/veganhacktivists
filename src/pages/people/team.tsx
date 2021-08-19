@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useCallback, useMemo, useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import type {

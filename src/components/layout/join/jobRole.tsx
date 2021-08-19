@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import { LightButton } from '../decoration/buttons';
+import { LightButton } from '../../decoration/buttons';
 
-interface JobRoleProps {
+export interface JobRoleProps {
   image: StaticImageData;
-  color: 'green' | 'yellow' | 'magenta' | 'orange' | 'red' | 'purple';
+  color: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }
 
 const JobRole: React.FC<JobRoleProps> = ({

@@ -228,11 +228,11 @@ exports[`should render correctly 1`] = `
       <strong>
         Trello
       </strong>
-      for tracking and workflow, 
+       for tracking and workflow, 
       <strong>
         Figma
       </strong>
-       for UI design collaboration, and/or 
+       for UI design collaboration, and/or 
       <strong>
         GitHub
       </strong>
@@ -268,7 +268,7 @@ exports[`should render correctly 1`] = `
       </p>
       <button>
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono"
         >
           Join VH: Playground
         </div>
@@ -293,7 +293,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="mt-16 md:w-1/2 mx-auto mb-16"
+    class="mt-16 md:w-2/3 mx-auto mb-16"
   >
     <h1
       class="mb-8 text-3xl font-mono"
@@ -307,7 +307,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-green md:h-40 flex flex-col justify-center"
+          class="bg-green-light md:h-40 flex flex-col justify-center"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -340,10 +340,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for developers looking to build unique, interesting, or impactful
-            projects for the animals. We use Laravel for almost all projects, please be comfortable
-            with PHP, JS and CSS. You may be asked to work with other activists and organizations who
-            need your support.
+          We're looking for developers looking to build unique, interesting, or impactful projects for the animals. We use Laravel for almost all projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
         </p>
         <div
           class="mb-8"
@@ -394,9 +391,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for UI designers to support us by producing modern, visually appealing website
-            designs for our website projects. You would also be advising us on proper UX for older projects
-            that we're updating and may be asked to help our partners, activists, and organizations.
+          We're looking for UI designers to support us by producing modern, visually appealing website designs for our website projects. You would also be advising us on proper UX for older projects that we're updating and may be asked to help our partners, activists, and organizations.
         </p>
         <div
           class="mb-8"
@@ -447,9 +442,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for graphic designers to support us by producing high-quality, visually appealing
-            design content for our projects, including logos, banners, social media posts, icons, and similar
-            resources. Please include a portfolio of your most recent works.
+          We're looking for graphic designers to support us by producing high-quality, visually appealing design content for our projects, including logos, banners, social media posts, icons, and similar resources. Please include a portfolio of your most recent works.
         </p>
         <div
           class="mb-8"
@@ -500,10 +493,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for someone with a background in social media marketing, advertising, and
-            graphic design. We need someone to help build our Instagram, to keep it active, and relevant.
-            You'll be in charge of posting one standard post a day, along with interacting with our
-            followers.
+          We're looking for someone with a background in social media marketing, advertising, and graphic design. We need someone to help build our Instagram, to keep it active, and relevant. You'll be in charge of posting one standard post a day, along with interacting with our followers.
         </p>
         <div
           class="mb-8"
@@ -554,9 +544,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for someone with a background in writing, creating content such as blogs,
-            videos, and other content. Excellent grammar and spelling are a must. You'll be in charge
-            of writing for our blog, but also our newsletters, Patreon, and other social platforms.
+          We're looking for someone with a background in writing, creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blog, but also our newsletters, Patreon, and other social platforms.
         </p>
         <div
           class="mb-8"
@@ -607,9 +595,7 @@ exports[`should render correctly 1`] = `
         <p
           class="md:px-8"
         >
-          We're looking for people that can help us translate important projects into multiple
-            languages. You must consider yourself fluent in the languages you translate for, along
-            with having excellent grammar and spelling. Translators are highly utilized for projects.
+          We're looking for people that can help us translate important projects into multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
         </p>
         <div
           class="mb-8"
