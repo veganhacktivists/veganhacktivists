@@ -6,6 +6,7 @@ const JoinPlayground: React.FC = () => {
     <>
       <SquareField
         squares={[{ size: 16, color: 'gray-light', right: 0, bottom: 0 }]}
+        className="hidden md:block"
       />
       <div className="bg-grey-darker text-white text-xl pt-16 pb-20">
         <div className="mx-auto md:w-1/2">
@@ -33,6 +34,7 @@ const JoinPlayground: React.FC = () => {
           { size: 16, color: 'gray', left: 0, bottom: 0 },
           { size: 16, color: 'gray-light', left: 0, top: 0 },
         ]}
+        className="hidden md:block"
       />
     </>
   );

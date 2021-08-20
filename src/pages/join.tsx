@@ -31,7 +31,7 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
     color: 'green',
   },
   {
-    description: "Minimum 2 years experience in the field you're applying for",
+    description: 'Minimum 2 years experience in the field you\'re applying for',
     image: checkLogo,
     color: 'yellow',
   },
@@ -154,7 +154,10 @@ const Join: React.FC = () => (
       }}
       alignment="left"
     />
-    <SquareField squares={HERO_DECORATION_SQUARES} />
+    <SquareField
+      squares={HERO_DECORATION_SQUARES}
+      className="hidden md:block"
+    />
     <div className="content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
       <div className="text-grey">
         <h1 className="mb-10">
@@ -219,6 +222,7 @@ const Join: React.FC = () => (
         { color: 'grey-light', size: 16, bottom: 0, left: 0 },
         { color: 'grey-light', size: 16, bottom: 0, right: 0 },
       ]}
+      className="hidden md:block"
     />
     <MeetOurTeam />
   </>

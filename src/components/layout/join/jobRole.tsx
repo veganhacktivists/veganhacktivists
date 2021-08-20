@@ -17,7 +17,10 @@ const JobRole: React.FC<JobRoleProps> = ({
   description,
 }) => (
   <div className="bg-gray-background text-grey-dark">
-    <SquareField squares={[{ color: 'transparent', size: 16, right: 0 }]} />
+    <SquareField
+      squares={[{ color: 'transparent', size: 16, right: 0 }]}
+      className="hidden md:block"
+    />
     {/* <div className="relative top-0 right-0 w-16 h-16 bg-green" /> */}
     <div className={`bg-${color} md:h-52 flex flex-col justify-center py-8`}>
       <Image alt={title} src={image} objectFit="contain" />

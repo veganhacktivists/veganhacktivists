@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
     class="bg-gray-background text-grey-dark"
   >
     <div
-      class="relative overflow-visible"
+      class="relative overflow-visible hidden md:block"
     >
       <div
         class="absolute right-0 bg-transparent w-16 h-16 opacity-100"

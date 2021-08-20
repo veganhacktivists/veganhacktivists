@@ -86,7 +86,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
@@ -268,7 +268,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute right-0 bottom-0 bg-gray-light w-16 h-16 opacity-100"
@@ -315,7 +315,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute left-0 bottom-0 bg-gray w-16 h-16 opacity-100"
@@ -356,7 +356,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -414,7 +414,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -472,7 +472,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -530,7 +530,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -588,7 +588,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -646,7 +646,7 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible"
+          class="relative overflow-visible hidden md:block"
         >
           <div
             class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
@@ -726,7 +726,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute left-0 top-0 bg-white w-16 h-16 opacity-100"
