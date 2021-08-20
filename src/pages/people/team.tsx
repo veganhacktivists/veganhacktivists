@@ -17,7 +17,7 @@ import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
-import Sprite, { chicken } from '../../components/decoration/sprite';
+import Sprite, { duck } from '../../components/decoration/sprite';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -247,7 +247,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-      <Sprite image={chicken} />
+      <Sprite image={duck} />
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
       <JoinTheTeam />
     </>

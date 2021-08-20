@@ -131,7 +131,7 @@ exports[`should render correctly 1`] = `
       </p>
     </div>
     <div
-      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
+      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
     >
       <div>
         <div
@@ -253,7 +253,7 @@ exports[`should render correctly 1`] = `
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
-                Let's connect and discuss your idea!
+                Let's chat about your idea!
               </div>
             </a>
           </div>
