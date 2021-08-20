@@ -86,6 +86,28 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-16 bottom-0 bg-pink w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute top-0 bg-green w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 -top-16 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute right-32 bottom-16 bg-yellow w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
     class="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl"
   >
     <h1
@@ -240,6 +262,13 @@ exports[`should render correctly 1`] = `
     </p>
   </div>
   <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute right-0 bottom-0 bg-gray-light w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
     class="bg-black text-white text-xl pt-16 pb-20"
   >
     <div
@@ -276,6 +305,16 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-gray w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-0 top-0 bg-gray-light w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
     class="absolute z-20"
     style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
@@ -307,7 +346,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-green-light md:h-40 flex flex-col justify-center"
+          class="bg-green-light md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -358,7 +397,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-orange md:h-40 flex flex-col justify-center"
+          class="bg-orange md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -409,7 +448,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-magenta md:h-40 flex flex-col justify-center"
+          class="bg-magenta md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -460,7 +499,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-yellow md:h-40 flex flex-col justify-center"
+          class="bg-yellow md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -511,7 +550,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-red md:h-40 flex flex-col justify-center"
+          class="bg-red md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -562,7 +601,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-between gap-6 bg-gray-background"
       >
         <div
-          class="bg-purple md:h-40 flex flex-col justify-center"
+          class="bg-purple md:h-40 flex flex-col justify-center py-5"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -633,6 +672,19 @@ exports[`should render correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 top-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+    />
   </div>
   <div
     class="bg-black"

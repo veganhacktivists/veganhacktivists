@@ -5,7 +5,7 @@ import type { CandidateRequirementProps } from '../components/layout/join/candid
 import CandidateRequirement from '../components/layout/join/candidateRequirement';
 import type { JobRoleProps } from '../components/layout/join/jobRole';
 import JobRole from '../components/layout/join/jobRole';
-import heroBackground from '../../public/images/joinUs/VH-chicken2-hero-nocircles.jpg';
+import heroBackground from '../../public/images/joinUs/VH-chicken2-hero.jpg';
 import heroTagline from '../../public/images/joinUs/VH-join-hero-text.png';
 import heartLogo from '../../public/images/joinUs/VH-join-mini-icon-heart.png';
 import checkLogo from '../../public/images/joinUs/VH-join-mini-icon-check.png';
@@ -21,6 +21,7 @@ import { LightButton } from '../components/decoration/buttons';
 import MeetOurTeam from '../components/layout/meetOurTeam';
 import Sprite, { sheep } from '../components/decoration/sprite';
 import JoinPlayground from '../components/layout/join/joinPlayground';
+import SquareField from '../components/decoration/squares';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
@@ -129,19 +130,30 @@ const JOB_ROLES: JobRoleProps[] = [
   },
 ];
 
+const HERO_DECORATION_SQUARES = [
+  { color: 'white', size: 16, left: 0, bottom: 0 },
+  { color: 'pink', size: 32, left: 16, bottom: 0 },
+  { color: 'green', size: 16, lwft: 0, top: 0 },
+
+  { color: 'yellow', size: 32, right: 0, top: -16 },
+  { color: 'yellow', size: 16, right: 32, bottom: 16 },
+  { color: 'white', size: 16, right: 32, bottom: 0 },
+];
+
 const Join: React.FC = () => (
   <>
     <Head>
       <title>Join us | Vegan Hacktivists</title>
     </Head>
     <Hero
-      imageBackground={heroBackground.src}
+      imageBackground={heroBackground}
       tagline={{
         image: heroTagline,
         alt: 'You are their voice',
       }}
       alignment="left"
     />
+    <SquareField squares={HERO_DECORATION_SQUARES} />
     <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
       <h1 className="mb-16">
         <span className="font-mono text-5xl uppercase text-black font-bold">
@@ -195,6 +207,13 @@ const Join: React.FC = () => (
         </div>
       </div>
     </div>
+    <SquareField
+      squares={[
+        { color: 'white', size: 16, top: 0, left: 0 },
+        { color: 'grey-light', size: 16, bottom: 0, left: 0 },
+        { color: 'grey-light', size: 16, bottom: 0, right: 0 },
+      ]}
+    />
     <MeetOurTeam />
   </>
 );

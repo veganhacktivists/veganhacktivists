@@ -30,7 +30,6 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const containerClasses = classNames(
     'relative',
-    // 'py-10 md:py-32',
     'flex',
     {
       'justify-start': alignment === 'left',

@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
     class="flex flex-col justify-between gap-6 bg-gray-background"
   >
     <div
-      class="bg-red md:h-40 flex flex-col justify-center"
+      class="bg-red md:h-40 flex flex-col justify-center py-5"
     >
       <div
         style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"

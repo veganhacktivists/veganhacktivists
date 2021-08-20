@@ -19,7 +19,7 @@ const LeftSide: React.FC = () => {
       <Link href="/">
         <a className={classNames({ hidden: !isRootPage })}>
           <Image
-            src={logoBig.src}
+            src={logoBig}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"
             width={logoBig.width * ratio}
@@ -32,7 +32,7 @@ const LeftSide: React.FC = () => {
       <Link href="/">
         <a className={classNames({ hidden: isRootPage })}>
           <Image
-            src={logoOneLine.src}
+            src={logoOneLine}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"
             width={logoOneLine.width * ratio}
