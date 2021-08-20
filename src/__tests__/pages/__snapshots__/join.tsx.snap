@@ -1,0 +1,794 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="relative flex justify-start"
+  >
+    <div
+      style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+    >
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center w-1/2 z-10"
+    >
+      <div
+        class="py-20 md:py-20 lg:py-20"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <img
+            alt="You are their voice"
+            data-nimg="true"
+            decoding="async"
+            src="/_next/image?url=%2Ffoo.png&w=750&q=75"
+            srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 overflow-hidden"
+    >
+      <svg
+        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+    "
+        height="60vw"
+        width="60vw"
+      >
+        <circle
+          class="stroke-current"
+          cx="30vw"
+          cy="30vw"
+          fill-opacity="0"
+          opacity="0.1"
+          r="30vw"
+          stroke-width="20px"
+        />
+      </svg>
+      <svg
+        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+    "
+        height="68vw"
+        width="68vw"
+      >
+        <circle
+          class="stroke-current"
+          cx="34vw"
+          cy="34vw"
+          fill-opacity="0"
+          opacity="0.2"
+          r="34vw"
+          stroke-width="20px"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-16 bottom-0 bg-pink w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute top-0 bg-green w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 -top-16 bg-yellow w-32 h-32 opacity-100"
+    />
+    <div
+      class="absolute right-32 bottom-16 bg-yellow w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-32 bottom-0 bg-white w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
+    class="content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl"
+  >
+    <div
+      class="text-grey"
+    >
+      <h1
+        class="mb-10"
+      >
+        <span
+          class="font-mono text-7xl uppercase font-semibold"
+        >
+          Join our team
+        </span>
+      </h1>
+      <p
+        class="font-semibold font-mono text-3xl"
+      >
+        We're always looking for more vegan activist volunteers to join our team! If you're interested and have the time to spare, see our positions below.
+      </p>
+    </div>
+    <div
+      class="text-grey-dark"
+    >
+      <h2
+        class="mt-16"
+      >
+        <span
+          class="font-mono text-5xl text-grey-dark font-bold"
+        >
+          We're looking for:
+        </span>
+      </h2>
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
+        >
+          <div
+            class="bg-green p-2 pb-0"
+          >
+            <div
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+            >
+              <img
+                alt=""
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
+              />
+            </div>
+          </div>
+          <p
+            class="w-5/8 text-center md:text-left md:text-3xl"
+          >
+            Vegan for at least 2 months
+          </p>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
+        >
+          <div
+            class="bg-yellow p-2 pb-0"
+          >
+            <div
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+            >
+              <img
+                alt=""
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
+              />
+            </div>
+          </div>
+          <p
+            class="w-5/8 text-center md:text-left md:text-3xl"
+          >
+            Minimum 2 years experience in the field you're applying for
+          </p>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
+        >
+          <div
+            class="bg-magenta p-2 pb-0"
+          >
+            <div
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+            >
+              <img
+                alt=""
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
+              />
+            </div>
+          </div>
+          <p
+            class="w-5/8 text-center md:text-left md:text-3xl"
+          >
+            A portfolio/resume that illustrates your skills and experience
+          </p>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
+        >
+          <div
+            class="bg-orange p-2 pb-0"
+          >
+            <div
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+            >
+              <img
+                alt=""
+                data-nimg="true"
+                decoding="async"
+                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
+              />
+            </div>
+          </div>
+          <p
+            class="w-5/8 text-center md:text-left md:text-3xl"
+          >
+            Ability to volunteer at least 4 hours per week
+          </p>
+        </div>
+      </div>
+      <p
+        class="mt-16 text-3xl"
+      >
+        Please be familiar with 
+        <strong>
+          Discord
+        </strong>
+         for team communication, 
+        <strong>
+          Trello
+        </strong>
+         for tracking and workflow, 
+        <strong>
+          Figma
+        </strong>
+         for UI design collaboration, and/or 
+        <strong>
+          GitHub
+        </strong>
+         for dev collaboration.
+      </p>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute right-0 bottom-0 bg-gray-light w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
+    class="bg-grey-darker text-white text-xl pt-16 pb-20"
+  >
+    <div
+      class="mx-auto md:w-1/2"
+    >
+      <h2
+        class="mb-8 text-6xl font-bold font-mono"
+      >
+        Attention Developers!
+      </h2>
+      <div
+        class="text-4xl"
+      >
+        <p
+          class="mb-4"
+        >
+          Join 
+          <strong>
+            VH: Playground
+          </strong>
+          , our open source community, to begin contributing to animal rights projects today!
+        </p>
+        <p
+          class="mb-8"
+        >
+          <em>
+            Note: Due to limited spots on our core teams, we only recruit developers that are active in VH: Playground.
+          </em>
+        </p>
+      </div>
+      <button>
+        <div
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono"
+        >
+          Join VH: Playground
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-gray w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-0 top-0 bg-gray-light w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
+    class="absolute z-20"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+  >
+    <div
+      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+    >
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
+    </div>
+  </div>
+  <div
+    class="mt-16 md:max-w-7xl mx-auto mb-16"
+  >
+    <h2
+      class="mb-16 text-4xl font-bold"
+    >
+      Available Positions
+    </h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24"
+    >
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-green md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Developers"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          Developers
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for developers looking to build unique, interesting, or impactful projects for the animals. We use Laravel for almost all projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-yellow-orange md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="UI Designers"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          UI Designers
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for UI designers to support us by producing modern, visually appealing website designs for our website projects. You would also be advising us on proper UX for older projects that we're updating and may be asked to help our partners, activists, and organizations.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-pink md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Graphic Designers"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          Graphic Designers
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for graphic designers to support us by producing high-quality, visually appealing design content for our projects, including logos, banners, social media posts, icons, and similar resources. Please include a portfolio of your most recent works.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-yellow md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Social Media Managers"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          Social Media Managers
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for someone with a background in social media marketing, advertising, and graphic design. We need someone to help build our Instagram, to keep it active, and relevant. You'll be in charge of posting one standard post a day, along with interacting with our followers.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-red md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Content Creators"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          Content Creators
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for someone with a background in writing, creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blog, but also our newsletters, Patreon, and other social platforms.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-background text-grey-dark"
+      >
+        <div
+          class="relative overflow-visible"
+        >
+          <div
+            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+          />
+        </div>
+        <div
+          class="bg-purple md:h-52 flex flex-col justify-center py-8"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Translators"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <h2
+          class="text-4xl font-modo font-bold my-8 md:px-8"
+        >
+          Translators
+        </h2>
+        <p
+          class="md:px-8 text-3xl text-center"
+        >
+          We're looking for people that can help us translate important projects into multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
+        </p>
+        <div
+          class="my-8"
+        >
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="md:col-span-2 bg-gray-background py-8 md:px-40 text-grey-dark"
+      >
+        <h2
+          class="text-4xl font-modo font-bold mb-10"
+        >
+          Other Talents & Specialists
+        </h2>
+        <p
+          class="mt-4 mb-4 text-3xl"
+        >
+          Don't see a position for you here? If you have any other talents or skills that may be use for vegan movement, let us know! Whether that be legal advice, devops, or something else, we appreciate the support!
+        </p>
+        <div>
+          <button>
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+            >
+              Apply Now
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 top-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
+    class="bg-black"
+  >
+    <div
+      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12"
+    >
+      <p
+        class="mb-12 text-grey-dark pt-16"
+      >
+        <span
+          class="text-5xl font-mono uppercase text-white"
+        >
+          Meet our team
+        </span>
+      </p>
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <noscript />
+        <img
+          alt="Compassion, Creativity, Code"
+          data-nimg="true"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+      <div
+        class="flex justify-center flex-wrap"
+      >
+        <a
+          href="/people/team"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white m-5 font-mono text-sm"
+          >
+            Learn more
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

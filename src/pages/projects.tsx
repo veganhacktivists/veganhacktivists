@@ -26,7 +26,7 @@ const HERO_DECORATION_SQUARES = [
   { color: 'orange', size: 16, left: 0, top: 0 },
   { color: 'magenta', size: 32, left: 16, bottom: 0 },
   { color: 'yellow', size: 32, right: 0, top: -16 },
-  { color: 'yellow_orange', size: 16, right: 32, bottom: 16 },
+  { color: 'yellow-orange', size: 16, right: 32, bottom: 16 },
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
@@ -189,19 +189,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             iconAccentColor="green-dark"
           >
             <p className="my-5 text-xl">
-              <strong className="font-bold">We&apos;re all ears! </strong> 
-			  We&apos;d love to hear your ideas for projects that can help empower 
-			  the animal rights movement, if we like it, we&apos;ll build it! 
-			  While we do get a lot of project suggestions every month, we 
-			  do consider every single one. If you rather build it yourself 
-			  and want advice, no problem - get in touch!
+              <strong className="font-bold">We&apos;re all ears! </strong>
+              We&apos;d love to hear your ideas for projects that can help
+              empower the animal rights movement, if we like it, we&apos;ll
+              build it! While we do get a lot of project suggestions every
+              month, we do consider every single one. If you rather build it
+              yourself and want advice, no problem - get in touch!
             </p>
             <div className="flex justify-start font-semibold">
               <LightButton href="/projects">Suggest a project idea</LightButton>
             </div>
           </InfoBox>
         </div>
-		<Sprite image={chicken} />
+        <Sprite image={chicken} />
         <JoinTheTeam />
       </div>
     </>

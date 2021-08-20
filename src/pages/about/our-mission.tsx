@@ -67,7 +67,7 @@ const OurMission: React.FC = () => {
           </SubSection>
         </div>
       </div>
-	  <Sprite image={goat} />
+      <Sprite image={goat} />
     </>
   );
 };

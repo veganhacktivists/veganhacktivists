@@ -33,9 +33,9 @@ const People: React.FC = () => {
         <FirstSubSection header="Our partners">{null}</FirstSubSection>
         <div className="m-10 mb-40">Some People exist</div>
       </div>
-	  <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
+      <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
-	  <Image
+        <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}
@@ -49,7 +49,7 @@ const People: React.FC = () => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-	  <Sprite image={duck} />
+      <Sprite image={duck} />
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
       <JoinTheTeam />
     </>

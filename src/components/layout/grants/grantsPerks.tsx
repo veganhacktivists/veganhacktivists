@@ -41,9 +41,7 @@ const GrantsPerks: React.FC = () => {
         </div>
       </p>
 
-      <h4 className="text-3xl font-semibold mt-12">
-        Monthly advisory calls
-      </h4>
+      <h4 className="text-3xl font-semibold mt-12">Monthly advisory calls</h4>
       <p className="text-2xl mt-4 leading-loose">
         <div>
           A 30 minute per month zoom call to help advise you and your team.

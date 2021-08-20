@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useCallback, useMemo, useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import type {
@@ -234,7 +233,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
-	  <Image
+        <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}
@@ -248,7 +247,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-	  <Sprite image={duck} />
+      <Sprite image={duck} />
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
       <JoinTheTeam />
     </>

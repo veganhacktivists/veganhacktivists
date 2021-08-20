@@ -66,7 +66,7 @@ const OurMission: React.FC = () => {
           to fight for animal liberation – we aim to support our community.
         </SubSection>
       </div>
-	  <Sprite image={goat} />
+      <Sprite image={goat} />
     </>
   );
 };

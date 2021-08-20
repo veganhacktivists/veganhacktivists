@@ -57,19 +57,21 @@ const GrantsQualifications: React.FC = () => {
         </GrantsQualificationsStep>
         <p className="mt-12 text-2xl font-thin mb-10">
           <i>
-            <b>Don&apos;t meet the two qualifications above?</b> That&apos;s okay! You may still be eligable for funding. Please apply directly with the Pollination Project.
-			
+            <b>Don&apos;t meet the two qualifications above?</b> That&apos;s
+            okay! You may still be eligable for funding. Please apply directly
+            with the Pollination Project.
           </i>
         </p>
-		<div className="flex justify-center">
-		<LightButton href="https://thepollinationproject.org/" className="font-semibold w-96 content-center m-5 font-mono text-sm font-semibold">
+        <div className="flex justify-center">
+          <LightButton
+            href="https://thepollinationproject.org/"
+            className="font-semibold w-96 content-center m-5 font-mono text-sm font-semibold"
+          >
             Apply directly instead
           </LightButton>
-		</div>
+        </div>
         <p className="mt-10 text-2xl">
-          <b>
-            Otherwise, please continue below to fill out the form with us!
-          </b>
+          <b>Otherwise, please continue below to fill out the form with us!</b>
         </p>
       </div>
     </div>

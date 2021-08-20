@@ -131,7 +131,7 @@ exports[`should render correctly 1`] = `
       </p>
     </div>
     <div
-      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
+      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
     >
       <div>
         <div
@@ -253,7 +253,7 @@ exports[`should render correctly 1`] = `
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
-                Let's connect and discuss your idea!
+                Let's chat about your idea!
               </div>
             </a>
           </div>
@@ -316,7 +316,7 @@ exports[`should render correctly 1`] = `
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
-                Learn about our Grant program!
+                Learn about our grant program!
               </div>
             </a>
           </div>
@@ -385,6 +385,23 @@ exports[`should render correctly 1`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+  >
+    <div
+      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+    >
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
     </div>
   </div>
 </DocumentFragment>

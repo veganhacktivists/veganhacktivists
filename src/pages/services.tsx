@@ -158,7 +158,7 @@ const Services: React.FC = () => (
         ))}
       </div>
     </div>
-	<Sprite image={pig} />
+    <Sprite image={pig} />
   </>
 );
 

@@ -15,10 +15,10 @@ const GrantsPollinationProject: React.FC = () => {
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
-            Our grant program is generously funded by The Pollination Project. 
-			After your application is reviewed by us we&apos;ll forward your 
-			application for further review directly to them, so 
-			keep an eye out on your inbox!
+            Our grant program is generously funded by The Pollination Project.
+            After your application is reviewed by us we&apos;ll forward your
+            application for further review directly to them, so keep an eye out
+            on your inbox!
           </p>
           <p className="mt-4">
             If your primary focus isn&apos;t factory farming you may still be

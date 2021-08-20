@@ -18,7 +18,7 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
   { color: 'magenta', size: 32, left: 16, bottom: 0 },
   { color: 'orange', size: 16, left: 0, top: 0 },
-  { color: 'yellow_orange', size: 16, right: 32, bottom: 16 },
+  { color: 'yellow-orange', size: 16, right: 32, bottom: 16 },
   { color: 'yellow', size: 32, right: 0, top: -16 },
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];

@@ -4,7 +4,6 @@ import Sprite, { pig, chicks } from '../../components/decoration/sprite';
 import {
   GrantsHero,
   GrantsHeading,
-  GrantsSubHeading,
   GrantsQualifications,
   GrantsPerks,
   GrantsPollinationProject,
@@ -16,17 +15,17 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
   { color: 'magenta', size: 32, left: 16, bottom: 0 },
   { color: 'orange', size: 16, left: 0, top: 0 },
-  { color: 'yellow_orange', size: 16, right: 32, bottom: 16 },
+  { color: 'yellow-orange', size: 16, right: 32, bottom: 16 },
   { color: 'yellow', size: 32, right: 0, top: -16 },
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
 const GRANTS_HEADING_SQUARES = [
-  { color: 'yellow_orange', size: 16, left: 16, top: 0 },
+  { color: 'yellow-orange', size: 16, left: 16, top: 0 },
 ];
 
 const GRANTS_SUBHEADING_SQUARES = [
-  { color: 'yellow_orange', size: 16, right: 0, bottom: 0 },
+  { color: 'yellow-orange', size: 16, right: 0, bottom: 0 },
   { color: 'yellow', size: 16, left: 0, top: 0 },
   { color: 'yellow', size: 16, right: 0, top: 0 },
 ];
@@ -54,15 +53,15 @@ const OurMission: React.FC = () => {
       />
 
       <div className="p-12 bg-yellow pb-20">
-      <p className="text-2xl max-w-screen-md font-mono text-center mx-auto">
-        We&apos;re very happy to be able to offer up to
-        <b> $1000 USD in seed funding grants </b>
-        for oustanding, and effective, animal rights activism! Specifically
-        we&apos;re looking for individual or grassroots groups whose primary
-        purpose is to help reduce suffering for non-human farmed animals.
-      </p>
-    </div>
-	<Sprite image={pig} />
+        <p className="text-2xl max-w-screen-md font-mono text-center mx-auto">
+          We&apos;re very happy to be able to offer up to
+          <b> $1000 USD in seed funding grants </b>
+          for oustanding, and effective, animal rights activism! Specifically
+          we&apos;re looking for individual or grassroots groups whose primary
+          purpose is to help reduce suffering for non-human farmed animals.
+        </p>
+      </div>
+      <Sprite image={pig} />
       <SquareField
         squares={GRANTS_SUBHEADING_SQUARES}
         className="hidden md:block"
@@ -79,8 +78,8 @@ const OurMission: React.FC = () => {
       <GrantsPollinationProject />
 
       <div className="mt-24" />
-	  
-	  <Sprite image={chicks} />
+
+      <Sprite image={chicks} />
 
       <GrantsApplication />
 
