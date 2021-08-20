@@ -148,7 +148,7 @@ const Services: React.FC = () => (
         selective with who we can help with our limited resources. Ask us either
         way!
       </FirstSubSection>
-      <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20">
+      <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28">
         {SERVICE_BLOCKS.map((service, index) => (
           <Service
             key={service.title}

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import SquareField from '../../components/decoration/squares';
-import Sprite, { pig } from '../../components/decoration/sprite';
+import Sprite, { pig, chicks } from '../../components/decoration/sprite';
 import {
   GrantsHero,
   GrantsHeading,
@@ -79,6 +79,8 @@ const OurMission: React.FC = () => {
       <GrantsPollinationProject />
 
       <div className="mt-24" />
+	  
+	  <Sprite image={chicks} />
 
       <GrantsApplication />
 

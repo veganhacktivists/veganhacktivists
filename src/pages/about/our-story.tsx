@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import PixelPig from '../../../public/images/VH_PixelPig.png';
+import Sprite, { goat } from '../../components/decoration/sprite';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
@@ -14,7 +15,7 @@ const OurMission: React.FC = () => {
         <title>Our Story | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
-      <div className="m-10">
+      <div className="m-10 pb-10">
         <AboutButtons />
         <FirstSubSection header="Our story">
           We started in 2019 as a one-person team with the goal of building a
@@ -69,6 +70,7 @@ const OurMission: React.FC = () => {
           time, please click over here and find out how!
         </SubSection>
       </div>
+	  <Sprite image={goat} />
     </>
   );
 };
