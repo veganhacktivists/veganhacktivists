@@ -49,8 +49,8 @@ COPY --from=builder /app/package.json ./package.json
 
 USER node
 
-EXPOSE ${PORT}
 ENV PORT=${PORT}
+EXPOSE ${PORT}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
