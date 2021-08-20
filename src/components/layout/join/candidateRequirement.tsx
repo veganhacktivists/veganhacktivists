@@ -7,26 +7,26 @@ export interface CandidateRequirementProps {
   color: 'green' | 'yellow' | 'magenta' | 'orange';
 }
 
-const iconSize = 60;
+const iconSize = 70;
 
 const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   image,
   description,
   color,
 }) => (
-  <div className="flex flex-col md:flex-row items-center gap-4 px-2 md:px-0">
-    <div className={`bg-${color} p-1 pb-0`}>
+  <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
+    <div className={`bg-${color} p-2 pb-0`}>
       <Image
         src={image}
         alt=""
         width={iconSize}
         height={iconSize}
         layout="fixed"
-        className="relative my-auto"
+        objectPosition="center"
         priority
       />
     </div>
-    <p className="w-5/8 text-center md:text-left md:text-xl">{description}</p>
+    <p className="w-5/8 text-center md:text-left md:text-3xl">{description}</p>
   </div>
 );
 

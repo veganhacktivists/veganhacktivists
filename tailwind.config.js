@@ -3,6 +3,7 @@ const twColors = require('tailwindcss/colors');
 const colors = {
   // Grays
   black: '#161919',
+  transparent: '#00000033',
   white: twColors.white,
   grey: {
     DEFAULT: '#454545',
@@ -23,7 +24,7 @@ const colors = {
     dark: '#FCB215',
     light: '#FFD766',
   },
-  yellow_orange: {
+  'yellow-orange': {
     DEFAULT: '#F7941D',
     dark: '#F57E20',
     light: '#FCB215',

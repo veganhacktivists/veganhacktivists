@@ -22,6 +22,7 @@ import MeetOurTeam from '../components/layout/meetOurTeam';
 import Sprite, { sheep } from '../components/decoration/sprite';
 import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
+import { FirstSubSection } from '../components/decoration/textBlocks';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
@@ -30,7 +31,7 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
     color: 'green',
   },
   {
-    description: 'Minimum 2 years experience in the field you\'re applying for',
+    description: "Minimum 2 years experience in the field you're applying for",
     image: checkLogo,
     color: 'yellow',
   },
@@ -50,7 +51,7 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
 const JOB_ROLES: JobRoleProps[] = [
   {
     image: codeLogo,
-    color: 'green-light',
+    color: 'green',
     title: 'Developers',
     description: (
       <>
@@ -63,7 +64,7 @@ const JOB_ROLES: JobRoleProps[] = [
   },
   {
     image: designLogo,
-    color: 'orange',
+    color: 'yellow-orange',
     title: 'UI Designers',
     description: (
       <>
@@ -77,7 +78,7 @@ const JOB_ROLES: JobRoleProps[] = [
   },
   {
     image: paintBrushLogo,
-    color: 'magenta',
+    color: 'pink',
     title: 'Graphic Designers',
     description: (
       <>
@@ -154,55 +155,60 @@ const Join: React.FC = () => (
       alignment="left"
     />
     <SquareField squares={HERO_DECORATION_SQUARES} />
-    <div className="text-grey content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-      <h1 className="mb-16">
-        <span className="font-mono text-5xl uppercase text-black font-bold">
-          Join our team
-        </span>
-      </h1>
-      <p>
-        We&apos;re always looking for more vegan activist volunteers to join our
-        team! If you&apos;re interested and have the time to spare, see our
-        positions below.
-      </p>
-      <h2 className="mt-16">
-        {/*<span className="font-italic text-3xl"></span>*/}
-        <span className="font-mono text-4xl text-black font-bold">
-          We&apos;re looking for:
-        </span>
-      </h2>
-      <div className="flex flex-col gap-4">
-        {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
-          <CandidateRequirement key={i} {...requirement} />
-        ))}
+    <div className="content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
+      <div className="text-grey">
+        <h1 className="mb-10">
+          <span className="font-mono text-7xl uppercase font-semibold">
+            Join our team
+          </span>
+        </h1>
+        <p className="font-semibold font-mono text-3xl">
+          We&apos;re always looking for more vegan activist volunteers to join
+          our team! If you&apos;re interested and have the time to spare, see
+          our positions below.
+        </p>
       </div>
-      <p className="mt-16">
-        Please be familiar with <strong>Discord</strong> for team communication,{' '}
-        <strong>Trello</strong> for tracking and workflow,{' '}
-        <strong>Figma</strong> for UI design collaboration, and/or{' '}
-        <strong>GitHub</strong> for dev collaboration.
-      </p>
+      <div className="text-grey-dark">
+        <h2 className="mt-16">
+          <span className="font-mono text-5xl text-grey-dark font-bold">
+            We&apos;re looking for:
+          </span>
+        </h2>
+        <div className="flex flex-col gap-4">
+          {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
+            <CandidateRequirement key={i} {...requirement} />
+          ))}
+        </div>
+        <p className="mt-16 text-3xl">
+          Please be familiar with <strong>Discord</strong> for team
+          communication, <strong>Trello</strong> for tracking and workflow,{' '}
+          <strong>Figma</strong> for UI design collaboration, and/or{' '}
+          <strong>GitHub</strong> for dev collaboration.
+        </p>
+      </div>
     </div>
     <JoinPlayground />
     <Sprite image={sheep} />
-    <div className="mt-16 md:w-2/3 mx-auto mb-16">
-      <h1 className="mb-8 text-3xl font-mono">Available Positions</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
+    <div className="mt-16 md:max-w-7xl mx-auto mb-16">
+      <h2 className="mb-16 text-4xl font-bold">Available Positions</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24">
         {JOB_ROLES.map((role) => (
           <JobRole key={role.title} {...role} />
         ))}
-        <div className="md:col-span-2 bg-gray-background py-8 md:px-8">
-          <h2 className="text-2xl font-modo font-bold">
+        <div className="md:col-span-2 bg-gray-background py-8 md:px-40 text-grey-dark">
+          <h2 className="text-4xl font-modo font-bold mb-10">
             Other Talents & Specialists
           </h2>
-          <p className="mt-4 mb-4">
+          <p className="mt-4 mb-4 text-3xl">
             Don&apos;t see a position for you here? If you have any other
             talents or skills that may be use for vegan movement, let us know!
             Whether that be legal advice, devops, or something else, we
             appreciate the support!
           </p>
           <div>
-            <LightButton>Apply Now</LightButton>
+            <LightButton className="font-bold font-mono px-16 py-2 my-4">
+              Apply Now
+            </LightButton>
           </div>
         </div>
       </div>

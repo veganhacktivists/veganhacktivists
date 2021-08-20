@@ -119,7 +119,7 @@ exports[`Application renders correctly 1`] = `
       class="absolute left-32 top-0 bg-yellow w-32 h-32 opacity-100"
     />
     <div
-      class="absolute left-16 top-32 bg-yellow_orange w-16 h-16 opacity-100"
+      class="absolute left-16 top-32 bg-yellow-orange w-16 h-16 opacity-100"
     />
     <div
       class="absolute right-32 top-0 bg-red w-32 h-32 opacity-100"
