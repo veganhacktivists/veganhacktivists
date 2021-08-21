@@ -25,7 +25,7 @@ const Grants: React.FC = () => {
             <p className="mb-12 text-2xl">
               We&apos;re excited to offer up to $1000 USD in seed grants!
             </p>
-            <DarkButton>Apply now!</DarkButton>
+            <DarkButton href="/grants" >Apply now!</DarkButton>
           </div>
         </div>
       </div>
