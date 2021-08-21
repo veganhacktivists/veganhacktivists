@@ -243,6 +243,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           </LightButton>
         </div>
       </div>
+	  <SquareField
+        squares={PROJECT_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <Grants />
 	  <Sprite image={goat} />
     </>
