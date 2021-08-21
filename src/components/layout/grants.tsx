@@ -23,7 +23,7 @@ const Grants: React.FC = () => {
               <b className="text-4xl font-mono font-semibold">APPLY FOR A $1000 SEED GRANT</b>
             </p>
             <p className="mb-12 text-2xl">
-              We&apos;re excited to offer up to $1000 USD in seed funding grants!
+              We&apos;re excited to offer up to $1000 USD in seed grants!
             </p>
             <DarkButton>Apply now!</DarkButton>
           </div>
@@ -45,7 +45,7 @@ const Grants: React.FC = () => {
               <b className="text-4xl font-mono font-semibold">OUR 2020 ANNUAL IMPACT REVIEW</b>
             </p>
             <p className="mb-12 text-2xl">
-              Check out our latest impact review that covers the work we did in 2020!
+              Check out what we&apos;ve accomplished last year!
             </p>
             <DarkButton>See the review!</DarkButton>
           </div>
