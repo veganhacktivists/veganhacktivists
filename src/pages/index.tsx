@@ -13,7 +13,7 @@ import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
-import Sprite, { cow, fishb } from '../components/decoration/sprite';
+import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -244,7 +244,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         </div>
       </div>
       <Grants />
-	  <Sprite image={fishb} />
+	  <Sprite image={goat} />
     </>
   );
 };
