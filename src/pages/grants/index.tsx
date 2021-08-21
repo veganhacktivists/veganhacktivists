@@ -8,6 +8,7 @@ import {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
+  GrantsCallToAction,
 } from '../../components/layout/grants/index';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 
@@ -35,7 +36,7 @@ const GRANTS_QUALIFICATIONS_SQUARES = [
   { color: 'gray-light', size: 16, left: 0, top: 0 },
 ];
 
-const OurMission: React.FC = () => {
+const Grants: React.FC = () => {
   return (
     <>
       <Head>
@@ -54,11 +55,11 @@ const OurMission: React.FC = () => {
 
       <div className="p-12 bg-yellow pb-20">
         <p className="text-2xl max-w-screen-md font-mono text-center mx-auto">
-          We&apos;re very happy to be able to offer up to
-          <b> $1000 USD in seed funding grants </b>
-          for oustanding, and effective, animal rights activism! Specifically
-          we&apos;re looking for individual or grassroots groups whose primary
-          purpose is to help reduce suffering for non-human farmed animals.
+          We&apos;re very happy to be able to offer up to{' '}
+          <b>$1000 USD in seed funding grants</b> for oustanding, and effective,
+          animal rights activism! Specifically we&apos;re looking for individual
+          or grassroots groups whose primary purpose is to help reduce suffering
+          for non-human farmed animals.
         </p>
       </div>
       <Sprite image={pig} />
@@ -75,11 +76,11 @@ const OurMission: React.FC = () => {
 
       <GrantsPerks />
 
-      <GrantsPollinationProject />
-
-      <div className="mt-24" />
-
+      <div className="mb-24">
+        <GrantsPollinationProject />
+      </div>
       <Sprite image={chicks} />
+      <GrantsCallToAction />
 
       <GrantsApplication />
 
@@ -88,4 +89,4 @@ const OurMission: React.FC = () => {
   );
 };
 
-export default OurMission;
+export default Grants;

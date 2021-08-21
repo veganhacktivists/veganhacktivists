@@ -12,6 +12,7 @@ const colors = {
     light: '#B4B4B4',
     lighter: '#CACACA',
     background: '#E2E2E2',
+    'over-background': '#F3F4F6',
   },
   // Colors
   green: {

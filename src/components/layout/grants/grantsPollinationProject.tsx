@@ -6,7 +6,7 @@ const GrantsPollinationProject: React.FC = () => {
   return (
     <>
       <div className="flex max-w-screen-lg mx-auto flex-row mt-12 flex-wrap">
-        <div className="w-screen md:max-w-sm">
+        <div className="w-screen md:max-w-md">
           <Image
             src={PollinationProjectLogo}
             layout="responsive"

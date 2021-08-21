@@ -11,7 +11,7 @@ import {
 } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
-import Grants from '../components/layout/grants';
+import Grants from '../components/layout/grants/grantsCallToAction';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
@@ -238,17 +238,20 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       </div>
       <div className="bg-grey">
         <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
-          <LightButton href="/projects" className="font-mono text-sm font-semibold">
+          <LightButton
+            href="/projects"
+            className="font-mono text-sm font-semibold"
+          >
             See All Posts
           </LightButton>
         </div>
       </div>
-	  <SquareField
+      <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
       />
       <Grants />
-	  <Sprite image={goat} />
+      <Sprite image={goat} />
     </>
   );
 };

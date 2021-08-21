@@ -588,19 +588,19 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="bg-gray-background pt-14 pb-18 space-y-0 pb-12"
+    class="bg-gray-background pt-14"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-12 pb-12"
+      class="drop-shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-0 w-1/2 mx-auto"
     >
       <div
-        class="w-2/4 inline-block"
+        class="flex flex-row gap-14 mb-20"
       >
         <div
           class="bg-white"
         >
           <div
-            class="overflow-hidden w-full h-40"
+            class="overflow-hidden w-full h-56"
           >
             <div
               style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -617,7 +617,7 @@ exports[`Application renders correctly 1`] = `
               </div>
               <noscript />
               <img
-                alt="Compassion, Creativity, Code"
+                alt=""
                 class="w-full bg-cover"
                 data-nimg="true"
                 decoding="async"
@@ -627,42 +627,46 @@ exports[`Application renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left ml-12 break-words max-w-sm pb-8"
+            class="items-center"
           >
-            <p
-              class="mb-12 text-grey-dark pt-16"
-            >
-              <b
-                class="text-4xl font-mono font-semibold"
-              >
-                APPLY FOR A $1000 SEED GRANT
-              </b>
-            </p>
-            <p
-              class="mb-12 text-2xl"
-            >
-              We're excited to offer up to $1000 USD in seed grants!
-            </p>
-            <a
-              href="/grants"
+            <div
+              class="text-left break-words max-w-sm pb-8 h-full px-10"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+                class="mb-12 text-grey-dark pt-16 text-4xl font-mono font-semibold uppercase px-2"
               >
-                Apply now!
+                Apply for a 1000$ seed grant
               </div>
-            </a>
+              <div
+                class="mb-12 text-2xl"
+              >
+                We're excited to offer up to $1000 USD in seed grants!
+              </div>
+            </div>
+            <div
+              class="flex flex-row justify-between px-10 mb-12"
+            >
+              <a
+                href="/grants"
+              >
+                <div
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white w-max"
+                >
+                  Apply now!
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="w-2/4 inline-block"
+        class="flex flex-row gap-14 mb-20"
       >
         <div
-          class="bg-gray-100"
+          class="bg-grey-over-background"
         >
           <div
-            class="overflow-hidden w-full h-40"
+            class="overflow-hidden w-full h-56"
           >
             <div
               style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -679,7 +683,7 @@ exports[`Application renders correctly 1`] = `
               </div>
               <noscript />
               <img
-                alt="Compassion, Creativity, Code"
+                alt=""
                 class="w-full bg-cover"
                 data-nimg="true"
                 decoding="async"
@@ -689,29 +693,33 @@ exports[`Application renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="text-left ml-12 break-words max-w-sm pb-8"
+            class="items-center"
           >
-            <p
-              class="mb-12 text-grey-dark pt-16"
+            <div
+              class="text-left break-words max-w-sm pb-8 h-full px-10"
             >
-              <b
-                class="text-4xl font-mono font-semibold"
-              >
-                OUR 2020 ANNUAL IMPACT REVIEW
-              </b>
-            </p>
-            <p
-              class="mb-12 text-2xl"
-            >
-              Check out what we've accomplished last year!
-            </p>
-            <button>
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white"
+                class="mb-12 text-grey-dark pt-16 text-4xl font-mono font-semibold uppercase px-2"
               >
-                See our impact!
+                Our 2020 impact review
               </div>
-            </button>
+              <div
+                class="mb-12 text-2xl"
+              >
+                Check out what we've accomplished last year!
+              </div>
+            </div>
+            <div
+              class="flex flex-row justify-between px-10 mb-12"
+            >
+              <button>
+                <div
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white w-max"
+                >
+                  See our impact!
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

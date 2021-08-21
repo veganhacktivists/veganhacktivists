@@ -9,6 +9,7 @@ interface InfoBoxProps {
   iconAccentColor: string;
   iconBgColor: string;
   title: string;
+  layout?: 'vertical' | 'horizontal';
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
@@ -18,12 +19,18 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   iconAccentColor,
   iconBgColor,
   title,
+  layout = 'horizontal',
 }) => {
   return (
     <div
       className={classNames(
         'flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group',
-        { 'flex-row-reverse': align === 'right' }
+        {
+          'flex-row': layout === 'horizontal',
+          'flex-row-reverse': layout === 'horizontal' && align === 'right',
+          'flex-col': layout === 'vertical',
+        },
+        {}
       )}
     >
       <div className={`flex flex-col w-full md:max-w-xs bg-${iconBgColor}`}>
