@@ -205,12 +205,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             iconAccentColor="green-dark"
           >
             <p className="my-5 text-xl">
-              <strong className="font-bold">We&apos;re all ears! </strong>
-              We&apos;d love to hear your ideas for projects that can help
-              empower the animal rights movement, if we like it, we&apos;ll
-              build it! While we do get a lot of project suggestions every
-              month, we do consider every single one. If you rather build it
-              yourself and want advice, no problem - get in touch!
+              <b>We&apos;re all ears!</b> We&apos;d love to hear your ideas for
+              projects that can help empower the animal rights movement, if we
+              like it, we&apos;ll build it! While we do get a lot of project
+              suggestions every month, we do consider every single one. If you
+              rather build it yourself and want advice, no problem - get in
+              touch!
             </p>
             <div className="flex justify-start font-semibold">
               <LightButton href="/projects">Suggest a project idea</LightButton>

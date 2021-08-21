@@ -39,8 +39,7 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
     color: 'yellow',
   },
   {
-    description:
-      'A portfolio or resume illustrating your work.',
+    description: 'A portfolio or resume illustrating your work.',
     image: resumeLogo,
     color: 'magenta',
   },
@@ -58,10 +57,10 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Developers',
     description: (
       <>
-		We&apos;re looking for developers to build unique, interesting, or impactful 
-		projects for the animals. We use Laravel for most projects, please be 
-		comfortable with PHP, JS and CSS. You may be asked to work with other 
-		activists and organizations who need your support.
+        We&apos;re looking for developers to build unique, interesting, or
+        impactful projects for the animals. We use Laravel for most projects,
+        please be comfortable with PHP, JS and CSS. You may be asked to work
+        with other activists and organizations who need your support.
       </>
     ),
   },
@@ -98,10 +97,10 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Social or Marketing',
     description: (
       <>
-		We&apos;re looking for people with backgrounds in social media, marketing, 
-		and advertising. We need help managing our various project social accounts. 
-		This includes creating daily posts, designing content, and interacting with 
-		followers.
+        We&apos;re looking for people with backgrounds in social media,
+        marketing, and advertising. We need help managing our various project
+        social accounts. This includes creating daily posts, designing content,
+        and interacting with followers.
       </>
     ),
   },
@@ -113,7 +112,7 @@ const JOB_ROLES: JobRoleProps[] = [
       <>
         We&apos;re looking for people with backgrounds in writing, and creating
         content such as blogs, videos, and other content. Excellent grammar and
-        spelling are a must. You&apos;ll be in charge of writing for our blogs, 
+        spelling are a must. You&apos;ll be in charge of writing for our blogs,
         newssletters, Patreon, and other social platforms!
       </>
     ),
@@ -124,9 +123,9 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Translators',
     description: (
       <>
-        We&apos;re looking for people that can help us translate vegan content 
-		in multiple languages. You must consider yourself fluent in
-        the languages you translate for, along with having excellent grammar and
+        We&apos;re looking for people that can help us translate vegan content
+        in multiple languages. You must consider yourself fluent in the
+        languages you translate for, along with having excellent grammar and
         spelling. Translators are highly utilized for projects.
       </>
     ),
@@ -160,32 +159,36 @@ const Join: React.FC = () => (
       squares={HERO_DECORATION_SQUARES}
       className="hidden md:block"
     />
+    <div className="px-10">
+      <FirstSubSection header="Join our team">
+        We&apos;re always looking for more vegan activist volunteers to join our
+        growing team! If you&apos;re interested and have the time, see our
+        positions below. Please note that we prioritize people that meet our
+        qualifications, but encourage you to apply either way!
+      </FirstSubSection>
+    </div>
     <div>
-		<FirstSubSection header="Join our team">
-		  We&apos;re always looking for more vegan activist volunteers to join our 
-		  growing team! If you&apos;re interested and have the time, see our positions 
-		  below. Please note that we prioritize people that meet the our 
-		  qualifications, but encourage you to apply either way!
-        </FirstSubSection>
       <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl">
         <div className="flex flex-col gap-4">
           {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
             <CandidateRequirement key={i} {...requirement} />
           ))}
         </div>
-        
       </div>
-	  <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
-	  <Image
-          src={PixelFlower.src}
-          width={PixelFlower.width / 3}
-          height={PixelFlower.height / 3}
-          alt="Get familiar"
-        />
-	  <p>We ask that you please be or get familiar with <strong>Discord</strong> for team communication, <strong>Trello </strong> 
-	  for tracking and workflow, <strong>Figma</strong> for design collaboration, and  
-	  <strong> GitHub</strong> for dev collaboration.</p>
-	  </div>
+    </div>
+    <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10">
+      <Image
+        src={PixelFlower.src}
+        width={PixelFlower.width / 3}
+        height={PixelFlower.height / 3}
+        alt=""
+      />
+      <p>
+        We ask that you please be or get familiar with <b>Discord</b> for team
+        communication, <b>Trello </b>
+        for tracking and workflow, <b>Figma</b> for design collaboration, and
+        <b> GitHub</b> for dev collaboration.
+      </p>
     </div>
     <JoinPlayground />
     <Sprite image={sheep} />
@@ -199,16 +202,16 @@ const Join: React.FC = () => (
           <h2 className="text-4xl font-modo font-bold mb-10">
             Other Talents & Specialists
           </h2>
-		  <Image
-          src={PixelBulb.src}
-          width={PixelBulb.width / 3}
-          height={PixelBulb.height / 3}
-          alt="Other talents"
-        />
-          <p className="mt-4 mb-4 text-2xl">
-			Don&apos;t see a relevant position? If you have other talents or 
-			skills for vegan movement, let us know. Whether that be legal, 
-			marketing, or something else, we appreciate the support!
+          <Image
+            src={PixelBulb}
+            width={PixelBulb.width / 3}
+            height={PixelBulb.height / 3}
+            alt=""
+          />
+          <p className="mt-4 mb-4 text-2xl px-10 md:px-0">
+            Don&apos;t see a relevant position? If you have other talents or
+            skills for vegan movement, let us know. Whether that be legal,
+            marketing, or something else, we appreciate the support!
           </p>
           <div>
             <LightButton className="font-semibold font-mono px-16 py-2 my-4">
@@ -226,7 +229,7 @@ const Join: React.FC = () => (
       ]}
       className="hidden md:block"
     />
-	<Sprite image={chicks} />
+    <Sprite image={chicks} />
     <MeetOurTeam />
   </>
 );

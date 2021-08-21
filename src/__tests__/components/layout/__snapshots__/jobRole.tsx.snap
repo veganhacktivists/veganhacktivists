@@ -6,10 +6,10 @@ exports[`should render correctly 1`] = `
     class="bg-gray-background text-grey-dark"
   >
     <div
-      class="relative overflow-visible hidden md:block"
+      class="relative overflow-visible hidden md:block opacity-30 "
     >
       <div
-        class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+        class="absolute right-0 bg-black w-16 h-16 opacity-100"
       />
     </div>
     <div
@@ -44,7 +44,7 @@ exports[`should render correctly 1`] = `
       foo
     </h2>
     <p
-      class="md:px-8 text-3xl text-center"
+      class="px-10 md:px-8 text-2xl text-center"
     >
       bar
     </p>
@@ -53,7 +53,7 @@ exports[`should render correctly 1`] = `
     >
       <button>
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
         >
           Apply Now
         </div>
