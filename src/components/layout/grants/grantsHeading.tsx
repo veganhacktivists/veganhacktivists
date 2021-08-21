@@ -11,9 +11,9 @@ const GrantsHeading: React.FC = () => {
         alt="A bee, busy pollinating"
         priority
       />
-      <h2 className="text-5xl mt-4 font-medium text-gray font-mono uppercase">
+      <h1 className="text-5xl mt-4 font-medium text-gray font-mono uppercase">
         Seed Funding Grants
-      </h2>
+      </h1>
     </div>
   );
 };

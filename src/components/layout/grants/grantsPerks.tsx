@@ -16,37 +16,37 @@ const GrantsPerks: React.FC = () => {
       <h4 className="text-3xl font-semibold mt-12">
         SquareSpace website subscription
       </h4>
-      <p className="text-2xl mt-4 leading-loose">
+      <div className="text-2xl mt-4 leading-loose">
         <div>Valued at around $200 a year, or $17 a month.</div>
         <div>You own, we pay - just keep active!</div>
-      </p>
+      </div>
       <h4 className="text-3xl font-semibold mt-12">
         Professional design creation
       </h4>
-      <p className="text-2xl mt-4 leading-loose">
+      <div className="text-2xl mt-4 leading-loose">
         <div>
           We&apos;ll design your group or project a new logo, or give your
           existing designs a facelift. This includes social media elements like
           banners, posts, icons and more.
         </div>
-      </p>
+      </div>
       <h4 className="text-3xl font-semibold mt-12">
         Professional content creation
       </h4>
-      <p className="text-2xl mt-4 leading-loose">
+      <div className="text-2xl mt-4 leading-loose">
         <div>
           We can help with any written content creation, including checking your
           existing content, grammar, spelling, and the creation of content that
           helps with promoting your work.
         </div>
-      </p>
+      </div>
       <h4 className="text-3xl font-semibold mt-12">Monthly advisory calls</h4>
-      <p className="text-2xl mt-4 leading-loose">
+      <div className="text-2xl mt-4 leading-loose">
         <div>
           A 30 minute per month zoom call to help advise you and your team.
         </div>
         <div>Advice includes technology, marketing, strategy and more.</div>
-      </p>
+      </div>
     </div>
   );
 };

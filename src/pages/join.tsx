@@ -229,7 +229,7 @@ const Join: React.FC = () => (
       ]}
       className="hidden md:block"
     />
-    <Sprite image={chicks} />
+    <Sprite repeat={3} image={chicks} />
     <MeetOurTeam />
   </>
 );

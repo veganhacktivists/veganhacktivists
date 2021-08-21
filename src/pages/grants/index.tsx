@@ -62,7 +62,7 @@ const Grants: React.FC = () => {
           for non-human farmed animals.
         </p>
       </div>
-      <Sprite image={pig} />
+      <Sprite image={pig} repeat={2} />
       <SquareField
         squares={GRANTS_SUBHEADING_SQUARES}
         className="hidden md:block"

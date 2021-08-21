@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import React, { useState, useEffect } from 'react';
+import { useSpring, animated, useSprings } from '@react-spring/web';
 
 import Image from 'next/image';
 import chicken from '../../../public/images/sprite_chicken.gif';
@@ -14,16 +14,18 @@ import fishb from '../../../public/images/sprite_fish_blue.gif';
 import useWindowSize from '../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
 
-interface SpriteProps {
+interface DelayedSpriteProps {
   image: StaticImageData;
-  secondsToTraverse?: number;
-  scale?: number;
+  secondsToTraverse: number;
+  scale: number;
+  delay: number;
 }
 
-const Sprite: React.FC<SpriteProps> = ({
+const DelayedSprite: React.FC<DelayedSpriteProps> = ({
   image,
-  secondsToTraverse = 40,
-  scale = 0.5,
+  secondsToTraverse,
+  scale,
+  delay,
 }) => {
   const [reverse, setReverse] = useState<boolean>(false);
 
@@ -49,10 +51,11 @@ const Sprite: React.FC<SpriteProps> = ({
     to: {
       left: finalPosition,
     },
-    reverse: reverse,
+    reverse,
     onRest: () => {
       setReverse((reverse) => !reverse);
     },
+    delay,
     config: {
       duration: secondsToTraverse * 1000 * (width / 1920),
     },
@@ -77,6 +80,38 @@ const Sprite: React.FC<SpriteProps> = ({
         layout="fixed"
       />
     </animated.div>
+  );
+};
+
+interface SpriteProps {
+  image: StaticImageData;
+  secondsToTraverse?: number;
+  scale?: number;
+  repeat?: number;
+  delay?: number;
+}
+
+const Sprite: React.FC<SpriteProps> = ({
+  image,
+  secondsToTraverse = 40,
+  scale = 0.5,
+  repeat = 1,
+  delay = 4000,
+}) => {
+  return (
+    <>
+      {[...Array(repeat)].map((_, i) => {
+        return (
+          <DelayedSprite
+            key={i}
+            secondsToTraverse={secondsToTraverse}
+            image={image}
+            scale={scale}
+            delay={i * delay}
+          />
+        );
+      })}
+    </>
   );
 };
 
