@@ -13,7 +13,7 @@ import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
-import Sprite, { cow } from '../components/decoration/sprite';
+import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -238,12 +238,17 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       </div>
       <div className="bg-grey">
         <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
-          <LightButton href="/projects" className="font-mono text-sm font-bold">
-            SEE OUR POSTS
+          <LightButton href="/projects" className="font-mono text-sm font-semibold">
+            See All Posts
           </LightButton>
         </div>
       </div>
+	  <SquareField
+        squares={PROJECT_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
       <Grants />
+	  <Sprite image={goat} />
     </>
   );
 };
