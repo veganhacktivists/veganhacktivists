@@ -8,7 +8,7 @@ import {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
-} from '../../components/layout/grants';
+} from '../../components/layout/grants/index';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 
 const HERO_DECORATION_SQUARES = [

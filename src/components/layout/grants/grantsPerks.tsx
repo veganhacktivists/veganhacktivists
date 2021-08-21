@@ -40,7 +40,6 @@ const GrantsPerks: React.FC = () => {
           helps with promoting your work.
         </div>
       </p>
-
       <h4 className="text-3xl font-semibold mt-12">Monthly advisory calls</h4>
       <p className="text-2xl mt-4 leading-loose">
         <div>

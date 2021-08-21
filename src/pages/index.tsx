@@ -1,4 +1,3 @@
-import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import blogCow from '../../public/images/Blog-cow.jpg';
@@ -12,6 +11,7 @@ import {
 } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
+import Grants from '../components/layout/grants';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import Sprite, { cow } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
@@ -243,6 +243,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           </LightButton>
         </div>
       </div>
+      <Grants />
     </>
   );
 };

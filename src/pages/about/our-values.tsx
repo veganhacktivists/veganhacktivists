@@ -40,7 +40,6 @@ const OurMission: React.FC = () => {
           kindness, compassion, and nonviolence. We encourage every member to
           fearlessly and openly communicate with their leaders and peers.
         </SubSection>
-
         <SubSection header="Safe Community">
           We believe in building and fostering inclusive communities regardless
           of race, gender, species, age, sexual orientation, or political
