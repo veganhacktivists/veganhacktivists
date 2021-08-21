@@ -7,6 +7,9 @@ import type { JobRoleProps } from '../components/layout/join/jobRole';
 import JobRole from '../components/layout/join/jobRole';
 import heroBackground from '../../public/images/joinUs/VH-chicken2-hero.jpg';
 import heroTagline from '../../public/images/joinUs/VH-join-hero-text.png';
+import PixelFlower from '../../public/images/VH_PixelFlower.png';
+import PixelBulb from '../../public/images/VH_PixelBulb.png';
+import Image from 'next/image';
 import heartLogo from '../../public/images/joinUs/VH-join-mini-icon-heart.png';
 import checkLogo from '../../public/images/joinUs/VH-join-mini-icon-check.png';
 import resumeLogo from '../../public/images/joinUs/VH-join-mini-icon-resume.png';
@@ -19,30 +22,30 @@ import penLogo from '../../public/images/joinUs/VH-icon-writer.png';
 import bubbleLogo from '../../public/images/joinUs/VH-icon-translator.png';
 import { LightButton } from '../components/decoration/buttons';
 import MeetOurTeam from '../components/layout/meetOurTeam';
-import Sprite, { sheep } from '../components/decoration/sprite';
+import Sprite, { sheep, chicks } from '../components/decoration/sprite';
 import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
-    description: 'Vegan for at least 2 months',
+    description: 'Vegan for at least 3 or more months.',
     image: heartLogo,
     color: 'green',
   },
   {
-    description: 'Minimum 2 years experience in the field you\'re applying for',
+    description: 'Experience of 2 or more years in your field.',
     image: checkLogo,
     color: 'yellow',
   },
   {
     description:
-      'A portfolio/resume that illustrates your skills and experience',
+      'A portfolio or resume illustrating your work.',
     image: resumeLogo,
     color: 'magenta',
   },
   {
-    description: 'Ability to volunteer at least 4 hours per week',
+    description: 'Ability to volunteer at least 5 hours a week.',
     image: clockLogo,
     color: 'orange',
   },
@@ -55,10 +58,10 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Developers',
     description: (
       <>
-        We&apos;re looking for developers looking to build unique, interesting,
-        or impactful projects for the animals. We use Laravel for almost all
-        projects, please be comfortable with PHP, JS and CSS. You may be asked
-        to work with other activists and organizations who need your support.
+		We&apos;re looking for developers to build unique, interesting, or impactful 
+		projects for the animals. We use Laravel for most projects, please be 
+		comfortable with PHP, JS and CSS. You may be asked to work with other 
+		activists and organizations who need your support.
       </>
     ),
   },
@@ -92,14 +95,13 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: socialMediaLogo,
     color: 'yellow',
-    title: 'Social Media Managers',
+    title: 'Social or Marketing',
     description: (
       <>
-        We&apos;re looking for someone with a background in social media
-        marketing, advertising, and graphic design. We need someone to help
-        build our Instagram, to keep it active, and relevant. You&apos;ll be in
-        charge of posting one standard post a day, along with interacting with
-        our followers.
+		We&apos;re looking for people with backgrounds in social media, marketing, 
+		and advertising. We need help managing our various project social accounts. 
+		This includes creating daily posts, designing content, and interacting with 
+		followers.
       </>
     ),
   },
@@ -109,10 +111,10 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Content Creators',
     description: (
       <>
-        We&apos;re looking for someone with a background in writing, creating
+        We&apos;re looking for people with backgrounds in writing, and creating
         content such as blogs, videos, and other content. Excellent grammar and
-        spelling are a must. You&apos;ll be in charge of writing for our blog,
-        but also our newsletters, Patreon, and other social platforms.
+        spelling are a must. You&apos;ll be in charge of writing for our blogs, 
+        newssletters, Patreon, and other social platforms!
       </>
     ),
   },
@@ -122,8 +124,8 @@ const JOB_ROLES: JobRoleProps[] = [
     title: 'Translators',
     description: (
       <>
-        We&apos;re looking for people that can help us translate important
-        projects into multiple languages. You must consider yourself fluent in
+        We&apos;re looking for people that can help us translate vegan content 
+		in multiple languages. You must consider yourself fluent in
         the languages you translate for, along with having excellent grammar and
         spelling. Translators are highly utilized for projects.
       </>
@@ -158,43 +160,38 @@ const Join: React.FC = () => (
       squares={HERO_DECORATION_SQUARES}
       className="hidden md:block"
     />
-    <div className="content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl">
-      <div className="text-grey">
-        <h1 className="mb-10">
-          <span className="font-mono text-7xl uppercase font-semibold">
-            Join our team
-          </span>
-        </h1>
-        <p className="font-semibold font-mono text-3xl">
-          We&apos;re always looking for more vegan activist volunteers to join
-          our team! If you&apos;re interested and have the time to spare, see
-          our positions below.
-        </p>
-      </div>
-      <div className="text-grey-dark">
-        <h2 className="mt-16">
-          <span className="font-mono text-5xl text-grey-dark font-bold">
-            We&apos;re looking for:
-          </span>
-        </h2>
+    <div>
+		<FirstSubSection header="Join our team">
+		  We&apos;re always looking for more vegan activist volunteers to join our 
+		  growing team! If you&apos;re interested and have the time, see our positions 
+		  below. Please note that we prioritize people that meet the our 
+		  qualifications, but encourage you to apply either way!
+        </FirstSubSection>
+      <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl">
         <div className="flex flex-col gap-4">
           {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
             <CandidateRequirement key={i} {...requirement} />
           ))}
         </div>
-        <p className="mt-16 text-3xl">
-          Please be familiar with <strong>Discord</strong> for team
-          communication, <strong>Trello</strong> for tracking and workflow,{' '}
-          <strong>Figma</strong> for UI design collaboration, and/or{' '}
-          <strong>GitHub</strong> for dev collaboration.
-        </p>
+        
       </div>
+	  <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
+	  <Image
+          src={PixelFlower.src}
+          width={PixelFlower.width / 3}
+          height={PixelFlower.height / 3}
+          alt="Get familiar"
+        />
+	  <p>We ask that you please be or get familiar with <strong>Discord</strong> for team communication, <strong>Trello </strong> 
+	  for tracking and workflow, <strong>Figma</strong> for design collaboration, and  
+	  <strong> GitHub</strong> for dev collaboration.</p>
+	  </div>
     </div>
     <JoinPlayground />
     <Sprite image={sheep} />
-    <div className="mt-16 md:max-w-7xl mx-auto mb-16">
+    <div className="mt-16 md:max-w-5xl mx-auto mb-16">
       <h2 className="mb-16 text-4xl font-bold">Available Positions</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20">
         {JOB_ROLES.map((role) => (
           <JobRole key={role.title} {...role} />
         ))}
@@ -202,14 +199,19 @@ const Join: React.FC = () => (
           <h2 className="text-4xl font-modo font-bold mb-10">
             Other Talents & Specialists
           </h2>
-          <p className="mt-4 mb-4 text-3xl">
-            Don&apos;t see a position for you here? If you have any other
-            talents or skills that may be use for vegan movement, let us know!
-            Whether that be legal advice, devops, or something else, we
-            appreciate the support!
+		  <Image
+          src={PixelBulb.src}
+          width={PixelBulb.width / 3}
+          height={PixelBulb.height / 3}
+          alt="Other talents"
+        />
+          <p className="mt-4 mb-4 text-2xl">
+			Don&apos;t see a relevant position? If you have other talents or 
+			skills for vegan movement, let us know. Whether that be legal, 
+			marketing, or something else, we appreciate the support!
           </p>
           <div>
-            <LightButton className="font-bold font-mono px-16 py-2 my-4">
+            <LightButton className="font-semibold font-mono px-16 py-2 my-4">
               Apply Now
             </LightButton>
           </div>
@@ -224,6 +226,7 @@ const Join: React.FC = () => (
       ]}
       className="hidden md:block"
     />
+	<Sprite image={chicks} />
     <MeetOurTeam />
   </>
 );
