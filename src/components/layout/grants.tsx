@@ -47,7 +47,7 @@ const Grants: React.FC = () => {
             <p className="mb-12 text-2xl">
               Check out what we&apos;ve accomplished last year!
             </p>
-            <DarkButton>See the review!</DarkButton>
+            <DarkButton>See our impact!</DarkButton>
           </div>
         </div>
       </div>
