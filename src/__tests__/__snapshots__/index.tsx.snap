@@ -591,16 +591,16 @@ exports[`Application renders correctly 1`] = `
     class="bg-gray-background pt-14"
   >
     <div
-      class="drop-shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-0 w-1/2 mx-auto"
+      class="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-1/2 mx-auto"
     >
       <div
-        class="flex flex-row gap-14 mb-20"
+        class="flex flex-col gap-14 mb-20"
       >
         <div
           class="bg-white"
         >
           <div
-            class="overflow-hidden w-full h-56"
+            class="overflow-hidden w-full md:h-56"
           >
             <div
               style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -630,15 +630,15 @@ exports[`Application renders correctly 1`] = `
             class="items-center"
           >
             <div
-              class="text-left break-words max-w-sm pb-8 h-full px-10"
+              class="text-left break-words max-w-sm md:pb-8 h-full px-10"
             >
               <div
-                class="mb-12 text-grey-dark pt-16 text-4xl font-mono font-semibold uppercase px-2"
+                class="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
                 Apply for a 1000$ seed grant
               </div>
               <div
-                class="mb-12 text-2xl"
+                class="mb-8 md:mb-12 text-2xl"
               >
                 We're excited to offer up to $1000 USD in seed grants!
               </div>
@@ -660,13 +660,13 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-row gap-14 mb-20"
+        class="flex flex-col gap-14 mb-20"
       >
         <div
           class="bg-grey-over-background"
         >
           <div
-            class="overflow-hidden w-full h-56"
+            class="overflow-hidden w-full md:h-56"
           >
             <div
               style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -696,15 +696,15 @@ exports[`Application renders correctly 1`] = `
             class="items-center"
           >
             <div
-              class="text-left break-words max-w-sm pb-8 h-full px-10"
+              class="text-left break-words max-w-sm md:pb-8 h-full px-10"
             >
               <div
-                class="mb-12 text-grey-dark pt-16 text-4xl font-mono font-semibold uppercase px-2"
+                class="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
                 Our 2020 impact review
               </div>
               <div
-                class="mb-12 text-2xl"
+                class="mb-8 md:mb-12 text-2xl"
               >
                 Check out what we've accomplished last year!
               </div>
