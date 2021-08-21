@@ -108,38 +108,35 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="content-center mx-auto my-20 md:w-1/2 drop-shadow-2xl text-2xl"
+    class="px-10"
   >
     <div
-      class="text-grey"
+      class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-10"
+        class="mb-8"
       >
         <span
-          class="font-mono text-7xl uppercase font-semibold"
+          class="font-italic text-3xl"
         >
-          Join our team
+          Join
+        </span>
+         
+        <span
+          class="font-mono font-bold text-5xl uppercase text-black"
+        >
+          our team
         </span>
       </h1>
-      <p
-        class="font-semibold font-mono text-3xl"
-      >
-        We're always looking for more vegan activist volunteers to join our team! If you're interested and have the time to spare, see our positions below.
+      <p>
+        We're always looking for more vegan activist volunteers to join our growing team! If you're interested and have the time, see our positions below. Please note that we prioritize people that meet our qualifications, but encourage you to apply either way!
       </p>
     </div>
+  </div>
+  <div>
     <div
-      class="text-grey-dark"
+      class="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl"
     >
-      <h2
-        class="mt-16"
-      >
-        <span
-          class="font-mono text-5xl text-grey-dark font-bold"
-        >
-          We're looking for:
-        </span>
-      </h2>
       <div
         class="flex flex-col gap-4"
       >
@@ -147,125 +144,149 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-green p-2 pb-0"
+            class="bg-green p-3 pb-1"
           >
             <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
             >
               <img
                 alt=""
                 data-nimg="true"
                 decoding="async"
-                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
-                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                src="/_next/image?url=%2Ffoo.png&w=128&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
             </div>
           </div>
           <p
-            class="w-5/8 text-center md:text-left md:text-3xl"
+            class="w-5/8 text-center md:text-left md:text-2xl"
           >
-            Vegan for at least 2 months
+            Vegan for at least 3 or more months.
           </p>
         </div>
         <div
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-yellow p-2 pb-0"
+            class="bg-yellow p-3 pb-1"
           >
             <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
             >
               <img
                 alt=""
                 data-nimg="true"
                 decoding="async"
-                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
-                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                src="/_next/image?url=%2Ffoo.png&w=128&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
             </div>
           </div>
           <p
-            class="w-5/8 text-center md:text-left md:text-3xl"
+            class="w-5/8 text-center md:text-left md:text-2xl"
           >
-            Minimum 2 years experience in the field you're applying for
+            Experience of 2 or more years in your field.
           </p>
         </div>
         <div
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-magenta p-2 pb-0"
+            class="bg-magenta p-3 pb-1"
           >
             <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
             >
               <img
                 alt=""
                 data-nimg="true"
                 decoding="async"
-                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
-                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                src="/_next/image?url=%2Ffoo.png&w=128&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
             </div>
           </div>
           <p
-            class="w-5/8 text-center md:text-left md:text-3xl"
+            class="w-5/8 text-center md:text-left md:text-2xl"
           >
-            A portfolio/resume that illustrates your skills and experience
+            A portfolio or resume illustrating your work.
           </p>
         </div>
         <div
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-orange p-2 pb-0"
+            class="bg-orange p-3 pb-1"
           >
             <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
+              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
             >
               <img
                 alt=""
                 data-nimg="true"
                 decoding="async"
-                src="/_next/image?url=%2Ffoo.png&w=256&q=75"
-                srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+                src="/_next/image?url=%2Ffoo.png&w=128&q=75"
+                srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
             </div>
           </div>
           <p
-            class="w-5/8 text-center md:text-left md:text-3xl"
+            class="w-5/8 text-center md:text-left md:text-2xl"
           >
-            Ability to volunteer at least 4 hours per week
+            Ability to volunteer at least 5 hours a week.
           </p>
         </div>
       </div>
-      <p
-        class="mt-16 text-3xl"
-      >
-        Please be familiar with 
-        <strong>
-          Discord
-        </strong>
-         for team communication, 
-        <strong>
-          Trello
-        </strong>
-         for tracking and workflow, 
-        <strong>
-          Figma
-        </strong>
-         for UI design collaboration, and/or 
-        <strong>
-          GitHub
-        </strong>
-         for dev collaboration.
-      </p>
     </div>
+  </div>
+  <div
+    class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10"
+  >
+    <div
+      style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+    >
+      <div
+        style="box-sizing: border-box; display: block; max-width: 100%;"
+      >
+        <img
+          alt=""
+          aria-hidden="true"
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+          style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+        />
+      </div>
+      <noscript />
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
+    </div>
+    <p>
+      We ask that you please be or get familiar with 
+      <b>
+        Discord
+      </b>
+       for team communication, 
+      <b>
+        Trello 
+      </b>
+      for tracking and workflow, 
+      <b>
+        Figma
+      </b>
+       for design collaboration, and
+      <b>
+         GitHub
+      </b>
+       for dev collaboration.
+    </p>
   </div>
   <div
     class="relative overflow-visible hidden md:block"
@@ -286,32 +307,33 @@ exports[`should render correctly 1`] = `
         Attention Developers!
       </h2>
       <div
-        class="text-4xl"
+        class="text-2xl"
       >
         <p
           class="mb-4"
         >
           Join 
-          <strong>
+          <b>
             VH: Playground
-          </strong>
-          , our open source community, to begin contributing to animal rights projects today!
-        </p>
-        <p
-          class="mb-8"
-        >
-          <em>
-            Note: Due to limited spots on our core teams, we only recruit developers that are active in VH: Playground.
-          </em>
+          </b>
+          , our open source community, to begin contributing to animal rights projects today! Due to limited spots on our core teams, we're only recruiting developers active in Playground.
         </p>
       </div>
-      <button>
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono"
+      <div
+        class="relative mx-10 md:mx-auto mt-10 md:w-1/3"
+      >
+        <a
+          href="https://discord.gg/Yt3zADeJKx"
+          rel="noreferrer"
+          target="_blank"
         >
-          Join VH: Playground
-        </div>
-      </button>
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold mt-10"
+          >
+            Join VH: Playground
+          </div>
+        </a>
+      </div>
     </div>
   </div>
   <div
@@ -342,7 +364,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="mt-16 md:max-w-7xl mx-auto mb-16"
+    class="mt-16 md:max-w-5xl mx-auto mb-16"
   >
     <h2
       class="mb-16 text-4xl font-bold"
@@ -350,16 +372,16 @@ exports[`should render correctly 1`] = `
       Available Positions
     </h2>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20"
     >
       <div
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -394,16 +416,16 @@ exports[`should render correctly 1`] = `
           Developers
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for developers looking to build unique, interesting, or impactful projects for the animals. We use Laravel for almost all projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
+          We're looking for developers to build unique, interesting, or impactful projects for the animals. We use Laravel for most projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
         </p>
         <div
           class="my-8"
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -414,10 +436,10 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -452,7 +474,7 @@ exports[`should render correctly 1`] = `
           UI Designers
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
           We're looking for UI designers to support us by producing modern, visually appealing website designs for our website projects. You would also be advising us on proper UX for older projects that we're updating and may be asked to help our partners, activists, and organizations.
         </p>
@@ -461,7 +483,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -472,10 +494,10 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -510,7 +532,7 @@ exports[`should render correctly 1`] = `
           Graphic Designers
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
           We're looking for graphic designers to support us by producing high-quality, visually appealing design content for our projects, including logos, banners, social media posts, icons, and similar resources. Please include a portfolio of your most recent works.
         </p>
@@ -519,7 +541,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -530,10 +552,10 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -554,7 +576,7 @@ exports[`should render correctly 1`] = `
             </div>
             <noscript />
             <img
-              alt="Social Media Managers"
+              alt="Social or Marketing"
               data-nimg="true"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -565,19 +587,19 @@ exports[`should render correctly 1`] = `
         <h2
           class="text-4xl font-modo font-bold my-8 md:px-8"
         >
-          Social Media Managers
+          Social or Marketing
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for someone with a background in social media marketing, advertising, and graphic design. We need someone to help build our Instagram, to keep it active, and relevant. You'll be in charge of posting one standard post a day, along with interacting with our followers.
+          We're looking for people with backgrounds in social media, marketing, and advertising. We need help managing our various project social accounts. This includes creating daily posts, designing content, and interacting with followers.
         </p>
         <div
           class="my-8"
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -588,10 +610,10 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -626,16 +648,16 @@ exports[`should render correctly 1`] = `
           Content Creators
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for someone with a background in writing, creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blog, but also our newsletters, Patreon, and other social platforms.
+          We're looking for people with backgrounds in writing, and creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blogs, newssletters, Patreon, and other social platforms!
         </p>
         <div
           class="my-8"
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -646,10 +668,10 @@ exports[`should render correctly 1`] = `
         class="bg-gray-background text-grey-dark"
       >
         <div
-          class="relative overflow-visible hidden md:block"
+          class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-transparent w-16 h-16 opacity-100"
+            class="absolute right-0 bg-black w-16 h-16 opacity-100"
           />
         </div>
         <div
@@ -684,16 +706,16 @@ exports[`should render correctly 1`] = `
           Translators
         </h2>
         <p
-          class="md:px-8 text-3xl text-center"
+          class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for people that can help us translate important projects into multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
+          We're looking for people that can help us translate vegan content in multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
         </p>
         <div
           class="my-8"
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -708,15 +730,37 @@ exports[`should render correctly 1`] = `
         >
           Other Talents & Specialists
         </h2>
-        <p
-          class="mt-4 mb-4 text-3xl"
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
         >
-          Don't see a position for you here? If you have any other talents or skills that may be use for vegan movement, let us know! Whether that be legal advice, devops, or something else, we appreciate the support!
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            alt=""
+            data-nimg="true"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <p
+          class="mt-4 mb-4 text-2xl px-10 md:px-0"
+        >
+          Don't see a relevant position? If you have other talents or skills for vegan movement, let us know. Whether that be legal, marketing, or something else, we appreciate the support!
         </p>
         <div>
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-bold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -737,6 +781,23 @@ exports[`should render correctly 1`] = `
     <div
       class="absolute right-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
     />
+  </div>
+  <div
+    class="absolute z-20"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+  >
+    <div
+      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+    >
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
+    </div>
   </div>
   <div
     class="bg-black"
@@ -782,7 +843,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white m-5 font-mono text-sm"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold m-5 font-mono text-sm"
           >
             Learn more
           </div>

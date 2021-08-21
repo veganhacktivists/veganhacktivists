@@ -15,15 +15,20 @@ const JoinPlayground: React.FC = () => {
           </h2>
           <div className="text-2xl">
             <p className="mb-4">
-              Join <strong>VH: Playground</strong>, our open source community, 
-			  to begin contributing to animal rights projects today! Due to 
-			  limited spots on our core teams, we&apos;re only recruiting developers 
-			  active in Playground.
+              Join <b>VH: Playground</b>, our open source community, to begin
+              contributing to animal rights projects today! Due to limited spots
+              on our core teams, we&apos;re only recruiting developers active in
+              Playground.
             </p>
           </div>
-		  <div className="relative mx-auto mt-10 md:w-1/3">
-          <LightButton href="https://discord.gg/Yt3zADeJKx" className="font-mono font-semibold mt-10">Join VH: Playground</LightButton>
-		  </div>
+          <div className="relative mx-10 md:mx-auto mt-10 md:w-1/3">
+            <LightButton
+              href="https://discord.gg/Yt3zADeJKx"
+              className="font-mono font-semibold mt-10"
+            >
+              Join VH: Playground
+            </LightButton>
+          </div>
         </div>
       </div>
       <SquareField

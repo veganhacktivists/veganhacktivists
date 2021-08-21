@@ -15,7 +15,7 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   color,
 }) => (
   <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
-    <div className={`bg-${color} p-3 pb-0`}>
+    <div className={`bg-${color} p-3 pb-1`}>
       <Image
         src={image}
         alt=""
