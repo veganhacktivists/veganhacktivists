@@ -9,6 +9,7 @@ interface HeroClassNames {
 }
 interface HeroProps {
   imageBackground: ImageProps['src'];
+  backgroundImageProps?: Partial<ImageProps>;
   tagline: {
     image: StaticImageData;
     alt: string;
@@ -20,6 +21,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
+  backgroundImageProps = {},
   tagline,
   alignment,
   children,
@@ -28,7 +30,6 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const containerClasses = classNames(
     'relative',
-    // 'py-10 md:py-32',
     'flex',
     {
       'justify-start': alignment === 'left',
@@ -59,6 +60,7 @@ const Hero: React.FC<HeroProps> = ({
         objectFit="cover"
         objectPosition={main ? 'top' : 'center'}
         priority
+        {...backgroundImageProps}
       />
       <div className={contentClasses}>
         {tagline && (

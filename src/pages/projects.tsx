@@ -1,26 +1,33 @@
 import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Hero from '../components/decoration/hero';
-import { DarkButton, WhiteButton } from '../components/decoration/buttons';
+import {
+  DarkButton,
+  LightButton,
+  WhiteButton,
+} from '../components/decoration/buttons';
 import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../public/images/projects/hero-tagline.png';
+import lampImage from '../../public/images/Services-icon-project.png';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import SquareField from '../components/decoration/squares';
-import SuggestAnIdea from '../components/layout/suggestAnIdea';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getProjects } from '../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../components/layout/contentfulImage';
+import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
+import Sprite, { chicken } from '../components/decoration/sprite';
+import Link from 'next/link';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
   { color: 'orange', size: 16, left: 0, top: 0 },
   { color: 'magenta', size: 32, left: 16, bottom: 0 },
   { color: 'yellow', size: 32, right: 0, top: -16 },
-  { color: 'yellow_orange', size: 16, right: 32, bottom: 16 },
+  { color: 'yellow-orange', size: 16, right: 32, bottom: 16 },
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
@@ -158,11 +165,26 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                             month: 'short',
                             year: 'numeric',
                           }).format(date)}
-                        </span>{' '}
-                        -{' '}
-                        <span style={{ color: team.fields.color }}>
-                          {team?.fields.name}
                         </span>
+                        {team && (
+                          <>
+                            {' '}
+                            -{' '}
+                            <Link
+                              href={`/people/team#${
+                                team.fields.isInactive ? '' : team.fields.name
+                              }`}
+                              scroll={true}
+                            >
+                              <a>
+                                {team.fields.icon}{' '}
+                                <span style={{ color: team.fields.color }}>
+                                  {team.fields.name}
+                                </span>
+                              </a>
+                            </Link>
+                          </>
+                        )}
                       </span>
                     </div>
                   </div>
@@ -175,7 +197,27 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <SuggestAnIdea />
+        <div className="bg-gray md:py-36 flex flex-row justify-center">
+          <InfoBox
+            title="Have an idea for a project?"
+            icon={lampImage}
+            iconBgColor="green"
+            iconAccentColor="green-dark"
+          >
+            <p className="my-5 text-xl">
+              <strong className="font-bold">We&apos;re all ears! </strong>
+              We&apos;d love to hear your ideas for projects that can help
+              empower the animal rights movement, if we like it, we&apos;ll
+              build it! While we do get a lot of project suggestions every
+              month, we do consider every single one. If you rather build it
+              yourself and want advice, no problem - get in touch!
+            </p>
+            <div className="flex justify-start font-semibold">
+              <LightButton href="/projects">Suggest a project idea</LightButton>
+            </div>
+          </InfoBox>
+        </div>
+        <Sprite image={chicken} />
         <JoinTheTeam />
       </div>
     </>

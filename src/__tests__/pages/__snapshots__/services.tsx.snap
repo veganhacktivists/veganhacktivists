@@ -131,7 +131,7 @@ exports[`should render correctly 1`] = `
       </p>
     </div>
     <div
-      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-20"
+      class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
     >
       <div>
         <div
@@ -162,7 +162,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -172,7 +172,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -180,10 +180,19 @@ exports[`should render correctly 1`] = `
               Websites
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
+            <a
+              href="/contact"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Apply for a free website!
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -216,7 +225,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -226,7 +235,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -234,10 +243,19 @@ exports[`should render correctly 1`] = `
               Projects
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!
             </p>
+            <a
+              href="/contact"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Let's chat about your idea!
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -270,7 +288,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -280,7 +298,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -288,10 +306,19 @@ exports[`should render correctly 1`] = `
               Funding
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               We're very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.
             </p>
+            <a
+              href="/grants"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Learn about our grant program!
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -324,7 +351,7 @@ exports[`should render correctly 1`] = `
                 />
                 <noscript />
                 <img
-                  alt="Logo of The Pollination Project"
+                  alt=""
                   data-nimg="true"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -334,7 +361,7 @@ exports[`should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4 bg-gray-background"
+            class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
           >
             <h1
               class="text-4xl font-bold"
@@ -342,13 +369,39 @@ exports[`should render correctly 1`] = `
               Advice
             </h1>
             <p
-              class="my-3"
+              class="mt-3 mb-7"
             >
               We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
             </p>
+            <a
+              href="/contact"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+              >
+                Ask for advice, contact us!
+              </div>
+            </a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+  >
+    <div
+      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+    >
+      <img
+        alt=""
+        data-nimg="true"
+        decoding="async"
+        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
     </div>
   </div>
 </DocumentFragment>

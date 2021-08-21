@@ -24,7 +24,7 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 32, bottom: 0 },
   { color: 'magenta', size: 32, right: 0, bottom: 0 },
   { color: 'yellow', size: 32, left: 32, top: 0 },
-  { color: 'yellow_orange', size: 16, left: 16, top: 32 },
+  { color: 'yellow-orange', size: 16, left: 16, top: 32 },
   { color: 'red', size: 32, right: 32, top: 0 },
 ];
 
@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
-        <title>Vegan Hacktivists | Developers Coding for a Vegan World</title>
+        <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
       </Head>
       <Hero
         main

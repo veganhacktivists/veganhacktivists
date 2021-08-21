@@ -3,36 +3,26 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-row items-center gap-4"
+    class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
   >
     <div
-      class="flex-shrink w-1/6 bg-orange"
+      class="bg-orange p-2 pb-0"
     >
       <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 70px; height: 70px;"
       >
-        <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
-        >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-          />
-        </div>
-        <noscript />
         <img
-          alt="foo"
+          alt=""
           data-nimg="true"
           decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          src="/_next/image?url=%2Ffoo.png&w=256&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=96&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
         />
       </div>
     </div>
     <p
-      class="flex-grow w-5/6 text-left md:text-3xl"
+      class="w-5/8 text-center md:text-left md:text-3xl"
     >
       foo
     </p>

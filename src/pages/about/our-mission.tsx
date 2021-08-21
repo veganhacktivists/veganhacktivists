@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import PixelCow from '../../../public/images/VH_PixelCow.png';
+import Sprite, { goat } from '../../components/decoration/sprite';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   SubSection,
@@ -14,7 +15,7 @@ const OurMission: React.FC = () => {
         <title>Our Mission | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
-      <div className="m-10">
+      <div className="m-10 pb-10">
         <AboutButtons />
         <FirstSubSection header="Our mission">
           Our mission is to build new, data-driven, disruptive, and innovative
@@ -66,6 +67,7 @@ const OurMission: React.FC = () => {
           </SubSection>
         </div>
       </div>
+      <Sprite image={goat} />
     </>
   );
 };

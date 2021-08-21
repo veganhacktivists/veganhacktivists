@@ -1,16 +1,11 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import Projects from '../../pages/projects';
-
-const image = {
-  fields: { file: { url: null, details: { image: { width: 0, height: 0 } } } },
-};
 
 const projects = [
   {
     fields: {
       name: 'Activist Hub',
-      image,
       date: '2021-04-01',
       year: 2021,
       team: { fields: { name: 'Test Team', color: 'black', icon: '' } },
@@ -20,7 +15,6 @@ const projects = [
   {
     fields: {
       name: 'Sehati Sanctuary',
-      image,
       date: '2021-03-01',
       year: 2021,
       team: { fields: { name: 'Test Team', color: 'black', icon: '' } },
@@ -58,11 +52,17 @@ const expectedProjectsPerYear = [
 ];
 
 expectedProjectsPerYear.forEach(({ year, projects: expected }) => {
-  it(`should show only projects made in ${year}`, () => {
-    render(<Projects projects={projects as any} projectYears={projectYears} />);
-    fireEvent.click(screen.getByText(year));
+  it.only(`should show only projects made in ${year}`, async () => {
+    const { findByText } = render(
+      <Projects projects={projects as any} projectYears={projectYears} />
+    );
+
+    await act(async () => {
+      (await findByText(year.toString())).click();
+    });
+
     const actual = Array.from(
-      document.querySelectorAll('h1.text-4xl.font-bold')
+      document.querySelectorAll('.text-left > h1.text-4xl.font-bold')
     ).map(({ innerHTML }) => innerHTML);
     expect(actual).toEqual(expected);
   });

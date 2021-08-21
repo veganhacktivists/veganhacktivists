@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { LightButton } from '../../decoration/buttons';
 import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
 
@@ -54,25 +55,23 @@ const GrantsQualifications: React.FC = () => {
           activism experience. We&apos;re looking for people who&apos;ve run or
           contributed to projects, or with volunteer history.
         </GrantsQualificationsStep>
-        <p className="mt-12 text-2xl font-thin">
+        <p className="mt-12 text-2xl font-thin mb-10">
           <i>
-            Ideally, we love supporting people who utilize technology in their
-            work!
+            <b>Don&apos;t meet the two qualifications above?</b> That&apos;s
+            okay! You may still be eligable for funding. Please apply directly
+            with the Pollination Project.
           </i>
         </p>
-        <p className="mt-12 text-2xl">
-          <b>
-            If this sounds good, we&apos;d love to hear from you!{' '}
-            <a
-              className="underline"
-              href="https://www.google.com" // TODO
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apply here
-            </a>
-            .
-          </b>
+        <div className="flex justify-center">
+          <LightButton
+            href="https://thepollinationproject.org/"
+            className="font-semibold w-96 content-center m-5 font-mono text-sm font-semibold"
+          >
+            Apply directly instead
+          </LightButton>
+        </div>
+        <p className="mt-10 text-2xl">
+          <b>Otherwise, please continue below to fill out the form with us!</b>
         </p>
       </div>
     </div>

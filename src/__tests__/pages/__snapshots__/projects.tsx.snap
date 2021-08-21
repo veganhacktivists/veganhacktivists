@@ -189,22 +189,6 @@ exports[`should render correctly 1`] = `
           class="flex flex-col sm:flex-row justify-between"
         >
           <div
-            class="flex-shrink"
-          >
-            <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 300px; height: 300px;"
-            >
-              <img
-                alt="Activist Hub"
-                data-nimg="true"
-                decoding="async"
-                src="/_next/image?url=https%3Anull&w=640&q=75"
-                srcset="/_next/image?url=https%3Anull&w=384&q=75 1x, /_next/image?url=https%3Anull&w=640&q=75 2x"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </div>
-          <div
             class="sm:pl-10 col-span-2 text-left"
           >
             <h1
@@ -250,22 +234,6 @@ exports[`should render correctly 1`] = `
         <div
           class="flex flex-col sm:flex-row justify-between mt-10"
         >
-          <div
-            class="flex-shrink"
-          >
-            <div
-              style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 300px; height: 300px;"
-            >
-              <img
-                alt="Sehati Sanctuary"
-                data-nimg="true"
-                decoding="async"
-                src="/_next/image?url=https%3Anull&w=640&q=75"
-                srcset="/_next/image?url=https%3Anull&w=384&q=75 1x, /_next/image?url=https%3Anull&w=640&q=75 2x"
-                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-              />
-            </div>
-          </div>
           <div
             class="sm:pl-10 col-span-2 text-left"
           >
@@ -325,61 +293,77 @@ exports[`should render correctly 1`] = `
       />
     </div>
     <div
-      class="bg-gray md:p-36 flex flex-row justify-center"
+      class="bg-gray md:py-36 flex flex-row justify-center"
     >
       <div
-        class="bg-green flex p-2 md:p-8"
+        class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
       >
         <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="flex flex-col w-full md:max-w-xs bg-green"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              class="relative overflow-visible"
+            >
+              <div
+                class="absolute right-0 top-0 bg-green-dark w-16 h-16 opacity-100"
+              />
+            </div>
           </div>
-          <noscript />
-          <img
-            alt="Lamp"
-            data-nimg="true"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-          />
+          <div
+            class="p-10 my-auto w-full"
+          >
+            <div
+              style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="display: block; box-sizing: border-box; padding-top: 100%;"
+              />
+              <noscript />
+              <img
+                alt=""
+                data-nimg="true"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      <div
-        class="bg-gray-background text-left p-3 md:p-10"
-      >
-        <h4
-          class="text-2xl mb-3 md:mb-8"
+        <div
+          class="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl p-4"
         >
-          Have an idea for a project?
-        </h4>
-        <p
-          class="mb-3 md:mb-8"
-        >
-          <strong
-            class="font-bold"
+          <h1
+            class="text-4xl font-bold"
           >
-            We're all ears
-          </strong>
-          ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </p>
-        <a
-          href="/projects"
-        >
+            Have an idea for a project?
+          </h1>
+          <p
+            class="my-5 text-xl"
+          >
+            <strong
+              class="font-bold"
+            >
+              We're all ears
+            </strong>
+            ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </p>
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white w-72"
+            class="flex justify-start"
           >
-            Suggest a project idea
+            <a
+              href="/projects"
+            >
+              <div
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white"
+              >
+                Suggest a project idea
+              </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
     <div
