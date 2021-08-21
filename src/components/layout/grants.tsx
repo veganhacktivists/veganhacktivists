@@ -5,7 +5,7 @@ import { DarkButton } from '../decoration/buttons';
 
 const Grants: React.FC = () => {
   return (
-    <div className="bg-gray-background pt-16 pb-16 space-y-0 pb-12">
+    <div className="bg-gray-background pt-14 pb-18 space-y-0 pb-12">
 	<div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
       <div className="w-2/4 inline-block">
         <div className="bg-white">
