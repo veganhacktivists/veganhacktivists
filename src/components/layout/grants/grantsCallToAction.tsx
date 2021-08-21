@@ -14,9 +14,9 @@ const Info: React.FC<{
   };
 }> = ({ children, title, image, backgroundColor = 'white', button }) => {
   return (
-    <div className="flex flex-row gap-14 mb-20">
+    <div className="flex flex-col gap-14 mb-20">
       <div className={`bg-${backgroundColor}`}>
-        <div className="overflow-hidden w-full h-56">
+        <div className="overflow-hidden w-full md:h-56">
           <Image
             src={image}
             width={image.width / 2}
@@ -26,11 +26,11 @@ const Info: React.FC<{
           />
         </div>
         <div className="items-center">
-          <div className="text-left break-words max-w-sm pb-8 h-full px-10">
-            <div className="mb-12 text-grey-dark pt-16 text-4xl font-mono font-semibold uppercase px-2">
+          <div className="text-left break-words max-w-sm md:pb-8 h-full px-10">
+            <div className="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2">
               {title}
             </div>
-            <div className="mb-12 text-2xl">{children}</div>
+            <div className="mb-8 md:mb-12 text-2xl">{children}</div>
           </div>
           <div className="flex flex-row justify-between px-10 mb-12">
             <DarkButton className="w-max" href={button.href}>
@@ -46,7 +46,7 @@ const Info: React.FC<{
 const GrantsCallToAction: React.FC = () => {
   return (
     <div className="bg-gray-background pt-14">
-      <div className="drop-shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-0 w-1/2 mx-auto">
+      <div className="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-1/2 mx-auto">
         <Info
           image={beeImage}
           backgroundColor="white"

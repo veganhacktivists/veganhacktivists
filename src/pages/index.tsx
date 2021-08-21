@@ -11,7 +11,7 @@ import {
 } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
-import Grants from '../components/layout/grants/grantsCallToAction';
+import { GrantsCallToAction } from '../components/layout/grants/index';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
@@ -250,7 +250,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <Grants />
+      <GrantsCallToAction />
       <Sprite image={goat} />
     </>
   );
