@@ -170,7 +170,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                           <>
                             {' '}
                             -{' '}
-                            <Link href={`/people/team#${team.fields.name}`}>
+                            <Link
+                              href={`/people/team#${
+                                team.fields.isInactive ? '' : team.fields.name
+                              }`}
+                              scroll={true}
+                            >
                               <a>
                                 {team.fields.icon}{' '}
                                 <span style={{ color: team.fields.color }}>
