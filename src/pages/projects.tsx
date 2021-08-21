@@ -20,6 +20,7 @@ import ContentfulImage from '../components/layout/contentfulImage';
 import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
 import Sprite, { chicken } from '../components/decoration/sprite';
+import Link from 'next/link';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -164,11 +165,21 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                             month: 'short',
                             year: 'numeric',
                           }).format(date)}
-                        </span>{' '}
-                        -{' '}
-                        <span style={{ color: team.fields.color }}>
-                          {team?.fields.name}
                         </span>
+                        {team && (
+                          <>
+                            {' '}
+                            -{' '}
+                            <Link href={`/people/team#${team.fields.name}`}>
+                              <a>
+                                {team.fields.icon}{' '}
+                                <span style={{ color: team.fields.color }}>
+                                  {team.fields.name}
+                                </span>
+                              </a>
+                            </Link>
+                          </>
+                        )}
                       </span>
                     </div>
                   </div>
