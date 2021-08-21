@@ -135,7 +135,7 @@ exports[`should render correctly 1`] = `
     >
       <div>
         <div
-          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row"
         >
           <div
             class="flex flex-col w-full md:max-w-xs bg-magenta"
@@ -198,7 +198,7 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row flex-row-reverse"
         >
           <div
             class="flex flex-col w-full md:max-w-xs bg-green"
@@ -261,7 +261,7 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row"
         >
           <div
             class="flex flex-col w-full md:max-w-xs bg-yellow"
@@ -324,7 +324,7 @@ exports[`should render correctly 1`] = `
       </div>
       <div>
         <div
-          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row-reverse"
+          class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row flex-row-reverse"
         >
           <div
             class="flex flex-col w-full md:max-w-xs bg-orange"
