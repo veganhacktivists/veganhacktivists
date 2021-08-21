@@ -41,7 +41,7 @@ const Grants: React.FC = () => {
             />
           </div>
           <div className="text-left ml-12 break-words max-w-sm pb-8">
-            <p className="mb-12 text-grey-dark pt-16">
+            <p className="mb-12 text-grey-dark pt-12 pb-12">
               <b className="text-4xl font-mono font-semibold">OUR 2020 ANNUAL IMPACT REVIEW</b>
             </p>
             <p className="mb-12 text-2xl">
