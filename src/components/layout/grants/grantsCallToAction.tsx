@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
+import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
 
@@ -16,26 +17,23 @@ const Info: React.FC<{
   return (
     <div className="flex flex-col gap-14 mb-20">
       <div className={`bg-${backgroundColor}`}>
-        <div className="overflow-hidden w-full md:h-56">
-          <Image
-            src={image}
-            width={image.width / 2}
-            height={image.height / 2}
-            className="w-full bg-cover"
-            alt=""
-          />
+        <div className="overflow-hidden w-full">
+          <Image src={image} alt="" />
         </div>
         <div className="items-center">
-          <div className="text-left break-words max-w-sm md:pb-8 h-full px-10">
+          <div className="text-left break-words max-w-sm md:pb-8 px-10">
             <div className="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2">
               {title}
             </div>
-            <div className="mb-8 md:mb-12 text-2xl">{children}</div>
+            <div className="mb-8 md:mb-0 text-2xl">{children}</div>
           </div>
-          <div className="flex flex-row justify-between px-10 mb-12">
-            <DarkButton className="w-max" href={button.href}>
+          <div className="flex flex-row justify-between px-10 mb-12 h-10">
+            <DarkButton className="md:max-w-72" href={button.href}>
               {button.content}
             </DarkButton>
+            <div className="w-1/4">
+              <Image src={beeIcon} alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -46,12 +44,12 @@ const Info: React.FC<{
 const GrantsCallToAction: React.FC = () => {
   return (
     <div className="bg-gray-background pt-14">
-      <div className="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-1/2 mx-auto">
+      <div className="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-2/3 mx-auto auto-rows-fr">
         <Info
           image={beeImage}
           backgroundColor="white"
           title="Apply for a 1000$ seed grant"
-          button={{ content: 'Apply now!', href: '/grants' }}
+          button={{ content: <>Apply&nbsp;now!</>, href: '/grants' }}
         >
           We&apos;re excited to offer up to $1000 USD in seed grants!
         </Info>
@@ -59,7 +57,11 @@ const GrantsCallToAction: React.FC = () => {
           image={impactReviewImage}
           title="Our 2020 impact review"
           backgroundColor="grey-over-background"
-          button={{ content: 'See our impact!', href: '' }}
+          button={{
+            content: <>See&nbsp;our&nbsp;impact!</>,
+            // content: 'Apply now!',
+            href: '#',
+          }}
         >
           Check out what we&apos;ve accomplished last year!
         </Info>
