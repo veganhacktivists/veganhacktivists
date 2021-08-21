@@ -238,8 +238,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
       </div>
       <div className="bg-grey">
         <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
-          <LightButton href="/projects" className="font-mono text-sm font-bold">
-            SEE OUR POSTS
+          <LightButton href="/projects" className="font-mono text-sm font-semibold">
+            See All Posts
           </LightButton>
         </div>
       </div>
