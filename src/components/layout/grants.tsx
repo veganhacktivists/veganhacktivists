@@ -30,7 +30,7 @@ const Grants: React.FC = () => {
         </div>
       </div>
       <div className="w-2/4 inline-block">
-        <div className="bg-gray-50">
+        <div className="bg-gray-100">
           <div className="overflow-hidden w-full h-40">
             <Image
               src={grantsImage.src}
