@@ -1,6 +1,6 @@
-type SubSectionContent = {
+interface SubSectionContent {
   header?: string;
-};
+}
 
 export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
