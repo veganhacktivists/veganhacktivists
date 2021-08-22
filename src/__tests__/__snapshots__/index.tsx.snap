@@ -588,7 +588,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="bg-gray-background pt-14"
+    class="bg-gray-background pt-14 pb-10"
   >
     <div
       class="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-2/3 mx-auto auto-rows-fr"
@@ -632,14 +632,14 @@ exports[`Application renders correctly 1`] = `
               class="text-left break-words max-w-sm md:pb-8 px-10"
             >
               <div
-                class="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
+                class="mb-10 text-grey-dark pt-10 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
-                Apply for a 1000$ seed grant
+                Apply for a $1000 VH seed grant
               </div>
               <div
                 class="mb-8 md:mb-0 text-2xl"
               >
-                We're excited to offer up to $1000 USD in seed grants!
+                We're excited to offer grants for oustanding, and effective, animal rights activism!
               </div>
             </div>
             <div
@@ -723,14 +723,14 @@ exports[`Application renders correctly 1`] = `
               class="text-left break-words max-w-sm md:pb-8 px-10"
             >
               <div
-                class="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
+                class="mb-10 text-grey-dark pt-10 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
-                Our 2020 impact review
+                See our 2020 impact review
               </div>
               <div
                 class="mb-8 md:mb-0 text-2xl"
               >
-                Check out what we've accomplished last year!
+                Read our annual impact review and see what we've accomplished last year!
               </div>
             </div>
             <div
