@@ -24,6 +24,7 @@
         "prefer": "type-imports"
       }
     ],
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
     "@typescript-eslint/array-type": ["warn", { "default": "array" }],
     "@typescript-eslint/ban-types": [
       "warn",
