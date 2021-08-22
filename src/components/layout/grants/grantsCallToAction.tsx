@@ -43,7 +43,7 @@ const Info: React.FC<{
 
 const GrantsCallToAction: React.FC = () => {
   return (
-    <div className="bg-gray-background pt-14">
+    <div className="bg-gray-background pt-14 pb-10">
       <div className="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-2/3 mx-auto auto-rows-fr">
         <Info
           image={beeImage}
