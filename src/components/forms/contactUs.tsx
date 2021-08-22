@@ -15,7 +15,7 @@ contactUsRequestHeaders.set('Content-Type', 'application/json');
 
 const ContactUsForm: React.FC = () => {
   const onValidateForm = useCallback((values: ContactUsSubmission) => {
-    const errors = {};
+    const errors: Record<string, string> = {};
     if (!values.name) {
       errors.name = 'Required';
     }
