@@ -387,7 +387,6 @@ exports[`should render correctly 1`] = `
       </div>
     </div>
   </div>
-<<<<<<< HEAD
   <div
     class="absolute z-20"
     style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
@@ -404,7 +403,7 @@ exports[`should render correctly 1`] = `
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
       />
     </div>
-=======
+  </div>
   <div>
     <form>
       <div>
@@ -507,7 +506,6 @@ exports[`should render correctly 1`] = `
         Submit
       </button>
     </form>
->>>>>>> 6b4e3f7 (WIP)
   </div>
 </DocumentFragment>
 `;
