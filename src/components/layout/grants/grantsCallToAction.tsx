@@ -22,7 +22,7 @@ const Info: React.FC<{
         </div>
         <div className="items-center">
           <div className="text-left break-words max-w-sm md:pb-8 px-10">
-            <div className="mb-12 text-grey-dark pt-16 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2">
+            <div className="mb-10 text-grey-dark pt-10 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2">
               {title}
             </div>
             <div className="mb-8 md:mb-0 text-2xl">{children}</div>
@@ -48,14 +48,14 @@ const GrantsCallToAction: React.FC = () => {
         <Info
           image={beeImage}
           backgroundColor="white"
-          title="Apply for a 1000$ seed grant"
+          title="Apply for a $1000 VH seed grant"
           button={{ content: <>Apply&nbsp;now!</>, href: '/grants' }}
         >
-          We&apos;re excited to offer up to $1000 USD in seed grants!
+          We&apos;re excited to offer grants for oustanding, and effective, animal rights activism!
         </Info>
         <Info
           image={impactReviewImage}
-          title="Our 2020 impact review"
+          title="See our 2020 impact review"
           backgroundColor="grey-over-background"
           button={{
             content: <>See&nbsp;our&nbsp;impact!</>,
@@ -63,7 +63,7 @@ const GrantsCallToAction: React.FC = () => {
             href: '#',
           }}
         >
-          Check out what we&apos;ve accomplished last year!
+          Read our annual impact review and see what we&apos;ve accomplished last year!
         </Info>
       </div>
     </div>
