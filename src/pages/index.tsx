@@ -1,14 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import blogCow from '../../public/images/Blog-cow.jpg';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
-import {
-  DarkButton,
-  GreenButton,
-  LightButton,
-} from '../components/decoration/buttons';
+import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
 import { GrantsCallToAction } from '../components/layout/grants/index';
@@ -18,6 +13,8 @@ import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getFeaturedProjects } from '../lib/cms/helpers';
+import {} from '../components/decoration/textBlocks';
+import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -44,10 +41,6 @@ const JOIN_DECORATION_SQUARES = [
 const BLOG_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 0, bottom: 0 },
   { color: 'gray-lighter', size: 16, right: 0, top: 0 },
-];
-
-const BLOG_INNER_DECORATION_SQUARES = [
-  { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
 interface HomeProps {
@@ -167,85 +160,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         squares={BLOG_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
-        <p className="text-grey-dark pb-5">
-          <span className="font-italic font-semibold text-3xl">On the </span>
-          <b className="text-5xl font-mono">BLOG</b>
-        </p>
-        <p className="pb-16">
-          We regularly post project updates, announcements, interviews, and
-          other fun stuff here! Thanks for reading!
-        </p>
-      </div>
-      <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16">
-        <div className="overflow-hidden w-full">
-          <Image
-            src={blogCow.src}
-            width={blogCow.width}
-            height={blogCow.height}
-            className="w-full bg-cover"
-            alt="Compassion, Creativity, Code"
-          />
-        </div>
-        <div className="overflow-hidden w-full">
-          <Image
-            src={blogCow.src}
-            width={blogCow.width}
-            height={blogCow.height}
-            className="w-full bg-cover"
-            alt="Compassion, Creativity, Code"
-          />
-        </div>
-        <div className="overflow-hidden w-full">
-          <Image
-            src={blogCow.src}
-            width={blogCow.width}
-            height={blogCow.height}
-            className="w-full bg-cover"
-            alt="Compassion, Creativity, Code"
-          />
-        </div>
-      </div>
-      <SquareField
-        squares={BLOG_INNER_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-      <div className="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey">
-        <div className="overflow-hidden w-full">
-          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
-          </div>
-          <GreenButton href="/">Read More</GreenButton>
-        </div>
-        <div className="overflow-hidden w-full">
-          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
-          </div>
-          <GreenButton href="/">Read More</GreenButton>
-        </div>
-        <div className="overflow-hidden w-full">
-          <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-            <p className="font-semibold text-2xl">
-              Developers! Join Our New Open Source Community - VH: Playground
-            </p>
-          </div>
-          <GreenButton href="/">Read More</GreenButton>
-        </div>
-      </div>
-      <div className="bg-grey">
-        <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
-          <LightButton
-            href="/projects"
-            className="font-mono text-sm font-semibold"
-          >
-            See All Posts
-          </LightButton>
-        </div>
-      </div>
+      <LastBlogEntries />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
