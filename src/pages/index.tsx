@@ -52,7 +52,7 @@ const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const ImageContainer = styled('div')`
+const ImageContainer = styled.div`
   & > div {
     // This removes the mysterious space underneath next.js images
     vertical-align: middle;
@@ -85,16 +85,23 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         blogCardText.current.clientHeight + blogCardButton.current.clientHeight
       );
 
-      window.addEventListener('resize', () => {
+      const handleResize = () => {
         if (blogCardText.current && blogCardButton.current) {
           setGrayAreaHeight(
             blogCardText.current.clientHeight +
               blogCardButton.current.clientHeight
           );
         }
-      });
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
     }
-  });
+  }, []);
+
   return (
     <>
       <Head>
