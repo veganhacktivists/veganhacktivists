@@ -393,170 +393,195 @@ exports[`Application renders correctly 1`] = `
     </p>
   </div>
   <div
-    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16"
+    class="flex md:flex-row flex-col md:space-x-4 md:space-y-0 space-y-4 lg:px-32 px-4"
   >
-    <div
-      class="overflow-hidden w-full"
-    >
+    <div>
       <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        class="overflow-hidden w-full"
       >
         <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+          class="sc-bdnxRM jhmZeW"
         >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-          />
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Compassion, Creativity, Code"
+              class="w-full bg-cover"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+          </div>
         </div>
-        <noscript />
-        <img
-          alt="Compassion, Creativity, Code"
-          class="w-full bg-cover"
-          data-nimg="true"
-          decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-        />
+      </div>
+      <div
+        class="overflow-hidden w-full"
+      >
+        <div
+          class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+        >
+          <p
+            class="font-semibold text-2xl"
+          >
+            Developers! Join Our New Open Source Community - VH: Playground
+          </p>
+        </div>
+        <a
+          href="/"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
+          >
+            Read More
+          </div>
+        </a>
       </div>
     </div>
-    <div
-      class="overflow-hidden w-full"
-    >
+    <div>
       <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        class="overflow-hidden w-full"
       >
         <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+          class="sc-bdnxRM jhmZeW"
         >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-          />
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Compassion, Creativity, Code"
+              class="w-full bg-cover"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+          </div>
         </div>
-        <noscript />
-        <img
-          alt="Compassion, Creativity, Code"
-          class="w-full bg-cover"
-          data-nimg="true"
-          decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-        />
+      </div>
+      <div
+        class="overflow-hidden w-full"
+      >
+        <div
+          class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+        >
+          <p
+            class="font-semibold text-2xl"
+          >
+            Developers! Join Our New Open Source Community - VH: Playground
+          </p>
+        </div>
+        <a
+          href="/"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
+          >
+            Read More
+          </div>
+        </a>
       </div>
     </div>
-    <div
-      class="overflow-hidden w-full"
-    >
+    <div>
       <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        class="overflow-hidden w-full"
       >
         <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+          class="sc-bdnxRM jhmZeW"
         >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-          />
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Compassion, Creativity, Code"
+              class="w-full bg-cover"
+              data-nimg="true"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+          </div>
         </div>
-        <noscript />
-        <img
-          alt="Compassion, Creativity, Code"
-          class="w-full bg-cover"
-          data-nimg="true"
-          decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-        />
+      </div>
+      <div
+        class="overflow-hidden w-full"
+      >
+        <div
+          class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
+        >
+          <p
+            class="font-semibold text-2xl"
+          >
+            Developers! Join Our New Open Source Community - VH: Playground
+          </p>
+        </div>
+        <div>
+          <a
+            href="/"
+          >
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
+            >
+              Read More
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative"
+    style="bottom: 0px;"
   >
     <div
-      class="absolute right-0 bottom-0 bg-gray-lighter w-16 h-16 opacity-100"
+      class="relative overflow-visible hidden lg:block"
+    >
+      <div
+        class="absolute right-0 bottom-0 bg-gray-lighter w-16 h-16 opacity-100"
+      />
+    </div>
+  </div>
+  <div
+    class="bg-grey relative"
+  >
+    <div
+      class="w-full bg-grey absolute"
+      style="height: 0px; top: 0px; z-index: -1;"
     />
-  </div>
-  <div
-    class="grid lg:grid-cols-3 lg:gap-4 md:grid-cols-3 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 lg:px-32 md:px-32 px-16 pb-5 bg-grey"
-  >
-    <div
-      class="overflow-hidden w-full"
-    >
-      <div
-        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
-      >
-        <p
-          class="font-semibold text-2xl"
-        >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
-      </div>
-      <a
-        href="/"
-      >
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
-        >
-          Read More
-        </div>
-      </a>
-    </div>
-    <div
-      class="overflow-hidden w-full"
-    >
-      <div
-        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
-      >
-        <p
-          class="font-semibold text-2xl"
-        >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
-      </div>
-      <a
-        href="/"
-      >
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
-        >
-          Read More
-        </div>
-      </a>
-    </div>
-    <div
-      class="overflow-hidden w-full"
-    >
-      <div
-        class="px-8 pt-6 pb-6 content-center mx-auto bg-white"
-      >
-        <p
-          class="font-semibold text-2xl"
-        >
-          Developers! Join Our New Open Source Community - VH: Playground
-        </p>
-      </div>
-      <a
-        href="/"
-      >
-        <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-green-light border-green text-white"
-        >
-          Read More
-        </div>
-      </a>
-    </div>
-  </div>
-  <div
-    class="bg-grey"
-  >
     <div
       class="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20"
     >
