@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import React, { useEffect, useRef, useState } from 'react';
->>>>>>> Fixed mobile layout, aligned gray area
 import Head from 'next/head';
 import Image from 'next/image';
 import blogCow from '../../public/images/Blog-cow.jpg';
