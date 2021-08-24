@@ -19,7 +19,7 @@ import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getFeaturedProjects } from '../lib/cms/helpers';
-import styled from 'styled-components';
+import ImageContainer from '../components/decoration/imageContainer';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -51,13 +51,6 @@ const BLOG_DECORATION_SQUARES = [
 const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
-
-const ImageContainer = styled.div`
-  & > div {
-    // This removes the mysterious space underneath next.js images
-    vertical-align: middle;
-  }
-`;
 
 interface HomeProps {
   featuredProjects: IProject[];

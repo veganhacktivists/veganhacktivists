@@ -400,7 +400,7 @@ exports[`Application renders correctly 1`] = `
         class="overflow-hidden w-full"
       >
         <div
-          class="sc-bdnxRM jhmZeW"
+          class="imageContainer"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -455,7 +455,7 @@ exports[`Application renders correctly 1`] = `
         class="overflow-hidden w-full"
       >
         <div
-          class="sc-bdnxRM jhmZeW"
+          class="imageContainer"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -510,7 +510,7 @@ exports[`Application renders correctly 1`] = `
         class="overflow-hidden w-full"
       >
         <div
-          class="sc-bdnxRM jhmZeW"
+          class="imageContainer"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"

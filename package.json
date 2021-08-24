@@ -43,6 +43,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.2",
     "postcss": "^8.3.5",
@@ -65,7 +66,7 @@
     "moduleNameMapper": {
       "\\.(eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(jpg|jpeg|png|gif)$": "<rootDir>/src/__mocks__/imageMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(css|less)$": "identity-obj-proxy"
     }
   }
 }
