@@ -1,10 +1,11 @@
-import GrantsHero from './GrantsHero';
-import GrantsHeading from './GrantsHeading';
-import GrantsSubHeading from './GrantsSubHeading';
-import GrantsQualifications from './GrantsQualifications';
-import GrantsPerks from './GrantsPerks';
-import GrantsPollinationProject from './GrantsPollinationProject';
-import GrantsApplication from './GrantsApplication';
+import GrantsHero from './grantsHero';
+import GrantsHeading from './grantsHeading';
+import GrantsSubHeading from './grantsSubHeading';
+import GrantsQualifications from './grantsQualifications';
+import GrantsPerks from './grantsPerks';
+import GrantsPollinationProject from './grantsPollinationProject';
+import GrantsApplication from './grantsApplication';
+import GrantsCallToAction from './grantsCallToAction';
 
 export {
   GrantsHero,
@@ -14,4 +15,5 @@ export {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
+  GrantsCallToAction,
 };

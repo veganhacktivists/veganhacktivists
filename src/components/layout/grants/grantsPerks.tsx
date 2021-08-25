@@ -14,7 +14,7 @@ const GrantsPerks: React.FC = () => {
         In addition to $1000 in seed funding, VH Grants include:
       </h3>
       <h4 className="text-3xl font-semibold mt-12">
-        Free SquareSpace website subscription
+        SquareSpace website subscription
       </h4>
       <p className="text-2xl mt-4 leading-loose">
         <div>Valued at around $200 a year, or $17 a month.</div>
@@ -40,10 +40,7 @@ const GrantsPerks: React.FC = () => {
           helps with promoting your work.
         </div>
       </p>
-
-      <h4 className="text-3xl font-semibold mt-12">
-        Free Monthly advisory calls
-      </h4>
+      <h4 className="text-3xl font-semibold mt-12">Monthly advisory calls</h4>
       <p className="text-2xl mt-4 leading-loose">
         <div>
           A 30 minute per month zoom call to help advise you and your team.

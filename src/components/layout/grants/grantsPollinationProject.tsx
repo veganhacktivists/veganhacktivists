@@ -6,7 +6,7 @@ const GrantsPollinationProject: React.FC = () => {
   return (
     <>
       <div className="flex max-w-screen-lg mx-auto flex-row mt-12 flex-wrap">
-        <div className="w-screen md:max-w-sm">
+        <div className="w-screen md:max-w-md">
           <Image
             src={PollinationProjectLogo}
             layout="responsive"
@@ -15,18 +15,18 @@ const GrantsPollinationProject: React.FC = () => {
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
-            Your grant application is submitted directly to The Pollination
-            Project, who generously funds our grant program. The Pollination
-            Project will be in touch after you submit your grant request with
-            us.
+            Our grant program is generously funded by The Pollination Project.
+            After your application is reviewed by us we&apos;ll forward your
+            application for further review directly to them, so keep an eye out
+            on your inbox!
           </p>
           <p className="mt-4">
             If your primary focus isn&apos;t factory farming you may still be
             eligible for a grant directly from The Pollinatiom Project. We
-            encourage you to submit a request below!{' '}
+            encourage you to apply directly instead!{' '}
           </p>
           <LightButton
-            className="mt-6 font-mono text-md font-bold inline-block uppercase"
+            className="mt-6 font-mono text-md font-semibold inline-block uppercase"
             href="https://thepollinationproject.org"
           >
             ThePollinationProject.org

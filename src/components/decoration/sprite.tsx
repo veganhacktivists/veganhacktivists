@@ -6,6 +6,11 @@ import chicken from '../../../public/images/sprite_chicken.gif';
 import pig from '../../../public/images/sprite_pig.gif';
 import sheep from '../../../public/images/sprite_sheep.gif';
 import cow from '../../../public/images/sprite_cow.gif';
+import goat from '../../../public/images/sprite_goat.gif';
+import duck from '../../../public/images/sprite_duck.gif';
+import chicks from '../../../public/images/sprite_chicks.gif';
+import fishg from '../../../public/images/sprite_fish_green.gif';
+import fishb from '../../../public/images/sprite_fish_blue.gif';
 import useWindowSize from '../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
 
@@ -75,6 +80,6 @@ const Sprite: React.FC<SpriteProps> = ({
   );
 };
 
-export { cow, chicken, sheep, pig };
+export { cow, chicken, sheep, pig, chicks, goat, duck, fishg, fishb };
 
 export default Sprite;

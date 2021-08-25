@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import PixelChicken from '../../../public/images/VH_PixelChicken.png';
+import Sprite, { goat } from '../../components/decoration/sprite';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
@@ -14,7 +15,7 @@ const OurMission: React.FC = () => {
         <title>Our Values | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
-      <div className="m-10">
+      <div className="m-10 pb-10">
         <AboutButtons />
         <FirstSubSection header="Our values">
           We embrace strong core values for our organization and recruit diverse
@@ -39,7 +40,6 @@ const OurMission: React.FC = () => {
           kindness, compassion, and nonviolence. We encourage every member to
           fearlessly and openly communicate with their leaders and peers.
         </SubSection>
-
         <SubSection header="Safe Community">
           We believe in building and fostering inclusive communities regardless
           of race, gender, species, age, sexual orientation, or political
@@ -65,6 +65,7 @@ const OurMission: React.FC = () => {
           to fight for animal liberation – we aim to support our community.
         </SubSection>
       </div>
+      <Sprite image={goat} />
     </>
   );
 };
