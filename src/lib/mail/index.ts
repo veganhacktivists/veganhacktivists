@@ -15,7 +15,7 @@ const sendMail: (data: Email) => Promise<void> = async (data) => {
     method: 'POST',
     auth: {
       username: 'api',
-      password: process.env.MAILGUN_API_KEY || '',
+      password: process.env.MAILGUN_API_KEY + 'A' || '',
     },
     params: data,
   });

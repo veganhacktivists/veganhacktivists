@@ -464,7 +464,7 @@ exports[`should render correctly 1`] = `
               class="css-1f43avz-a11yText-A11yText"
             />
             <div
-              class=" css-1wpzcox-control"
+              class=" css-sn38g5-control"
             >
               <div
                 class=" css-1m9kztm-ValueContainer"
@@ -553,7 +553,7 @@ exports[`should render correctly 1`] = `
             type="submit"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white px-10"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10"
             >
               Submit
             </div>
