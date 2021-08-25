@@ -405,7 +405,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible"
+    class="relative overflow-visible hidden md:block"
   >
     <div
       class="absolute left-0 bottom-0 bg-grey-background w-16 h-16 opacity-100"
@@ -421,13 +421,13 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="bg-grey-background"
+    class="bg-grey-background px-10 md:px-0"
   >
     <div
       class="md:w-2/3 mx-auto pt-5"
     >
       <div
-        class="text-xl w-2/5 mx-auto text-grey-dark pt-5"
+        class="text-xl md:w-2/5 mx-auto text-grey-dark py-5"
       >
         If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
       </div>
