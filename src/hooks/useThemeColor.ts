@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import tailwindConfig from '../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import type { TailwindColorConfig } from 'tailwindcss/tailwind-config';
@@ -7,7 +8,7 @@ const fullConfig = resolveConfig(tailwindConfig as any);
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const colors = fullConfig.theme.colors!;
 
-const byString: (object: TailwindColorConfig, path: string) => string = (
+const byString: (object: any, path: string) => string | undefined = (
   object,
   path
 ) => {
@@ -25,14 +26,12 @@ const byString: (object: TailwindColorConfig, path: string) => string = (
   return object;
 };
 
-const useThemeColor: (color: string) => string = (color) => {
+const useThemeColor: (color: string) => string | undefined = (color) => {
   if (!color.includes('-')) {
     color += '-DEFAULT';
   }
 
   return byString(colors, color.replaceAll('-', '.'));
-
-  // return parseInt(breakpointStr.replace(/\D/g, ''));
 };
 
 export default useThemeColor;
