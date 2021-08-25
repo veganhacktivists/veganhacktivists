@@ -31,6 +31,7 @@ const Label: React.FC<LabelProps> = ({ name }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const StyledSelect: React.FC<any> = ({ error, ...props }) => {
   const grey = useThemeColor('grey');
   const lightGrey = useThemeColor('grey-light');
@@ -124,7 +125,7 @@ const ContactUsForm: React.FC = () => {
     control,
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful, isSubmitted },
+    formState: { errors, isSubmitting },
   } = useForm<ContactUsSubmission>();
 
   const Input = React.forwardRef<
