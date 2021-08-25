@@ -405,6 +405,22 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
+    class="relative overflow-visible"
+  >
+    <div
+      class="absolute left-0 bottom-0 bg-grey-background w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute left-32 top-0 bg-white w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 bottom-0 bg-grey-background w-16 h-16 opacity-100"
+    />
+    <div
+      class="absolute right-0 top-0 bg-white w-16 h-16 opacity-100"
+    />
+  </div>
+  <div
     class="bg-grey-background"
   >
     <div

@@ -160,6 +160,14 @@ const Services: React.FC = () => (
       </div>
     </div>
     <Sprite image={pig} />
+    <SquareField
+      squares={[
+        { size: 16, color: 'grey-background', bottom: 0, left: 0 },
+        { size: 16, color: 'white', top: 0, left: 32 },
+        { size: 16, color: 'grey-background', bottom: 0, right: 0 },
+        { size: 16, color: 'white', top: 0, right: 0 },
+      ]}
+    />
     <div className="bg-grey-background">
       <ContactUsForm />
     </div>
