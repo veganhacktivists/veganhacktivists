@@ -124,6 +124,7 @@ const StyledSelect: React.FC<any> = (props) => {
           ...provided,
           height,
         }),
+        // option: provided=>({...provided})
       }}
       options={options}
     />

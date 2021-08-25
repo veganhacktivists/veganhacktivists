@@ -1,15 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiHandler } from 'next';
-import { createTransport } from 'nodemailer';
-
-// This will only work if and only if the machine running it has sendmail binary and is configured properly
-// Alternatively, we can use an SMTP server and set up credentials, or something like AWS SES as alternative
-// transports. This in theory should all work though based on the above assumption.
-const transporter = createTransport({
-  sendmail: true,
-  newline: 'unix',
-  path: '/usr/sbin/sendmail',
-});
+import sendMail, { OUR_EMAIL } from '../../lib/mail';
+import HttpCodes from 'http-status-codes';
 
 export type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -20,26 +12,43 @@ export interface ContactUsSubmission {
   message: string;
 }
 
+const createFormattedMessage: (data: Record<string, string>) => string = (
+  data
+) => {
+  return Object.entries(data)
+    .map(
+      ([field, value]) =>
+        `<b>${field.charAt(0).toUpperCase() + field.slice(1)}:</b><br/>${value
+          .split('\n')
+          .join('<br/>')}`
+    )
+    .join('<br/>');
+};
+
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== 'POST') {
-    res.status(501).end('Not Implemented'); // Not Implemented
-    return;
+    return res.status(HttpCodes.NOT_IMPLEMENTED).end();
   }
-
-  console.log(JSON.stringify(req.body));
 
   const { name, email, service, message }: ContactUsSubmission = req.body;
 
-  // TODO: Find out if we have any logging or error infrastructure to which we should explicitly catch and handle in some way?
-  // If yes, then we can add a try-catch here and capture any error appropriately.
-  await transporter.sendMail({
-    from: `${name} <${email}>`,
-    to: 'hello@veganhacktivists.org',
-    subject: `New Contact about ${service} from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`,
-  });
+  try {
+    await sendMail({
+      to: OUR_EMAIL,
+      from: email,
+      subject: `Contact about ${service} from ${name}`,
+      html: createFormattedMessage({
+        name,
+        email,
+        service,
+        message,
+      }),
+    });
+  } catch (e) {
+    return res.status(e.response.status).end();
+  }
 
-  res.status(200).end();
+  res.status(HttpCodes.OK).end();
 };
 
 export default handler;
