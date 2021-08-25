@@ -34,7 +34,6 @@
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
-    "@types/nodemailer": "^6.4.4",
     "@types/react": "17.0.19",
     "@types/react-select": "^4.0.17",
     "@types/tailwindcss": "^2.2.1",
