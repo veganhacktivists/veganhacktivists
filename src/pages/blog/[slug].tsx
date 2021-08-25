@@ -61,7 +61,6 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
       <h1 className="text-3xl">{title}</h1>
       {documentToReactComponents(content, {
         renderNode: {
-          // eslint-disable-next-line react/display-name
           [BLOCKS.EMBEDDED_ASSET]: (node) => (
             <>
               <ContentfulImage

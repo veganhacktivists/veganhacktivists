@@ -160,7 +160,7 @@ const Services: React.FC = () => (
       </div>
     </div>
     <Sprite image={pig} />
-    <div>
+    <div className="bg-grey-background">
       <ContactUsForm />
     </div>
   </>

@@ -404,108 +404,163 @@ exports[`should render correctly 1`] = `
       />
     </div>
   </div>
-  <div>
-    <form>
-      <div>
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="name"
-        >
-          Name
-        </label>
-        <input
-          class="focus:outline-none focus:shadow-outline"
-          name="name"
-          placeholder="Name"
-          type="text"
-          value=""
-        />
-      </div>
-      <div>
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="email"
-        >
-          Email
-        </label>
-        <input
-          class="focus:outline-none focus:shadow-outline"
-          id="email"
-          placeholder="you@example.com"
-          type="email"
-        />
-      </div>
-      <div>
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="service"
-        >
-          Service
-        </label>
-        <select
-          name="service"
-        >
-          <option
-            value="Website"
-          >
-            Website
-          </option>
-          <option
-            value="Project"
-          >
-            Project
-          </option>
-          <option
-            value="Funding"
-          >
-            Funding
-          </option>
-          <option
-            value="Advice"
-          >
-            Advice
-          </option>
-        </select>
-      </div>
-      <div>
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="service"
-        >
-          Service
-        </label>
-        <select
-          name="service"
-        >
-          <option
-            value="Website"
-          >
-            Website
-          </option>
-          <option
-            value="Project"
-          >
-            Project
-          </option>
-          <option
-            value="Funding"
-          >
-            Funding
-          </option>
-          <option
-            value="Advice"
-          >
-            Advice
-          </option>
-        </select>
-      </div>
-      <button
-        class="btn btn-primary"
-        type="submit"
+  <div
+    class="bg-grey-background"
+  >
+    <div
+      class="md:w-2/3 mx-auto pt-5"
+    >
+      <div
+        class="text-xl w-2/5 mx-auto text-grey-dark pt-5"
       >
-        Submit
-      </button>
-    </form>
+        If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
+      </div>
+      <form
+        class="flex flex-col gap-5"
+      >
+        <div>
+          <label
+            class="block font-bold text-left capitalize"
+            for="name"
+          >
+            name
+          </label>
+          <input
+            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            id="name"
+            name="name"
+            placeholder="Name"
+          />
+        </div>
+        <div>
+          <label
+            class="block font-bold text-left capitalize"
+            for="email"
+          >
+            email
+          </label>
+          <input
+            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            id="email"
+            name="email"
+            placeholder="yourname@example.com"
+          />
+        </div>
+        <div>
+          <label
+            class="block font-bold text-left capitalize"
+            for="service"
+          >
+            service
+          </label>
+          <div
+            class=" css-2b097c-container"
+            id="service"
+          >
+            <span
+              aria-atomic="false"
+              aria-live="polite"
+              aria-relevant="additions text"
+              class="css-1f43avz-a11yText-A11yText"
+            />
+            <div
+              class=" css-1wpzcox-control"
+            >
+              <div
+                class=" css-1m9kztm-ValueContainer"
+              >
+                <div
+                  class=" css-1oxpzol-placeholder"
+                >
+                  Select a service...
+                </div>
+                <div
+                  class="css-1w7gl0u-Input"
+                >
+                  <div
+                    class=""
+                    style="display: inline-block;"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      id="react-select-service-input"
+                      spellcheck="false"
+                      style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=" css-1e2ueza-IndicatorsContainer"
+              >
+                <span
+                  class=" css-1xjgjl1-IndicatorSeparator"
+                />
+                <div
+                  aria-hidden="true"
+                  class=" css-ozn3fc-indicatorContainer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="css-tj5bde-Svg"
+                    focusable="false"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                  >
+                    <path
+                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              name="service"
+              type="hidden"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <label
+            class="block font-bold text-left capitalize"
+            for="message"
+          >
+            message
+          </label>
+          <textarea
+            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey resize-none"
+            id="message"
+            name="message"
+            rows="10"
+            wrap="soft"
+          />
+        </div>
+        <div
+          class="pt-5 pb-10"
+        >
+          <button
+            type="submit"
+          >
+            <div
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white px-10"
+            >
+              Submit
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </DocumentFragment>
 `;

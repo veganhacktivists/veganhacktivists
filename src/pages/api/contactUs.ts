@@ -13,18 +13,20 @@ const transporter = createTransport({
 
 export type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
-export type ContactUsSubmission = {
+export interface ContactUsSubmission {
   name: string;
   email: string;
   service: Service;
   message: string;
-};
+}
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(501).end('Not Implemented'); // Not Implemented
     return;
   }
+
+  console.log(JSON.stringify(req.body));
 
   const { name, email, service, message }: ContactUsSubmission = req.body;
 
