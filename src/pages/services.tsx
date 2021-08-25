@@ -167,8 +167,9 @@ const Services: React.FC = () => (
         { size: 16, color: 'grey-background', bottom: 0, right: 0 },
         { size: 16, color: 'white', top: 0, right: 0 },
       ]}
+      className="hidden md:block"
     />
-    <div className="bg-grey-background">
+    <div className="bg-grey-background px-10 md:px-0">
       <ContactUsForm />
     </div>
   </>
