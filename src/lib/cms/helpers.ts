@@ -33,7 +33,9 @@ export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
   const teams = await getContents<ITeamFields>({
     contentType: 'team',
     query: {
-      ne: { isInactive: true },
+      filters: {
+        ne: { isInactive: true },
+      },
     },
   });
 

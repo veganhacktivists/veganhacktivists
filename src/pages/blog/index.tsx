@@ -13,7 +13,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const newBlogs = await getContents<IBlogEntry>({
     contentType: 'blogEntry',
     query: {
-      exists: { publishDate: false },
+      filters: {
+        exists: { publishDate: false },
+      },
     },
     other: {
       order: '-sys.createdAt',
@@ -23,7 +25,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const oldBlogs = await getContents<IBlogEntry>({
     contentType: 'blogEntry',
     query: {
-      exists: { publishDate: true },
+      filters: {
+        exists: { publishDate: true },
+      },
     },
     other: {
       order: '-fields.publishDate',

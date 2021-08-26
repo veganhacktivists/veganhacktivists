@@ -19,7 +19,7 @@ export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
 
 const normalizeFilter: (
   filterType: string,
-  filter?: Record<string, unknown>
+  filter: Record<string, unknown>
 ) => Record<string, unknown> = (filterType, filter) => {
   return Object.fromEntries(
     Object.entries(filter || {}).map(([value, filter]) => [
@@ -32,21 +32,26 @@ const normalizeFilter: (
 export const getContents: <T>(options: {
   contentType: CONTENT_TYPE;
   query?: Record<string, unknown> & {
-    ne?: Record<string, unknown>;
-    exists?: Record<string, unknown>;
+    filters?: Record<string, Record<string, unknown>> &
+      Partial<{
+        ne?: Record<string, unknown>;
+        exists?: Record<string, unknown>;
+      }>;
   };
   other?: Record<string, unknown>;
 }) => Promise<Entry<T>[]> = async ({ contentType, query = {}, other }) => {
-  const { ne, exists, ...eqFilter } = query;
+  const { filters, ...eqFilter } = query;
 
-  const normalizedNeFilter = normalizeFilter('ne', ne);
-  const normalizedExistsFilter = normalizeFilter('exists', exists);
+  const otherFilters = Object.fromEntries(
+    Object.entries(filters || {}).flatMap(([filter, value]) =>
+      Object.entries(normalizeFilter(filter, value))
+    )
+  );
 
   const fieldsQuery = Object.fromEntries(
     Object.entries({
       ...eqFilter,
-      ...normalizedNeFilter,
-      ...normalizedExistsFilter,
+      ...otherFilters,
     }).map(([field, value]) => [`fields.${field}`, value])
   );
 
