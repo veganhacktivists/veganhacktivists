@@ -5,6 +5,7 @@ import Hero from '../components/decoration/hero';
 import InfoBox from '../components/infoBox';
 import SquareField from '../components/decoration/squares';
 import Sprite, { pig } from '../components/decoration/sprite';
+import ContactUsForm from '../components/forms/contactUs';
 
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';
 import heroTagline from '../../public/images/services/VH-services-hero-text.png';
@@ -159,6 +160,18 @@ const Services: React.FC = () => (
       </div>
     </div>
     <Sprite image={pig} />
+    <SquareField
+      squares={[
+        { size: 16, color: 'grey-background', bottom: 0, left: 0 },
+        { size: 16, color: 'white', top: 0, left: 32 },
+        { size: 16, color: 'grey-background', bottom: 0, right: 0 },
+        { size: 16, color: 'white', top: 0, right: 0 },
+      ]}
+      className="hidden md:block"
+    />
+    <div className="bg-grey-background px-10 md:px-0">
+      <ContactUsForm />
+    </div>
   </>
 );
 

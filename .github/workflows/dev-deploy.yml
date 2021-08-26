@@ -21,6 +21,7 @@ env:
   CF_DELIVERY_ACCESS_TOKEN: ${{ secrets.CF_DELIVERY_ACCESS_TOKEN }}
   CF_PREVIEW_ACCESS_TOKEN: ${{ secrets.CF_PREVIEW_ACCESS_TOKEN }}
   CF_ENVIRONMENT: master
+  MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
 
 jobs:
   build_and_push:
@@ -56,7 +57,7 @@ jobs:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           KEY: ${{ secrets.SSH_SECRET_KEY }}
-          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT
+          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY
           script: |
             docker stop $(echo $IMAGE_NAME)
             docker rm $(echo $IMAGE_NAME)
@@ -66,6 +67,7 @@ jobs:
             --env CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN \
             --env CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN \
             --env CF_ENVIRONMENT=$CF_ENVIRONMENT \
+            --env MAILGUN_API_KEY=$MAILGUN_API_KEY \
             --label traefik.enable=true \
             --label traefik.docker.network=traefik-public \
             --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
