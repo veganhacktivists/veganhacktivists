@@ -10,11 +10,23 @@ export interface IBlogEntryFields {
   /** title */
   title: string;
 
+  /** excerpt */
+  excerpt: Document;
+
+  /** publishDate */
+  publishDate?: string | undefined;
+
   /** content */
   content: Document;
 
   /** author */
   author: ITeamMember;
+
+  /** featuredImage */
+  featuredImage: Asset;
+
+  /** tags */
+  tags?: ITag[] | undefined;
 }
 
 export interface IBlogEntry extends Entry<IBlogEntryFields> {
@@ -120,6 +132,28 @@ export interface ISocialLinks extends Entry<ISocialLinksFields> {
   };
 }
 
+export interface ITagFields {
+  /** name */
+  name: string;
+}
+
+export interface ITag extends Entry<ITagFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "tag";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ITeamFields {
   /** name */
   name: string;
@@ -198,6 +232,7 @@ export type CONTENT_TYPE =
   | "blogEntry"
   | "project"
   | "socialLinks"
+  | "tag"
   | "team"
   | "teamMember";
 
