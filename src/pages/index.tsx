@@ -50,7 +50,7 @@ interface HomeProps {
 export const getStaticProps: GetStaticProps = async () => {
   const featuredProjects = await getFeaturedProjects();
 
-  return { props: { featuredProjects } };
+  return { props: { featuredProjects }, revalidate: 240 };
 };
 
 const Home: React.FC<HomeProps> = ({ featuredProjects }) => {

@@ -66,7 +66,7 @@ export interface IProjectFields {
   date: string;
 
   /** isFeatured */
-  isFeatured?: boolean | undefined;
+  isFeatured: boolean;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -168,7 +168,7 @@ export interface ITeamFields {
   sprite?: Asset | undefined;
 
   /** isInactive */
-  isInactive?: boolean | undefined;
+  isInactive: boolean;
 }
 
 export interface ITeam extends Entry<ITeamFields> {
@@ -209,6 +209,9 @@ export interface ITeamMemberFields {
 
   /** description */
   description?: Document | undefined;
+
+  /** isTeamLeader */
+  isTeamLeader: boolean;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {
