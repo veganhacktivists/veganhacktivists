@@ -95,6 +95,11 @@ module.exports = {
       height: sizes,
       width: sizes,
       minHeight: sizes,
+      boxShadow: {
+        'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
+        'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
+        'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
+      },
     },
     colors,
     fontFamily: {
@@ -102,16 +107,13 @@ module.exports = {
       sans: 'PT Sans',
       italic: 'Bitter',
     },
-    boxShadow: {
-      'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
-      'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
-    },
   },
   variants: {
     extend: {
       gridColumn: ['first'],
+      backgroundColor: ['disabled'],
+      cursor: ['disabled'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

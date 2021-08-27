@@ -8,9 +8,11 @@ import Image from 'next/image';
 import roundLogo from '../../../public/images/VH_Logo_Crest_Tagline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
+import Head from 'next/head';
+import { DarkButton } from '../../components/decoration/buttons';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -63,13 +65,28 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     term: query,
   });
 
-  const { startIndex, endIndex } = usePagination({
+  const {
+    startIndex,
+    endIndex,
+    setPreviousPage,
+    setNextPage,
+    currentPage,
+    previousEnabled,
+    nextEnabled,
+  } = usePagination({
     totalItems: filteredEntries.length,
-    initialPageSize: 13,
+    initialPageSize: 10,
   });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [currentPage]);
 
   return (
     <>
+      <Head>
+        <title>Blog | Vegan Hacktivists</title>
+      </Head>
       <div className="flex relative bg-black justify-around text-white p-10">
         <div className="flex flex-col justify-center w-1/2 z-10">
           <div className="w-48 mx-auto my-10">
@@ -98,17 +115,40 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
         </div>
       </div>
       <div className="pt-10 pb-20">
-        <div>Number of entries: {filteredEntries.length}</div>
-        <div className="grid md:grid-cols-3 md:gap-14 px-10">
-          {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
-            <div
-              className={classNames('ring', { 'first:col-span-full': !query })}
-              key={blog.fields.slug}
-            >
-              <b>{blog.fields.title || '<empty>'}</b>
-              {documentToReactComponents(blog.fields.excerpt)}
-            </div>
-          ))}
+        <div className="grid md:grid-cols-3 md:gap-x-20 gap-y-10 px-72  auto-rows-min">
+          {filteredEntries.slice(startIndex, endIndex + 1).map((blog, i) => {
+            const first = i === 0 && currentPage === 0 && !query;
+
+            return (
+              <div
+                key={blog.fields.slug}
+                className={classNames({
+                  'first:col-span-full': first,
+                })}
+              >
+                <BlogEntrySummary blog={blog} heading={first} />
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-row mx-auto gap-10 justify-center p-16">
+          <DarkButton
+            onClick={() => {
+              setPreviousPage();
+            }}
+            className="bg-grey"
+            disabled={!previousEnabled}
+          >
+            Previous
+          </DarkButton>
+          <DarkButton
+            onClick={() => {
+              setNextPage();
+            }}
+            disabled={!nextEnabled}
+          >
+            Next
+          </DarkButton>
         </div>
       </div>
     </>

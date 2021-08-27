@@ -5,6 +5,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import { getAllBlogSlugs, getBlogPreviewBySlug } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
+import Head from 'next/head';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -58,22 +59,36 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
 
   const { title, author, content } = blog.fields;
   return (
-    <div>
-      <h1 className="text-3xl">{title}</h1>
-      {documentToReactComponents(content, {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => (
-            <>
-              <ContentfulImage
-                image={node.data?.target}
-                alt={node.data?.target?.fields?.title}
-              />
-            </>
-          ),
-        },
-      })}
-      {author && <div>Author: {author.fields.name}</div>}
-    </div>
+    <>
+      <Head>
+        <title>{title} | Vegan Hacktivists Blog</title>
+      </Head>
+      <div className="text-justify p-10 pb-20 text-lg">
+        <h1 className="text-4xl">{title}</h1>
+        {documentToReactComponents(content, {
+          renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: (node) => (
+              <>
+                <ContentfulImage
+                  image={node.data?.target}
+                  alt={node.data?.target?.fields?.title}
+                />
+              </>
+            ),
+            [BLOCKS.HEADING_1]: (node, children) => (
+              <h1 className="text-3xl">{children}</h1>
+            ),
+            [BLOCKS.HEADING_2]: (node, children) => (
+              <h2 className="text-2xl">{children}</h2>
+            ),
+            [BLOCKS.HEADING_3]: (node, children) => (
+              <h2 className="text-xl">{children}</h2>
+            ),
+          },
+        })}
+        {author && <div>Author: {author.fields.name}</div>}
+      </div>
+    </>
   );
 };
 
