@@ -10,11 +10,11 @@ interface HeroClassNames {
 interface HeroProps {
   imageBackground: ImageProps['src'];
   backgroundImageProps?: Partial<ImageProps>;
-  tagline: {
+  tagline?: {
     image: StaticImageData;
     alt: string;
   };
-  alignment: 'right' | 'left';
+  alignment: 'right' | 'left' | 'center';
   classNameMapping?: HeroClassNames;
   main?: boolean;
 }
@@ -34,6 +34,7 @@ const Hero: React.FC<HeroProps> = ({
     {
       'justify-start': alignment === 'left',
       'justify-end': alignment === 'right',
+      'justify-center': alignment === 'center',
       'md:h-screen-header md:min-h-160 md:-top-20 md:-mb-20': main,
     },
     classNameMapping?.container

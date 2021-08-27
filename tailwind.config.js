@@ -4,6 +4,7 @@ const colors = {
   // Grays
   black: '#161919',
   transparent: '#00000033',
+  invisible: '#00000000',
   white: twColors.white,
   grey: {
     DEFAULT: '#454545',
