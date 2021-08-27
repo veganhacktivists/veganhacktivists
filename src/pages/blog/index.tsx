@@ -4,10 +4,12 @@ import type { IBlogEntry } from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 import classNames from 'classnames';
 import Image from 'next/image';
+import Fuse from 'fuse.js';
 
 import roundLogo from '../../../public/images/VH_Logo_Crest_Tagline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useMemo, useState } from 'react';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -52,6 +54,20 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Blog: React.FC<BlogProps> = ({ blogs }) => {
+  const [query, setQuery] = useState<string>('');
+  const [filteredEntries, setFilteredEntries] = useState<IBlogEntry[]>(blogs);
+
+  const fuse = useMemo(
+    () => new Fuse(blogs, { keys: ['fields.title', 'fields.excerpt'] }),
+    [blogs]
+  );
+
+  useEffect(() => {
+    setFilteredEntries(
+      query ? fuse.search(query).map((result) => result.item) : blogs
+    );
+  }, [query]);
+
   const {
     currentPage,
     setNextPage,
@@ -60,7 +76,10 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     previousEnabled,
     startIndex,
     endIndex,
-  } = usePagination({ totalItems: blogs.length, initialPageSize: 13 });
+  } = usePagination({
+    totalItems: filteredEntries.length,
+    initialPageSize: 13,
+  });
 
   const contentClasses = classNames(
     'flex',
@@ -90,6 +109,10 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
               type="text"
               name="query"
               id="blogQuery"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
             />
             <FontAwesomeIcon icon={faSearch} />
           </label>
@@ -97,9 +120,9 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
       </div>
       <div>
         <div>Number of entries: {blogs.length}</div>
-        <div>First: {blogs[0].fields.title}</div>
+        <div>First: {filteredEntries[0].fields.title}</div>
         <div className="grid md:grid-cols-3 md:gap-14 px-10">
-          {blogs.slice(startIndex + 1, endIndex + 1).map((blog) => (
+          {filteredEntries.slice(startIndex + 1, endIndex + 1).map((blog) => (
             <div className="ring" key={blog.fields.slug}>
               {/* Sys publish date: {blog.sys.createdAt}, fields data:{' '}
             {blog.fields.publishDate} */}
