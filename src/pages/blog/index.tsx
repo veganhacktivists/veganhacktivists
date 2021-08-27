@@ -4,12 +4,13 @@ import type { IBlogEntry } from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 import classNames from 'classnames';
 import Image from 'next/image';
-import Fuse from 'fuse.js';
 
 import roundLogo from '../../../public/images/VH_Logo_Crest_Tagline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
+import useFuse from '../../hooks/useFuse';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -55,44 +56,22 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Blog: React.FC<BlogProps> = ({ blogs }) => {
   const [query, setQuery] = useState<string>('');
-  const [filteredEntries, setFilteredEntries] = useState<IBlogEntry[]>(blogs);
 
-  const fuse = useMemo(
-    () => new Fuse(blogs, { keys: ['fields.title', 'fields.excerpt'] }),
-    [blogs]
-  );
+  const filteredEntries = useFuse({
+    data: blogs,
+    options: { keys: ['fields.title', 'fields.excerpt'] },
+    term: query,
+  });
 
-  useEffect(() => {
-    setFilteredEntries(
-      query ? fuse.search(query).map((result) => result.item) : blogs
-    );
-  }, [query]);
-
-  const {
-    currentPage,
-    setNextPage,
-    setPreviousPage,
-    nextEnabled,
-    previousEnabled,
-    startIndex,
-    endIndex,
-  } = usePagination({
+  const { startIndex, endIndex } = usePagination({
     totalItems: filteredEntries.length,
     initialPageSize: 13,
   });
 
-  const contentClasses = classNames(
-    'flex',
-    'flex-col',
-    'justify-center',
-    'w-1/2',
-    'z-10'
-  );
-
   return (
     <>
       <div className="flex relative bg-black justify-around text-white p-10">
-        <div className={contentClasses}>
+        <div className="flex flex-col justify-center w-1/2 z-10">
           <div className="w-48 mx-auto my-10">
             <Image src={roundLogo} alt="" />
           </div>
@@ -118,15 +97,16 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
           </label>
         </div>
       </div>
-      <div>
-        <div>Number of entries: {blogs.length}</div>
-        <div>First: {filteredEntries[0].fields.title}</div>
+      <div className="pt-10 pb-20">
+        <div>Number of entries: {filteredEntries.length}</div>
         <div className="grid md:grid-cols-3 md:gap-14 px-10">
-          {filteredEntries.slice(startIndex + 1, endIndex + 1).map((blog) => (
-            <div className="ring" key={blog.fields.slug}>
-              {/* Sys publish date: {blog.sys.createdAt}, fields data:{' '}
-            {blog.fields.publishDate} */}
-              <b>{blog.fields.title}</b>
+          {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
+            <div
+              className={classNames('ring', { 'first:col-span-full': !query })}
+              key={blog.fields.slug}
+            >
+              <b>{blog.fields.title || '<empty>'}</b>
+              {documentToReactComponents(blog.fields.excerpt)}
             </div>
           ))}
         </div>

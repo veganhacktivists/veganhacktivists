@@ -109,7 +109,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      gridColumn: ['first'],
+    },
   },
   plugins: [],
 };
