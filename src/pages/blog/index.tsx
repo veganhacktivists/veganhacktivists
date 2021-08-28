@@ -7,7 +7,11 @@ import Image from 'next/image';
 
 import roundLogo from '../../../public/images/VH_Logo_Crest_Tagline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSearch,
+  faLongArrowAltLeft as leftArrow,
+  faLongArrowAltRight as rightArrow,
+} from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
@@ -63,6 +67,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     data: blogs,
     options: { keys: ['fields.title', 'fields.excerpt'] },
     term: query,
+    sort: true,
   });
 
   const {
@@ -78,9 +83,9 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     initialPageSize: 10,
   });
 
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [currentPage]);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0 });
+  // }, [currentPage]);
 
   return (
     <>
@@ -136,18 +141,21 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             onClick={() => {
               setPreviousPage();
             }}
-            className="bg-grey"
+            className="font-mono font-bold uppercase"
             disabled={!previousEnabled}
           >
-            Previous
+            <FontAwesomeIcon icon={leftArrow} size="xs" />
+            <span className="pl-3">Previous</span>
           </DarkButton>
           <DarkButton
             onClick={() => {
               setNextPage();
             }}
+            className="font-mono font-bold uppercase"
             disabled={!nextEnabled}
           >
-            Next
+            <span className="pr-3">Next</span>
+            <FontAwesomeIcon icon={rightArrow} size="xs" />
           </DarkButton>
         </div>
       </div>

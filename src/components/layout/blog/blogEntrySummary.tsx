@@ -5,7 +5,6 @@ import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { GreenButton } from '../../decoration/buttons';
-import head from 'next/head';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -59,14 +58,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
                   day: 'numeric',
                 }).format(date)}
               </div>
-              <b className="text-3xl">{blog.fields.title}</b>
+              <b className="text-3xl line-clamp-2" title={blog.fields.title}>
+                {blog.fields.title}
+              </b>
               {heading && (
-                <div className="text-xl line-clamp-5">
+                <div className="text-xl line-clamp-3">
                   {documentToReactComponents(blog.fields.excerpt)}
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam molestias velit dolorum! Repellendus ab, ad dolorum
-                  provident quam aliquid natus, et cupiditate vero facere quasi
-                  fuga ducimus tempore repudiandae eaque.
                 </div>
               )}
             </div>

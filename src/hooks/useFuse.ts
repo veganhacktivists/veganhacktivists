@@ -14,10 +14,12 @@ const useFuse: <T>(params: {
   data: T[];
   options?: Fuse.IFuseOptions<T>;
   term?: string;
-}) => T[] = ({ data, options = {}, term = '' }) => {
+  sort?: boolean;
+}) => T[] = ({ data, options = {}, term = '', sort = false }) => {
   const fuseOptions = {
     // threshold: 0.2,
     ...options,
+    shouldSort: sort,
   };
 
   const fuse = useMemo(() => new Fuse(data, fuseOptions), [data, fuseOptions]);
