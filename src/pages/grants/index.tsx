@@ -80,8 +80,6 @@ const Grants: React.FC = () => {
         <GrantsPollinationProject />
       </div>
       <Sprite image={chicks} />
-      <GrantsCallToAction />
-
       <GrantsApplication />
 
       <JoinTheTeam />
