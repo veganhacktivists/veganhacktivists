@@ -10,11 +10,23 @@ export interface IBlogEntryFields {
   /** title */
   title: string;
 
+  /** excerpt */
+  excerpt: Document;
+
+  /** publishDate */
+  publishDate?: string | undefined;
+
   /** content */
   content: Document;
 
   /** author */
   author: ITeamMember;
+
+  /** featuredImage */
+  featuredImage: Asset;
+
+  /** tags */
+  tags?: ITag[] | undefined;
 }
 
 export interface IBlogEntry extends Entry<IBlogEntryFields> {
@@ -54,7 +66,7 @@ export interface IProjectFields {
   date: string;
 
   /** isFeatured */
-  isFeatured?: boolean | undefined;
+  isFeatured: boolean;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -120,6 +132,28 @@ export interface ISocialLinks extends Entry<ISocialLinksFields> {
   };
 }
 
+export interface ITagFields {
+  /** name */
+  name: string;
+}
+
+export interface ITag extends Entry<ITagFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "tag";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ITeamFields {
   /** name */
   name: string;
@@ -134,7 +168,7 @@ export interface ITeamFields {
   sprite?: Asset | undefined;
 
   /** isInactive */
-  isInactive?: boolean | undefined;
+  isInactive: boolean;
 }
 
 export interface ITeam extends Entry<ITeamFields> {
@@ -175,6 +209,12 @@ export interface ITeamMemberFields {
 
   /** description */
   description?: Document | undefined;
+
+  /** isTeamLeader */
+  isTeamLeader: boolean;
+
+  /** isInactive */
+  isInactive: boolean;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {
@@ -198,6 +238,7 @@ export type CONTENT_TYPE =
   | "blogEntry"
   | "project"
   | "socialLinks"
+  | "tag"
   | "team"
   | "teamMember";
 
