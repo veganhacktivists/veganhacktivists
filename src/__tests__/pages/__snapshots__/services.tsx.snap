@@ -488,7 +488,7 @@ exports[`should render correctly 1`] = `
                 <div
                   class=" css-1oxpzol-placeholder"
                 >
-                  Select a service...
+                  Select...
                 </div>
                 <div
                   class="css-1w7gl0u-Input"
