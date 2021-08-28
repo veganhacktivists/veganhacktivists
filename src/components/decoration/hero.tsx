@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({
         {tagline && (
           <div
             className={classNames({
-              'py-20 md:py-20 lg:py-20': !main,
+              'ml-5 py-20 md:py-20 lg:py-20': !main,
             })}
           >
             <Image

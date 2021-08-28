@@ -55,6 +55,8 @@ const sizes = {
   'screen-60%': '60vh',
   'screen-header': 'calc(100vh - 74px)',
   'screen/2': '50vh',
+  '1/2': '50%',
+  '1/3': '33%',
   160: '40rem',
 };
 
@@ -93,7 +95,10 @@ module.exports = {
       },
       height: sizes,
       width: sizes,
+      maxWidth: sizes,
+      minWidth: sizes,
       minHeight: sizes,
+      maxHeight: sizes,
     },
     colors,
     fontFamily: {

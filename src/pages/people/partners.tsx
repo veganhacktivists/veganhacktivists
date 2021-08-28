@@ -6,12 +6,17 @@ import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import Image from 'next/image';
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import React from 'react';
 import { getContents } from '../../lib/cms';
-import { ITeamFields, ITeamMember } from '../../types/generated/contentful';
+import type {
+  ITeamFields,
+  ITeamMember,
+} from '../../types/generated/contentful';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
+import ImageContainer from '../../components/decoration/imageContainer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -41,55 +46,54 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
-  const {
-    name,
-    image,
-    description: descriptionContent,
-    socialLinks,
-  } = partner.fields;
+  const { name, image, description, socialLinks } = partner.fields;
 
   const website = socialLinks?.fields.website;
   const domainRegEx = /https?:\/\/(?:www\.)?(?<domain>[a-zA-Z0-9]+\.[a-z]+)\//;
   const domain = website?.match(domainRegEx)?.groups?.domain;
 
-  // @ts-expect-error ts doesnt think value should be there
-  const description = descriptionContent?.content[0].content[0].value;
-
-  console.log(image?.fields.file.details);
-
-  const imageSize = 600;
   return (
-    <div className="flex flex-col md:flex-row justify-between mb-10">
-      <div className="bg-grey flex-shrink">
+    <div className="flex flex-col md:flex-row mx-auto lg:w-full mb-10">
+      <div className="relative w-full min-h-450px md:min-h-0 md:w-1/3 md:h-96">
         {image && (
-          <ContentfulImage
-            image={image}
-            height={imageSize}
-            width={imageSize}
-            alt={name}
-          />
+          <ImageContainer>
+            <ContentfulImage
+              image={image}
+              alt=""
+              // width={250}
+              // height={250}
+              layout="fill"
+            />
+          </ImageContainer>
         )}
       </div>
-      <div className="bg-grey-light p-10">
+      <div className="bg-grey-light pt-10 w-full flex-shrink">
         <div>
-          <span className="mx-1 text-2xl font-bold">{name}</span>
-          <span className="font-bold text-m uppercase text-grey">
+          <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
+          <span className="font-bold text-m uppercase text-grey block md:inline">
             Partner Since 2020
           </span>
         </div>
-        <div className="text-left text-lg mb-8">{description}</div>
-        <DarkButton className="w-64" href={website}>
-          {domain ?? name}
-        </DarkButton>
+        <div className="px-5 mb-8 flex flex-col">
+          <div className="text-center lg:text-left text-xl">
+            {description && documentToReactComponents(description)}
+          </div>
+          <DarkButton
+            className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono"
+            href={website}
+          >
+            {domain ?? name}
+          </DarkButton>
+        </div>
       </div>
     </div>
   );
 };
 
 const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
-  const ps = partners.slice(1, 10);
+  const ps = partners; //.slice(1, 10);
   return (
-    <div className="md:mx-auto w-3/4">
+    <div className="md:mx-auto lg:w-3/4">
       {ps.map((p) => (
         <PartnerCard key={p.sys.id} partner={p} />
       ))}
