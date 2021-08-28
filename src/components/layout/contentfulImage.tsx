@@ -22,6 +22,9 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
   }
 
   const { width, height } = details.image;
+
+  console.log({ width, height });
+
   return (
     <Image
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
