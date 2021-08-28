@@ -27,7 +27,7 @@ const GrantsPollinationProject: React.FC = () => {
           </p>
           <LightButton
             className="mt-6 font-mono text-md font-semibold inline-block uppercase"
-            href="https://thepollinationproject.org"
+            href="https://thepollinationproject.org/pre-screen-quiz/"
           >
             ThePollinationProject.org
           </LightButton>
