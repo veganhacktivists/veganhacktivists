@@ -5,6 +5,8 @@ import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import useWindowSize from '../../../hooks/useWindowSize';
 import SquareField from '../../decoration/squares';
+import type { IBlogEntry } from '../../../types/generated/contentful';
+import BlogEntrySummary from '../blog/blogEntrySummary';
 
 const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
@@ -16,51 +18,33 @@ interface BlogEntrySummaryProps {
   slug: string;
 }
 
-const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
-  image,
-  title,
-  slug,
-}) => {
-  return (
-    <div>
-      <div className="overflow-hidden w-full">
-        <ImageContainer>
-          <Image
-            src={image}
-            className="w-full bg-cover"
-            alt="Compassion, Creativity, Code"
-          />
-        </ImageContainer>
-      </div>
-      <div className="overflow-hidden w-full">
-        <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-          <p className="font-semibold text-2xl">{title}</p>
-        </div>
-        <GreenButton href={`/blog/${slug}`}>Read More</GreenButton>
-      </div>
-    </div>
-  );
-};
+// const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
+//   image,
+//   title,
+//   slug,
+// }) => {
+//   return (
+//     <div>
+//       <div className="overflow-hidden w-full">
+//         <ImageContainer>
+//           <Image
+//             src={image}
+//             className="w-full bg-cover"
+//             alt="Compassion, Creativity, Code"
+//           />
+//         </ImageContainer>
+//       </div>
+//       <div className="overflow-hidden w-full">
+//         <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
+//           <p className="font-semibold text-2xl">{title}</p>
+//         </div>
+//         <GreenButton href={`/blog/${slug}`}>Read More</GreenButton>
+//       </div>
+//     </div>
+//   );
+// };
 
-const lastEntries: BlogEntrySummaryProps[] = [
-  {
-    image: blogCow,
-    slug: 'test-preview',
-    title: 'Developers! Join Our New Open Source Community - VH: Playground',
-  },
-  {
-    image: blogCow,
-    slug: 'test-preview',
-    title: 'Developers! Join Our New Open Source Community - VH: Playground',
-  },
-  {
-    image: blogCow,
-    slug: 'test-preview',
-    title: 'Developers! Join Our New Open Source Community - VH: Playground',
-  },
-];
-
-const LastBlogEntries: React.FC = () => {
+const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (
     <>
       <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
@@ -73,9 +57,9 @@ const LastBlogEntries: React.FC = () => {
           other fun stuff here! Thanks for reading!
         </p>
       </div>
-      <div className="flex md:flex-row flex-col md:space-x-4 md:space-y-0 space-y-4 lg:px-32 px-4">
-        {lastEntries.map((entry) => (
-          <BlogEntrySummary key={entry.slug} {...entry} />
+      <div className="grid grid-cols-1 md:grid-cols-3 md:space-x-4 md:space-y-0 space-y-4 lg:px-32 px-4">
+        {entries.map((entry) => (
+          <BlogEntrySummary key={entry.fields.slug} blog={entry} />
         ))}
       </div>
       <SquareField

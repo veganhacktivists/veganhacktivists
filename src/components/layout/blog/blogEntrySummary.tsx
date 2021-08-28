@@ -24,13 +24,16 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     <Link href={`/blog/${blog.fields.slug}`}>
       <a>
         <div
-          className={classNames('shadow-xl h-full grid overflow-hidden', {
-            'grid-cols-1 h-96': !heading,
-            'grid-cols-2 h-96': heading,
-          })}
+          className={classNames(
+            'shadow-xl h-full grid overflow-hidden bg-white',
+            {
+              'grid-cols-1': !heading,
+              'grid-cols-2': heading,
+            }
+          )}
         >
           <div
-            className={classNames('w-full overflow-hidden relative z-0', {
+            className={classNames('w-full overflow-hidden relative', {
               // 'h-48': !heading,
             })}
           >

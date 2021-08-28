@@ -17,44 +17,18 @@ import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import Head from 'next/head';
 import { DarkButton } from '../../components/decoration/buttons';
+import { getBlogEntries } from '../../lib/cms/helpers';
 
 interface BlogProps {
   blogs: IBlogEntry[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [newBlogs, oldBlogs] = await Promise.all([
-    getContents<IBlogEntry>({
-      contentType: 'blogEntry',
-      query: {
-        filters: {
-          exists: { publishDate: false },
-        },
-      },
-      other: {
-        order: '-sys.createdAt',
-        select:
-          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
-      },
-    }),
-    getContents<IBlogEntry>({
-      contentType: 'blogEntry',
-      query: {
-        filters: {
-          exists: { publishDate: true },
-        },
-      },
-      other: {
-        order: '-fields.publishDate',
-        select:
-          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
-      },
-    }),
-  ]);
+  const blogs = await getBlogEntries();
 
   return {
     props: {
-      blogs: [...newBlogs, ...oldBlogs],
+      blogs,
     },
     revalidate: 240,
   };

@@ -10,9 +10,9 @@ import { GrantsCallToAction } from '../components/layout/grants/index';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
-import type { IProject } from '../types/generated/contentful';
+import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
-import { getFeaturedProjects } from '../lib/cms/helpers';
+import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import {} from '../components/decoration/textBlocks';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 
@@ -45,15 +45,19 @@ const BLOG_DECORATION_SQUARES = [
 
 interface HomeProps {
   featuredProjects: IProject[];
+  lastBlogEntries: IBlogEntry[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = await getFeaturedProjects();
+  const [featuredProjects, lastBlogEntries] = await Promise.all([
+    getFeaturedProjects(),
+    getBlogEntries(3),
+  ]);
 
-  return { props: { featuredProjects }, revalidate: 240 };
+  return { props: { featuredProjects, lastBlogEntries }, revalidate: 240 };
 };
 
-const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
+const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   return (
     <>
       <Head>
@@ -160,7 +164,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         squares={BLOG_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <LastBlogEntries />
+      <LastBlogEntries entries={lastBlogEntries} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
