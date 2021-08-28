@@ -20,7 +20,7 @@ const JoinTheTeam: React.FC = () => {
           Are you a developer, designer, writer, or other creative professional
           wanting to use skills for the animals? We&apos;re always looking for
           more vegan activist volunteers to join our team! If you&apos;re
-          interested and have the time to spare, click to see our positions.
+          interested and have the time to spare, click to see our positions. 
         </p>
         <div className="flex justify-center flex-wrap">
           <LightButton
