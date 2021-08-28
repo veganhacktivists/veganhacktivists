@@ -16,10 +16,10 @@ export enum Site {
   Facebook = 'facebook',
 }
 
-export type SocialLink = {
+export interface SocialLink {
   site: Site;
   link: string;
-};
+}
 
 export const PeopleButtons: React.FC = () => {
   return (

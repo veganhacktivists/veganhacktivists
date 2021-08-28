@@ -16,6 +16,7 @@
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-fragments": ["warn"],
     "react/jsx-pascal-case": ["error"],
+    "react/display-name": ["off"],
 
     // typescript
     "@typescript-eslint/consistent-type-imports": [
@@ -24,6 +25,7 @@
         "prefer": "type-imports"
       }
     ],
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
     "@typescript-eslint/array-type": ["warn", { "default": "array" }],
     "@typescript-eslint/ban-types": [
       "warn",
