@@ -212,6 +212,9 @@ export interface ITeamMemberFields {
 
   /** isTeamLeader */
   isTeamLeader: boolean;
+
+  /** isInactive */
+  isInactive: boolean;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {

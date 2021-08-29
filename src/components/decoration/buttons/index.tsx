@@ -66,7 +66,7 @@ const LightButton: React.FC<ButtonProps> = ({
 }) => {
   const classes = classNames(
     baseButtonClasses,
-    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
+    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
     primary ? 'border-pink' : '',
     className
   );

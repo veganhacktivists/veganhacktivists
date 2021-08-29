@@ -27,6 +27,9 @@ export const getStaticProps: GetStaticProps = async () => {
     contentType: 'teamMember',
     query: {
       type: 'team',
+      ne: {
+        isInactive: true,
+      },
     },
     other: { order: 'fields.isTeamLeader' },
   });
