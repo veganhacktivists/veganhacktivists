@@ -1,23 +1,21 @@
 import type { GetStaticProps } from 'next';
-import { getContents } from '../../lib/cms';
-import type { IBlogEntry } from '../../types/generated/contentful';
+import type { IBlogEntry, ITag } from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 import classNames from 'classnames';
-import Image from 'next/image';
 
-import roundLogo from '../../../public/images/VH_Logo_Crest_Tagline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faSearch,
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import Head from 'next/head';
 import { DarkButton } from '../../components/decoration/buttons';
 import { getBlogEntries } from '../../lib/cms/helpers';
+import SquareField from '../../components/decoration/squares';
+import BlogsHeader from '../../components/layout/blog/blogsHeader';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -57,51 +55,39 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     initialPageSize: 10,
   });
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0 });
-  // }, [currentPage]);
-
   return (
     <>
       <Head>
         <title>Blog | Vegan Hacktivists</title>
       </Head>
-      <div className="flex relative bg-black justify-around text-white p-10">
-        <div className="flex flex-col justify-center w-1/2 z-10">
-          <div className="w-48 mx-auto my-10">
-            <Image src={roundLogo} alt="" />
-          </div>
-          <div className="text-3xl px-16">
-            This is the official blog for the Vegan Hacktivists. We regularly
-            post project updates, announcements, interviews, and other fun stuff
-            here! Thanks for reading!
-          </div>
-        </div>
-        <div className="bg-grey mt-10 p-5">
-          <label className="border-3 border-grey-lighter p-2 text-xl">
-            <input
-              className="bg-invisible outline-none pr-2"
-              type="text"
-              name="query"
-              id="blogQuery"
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-              }}
-            />
-            <FontAwesomeIcon icon={faSearch} />
-          </label>
-        </div>
-      </div>
-      <div className="pt-10 pb-20">
-        <div className="grid md:grid-cols-3 md:gap-x-20 gap-y-10 px-72  auto-rows-min">
+      <SquareField
+        squares={[
+          { color: 'grey', size: 32, top: 0, left: 0 },
+          { color: 'grey-dark', size: 16, top: 0, left: 32 },
+          { color: 'grey-dark', size: 16, top: 0, right: 0 },
+        ]}
+        className="z-10"
+      />
+      <BlogsHeader onQueryChange={setQuery} query={query} />
+      <SquareField
+        squares={[
+          { color: 'green-light', size: 32, top: -16, left: 0 },
+          { color: 'yellow', size: 16, bottom: 16, left: 32 },
+          { color: 'white', size: 16, bottom: 0, left: 32 },
+          { color: 'pink', size: 32, bottom: 0, right: 16 },
+          { color: 'orange', size: 16, top: 0, right: 0 },
+          { color: 'white', size: 16, bottom: 0, right: 0 },
+        ]}
+      />
+      <div className="pt-20 pb-20">
+        <div className="grid md:grid-cols-3 md:gap-x-20 gap-y-10 px-10 xl:px-72  auto-rows-min">
           {filteredEntries.slice(startIndex, endIndex + 1).map((blog, i) => {
             const first = i === 0 && currentPage === 0 && !query;
 
             return (
               <div
                 key={blog.fields.slug}
-                className={classNames({
+                className={classNames('col-span-full md:col-span-1', {
                   'first:col-span-full': first,
                 })}
               >

@@ -1,9 +1,5 @@
-import { GreenButton, LightButton } from '../../decoration/buttons';
-import ImageContainer from '../../decoration/imageContainer';
-import blogCow from '../../../../public/images/Blog-cow.jpg';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
-import useWindowSize from '../../../hooks/useWindowSize';
+import { LightButton } from '../../decoration/buttons';
+import React from 'react';
 import SquareField from '../../decoration/squares';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import BlogEntrySummary from '../blog/blogEntrySummary';
@@ -11,38 +7,6 @@ import BlogEntrySummary from '../blog/blogEntrySummary';
 const BLOG_INNER_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
-
-interface BlogEntrySummaryProps {
-  image: StaticImageData;
-  title: string;
-  slug: string;
-}
-
-// const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
-//   image,
-//   title,
-//   slug,
-// }) => {
-//   return (
-//     <div>
-//       <div className="overflow-hidden w-full">
-//         <ImageContainer>
-//           <Image
-//             src={image}
-//             className="w-full bg-cover"
-//             alt="Compassion, Creativity, Code"
-//           />
-//         </ImageContainer>
-//       </div>
-//       <div className="overflow-hidden w-full">
-//         <div className="px-8 pt-6 pb-6 content-center mx-auto bg-white">
-//           <p className="font-semibold text-2xl">{title}</p>
-//         </div>
-//         <GreenButton href={`/blog/${slug}`}>Read More</GreenButton>
-//       </div>
-//     </div>
-//   );
-// };
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (

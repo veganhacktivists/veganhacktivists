@@ -21,65 +21,57 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
   return (
-    <Link href={`/blog/${blog.fields.slug}`}>
-      <a>
-        <div
-          className={classNames(
-            'shadow-xl h-full grid overflow-hidden bg-white',
-            {
-              'grid-cols-1': !heading,
-              'grid-cols-2': heading,
-            }
-          )}
-        >
-          <div
-            className={classNames('w-full overflow-hidden relative', {
-              // 'h-48': !heading,
-            })}
-          >
-            <ImageContainer>
-              <ContentfulImage
-                image={blog.fields.featuredImage}
-                alt=""
-                layout="responsive"
-                objectFit="cover"
-              />
-            </ImageContainer>
-            {heading && (
-              <div className="p-2 bottom-0 text-white uppercase text-xl absolute bg-black border-white border-3 border-l-0 border-b-0">
-                Latest post
-              </div>
-            )}
+    <div
+      className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
+        'grid-cols-1': !heading,
+        'md:grid-cols-2': heading,
+      })}
+    >
+      <div
+        className={classNames('w-full overflow-hidden relative', {
+          // 'h-48': !heading,
+        })}
+      >
+        <ImageContainer>
+          <ContentfulImage
+            image={blog.fields.featuredImage}
+            alt=""
+            layout="responsive"
+            objectFit="cover"
+          />
+        </ImageContainer>
+        {heading && (
+          <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-3 border-l-0 border-b-0">
+            Latest post
           </div>
-          <div className="flex flex-col justify-between flex-shrink">
-            <div className="my-auto px-5">
-              <div className="text-xl">
-                {new Intl.DateTimeFormat('en', {
-                  month: 'long',
-                  year:
-                    date.getFullYear() !== currentYear ? 'numeric' : undefined,
-                  day: 'numeric',
-                }).format(date)}
-              </div>
-              <b className="text-3xl line-clamp-2" title={blog.fields.title}>
-                {blog.fields.title}
-              </b>
-              {heading && (
-                <div className="text-xl line-clamp-3">
-                  {documentToReactComponents(blog.fields.excerpt)}
-                </div>
-              )}
+        )}
+      </div>
+      <div className="flex flex-col justify-between flex-shrink">
+        <div className="my-auto px-5">
+          <div className="text-xl">
+            {new Intl.DateTimeFormat('en', {
+              month: 'long',
+              year: date.getFullYear() !== currentYear ? 'numeric' : undefined,
+              day: 'numeric',
+            }).format(date)}
+          </div>
+          <b className="text-3xl line-clamp-2" title={blog.fields.title}>
+            {blog.fields.title}
+          </b>
+          {heading && (
+            <div className="text-xl line-clamp-3">
+              {documentToReactComponents(blog.fields.excerpt)}
             </div>
-            <GreenButton
-              className="uppercase mb-0"
-              href={`/blog/${blog.fields.slug}`}
-            >
-              Read More
-            </GreenButton>
-          </div>
+          )}
         </div>
-      </a>
-    </Link>
+        <GreenButton
+          className="uppercase mb-0"
+          href={`/blog/${blog.fields.slug}`}
+        >
+          Read More
+        </GreenButton>
+      </div>
+    </div>
   );
 };
 

@@ -108,16 +108,16 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
           />
         </div>
         <div className="mx-auto pt-40">
-          <ImageContainer className="border-2 border-white w-min mx-auto">
+          <ImageContainer className="border-2 border-white w-1/2 mx-auto">
             <ContentfulImage
               image={featuredImage}
               alt=""
-              layout="fixed"
+              layout="responsive"
               priority
             />
           </ImageContainer>
         </div>
-        <div className="text-justify p-10 pb-20 px-10 md:px-64 text-2xl leading-loose space-y-4">
+        <div className="text-justify p-10 pb-20 px-10 md:px-64 text-xl leading-loose space-y-4">
           <h1 className="text-4xl font-bold w-2/3">{title}</h1>
           {documentToReactComponents(content, richTextOptions)}
           {author && <div>Author: {author.fields.name}</div>}
