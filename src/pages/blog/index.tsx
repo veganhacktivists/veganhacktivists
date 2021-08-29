@@ -80,7 +80,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
         ]}
       />
       <div className="pt-20 pb-20">
-        <div className="grid md:grid-cols-3 md:gap-x-20 gap-y-10 px-10 xl:px-72  auto-rows-min">
+        <div className="grid md:grid-cols-3 md:gap-x-8 gap-y-10 px-10 xl:px-72  auto-rows-min">
           {filteredEntries.slice(startIndex, endIndex + 1).map((blog, i) => {
             const first = i === 0 && currentPage === 0 && !query;
 

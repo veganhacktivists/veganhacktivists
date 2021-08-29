@@ -47,15 +47,15 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         )}
       </div>
       <div className="flex flex-col justify-between flex-shrink">
-        <div className="my-auto px-5">
-          <div className="text-xl">
+        <div className="my-auto px-5 mb-5 mt-5">
+          <div className="text-xl mb-3">
             {new Intl.DateTimeFormat('en', {
               month: 'long',
               year: date.getFullYear() !== currentYear ? 'numeric' : undefined,
               day: 'numeric',
             }).format(date)}
           </div>
-          <b className="text-3xl line-clamp-2" title={blog.fields.title}>
+          <b className="text-2xl line-clamp-2" title={blog.fields.title}>
             {blog.fields.title}
           </b>
           {heading && (
@@ -64,12 +64,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </div>
           )}
         </div>
-        <GreenButton
+        <DarkButton
           className="uppercase mb-0"
           href={`/blog/${blog.fields.slug}`}
         >
           Read More
-        </GreenButton>
+        </DarkButton>
       </div>
     </div>
   );
