@@ -5,7 +5,7 @@ import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { GreenButton } from '../../decoration/buttons';
-import { DarkButton, LightButton } from '../components/decoration/buttons';
+import { DarkButton, LightButton } from '../../components/decoration/buttons';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
