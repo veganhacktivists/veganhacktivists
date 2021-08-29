@@ -5,6 +5,7 @@ import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { GreenButton } from '../../decoration/buttons';
+import { DarkButton, LightButton } from '../../../components/decoration/buttons';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -47,15 +48,15 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         )}
       </div>
       <div className="flex flex-col justify-between flex-shrink">
-        <div className="my-auto px-5">
-          <div className="text-xl">
+        <div className="my-auto px-5 mb-5 mt-5">
+          <div className="text-xl mb-3 font-mono font-bold">
             {new Intl.DateTimeFormat('en', {
               month: 'long',
               year: date.getFullYear() !== currentYear ? 'numeric' : undefined,
               day: 'numeric',
             }).format(date)}
           </div>
-          <b className="text-3xl line-clamp-2" title={blog.fields.title}>
+          <b className="text-2xl font-mono font-semibold line-clamp-2" title={blog.fields.title}>
             {blog.fields.title}
           </b>
           {heading && (
@@ -64,12 +65,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </div>
           )}
         </div>
-        <GreenButton
-          className="uppercase mb-0"
+        <DarkButton
+          className="mb-0"
           href={`/blog/${blog.fields.slug}`}
         >
           Read More
-        </GreenButton>
+        </DarkButton>
       </div>
     </div>
   );
