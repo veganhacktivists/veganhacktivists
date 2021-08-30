@@ -124,7 +124,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           buttonText="contact us"
           buttonHref="mailto:hello@veganhacktivists.org"
         >
-          For tax-deductible, larger donations
+          For tax-deductible (U.S.), larger donations
         </DonationCard>
       </div>
       <Paragraph>
