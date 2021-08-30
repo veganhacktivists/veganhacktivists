@@ -85,8 +85,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
       />
       <div className="px-10">
         <PlainHeader header="Support Us">
-          With your gift, we can make a greater impact and change the world for
-          our animal friends.
+        With your gift, we can make a greater and real impact to help change the world for our animal friends. Thank you.
         </PlainHeader>
         <Paragraph>
           Thank you so much for considering supporting us! We are a 100% vegan
@@ -145,14 +144,14 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         ]}
         className="hidden md:block"
       />
-      <div className=" py-24 mx-auto  px-10 bg-gray-background">
+      <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
         <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}
           alt="Our community"
         />
-        <h2 className="mb-16 text-4xl font-bold">Thank You</h2>
+        <h2 className="mb-8 text-4xl font-bold">Thank You</h2>
         <Paragraph>
           Thank you so much for your donation. We want to take a moment to thank
           the people below for their continued support - for those who have
