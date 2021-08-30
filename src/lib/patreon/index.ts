@@ -1,8 +1,8 @@
-export const getPatrons: () => Promise<string[]> = async () => {
-  const accessToken = process.env.PATREON_ACCESS_TOKEN;
-  const campaignId = process.env.PATREON_CAMPAIGN_ID;
+const accessToken = process.env.PATREON_ACCESS_TOKEN;
+const campaignId = process.env.PATREON_CAMPAIGN_ID;
 
-  const patronsUrl = `https://www.patreon.com/api/campaigns/${campaignId}/pledges?include=patron.null`;
+export const getPatrons: () => Promise<string[]> = async () => {
+  const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null`;
 
   const pages = [];
   let currUrl = patronsUrl;
