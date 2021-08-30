@@ -49,6 +49,10 @@ const colors = {
     DEFAULT: '#7E3C96',
     dark: '#6B2D82',
   },
+  blue: {
+    DEFAULT: '#4055A4',
+    dark: '#183260',
+  },
 };
 
 const sizes = {

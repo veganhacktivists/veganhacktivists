@@ -2,6 +2,25 @@ interface SubSectionContent {
   header?: string;
 }
 
+export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
+  return (
+    <span className="font-mono font-bold text-5xl uppercase text-black">
+      {children}
+    </span>
+  );
+};
+
+export const HeaderContainer: React.FC<SubSectionContent> = ({
+  header = '',
+  children,
+}) => {
+  return (
+    <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
+      <h1 className="mb-10">{children}</h1>
+    </div>
+  );
+};
+
 export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
   children,
@@ -11,15 +30,23 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
   const remainingWords = tokenizedHeader.join(' ');
 
   return (
-    <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
-      <h1 className="mb-8">
-        <span className="font-italic text-3xl">{firstWord}</span>{' '}
-        <span className="font-mono font-bold text-5xl uppercase text-black">
-          {remainingWords}
-        </span>
-      </h1>
+    <HeaderContainer>
+      <span className="font-italic text-3xl">{firstWord}</span>{' '}
+      <BoldHeaderText>{remainingWords}</BoldHeaderText>
       <p>{children}</p>
-    </div>
+    </HeaderContainer>
+  );
+};
+
+export const PlainHeader: React.FC<SubSectionContent> = ({
+  header = '',
+  children,
+}) => {
+  return (
+    <HeaderContainer>
+      <BoldHeaderText>{header}</BoldHeaderText>
+      <p className="text-2xl">{children}</p>
+    </HeaderContainer>
   );
 };
 
