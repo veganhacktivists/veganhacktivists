@@ -97,7 +97,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           the world to us and the animals to have your support.
         </Paragraph>
       </div>
-      <div className="flex flex-wrap justify-center items-end mb-16">
+      <div className="flex flex-wrap justify-center items-end mb-16 mt-16">
         <DonationCard
           color="blue"
           image={PayPalLogo}
