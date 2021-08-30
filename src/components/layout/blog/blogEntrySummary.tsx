@@ -5,7 +5,10 @@ import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { GreenButton } from '../../decoration/buttons';
-import { DarkButton, LightButton } from '../../../components/decoration/buttons';
+import {
+  DarkButton,
+  LightButton,
+} from '../../../components/decoration/buttons';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -56,7 +59,10 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
               day: 'numeric',
             }).format(date)}
           </div>
-          <b className="text-2xl font-mono font-semibold line-clamp-2" title={blog.fields.title}>
+          <b
+            className="text-2xl font-mono font-semibold line-clamp-2"
+            title={blog.fields.title}
+          >
             {blog.fields.title}
           </b>
           {heading && (
@@ -65,10 +71,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </div>
           )}
         </div>
-        <DarkButton
-          className="mb-0"
-          href={`/blog/${blog.fields.slug}`}
-        >
+        <DarkButton className="mb-0" href={`/blog/${blog.fields.slug}`}>
           Read More
         </DarkButton>
       </div>
