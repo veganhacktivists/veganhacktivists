@@ -32,10 +32,10 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
         <div className="w-48 mx-auto my-10">
           <Image src={roundLogo} alt="" />
         </div>
-        <div className="text-2xl px-16">
-          This is the official blog for the VH! We regularly post 
-		  project updates, announcements, interviews, and other fun 
-		  stuff here. Thanks for reading!
+        <div className="text-2xl px-16 font-mono">
+          This is the official blog for the VH! We regularly post project
+          updates, announcements, interviews, and other fun stuff here. Thanks
+          for reading!
         </div>
       </div>
       <div className="bg-grey-dark mt-10 p-10">
