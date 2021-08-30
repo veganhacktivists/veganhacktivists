@@ -1,7 +1,7 @@
-const accessToken = process.env.PATREON_ACCESS_TOKEN;
-const campaignId = process.env.PATREON_CAMPAIGN_ID;
-
 export const getPatrons: () => Promise<string[]> = async () => {
+  const accessToken = process.env.PATREON_ACCESS_TOKEN;
+  const campaignId = process.env.PATREON_CAMPAIGN_ID;
+
   const patronsUrl = `https://www.patreon.com/api/campaigns/${campaignId}/pledges?include=patron.null`;
 
   const pages = [];
@@ -17,7 +17,7 @@ export const getPatrons: () => Promise<string[]> = async () => {
     const data = await res.json();
 
     pages.push(data);
-    if (!data.links.next) {
+    if (!data.links?.next) {
       hasNextPage = false;
     } else {
       currUrl = data.links.next;

@@ -1,5 +1,5 @@
 import type { GetStaticProps } from 'next';
-import type { IBlogEntry, ITag } from '../../types/generated/contentful';
+import type { IBlogEntry } from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 import classNames from 'classnames';
 
