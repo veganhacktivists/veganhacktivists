@@ -176,11 +176,11 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
   );
 };
 
-const accessToken = process.env.PATREON_ACCESS_TOKEN;
-const campaignId = process.env.PATREON_CAMPAIGN_ID;
-const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null`;
-
 export const getStaticProps: GetStaticProps = async () => {
+  const accessToken = process.env.PATREON_ACCESS_TOKEN;
+  const campaignId = process.env.PATREON_CAMPAIGN_ID;
+  const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null`;
+
   const pages = [];
   let currUrl = patronsUrl;
   let hasNextPage = true;
@@ -192,11 +192,11 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     });
     const data = await res.json();
-    if (data.error) {
+
+    if (data.errors) {
       return {
         props: {
           patrons: [],
-          res: data,
         },
       };
     }

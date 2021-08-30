@@ -112,7 +112,7 @@ exports[`should render correctly 1`] = `
       class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-8"
+        class="mb-10"
       >
         <span
           class="font-italic text-3xl"
@@ -125,10 +125,10 @@ exports[`should render correctly 1`] = `
         >
           services
         </span>
+        <p>
+          Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
+        </p>
       </h1>
-      <p>
-        Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
-      </p>
     </div>
     <div
       class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
