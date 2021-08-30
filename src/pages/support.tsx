@@ -15,6 +15,7 @@ import { PlainHeader } from '../components/decoration/textBlocks';
 import { LightButton } from '../components/decoration/buttons';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
+import { getPatrons } from '../lib/patreon';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -177,46 +178,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const patronsUrl = `https://www.patreon.com/api/campaigns/${process.env.PATREON_CAMPAIGN_ID}/pledges?include=patron.null`;
-
-  const pages = [];
-  let currUrl = patronsUrl;
-  let hasNextPage = true;
-
-  while (hasNextPage) {
-    const res = await fetch(currUrl, {
-      headers: {
-        Authorization: `Bearer ${process.env.PATREON_ACCESS_TOKEN}`,
-      },
-    });
-    const data = await res.json();
-
-    if (data.errors) {
-      return {
-        props: {
-          patrons: [],
-        },
-      };
-    }
-
-    pages.push(data);
-    if (!data.links.next) {
-      hasNextPage = false;
-    } else {
-      currUrl = data.links.next;
-    }
-  }
-
-  const patrons: string[] = [];
-
-  pages.forEach((page) => {
-    // @ts-expect-error we don't have types for the patreon api
-    page.included.forEach((patron) => {
-      if (patron.type === 'user' && patron.attributes.full_name) {
-        patrons.push(patron.attributes.full_name);
-      }
-    });
-  });
+  const patrons = await getPatrons();
 
   return {
     props: {
