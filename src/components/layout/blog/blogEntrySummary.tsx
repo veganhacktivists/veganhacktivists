@@ -66,7 +66,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           )}
         </div>
         <DarkButton
-          className="uppercase mb-0"
+          className="mb-0"
           href={`/blog/${blog.fields.slug}`}
         >
           Read More
