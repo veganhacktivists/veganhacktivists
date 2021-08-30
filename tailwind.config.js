@@ -4,6 +4,7 @@ const colors = {
   // Grays
   black: '#161919',
   transparent: '#00000033',
+  invisible: '#00000000',
   white: twColors.white,
   grey: {
     DEFAULT: '#454545',
@@ -47,6 +48,10 @@ const colors = {
   purple: {
     DEFAULT: '#7E3C96',
     dark: '#6B2D82',
+  },
+  blue: {
+    DEFAULT: '#4055A4',
+    dark: '#183260',
   },
 };
 
@@ -98,7 +103,15 @@ module.exports = {
       maxWidth: sizes,
       minWidth: sizes,
       minHeight: sizes,
+<<<<<<< HEAD
       maxHeight: sizes,
+=======
+      boxShadow: {
+        'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
+        'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
+        'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
+      },
+>>>>>>> origin/main
     },
     colors,
     fontFamily: {
@@ -106,14 +119,13 @@ module.exports = {
       sans: 'PT Sans',
       italic: 'Bitter',
     },
-    boxShadow: {
-      'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
-      'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
-    },
   },
   variants: {
-    extend: {},
+    extend: {
+      gridColumn: ['first'],
+      backgroundColor: ['disabled'],
+      cursor: ['disabled'],
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

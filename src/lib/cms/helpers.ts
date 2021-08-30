@@ -33,7 +33,9 @@ export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
   const teams = await getContents<ITeamFields>({
     contentType: 'team',
     query: {
-      ne: { isInactive: true },
+      filters: {
+        ne: { isInactive: true },
+      },
     },
   });
 
@@ -65,3 +67,48 @@ export const getFeaturedProjects: () => Promise<Entry<IProjectFields>[]> =
 
     return projects;
   };
+
+export const getBlogEntries: (
+  limit?: number
+) => Promise<Entry<IBlogEntryFields>[]> = async (limit) => {
+  const [newBlogs, oldBlogs] = await Promise.all([
+    getContents<IBlogEntryFields>({
+      contentType: 'blogEntry',
+      query: {
+        filters: {
+          exists: { publishDate: false },
+        },
+      },
+      other: {
+        order: '-sys.createdAt',
+        select:
+          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
+        limit,
+      },
+    }),
+    getContents<IBlogEntryFields>({
+      contentType: 'blogEntry',
+      query: {
+        filters: {
+          exists: { publishDate: true },
+        },
+      },
+      other: {
+        order: '-fields.publishDate',
+        select:
+          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
+        limit,
+      },
+    }),
+  ]);
+
+  return [...newBlogs, ...oldBlogs].slice(0, limit);
+};
+
+// export const getlastBlogEntries: (limit?: number) => Promise<IBlogEntry[]> =
+//   async (limit = 3) => {
+//     const lastEntries = await getContents<IBlogEntryFields>({
+//       contentType: 'blogEntry',
+//       other: { limit, sort:"" },
+//     });
+//   };
