@@ -97,15 +97,6 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           support us, please consider supporting us with a donation! It means
           the world to us and the animals to have your support.
         </Paragraph>
-        <Paragraph>
-          We prefer a{' '}
-          <span className="font-bold">monthly donation via Patreon</span> as
-          that gives us the most stability every month, but we also accept one
-          time donations via Paypal. If you would like to make a larger
-          contribution of $1000 or more (thank you!) please contact us for other
-          options like wire or check. We have a fiscal sponsor that will let you
-          claim your donation as tax deductable!
-        </Paragraph>
       </div>
       <div className="flex flex-wrap justify-center items-end mb-16">
         <DonationCard
@@ -137,6 +128,15 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           For tax-deductible, larger donations
         </DonationCard>
       </div>
+      <Paragraph>
+          We prefer a{' '}
+          <span className="font-bold">monthly donation via Patreon</span> as
+          that gives us the most stability every month, but we also accept one
+          time donations via Paypal. If you would like to make a larger
+          contribution of $1000 or more (thank you!) please contact us for other
+          options like wire or check. We have a fiscal sponsor that will let you
+          claim your donation as tax deductable!
+        </Paragraph>
       <SquareField
         squares={[
           { color: 'gray-background', size: 16, bottom: 0, left: 0 },
