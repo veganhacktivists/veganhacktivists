@@ -24,7 +24,11 @@ export const getPatrons: () => Promise<string[]> = async () => {
     }
   }
 
-  const patrons: string[] = [];
+  const patrons: string[] = [
+    'Krishan Chockalingam',
+    'Eat The Change',
+    'The Pollination Project',
+  ];
 
   pages.forEach((page) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
