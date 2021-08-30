@@ -57,24 +57,18 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
       <div className="relative w-full min-h-450px md:min-h-0 md:w-1/3 md:h-96">
         {image && (
           <ImageContainer>
-            <ContentfulImage
-              image={image}
-              alt=""
-              // width={250}
-              // height={250}
-              layout="fill"
-            />
+            <ContentfulImage image={image} alt="" layout="fill" />
           </ImageContainer>
         )}
       </div>
-      <div className="bg-grey-light pt-10 w-full flex-shrink">
-        <div>
+      <div className="bg-grey-light p-10 w-full flex-shrink">
+        <div className="mb-2">
           <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
           <span className="font-bold text-m uppercase text-grey block md:inline">
             Partner Since 2020
           </span>
         </div>
-        <div className="px-5 mb-8 flex flex-col">
+        <div className="p-5 h-full flex flex-col justify-between">
           <div className="text-center lg:text-left text-xl">
             {description && documentToReactComponents(description)}
           </div>

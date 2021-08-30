@@ -103,15 +103,12 @@ module.exports = {
       maxWidth: sizes,
       minWidth: sizes,
       minHeight: sizes,
-<<<<<<< HEAD
       maxHeight: sizes,
-=======
       boxShadow: {
         'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
         'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
         'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
       },
->>>>>>> origin/main
     },
     colors,
     fontFamily: {
