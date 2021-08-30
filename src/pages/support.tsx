@@ -177,9 +177,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const accessToken = process.env.PATREON_ACCESS_TOKEN;
-  const campaignId = process.env.PATREON_CAMPAIGN_ID;
-  const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null`;
+  const patronsUrl = `https://www.patreon.com/api/campaigns/${process.env.PATREON_CAMPAIGN_ID}/pledges?include=patron.null`;
 
   const pages = [];
   let currUrl = patronsUrl;
@@ -188,7 +186,7 @@ export const getStaticProps: GetStaticProps = async () => {
   while (hasNextPage) {
     const res = await fetch(currUrl, {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${process.env.PATREON_ACCESS_TOKEN}`,
       },
     });
     const data = await res.json();
