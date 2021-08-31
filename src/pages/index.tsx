@@ -13,7 +13,6 @@ import FeaturedProject from '../components/layout/index/featuredProject';
 import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
-import {} from '../components/decoration/textBlocks';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 
 const HERO_DECORATION_SQUARES = [

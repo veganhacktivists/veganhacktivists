@@ -40,7 +40,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           />
         </ImageContainer>
         {heading && (
-          <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-3 border-l-0 border-b-0">
+          <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">
             Latest post
           </div>
         )}

@@ -55,16 +55,6 @@ const colors = {
   },
 };
 
-const sizes = {
-  '450px': '450px',
-  'screen-60%': '60vh',
-  'screen-header': 'calc(100vh - 74px)',
-  'screen/2': '50vh',
-  '1/2': '50%',
-  '1/3': '33%',
-  160: '40rem',
-};
-
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
 colors.gray = colors.grey;
 colors.pink = colors.magenta;
@@ -82,22 +72,13 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      borderWidth: {
-        3: '3px',
-      },
       zIndex: {
         '-10': '-10',
       },
-      height: sizes,
-      width: sizes,
-      maxWidth: sizes,
-      minWidth: sizes,
-      minHeight: sizes,
-      maxHeight: sizes,
       boxShadow: {
-        'fill-green': `inset 700px 0 0 0 ${colors.green.DEFAULT}`,
-        'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
-        'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
+        'fill-green': `inset 800px 0 0 0 ${colors.green.DEFAULT}`,
+        'fill-pink': `inset 800px 0 0 0 ${colors.pink.DEFAULT}`,
+        'fill-red': `inset 800px 0 0 0 ${colors.red.DEFAULT}`,
       },
     },
     colors,
@@ -108,10 +89,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-      backgroundColor: ['disabled'],
-      cursor: ['disabled'],
-    },
+    extend: {},
   },
   plugins: [require('@tailwindcss/line-clamp')],
 };
