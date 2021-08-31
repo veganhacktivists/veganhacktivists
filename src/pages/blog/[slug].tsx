@@ -9,6 +9,8 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import Head from 'next/head';
 import ImageContainer from '../../components/decoration/imageContainer';
 import SquareField from '../../components/decoration/squares';
+import React from 'react';
+import Circle from '../../components/decoration/circle';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -92,20 +94,31 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog }) => {
         <title>{title} | Vegan Hacktivists Blog</title>
       </Head>
       <div>
-        <div className="absolute w-full -z-10">
+        <div className="absolute w-full -z-10 overflow-hidden">
+          <div className="relative z-10">
+            <Circle opacity={0.1} xAlign="left" yAlign="top" radiusZoom={0.5} />
+            <Circle
+              opacity={0.05}
+              xAlign="right"
+              yAlign="bottom"
+              radiusZoom={0.3}
+            />
+          </div>
           <div className="bg-black relative h-80" />
-          <SquareField
-            squares={[
-              // TODO tweak
-              { color: 'white', size: 16, left: 0, bottom: 0 },
-              { color: 'green', size: 32, left: 16, bottom: 0 },
-              { color: 'yellow', size: 16, left: 0, top: 0 },
-              { color: 'orange', size: 16, right: 32, bottom: 16 },
-              { color: 'red', size: 32, right: 0, top: -16 },
-              { color: 'white', size: 16, right: 32, bottom: 0 },
-            ]}
-            className="hidden md:block"
-          />
+          <div className="z-20">
+            <SquareField
+              squares={[
+                // TODO tweak
+                { color: 'white', size: 16, left: 0, bottom: 0 },
+                { color: 'green', size: 32, left: 16, bottom: 0 },
+                { color: 'yellow', size: 16, left: 0, top: 0 },
+                { color: 'orange', size: 16, right: 32, bottom: 16 },
+                { color: 'red', size: 32, right: 0, top: -16 },
+                { color: 'white', size: 16, right: 32, bottom: 0 },
+              ]}
+              className="hidden md:block"
+            />
+          </div>
         </div>
         <div className="mx-auto pt-40">
           <ImageContainer className="border-2 border-white w-1/2 mx-auto">
