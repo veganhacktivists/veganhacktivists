@@ -1,34 +1,11 @@
+import axios from 'axios';
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+import type { GrantsForm } from '../../../pages/api/grant-request';
 import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
-
-interface GrantsForm {
-  // Section A - About you
-  over18: boolean;
-  gender?: string;
-  location: string;
-  info: string;
-  email: string;
-
-  // Section B - Your Project
-  projectName: string;
-  projectInfo: string;
-  projectLocation: string;
-  projectSteps: string;
-  targetAudience: string;
-
-  // Section C - Success
-  howSuccessful: string;
-  otherOrgs: string;
-
-  // Section D - Budget
-  totalBudget: number;
-  appliedBudget: number;
-  fundsUsage: string;
-  canAcceptFunding: boolean;
-}
 
 const FormSection: React.FC<{ section: string; sectionName: string }> = ({
   children,
@@ -47,8 +24,6 @@ const FormSection: React.FC<{ section: string; sectionName: string }> = ({
   );
 };
 
-const onSubmit: (data: GrantsForm) => void = (data) => {};
-
 const REQUIRED_FIELD = 'This field is required';
 
 const GrantsApplication: React.FC = () => {
@@ -58,6 +33,15 @@ const GrantsApplication: React.FC = () => {
     watch,
     formState: { errors },
   } = useForm<GrantsForm>({});
+
+  const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
+    async (data) => {
+      try {
+        await axios.post('/api/grant-request', data);
+      } catch (e) {}
+    },
+    []
+  );
 
   return (
     <div className="p-12 bg-gray-background">
@@ -69,6 +53,12 @@ const GrantsApplication: React.FC = () => {
           Application Form
         </h3>
         <FormSection section="A" sectionName="About you">
+          <TextInput
+            error={errors.name?.message}
+            {...register('name', { required: REQUIRED_FIELD })}
+          >
+            What&apos;s your name?
+          </TextInput>
           <Checkbox {...register('over18', {})}>Are you over 18?</Checkbox>
           {!watch('over18') && (
             <div>

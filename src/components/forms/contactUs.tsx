@@ -21,7 +21,7 @@ interface ContactUsSubmission {
 const ContactUsForm: React.FC = () => {
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
     try {
-      await axios.post('/api/contactUs', values);
+      await axios.post('/api/contact-us', values);
     } catch (e) {}
   }, []);
 
