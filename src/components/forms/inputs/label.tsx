@@ -4,8 +4,8 @@ interface LabelProps {
 
 const Label: React.FC<LabelProps> = ({ name, children }) => {
   return (
-    <label className="block font-bold text-left capitalize" htmlFor={name}>
-      {children || name}
+    <label className="block font-bold text-left" htmlFor={name}>
+      {children || <span className="capitalize">{name}</span>}
     </label>
   );
 };

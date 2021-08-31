@@ -44,9 +44,8 @@ const ContactUsForm: React.FC = () => {
           <TextInput
             placeholder="Name"
             {...register('name', { required: 'Please enter a name' })}
-            error={!!errors.name}
+            error={errors.name?.message}
           />
-          {errors.name && <p className="text-red">⚠ {errors.name.message}</p>}
         </div>
         <div>
           <TextInput
@@ -59,9 +58,8 @@ const ContactUsForm: React.FC = () => {
                 message: 'Please enter a valid email',
               },
             })}
-            error={!!errors.email}
+            error={errors.email?.message}
           />
-          {errors.email && <p className="text-red">⚠ {errors.email.message}</p>}
         </div>
         <div>
           <Label name="service" />
@@ -78,10 +76,7 @@ const ContactUsForm: React.FC = () => {
           )}
         </div>
         <div>
-          <TextArea error={!!errors.message} name="message" />
-          {errors.message && (
-            <p className="text-red">⚠ {errors.message.message}</p>
-          )}
+          <TextArea error={errors.message?.message} {...register('message')} />
         </div>
         <div className="pt-5 pb-10">
           <DarkButton

@@ -436,13 +436,17 @@ exports[`should render correctly 1`] = `
       >
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="name"
           >
-            name
+            <span
+              class="capitalize"
+            >
+              name
+            </span>
           </label>
           <input
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey w-full"
             id="name"
             name="name"
             placeholder="Name"
@@ -450,13 +454,17 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="email"
           >
-            email
+            <span
+              class="capitalize"
+            >
+              email
+            </span>
           </label>
           <input
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey w-full"
             id="email"
             name="email"
             placeholder="yourname@example.com"
@@ -464,10 +472,14 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="service"
           >
-            service
+            <span
+              class="capitalize"
+            >
+              service
+            </span>
           </label>
           <div
             class=" css-2b097c-container"
@@ -549,13 +561,17 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="message"
           >
-            message
+            <span
+              class="capitalize"
+            >
+              message
+            </span>
           </label>
           <textarea
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey resize-none"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey resize-none w-full"
             id="message"
             name="message"
             rows="10"
