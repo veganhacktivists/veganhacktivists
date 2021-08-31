@@ -144,8 +144,8 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
       </Head>
       <div>
         <Header />
-        <div className="w-3/5 mx-auto">
-          <div className="pt-40">
+        <div className="mx-auto">
+          <div className="w-3/5 pt-20 mx-auto">
             <ImageContainer className="border-2 border-white mx-auto">
               <ContentfulImage
                 image={featuredImage}
@@ -155,36 +155,40 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
               />
             </ImageContainer>
           </div>
-          <BlogContentContainer>
-            <div className="text-left text-xl leading-loose space-y-4">
-              <h1 className="text-4xl font-bold w-2/3">{title}</h1>
-              {author && (
-                <div>
-                  Written by{' '}
-                  <span className="font-bold">{author.fields.name}</span>{' '}
-                  <span className="font-bold">|</span>{' '}
-                  <span className="uppercase">
-                    {new Intl.DateTimeFormat('en', {
-                      month: 'short',
-                      year: 'numeric',
-                      day: 'numeric',
-                    }).format(date)}
-                  </span>
-                </div>
-              )}
-              <div className="divide-y divide-grey-light">
-                <div className="pb-10">
-                  {documentToReactComponents(content, richTextOptions)}
-                </div>
+          <div className="mt-20">
+            <h1 className="text-4xl font-bold w-3/4 mx-auto text-left">
+              {title}
+            </h1>
+            <BlogContentContainer>
+              <div className="text-left text-xl leading-loose space-y-4">
                 {author && (
-                  <div className="pt-5">
-                    <AuthorCard author={author} />
+                  <div>
+                    Written by{' '}
+                    <span className="font-bold">{author.fields.name}</span>{' '}
+                    <span className="font-bold">|</span>{' '}
+                    <span className="uppercase">
+                      {new Intl.DateTimeFormat('en', {
+                        month: 'short',
+                        year: 'numeric',
+                        day: 'numeric',
+                      }).format(date)}
+                    </span>
                   </div>
                 )}
+                <div className="divide-y divide-grey-light">
+                  <div className="pb-10">
+                    {documentToReactComponents(content, richTextOptions)}
+                  </div>
+                  {author && (
+                    <div className="pt-5">
+                      <AuthorCard author={author} />
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-            <Sidebar blogs={otherBlogs} />
-          </BlogContentContainer>
+              <Sidebar blogs={otherBlogs} />
+            </BlogContentContainer>
+          </div>
         </div>
       </div>
     </>

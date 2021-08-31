@@ -10,7 +10,9 @@ import ContentfulImage from '../contentfulImage';
 // }
 
 const BlogContentContainer: React.FC = ({ children }) => {
-  return <div className="flex flex-row gap-x-10 mt-10">{children}</div>;
+  return (
+    <div className="flex flex-row gap-x-10 mt-10 w-3/4 mx-auto">{children}</div>
+  );
 };
 
 export const Body: React.FC = ({ children }) => {

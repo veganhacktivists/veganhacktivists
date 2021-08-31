@@ -17,6 +17,8 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -53,42 +55,39 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
   const domain = website?.match(domainRegEx)?.groups?.domain;
 
   return (
-    <div className="flex flex-col lg:flex-row mx-auto mb-10">
-      <div className="relative w-full">
+    <div className="flex flex-col lg:flex-row mx-auto mb-10 justify-between">
+      <div className="">
         {image && (
-          <ImageContainer>
+          <ImageContainer className="w-full sm:w-72 xl:w-96 mx-auto">
             <ContentfulImage image={image} alt="" layout="responsive" />
           </ImageContainer>
         )}
       </div>
-      <div className="bg-grey-light p-10 w-full">
+      <div className="flex flex-col justify-around bg-grey-light px-10 py-10 w-full">
         <div className="mb-2">
           <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
           <span className="font-bold text-m uppercase text-grey block md:inline">
             Partner Since 2020
           </span>
         </div>
-        <div className="p-5 h-full flex flex-col justify-between">
-          <div className="text-center lg:text-left text-xl">
-            {description && documentToReactComponents(description)}
-          </div>
-          <DarkButton
-            className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono mb-8"
-            href={website}
-          >
-            {domain ?? name}
-          </DarkButton>
+        <div className="text-center lg:text-left text-xl">
+          {description && documentToReactComponents(description)}
         </div>
+        <DarkButton
+          className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono mx-auto xl:ml-0"
+          href={website}
+        >
+          {domain ?? name}
+        </DarkButton>
       </div>
     </div>
   );
 };
 
 const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
-  const ps = partners;
   return (
-    <div className="md:mx-auto w-full md:w-full md:px-40 lg:px-0 xl:w-10/12 2xl:w-2/3">
-      {ps.map((p) => (
+    <div className="mx-auto lg:px-32 2xl:px-60">
+      {partners.map((p) => (
         <PartnerCard key={p.sys.id} partner={p} />
       ))}
     </div>
