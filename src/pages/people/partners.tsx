@@ -17,6 +17,7 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -52,16 +53,18 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
   const domainRegEx = /https?:\/\/(?:www\.)?(?<domain>[a-zA-Z0-9]+\.[a-z]+)\//;
   const domain = website?.match(domainRegEx)?.groups?.domain;
 
+  // const { height, width } = useWindowSize();
+
   return (
-    <div className="flex flex-col md:flex-row mx-auto lg:w-full mb-10">
-      <div className="relative w-full min-h-450px md:min-h-0 md:w-1/3 md:h-96">
+    <div className="flex flex-col lg:flex-row mx-auto mb-10">
+      <div className="relative w-full">
         {image && (
           <ImageContainer>
-            <ContentfulImage image={image} alt="" layout="fill" />
+            <ContentfulImage image={image} alt="" layout="responsive" />
           </ImageContainer>
         )}
       </div>
-      <div className="bg-grey-light p-10 w-full flex-shrink">
+      <div className="bg-grey-light p-10 w-full">
         <div className="mb-2">
           <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
           <span className="font-bold text-m uppercase text-grey block md:inline">
@@ -73,7 +76,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
             {description && documentToReactComponents(description)}
           </div>
           <DarkButton
-            className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono"
+            className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono mb-8"
             href={website}
           >
             {domain ?? name}
@@ -85,9 +88,9 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
 };
 
 const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
-  const ps = partners; //.slice(1, 10);
+  const ps = partners;
   return (
-    <div className="md:mx-auto lg:w-3/4">
+    <div className="md:mx-auto w-full md:w-full md:px-40 lg:px-0 xl:w-10/12 2xl:w-2/3">
       {ps.map((p) => (
         <PartnerCard key={p.sys.id} partner={p} />
       ))}
@@ -95,7 +98,11 @@ const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
   );
 };
 
-const Partners: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
+interface PartnerProps {
+  partners: ITeamMember[];
+}
+
+const Partners: React.FC<PartnerProps> = ({ partners }) => {
   return (
     <>
       <Head>
