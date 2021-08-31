@@ -47,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { projects, projectYears },
+    revalidate: 240,
   };
 };
 
@@ -197,7 +198,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="bg-gray md:py-36 flex flex-row justify-center">
+        <div className="bg-gray-background md:py-16 flex flex-row justify-center">
           <InfoBox
             title="Have an idea for a project?"
             icon={lampImage}

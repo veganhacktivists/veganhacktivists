@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import type { GetStaticProps } from 'next';
@@ -19,6 +19,7 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
 import Sprite, { duck } from '../../components/decoration/sprite';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
+import shuffle from '../../lib/helpers/shuffle';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -30,10 +31,11 @@ export const getStaticProps: GetStaticProps = async () => {
         isInactive: true,
       },
     },
+    other: { order: 'fields.isTeamLeader' },
   });
   return {
     props: { teams, teamMembers },
-    revalidate: 120,
+    revalidate: 480,
   };
 };
 
@@ -113,6 +115,19 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   members,
   teams,
 }) => {
+  const [shuffledMembers, setShuffledMembers] = useState<ITeamMember[]>([]);
+
+  useEffect(() => {
+    setShuffledMembers([
+      ...shuffle<ITeamMember>(
+        members.filter((member) => member.fields.isTeamLeader)
+      ),
+      ...shuffle<ITeamMember>(
+        members.filter((member) => !member.fields.isTeamLeader)
+      ),
+    ]);
+  }, [members]);
+
   const colorMap = useMemo(() => {
     if (!teams) return {};
     return teams.reduce((acc, curr) => {
@@ -126,7 +141,7 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   return (
     <div className="md:mx-auto md:w-4/6">
       <div className="flex flex-wrap justify-center">
-        {members.map((m) => (
+        {shuffledMembers.map((m) => (
           <div className="m-5" key={m.sys.id}>
             <TeamMemberCard
               member={m}
@@ -235,7 +250,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         )}
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-16 px-10">
+      <div className="bg-gray-background pb-10 pt-16 px-10">
         <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}

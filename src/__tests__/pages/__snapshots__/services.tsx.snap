@@ -23,7 +23,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
-          class="py-20 md:py-20 lg:py-20"
+          class="ml-5 py-20 md:py-20 lg:py-20"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -112,7 +112,7 @@ exports[`should render correctly 1`] = `
       class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-8"
+        class="mb-10"
       >
         <span
           class="font-italic text-3xl"
@@ -125,10 +125,10 @@ exports[`should render correctly 1`] = `
         >
           services
         </span>
+        <p>
+          Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
+        </p>
       </h1>
-      <p>
-        Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
-      </p>
     </div>
     <div
       class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
@@ -188,7 +188,7 @@ exports[`should render correctly 1`] = `
               href="/contact"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Apply for a free website!
               </div>
@@ -251,7 +251,7 @@ exports[`should render correctly 1`] = `
               href="/contact"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Let's chat about your idea!
               </div>
@@ -314,7 +314,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Learn about our grant program!
               </div>
@@ -377,7 +377,7 @@ exports[`should render correctly 1`] = `
               href="/contact"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Ask for advice, contact us!
               </div>
@@ -427,7 +427,7 @@ exports[`should render correctly 1`] = `
       class="md:w-2/3 mx-auto pt-5"
     >
       <div
-        class="text-xl md:w-2/5 mx-auto text-grey-dark py-5"
+        class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"
       >
         If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
       </div>
@@ -569,7 +569,7 @@ exports[`should render correctly 1`] = `
             type="submit"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10"
             >
               Submit
             </div>

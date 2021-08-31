@@ -22,7 +22,7 @@ exports[`should render correctly 1`] = `
       class="flex flex-col justify-center w-1/2 z-10"
     >
       <div
-        class="py-20 md:py-20 lg:py-20"
+        class="ml-5 py-20 md:py-20 lg:py-20"
       >
         <div
           style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -114,7 +114,7 @@ exports[`should render correctly 1`] = `
       class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-8"
+        class="mb-10"
       >
         <span
           class="font-italic text-3xl"
@@ -127,10 +127,10 @@ exports[`should render correctly 1`] = `
         >
           our team
         </span>
+        <p>
+          We're always looking for more vegan activist volunteers to join our growing team! If you're interested and have the time, see our positions below. Please note that we prioritize people that meet our qualifications, but encourage you to apply either way!
+        </p>
       </h1>
-      <p>
-        We're always looking for more vegan activist volunteers to join our growing team! If you're interested and have the time, see our positions below. Please note that we prioritize people that meet our qualifications, but encourage you to apply either way!
-      </p>
     </div>
   </div>
   <div>
@@ -328,7 +328,7 @@ exports[`should render correctly 1`] = `
           target="_blank"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10"
           >
             Join VH: Playground
           </div>
@@ -425,7 +425,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -483,7 +483,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -541,7 +541,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -599,7 +599,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -657,7 +657,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -715,7 +715,7 @@ exports[`should render correctly 1`] = `
         >
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -760,7 +760,7 @@ exports[`should render correctly 1`] = `
         <div>
           <button>
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
@@ -843,7 +843,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono text-sm"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono text-sm"
           >
             Learn more
           </div>

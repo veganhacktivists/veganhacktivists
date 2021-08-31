@@ -64,6 +64,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { advisors },
+    revalidate: 480,
   };
 };
 
@@ -100,7 +101,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
       </div>
       <div className="text-left w-5/6 mx-auto my-0">
         <div className="text-2xl font-bold">{name}</div>
-        <div>{position}</div>
+        <div className="font-italic">{position}</div>
         {socialLinks !== undefined && (
           <div className="mt-6">
             <SocialLinks socialLinks={socialLinks} />
