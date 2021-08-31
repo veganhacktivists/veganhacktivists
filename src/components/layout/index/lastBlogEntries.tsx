@@ -21,7 +21,7 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
           other fun stuff here! Thanks for reading!
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 md:space-x-4 md:space-y-0 space-y-4 lg:px-32 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-2 gap-y-4 lg:px-32 px-4">
         {entries.map((entry) => (
           <BlogEntrySummary key={entry.fields.slug} blog={entry} />
         ))}

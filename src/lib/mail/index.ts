@@ -21,6 +21,6 @@ const sendMail: (data: Email) => Promise<void> = async (data) => {
   });
 };
 
-export const OUR_EMAIL = 'hello@veganhacktivists.org';
+export const OUR_EMAIL = 'quin.trinanes@gmail.com'; //'hello@veganhacktivists.org';
 
 export default sendMail;

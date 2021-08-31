@@ -85,7 +85,8 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
       />
       <div className="px-10">
         <PlainHeader header="Support Us">
-        With your gift, we can make a greater and real impact to help change the world for our animal friends. Thank you.
+          With your gift, we can make a greater and real impact to help change
+          the world for our animal friends. Thank you.
         </PlainHeader>
         <Paragraph>
           Thank you so much for considering supporting us! We are a 100% vegan
@@ -103,7 +104,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           image={PayPalLogo}
           title="PayPal"
           buttonText="donate"
-          buttonHref=""
+          buttonHref="https://paypal.me/davidvanbeveren"
         >
           For one-time, smaller donations
         </DonationCard>
@@ -128,14 +129,14 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         </DonationCard>
       </div>
       <Paragraph>
-          We prefer a{' '}
-          <span className="font-bold">monthly donation via Patreon</span> as
-          that gives us the most stability every month, but we also accept one
-          time donations via Paypal. If you would like to make a larger
-          contribution of $1000 or more (thank you!) please contact us for other
-          options like wire or check. We have a fiscal sponsor that will let you
-          claim your donation as tax deductable!
-        </Paragraph>
+        We prefer a{' '}
+        <span className="font-bold">monthly donation via Patreon</span> as that
+        gives us the most stability every month, but we also accept one time
+        donations via Paypal. If you would like to make a larger contribution of
+        $1000 or more (thank you!) please contact us for other options like wire
+        or check. We have a fiscal sponsor that will let you claim your donation
+        as tax deductable!
+      </Paragraph>
       <SquareField
         squares={[
           { color: 'gray-background', size: 16, bottom: 0, left: 0 },

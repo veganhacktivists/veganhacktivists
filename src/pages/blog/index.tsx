@@ -35,8 +35,16 @@ export const getStaticProps: GetStaticProps = async () => {
 const Blog: React.FC<BlogProps> = ({ blogs }) => {
   const [query, setQuery] = useState<string>('');
 
+  const [firstBlog, ...otherBlogs] = blogs;
+
+  const filteredFirstBlog = useFuse({
+    data: [firstBlog],
+    options: { keys: ['fields.title', 'fields.excerpt'] },
+    term: query,
+  });
+
   const filteredEntries = useFuse({
-    data: blogs,
+    data: otherBlogs,
     options: { keys: ['fields.title', 'fields.excerpt'] },
     term: query,
     sort: true,
@@ -52,7 +60,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
     nextEnabled,
   } = usePagination({
     totalItems: filteredEntries.length,
-    initialPageSize: 10,
+    initialPageSize: 9,
   });
 
   return (
@@ -81,20 +89,19 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
       />
       <div className="pt-20 pb-20">
         <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
-          {filteredEntries.slice(startIndex, endIndex + 1).map((blog, i) => {
-            const first = i === 0 && currentPage === 0 && !query;
-
-            return (
-              <div
-                key={blog.fields.slug}
-                className={classNames('col-span-full md:col-span-1', {
-                  'first:col-span-full': first,
-                })}
-              >
-                <BlogEntrySummary blog={blog} heading={first} />
-              </div>
-            );
-          })}
+          {filteredFirstBlog.length && currentPage === 0 && (
+            <div
+              key={filteredFirstBlog[0].fields.slug}
+              className={'col-span-full'}
+            >
+              <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
+            </div>
+          )}
+          {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
+            <div key={blog.fields.slug} className="col-span-full md:col-span-1">
+              <BlogEntrySummary blog={blog} />
+            </div>
+          ))}
         </div>
         <div className="flex flex-row mx-auto gap-10 justify-center p-16">
           <DarkButton
