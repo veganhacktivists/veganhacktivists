@@ -195,7 +195,7 @@ exports[`should render correctly 1`] = `
               If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
@@ -260,7 +260,7 @@ exports[`should render correctly 1`] = `
               Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
@@ -390,7 +390,7 @@ exports[`should render correctly 1`] = `
               We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
@@ -445,6 +445,7 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="md:w-2/3 mx-auto pt-5"
+      id="contact-us"
     >
       <div
         class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"

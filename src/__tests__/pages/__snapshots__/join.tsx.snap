@@ -808,14 +808,20 @@ exports[`should render correctly 1`] = `
         >
           Don't see a relevant position? If you have other talents or skills for vegan movement, let us know. Whether that be legal, marketing, or something else, we appreciate the support!
         </p>
-        <div>
-          <button>
+        <div
+          class="w-2/3 mx-auto"
+        >
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -897,7 +903,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono text-sm"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono"
           >
             Learn more
           </div>

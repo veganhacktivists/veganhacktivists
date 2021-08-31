@@ -65,7 +65,7 @@ const GrantsQualifications: React.FC = () => {
         <div className="flex justify-center">
           <LightButton
             href="https://thepollinationproject.org/pre-screen-quiz/"
-            className="font-semibold content-center m-5 font-mono text-sm md:w-96"
+            className="font-semibold content-center m-5 font-mono md:w-96"
           >
             Apply&nbsp;directly&nbsp;instead
           </LightButton>

@@ -29,7 +29,7 @@ const links: ILinks[] = [
     ],
   },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Contact Us', href: '/services#contact-us' },
   { label: 'Join Us', href: '/join_us' },
 ];
 

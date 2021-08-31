@@ -18,10 +18,7 @@ const JoinOurTeam: React.FC = () => {
           alt="Compassion, Creativity, Code"
         />
         <div className="flex justify-center flex-wrap">
-          <LightButton
-            href="/join"
-            className="font-semibold m-5 font-mono text-sm"
-          >
+          <LightButton href="/join" className="font-semibold m-5 font-mono">
             Learn more
           </LightButton>
         </div>

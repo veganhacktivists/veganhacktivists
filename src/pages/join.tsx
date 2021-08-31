@@ -219,8 +219,11 @@ const Join: React.FC = () => (
             skills for vegan movement, let us know. Whether that be legal,
             marketing, or something else, we appreciate the support!
           </p>
-          <div>
-            <LightButton className="font-semibold font-mono px-16 py-2 my-4">
+          <div className="w-2/3 mx-auto">
+            <LightButton
+              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              className="font-semibold font-mono px-16 py-2"
+            >
               Apply Now
             </LightButton>
           </div>

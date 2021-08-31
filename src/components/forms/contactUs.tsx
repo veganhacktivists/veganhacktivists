@@ -33,7 +33,7 @@ const ContactUsForm: React.FC = () => {
   } = useForm<ContactUsSubmission>();
 
   return (
-    <div className="md:w-2/3 mx-auto pt-5">
+    <div className="md:w-2/3 mx-auto pt-5" id="contact-us">
       <div className="text-xl md:w-1/2 mx-auto text-grey-dark py-5">
         If you&apos;d like to talk about any of these services, please use our
         contact form to get in touch! We do our best to respond to every email
