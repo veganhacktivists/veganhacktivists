@@ -199,24 +199,24 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
   const { image, name, description } = author.fields;
 
   return (
-    <>
+    <div className="mb-14">
       <div className="text-grey-dark text-3xl font-bold mb-10">
         About the Author
       </div>
       <div className="flex gap-x-10">
         {image && (
-          <div className="w-40">
+          <div className="w-48">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>
           </div>
         )}
-        <div className="w-2/3">
+        <div className="w-3/5">
           <div className="text-2xl font-bold">{name}</div>
           {description && <div>{documentToReactComponents(description)}</div>}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
