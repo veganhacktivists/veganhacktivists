@@ -25,10 +25,10 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
   const greyLight = useThemeColor('grey-light');
 
   return (
-    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white px-20 pt-10 pb-0 overflow-hidden">
+    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden">
       <Circle opacity={0.1} />
       <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
-      <div className="flex flex-col justify-center w-1/2 z-10 pb-10">
+      <div className="flex flex-col justify-center md:w-1/2 z-10 pb-10">
         <div className="w-48 mx-auto my-10">
           <Image src={roundLogo} alt="" />
         </div>
@@ -39,7 +39,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
         </div>
       </div>
       <div className="bg-grey-dark mt-10 p-10">
-        <label className="border-2 border-grey-lighter p-2 text-xl">
+        <label className="border-2 border-grey-lighter p-2 text-xl w-full flex justify-around">
           <input
             className="bg-invisible outline-none pr-2"
             type="text"
@@ -50,7 +50,9 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
               onQueryChange(e.target.value);
             }}
           />
-          <FontAwesomeIcon icon={faSearch} color={greyLight} />
+          <div>
+            <FontAwesomeIcon icon={faSearch} color={greyLight} />
+          </div>
         </label>
         <div className="mt-5 text-left text-xl">
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10">

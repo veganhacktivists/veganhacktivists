@@ -74,7 +74,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
           { color: 'grey-dark', size: 16, top: 0, left: 32 },
           { color: 'grey-dark', size: 16, top: 0, right: 0 },
         ]}
-        className="z-10"
+        className="z-10 hidden md:block"
       />
       <BlogsHeader onQueryChange={setQuery} query={query} />
       <SquareField
@@ -86,10 +86,11 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
           { color: 'orange', size: 16, top: 0, right: 0 },
           { color: 'white', size: 16, bottom: 0, right: 0 },
         ]}
+        className="hidden md:block"
       />
       <div className="pt-20 pb-20">
         <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
-          {filteredFirstBlog.length && currentPage === 0 && (
+          {filteredFirstBlog.length !== 0 && currentPage === 0 && (
             <div
               key={filteredFirstBlog[0].fields.slug}
               className={'col-span-full'}
@@ -108,10 +109,12 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             onClick={() => {
               setPreviousPage();
             }}
-            className="font-mono font-bold uppercase"
+            className="font-mono font-bold uppercase flex"
             disabled={!previousEnabled}
           >
-            <FontAwesomeIcon icon={leftArrow} size="xs" />
+            <div>
+              <FontAwesomeIcon icon={leftArrow} size="xs" />
+            </div>
             <span className="pl-3">Previous</span>
           </DarkButton>
           <DarkButton
@@ -121,8 +124,12 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             className="font-mono font-bold uppercase"
             disabled={!nextEnabled}
           >
-            <span className="pr-3">Next</span>
-            <FontAwesomeIcon icon={rightArrow} size="xs" />
+            <div className="flex">
+              <span className="pr-3">Next</span>
+              <div>
+                <FontAwesomeIcon icon={rightArrow} size="xs" />
+              </div>
+            </div>
           </DarkButton>
         </div>
       </div>

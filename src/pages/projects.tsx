@@ -116,7 +116,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               </WhiteButton>
             ))}
           </div>
-          <div className="w-3/4">
+          <div className="w-3/4 mx-auto">
             {projectsForSelectedYear.map((project, i) => {
               const {
                 name,
@@ -128,7 +128,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               } = project.fields;
 
               const date = new Date(dateStr);
-              const imageSize = 300;
+              const imageSize = 280;
               return (
                 <div
                   key={name}

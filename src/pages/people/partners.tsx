@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
-  const { name, image, description, socialLinks } = partner.fields;
+  const { name, image, description, socialLinks, position } = partner.fields;
 
   const website = socialLinks?.fields.website;
   const domainRegEx = /https?:\/\/(?:www\.)?(?<domain>[a-zA-Z0-9]+\.[a-z]+)\//;
@@ -67,7 +67,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         <div className="mb-2">
           <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
           <span className="font-bold text-m uppercase text-grey block md:inline">
-            Partner Since 2020
+            {position}
           </span>
         </div>
         <div className="text-center lg:text-left text-xl">

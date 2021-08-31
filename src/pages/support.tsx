@@ -62,7 +62,7 @@ const DonationCard: React.FC<{
 );
 
 const Paragraph: React.FC = ({ children }) => (
-  <p className="text-xl md:w-3/4 mx-auto mb-16">{children}</p>
+  <p className="text-xl md:w-3/4 mx-auto mb-16 px-10">{children}</p>
 );
 
 const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
