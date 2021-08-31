@@ -250,7 +250,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         )}
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-16 px-10">
+      <div className="bg-gray-background pb-10 pt-16 px-10">
         <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
