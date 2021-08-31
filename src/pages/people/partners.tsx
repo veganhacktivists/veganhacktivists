@@ -17,7 +17,6 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import useWindowSize from '../../hooks/useWindowSize';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -52,8 +51,6 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
   const website = socialLinks?.fields.website;
   const domainRegEx = /https?:\/\/(?:www\.)?(?<domain>[a-zA-Z0-9]+\.[a-z]+)\//;
   const domain = website?.match(domainRegEx)?.groups?.domain;
-
-  // const { height, width } = useWindowSize();
 
   return (
     <div className="flex flex-col lg:flex-row mx-auto mb-10">
