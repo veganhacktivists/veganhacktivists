@@ -52,9 +52,10 @@ exports[`should render correctly 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
         width="60vw"
       >
         <circle
@@ -68,9 +69,10 @@ exports[`should render correctly 1`] = `
         />
       </svg>
       <svg
-        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
         width="68vw"
       >
         <circle
@@ -89,22 +91,28 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute left-16 bottom-0 bg-pink w-32 h-32 opacity-100"
+      class="absolute"
+      style="background-color: rgb(237, 35, 132); width: 128px; height: 128px; opacity: 1; bottom: 0px; left: 64px;"
     />
     <div
-      class="absolute top-0 bg-green w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(100, 188, 70); width: 64px; height: 64px; opacity: 1; top: 0px;"
     />
     <div
-      class="absolute right-0 -top-16 bg-yellow w-32 h-32 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 199, 9); width: 128px; height: 128px; opacity: 1; top: -64px; right: 0px;"
     />
     <div
-      class="absolute right-32 bottom-16 bg-yellow w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 199, 9); width: 64px; height: 64px; opacity: 1; bottom: 64px; right: 128px;"
     />
     <div
-      class="absolute right-32 bottom-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 128px;"
     />
   </div>
   <div
@@ -144,7 +152,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-green p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(100, 188, 70);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -169,7 +178,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-yellow p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(255, 199, 9);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -194,7 +204,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-magenta p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(237, 35, 132);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -219,7 +230,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-orange p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(241, 90, 59);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -292,7 +304,8 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute right-0 bottom-0 bg-gray-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
     />
   </div>
   <div
@@ -340,10 +353,12 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 bottom-0 bg-gray w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute left-0 top-0 bg-gray-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; top: 0px; left: 0px;"
     />
   </div>
   <div
@@ -381,7 +396,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -439,7 +455,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -497,7 +514,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -555,7 +573,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -613,7 +632,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -671,7 +691,8 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
@@ -773,13 +794,16 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 top-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; left: 0px;"
     />
     <div
-      class="absolute left-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute right-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
     />
   </div>
   <div

@@ -201,7 +201,7 @@ const NavButton: React.FC<ButtonProps & { href: string }> = ({
   const { pathname } = useRouter();
   const atLocation = pathname === href;
 
-  const classes = classNames('m-5 font-mono text-sm', className);
+  const classes = classNames('m-5 font-mono', className);
 
   return (
     <DarkButton

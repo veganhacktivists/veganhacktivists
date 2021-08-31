@@ -25,14 +25,11 @@ const JoinTheTeam: React.FC = () => {
         <div className="flex justify-center flex-wrap">
           <LightButton
             href="/people/team"
-            className="m-5 font-mono text-sm font-semibold"
+            className="m-5 font-mono font-semibold"
           >
             Meet the Team
           </LightButton>
-          <LightButton
-            href="/join"
-            className="m-5 font-mono text-sm font-semibold"
-          >
+          <LightButton href="/join" className="m-5 font-mono font-semibold">
             Apply to Join
           </LightButton>
         </div>

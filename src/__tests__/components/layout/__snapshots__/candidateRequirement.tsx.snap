@@ -6,7 +6,8 @@ exports[`should render correctly 1`] = `
     class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
   >
     <div
-      class="bg-orange p-3 pb-1"
+      class="p-3 pb-1"
+      style="background-color: rgb(241, 90, 59);"
     >
       <div
         style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"

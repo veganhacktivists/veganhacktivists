@@ -16,6 +16,7 @@ import { LightButton } from '../components/decoration/buttons';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import { getPatrons } from '../lib/patreon';
+import useThemeColor from '../hooks/useThemeColor';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -34,32 +35,36 @@ const DonationCard: React.FC<{
   color: string;
   image: StaticImageData;
   large?: boolean;
-}> = ({ title, buttonText, buttonHref, image, color, large, children }) => (
-  <div
-    style={{
-      width: `${large ? '400px' : '300px'}`,
-      height: `${large ? '540px' : '400px'}`,
-    }}
-    className="flex-col mx-5 mb-5 bg-gray-lighter"
-  >
-    <div className={`bg-${color}`}>
-      <div className={`absolute w-8 h-8 bg-${color}-dark`} />
-      <div className="p-12">
-        <Image
-          src={image.src}
-          width={image.width / 3}
-          height={image.height / 3}
-          alt="Our community"
-        />
+}> = ({ title, buttonText, buttonHref, image, color, large, children }) => {
+  const backgroundColor = useThemeColor(color);
+
+  return (
+    <div
+      style={{
+        width: `${large ? '400px' : '300px'}`,
+        height: `${large ? '540px' : '400px'}`,
+      }}
+      className="flex-col mx-5 mb-5 bg-gray-lighter"
+    >
+      <div style={{ backgroundColor }}>
+        <div className={'absolute w-8 h-8 transparent'} />
+        <div className="p-12">
+          <Image
+            src={image.src}
+            width={image.width / 3}
+            height={image.height / 3}
+            alt="Our community"
+          />
+        </div>
+      </div>
+      <div className="p-8">
+        <h1 className="text-2xl">{title}</h1>
+        <p className="text-xl mx-auto mb-8">{children}</p>
+        <LightButton href={buttonHref}>{buttonText}</LightButton>
       </div>
     </div>
-    <div className="p-8">
-      <h1 className="text-2xl">{title}</h1>
-      <p className="text-xl mx-auto mb-8">{children}</p>
-      <LightButton href={buttonHref}>{buttonText}</LightButton>
-    </div>
-  </div>
-);
+  );
+};
 
 const Paragraph: React.FC = ({ children }) => (
   <p className="text-xl md:w-3/4 mx-auto mb-16 px-10">{children}</p>

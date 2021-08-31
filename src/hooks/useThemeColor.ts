@@ -27,11 +27,13 @@ const byString: (object: any, path: string) => string | undefined = (
 };
 
 const useThemeColor: (color: string) => string | undefined = (color) => {
-  if (!color.includes('-')) {
-    color += '-DEFAULT';
-  }
+  const obj = byString(
+    colors,
+    color.replace(/([a-z]+)-(light|dark|background|over-background)/g, '$1.$2')
+  );
 
-  return byString(colors, color.replaceAll('-', '.'));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (obj as any).DEFAULT || obj;
 };
 
 export default useThemeColor;

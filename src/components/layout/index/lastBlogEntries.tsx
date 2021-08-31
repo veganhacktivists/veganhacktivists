@@ -26,13 +26,14 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
           <BlogEntrySummary key={entry.fields.slug} blog={entry} />
         ))}
       </div>
+      <div className="bg-grey w-full relative h-32 bottom-32 -z-10" />
       <SquareField
         squares={BLOG_INNER_DECORATION_SQUARES}
         className="hidden lg:block bottom-32"
       />
-      <div className="bg-grey pt-32 bottom-32 relative overflow-visible -z-10">
+      <div className="bg-grey relative bottom-32">
         <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
-          <LightButton href="/blog" className="font-mono text-sm font-semibold">
+          <LightButton href="/blog" className="font-mono font-semibold">
             See All Posts
           </LightButton>
         </div>

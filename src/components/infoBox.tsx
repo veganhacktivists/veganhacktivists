@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import type { Asset } from 'contentful';
 import Image from 'next/image';
+import useThemeColor from '../hooks/useThemeColor';
 import ImageContainer from './decoration/imageContainer';
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
@@ -24,6 +25,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   title,
   layout = 'horizontal',
 }) => {
+  const backgroundColor = useThemeColor(iconBgColor);
+
   return (
     <div
       className={classNames(
@@ -36,7 +39,10 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         {}
       )}
     >
-      <div className={`flex flex-col w-full md:max-w-xs bg-${iconBgColor}`}>
+      <div
+        style={{ backgroundColor }}
+        className={'flex flex-col w-full md:max-w-xs'}
+      >
         <div className="transition ease-in duration-300 opacity-0 group-hover:opacity-100">
           <SquareField
             squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}

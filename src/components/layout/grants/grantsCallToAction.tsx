@@ -4,6 +4,7 @@ import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
+import useThemeColor from '../../../hooks/useThemeColor';
 
 const Info: React.FC<{
   title: string;
@@ -14,9 +15,11 @@ const Info: React.FC<{
     href: string;
   };
 }> = ({ children, title, image, backgroundColor = 'white', button }) => {
+  const color = useThemeColor(backgroundColor);
+
   return (
     <div className="flex flex-col gap-14 mb-20">
-      <div className={`bg-${backgroundColor}`}>
+      <div style={{ backgroundColor: color }}>
         <div className="overflow-hidden w-full">
           <Image src={image} alt="" />
         </div>
@@ -51,7 +54,8 @@ const GrantsCallToAction: React.FC = () => {
           title="Apply for a $1000 VH seed grant"
           button={{ content: <>Apply&nbsp;now!</>, href: '/grants' }}
         >
-          We&apos;re excited to offer grants for oustanding, and effective, animal rights activism!
+          We&apos;re excited to offer grants for oustanding, and effective,
+          animal rights activism!
         </Info>
         <Info
           image={impactReviewImage}
@@ -63,7 +67,8 @@ const GrantsCallToAction: React.FC = () => {
             href: '#',
           }}
         >
-          Read our annual impact review and see what we&apos;ve accomplished last year!
+          Read our annual impact review and see what we&apos;ve accomplished
+          last year!
         </Info>
       </div>
     </div>

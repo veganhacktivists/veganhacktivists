@@ -71,23 +71,13 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
+  mode: 'jit',
   purge: {
     content: [
       './src/components/**/*.{js,ts,jsx,tsx}',
       './src/pages/**/*.{js,ts,jsx,tsx}',
     ],
-    safelist: [
-      /^bg-/,
-      /^-?w-/,
-      /^-?h-/,
-      /^opacity-/,
-      /^-?left-/,
-      /^-?right-/,
-      /^-?top-/,
-      /^-?bottom-/,
-      /^text-/,
-      /^-?translate-/,
-    ],
+    safelist: [],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -105,7 +95,7 @@ module.exports = {
       minHeight: sizes,
       maxHeight: sizes,
       boxShadow: {
-        'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
+        'fill-green': `inset 700px 0 0 0 ${colors.green.DEFAULT}`,
         'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
         'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
       },
@@ -119,7 +109,6 @@ module.exports = {
   },
   variants: {
     extend: {
-      gridColumn: ['first'],
       backgroundColor: ['disabled'],
       cursor: ['disabled'],
     },

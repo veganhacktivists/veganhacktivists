@@ -121,7 +121,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           ! It means the world to us and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/about/our-mission" className="font-mono text-sm">
+          <DarkButton href="/about/our-mission" className="font-mono">
             Our Mission
           </DarkButton>
         </div>
@@ -149,7 +149,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             ))}
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
-            <DarkButton href="/projects" className="font-mono text-sm">
+            <DarkButton href="/projects" className="font-mono">
               See All Projects
             </DarkButton>
           </div>
