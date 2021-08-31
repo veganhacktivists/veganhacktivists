@@ -6,6 +6,17 @@ import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 import Image from 'next/image';
+import type { GetStaticProps } from 'next';
+import React from 'react';
+import { getContents } from '../../lib/cms';
+import type {
+  ITeamFields,
+  ITeamMember,
+} from '../../types/generated/contentful';
+import ContentfulImage from '../../components/layout/contentfulImage';
+import { DarkButton } from '../../components/decoration/buttons';
+import ImageContainer from '../../components/decoration/imageContainer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -21,17 +32,84 @@ const TEAM_SQUARES2 = [
   { color: 'grey', size: 16, right: 16, top: 0 },
 ];
 
-const People: React.FC = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const partners = await getContents<ITeamFields>({
+    contentType: 'teamMember',
+    query: {
+      type: 'partner',
+    },
+  });
+  return {
+    props: { partners },
+    revalidate: 120,
+  };
+};
+
+const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
+  const { name, image, description, socialLinks } = partner.fields;
+
+  const website = socialLinks?.fields.website;
+  const domainRegEx = /https?:\/\/(?:www\.)?(?<domain>[a-zA-Z0-9]+\.[a-z]+)\//;
+  const domain = website?.match(domainRegEx)?.groups?.domain;
+
+  return (
+    <div className="flex flex-col md:flex-row mx-auto lg:w-full mb-10">
+      <div className="relative w-full min-h-450px md:min-h-0 md:w-1/3 md:h-96">
+        {image && (
+          <ImageContainer>
+            <ContentfulImage image={image} alt="" layout="fill" />
+          </ImageContainer>
+        )}
+      </div>
+      <div className="bg-grey-light p-10 w-full flex-shrink">
+        <div className="mb-2">
+          <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
+          <span className="font-bold text-m uppercase text-grey block md:inline">
+            Partner Since 2020
+          </span>
+        </div>
+        <div className="p-5 h-full flex flex-col justify-between">
+          <div className="text-center lg:text-left text-xl">
+            {description && documentToReactComponents(description)}
+          </div>
+          <DarkButton
+            className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono"
+            href={website}
+          >
+            {domain ?? name}
+          </DarkButton>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
+  const ps = partners; //.slice(1, 10);
+  return (
+    <div className="md:mx-auto lg:w-3/4">
+      {ps.map((p) => (
+        <PartnerCard key={p.sys.id} partner={p} />
+      ))}
+    </div>
+  );
+};
+
+const Partners: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
   return (
     <>
       <Head>
         <title>Our Partners | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
-      <div className="m-10">
+      <div className="m-10 mb-36">
         <PeopleButtons />
-        <FirstSubSection header="Our partners">{null}</FirstSubSection>
-        <div className="m-10 mb-40">Some People exist</div>
+        <FirstSubSection header="Our partners">
+          Here are our fantastic partners whom we support and are spported by.
+          Take a look at them below, visit them, and support the amazing work
+          they do!
+        </FirstSubSection>
+        <PartnerList partners={partners} />
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
@@ -56,4 +134,4 @@ const People: React.FC = () => {
   );
 };
 
-export default People;
+export default Partners;
