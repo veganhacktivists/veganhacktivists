@@ -401,7 +401,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-green md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(100, 188, 70);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -437,15 +438,19 @@ exports[`should render correctly 1`] = `
           We're looking for developers to build unique, interesting, or impactful projects for the animals. We use Laravel for most projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/Vnrv6N"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -460,7 +465,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-yellow-orange md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(247, 148, 29);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -496,15 +502,19 @@ exports[`should render correctly 1`] = `
           We're looking for UI designers to support us by producing modern, visually appealing website designs for our website projects. You would also be advising us on proper UX for older projects that we're updating and may be asked to help our partners, activists, and organizations.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -519,7 +529,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-pink md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(237, 35, 132);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -555,15 +566,19 @@ exports[`should render correctly 1`] = `
           We're looking for graphic designers to support us by producing high-quality, visually appealing design content for our projects, including logos, banners, social media posts, icons, and similar resources. Please include a portfolio of your most recent works.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -578,7 +593,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-yellow md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(255, 199, 9);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -614,15 +630,19 @@ exports[`should render correctly 1`] = `
           We're looking for people with backgrounds in social media, marketing, and advertising. We need help managing our various project social accounts. This includes creating daily posts, designing content, and interacting with followers.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -637,7 +657,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-red md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(237, 24, 74);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -673,15 +694,19 @@ exports[`should render correctly 1`] = `
           We're looking for people with backgrounds in writing, and creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blogs, newssletters, Patreon, and other social platforms!
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -696,7 +721,8 @@ exports[`should render correctly 1`] = `
           />
         </div>
         <div
-          class="bg-purple md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(126, 60, 150);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -732,15 +758,19 @@ exports[`should render correctly 1`] = `
           We're looking for people that can help us translate vegan content in multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div

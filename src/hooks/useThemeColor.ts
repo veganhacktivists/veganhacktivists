@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 import tailwindConfig from '../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
-import type { TailwindColorConfig } from 'tailwindcss/tailwind-config';
 
 const fullConfig = resolveConfig(tailwindConfig as any);
 
@@ -32,7 +32,6 @@ const useThemeColor: (color: string) => string | undefined = (color) => {
     color.replace(/([a-z]+)-(light|dark|background|over-background)/g, '$1.$2')
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (obj as any).DEFAULT || obj;
 };
 

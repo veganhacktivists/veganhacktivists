@@ -5,7 +5,13 @@ import codeLogo from '../../public/images/joinUs/VH-icon-dev.png';
 
 it('should render correctly', () => {
   const { asFragment } = render(
-    <JobRole image={codeLogo} color="red" title="foo" description="bar" />
+    <JobRole
+      image={codeLogo}
+      color="red"
+      title="foo"
+      description="bar"
+      href="#"
+    />
   );
   expect(asFragment()).toMatchSnapshot();
 });

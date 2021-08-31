@@ -55,6 +55,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: codeLogo,
     color: 'green',
     title: 'Developers',
+    href: 'https://veganhacktivists.typeform.com/to/Vnrv6N',
     description: (
       <>
         We&apos;re looking for developers to build unique, interesting, or
@@ -68,6 +69,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: designLogo,
     color: 'yellow-orange',
     title: 'UI Designers',
+    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
       <>
         We&apos;re looking for UI designers to support us by producing modern,
@@ -82,6 +84,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: paintBrushLogo,
     color: 'pink',
     title: 'Graphic Designers',
+    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
       <>
         We&apos;re looking for graphic designers to support us by producing
@@ -95,6 +98,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: socialMediaLogo,
     color: 'yellow',
     title: 'Social or Marketing',
+    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
       <>
         We&apos;re looking for people with backgrounds in social media,
@@ -108,6 +112,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: penLogo,
     color: 'red',
     title: 'Content Creators',
+    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
       <>
         We&apos;re looking for people with backgrounds in writing, and creating
@@ -121,6 +126,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: bubbleLogo,
     color: 'purple',
     title: 'Translators',
+    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
       <>
         We&apos;re looking for people that can help us translate vegan content
