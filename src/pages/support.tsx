@@ -150,6 +150,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         ]}
         className="hidden md:block"
       />
+      <Sprite image={pig} />
       <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
         <Image
           src={PixelHeart.src}
@@ -157,6 +158,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
           height={PixelHeart.height / 3}
           alt="Our community"
         />
+
         <h2 className="mb-8 text-4xl font-bold">Thank You</h2>
         <Paragraph>
           Thank you so much for your donation. We want to take a moment to thank
@@ -167,7 +169,6 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         </Paragraph>
         <PatreonSupporters patrons={patrons} />
       </div>
-      <Sprite image={pig} />
       <SquareField
         squares={[
           { color: 'white', size: 16, top: 0, left: 0 },
