@@ -1,3 +1,4 @@
+import type { AxiosResponse } from 'axios';
 import axios from 'axios';
 
 const MAILGUN_URL = 'https://api.mailgun.net/v3/veganhacktivists.org/messages';
@@ -9,8 +10,10 @@ interface Email {
   html: string;
 }
 
-const sendMail: (data: Email) => Promise<void> = async (data) => {
-  await axios.request({
+const sendMail: (data: Email) => Promise<AxiosResponse<Email>> = async (
+  data
+) => {
+  return await axios.request({
     url: MAILGUN_URL,
     method: 'POST',
     auth: {
@@ -21,6 +24,6 @@ const sendMail: (data: Email) => Promise<void> = async (data) => {
   });
 };
 
-export const OUR_EMAIL = 'quin.trinanes@gmail.com'; //'hello@veganhacktivists.org';
+export const OUR_EMAIL = 'hello@veganhacktivists.org';
 
 export default sendMail;
