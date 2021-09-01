@@ -5,13 +5,11 @@ import type { IBlogEntry } from '../../../types/generated/contentful';
 import ImageContainer from '../../decoration/imageContainer';
 import ContentfulImage from '../contentfulImage';
 
-// interface BodyProps {
-//   blog: IBlogEntry;
-// }
-
 const BlogContentContainer: React.FC = ({ children }) => {
   return (
-    <div className="flex flex-row gap-x-10 mt-10 w-3/4 mx-auto">{children}</div>
+    <div className="flex flex-col lg:flex-row gap-x-10 mt-10 w-3/4 mx-auto">
+      {children}
+    </div>
   );
 };
 
@@ -27,7 +25,7 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
           <div
             key={blog.fields.slug}
             title={blog.fields.title}
-            className="p-5 w-96"
+            className="p-5 w-full lg:w-96"
           >
             <Link href={`/blogs/${blog.fields.slug}`}>
               <a>

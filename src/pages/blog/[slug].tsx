@@ -109,7 +109,7 @@ const Header: React.FC = () => {
           radiusZoom={0.3}
         />
       </div>
-      <div className="bg-black relative h-80" />
+      <div className="bg-black relative h-36 lg:h-80" />
       <div className="z-20">
         <SquareField
           squares={[
@@ -145,7 +145,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
       <div>
         <Header />
         <div className="mx-auto">
-          <div className="w-3/5 pt-20 mx-auto">
+          <div className="px-5 lg:w-3/5 pt-20 mx-auto">
             <ImageContainer className="border-2 border-white mx-auto">
               <ContentfulImage
                 image={featuredImage}
@@ -207,15 +207,15 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       <div className="text-grey-dark text-3xl font-bold mb-10">
         About the Author
       </div>
-      <div className="flex gap-x-10">
+      <div className="flex flex-col lg:flex-row gap-x-10">
         {image && (
-          <div className="w-48">
+          <div className="w-48 mx-auto">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>
           </div>
         )}
-        <div className="w-3/5">
+        <div className="text-center lg:text-left lg:w-3/5">
           <div className="text-2xl font-bold">{name}</div>
           {description && <div>{documentToReactComponents(description)}</div>}
         </div>
