@@ -15,7 +15,7 @@ const FormSection: React.FC<{ section: string; sectionName: string }> = ({
   return (
     <div className="py-10">
       <div>
-        <h4 className="text-5xl capitalize font-bold">
+        <h4 className="text-5xl capitalize font-bold font-mono">
           Section {section} - {sectionName}
         </h4>
       </div>
