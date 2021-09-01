@@ -150,7 +150,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         ]}
         className="hidden md:block"
       />
-      <Sprite image={pig} />
+      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
         <Image
           src={PixelHeart.src}
@@ -178,7 +178,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         className="hidden md:block"
       />
       <JoinOurTeam />
-      <Sprite image={chicken} />
+      <Sprite image={chicken} pixelsLeft={2} pixelsRight={0} />
     </>
   );
 };

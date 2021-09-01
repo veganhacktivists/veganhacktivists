@@ -18,12 +18,18 @@ interface SpriteProps {
   image: StaticImageData;
   secondsToTraverse?: number;
   scale?: number;
+  pixelsLeft?: number;
+  pixelsRight?: number;
 }
+
+const pixelSize = 64;
 
 const Sprite: React.FC<SpriteProps> = ({
   image,
   secondsToTraverse = 40,
   scale = 0.5,
+  pixelsLeft = 3,
+  pixelsRight = 1,
 }) => {
   const [reverse, setReverse] = useState<boolean>(false);
 
@@ -33,12 +39,10 @@ const Sprite: React.FC<SpriteProps> = ({
 
   const isMdScreen = width <= mdSize;
 
-  const pixelSize = 64;
-
-  const initialPositionPx = isMdScreen ? 0 : 3 * pixelSize;
+  const initialPositionPx = isMdScreen ? 0 : pixelsLeft * pixelSize;
   const finalPositionPx = isMdScreen
     ? width - image.width * scale
-    : width - pixelSize - 20 - image.width * scale;
+    : width - pixelsRight * pixelSize - 20 - image.width * scale;
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
 

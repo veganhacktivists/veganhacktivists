@@ -197,7 +197,7 @@ const Join: React.FC = () => (
       </p>
     </div>
     <JoinPlayground />
-    <Sprite image={sheep} />
+    <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
     <div className="mt-16 md:max-w-5xl mx-auto mb-16">
       <h2 className="mb-16 text-4xl font-bold">Available Positions</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20">
@@ -238,7 +238,7 @@ const Join: React.FC = () => (
       ]}
       className="hidden md:block"
     />
-    <Sprite image={chicks} />
+    <Sprite image={chicks} pixelsLeft={1} pixelsRight={1} />
     <MeetOurTeam />
   </>
 );

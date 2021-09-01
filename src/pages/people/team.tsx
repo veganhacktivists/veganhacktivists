@@ -265,7 +265,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-      <Sprite image={duck} />
+      <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
       <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
       <JoinTheTeam />
     </>
