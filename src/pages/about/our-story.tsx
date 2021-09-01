@@ -70,7 +70,7 @@ const OurMission: React.FC = () => {
           time, please click over here and find out how!
         </SubSection>
       </div>
-      <Sprite image={goat} />
+      <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
   );
 };

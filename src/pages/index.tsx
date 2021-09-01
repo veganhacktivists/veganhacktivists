@@ -169,7 +169,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         className="hidden md:block"
       />
       <GrantsCallToAction />
-      <Sprite image={goat} />
+      <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
   );
 };

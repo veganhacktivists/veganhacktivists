@@ -159,7 +159,7 @@ const Services: React.FC = () => (
         ))}
       </div>
     </div>
-    <Sprite image={pig} />
+    <Sprite image={pig} pixelsLeft={3} pixelsRight={1} />
     <SquareField
       squares={[
         { size: 16, color: 'grey-background', bottom: 0, left: 0 },
