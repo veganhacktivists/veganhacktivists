@@ -61,4 +61,4 @@ EXPOSE ${PORT}
 ENV NEXT_TELEMETRY_DISABLED 1
 
 ENTRYPOINT ["tini", "--"]
-CMD ["yarn", "start", "-p", $PORT]
+CMD ["yarn", "start"]
