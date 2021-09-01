@@ -31,8 +31,10 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
 
   return (
     <HeaderContainer>
-      <span className="font-italic text-3xl">{firstWord}</span>{' '}
-      <BoldHeaderText>{remainingWords}</BoldHeaderText>
+      <div className="pb-[15px]">
+        <span className="font-italic text-3xl">{firstWord}</span>{' '}
+        <BoldHeaderText>{remainingWords}</BoldHeaderText>
+      </div>
       <p>{children}</p>
     </HeaderContainer>
   );
