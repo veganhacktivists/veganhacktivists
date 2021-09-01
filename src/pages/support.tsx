@@ -190,6 +190,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       patrons,
     },
+    revalidate: 480,
   };
 };
 

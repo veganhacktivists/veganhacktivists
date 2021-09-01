@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   return {
     props: { partners },
-    revalidate: 120,
+    revalidate: 480,
   };
 };
 
