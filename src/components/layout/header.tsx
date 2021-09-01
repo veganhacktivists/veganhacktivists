@@ -67,7 +67,9 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
   return (
     <Link href={href} passHref>
       <a className={classes}>
-        <code className={classNames({ 'border-b-3': active })}>{label}</code>
+        <code className={classNames({ 'border-b-[3px]': active })}>
+          {label}
+        </code>
       </a>
     </Link>
   );
