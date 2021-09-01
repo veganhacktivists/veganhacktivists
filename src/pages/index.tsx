@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
     getBlogEntries(3),
   ]);
 
-  return { props: { featuredProjects, lastBlogEntries }, revalidate: 240 };
+  return { props: { featuredProjects, lastBlogEntries }, revalidate: 480 };
 };
 
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {

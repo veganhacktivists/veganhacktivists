@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({
       blog,
       otherBlogs,
     },
-    revalidate: 240,
+    revalidate: 480,
   };
 };
 
