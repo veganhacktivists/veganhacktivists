@@ -24,6 +24,17 @@ const sendMail: (data: Email) => Promise<AxiosResponse<Email>> = async (
   });
 };
 
+export const createFormattedMessage: (data: Record<string, string>) => string =
+  (data) => {
+    return Object.entries(data)
+      .map(([field, value]) => {
+        return `<b>${
+          field.charAt(0).toUpperCase() + field.slice(1)
+        }:</b><br/>${`${value}`.split('\n').join('<br/>')}`;
+      })
+      .join('<br/>');
+  };
+
 export const OUR_EMAIL = 'hello@veganhacktivists.org';
 
 export default sendMail;
