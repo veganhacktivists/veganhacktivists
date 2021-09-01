@@ -62,6 +62,7 @@ jobs:
           envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID
           script: |
             bash /home/deploy/clean.sh
+            docker pull ${REGISTRY}/${IMAGE_NAME}:$(echo $GITHUB_SHA | head -c7)
             docker stop $IMAGE_NAME
             docker rm $IMAGE_NAME
             docker run -d \
