@@ -207,16 +207,16 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       <div className="text-grey-dark text-3xl font-bold mb-10">
         About the Author
       </div>
-      <div className="flex flex-col lg:flex-row gap-x-10">
+      <div className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5 border-[1px] border-grey-lighter">
         {image && (
-          <div className="w-48 mx-auto">
+          <div className="w-64">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>
           </div>
         )}
         <div className="text-center lg:text-left lg:w-3/5">
-          <div className="text-2xl font-bold">{name}</div>
+          <div className="text-3xl font-bold">{name}</div>
           {description && <div>{documentToReactComponents(description)}</div>}
         </div>
       </div>
