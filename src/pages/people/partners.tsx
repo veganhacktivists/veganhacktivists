@@ -64,13 +64,13 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         )}
       </div>
       <div className="flex flex-col justify-around bg-grey-light px-10 py-10 w-full">
-        <div className="mb-2">
-          <span className="mx-1 text-2xl font-bold">{name}</span>{' '}
-          <span className="font-bold text-m uppercase text-grey block md:inline">
+        <div className="mb-2 text-left lg:text-left">
+          <span className="text-2xl font-bold">{name}</span>{' '}
+          <span className="ml-2 font-bold text-m uppercase text-grey block md:inline">
             {position}
           </span>
         </div>
-        <div className="text-center lg:text-left text-xl">
+        <div className="text-center lg:text-left text-xl mb-5">
           {description && documentToReactComponents(description)}
         </div>
         <DarkButton
