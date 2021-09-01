@@ -3,7 +3,7 @@ import { getContents } from '../../lib/cms';
 import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import {
   getAllBlogSlugs,
   getBlogEntries,
@@ -18,6 +18,7 @@ import Circle from '../../components/decoration/circle';
 import BlogContentContainer, {
   Sidebar,
 } from '../../components/layout/blog/blogPageLayout';
+import Link from 'next/link';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -78,9 +79,21 @@ const richTextOptions: Options = {
     [BLOCKS.HEADING_3]: (node, children) => (
       <h2 className="text-xl">{children}</h2>
     ),
-    // [BLOCKS.PARAGRAPH]: (node, children) => (
-    //   <p className="text-xl space-y-10">{children}</p>
-    // ),
+    [BLOCKS.UL_LIST]: (node, children) => (
+      <ul className="list-disc list-inside">{children}</ul>
+    ),
+    [BLOCKS.OL_LIST]: (node, children) => (
+      <ul className="list-disc list-inside">{children}</ul>
+    ),
+    [INLINES.HYPERLINK]: (node, children) => (
+      <Link href={node.data.uri}>
+        <a className="underline font-semibold hover:text-grey visited:text-grey">
+          {children}
+        </a>
+      </Link>
+    ),
+
+    [BLOCKS.PARAGRAPH]: (node, children) => <>{children}</>,
   },
 };
 
