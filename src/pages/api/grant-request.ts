@@ -48,7 +48,7 @@ const handler: NextApiHandler = async (req, res) => {
     return res.status(e.response.status).json({});
   }
 
-  res.status(HttpCodes.OK).end();
+  res.status(HttpCodes.OK).json({});
 };
 
 export default handler;
