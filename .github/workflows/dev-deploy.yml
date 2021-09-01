@@ -15,13 +15,13 @@ on:
         description: "Test scenario tags"
 
 env:
-  AWS_REGISTRY: ${{ secrets.AWS_PRIVATE_REGISTRY }}
-  AWS_REPOSITORY: "vh-site-registry-repository"
-  IMAGE_NAME: ${{ github.event.repository.name }}-dev
+  REGISTRY: ${{ secrets.PRIVATE_REGISTRY }}
+  IMAGE_NAME: "vh-site-dev"
   CF_SPACE_ID: ${{ secrets.CF_SPACE_ID }}
   CF_DELIVERY_ACCESS_TOKEN: ${{ secrets.CF_DELIVERY_ACCESS_TOKEN }}
   CF_PREVIEW_ACCESS_TOKEN: ${{ secrets.CF_PREVIEW_ACCESS_TOKEN }}
   CF_ENVIRONMENT: master
+  MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
   PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
   PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
 
@@ -29,47 +29,40 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
+
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_REGISTRY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_REGISTRY }}
-          aws-region: us-east-2
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, tag, and push image to Amazon ECR
-        run: |
-          docker build -t $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg PORT=8081 .
-          docker push $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME
+      - name: Build container image
+        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg PORT=8081 .
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          registry: db-admin.veganhacktivists.org
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Push image to Container Registry
+        run: docker push $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+
   deploy:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     needs: build_and_push
 
     steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_REGISTRY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_REGISTRY }}
-          aws-region: us-east-2
-
       - name: Deploy to Digital Ocean droplet via SSH action
         uses: appleboy/ssh-action@v0.1.3
         with:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           KEY: ${{ secrets.SSH_SECRET_KEY }}
-          envs: IMAGE_NAME,AWS_REGISTRY,AWS_REPOSITORY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID
+          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID
           script: |
-            aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_REGISTRY
-            docker pull $(echo $AWS_REGISTRY)/$(echo $AWS_REPOSITORY):$(echo $IMAGE_NAME)
             docker stop $(echo $IMAGE_NAME)
+            docker pull ${REGISTRY}/${IMAGE_NAME}:$(echo $GITHUB_SHA | head -c7)
             docker rm $(echo $IMAGE_NAME)
             docker run -d \
             --restart always \
@@ -77,19 +70,18 @@ jobs:
             --env CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN \
             --env CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN \
             --env CF_ENVIRONMENT=$CF_ENVIRONMENT \
-            --env PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN \
-            --env PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID \
+            --env MAILGUN_API_KEY=$MAILGUN_API_KEY \
             --label traefik.enable=true \
             --label traefik.docker.network=traefik-public \
-            --label traefik.http.middlewares.dev-https-redirect.redirectscheme.scheme=https \
-            --label traefik.http.middlewares.dev-https-redirect.redirectscheme.permanent=true \
-            --label traefik.http.routers.dev-app-http.middlewares=dev-https-redirect \
-            --label traefik.http.routers.dev-app-http.rule=Host\(\`dev.veganhacktivists.org\`\) \
-            --label traefik.http.routers.dev-app-http.entrypoints=http \
-            --label traefik.http.routers.dev-app-https.rule=Host\(\`dev.veganhacktivists.org\`\) \
-            --label traefik.http.routers.dev-app-https.tls.certresolver=le \
-            --label traefik.http.routers.dev-app-https.tls=true \
-            --label traefik.http.routers.dev-app-https.entrypoints=https \
-            --label traefik.http.services.dev-app.loadbalancer.server.port=8081 \
+            --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
+            --label traefik.http.middlewares.https-redirect.redirectscheme.permanent=true \
+            --label traefik.http.routers.app-http.middlewares=https-redirect \
+            --label traefik.http.routers.app-http.rule=Host\(\`dev.veganhacktivists.org\`\) \
+            --label traefik.http.routers.app-http.entrypoints=http \
+            --label traefik.http.routers.app-https.rule=Host\(\`dev.veganhacktivists.org\`\) \
+            --label traefik.http.routers.app-https.tls.certresolver=le \
+            --label traefik.http.routers.app-https.tls=true \
+            --label traefik.http.routers.app-https.entrypoints=https \
+            --label traefik.http.services.app.loadbalancer.server.port=8081 \
             --network=traefik-public \
-            --name $(echo $IMAGE_NAME) $(echo $AWS_REGISTRY)/$(echo $AWS_REPOSITORY):$(echo $IMAGE_NAME)
+            --name $(echo $IMAGE_NAME) $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
