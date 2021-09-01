@@ -17,21 +17,42 @@ export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
   return await client.getEntry(id);
 };
 
+const normalizeFilter: (
+  filterType: string,
+  filter: Record<string, unknown>
+) => Record<string, unknown> = (filterType, filter) => {
+  return Object.fromEntries(
+    Object.entries(filter || {}).map(([value, filter]) => [
+      `${value}[${filterType}]`,
+      filter,
+    ])
+  );
+};
+
 export const getContents: <T>(options: {
   contentType: CONTENT_TYPE;
-  query?: Record<string, unknown> & { ne?: Record<string, unknown> };
+  query?: Record<string, unknown> & {
+    filters?: Record<string, Record<string, unknown>> &
+      Partial<{
+        ne?: Record<string, unknown>;
+        exists?: Record<string, unknown>;
+      }>;
+  };
   other?: Record<string, unknown>;
 }) => Promise<Entry<T>[]> = async ({ contentType, query = {}, other }) => {
-  const { ne, ...eqFilter } = query;
+  const { filters, ...eqFilter } = query;
 
-  const normalizedNeFilter = Object.fromEntries(
-    Object.entries(ne || {}).map(([value, filter]) => [`${value}[ne]`, filter])
+  const otherFilters = Object.fromEntries(
+    Object.entries(filters || {}).flatMap(([filter, value]) =>
+      Object.entries(normalizeFilter(filter, value))
+    )
   );
 
   const fieldsQuery = Object.fromEntries(
-    Object.entries({ ...eqFilter, ...normalizedNeFilter }).map(
-      ([field, value]) => [`fields.${field}`, value]
-    )
+    Object.entries({
+      ...eqFilter,
+      ...otherFilters,
+    }).map(([field, value]) => [`fields.${field}`, value])
   );
 
   const response = await client.getEntries({

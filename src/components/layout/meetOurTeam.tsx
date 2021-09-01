@@ -20,7 +20,7 @@ const MeetOurTeam: React.FC = () => {
         <div className="flex justify-center flex-wrap">
           <LightButton
             href="/people/team"
-            className="font-semibold m-5 font-mono text-sm"
+            className="font-semibold m-5 font-mono"
           >
             Learn more
           </LightButton>

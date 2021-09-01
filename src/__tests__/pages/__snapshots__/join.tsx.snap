@@ -22,7 +22,7 @@ exports[`should render correctly 1`] = `
       class="flex flex-col justify-center w-1/2 z-10"
     >
       <div
-        class="py-20 md:py-20 lg:py-20"
+        class="ml-5 py-20 md:py-20 lg:py-20"
       >
         <div
           style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -52,9 +52,10 @@ exports[`should render correctly 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
         width="60vw"
       >
         <circle
@@ -68,9 +69,10 @@ exports[`should render correctly 1`] = `
         />
       </svg>
       <svg
-        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
         width="68vw"
       >
         <circle
@@ -89,22 +91,28 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute left-16 bottom-0 bg-pink w-32 h-32 opacity-100"
+      class="absolute"
+      style="background-color: rgb(237, 35, 132); width: 128px; height: 128px; opacity: 1; bottom: 0px; left: 64px;"
     />
     <div
-      class="absolute top-0 bg-green w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(100, 188, 70); width: 64px; height: 64px; opacity: 1; top: 0px;"
     />
     <div
-      class="absolute right-0 -top-16 bg-yellow w-32 h-32 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 199, 9); width: 128px; height: 128px; opacity: 1; top: -64px; right: 0px;"
     />
     <div
-      class="absolute right-32 bottom-16 bg-yellow w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 199, 9); width: 64px; height: 64px; opacity: 1; bottom: 64px; right: 128px;"
     />
     <div
-      class="absolute right-32 bottom-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 128px;"
     />
   </div>
   <div
@@ -114,7 +122,7 @@ exports[`should render correctly 1`] = `
       class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-8"
+        class="mb-10"
       >
         <span
           class="font-italic text-3xl"
@@ -127,10 +135,10 @@ exports[`should render correctly 1`] = `
         >
           our team
         </span>
+        <p>
+          We're always looking for more vegan activist volunteers to join our growing team! If you're interested and have the time, see our positions below. Please note that we prioritize people that meet our qualifications, but encourage you to apply either way!
+        </p>
       </h1>
-      <p>
-        We're always looking for more vegan activist volunteers to join our growing team! If you're interested and have the time, see our positions below. Please note that we prioritize people that meet our qualifications, but encourage you to apply either way!
-      </p>
     </div>
   </div>
   <div>
@@ -144,7 +152,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-green p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(100, 188, 70);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -169,7 +178,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-yellow p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(255, 199, 9);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -194,7 +204,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-magenta p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(237, 35, 132);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -219,7 +230,8 @@ exports[`should render correctly 1`] = `
           class="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0"
         >
           <div
-            class="bg-orange p-3 pb-1"
+            class="p-3 pb-1"
+            style="background-color: rgb(241, 90, 59);"
           >
             <div
               style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
@@ -292,7 +304,8 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute right-0 bottom-0 bg-gray-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
     />
   </div>
   <div
@@ -328,7 +341,7 @@ exports[`should render correctly 1`] = `
           target="_blank"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold mt-10"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10"
           >
             Join VH: Playground
           </div>
@@ -340,10 +353,12 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 bottom-0 bg-gray w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute left-0 top-0 bg-gray-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; top: 0px; left: 0px;"
     />
   </div>
   <div
@@ -381,11 +396,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-green md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(100, 188, 70);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -421,15 +438,19 @@ exports[`should render correctly 1`] = `
           We're looking for developers to build unique, interesting, or impactful projects for the animals. We use Laravel for most projects, please be comfortable with PHP, JS and CSS. You may be asked to work with other activists and organizations who need your support.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/Vnrv6N"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -439,11 +460,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-yellow-orange md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(247, 148, 29);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -479,15 +502,19 @@ exports[`should render correctly 1`] = `
           We're looking for UI designers to support us by producing modern, visually appealing website designs for our website projects. You would also be advising us on proper UX for older projects that we're updating and may be asked to help our partners, activists, and organizations.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -497,11 +524,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-pink md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(237, 35, 132);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -537,15 +566,19 @@ exports[`should render correctly 1`] = `
           We're looking for graphic designers to support us by producing high-quality, visually appealing design content for our projects, including logos, banners, social media posts, icons, and similar resources. Please include a portfolio of your most recent works.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -555,11 +588,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-yellow md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(255, 199, 9);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -595,15 +630,19 @@ exports[`should render correctly 1`] = `
           We're looking for people with backgrounds in social media, marketing, and advertising. We need help managing our various project social accounts. This includes creating daily posts, designing content, and interacting with followers.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -613,11 +652,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-red md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(237, 24, 74);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -653,15 +694,19 @@ exports[`should render correctly 1`] = `
           We're looking for people with backgrounds in writing, and creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blogs, newssletters, Patreon, and other social platforms!
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -671,11 +716,13 @@ exports[`should render correctly 1`] = `
           class="relative overflow-visible hidden md:block opacity-30 "
         >
           <div
-            class="absolute right-0 bg-black w-16 h-16 opacity-100"
+            class="absolute"
+            style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
           />
         </div>
         <div
-          class="bg-purple md:h-52 flex flex-col justify-center py-8"
+          class="md:h-52 flex flex-col justify-center py-8"
+          style="background-color: rgb(126, 60, 150);"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -711,15 +758,19 @@ exports[`should render correctly 1`] = `
           We're looking for people that can help us translate vegan content in multiple languages. You must consider yourself fluent in the languages you translate for, along with having excellent grammar and spelling. Translators are highly utilized for projects.
         </p>
         <div
-          class="my-8"
+          class="my-8 w-2/3 mx-auto"
         >
-          <button>
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -757,14 +808,20 @@ exports[`should render correctly 1`] = `
         >
           Don't see a relevant position? If you have other talents or skills for vegan movement, let us know. Whether that be legal, marketing, or something else, we appreciate the support!
         </p>
-        <div>
-          <button>
+        <div
+          class="w-2/3 mx-auto"
+        >
+          <a
+            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2"
             >
               Apply Now
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -773,13 +830,16 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 top-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; left: 0px;"
     />
     <div
-      class="absolute left-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute right-0 bottom-0 bg-grey-light w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(180, 180, 180); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
     />
   </div>
   <div
@@ -843,7 +903,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold m-5 font-mono text-sm"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono"
           >
             Learn more
           </div>

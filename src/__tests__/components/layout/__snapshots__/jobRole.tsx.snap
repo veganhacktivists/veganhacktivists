@@ -9,11 +9,13 @@ exports[`should render correctly 1`] = `
       class="relative overflow-visible hidden md:block opacity-30 "
     >
       <div
-        class="absolute right-0 bg-black w-16 h-16 opacity-100"
+        class="absolute"
+        style="background-color: rgb(22, 25, 25); width: 64px; height: 64px; opacity: 1; right: 0px;"
       />
     </div>
     <div
-      class="bg-red md:h-52 flex flex-col justify-center py-8"
+      class="md:h-52 flex flex-col justify-center py-8"
+      style="background-color: rgb(237, 24, 74);"
     >
       <div
         style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -49,15 +51,17 @@ exports[`should render correctly 1`] = `
       bar
     </p>
     <div
-      class="my-8"
+      class="my-8 w-2/3 mx-auto"
     >
-      <button>
+      <a
+        href="/#"
+      >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-semibold font-mono px-16 py-2 my-4"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
         >
           Apply Now
         </div>
-      </button>
+      </a>
     </div>
   </div>
 </DocumentFragment>

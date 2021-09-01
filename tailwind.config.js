@@ -4,6 +4,7 @@ const colors = {
   // Grays
   black: '#161919',
   transparent: '#00000033',
+  invisible: '#00000000',
   white: twColors.white,
   grey: {
     DEFAULT: '#454545',
@@ -48,14 +49,10 @@ const colors = {
     DEFAULT: '#7E3C96',
     dark: '#6B2D82',
   },
-};
-
-const sizes = {
-  '450px': '450px',
-  'screen-60%': '60vh',
-  'screen-header': 'calc(100vh - 74px)',
-  'screen/2': '50vh',
-  160: '40rem',
+  blue: {
+    DEFAULT: '#4055A4',
+    dark: '#183260',
+  },
 };
 
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
@@ -64,36 +61,25 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
+  mode: 'jit',
   purge: {
     content: [
       './src/components/**/*.{js,ts,jsx,tsx}',
       './src/pages/**/*.{js,ts,jsx,tsx}',
     ],
-    safelist: [
-      /^bg-/,
-      /^-?w-/,
-      /^-?h-/,
-      /^opacity-/,
-      /^-?left-/,
-      /^-?right-/,
-      /^-?top-/,
-      /^-?bottom-/,
-      /^text-/,
-      /^-?translate-/,
-    ],
+    safelist: [],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      borderWidth: {
-        3: '3px',
-      },
       zIndex: {
         '-10': '-10',
       },
-      height: sizes,
-      width: sizes,
-      minHeight: sizes,
+      boxShadow: {
+        'fill-green': `inset 800px 0 0 0 ${colors.green.DEFAULT}`,
+        'fill-pink': `inset 800px 0 0 0 ${colors.pink.DEFAULT}`,
+        'fill-red': `inset 800px 0 0 0 ${colors.red.DEFAULT}`,
+      },
     },
     colors,
     fontFamily: {
@@ -101,14 +87,9 @@ module.exports = {
       sans: 'PT Sans',
       italic: 'Bitter',
     },
-    boxShadow: {
-      'fill-green': `inset 550px 0 0 0 ${colors.green.DEFAULT}`,
-      'fill-pink': `inset 550px 0 0 0 ${colors.pink.DEFAULT}`,
-      'fill-red': `inset 550px 0 0 0 ${colors.red.DEFAULT}`,
-    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

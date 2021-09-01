@@ -16,7 +16,7 @@ const JoinTheTeam: React.FC = () => {
           height={teamIcons.height}
           alt="Compassion, Creativity, Code"
         />
-        <p className="pb-5 mt-16 text-white">
+        <p className="pb-5 mt-4 text-white">
           Are you a developer, designer, writer, or other creative professional
           wanting to use skills for the animals? We&apos;re always looking for
           more vegan activist volunteers to join our team! If you&apos;re
@@ -25,14 +25,11 @@ const JoinTheTeam: React.FC = () => {
         <div className="flex justify-center flex-wrap">
           <LightButton
             href="/people/team"
-            className="m-5 font-mono text-sm font-semibold"
+            className="m-5 font-mono font-semibold"
           >
             Meet the Team
           </LightButton>
-          <LightButton
-            href="/join"
-            className="m-5 font-mono text-sm font-semibold"
-          >
+          <LightButton href="/join" className="m-5 font-mono font-semibold">
             Apply to Join
           </LightButton>
         </div>

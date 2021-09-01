@@ -23,7 +23,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
-          class="py-20 md:py-20 lg:py-20"
+          class="ml-5 py-20 md:py-20 lg:py-20"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -53,9 +53,10 @@ exports[`should render correctly 1`] = `
         class="absolute inset-0 overflow-hidden"
       >
         <svg
-          class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+          class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
           height="60vw"
+          style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
           width="60vw"
         >
           <circle
@@ -69,9 +70,10 @@ exports[`should render correctly 1`] = `
           />
         </svg>
         <svg
-          class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+          class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
           height="68vw"
+          style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
           width="68vw"
         >
           <circle
@@ -90,29 +92,35 @@ exports[`should render correctly 1`] = `
       class="relative overflow-visible hidden md:block"
     >
       <div
-        class="absolute left-0 bottom-0 bg-white w-16 h-16 opacity-100"
+        class="absolute"
+        style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
       />
       <div
-        class="absolute left-0 top-0 bg-yellow w-16 h-16 opacity-100"
+        class="absolute"
+        style="background-color: rgb(255, 199, 9); width: 64px; height: 64px; opacity: 1; top: 0px; left: 0px;"
       />
       <div
-        class="absolute left-16 bottom-0 bg-green w-32 h-32 opacity-100"
+        class="absolute"
+        style="background-color: rgb(100, 188, 70); width: 128px; height: 128px; opacity: 1; bottom: 0px; left: 64px;"
       />
       <div
-        class="absolute right-0 -top-16 bg-red w-32 h-32 opacity-100"
+        class="absolute"
+        style="background-color: rgb(237, 24, 74); width: 128px; height: 128px; opacity: 1; top: -64px; right: 0px;"
       />
       <div
-        class="absolute right-32 bottom-16 bg-orange w-16 h-16 opacity-100"
+        class="absolute"
+        style="background-color: rgb(241, 90, 59); width: 64px; height: 64px; opacity: 1; bottom: 64px; right: 128px;"
       />
       <div
-        class="absolute right-32 bottom-0 bg-white w-16 h-16 opacity-100"
+        class="absolute"
+        style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 128px;"
       />
     </div>
     <div
       class="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl"
     >
       <h1
-        class="mb-8"
+        class="mb-10"
       >
         <span
           class="font-italic text-3xl"
@@ -125,10 +133,10 @@ exports[`should render correctly 1`] = `
         >
           services
         </span>
+        <p>
+          Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
+        </p>
       </h1>
-      <p>
-        Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
-      </p>
     </div>
     <div
       class="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28"
@@ -138,7 +146,8 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row"
         >
           <div
-            class="flex flex-col w-full md:max-w-xs bg-magenta"
+            class="flex flex-col w-full md:max-w-xs"
+            style="background-color: rgb(237, 35, 132);"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -147,7 +156,8 @@ exports[`should render correctly 1`] = `
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute right-0 top-0 bg-red w-16 h-16 opacity-100"
+                  class="absolute"
+                  style="background-color: rgb(237, 24, 74); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
                 />
               </div>
             </div>
@@ -185,10 +195,10 @@ exports[`should render correctly 1`] = `
               If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Apply for a free website!
               </div>
@@ -201,7 +211,8 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row flex-row-reverse"
         >
           <div
-            class="flex flex-col w-full md:max-w-xs bg-green"
+            class="flex flex-col w-full md:max-w-xs"
+            style="background-color: rgb(100, 188, 70);"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -210,7 +221,8 @@ exports[`should render correctly 1`] = `
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute right-0 top-0 bg-green-dark w-16 h-16 opacity-100"
+                  class="absolute"
+                  style="background-color: rgb(87, 164, 70); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
                 />
               </div>
             </div>
@@ -248,10 +260,10 @@ exports[`should render correctly 1`] = `
               Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Let's chat about your idea!
               </div>
@@ -264,7 +276,8 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row"
         >
           <div
-            class="flex flex-col w-full md:max-w-xs bg-yellow"
+            class="flex flex-col w-full md:max-w-xs"
+            style="background-color: rgb(255, 199, 9);"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -273,7 +286,8 @@ exports[`should render correctly 1`] = `
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute right-0 top-0 bg-yellow-dark w-16 h-16 opacity-100"
+                  class="absolute"
+                  style="background-color: rgb(252, 178, 21); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
                 />
               </div>
             </div>
@@ -314,7 +328,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Learn about our grant program!
               </div>
@@ -327,7 +341,8 @@ exports[`should render correctly 1`] = `
           class="flex w-full xl:w-3/5 mx-auto flex-row flex-wrap group flex-row flex-row-reverse"
         >
           <div
-            class="flex flex-col w-full md:max-w-xs bg-orange"
+            class="flex flex-col w-full md:max-w-xs"
+            style="background-color: rgb(241, 90, 59);"
           >
             <div
               class="transition ease-in duration-300 opacity-0 group-hover:opacity-100"
@@ -336,7 +351,8 @@ exports[`should render correctly 1`] = `
                 class="relative overflow-visible"
               >
                 <div
-                  class="absolute right-0 top-0 bg-orange-dark w-16 h-16 opacity-100"
+                  class="absolute"
+                  style="background-color: rgb(223, 62, 44); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
                 />
               </div>
             </div>
@@ -374,10 +390,10 @@ exports[`should render correctly 1`] = `
               We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
             </p>
             <a
-              href="/contact"
+              href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
               >
                 Ask for advice, contact us!
               </div>
@@ -408,16 +424,20 @@ exports[`should render correctly 1`] = `
     class="relative overflow-visible hidden md:block"
   >
     <div
-      class="absolute left-0 bottom-0 bg-grey-background w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(226, 226, 226); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
     />
     <div
-      class="absolute left-32 top-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; left: 128px;"
     />
     <div
-      class="absolute right-0 bottom-0 bg-grey-background w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(226, 226, 226); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
     />
     <div
-      class="absolute right-0 top-0 bg-white w-16 h-16 opacity-100"
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
     />
   </div>
   <div
@@ -425,9 +445,10 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="md:w-2/3 mx-auto pt-5"
+      id="contact-us"
     >
       <div
-        class="text-xl md:w-2/5 mx-auto text-grey-dark py-5"
+        class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"
       >
         If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
       </div>
@@ -436,13 +457,17 @@ exports[`should render correctly 1`] = `
       >
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="name"
           >
-            name
+            <span
+              class="capitalize"
+            >
+              name
+            </span>
           </label>
           <input
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey w-full"
             id="name"
             name="name"
             placeholder="Name"
@@ -450,13 +475,17 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="email"
           >
-            email
+            <span
+              class="capitalize"
+            >
+              email
+            </span>
           </label>
           <input
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey w-full"
             id="email"
             name="email"
             placeholder="yourname@example.com"
@@ -464,10 +493,14 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="service"
           >
-            service
+            <span
+              class="capitalize"
+            >
+              service
+            </span>
           </label>
           <div
             class=" css-2b097c-container"
@@ -488,7 +521,7 @@ exports[`should render correctly 1`] = `
                 <div
                   class=" css-1oxpzol-placeholder"
                 >
-                  Select a service...
+                  Select...
                 </div>
                 <div
                   class="css-1w7gl0u-Input"
@@ -549,13 +582,17 @@ exports[`should render correctly 1`] = `
         </div>
         <div>
           <label
-            class="block font-bold text-left capitalize"
+            class="block font-bold text-left"
             for="message"
           >
-            message
+            <span
+              class="capitalize"
+            >
+              message
+            </span>
           </label>
           <textarea
-            class="px-2 py-2 text-xl text-grey w-full focus:ring-1 focus:ring-grey resize-none"
+            class="px-2 py-2 text-xl text-grey focus:ring-1 focus:ring-grey resize-none w-full"
             id="message"
             name="message"
             rows="10"
@@ -569,7 +606,7 @@ exports[`should render correctly 1`] = `
             type="submit"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10"
+              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10"
             >
               Submit
             </div>

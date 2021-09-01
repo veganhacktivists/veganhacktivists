@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+import useThemeColor from '../../hooks/useThemeColor';
 
 interface SquareFieldSquareProps extends SquareProps {
   left?: number;
@@ -20,48 +21,41 @@ export interface SquareProps {
   className?: string;
 }
 
-const Square: React.FC<SquareProps> = ({
+const Square: React.FC<SquareFieldSquareProps> = ({
   size,
   color = 'white',
   opacity = 100,
   className = '',
+  top,
+  right,
+  bottom,
+  left,
 }) => {
-  const svgClassNames = classNames(
-    className,
-    `bg-${color}`,
-    `w-${size}`,
-    `h-${size}`,
-    `opacity-${opacity}`
+  const backgroundColor = useThemeColor(color);
+
+  return (
+    <div
+      className={className}
+      style={{
+        backgroundColor,
+        width: size * 4,
+        height: size * 4,
+        opacity: opacity / 100,
+        bottom: bottom && bottom * 4,
+        top: top && top * 4,
+        right: right && right * 4,
+        left: left && left * 4,
+      }}
+    />
   );
-
-  return <div className={svgClassNames} />;
-};
-
-const classNameFromPosition = (key: string, value?: number) => {
-  if (value === undefined || !Number.isInteger(value)) {
-    return null;
-  }
-  if (value < 0) {
-    return `-${key}-${value * -1}`;
-  }
-  return `${key}-${value}`;
 };
 
 const SquareField: React.FC<SquareFieldProps> = ({ squares, className }) => {
   const classes = classNames('relative', 'overflow-visible', className);
   return (
     <div className={classes}>
-      {squares.map(({ left, right, top, bottom, ...squareFields }, idx) => {
-        const positionClassNames = classNames(
-          'absolute',
-          classNameFromPosition('left', left),
-          classNameFromPosition('right', right),
-          classNameFromPosition('top', top),
-          classNameFromPosition('bottom', bottom)
-        );
-        return (
-          <Square key={idx} {...squareFields} className={positionClassNames} />
-        );
+      {squares.map((squareFields, idx) => {
+        return <Square key={idx} {...squareFields} className="absolute" />;
       })}
     </div>
   );

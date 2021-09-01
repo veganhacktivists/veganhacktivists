@@ -8,7 +8,6 @@ import {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
-  GrantsCallToAction,
 } from '../../components/layout/grants/index';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
 
@@ -80,8 +79,6 @@ const Grants: React.FC = () => {
         <GrantsPollinationProject />
       </div>
       <Sprite image={chicks} />
-      <GrantsCallToAction />
-
       <GrantsApplication />
 
       <JoinTheTeam />

@@ -24,7 +24,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-1000 cursor-pointer'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
@@ -66,7 +66,7 @@ const LightButton: React.FC<ButtonProps> = ({
 }) => {
   const classes = classNames(
     baseButtonClasses,
-    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white',
+    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
     primary ? 'border-pink' : '',
     className
   );
@@ -90,6 +90,7 @@ const DarkButton: React.FC<ButtonProps> = ({
       ? 'hover:shadow-fill-pink bg-magenta border-pink'
       : 'hover:shadow-fill-green bg-grey-dark border-green',
     'text-white',
+    { 'bg-grey-light cursor-not-allowed': props.disabled },
     className
   );
 
@@ -200,7 +201,7 @@ const NavButton: React.FC<ButtonProps & { href: string }> = ({
   const { pathname } = useRouter();
   const atLocation = pathname === href;
 
-  const classes = classNames('m-5 font-mono text-sm', className);
+  const classes = classNames('m-5 font-mono', className);
 
   return (
     <DarkButton

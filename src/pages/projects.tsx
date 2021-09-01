@@ -47,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { projects, projectYears },
+    revalidate: 240,
   };
 };
 
@@ -115,7 +116,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               </WhiteButton>
             ))}
           </div>
-          <div className="w-3/4">
+          <div className="w-3/4 mx-auto">
             {projectsForSelectedYear.map((project, i) => {
               const {
                 name,
@@ -127,7 +128,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               } = project.fields;
 
               const date = new Date(dateStr);
-              const imageSize = 300;
+              const imageSize = 280;
               return (
                 <div
                   key={name}
@@ -197,7 +198,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="bg-gray md:py-36 flex flex-row justify-center">
+        <div className="bg-gray-background md:py-16 flex flex-row justify-center">
           <InfoBox
             title="Have an idea for a project?"
             icon={lampImage}

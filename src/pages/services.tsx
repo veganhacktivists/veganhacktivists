@@ -49,7 +49,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconAccentColor: 'red',
     button: {
       text: 'Apply for a free website!',
-      href: '/contact',
+      href: '#contact-us',
     },
   },
   {
@@ -61,7 +61,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconAccentColor: 'green-dark',
     button: {
       text: 'Let\'s chat about your idea!',
-      href: '/contact',
+      href: '#contact-us',
     },
   },
   {
@@ -85,7 +85,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconAccentColor: 'orange-dark',
     button: {
       text: 'Ask for advice, contact us!',
-      href: '/contact',
+      href: '#contact-us',
     },
   },
 ];

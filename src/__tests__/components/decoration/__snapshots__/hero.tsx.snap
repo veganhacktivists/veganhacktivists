@@ -16,9 +16,10 @@ exports[`should render correctly when providing a URL string 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
         width="60vw"
       >
         <circle
@@ -32,9 +33,10 @@ exports[`should render correctly when providing a URL string 1`] = `
         />
       </svg>
       <svg
-        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
         width="68vw"
       >
         <circle
@@ -68,9 +70,10 @@ exports[`should render correctly when providing static image data 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="text-white overflow-visible absolute top-0 right-0 transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
         width="60vw"
       >
         <circle
@@ -84,9 +87,10 @@ exports[`should render correctly when providing static image data 1`] = `
         />
       </svg>
       <svg
-        class="text-white overflow-visible absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
         width="68vw"
       >
         <circle

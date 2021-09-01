@@ -10,10 +10,9 @@ import { GrantsCallToAction } from '../components/layout/grants/index';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
-import type { IProject } from '../types/generated/contentful';
+import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
-import { getFeaturedProjects } from '../lib/cms/helpers';
-import {} from '../components/decoration/textBlocks';
+import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 
 const HERO_DECORATION_SQUARES = [
@@ -45,15 +44,19 @@ const BLOG_DECORATION_SQUARES = [
 
 interface HomeProps {
   featuredProjects: IProject[];
+  lastBlogEntries: IBlogEntry[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = await getFeaturedProjects();
+  const [featuredProjects, lastBlogEntries] = await Promise.all([
+    getFeaturedProjects(),
+    getBlogEntries(3),
+  ]);
 
-  return { props: { featuredProjects } };
+  return { props: { featuredProjects, lastBlogEntries }, revalidate: 240 };
 };
 
-const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
+const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   return (
     <>
       <Head>
@@ -117,7 +120,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
           ! It means the world to us and the animals to have your support.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/about/our-mission" className="font-mono text-sm">
+          <DarkButton href="/about/our-mission" className="font-mono">
             Our Mission
           </DarkButton>
         </div>
@@ -145,7 +148,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
             ))}
           </div>
           <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
-            <DarkButton href="/projects" className="font-mono text-sm">
+            <DarkButton href="/projects" className="font-mono">
               See All Projects
             </DarkButton>
           </div>
@@ -160,7 +163,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects }) => {
         squares={BLOG_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <LastBlogEntries />
+      <LastBlogEntries entries={lastBlogEntries} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"
