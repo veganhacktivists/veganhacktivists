@@ -56,13 +56,13 @@ const OurMission: React.FC = () => {
             in more meaningful ways. We need to utilize our networks with the
             idea of supporting our shared goals, whether that means sharing
             data, helping allocate resources and people, or general support in
-            organizational challanges.
+            organizational challenges.
           </SubSection>
           <SubSection header="5. Finally, we need more vegans to become active.">
             Only a tiny percentage of the world is vegan, and a fraction within
-            are active. Most organizations focus on converting vegans whether
-            through health, environmental, or ethical reasons. We believe that
-            we can be more effective by creating tools to help, inspire, and
+            are active. Many organizations focus on converting vegans whether
+            through health, environmental, or ethical reasons. We believe 
+            we can also ve effective by creating tools to help, inspire, and
             motivate more vegans to become activists.
           </SubSection>
         </div>
