@@ -63,7 +63,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
           </ImageContainer>
         )}
       </div>
-      <div className="flex flex-col justify-around bg-grey-light px-10 py-10 w-full">
+      <div className="flex flex-col justify-around bg-gray-background px-10 py-10 w-full">
         <div className="mb-2 text-left lg:text-left">
           <span className="text-2xl font-bold">{name}</span>{' '}
           <span className="ml-2 font-bold text-m uppercase text-grey block md:inline">
