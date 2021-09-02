@@ -58,7 +58,7 @@ const DonationCard: React.FC<{
         </div>
       </div>
       <div className="p-8">
-        <h1 className="text-2xl font-bold pb-5">{title}</h1>
+        <h1 className="text-2xl font-bold pb-5 font-mono">{title}</h1>
         <p className="text-xl mx-auto mb-8">{children}</p>
         <LightButton href={buttonHref}>{buttonText}</LightButton>
       </div>
