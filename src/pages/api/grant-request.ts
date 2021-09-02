@@ -44,7 +44,8 @@ const handler: NextApiHandler = async (req, res) => {
       subject: `Grant request from ${name}`,
       html: createFormattedMessage(req.body),
     });
-  } catch (e) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (e: any) {
     return res.status(e.response.status).json({});
   }
 

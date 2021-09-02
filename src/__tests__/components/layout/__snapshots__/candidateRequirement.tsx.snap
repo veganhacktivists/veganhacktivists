@@ -14,12 +14,13 @@ exports[`should render correctly 1`] = `
       >
         <img
           alt=""
-          data-nimg="true"
+          data-nimg="fixed"
           decoding="async"
           src="/_next/image?url=%2Ffoo.png&w=128&q=75"
           srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
         />
+        <noscript />
       </div>
     </div>
     <p

@@ -11,13 +11,14 @@ exports[`should render correctly 1`] = `
       >
         <img
           alt=""
-          data-nimg="true"
+          data-nimg="fill"
           decoding="async"
           sizes="100vw"
           src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
           srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
         />
+        <noscript />
       </div>
       <div
         class="flex flex-col justify-center w-1/2 z-10"
@@ -40,12 +41,13 @@ exports[`should render correctly 1`] = `
             </div>
             <img
               alt="Supporting the Animal Rights Movement"
-              data-nimg="true"
+              data-nimg="intrinsic"
               decoding="async"
               src="/_next/image?url=%2Ffoo.png&w=750&q=75"
               srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
+            <noscript />
           </div>
         </div>
       </div>
@@ -174,14 +176,14 @@ exports[`should render correctly 1`] = `
                 <div
                   style="display: block; box-sizing: border-box; padding-top: 100%;"
                 />
-                <noscript />
                 <img
                   alt=""
-                  data-nimg="true"
+                  data-nimg="responsive"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
+                <noscript />
               </div>
             </div>
           </div>
@@ -239,14 +241,14 @@ exports[`should render correctly 1`] = `
                 <div
                   style="display: block; box-sizing: border-box; padding-top: 100%;"
                 />
-                <noscript />
                 <img
                   alt=""
-                  data-nimg="true"
+                  data-nimg="responsive"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
+                <noscript />
               </div>
             </div>
           </div>
@@ -304,14 +306,14 @@ exports[`should render correctly 1`] = `
                 <div
                   style="display: block; box-sizing: border-box; padding-top: 100%;"
                 />
-                <noscript />
                 <img
                   alt=""
-                  data-nimg="true"
+                  data-nimg="responsive"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
+                <noscript />
               </div>
             </div>
           </div>
@@ -369,14 +371,14 @@ exports[`should render correctly 1`] = `
                 <div
                   style="display: block; box-sizing: border-box; padding-top: 100%;"
                 />
-                <noscript />
                 <img
                   alt=""
-                  data-nimg="true"
+                  data-nimg="responsive"
                   decoding="async"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
+                <noscript />
               </div>
             </div>
           </div>
@@ -416,12 +418,13 @@ exports[`should render correctly 1`] = `
     >
       <img
         alt=""
-        data-nimg="true"
+        data-nimg="fixed"
         decoding="async"
         src="/_next/image?url=%2Ffoo.png&w=640&q=75"
         srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
       />
+      <noscript />
     </div>
   </div>
   <div
