@@ -214,7 +214,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               touch!
             </p>
             <div className="flex justify-start font-semibold">
-              <LightButton href="/projects">Suggest a project idea</LightButton>
+              <LightButton href="/services#contact-us">Suggest a project idea</LightButton>
             </div>
           </InfoBox>
         </div>
