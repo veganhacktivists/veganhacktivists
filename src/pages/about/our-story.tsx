@@ -67,7 +67,7 @@ const OurMission: React.FC = () => {
           tight-knit friendships and fun activities really bring us together and
           reinvigorate our passion in working harder for the animals. If this
           sounds like a group you’d like to volunteer for, and you have the
-          time, please click over here and find out how!
+          time, please <Link href="/join"><a>click over here</a></Link> and find out how!
         </SubSection>
       </div>
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
