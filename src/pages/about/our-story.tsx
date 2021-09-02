@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import PixelPig from '../../../public/images/VH_PixelPig.png';
 import Sprite, { goat } from '../../components/decoration/sprite';
 import { AboutButtons, AboutHero } from '../../components/layout/about';
