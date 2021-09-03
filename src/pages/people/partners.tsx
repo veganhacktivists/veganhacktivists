@@ -105,7 +105,7 @@ const Partners: React.FC<PartnerProps> = ({ partners }) => {
       <PeopleHero />
       <PeopleButtons />
       <FirstSubSection header="Our partners">
-        Here are our fantastic partners whom we support and are spported by.
+        Here are our fantastic partners whom we support and are supported by.
         Take a look at them below, visit them, and support the amazing work they
         do!
       </FirstSubSection>

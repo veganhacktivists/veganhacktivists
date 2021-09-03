@@ -22,7 +22,7 @@ const GrantsPollinationProject: React.FC = () => {
           </p>
           <p className="mt-4">
             If your primary focus isn&apos;t factory farming you may still be
-            eligible for a grant directly from The Pollinatiom Project. We
+            eligible for a grant directly from The Pollination Project. We
             encourage you to apply directly instead!{' '}
           </p>
           <LightButton

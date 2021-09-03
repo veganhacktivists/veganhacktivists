@@ -59,7 +59,7 @@ const OurMission: React.FC = () => {
           discussion. We always listen first, then respond constructively.
         </SubSection>
 
-        <SubSection header="Anti-oppression">
+        <SubSection header="Anti-Oppression">
           We believe the discrimination and oppression of our friends, family,
           and activists affects both their right to well-being and their ability
           to fight for animal liberation – we aim to support our community.

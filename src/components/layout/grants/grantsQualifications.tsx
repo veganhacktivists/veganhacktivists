@@ -58,7 +58,7 @@ const GrantsQualifications: React.FC = () => {
         <p className="mt-12 text-2xl font-thin mb-10">
           <i>
             <b>Don&apos;t meet the two qualifications above?</b> That&apos;s
-            okay! You may still be eligable for funding. Please apply directly
+            okay! You may still be eligible for funding. Please apply directly
             with the Pollination Project.
           </i>
         </p>
