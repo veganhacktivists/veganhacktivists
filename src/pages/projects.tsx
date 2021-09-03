@@ -21,6 +21,7 @@ import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
 import Sprite, { chicken } from '../components/decoration/sprite';
 import Link from 'next/link';
+import useViewMore from '../hooks/useViewMore';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -67,6 +68,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
         )
       : projects;
 
+  const { pageNumber, pageSize, viewMore, reset } = useViewMore(10);
+
+  const pagedProjects = projectsForSelectedYear.slice(0, pageSize * pageNumber);
+
   return (
     <>
       <Head>
@@ -100,7 +105,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               className="w-40 uppercase flex-1 m-1"
               active={selectedYear === null}
               type="button"
-              onClick={() => setSelectedYear(null)}
+              onClick={() => {
+                setSelectedYear(null);
+                reset();
+              }}
             >
               View all
             </WhiteButton>
@@ -109,7 +117,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                 key={year}
                 className="w-40 flex-1 m-1"
                 type="button"
-                onClick={() => setSelectedYear(year)}
+                onClick={() => {
+                  setSelectedYear(year);
+                  reset();
+                }}
                 active={selectedYear === year}
               >
                 {year}
@@ -117,7 +128,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             ))}
           </div>
           <div className="w-3/4 mx-auto">
-            {projectsForSelectedYear.map((project, i) => {
+            {pagedProjects.map((project, i) => {
               const {
                 name,
                 description,
@@ -192,6 +203,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                 </div>
               );
             })}
+            {pagedProjects.length < projectsForSelectedYear.length && (
+              <WhiteButton
+                className="border-2 border-grey uppercase"
+                onClick={() => viewMore()}
+              >
+                Load more
+              </WhiteButton>
+            )}
           </div>
         </div>
         <SquareField
@@ -214,7 +233,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               touch!
             </p>
             <div className="flex justify-start font-semibold">
-              <LightButton href="/services#contact-us">Suggest a project idea</LightButton>
+              <LightButton href="/services#contact-us">
+                Suggest a project idea
+              </LightButton>
             </div>
           </InfoBox>
         </div>

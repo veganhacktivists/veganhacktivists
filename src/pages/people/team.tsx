@@ -20,6 +20,7 @@ import { useHash } from '../../hooks/useHash';
 import Sprite, { duck } from '../../components/decoration/sprite';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import shuffle from '../../lib/helpers/shuffle';
+import useViewMore from '../../hooks/useViewMore';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -154,15 +155,6 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   );
 };
 
-const useViewMore = (pageSize = 12) => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const viewMore = useCallback(() => {
-    setPageNumber((curr) => curr + 1);
-  }, []);
-
-  return { pageSize, viewMore, pageNumber };
-};
-
 const useFilteredMembers = (
   allMembers: ITeamMember[],
   selectedTeam: string | null,
@@ -244,7 +236,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
             className="border-2 border-grey uppercase"
             onClick={() => viewMore()}
           >
-            View more
+            Load more
           </WhiteButton>
         )}
       </div>
