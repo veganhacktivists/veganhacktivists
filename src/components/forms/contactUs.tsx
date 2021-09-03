@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
@@ -7,6 +8,8 @@ import SelectInput from './inputs/selectInput';
 import Label from './inputs/label';
 import TextInput from './inputs/textInput';
 import TextArea from './inputs/textArea';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -18,18 +21,25 @@ interface ContactUsSubmission {
 }
 
 const ContactUsForm: React.FC = () => {
-  const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    try {
-      await axios.post('/api/contact-us', values);
-    } catch (e) {}
-  }, []);
-
   const {
     control,
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactUsSubmission>();
+
+  const onSubmit = useCallback(async (values: ContactUsSubmission) => {
+    try {
+      await axios.post('/api/contact-us', values);
+      reset();
+      toast.success('Your request was sent successfully!');
+    } catch (e) {
+      toast.error(
+        'Something went wrong processing your submission! Please try again later'
+      );
+    }
+  }, []);
 
   return (
     <div className="md:w-2/3 mx-auto pt-5" id="contact-us">
@@ -87,6 +97,7 @@ const ContactUsForm: React.FC = () => {
           </DarkButton>
         </div>
       </form>
+      <ToastContainer position="bottom-right" />
     </div>
   );
 };

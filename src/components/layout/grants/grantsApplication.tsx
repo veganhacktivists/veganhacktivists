@@ -1,11 +1,15 @@
-import axios from 'axios';
 import { useCallback } from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import type { GrantsForm } from '../../../pages/api/grant-request';
 import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
+import { toast, ToastContainer } from 'react-toastify';
+import Spinner from '../../decoration/spinner';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormSection: React.FC<{ section: string; sectionName: string }> = ({
   children,
@@ -31,14 +35,19 @@ const GrantsApplication: React.FC = () => {
     handleSubmit,
     register,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<GrantsForm>({});
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
       try {
         await axios.post('/api/grant-request', data);
-      } catch (e) {}
+        toast.success('Your request was sent successfully!');
+      } catch (e) {
+        toast.error(
+          'Something went wrong processing your submission! Please try again later'
+        );
+      }
     },
     []
   );
@@ -265,10 +274,15 @@ const GrantsApplication: React.FC = () => {
           </Checkbox>
         </FormSection>
 
-        <DarkButton className="font-mono uppercase w-64 mt-10">
-          Submit
+        <DarkButton
+          type="submit"
+          disabled={isSubmitting}
+          className="font-mono uppercase w-64 mt-10"
+        >
+          {isSubmitting ? <Spinner /> : 'Submit'}
         </DarkButton>
       </form>
+      <ToastContainer position="bottom-right" />
     </div>
   );
 };

@@ -620,6 +620,9 @@ exports[`should render correctly 1`] = `
           </button>
         </div>
       </form>
+      <div
+        class="Toastify"
+      />
     </div>
   </div>
 </DocumentFragment>
