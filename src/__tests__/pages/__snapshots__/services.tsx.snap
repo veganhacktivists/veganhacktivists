@@ -204,7 +204,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm"
               >
                 Apply for a free website!
               </div>
@@ -269,7 +269,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm"
               >
                 Let's chat about your idea!
               </div>
@@ -334,7 +334,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm"
               >
                 Learn about our grant program!
               </div>
@@ -399,7 +399,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-md"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm"
               >
                 Ask for advice, contact us!
               </div>
@@ -620,6 +620,9 @@ exports[`should render correctly 1`] = `
           </button>
         </div>
       </form>
+      <div
+        class="Toastify"
+      />
     </div>
   </div>
 </DocumentFragment>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
@@ -10,7 +10,6 @@ import TextInput from './inputs/textInput';
 import TextArea from './inputs/textArea';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { Toast } from 'react-toastify/dist/components';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
