@@ -6,7 +6,6 @@ import Header from '../components/layout/header';
 import Footer from '../components/layout/footer';
 import PageWrapper, { MainWrapper } from '../components/layout/wrapper';
 import TagManager from 'react-gtm-module';
-import type { GetStaticProps } from 'next';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
