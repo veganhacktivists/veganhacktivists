@@ -94,7 +94,7 @@ const NavbarItems: React.FC = () => {
       <NavBarItem
         label="Support"
         href={'/support'}
-        className="bg-magenta hover:bg-magenta-light font-bold"
+        className="bg-pink hover:bg-pink-dark font-bold"
       />
     </>
   );

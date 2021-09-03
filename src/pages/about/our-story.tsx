@@ -24,12 +24,14 @@ const OurMission: React.FC = () => {
         people wanting to help us build more projects for the movement!
       </FirstSubSection>
       <div className="m-10 pb-10">
-        <Image
-          src={PixelPig.src}
-          width={PixelPig.width / 3}
-          height={PixelPig.height / 3}
-          alt="Our story"
-        />
+        <div className="pb-5">
+          <Image
+            src={PixelPig}
+            width={PixelPig.width / 3}
+            height={PixelPig.height / 3}
+            alt="Our story"
+          />
+        </div>
         <SubSection header="Since that day we’ve grown to 100+ volunteers">
           Most of which are mainly composed of developers, designers, and other
           types of content creators that work closely together in teams. As time
@@ -66,13 +68,13 @@ const OurMission: React.FC = () => {
           hangouts, and play games together during our breaks and weekends.
           Volunteering behind a worthy cause is empowering, but having
           tight-knit friendships and fun activities really bring us together and
-          reinvigorate our passion in working harder for the animals. If this
-          sounds like a group you’d like to volunteer for, and you have the
-          time, please{' '}
+          reinvigorate our passion in working harder for the animals.{' '}
           <Link href="/join">
-            <a className="underline hover:text-grey">click over here</a>
-          </Link>{' '}
-          and find out how!
+            <a className="underline hover:text-grey">
+              If this sounds like a group you’d like to volunteer for, and you
+              have the time, please click over here and find out how!
+            </a>
+          </Link>
         </SubSection>
       </div>
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />

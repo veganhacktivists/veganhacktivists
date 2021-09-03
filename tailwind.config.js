@@ -78,7 +78,7 @@ module.exports = {
       boxShadow: {
         'fill-green': `inset 1000px 0 0 0 ${colors.green.DEFAULT}`,
         'fill-pink': `inset 1000px 0 0 0 ${colors.pink.DEFAULT}`,
-        'fill-red': `inset 1000px 0 0 0 ${colors.red.DEFAULT}`,
+        'fill-pink-dark': `inset 1000px 0 0 0 ${colors.pink.dark}`,
       },
     },
     colors,

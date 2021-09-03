@@ -23,12 +23,14 @@ const OurMission: React.FC = () => {
         we aim to solve through the work that we do.
       </FirstSubSection>
       <div className="m-10 pb-10">
-        <Image
-          src={PixelCow.src}
-          width={PixelCow.width / 3}
-          height={PixelCow.height / 3}
-          alt="Our mission"
-        />
+        <div className="pb-5">
+          <Image
+            src={PixelCow.src}
+            width={PixelCow.width / 3}
+            height={PixelCow.height / 3}
+            alt="Our mission"
+          />
+        </div>
         <div>
           <SubSection header="1. We need more data in our movement.">
             We can’t realistically track or be confident that the projects and

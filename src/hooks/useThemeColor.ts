@@ -27,6 +27,10 @@ const byString: (object: any, path: string) => string | undefined = (
 };
 
 const useThemeColor: (color: string) => string | undefined = (color) => {
+  if (typeof color === 'string' && color.startsWith('#')) {
+    return color;
+  }
+
   const obj = byString(
     colors,
     color.replace(/([a-z]+)-(light|dark|background|over-background)/g, '$1.$2')
