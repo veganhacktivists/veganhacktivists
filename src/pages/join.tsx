@@ -54,6 +54,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: codeLogo,
     color: 'green',
+    squareColor: '#58a345',
     title: 'Developers',
     href: 'https://veganhacktivists.typeform.com/to/Vnrv6N',
     description: (
@@ -68,6 +69,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: designLogo,
     color: 'yellow-orange',
+    squareColor: '#eb7d23',
     title: 'UI Designers',
     href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
@@ -83,6 +85,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: paintBrushLogo,
     color: 'pink',
+    squareColor: '#d31679',
     title: 'Graphic Designers',
     href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
@@ -97,6 +100,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: socialMediaLogo,
     color: 'yellow',
+    squareColor: '#fcb216',
     title: 'Social or Marketing',
     href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
@@ -111,6 +115,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: penLogo,
     color: 'red',
+    squareColor: '#c61f45',
     title: 'Content Creators',
     href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (
@@ -125,6 +130,7 @@ const JOB_ROLES: JobRoleProps[] = [
   {
     image: bubbleLogo,
     color: 'purple',
+    squareColor: '#692c81',
     title: 'Translators',
     href: 'https://veganhacktivists.typeform.com/to/PBK1we',
     description: (

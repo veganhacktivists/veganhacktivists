@@ -3,7 +3,7 @@ import { getContents } from '../../lib/cms';
 import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import {
   getAllBlogSlugs,
   getBlogEntries,

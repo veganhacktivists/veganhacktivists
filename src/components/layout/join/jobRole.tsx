@@ -7,6 +7,7 @@ import useThemeColor from '../../../hooks/useThemeColor';
 export interface JobRoleProps {
   image: StaticImageData;
   color: string;
+  squareColor?: string;
   title: string;
   description: React.ReactNode;
   href: string;
@@ -15,6 +16,7 @@ export interface JobRoleProps {
 const JobRole: React.FC<JobRoleProps> = ({
   image,
   color,
+  squareColor = '#58a345',
   title,
   description,
   href,
@@ -24,8 +26,8 @@ const JobRole: React.FC<JobRoleProps> = ({
   return (
     <div className="bg-gray-background text-grey-dark">
       <SquareField
-        squares={[{ color: 'black', size: 16, right: 0 }]}
-        className="hidden md:block opacity-30 "
+        squares={[{ color: squareColor, size: 16, right: 0 }]}
+        className=""
       />
       <div
         style={{ backgroundColor }}

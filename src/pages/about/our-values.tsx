@@ -23,12 +23,15 @@ const OurMission: React.FC = () => {
         version of ourselves when fighting for the animals.
       </FirstSubSection>
       <div className="m-10 pb-10">
-        <Image
-          src={PixelChicken.src}
-          width={PixelChicken.width / 3}
-          height={PixelChicken.height / 3}
-          alt="Our values"
-        />
+        <div className="pb-5">
+          <Image
+            src={PixelChicken.src}
+            width={PixelChicken.width / 3}
+            height={PixelChicken.height / 3}
+            alt="Our values"
+          />
+        </div>
+
         <SubSection header="Animal Liberation">
           We value and respect the lives of all animals and denounce all forms
           of violence and exploitation against them. We believe animals have the

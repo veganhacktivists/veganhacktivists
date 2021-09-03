@@ -63,7 +63,6 @@ const GrantsCallToAction: React.FC = () => {
           backgroundColor="grey-over-background"
           button={{
             content: <>See&nbsp;our&nbsp;impact!</>,
-            // content: 'Apply now!',
             href: '#',
           }}
         >

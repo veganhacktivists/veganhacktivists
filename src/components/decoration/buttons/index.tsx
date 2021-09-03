@@ -24,7 +24,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
@@ -126,7 +126,7 @@ const GreenButton: React.FC<ButtonProps> = ({
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <BaseButton {...props}>
-      <div className="hover:shadow-fill-red bg-magenta border-l-8 border-red py-2 ease-linear duration-500">
+      <div className="hover:shadow-fill-pink-dark bg-magenta border-l-8 border-pink-dark py-2 ease-linear duration-500">
         {children}
       </div>
     </BaseButton>
