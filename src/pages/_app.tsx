@@ -15,9 +15,11 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
-    TagManager.initialize({
-      gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID || '',
-    });
+    if (process.env.NODE_ENV === 'production') {
+      TagManager.initialize({
+        gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID || '',
+      });
+    }
   }, []);
 
   return (
