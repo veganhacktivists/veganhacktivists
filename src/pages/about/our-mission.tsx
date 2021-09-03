@@ -62,7 +62,7 @@ const OurMission: React.FC = () => {
             Only a tiny percentage of the world is vegan, and a fraction within
             are active. Many organizations focus on converting vegans whether
             through health, environmental, or ethical reasons. We believe we can
-            also ve effective by creating tools to help, inspire, and motivate
+            also be effective by creating tools to help, inspire, and motivate
             more vegans to become activists.
           </SubSection>
         </div>
