@@ -111,7 +111,7 @@ const Service: React.FC<ServiceProps> = ({
       >
         <p className="mt-3 mb-7">{content}</p>
         {button && (
-          <DarkButton className="max-w-md" href={button.href}>
+          <DarkButton className="max-w-sm" href={button.href}>
             {button.text}
           </DarkButton>
         )}
