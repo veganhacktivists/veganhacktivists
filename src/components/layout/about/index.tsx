@@ -6,7 +6,7 @@ import heroTagline from '../../../../public/images/about/hero-tagline.png';
 
 export const AboutButtons: React.FC = () => {
   return (
-    <div className="mb-5 flex justify-center flex-wrap">
+    <div className="mb-5 mt-10 flex justify-center flex-wrap">
       <NavButton href="/about/our-mission">OUR MISSION</NavButton>
       <NavButton href="/about/our-story">OUR STORY</NavButton>
       <NavButton href="/about/our-values">OUR VALUES</NavButton>

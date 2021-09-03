@@ -23,7 +23,7 @@ export interface SocialLink {
 
 export const PeopleButtons: React.FC = () => {
   return (
-    <div className="mb-5 flex justify-center flex-wrap">
+    <div className="mb-5 mt-10 flex justify-center flex-wrap">
       <NavButton href="/people/team">OUR TEAM</NavButton>
       <NavButton href="/people/advisors">OUR ADVISORS</NavButton>
       <NavButton href="/people/partners">OUR PARTNERS</NavButton>

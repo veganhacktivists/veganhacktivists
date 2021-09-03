@@ -64,7 +64,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         )}
       </div>
       <div className="flex flex-col justify-around bg-gray-background px-10 py-10 w-full">
-        <div className="mb-2 text-left lg:text-left">
+        <div className="mb-2 text-center lg:text-left">
           <span className="text-2xl font-bold">{name}</span>{' '}
           <span className="ml-2 font-bold text-m uppercase text-grey block md:inline">
             {position}
@@ -105,13 +105,13 @@ const Partners: React.FC<PartnerProps> = ({ partners }) => {
         <title>Our Partners | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
+      <PeopleButtons />
+      <FirstSubSection header="Our partners">
+        Here are our fantastic partners whom we support and are spported by.
+        Take a look at them below, visit them, and support the amazing work they
+        do!
+      </FirstSubSection>
       <div className="m-10 mb-36">
-        <PeopleButtons />
-        <FirstSubSection header="Our partners">
-          Here are our fantastic partners whom we support and are spported by.
-          Take a look at them below, visit them, and support the amazing work
-          they do!
-        </FirstSubSection>
         <PartnerList partners={partners} />
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />

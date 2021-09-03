@@ -165,14 +165,12 @@ const Join: React.FC = () => (
       squares={HERO_DECORATION_SQUARES}
       className="hidden md:block"
     />
-    <div className="px-10">
-      <FirstSubSection header="Join our team">
-        We&apos;re always looking for more vegan activist volunteers to join our
-        growing team! If you&apos;re interested and have the time, see our
-        positions below. Please note that we prioritize people that meet our
-        qualifications, but encourage you to apply either way!
-      </FirstSubSection>
-    </div>
+    <FirstSubSection header="Join our team">
+      We&apos;re always looking for more vegan activist volunteers to join our
+      growing team! If you&apos;re interested and have the time, see our
+      positions below. Please note that we prioritize people that meet our
+      qualifications, but encourage you to apply either way!
+    </FirstSubSection>
     <div>
       <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl">
         <div className="flex flex-col gap-4">

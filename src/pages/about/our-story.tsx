@@ -16,14 +16,14 @@ const OurMission: React.FC = () => {
         <title>Our Story | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
+      <AboutButtons />
+      <FirstSubSection header="Our story">
+        We started in 2019 as a one-person team with the goal of building a
+        simple animal rights tech project. After the launch of our first
+        project, VeganActivism.org, we were overwhelmed by the response of
+        people wanting to help us build more projects for the movement!
+      </FirstSubSection>
       <div className="m-10 pb-10">
-        <AboutButtons />
-        <FirstSubSection header="Our story">
-          We started in 2019 as a one-person team with the goal of building a
-          simple animal rights tech project. After the launch of our first
-          project, VeganActivism.org, we were overwhelmed by the response of
-          people wanting to help us build more projects for the movement!
-        </FirstSubSection>
         <Image
           src={PixelPig.src}
           width={PixelPig.width / 3}

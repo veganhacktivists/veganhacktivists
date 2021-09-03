@@ -15,14 +15,14 @@ const OurMission: React.FC = () => {
         <title>Our Values | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
+      <AboutButtons />
+      <FirstSubSection header="Our values">
+        We embrace strong core values for our organization and recruit diverse
+        and talented volunteers. By making our community open and safe for
+        everyone, we build an environment in which all of us can be the best
+        version of ourselves when fighting for the animals.
+      </FirstSubSection>
       <div className="m-10 pb-10">
-        <AboutButtons />
-        <FirstSubSection header="Our values">
-          We embrace strong core values for our organization and recruit diverse
-          and talented volunteers. By making our community open and safe for
-          everyone, we build an environment in which all of us can be the best
-          version of ourselves when fighting for the animals.
-        </FirstSubSection>
         <Image
           src={PixelChicken.src}
           width={PixelChicken.width / 3}

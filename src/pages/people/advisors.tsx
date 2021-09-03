@@ -122,13 +122,13 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
         <title>Our Advisors | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
+      <PeopleButtons />
+      <FirstSubSection header="Our advisors">
+        We&apos;re so incredibly thankful to have a team of experienced advisors
+        that support us! Advisors lend thier experience by providing valuable
+        personal feedback for our projects and organization.
+      </FirstSubSection>
       <div className="m-10">
-        <PeopleButtons />
-        <FirstSubSection header="Our advisors">
-          We&apos;re so incredibly thankful to have a team of experienced
-          advisors that support us! Advisors lend thier experience by providing
-          valuable personal feedback for our projects and organization.
-        </FirstSubSection>
         <div className="flex flex-wrap justify-center ">
           {advisors.map((advisor) => (
             <div className="m-5" key={advisor.sys.id}>
@@ -138,7 +138,7 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
         </div>
       </div>
       <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-16 px-10">
+      <div className="bg-grey-light pb-10 pt-16">
         <Image
           src={PixelHeart.src}
           width={PixelHeart.width / 3}

@@ -15,14 +15,14 @@ const OurMission: React.FC = () => {
         <title>Our Mission | Vegan Hacktivists</title>
       </Head>
       <AboutHero />
+      <AboutButtons />
+      <FirstSubSection header="Our mission">
+        Our mission is to build new, data-driven, disruptive, and innovative
+        projects to help see an end to animal exploitation. We believe the
+        animal rights movement has five fundamental areas it can improve on that
+        we aim to solve through the work that we do.
+      </FirstSubSection>
       <div className="m-10 pb-10">
-        <AboutButtons />
-        <FirstSubSection header="Our mission">
-          Our mission is to build new, data-driven, disruptive, and innovative
-          projects to help see an end to animal exploitation. We believe the
-          animal rights movement has five fundamental areas it can improve on
-          that we aim to solve through the work that we do.
-        </FirstSubSection>
         <Image
           src={PixelCow.src}
           width={PixelCow.width / 3}
@@ -61,9 +61,9 @@ const OurMission: React.FC = () => {
           <SubSection header="5. Finally, we need more vegans to become active.">
             Only a tiny percentage of the world is vegan, and a fraction within
             are active. Many organizations focus on converting vegans whether
-            through health, environmental, or ethical reasons. We believe 
-            we can also ve effective by creating tools to help, inspire, and
-            motivate more vegans to become activists.
+            through health, environmental, or ethical reasons. We believe we can
+            also ve effective by creating tools to help, inspire, and motivate
+            more vegans to become activists.
           </SubSection>
         </div>
       </div>

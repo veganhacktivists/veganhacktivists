@@ -10,12 +10,9 @@ export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
   );
 };
 
-export const HeaderContainer: React.FC<SubSectionContent> = ({
-  header = '',
-  children,
-}) => {
+export const HeaderContainer: React.FC = ({ children }) => {
   return (
-    <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
+    <div className="text-grey content-center px-5 mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
       <h1 className="mb-10">{children}</h1>
     </div>
   );

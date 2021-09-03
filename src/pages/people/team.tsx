@@ -219,15 +219,14 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <title>Our Team | Vegan Hacktivists</title>
       </Head>
       <PeopleHero />
+      <PeopleButtons />
+      <FirstSubSection header="Our team">
+        We&apos;re so grateful to have so many passionate vegan volunteers with
+        us supporting the movement! Each team below is run independently from
+        each other and are assigned to different projects or organizations.{' '}
+        <b>Please click one of the icons below!</b>
+      </FirstSubSection>
       <div className="m-10">
-        <PeopleButtons />
-        <FirstSubSection header="Our team">
-          We&apos;re so grateful to have so many passionate vegan volunteers
-          with us supporting the movement! Each team below is run independently
-          from each other and are assigned to different projects or
-          organizations. <b>Please click one of the icons below!</b>
-        </FirstSubSection>
-
         <TeamSelector
           selectedTeam={team}
           selectCallback={(team) => {
