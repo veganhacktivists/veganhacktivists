@@ -10,7 +10,7 @@ interface ILinks {
 const links: ILinks[] = [
   {
     label: 'About',
-    href: '/about/our-story',
+    href: '/about',
     links: [
       { label: 'Our Story', href: '/about/our-story' },
       { label: 'Our Values', href: '/about/our-values' },
@@ -30,7 +30,7 @@ const links: ILinks[] = [
   },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/services#contact-us' },
-  { label: 'Join Us', href: '/join_us' },
+  { label: 'Join Us', href: '/join' },
 ];
 
 const MyLink: React.FC<ILinks & { level?: number }> = ({
