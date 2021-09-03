@@ -21,7 +21,6 @@ import InfoBox from '../components/infoBox';
 import classNames from 'classnames';
 import Sprite, { chicken } from '../components/decoration/sprite';
 import Link from 'next/link';
-import { usePagination } from 'react-use-pagination';
 import useViewMore from '../hooks/useViewMore';
 
 const HERO_DECORATION_SQUARES = [
@@ -69,7 +68,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
         )
       : projects;
 
-  const { pageNumber, pageSize, viewMore, reset } = useViewMore(5);
+  const { pageNumber, pageSize, viewMore, reset } = useViewMore(10);
 
   const pagedProjects = projectsForSelectedYear.slice(0, pageSize * pageNumber);
 
@@ -209,7 +208,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                 className="border-2 border-grey uppercase"
                 onClick={() => viewMore()}
               >
-                View more
+                Load more
               </WhiteButton>
             )}
           </div>

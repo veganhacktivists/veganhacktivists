@@ -236,7 +236,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
             className="border-2 border-grey uppercase"
             onClick={() => viewMore()}
           >
-            View more
+            Load more
           </WhiteButton>
         )}
       </div>
