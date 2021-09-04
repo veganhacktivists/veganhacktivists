@@ -64,7 +64,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             {blog.fields.title}
           </b>
           {heading && (
-            <div className="text-xl line-clamp-5 md:text-md xl:text-xl md:line-clamp-2 xl:line-clamp-3">
+            <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-6 2xl:pt-5">
               {documentToReactComponents(
                 blog.fields.excerpt.content.length === 0
                   ? blog.fields.content
