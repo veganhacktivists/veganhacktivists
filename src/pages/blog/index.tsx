@@ -36,15 +36,17 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
 
   const [firstBlog, ...otherBlogs] = blogs;
 
+  const filterKeys = ['fields.title']; //['fields.title', 'fields.excerpt']
+
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
-    options: { keys: ['fields.title', 'fields.excerpt'] },
+    options: { keys: filterKeys },
     term: query,
   });
 
   const filteredEntries = useFuse({
     data: otherBlogs,
-    options: { keys: ['fields.title', 'fields.excerpt'] },
+    options: { keys: filterKeys },
     term: query,
     sort: true,
   });

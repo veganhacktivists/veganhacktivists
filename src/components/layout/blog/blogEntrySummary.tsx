@@ -23,12 +23,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     <div
       className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
         'grid-cols-1': !heading,
-        'md:grid-cols-2': heading,
+        'md:grid-cols-3': heading,
       })}
     >
       <div
-        className={classNames('w-full overflow-hidden relative', {
-          // 'h-48': !heading,
+        className={classNames('w-full overflow-hidden relative h-full', {
+          'md:col-span-2': heading,
         })}
       >
         <ImageContainer>
@@ -36,7 +36,6 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             image={blog.fields.featuredImage}
             alt=""
             layout="responsive"
-            objectFit="cover"
           />
         </ImageContainer>
         {heading && (
@@ -47,7 +46,11 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
       </div>
       <div className="flex flex-col justify-between flex-shrink">
         <div className="my-auto px-5 mb-5 mt-5">
-          <div className="text-xl mb-3 font-mono font-bold">
+          <div
+            className={classNames('text-xl font-mono font-bold', {
+              'mb-3': !heading,
+            })}
+          >
             {new Intl.DateTimeFormat('en', {
               month: 'long',
               year: date.getFullYear() !== currentYear ? 'numeric' : undefined,
@@ -61,8 +64,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             {blog.fields.title}
           </b>
           {heading && (
-            <div className="text-xl line-clamp-3">
-              {documentToReactComponents(blog.fields.excerpt)}
+            <div className="text-xl line-clamp-5 md:text-md xl:text-xl md:line-clamp-2 xl:line-clamp-3">
+              {documentToReactComponents(
+                blog.fields.excerpt.content.length === 0
+                  ? blog.fields.content
+                  : blog.fields.excerpt
+              )}
             </div>
           )}
         </div>

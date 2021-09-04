@@ -71,6 +71,9 @@ export const getFeaturedProjects: () => Promise<Entry<IProjectFields>[]> =
 export const getBlogEntries: (
   limit?: number
 ) => Promise<Entry<IBlogEntryFields>[]> = async (limit) => {
+  const fields =
+    'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.content';
+
   const [newBlogs, oldBlogs] = await Promise.all([
     getContents<IBlogEntryFields>({
       contentType: 'blogEntry',
@@ -81,8 +84,7 @@ export const getBlogEntries: (
       },
       other: {
         order: '-sys.createdAt',
-        select:
-          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
+        select: fields,
         limit,
       },
     }),
@@ -95,8 +97,7 @@ export const getBlogEntries: (
       },
       other: {
         order: '-fields.publishDate',
-        select:
-          'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug',
+        select: fields,
         limit,
       },
     }),
