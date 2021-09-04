@@ -30,15 +30,20 @@ const ContactUsForm: React.FC = () => {
   } = useForm<ContactUsSubmission>();
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    try {
-      await axios.post('/api/contact-us', values);
-      reset();
-      toast.success('Your request was sent successfully!');
-    } catch (e) {
-      toast.error(
-        'Something went wrong processing your submission! Please try again later'
-      );
-    }
+    const submit = async () => {
+      axios.post('/api/contact-us', values);
+    };
+
+    await toast
+      .promise(submit, {
+        pending: 'Submitting...',
+        error:
+          'Something went wrong processing your submission! Please try again later',
+        success: 'Your request was sent successfully!',
+      })
+      .then(() => {
+        reset();
+      });
   }, []);
 
   return (
