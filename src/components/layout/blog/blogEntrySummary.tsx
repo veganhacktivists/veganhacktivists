@@ -23,12 +23,12 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     <div
       className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
         'grid-cols-1': !heading,
-        'md:grid-cols-3': heading,
+        'md:grid-cols-5 lg:grid-cols-3': heading,
       })}
     >
       <div
         className={classNames('w-full overflow-hidden relative h-full', {
-          'md:col-span-2': heading,
+          'md:col-span-3 lg:col-span-2': heading,
         })}
       >
         <ImageContainer>
@@ -44,7 +44,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between flex-shrink">
+      <div className="flex flex-col justify-between md:col-span-2 lg:col-span-1">
         <div className="my-auto px-5 mb-5 mt-5">
           <div
             className={classNames('text-xl font-mono font-bold', {
@@ -58,7 +58,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             }).format(date)}
           </div>
           <b
-            className="text-2xl font-mono font-semibold line-clamp-2"
+            className="text-2xl font-mono font-semibold md:line-clamp-2"
             title={blog.fields.title}
           >
             {blog.fields.title}
