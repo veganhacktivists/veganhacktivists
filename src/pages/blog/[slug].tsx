@@ -63,12 +63,12 @@ export const getStaticProps: GetStaticProps = async ({
 const richTextOptions: Options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => (
-      <>
+      <div>
         <ContentfulImage
           image={node.data?.target}
           alt={node.data?.target?.fields?.title}
         />
-      </>
+      </div>
     ),
     [BLOCKS.HEADING_1]: (node, children) => (
       <h1 className="text-3xl">{children}</h1>
