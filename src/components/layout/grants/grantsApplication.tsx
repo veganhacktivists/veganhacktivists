@@ -40,14 +40,14 @@ const GrantsApplication: React.FC = () => {
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
-      try {
-        await axios.post('/api/grant-request', data);
-        toast.success('Your request was sent successfully!');
-      } catch (e) {
-        toast.error(
-          'Something went wrong processing your submission! Please try again later'
-        );
-      }
+      const submit = async () => axios.post('/api/grant-request', data);
+
+      toast.promise(submit, {
+        success: 'Your request was sent successfully!',
+        error:
+          'Something went wrong processing your submission! Please try again later',
+        pending: 'Submitting...',
+      });
     },
     []
   );
