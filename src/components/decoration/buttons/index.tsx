@@ -15,7 +15,7 @@ export interface ButtonProps
   extends AriaAttributes,
     ButtonHTMLAttributes<unknown> {
   primary?: boolean;
-  href?: string;
+  href?: LinkProps['href'];
   className?: string;
   active?: boolean;
   linkProps?: Partial<LinkProps>;
@@ -28,11 +28,13 @@ const baseButtonClasses = classNames(
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
-  href,
   children,
   linkProps,
   ...props
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const href = (props?.href as any)?.pathname || props.href || '';
+
   return (
     <>
       {/* it's an external link */}
