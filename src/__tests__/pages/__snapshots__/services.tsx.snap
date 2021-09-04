@@ -24,7 +24,7 @@ exports[`should render correctly 1`] = `
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
-          class="ml-5 py-20 md:py-20 lg:py-20"
+          class="ml-5 md:ml-56 xl:ml-36 2xl:ml-5 py-20 md:py-20 lg:py-20"
         >
           <div
             style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
