@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import type { GrantsForm } from '../../../pages/api/grant-request';
 import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
@@ -10,6 +10,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import Spinner from '../../decoration/spinner';
 
 import 'react-toastify/dist/ReactToastify.css';
+import Label from '../../forms/inputs/label';
+import SelectInput from '../../forms/inputs/selectInput';
+import { firstLetterUppercase } from '../../../lib/helpers/strings';
 
 const FormSection: React.FC<{ section: string; sectionName: string }> = ({
   children,
@@ -33,6 +36,7 @@ const REQUIRED_FIELD = 'This field is required';
 const GrantsApplication: React.FC = () => {
   const {
     handleSubmit,
+    control,
     register,
     watch,
     formState: { errors, isSubmitting },
@@ -78,13 +82,39 @@ const GrantsApplication: React.FC = () => {
             </div>
           )}
 
-          <TextInput error={errors.gender?.message} {...register('gender', {})}>
+          <div>
+            <Label name="gender">
+              Gender <span className="text-sm">(optional)</span>
+            </Label>
+            <Controller
+              name="gender"
+              control={control}
+              rules={{ required: 'Select a service' }}
+              render={({ field }) => (
+                <SelectInput
+                  creatable
+                  {...field}
+                  ref={null}
+                  error={errors.gender?.message}
+                  options={['male', 'female'].map((option) => ({
+                    value: option,
+                    label: firstLetterUppercase(option),
+                  }))}
+                />
+              )}
+            />
+            {errors.gender && (
+              <p className="text-red">⚠ {errors.gender.message}</p>
+            )}
+          </div>
+
+          {/* <TextInput error={errors.gender?.message} {...register('gender', {})}>
             Gender <span className="text-sm">(optional)</span>
           </TextInput>
           <TextInput
             error={errors.location?.message}
             {...register('location', { required: REQUIRED_FIELD })}
-          />
+          /> */}
           <TextArea
             error={errors.info?.message}
             {...register('info', { required: REQUIRED_FIELD })}

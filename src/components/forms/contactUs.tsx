@@ -10,6 +10,7 @@ import TextInput from './inputs/textInput';
 import TextArea from './inputs/textArea';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { firstLetterUppercase } from '../../lib/helpers/strings';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -82,7 +83,17 @@ const ContactUsForm: React.FC = () => {
             control={control}
             rules={{ required: 'Select a service' }}
             render={({ field }) => (
-              <SelectInput {...field} ref={null} error={!!errors.service} />
+              <SelectInput
+                {...field}
+                ref={null}
+                error={errors.service?.message}
+                options={['website', 'project', 'funding', 'advice'].map(
+                  (option) => ({
+                    value: option,
+                    label: firstLetterUppercase(option),
+                  })
+                )}
+              />
             )}
           />
           {errors.service && (
