@@ -519,7 +519,7 @@ exports[`Application renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="flex flex-row justify-between px-10 mb-12 h-10"
+              class="flex flex-row justify-between px-10 mb-20 h-10"
             >
               <a
                 href="/grants"
@@ -610,7 +610,7 @@ exports[`Application renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="flex flex-row justify-between px-10 mb-12 h-10"
+              class="flex flex-row justify-between px-10 mb-20 h-10"
             >
               <a
                 href="/#"

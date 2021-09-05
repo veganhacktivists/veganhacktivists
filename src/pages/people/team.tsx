@@ -197,6 +197,8 @@ interface TeamProps {
 const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
   const [team, setTeam] = useHash();
 
+  const [shuffledTeams, setShuffledTeams] = useState(teams);
+
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
     teamMembers,
@@ -204,6 +206,10 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
     pageSize,
     pageNumber
   );
+
+  useEffect(() => {
+    setShuffledTeams(shuffle(teams));
+  }, [teams]);
 
   return (
     <>
@@ -228,7 +234,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
               setTeam(team);
             }
           }}
-          teams={teams}
+          teams={shuffledTeams}
         />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
