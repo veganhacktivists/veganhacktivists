@@ -239,7 +239,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
           <WhiteButton
-            className="border-2 border-grey uppercase"
+            className="font-mono content-center drop-shadow-2xl text-2xl mt-5"
             onClick={() => viewMore()}
           >
             Load more

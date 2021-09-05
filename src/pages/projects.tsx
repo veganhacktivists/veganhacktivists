@@ -205,7 +205,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             })}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <WhiteButton
-                className="border-2 border-grey uppercase mt-10"
+                className="font-mono content-center drop-shadow-2xl text-2xl mt-15"
                 onClick={() => viewMore()}
               >
                 Load more
