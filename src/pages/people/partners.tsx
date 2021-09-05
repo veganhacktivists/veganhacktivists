@@ -17,6 +17,7 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { firstLetterUppercase } from '../../lib/helpers/strings';
 
 const TEAM_SQUARES1 = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -74,8 +75,9 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         <DarkButton
           className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono mx-auto xl:ml-0"
           href={website}
+          capitalize={false}
         >
-          {domain ?? name}
+          {firstLetterUppercase(domain ?? name)}
         </DarkButton>
       </div>
     </div>

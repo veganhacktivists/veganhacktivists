@@ -22,6 +22,7 @@ import classNames from 'classnames';
 import Sprite, { chicken } from '../components/decoration/sprite';
 import Link from 'next/link';
 import useViewMore from '../hooks/useViewMore';
+import { firstLetterUppercase } from '../lib/helpers/strings';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -168,8 +169,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                       {documentToReactComponents(description)}
                     </div>
                     <div className="mt-10 flex flex-wrap items-center">
-                      <DarkButton href={url} className="font-mono">
-                        {url.replace(/https?:\/\//, '').replace(/\/$/, '')}
+                      <DarkButton
+                        href={url}
+                        className="font-mono"
+                        capitalize={false}
+                      >
+                        {firstLetterUppercase(
+                          url.replace(/https?:\/\//, '').replace(/\/$/, '')
+                        )}
                       </DarkButton>
                       <span className="font-bold sm:pl-5">
                         <span className="text-grey">
@@ -205,10 +212,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             })}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <WhiteButton
-                className="font-mono content-center drop-shadow-2xl text-2xl mt-15"
+                className="font-mono content-center drop-shadow-2xl text-2xl mt-16"
                 onClick={() => viewMore()}
               >
-                Load more
+                LOAD MORE
               </WhiteButton>
             )}
           </div>

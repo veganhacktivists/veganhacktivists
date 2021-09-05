@@ -61,7 +61,7 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold"
           >
             Learn More
           </div>
@@ -205,7 +205,7 @@ exports[`Application renders correctly 1`] = `
         href="/about/our-mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
         >
           Our Mission
         </div>
@@ -287,7 +287,7 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white font-mono"
           >
             See All Projects
           </div>
@@ -360,7 +360,7 @@ exports[`Application renders correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold"
           >
             Meet the Team
           </div>
@@ -369,7 +369,7 @@ exports[`Application renders correctly 1`] = `
           href="/join"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold"
           >
             Apply to Join
           </div>
@@ -436,7 +436,7 @@ exports[`Application renders correctly 1`] = `
         href="/blog"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold"
         >
           See All Posts
         </div>
@@ -525,7 +525,7 @@ exports[`Application renders correctly 1`] = `
                 href="/grants"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72"
                 >
                   Apply now!
                 </div>
@@ -616,7 +616,7 @@ exports[`Application renders correctly 1`] = `
                 href="/#"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72"
                 >
                   See our impact!
                 </div>

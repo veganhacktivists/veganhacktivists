@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
 import Select from 'react-select';
 import Creatable, { makeCreatableSelect } from 'react-select/creatable';
+import { firstLetterUppercase } from '../../../lib/helpers/strings';
 
 const SelectInput: React.FC<any> = ({ error, ...props }) => {
   const grey = useThemeColor('grey');
@@ -10,7 +11,7 @@ const SelectInput: React.FC<any> = ({ error, ...props }) => {
 
   const options = ['website', 'project', 'funding', 'advice'].map((option) => ({
     value: option,
-    label: option.charAt(0).toUpperCase() + option.slice(1),
+    label: firstLetterUppercase(option),
   }));
 
   const [value, setValue] = useState<string | null>(null);

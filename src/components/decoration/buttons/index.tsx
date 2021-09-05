@@ -21,19 +21,23 @@ export interface ButtonProps
   linkProps?: Partial<LinkProps>;
   onClick?: MouseEventHandler;
   type?: 'submit' | 'reset' | 'button';
+  capitalize?: boolean;
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] capitalize font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
   children,
   linkProps,
+  capitalize = true,
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const href = (props?.href as any)?.pathname || props.href || '';
+
+  props.className = classNames(props.className, { capitalize });
 
   return (
     <>
@@ -180,7 +184,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const classes = classNames(
-    'border-2 border-gray-200 border-opacity-50 p-3',
+    'border-2 border-gray border-opacity-50 p-3',
     {
       'bg-gray': active,
       'text-white': active,

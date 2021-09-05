@@ -1,5 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import axios from 'axios';
+import { firstLetterUppercase } from '../helpers/strings';
 
 const MAILGUN_URL = 'https://api.mailgun.net/v3/veganhacktivists.org/messages';
 
@@ -28,9 +29,9 @@ export const createFormattedMessage: (data: Record<string, string>) => string =
   (data) => {
     return Object.entries(data)
       .map(([field, value]) => {
-        return `<b>${
-          field.charAt(0).toUpperCase() + field.slice(1)
-        }:</b><br/>${`${value}`.split('\n').join('<br/>')}`;
+        return `<b>${firstLetterUppercase(field)}:</b><br/>${`${value}`
+          .split('\n')
+          .join('<br/>')}`;
       })
       .join('<br/>');
   };
