@@ -224,7 +224,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="bg-gray-background md:py-16 flex flex-row justify-center">
+        <div className="bg-gray-background py-16 md:py-24 flex flex-row justify-center">
           <InfoBox
             title="Have an idea for a project?"
             icon={lampImage}
@@ -239,7 +239,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               rather build it yourself and want advice, no problem - get in
               touch!
             </p>
-            <div className="flex justify-start font-semibold">
+            <div className="md:flex md:justify-start font-semibold">
               <LightButton
                 href={{ pathname: '/services', hash: '#contact-us' }}
               >
