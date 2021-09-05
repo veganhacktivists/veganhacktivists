@@ -2,7 +2,7 @@ import Image from 'next/image';
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
-import 2020Review from '../../../../public/images/VH_2020Review_Color.png';
+import Review2020Icon from '../../../../public/images/VH_2020Review_Color.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
@@ -10,12 +10,13 @@ import useThemeColor from '../../../hooks/useThemeColor';
 const Info: React.FC<{
   title: string;
   image: StaticImageData;
+  boxicon: StaticImageData;
   backgroundColor?: string;
   button: {
     content: React.ReactNode;
     href: string;
   };
-}> = ({ children, title, image, backgroundColor = 'white', button }) => {
+}> = ({ children, title, boxicon, image, backgroundColor = 'white', button }) => {
   const color = useThemeColor(backgroundColor);
 
   return (
@@ -61,7 +62,7 @@ const GrantsCallToAction: React.FC = () => {
         </Info>
         <Info
           image={impactReviewImage}
-          boxicon={2020Review}
+          boxicon={Review2020Icon}
           title="See our 2020 impact review"
           backgroundColor="grey-over-background"
           button={{
