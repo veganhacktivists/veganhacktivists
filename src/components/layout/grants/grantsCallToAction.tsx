@@ -2,6 +2,7 @@ import Image from 'next/image';
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
+import 2020Review from '../../../../public/images/VH_2020Review_Color.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
@@ -30,12 +31,12 @@ const Info: React.FC<{
             </div>
             <div className="mb-8 md:mb-0 text-2xl">{children}</div>
           </div>
-          <div className="flex flex-row justify-between px-10 mb-12 h-10">
+          <div className="flex flex-row justify-between px-10 mb-20 h-10">
             <DarkButton className="md:max-w-72" href={button.href}>
               {button.content}
             </DarkButton>
             <div className="w-1/4">
-              <Image src={beeIcon} alt="" />
+              <Image src={boxicon} alt="" />
             </div>
           </div>
         </div>
@@ -50,6 +51,7 @@ const GrantsCallToAction: React.FC = () => {
       <div className="drop-shadow-2xl md:grid grid-cols-1 md:grid-cols-2 gap-0 md:w-2/3 mx-auto auto-rows-fr">
         <Info
           image={beeImage}
+          boxicon={beeIcon}
           backgroundColor="white"
           title="Apply for a $1000 VH seed grant"
           button={{ content: <>Apply&nbsp;now!</>, href: '/grants' }}
@@ -59,6 +61,7 @@ const GrantsCallToAction: React.FC = () => {
         </Info>
         <Info
           image={impactReviewImage}
+          boxicon={2020Review}
           title="See our 2020 impact review"
           backgroundColor="grey-over-background"
           button={{
