@@ -37,7 +37,7 @@ const Review2020: React.FC = () => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <FirstSubSection header="Our 2020 year in review">
+      <FirstSubSection header="Our 2020 year in review" firstWordsNum={2}>
         We&apos;re so happy to release our 2020 year in review! Scroll down to
         see all our accomplishments we&apos;ve made thanks to your generous
         support, our partners, and most of all our amazing volunteers!

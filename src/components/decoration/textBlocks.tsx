@@ -1,5 +1,6 @@
 interface SubSectionContent {
   header?: string;
+  firstWordsNum?: number;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -21,15 +22,16 @@ export const HeaderContainer: React.FC = ({ children }) => {
 export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
   children,
+  firstWordsNum = 1,
 }) => {
   const tokenizedHeader = header.split(' ');
-  const firstWord = tokenizedHeader.shift();
+  const firstWords = tokenizedHeader.splice(0, firstWordsNum).join(' ');
   const remainingWords = tokenizedHeader.join(' ');
 
   return (
     <HeaderContainer>
       <div className="pb-[15px]">
-        <span className="font-italic text-3xl">{firstWord}</span>{' '}
+        <span className="font-italic text-3xl">{firstWords}</span>{' '}
         <BoldHeaderText>{remainingWords}</BoldHeaderText>
       </div>
       <p>{children}</p>
