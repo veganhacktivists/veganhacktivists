@@ -20,7 +20,7 @@ import useThemeColor from '../hooks/useThemeColor';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'pink', size: 32, left: 16, bottom: 0 },
+  { color: 'pink', size: 24, left: 16, bottom: 0 },
   { color: 'green', size: 16, lwft: 0, top: 0 },
 
   { color: 'yellow', size: 32, right: 0, top: -16 },

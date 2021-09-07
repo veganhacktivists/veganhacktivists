@@ -71,13 +71,13 @@ const richTextOptions: Options = {
       </div>
     ),
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="text-3xl">{children}</h1>
+      <h1 className="text-3xl pt-10">{children}</h1>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-2xl">{children}</h2>
+      <h2 className="text-2xl pt-7">{children}</h2>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h2 className="text-xl">{children}</h2>
+      <h2 className="text-xl pt-5">{children}</h2>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
       <ul className="list-disc list-inside">{children}</ul>
