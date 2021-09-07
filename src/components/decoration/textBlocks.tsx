@@ -18,6 +18,7 @@ interface SubSectionContent {
   firstWordsNum?: number;
   headerSize?: textSize;
   contentSize?: textSize;
+  textColor?: string;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -73,11 +74,16 @@ export const SubSection: React.FC<SubSectionContent> = ({
   children,
   headerSize = '2xl',
   contentSize = 'xl',
+  textColor = 'black',
 }) => {
   return (
     <div className="mb-10">
-      <h1 className={`text-${headerSize} mb-3 font-bold`}>{header}</h1>
-      <p className={`max-w-2xl text-${contentSize} m-auto`}>{children}</p>
+      <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
+        {header}
+      </h1>
+      <p className={`max-w-2xl text-${contentSize} text-${textColor} m-auto`}>
+        {children}
+      </p>
     </div>
   );
 };
