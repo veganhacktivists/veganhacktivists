@@ -50,7 +50,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         )}
       </div>
       <div className="flex flex-col justify-between">
-        <div className="my-auto px-5 mb-5 mt-5">
+        <div className="my-auto px-5 mb-5">
           <div
             className={classNames('text-xl font-mono font-bold', {
               'mb-3': !heading,
