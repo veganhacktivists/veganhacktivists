@@ -4,6 +4,7 @@ import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { DarkButton } from '../../../components/decoration/buttons';
+import Link from 'next/link';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -19,32 +20,36 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
 }) => {
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
+  const LinkToBlog: React.FC = ({ children }) => (
+    <Link href={`/blog/${blog.fields.slug}`}>
+      <a>{children}</a>
+    </Link>
+  );
+
   return (
     <div
       className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
         'grid-cols-1': !heading,
-        'md:grid-cols-5 lg:grid-cols-3': heading,
+        'grid-cols-1 md:grid-cols-2': heading,
       })}
     >
-      <div
-        className={classNames('w-full overflow-hidden relative h-full', {
-          'md:col-span-3 lg:col-span-2': heading,
-        })}
-      >
-        <ImageContainer>
-          <ContentfulImage
-            image={blog.fields.featuredImage}
-            alt=""
-            layout="responsive"
-          />
-        </ImageContainer>
+      <div className={classNames('w-full overflow-hidden relative h-full')}>
+        <LinkToBlog>
+          <ImageContainer>
+            <ContentfulImage
+              image={blog.fields.featuredImage}
+              alt=""
+              layout="responsive"
+            />
+          </ImageContainer>
+        </LinkToBlog>
         {heading && (
           <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">
             Latest post
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between md:col-span-2 lg:col-span-1">
+      <div className="flex flex-col justify-between">
         <div className="my-auto px-5 mb-5 mt-5">
           <div
             className={classNames('text-xl font-mono font-bold', {
@@ -57,14 +62,17 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
               day: 'numeric',
             }).format(date)}
           </div>
-          <b
-            className="text-2xl font-mono font-semibold md:line-clamp-2"
-            title={blog.fields.title}
-          >
-            {blog.fields.title}
-          </b>
+          <LinkToBlog>
+            <b
+              className="text-2xl font-mono font-semibold md:line-clamp-2"
+              title={blog.fields.title}
+            >
+              {blog.fields.title}
+            </b>
+          </LinkToBlog>
+
           {heading && (
-            <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-6 2xl:pt-5">
+            <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
               {documentToReactComponents(
                 blog.fields.excerpt.content.length === 0
                   ? blog.fields.content
@@ -73,9 +81,11 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </div>
           )}
         </div>
-        <DarkButton className="mb-0" href={`/blog/${blog.fields.slug}`}>
-          Read More
-        </DarkButton>
+        {heading || (
+          <DarkButton className="mb-0" href={`/blog/${blog.fields.slug}`}>
+            Read More
+          </DarkButton>
+        )}
       </div>
     </div>
   );
