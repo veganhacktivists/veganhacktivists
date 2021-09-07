@@ -31,19 +31,17 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
-      
-	    - name: Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_REGISTRY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_REGISTRY }}
           aws-region: us-east-2
       
-	    - name: Login to Amazon ECR
+      - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
@@ -56,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     needs: build_and_push
-	  steps:
+    steps:
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -73,7 +71,7 @@ jobs:
           KEY: ${{ secrets.SSH_SECRET_KEY }}
           envs: IMAGE_NAME,AWS_REGISTRY,AWS_REPOSITORY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID,GOOGLE_TAG_MANAGER_CONTAINER_ID
           script: |
-			      aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_REGISTRY
+            aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_REGISTRY
             docker pull ${REGISTRY}/${IMAGE_NAME}:$(echo $GITHUB_SHA | head -c7)
             docker stop $IMAGE_NAME
             docker rm $IMAGE_NAME
