@@ -1,6 +1,23 @@
+type textSize =
+  | 'xs'
+  | 'sm'
+  | 'base'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
+
 interface SubSectionContent {
   header?: string;
   firstWordsNum?: number;
+  headerSize?: textSize;
+  contentSize?: textSize;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -54,11 +71,13 @@ export const PlainHeader: React.FC<SubSectionContent> = ({
 export const SubSection: React.FC<SubSectionContent> = ({
   header,
   children,
+  headerSize = '2xl',
+  contentSize = 'xl',
 }) => {
   return (
     <div className="mb-10">
-      <h1 className="text-2xl mb-3 font-bold">{header}</h1>
-      <p className="max-w-2xl text-xl m-auto">{children}</p>
+      <h1 className={`text-${headerSize} mb-3 font-bold`}>{header}</h1>
+      <p className={`max-w-2xl text-${contentSize} m-auto`}>{children}</p>
     </div>
   );
 };
