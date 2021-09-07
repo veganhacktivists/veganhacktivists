@@ -53,6 +53,77 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+interface ProjectCardProps {
+  project: IProject;
+  index: number;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const { name, description, url, date: dateStr, image, team } = project.fields;
+
+  const date = new Date(dateStr);
+  const imageSize = 280;
+  return (
+    <div
+      key={name}
+      className={classNames('flex flex-col sm:flex-row justify-between', {
+        'mt-10': index !== 0,
+      })}
+    >
+      {image && (
+        <div className="flex-shrink">
+          <ContentfulImage
+            image={image}
+            alt={name}
+            layout="fixed"
+            height={imageSize}
+            width={imageSize}
+            priority={index < 4}
+          />
+        </div>
+      )}
+      <div className="sm:pl-10 col-span-2 text-left">
+        <h1 className="text-4xl font-bold mb-5">{name}</h1>
+        <div className="text-xl">{documentToReactComponents(description)}</div>
+        <div className="mt-10 flex flex-wrap items-center">
+          <DarkButton href={url} className="font-mono" capitalize={false}>
+            {firstLetterUppercase(
+              url.replace(/https?:\/\//, '').replace(/\/$/, '')
+            )}
+          </DarkButton>
+          <span className="font-bold sm:pl-5">
+            <span className="text-grey">
+              {new Intl.DateTimeFormat('en', {
+                month: 'short',
+                year: 'numeric',
+              }).format(date)}
+            </span>
+            {team && (
+              <>
+                {' '}
+                -{' '}
+                <Link
+                  href={`/people/team#${
+                    team.fields.isInactive ? '' : team.fields.name
+                  }`}
+                  scroll={true}
+                >
+                  <a>
+                    {team.fields.icon}{' '}
+                    <span style={{ color: team.fields.color }}>
+                      {team.fields.name}
+                    </span>
+                  </a>
+                </Link>
+              </>
+            )}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 interface ProjectsProps {
   projects: IProject[];
   projectYears: number[];
@@ -129,93 +200,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             ))}
           </div>
           <div className="w-3/4 mx-auto">
-            {pagedProjects.map((project, i) => {
-              const {
-                name,
-                description,
-                url,
-                date: dateStr,
-                image,
-                team,
-              } = project.fields;
-
-              const date = new Date(dateStr);
-              const imageSize = 280;
-              return (
-                <div
-                  key={name}
-                  className={classNames(
-                    'flex flex-col sm:flex-row justify-between',
-                    {
-                      'mt-10': i !== 0,
-                    }
-                  )}
-                >
-                  {image && (
-                    <div className="flex-shrink">
-                      <ContentfulImage
-                        image={image}
-                        alt={name}
-                        layout="fixed"
-                        height={imageSize}
-                        width={imageSize}
-                        priority={i < 4}
-                      />
-                    </div>
-                  )}
-                  <div className="sm:pl-10 col-span-2 text-left">
-                    <h1 className="text-4xl font-bold mb-5">{name}</h1>
-                    <div className="text-xl">
-                      {documentToReactComponents(description)}
-                    </div>
-                    <div className="mt-10 flex flex-wrap items-center">
-                      <DarkButton
-                        href={url}
-                        className="font-mono"
-                        capitalize={false}
-                      >
-                        {firstLetterUppercase(
-                          url.replace(/https?:\/\//, '').replace(/\/$/, '')
-                        )}
-                      </DarkButton>
-                      <span className="font-bold sm:pl-5">
-                        <span className="text-grey">
-                          {new Intl.DateTimeFormat('en', {
-                            month: 'short',
-                            year: 'numeric',
-                          }).format(date)}
-                        </span>
-                        {team && (
-                          <>
-                            {' '}
-                            -{' '}
-                            <Link
-                              href={`/people/team#${
-                                team.fields.isInactive ? '' : team.fields.name
-                              }`}
-                              scroll={true}
-                            >
-                              <a>
-                                {team.fields.icon}{' '}
-                                <span style={{ color: team.fields.color }}>
-                                  {team.fields.name}
-                                </span>
-                              </a>
-                            </Link>
-                          </>
-                        )}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {pagedProjects.map((project, i) => (
+              <ProjectCard
+                key={project.fields.name}
+                project={project}
+                index={i}
+              />
+            ))}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <WhiteButton
                 className="font-mono content-center drop-shadow-2xl text-2xl mt-16"
                 onClick={() => viewMore()}
               >
-                LOAD MORE
+                Load more
               </WhiteButton>
             )}
           </div>
