@@ -17,7 +17,7 @@ on:
 env:
   AWS_REGISTRY: ${{ secrets.AWS_PRIVATE_REGISTRY }}
   AWS_REPOSITORY: vh-site-registry-repository
-  IMAGE_NAME: ${{ github.event.repository.name }}-stg
+  IMAGE_NAME: vh-site-stg
   CF_SPACE_ID: ${{ secrets.CF_SPACE_ID }}
   CF_DELIVERY_ACCESS_TOKEN: ${{ secrets.CF_DELIVERY_ACCESS_TOKEN }}
   CF_PREVIEW_ACCESS_TOKEN: ${{ secrets.CF_PREVIEW_ACCESS_TOKEN }}
