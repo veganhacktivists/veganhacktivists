@@ -109,7 +109,7 @@ const NavbarItems: React.FC = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <FontAwesomeIcon icon={faInstagram} />
+        <FontAwesomeIcon icon={faInstagram} fixedWidth />
       </a>
     </>
   );
