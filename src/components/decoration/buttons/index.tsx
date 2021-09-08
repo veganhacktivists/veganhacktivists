@@ -184,7 +184,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const classes = classNames(
-    'border-2 border-gray border-opacity-50 p-3',
+    'border-2 border-opacity-50 p-3',
     {
       'bg-gray': active,
       'text-white': active,

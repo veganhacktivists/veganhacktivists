@@ -98,7 +98,7 @@ exports[`should render correctly 1`] = `
     />
     <div
       class="absolute"
-      style="background-color: rgb(237, 35, 132); width: 128px; height: 128px; opacity: 1; bottom: 0px; left: 64px;"
+      style="background-color: rgb(237, 35, 132); width: 96px; height: 96px; opacity: 1; bottom: 0px; left: 64px;"
     />
     <div
       class="absolute"

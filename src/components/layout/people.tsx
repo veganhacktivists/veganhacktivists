@@ -33,7 +33,7 @@ export const PeopleButtons: React.FC = () => {
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'green', size: 32, left: 16, bottom: 0 },
+  { color: 'green', size: 24, left: 16, bottom: 0 },
   { color: 'yellow', size: 16, left: 0, top: 0 },
   { color: 'orange', size: 16, right: 32, bottom: 16 },
   { color: 'red', size: 32, right: 0, top: -16 },

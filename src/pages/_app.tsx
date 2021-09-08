@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { useEffect } from 'react';
-import 'tailwindcss/tailwind.css';
 import type { AppProps } from 'next/app';
 import Header from '../components/layout/header';
 import Footer from '../components/layout/footer';
 import PageWrapper, { MainWrapper } from '../components/layout/wrapper';
 import TagManager from 'react-gtm-module';
+
+import 'tailwindcss/tailwind.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');

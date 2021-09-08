@@ -87,7 +87,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
           { color: 'orange', size: 16, top: 0, right: 0 },
           { color: 'white', size: 16, bottom: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className="hidden lg:block"
       />
       <div className="pt-20 pb-20">
         <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import logoBig from '../../../public/images/VH-logo-web-white.png';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -46,12 +47,15 @@ const LeftSide: React.FC = () => {
 };
 
 interface INavbarItem {
-  label: string;
   href: string;
   className?: string;
 }
 
-const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
+const NavBarItem: React.FC<INavbarItem> = ({
+  children,
+  href,
+  className = '',
+}) => {
   const { pathname } = useRouter();
 
   const active = pathname.startsWith(href);
@@ -68,7 +72,7 @@ const NavBarItem: React.FC<INavbarItem> = ({ label, href, className = '' }) => {
     <Link href={href} passHref>
       <a className={classes}>
         <code className={classNames({ 'border-b-[3px]': active })}>
-          {label}
+          {children}
         </code>
       </a>
     </Link>
@@ -81,21 +85,32 @@ const NavbarItems: React.FC = () => {
       {['about', 'services', 'projects', 'people', 'blog'].map((menuElem) => (
         <NavBarItem
           key={menuElem}
-          label={menuElem}
           href={`/${menuElem}`}
           className="hover:bg-gray-dark"
-        />
+        >
+          {menuElem}
+        </NavBarItem>
       ))}
       <NavBarItem
-        label="Join"
         href={'/join'}
         className="bg-gray hover:bg-gray-dark font-bold"
-      />
+      >
+        Join
+      </NavBarItem>
       <NavBarItem
-        label="Support"
         href={'/support'}
         className="bg-pink hover:bg-pink-dark font-bold"
-      />
+      >
+        Support
+      </NavBarItem>
+      <a
+        className="p-5 py-6 transition duration-500 text-center hover:bg-gray-dark"
+        href="https://www.instagram.com/veganhacktivists/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={faInstagram} fixedWidth />
+      </a>
     </>
   );
 };

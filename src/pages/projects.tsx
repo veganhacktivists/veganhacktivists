@@ -27,7 +27,7 @@ import { firstLetterUppercase } from '../lib/helpers/strings';
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
   { color: 'orange', size: 16, left: 0, top: 0 },
-  { color: 'magenta', size: 32, left: 16, bottom: 0 },
+  { color: 'pink', size: 24, left: 16, bottom: 0 },
   { color: 'yellow', size: 32, right: 0, top: -16 },
   { color: 'yellow-orange', size: 16, right: 32, bottom: 16 },
   { color: 'white', size: 16, right: 32, bottom: 0 },
@@ -51,6 +51,77 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { projects, projectYears },
     revalidate: 480,
   };
+};
+
+interface ProjectCardProps {
+  project: IProject;
+  index: number;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const { name, description, url, date: dateStr, image, team } = project.fields;
+
+  const date = new Date(dateStr);
+  const imageSize = 280;
+  return (
+    <div
+      key={name}
+      className={classNames('flex flex-col sm:flex-row justify-between', {
+        'mt-10': index !== 0,
+      })}
+    >
+      {image && (
+        <div className="flex-shrink">
+          <ContentfulImage
+            image={image}
+            alt={name}
+            layout="fixed"
+            height={imageSize}
+            width={imageSize}
+            priority={index < 4}
+          />
+        </div>
+      )}
+      <div className="sm:pl-10 col-span-2 text-left">
+        <h1 className="text-4xl font-bold mb-5">{name}</h1>
+        <div className="text-xl">{documentToReactComponents(description)}</div>
+        <div className="mt-10 flex flex-wrap items-center">
+          <DarkButton href={url} className="font-mono" capitalize={false}>
+            {firstLetterUppercase(
+              url.replace(/https?:\/\//, '').replace(/\/$/, '')
+            )}
+          </DarkButton>
+          <span className="font-bold sm:pl-5">
+            <span className="text-grey">
+              {new Intl.DateTimeFormat('en', {
+                month: 'short',
+                year: 'numeric',
+              }).format(date)}
+            </span>
+            {team && (
+              <>
+                {' '}
+                -{' '}
+                <Link
+                  href={`/people/team#${
+                    team.fields.isInactive ? '' : team.fields.name
+                  }`}
+                  scroll={true}
+                >
+                  <a>
+                    {team.fields.icon}{' '}
+                    <span style={{ color: team.fields.color }}>
+                      {team.fields.name}
+                    </span>
+                  </a>
+                </Link>
+              </>
+            )}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 interface ProjectsProps {
@@ -129,93 +200,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             ))}
           </div>
           <div className="w-3/4 mx-auto">
-            {pagedProjects.map((project, i) => {
-              const {
-                name,
-                description,
-                url,
-                date: dateStr,
-                image,
-                team,
-              } = project.fields;
-
-              const date = new Date(dateStr);
-              const imageSize = 280;
-              return (
-                <div
-                  key={name}
-                  className={classNames(
-                    'flex flex-col sm:flex-row justify-between',
-                    {
-                      'mt-10': i !== 0,
-                    }
-                  )}
-                >
-                  {image && (
-                    <div className="flex-shrink">
-                      <ContentfulImage
-                        image={image}
-                        alt={name}
-                        layout="fixed"
-                        height={imageSize}
-                        width={imageSize}
-                        priority={i < 4}
-                      />
-                    </div>
-                  )}
-                  <div className="sm:pl-10 col-span-2 text-left">
-                    <h1 className="text-4xl font-bold mb-5">{name}</h1>
-                    <div className="text-xl">
-                      {documentToReactComponents(description)}
-                    </div>
-                    <div className="mt-10 flex flex-wrap items-center">
-                      <DarkButton
-                        href={url}
-                        className="font-mono"
-                        capitalize={false}
-                      >
-                        {firstLetterUppercase(
-                          url.replace(/https?:\/\//, '').replace(/\/$/, '')
-                        )}
-                      </DarkButton>
-                      <span className="font-bold sm:pl-5">
-                        <span className="text-grey">
-                          {new Intl.DateTimeFormat('en', {
-                            month: 'short',
-                            year: 'numeric',
-                          }).format(date)}
-                        </span>
-                        {team && (
-                          <>
-                            {' '}
-                            -{' '}
-                            <Link
-                              href={`/people/team#${
-                                team.fields.isInactive ? '' : team.fields.name
-                              }`}
-                              scroll={true}
-                            >
-                              <a>
-                                {team.fields.icon}{' '}
-                                <span style={{ color: team.fields.color }}>
-                                  {team.fields.name}
-                                </span>
-                              </a>
-                            </Link>
-                          </>
-                        )}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {pagedProjects.map((project, i) => (
+              <ProjectCard
+                key={project.fields.name}
+                project={project}
+                index={i}
+              />
+            ))}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <WhiteButton
                 className="font-mono content-center drop-shadow-2xl text-2xl mt-16"
                 onClick={() => viewMore()}
               >
-                LOAD MORE
+                Load more
               </WhiteButton>
             )}
           </div>
@@ -224,7 +221,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           squares={JOIN_DECORATION_SQUARES}
           className="hidden md:block"
         />
-        <div className="bg-gray-background md:py-16 flex flex-row justify-center">
+        <div className="bg-gray-background py-16 md:py-24 flex flex-row justify-center">
           <InfoBox
             title="Have an idea for a project?"
             icon={lampImage}
@@ -239,10 +236,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               rather build it yourself and want advice, no problem - get in
               touch!
             </p>
-            <div className="flex justify-start font-semibold">
-              <LightButton
-                href={{ pathname: '/services', hash: '#contact-us' }}
-              >
+            <div className="md:flex md:justify-start font-semibold">
+              <LightButton href={{ pathname: '/services', hash: 'contact-us' }}>
                 Suggest a project idea
               </LightButton>
             </div>
