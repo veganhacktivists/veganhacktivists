@@ -114,19 +114,6 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   members,
   teams,
 }) => {
-  const [shuffledMembers, setShuffledMembers] = useState<ITeamMember[]>([]);
-
-  useEffect(() => {
-    setShuffledMembers([
-      ...shuffle<ITeamMember>(
-        members.filter((member) => member.fields.isTeamLeader)
-      ),
-      ...shuffle<ITeamMember>(
-        members.filter((member) => !member.fields.isTeamLeader)
-      ),
-    ]);
-  }, [members]);
-
   const colorMap = useMemo(() => {
     if (!teams) return {};
     return teams.reduce((acc, curr) => {
@@ -140,7 +127,7 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   return (
     <div className="md:mx-auto md:w-4/6">
       <div className="flex flex-wrap justify-center">
-        {shuffledMembers.map((m) => (
+        {members.map((m) => (
           <div className="m-5" key={m.sys.id}>
             <TeamMemberCard
               member={m}
@@ -196,10 +183,13 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
   const [team, setTeam] = useHash();
 
   const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
+  const [shuffledTeamMembers, setShuffledTeamMembers] = useState<ITeamMember[]>(
+    []
+  );
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
-    teamMembers,
+    shuffledTeamMembers,
     team,
     pageSize,
     pageNumber
@@ -208,6 +198,17 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
   useEffect(() => {
     setShuffledTeams(shuffle(teams));
   }, [teams]);
+
+  useEffect(() => {
+    setShuffledTeamMembers([
+      ...shuffle<ITeamMember>(
+        teamMembers.filter((member) => member.fields.isTeamLeader)
+      ),
+      ...shuffle<ITeamMember>(
+        teamMembers.filter((member) => !member.fields.isTeamLeader)
+      ),
+    ]);
+  }, [teamMembers]);
 
   return (
     <>
