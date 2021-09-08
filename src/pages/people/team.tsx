@@ -3,11 +3,9 @@ import { useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import type { GetStaticProps } from 'next';
-import type {
-  ITeamFields,
-  ITeam,
-  ITeamMember,
-} from '../../types/generated/contentful';
+import type { ITeam } from '../../types/generated/contentful';
+import type { ITeamMember } from '../../types/generated/contentful';
+import type { ITeamFields } from '../../types/generated/contentful';
 import { PeopleHero, PeopleButtons } from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { WhiteButton } from '../../components/decoration/buttons';
@@ -197,7 +195,7 @@ interface TeamProps {
 const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
   const [team, setTeam] = useHash();
 
-  const [shuffledTeams, setShuffledTeams] = useState(teams);
+  const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
 
   const { pageNumber, pageSize, viewMore } = useViewMore();
   const { members, totalMembers } = useFilteredMembers(
