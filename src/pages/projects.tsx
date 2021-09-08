@@ -237,9 +237,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               touch!
             </p>
             <div className="md:flex md:justify-start font-semibold">
-              <LightButton
-                href={{ pathname: '/services', hash: '#contact-us' }}
-              >
+              <LightButton href={{ pathname: '/services', hash: 'contact-us' }}>
                 Suggest a project idea
               </LightButton>
             </div>
