@@ -16,7 +16,14 @@ const Info: React.FC<{
     content: React.ReactNode;
     href: string;
   };
-}> = ({ children, title, boxicon, image, backgroundColor = 'white', button }) => {
+}> = ({
+  children,
+  title,
+  boxicon,
+  image,
+  backgroundColor = 'white',
+  button,
+}) => {
   const color = useThemeColor(backgroundColor);
 
   return (
