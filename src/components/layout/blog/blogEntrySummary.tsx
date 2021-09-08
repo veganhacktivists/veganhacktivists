@@ -49,8 +49,8 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between">
-        <div className="my-auto px-5 mb-5">
+      <div className="flex flex-col">
+        <div className="my-auto p-5">
           <div
             className={classNames('text-xl font-mono font-bold', {
               'mb-3': !heading,
@@ -70,16 +70,13 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
               {blog.fields.title}
             </b>
           </LinkToBlog>
-
-          {heading && (
-            <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
-              {documentToReactComponents(
-                blog.fields.excerpt.content.length === 0
-                  ? blog.fields.content
-                  : blog.fields.excerpt
-              )}
-            </div>
-          )}
+          <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
+            {documentToReactComponents(
+              blog.fields.excerpt.content.length === 0
+                ? blog.fields.content
+                : blog.fields.excerpt
+            )}
+          </div>
         </div>
         {heading || (
           <DarkButton className="mb-0" href={`/blog/${blog.fields.slug}`}>
