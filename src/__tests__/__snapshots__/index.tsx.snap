@@ -239,7 +239,7 @@ exports[`Application renders correctly 1`] = `
     />
     <div
       class="absolute"
-      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; left: 128px;"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; top: 0px; left: 128px;"
     />
     <div
       class="absolute"
@@ -247,7 +247,7 @@ exports[`Application renders correctly 1`] = `
     />
     <div
       class="absolute"
-      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
     />
   </div>
   <div
@@ -419,14 +419,6 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey w-full relative h-32 bottom-32 -z-10"
   />
   <div
-    class="relative overflow-visible hidden lg:block bottom-32"
-  >
-    <div
-      class="absolute"
-      style="background-color: rgb(202, 202, 202); width: 64px; height: 64px; opacity: 1; bottom: 0px; right: 0px;"
-    />
-  </div>
-  <div
     class="bg-grey relative bottom-32 -pb-32 -mb-32"
   >
     <div
@@ -452,7 +444,7 @@ exports[`Application renders correctly 1`] = `
     />
     <div
       class="absolute"
-      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; left: 128px;"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; top: 0px; left: 128px;"
     />
     <div
       class="absolute"
@@ -460,7 +452,7 @@ exports[`Application renders correctly 1`] = `
     />
     <div
       class="absolute"
-      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
     />
   </div>
   <div

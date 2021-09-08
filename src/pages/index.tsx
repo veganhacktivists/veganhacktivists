@@ -26,9 +26,9 @@ const HERO_DECORATION_SQUARES = [
 
 const PROJECT_DECORATION_SQUARES = [
   { color: 'gray-background', size: 16, left: 0, bottom: 0 },
-  { color: 'white', size: 16, left: 32, top: 0 },
+  { color: 'grey', size: 16, left: 32, top: 0 },
   { color: 'gray-background', size: 16, right: 0, bottom: 0 },
-  { color: 'white', size: 16, right: 0, top: 0 },
+  { color: 'grey', size: 16, right: 0, top: 0 },
 ];
 
 const JOIN_DECORATION_SQUARES = [

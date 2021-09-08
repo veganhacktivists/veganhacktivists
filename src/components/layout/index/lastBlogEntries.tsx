@@ -1,12 +1,7 @@
 import { LightButton } from '../../decoration/buttons';
 import React from 'react';
-import SquareField from '../../decoration/squares';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import BlogEntrySummary from '../blog/blogEntrySummary';
-
-const BLOG_INNER_DECORATION_SQUARES = [
-  { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
-];
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (
@@ -27,10 +22,6 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
         ))}
       </div>
       <div className="bg-grey w-full relative h-32 bottom-32 -z-10" />
-      <SquareField
-        squares={BLOG_INNER_DECORATION_SQUARES}
-        className="hidden lg:block bottom-32"
-      />
       <div className="bg-grey relative bottom-32 -pb-32 -mb-32">
         <div className="relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20">
           <LightButton href="/blog" className="font-mono font-semibold">
