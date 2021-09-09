@@ -78,7 +78,17 @@ const Grants: React.FC = () => {
       <div className="mb-24">
         <GrantsPollinationProject />
       </div>
-      <Sprite image={chicks} />
+      <Sprite image={chicks} pixelsLeft={1} pixelsRight={3} />
+      <SquareField
+        squares={[
+          { size: 16, color: 'grey-background', bottom: 0, left: 0 },
+          { size: 16, color: 'white', top: 0, left: 0 },
+          { size: 16, color: 'grey-light', bottom: 0, right: 16 },
+          { size: 16, color: 'grey-light', top: 0, right: 0 },
+          { size: 16, color: 'grey-background', bottom: 0, right: 0 },
+        ]}
+        className="hidden md:block"
+      />
       <GrantsApplication />
 
       <JoinTheTeam />
