@@ -98,14 +98,14 @@ const GrantsApplication: React.FC = () => {
             <Controller
               name="gender"
               control={control}
-              rules={{ required: 'Select a service' }}
               render={({ field }) => (
                 <SelectInput
                   creatable
                   {...field}
                   ref={null}
+                  placeholder="Select or type something..."
                   error={errors.gender?.message}
-                  options={['male', 'female'].map((option) => ({
+                  options={['male', 'female', 'other'].map((option) => ({
                     value: option,
                     label: firstLetterUppercase(option),
                   }))}

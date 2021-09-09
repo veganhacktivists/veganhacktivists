@@ -30,11 +30,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   const [allOptions, setAllOptions] = useState(options);
 
-  const [value, setValue] = useState<string | null>(null);
-
   useEffect(() => {
-    props.onChange(value);
-  }, [value]);
+    setAllOptions(options);
+  }, [options]);
 
   const height = '44px';
 
