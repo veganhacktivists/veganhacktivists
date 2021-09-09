@@ -28,8 +28,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
   const lightGrey = useThemeColor('grey-light') as string;
   const red = useThemeColor('red') as string;
 
+  const [allOptions, setAllOptions] = useState(options);
+
   const [value, setValue] = useState<string | null>(null);
-  console.log(value);
 
   useEffect(() => {
     props.onChange(value);
@@ -91,12 +92,18 @@ const SelectInput: React.FC<SelectInputProps> = ({
     creatable ? (
       <CreatableSelect
         {...props}
+        onCreateOption={(value) => {
+          const newOption = { label: value, value: value };
+          setAllOptions((options) => [...options, newOption]);
+
+          props.onChange(newOption);
+        }}
         id={props.id || props.name}
         instanceId={props.id || props.name}
         placeholder={props.placeholder}
         theme={theme}
         styles={styles}
-        options={options}
+        options={allOptions}
       />
     ) : (
       <Select
@@ -104,11 +111,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
         id={props.id || props.name}
         instanceId={props.id || props.name}
         placeholder={props.placeholder}
-        onChange={(selection) => setValue(selection?.value || null)}
-        value={options.find((option) => option.value === value)}
         theme={theme}
         styles={styles}
-        options={options}
+        options={allOptions}
       />
     );
 

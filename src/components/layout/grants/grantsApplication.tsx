@@ -13,20 +13,29 @@ import 'react-toastify/dist/ReactToastify.css';
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
+import classNames from 'classnames';
+import SquareField from '../../decoration/squares';
 
-const FormSection: React.FC<{ section: string; sectionName: string }> = ({
-  children,
-  section,
-  sectionName,
-}) => {
+const FormSection: React.FC<{
+  section: string;
+  sectionName: string;
+  dark?: boolean;
+}> = ({ children, section, sectionName, dark = false }) => {
   return (
-    <div className="py-10 pt-5">
-      <div>
-        <h4 className="text-5xl capitalize font-bold font-mono pb-10">
-          Section {section} - {sectionName}
-        </h4>
+    <div
+      className={classNames({
+        // 'bg-grey-light': dark,
+        'bg-grey text-grey-lighter': dark,
+      })}
+    >
+      <div className="max-w-screen-lg mx-auto p-10 pt-5">
+        <div>
+          <h4 className="text-5xl capitalize font-bold font-mono pb-10">
+            Section {section} - {sectionName}
+          </h4>
+        </div>
+        <div className="space-y-2 text-left">{children}</div>
       </div>
-      <div className="space-y-2 text-left">{children}</div>
     </div>
   );
 };
@@ -57,10 +66,10 @@ const GrantsApplication: React.FC = () => {
   );
 
   return (
-    <div className="p-12 bg-gray-background">
+    <div className="py-12 bg-gray-background">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-screen-lg mx-auto text-center mb-24"
+        className="mx-auto text-center mb-24"
       >
         <h3 className="text-4xl font-mono font-semibold mb-10 mt-12">
           Application Form
@@ -144,8 +153,17 @@ const GrantsApplication: React.FC = () => {
             What&apos;s your email?
           </TextInput>
         </FormSection>
-
-        <FormSection section="B" sectionName="Your project">
+        <SquareField
+          squares={[
+            { size: 16, color: 'grey', bottom: 0, left: 0 },
+            { size: 16, color: 'grey-light', top: 0, left: 0 },
+            { size: 32, color: 'grey-light', bottom: 0, right: 16 },
+            { size: 16, color: 'grey-light', top: 0, right: 0 },
+            { size: 16, color: 'grey', bottom: 0, right: 0 },
+          ]}
+          className="hidden md:block"
+        />
+        <FormSection section="B" sectionName="Your project" dark>
           <TextInput
             error={errors.projectName?.message}
             {...register('projectName', { required: REQUIRED_FIELD })}
@@ -217,8 +235,17 @@ const GrantsApplication: React.FC = () => {
             </div>
           </TextArea>
         </FormSection>
-
-        <FormSection section="D" sectionName="Budget">
+        <SquareField
+          squares={[
+            { size: 16, color: 'grey-light', bottom: 0, left: 0 },
+            { size: 16, color: 'grey', bottom: 0, left: 16 },
+            { size: 16, color: 'grey', top: 0, left: 0 },
+            { size: 16, color: 'grey-light', bottom: 0, right: 16 },
+            { size: 16, color: 'grey-background', bottom: 0, right: 0 },
+          ]}
+          className="hidden md:block"
+        />
+        <FormSection section="C" sectionName="Budget">
           <div>
             Your project&apos;s budget is a very important part of your
             application. Our team often uses this information to support their
