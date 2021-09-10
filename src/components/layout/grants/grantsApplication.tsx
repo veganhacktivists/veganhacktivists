@@ -30,7 +30,7 @@ const FormSection: React.FC<{
     >
       <div className="max-w-screen-lg mx-auto p-10 pt-5">
         <div>
-          <h4 className="text-5xl capitalize font-bold font-mono pb-10">
+          <h4 className="text-5xl capitalize font-bold font-mono pb-10 pt-10">
             Section {section} - {sectionName}
           </h4>
         </div>
@@ -66,12 +66,12 @@ const GrantsApplication: React.FC = () => {
   );
 
   return (
-    <div className="py-12 bg-gray-background">
+    <div className="bg-gray-background pt-10 pb-1">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mx-auto text-center mb-24"
       >
-        <h3 className="text-4xl font-mono font-semibold mb-10 mt-12">
+        <h3 className="text-4xl font-mono font-semibold mb-10 mt-5">
           Application Form
         </h3>
         <FormSection section="A" sectionName="About you">
