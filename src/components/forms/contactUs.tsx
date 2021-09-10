@@ -100,12 +100,16 @@ const ContactUsForm: React.FC = () => {
                 {...field}
                 ref={null}
                 error={errors.service?.message}
-                options={['website', 'project', 'funding', 'advice'].map(
-                  (option) => ({
-                    value: option,
-                    label: firstLetterUppercase(option),
-                  })
-                )}
+                options={[
+                  'website',
+                  'project',
+                  'funding',
+                  'advice',
+                  'other',
+                ].map((option) => ({
+                  value: option,
+                  label: firstLetterUppercase(option),
+                }))}
               />
             )}
           />
