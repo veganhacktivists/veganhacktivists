@@ -48,6 +48,7 @@ const GrantsApplication: React.FC = () => {
     control,
     register,
     watch,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<GrantsForm>({});
 
@@ -55,12 +56,16 @@ const GrantsApplication: React.FC = () => {
     async (data) => {
       const submit = async () => axios.post('/api/grant-request', data);
 
-      toast.promise(submit, {
-        success: 'Your request was sent successfully!',
-        error:
-          'Something went wrong processing your submission! Please try again later',
-        pending: 'Submitting...',
-      });
+      await toast
+        .promise(submit, {
+          success: 'Your request was sent successfully!',
+          error:
+            'Something went wrong processing your submission! Please try again later',
+          pending: 'Submitting...',
+        })
+        .then(() => {
+          reset();
+        });
     },
     []
   );
@@ -116,14 +121,6 @@ const GrantsApplication: React.FC = () => {
               <p className="text-red">⚠ {errors.gender.message}</p>
             )}
           </div>
-
-          {/* <TextInput error={errors.gender?.message} {...register('gender', {})}>
-            Gender <span className="text-sm">(optional)</span>
-          </TextInput>
-          <TextInput
-            error={errors.location?.message}
-            {...register('location', { required: REQUIRED_FIELD })}
-          /> */}
           <TextArea
             error={errors.info?.message}
             {...register('info', { required: REQUIRED_FIELD })}
@@ -330,7 +327,6 @@ const GrantsApplication: React.FC = () => {
             Please confirm your ability to accept funding
           </Checkbox>
         </FormSection>
-
         <DarkButton
           type="submit"
           disabled={isSubmitting}
