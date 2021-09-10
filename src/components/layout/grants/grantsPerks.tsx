@@ -48,10 +48,8 @@ const PERKS: PerkProps[] = [
     title: 'Monthly advisory calls',
     children: (
       <>
-        <div>
-          A 30 minute per month zoom call to help advise you and your team.
-        </div>
-        <div>Advice includes technology, marketing, strategy and more.</div>
+        A 30 minute per month zoom call to help advise you and your team. Advice 
+        includes technology, marketing, strategy and other organizational subjects.
       </>
     ),
   },
@@ -73,7 +71,7 @@ const Perk: React.FC<PerkProps> = ({ image, title, children }) => {
 
 const GrantsPerks: React.FC = () => {
   return (
-    <div className="p-0 px-5 md:p-12 lg:p-0 pt-12 max-w-screen-lg mx-auto">
+    <div className="p-0 px-5 md:p-12 lg:p-0 pt-12 max-w-screen-lg mx-auto mt-10">
       <Image
         src={PixelHeart.src}
         width={PixelHeart.width * 0.5}
