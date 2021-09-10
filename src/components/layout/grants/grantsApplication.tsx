@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 import { Controller, useForm } from 'react-hook-form';
 import type { GrantsForm } from '../../../pages/api/grant-request';
@@ -50,10 +50,11 @@ const GrantsApplication: React.FC = () => {
     register,
     watch,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<GrantsForm>({});
 
   const { reload } = useRouter();
+  const [success, setSuccess] = useState(false);
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
@@ -63,14 +64,19 @@ const GrantsApplication: React.FC = () => {
         .promise(
           submit,
           {
-            success: 'Your request was sent successfully!',
+            success: {
+              render: () => {
+                setSuccess(true);
+                return 'Your request was sent successfully!';
+              },
+            },
             error:
               'Something went wrong processing your submission! Please try again later',
             pending: 'Submitting...',
           },
           {
             onClose: () => {
-              if (isSubmitSuccessful) {
+              if (success) {
                 reload();
               }
             },
@@ -78,6 +84,9 @@ const GrantsApplication: React.FC = () => {
         )
         .then(() => {
           reset();
+        })
+        .then(() => {
+          reload();
         });
     },
     []
@@ -342,7 +351,7 @@ const GrantsApplication: React.FC = () => {
         </FormSection>
         <DarkButton
           type="submit"
-          disabled={isSubmitting || isSubmitSuccessful}
+          disabled={isSubmitting || success}
           className="font-mono uppercase w-64 mt-10"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}
