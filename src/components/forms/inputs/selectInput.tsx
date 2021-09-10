@@ -29,10 +29,15 @@ const SelectInput: React.FC<SelectInputProps> = ({
   const red = useThemeColor('red') as string;
 
   const [allOptions, setAllOptions] = useState(options);
+  const [value, setValue] = useState<string | null>(null);
 
   useEffect(() => {
     setAllOptions(options);
   }, [options]);
+
+  useEffect(() => {
+    props.onChange(value);
+  }, [value]);
 
   const height = '44px';
 
@@ -96,6 +101,10 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
           props.onChange(newOption);
         }}
+        onChange={(value) => {
+          setValue(value?.value || null);
+        }}
+        value={allOptions.find((option) => option.value === value)}
         id={props.id || props.name}
         instanceId={props.id || props.name}
         placeholder={props.placeholder}
@@ -107,8 +116,12 @@ const SelectInput: React.FC<SelectInputProps> = ({
       <Select
         {...props}
         id={props.id || props.name}
+        value={allOptions.find((option) => option.value === value)}
         instanceId={props.id || props.name}
         placeholder={props.placeholder}
+        onChange={(value) => {
+          setValue(value?.value || null);
+        }}
         theme={theme}
         styles={styles}
         options={allOptions}
