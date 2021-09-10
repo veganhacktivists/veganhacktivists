@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import PixelHeart from '../../../../public/images/VH_PixelHeart.png';
-import websiteImage from '../../../../public/images/grants/website.png';
+import callImage from '../../../../public/images/grants/call.jpg';
 import squarespaceImage from '../../../../public/images/grants/squarespace.jpg';
 import contentImage from '../../../../public/images/grants/content.jpg';
 import designerImage from '../../../../public/images/grants/designer.jpg';
@@ -12,7 +12,7 @@ type PerkProps = React.PropsWithChildren<{
 
 const PERKS: PerkProps[] = [
   {
-    image: websiteImage,
+    image: squarespaceImage,
     title: 'SquareSpace website subscription',
     children: (
       <>
@@ -22,7 +22,7 @@ const PERKS: PerkProps[] = [
     ),
   },
   {
-    image: squarespaceImage,
+    image: designerImage,
     title: 'Professional design creation',
     children: (
       <>
@@ -44,7 +44,7 @@ const PERKS: PerkProps[] = [
     ),
   },
   {
-    image: designerImage,
+    image: callImage,
     title: 'Monthly advisory calls',
     children: (
       <>
