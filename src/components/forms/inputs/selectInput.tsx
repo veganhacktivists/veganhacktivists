@@ -32,10 +32,6 @@ const SelectInput: React.FC<SelectInputProps> = ({
   const [value, setValue] = useState<string | null>(null);
 
   useEffect(() => {
-    setAllOptions(options);
-  }, [options]);
-
-  useEffect(() => {
     props.onChange(value);
   }, [value]);
 
@@ -96,10 +92,10 @@ const SelectInput: React.FC<SelectInputProps> = ({
       <CreatableSelect
         {...props}
         onCreateOption={(value) => {
-          const newOption = { label: value, value: value };
+          const newOption = { label: value, value };
           setAllOptions((options) => [...options, newOption]);
 
-          props.onChange(newOption);
+          setValue(value);
         }}
         onChange={(value) => {
           setValue(value?.value || null);

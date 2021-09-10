@@ -11,6 +11,7 @@ import TextArea from './inputs/textArea';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
+import { useRouter } from 'next/router';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -27,8 +28,10 @@ const ContactUsForm: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactUsSubmission>();
+
+  const { reload } = useRouter();
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
     const submit = async () => {
@@ -36,12 +39,22 @@ const ContactUsForm: React.FC = () => {
     };
 
     await toast
-      .promise(submit, {
-        pending: 'Submitting...',
-        error:
-          'Something went wrong processing your submission! Please try again later',
-        success: 'Your request was sent successfully!',
-      })
+      .promise(
+        submit,
+        {
+          pending: 'Submitting...',
+          error:
+            'Something went wrong processing your submission! Please try again later',
+          success: 'Your request was sent successfully!',
+        },
+        {
+          onClose: () => {
+            if (isSubmitSuccessful) {
+              reload();
+            }
+          },
+        }
+      )
       .then(() => {
         reset();
       });
@@ -106,7 +119,7 @@ const ContactUsForm: React.FC = () => {
         <div className="pt-5 pb-10">
           <DarkButton
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || isSubmitSuccessful}
             className="w-52 px-10"
           >
             {isSubmitting ? <Spinner /> : 'Submit'}

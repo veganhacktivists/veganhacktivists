@@ -15,6 +15,7 @@ import SelectInput from '../../forms/inputs/selectInput';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import classNames from 'classnames';
 import SquareField from '../../decoration/squares';
+import { useRouter } from 'next/router';
 
 const FormSection: React.FC<{
   section: string;
@@ -49,20 +50,32 @@ const GrantsApplication: React.FC = () => {
     register,
     watch,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<GrantsForm>({});
+
+  const { reload } = useRouter();
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
       const submit = async () => axios.post('/api/grant-request', data);
 
       await toast
-        .promise(submit, {
-          success: 'Your request was sent successfully!',
-          error:
-            'Something went wrong processing your submission! Please try again later',
-          pending: 'Submitting...',
-        })
+        .promise(
+          submit,
+          {
+            success: 'Your request was sent successfully!',
+            error:
+              'Something went wrong processing your submission! Please try again later',
+            pending: 'Submitting...',
+          },
+          {
+            onClose: () => {
+              if (isSubmitSuccessful) {
+                reload();
+              }
+            },
+          }
+        )
         .then(() => {
           reset();
         });
@@ -329,7 +342,7 @@ const GrantsApplication: React.FC = () => {
         </FormSection>
         <DarkButton
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || isSubmitSuccessful}
           className="font-mono uppercase w-64 mt-10"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}
