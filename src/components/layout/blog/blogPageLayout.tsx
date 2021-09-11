@@ -27,7 +27,7 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
             title={blog.fields.title}
             className="p-5 w-full lg:w-96"
           >
-            <Link href={`/blogs/${blog.fields.slug}`}>
+            <Link href={`/blog/${blog.fields.slug}`}>
               <a>
                 <ImageContainer>
                   <ContentfulImage
