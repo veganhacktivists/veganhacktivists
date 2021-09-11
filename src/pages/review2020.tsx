@@ -231,25 +231,10 @@ const Review2020: React.FC = () => {
             elevated us this year and we&apos;re so grateful to have the ability
             to both serve them and rely on them as our new friends.
           </SubSection>
-          <div className="flex flex-col md:flex-row justify-center">
-            <Image
-              src={petaLogo.src}
-              height={petaLogo.height / 3}
-              width={petaLogo.width / 3}
-              alt="peta logo"
-            />
-            <Image
-              src={beyondLogo.src}
-              height={beyondLogo.height / 3}
-              width={beyondLogo.width / 3}
-              alt="beyond animal logo"
-            />
-            <Image
-              src={counterglowLogo.src}
-              height={counterglowLogo.height / 3}
-              width={counterglowLogo.width / 3}
-              alt="beyond animal logo"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
+            <Image src={petaLogo} alt="peta logo" />
+            <Image src={beyondLogo} alt="beyond animal logo" />
+            <Image src={counterglowLogo} alt="beyond animal logo" />
           </div>
         </div>
       </div>
