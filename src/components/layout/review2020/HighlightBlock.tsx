@@ -24,7 +24,7 @@ export const HighlightBlock: React.FC<HighlightBlockProps> = ({
         {headerStart} <span className="font-bold">{headerBold}</span>{' '}
         {headerEnd}
       </h1>
-      <p className="text-left flex-1 text-2xl p-10 bg-grey-background">
+      <p className="text-center md:text-left flex-1 text-2xl p-10 bg-grey-background">
         {children}
       </p>
     </div>
