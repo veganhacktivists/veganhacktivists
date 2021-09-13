@@ -184,7 +184,7 @@ const YearInReview: React.FC = () => {
         and Michael Dearborn. Browse more of our advisors, {' '}
           <Link href="https://veganhacktivists.org/people/advisors">
             <a className="text-magenta hover:underline active:text-magenta-light">
-            Click here!
+            click here!
             </a>
           </Link>{' '}
       </HighlightBlock>
