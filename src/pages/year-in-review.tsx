@@ -95,7 +95,7 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
           setOnView(true);
         }}
       />
-      <span className="text-7xl md:text-8xl" aria-label={number}>
+      <span className="text-7xl md:text-8xl" aria-label={`${number}`}>
         <animated.span>
           {test.to((x) =>
             Math.floor(x)
