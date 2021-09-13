@@ -6,6 +6,10 @@ import Hero from '../components/decoration/hero';
 import heroBackground from '../../public/images/review2020/VH-Hero-review.jpg';
 import heroTagline from '../../public/images/review2020/VH-Hero-text-review.png';
 import SquareField from '../components/decoration/squares';
+
+import Strawberry from '../../public/images/review2020/icon-strawberry-outline.png';
+import Blueberry from '../../public/images/review2020/icon-blueberry-outline.png';
+
 import {
   FirstSubSection,
   SubSection,
@@ -284,8 +288,18 @@ const YearInReview: React.FC = () => {
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-background py-16">
         <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1} />
-        <h2 className="text-3xl mx-auto">
-          <span className="font-bold">Data Analytics |</span> Team Strawberry 🍓
+        <h2 className="text-3xl mx-auto flex flex-col md:flex-row justify-center">
+          <div className="my-auto">
+            <span className="font-bold">Data Analytics |</span> Team Strawberry
+          </div>
+          <div className="w-20 md:w-14 mx-auto md:mx-0">
+            <Image
+              src={Strawberry}
+              alt=""
+              layout="responsive"
+              loading="eager"
+            />
+          </div>
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
           We&apos;ve{' '}
@@ -312,8 +326,13 @@ const YearInReview: React.FC = () => {
           We&apos;re excited to see how this team will shape the future of the
           work we do!
         </SubSection>
-        <h2 className="text-3xl mx-auto">
-          <span className="font-bold">Specialists |</span> Team Blueberry 🫐
+        <h2 className="text-3xl mx-auto flex flex-col md:flex-row justify-center">
+          <div className="my-auto">
+            <span className="font-bold">Specialists |</span> Team Blueberry
+          </div>
+          <div className="w-20 md:w-14 mx-auto md:mx-0">
+            <Image src={Blueberry} alt="" layout="responsive" loading="eager" />
+          </div>
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
           We recently introduced the Specialists team! 9 new activists have
