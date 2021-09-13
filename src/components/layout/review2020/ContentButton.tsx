@@ -36,7 +36,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         }
       }}
     >
-      <p className={`text-3xl text-${active ? 'white' : 'black'}`}>
+      <p className={`text-3xl font-mono text-${active ? 'white' : 'black'}`}>
         {contentTitle}
       </p>
       <div

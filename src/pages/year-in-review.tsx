@@ -270,12 +270,18 @@ const YearInReview: React.FC = () => {
       </div>
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-background py-16">
-        <h1 className="text-6xl font-mono mx-auto mb-16">NEW TEAMS</h1>
+        <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1}>
+        </FirstSubSection>
         <h2 className="text-3xl mx-auto">
           <span className="font-bold">Data Analytics |</span> Team Strawberry
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
-          We&apos;ve started up a new team dedicated to collecting and analyzing
+          We&apos;ve {' '}
+          <Link href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
+            <a className="text-magenta hover:underline active:text-magenta-light">
+            started up a new team
+            </a>
+          </Link> dedicated to collecting and analyzing
           data not only on the projects that we build, but Vegan Hacktivists as
           an organization. This team marks our commitment to data, a commitment
           to making sure that everything we do makes a big impact, and that
@@ -283,23 +289,12 @@ const YearInReview: React.FC = () => {
           the work we do in the future.
         </SubSection>
         <SubSection headerSize="3xl" contentSize="2xl">
-          We&apos;ve named this team, Team Strawberry, which is led by our
-          newest Project Leader, Suan Chin, an Data Scientists and AI Engineer.
-          This team will analyse the data we already collect per project, what
-          data we should be collecting in the future, and assign developers to
-          build the data collection tools that we need. The team is also
-          responsible for analyzing the data they collect and presenting
-          quarterly reports to the organization. We&apos;re excited to see how
-          these reports shape the future of our projects and organization!
-        </SubSection>
-        <SubSection headerSize="3xl" contentSize="2xl">
-          Suan Chin is leading a team of 7 other data scientists on Team
-          Strawberry. See the entire team by visiting the{' '}
+        Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the{' '}
           <Link href="/people/team">
             <a className="text-magenta hover:underline active:text-magenta-light">
               team page here.
             </a>
-          </Link>
+          </Link> We&apos;re excited to see how this team will shape the future of the work we do!
         </SubSection>
         <h2 className="text-3xl mx-auto">
           <span className="font-bold">Specialists |</span> Team Blueberry
@@ -307,45 +302,42 @@ const YearInReview: React.FC = () => {
         <SubSection headerSize="3xl" contentSize="2xl">
           We recently introduced the Specialists team! 9 new activists have
           joined the team and each one currently fulfilling the roles of:
-          Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio!
+          Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. 
+          This filled a gap where our team members could specifically get 
+          issues addressed on their projects through Team Bluebbery.
         </SubSection>
       </div>
       <SquareField
         squares={MINOR_CHANGES_SQUARES}
         className="hidden md:block"
       />
-      <div className="py-16">
-        <h1 className="text-6xl font-mono mx-auto mb-16">
-          MINOR CHANGES WITH BIG IMPACT
-        </h1>
+      <div className="py-16 -mt-7">
+      <FirstSubSection header="Minor changes with a BIG IMPACT" firstWordsNum={4}>
+        </FirstSubSection>
         <div className="space-y-6 text-left mx-auto w-1/2">
           <p className="text-2xl">
-            &#127815; &nbsp; Google analytics integrated into all projects
+            &#127815; &nbsp; We integrated Google Analytics into all of our projects.
           </p>
           <p className="text-2xl">
-            &#127817; &nbsp; Started accepting applications from Python
-            developers
+            &#127817; &nbsp; We started accepting applications from Python developers.
           </p>
           <p className="text-2xl">
-            &#127818; &nbsp; Created an anonymous volunteer feedback form for
-            our team members
+            &#127818; &nbsp; We published our anonymous volunteer feedback form.
           </p>
           <p className="text-2xl">
-            &#127819; &nbsp; Launched our LinkedIn page
+            &#127820; &nbsp; We launched our LinkedIn page for our volunteers.
           </p>
           <p className="text-2xl">
-            &#127822; &nbsp; Enabled bot notifications for community events
+            &#127822; &nbsp; We enabled bot notifications for community events & actions.
           </p>
           <p className="text-2xl">
-            &#129373; &nbsp; Open sourced a few older projects
+            &#129373; &nbsp; We released and open-sourced several of our past projects.
           </p>
           <p className="text-2xl">
-            &#129365; &nbsp; Improved our on-boarding process and developer
-            guides
+            &#129365; &nbsp; We improved our on-boarding process and developer guides.
           </p>
           <p className="text-2xl">
-            &#127798; &nbsp; Integrated server monitoring software to help us
-            make sure our projects are running smoothly at all times.
+            &#127827; &nbsp; We installed advanced server monitoring software.
           </p>
         </div>
       </div>
@@ -356,7 +348,7 @@ const YearInReview: React.FC = () => {
         <div className="w-5/6 md:w-2/3 lg:w-1/2 mx-auto space-y-8">
           <h1 className="text-white text-6xl font-mono">BY THE NUMBERS</h1>
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
-            OUR TRAFFIC
+            OUR 2020 TRAFFIC
           </h2>
           <div className="flex flex-col md:flex-row gap-x-5">
             <div className="flex-1 text-left">
@@ -385,9 +377,9 @@ const YearInReview: React.FC = () => {
                 <Traffic number={734} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
-                COURSES FINISHED ON{' '}
-                <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN THE LAST
-                2 MONTHS
+                COURSES DONE ON{' '}
+                <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN UNDER 60
+                DAYS
               </p>
             </div>
             <div className="flex-1 text-left">
@@ -396,8 +388,7 @@ const YearInReview: React.FC = () => {
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 TWEETS BY OUR{' '}
-                <span className="font-bold">5 MINUTES 5 VEGANS</span> TWITTER
-                SUPPORT BOT
+                <span className="font-bold">5 MINUTES 5 VEGANS</span> SUPPORT BOT
               </p>
             </div>
           </div>
@@ -407,7 +398,7 @@ const YearInReview: React.FC = () => {
                 <Traffic number={2528} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
-                ANIMAL RIGHTS GROUPS ON{' '}
+                ANIMAL RIGHTS GROUPS ADDED TO{' '}
                 <span className="font-bold">ANIMALRIGHTSMAP.ORG</span>
               </p>
             </div>
@@ -416,7 +407,7 @@ const YearInReview: React.FC = () => {
                 <Traffic number={46562} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
-                CLICKS SENT TO ORGS VIA{' '}
+                CLICKS DIRECTING ACTIVISTS TO ORGS{' '}
                 <span className="font-bold">VEGANACTIVISM.ORG</span>
               </p>
             </div>
@@ -522,25 +513,27 @@ const YearInReview: React.FC = () => {
         headerSize="3xl"
         contentSize="2xl"
       >
-        While we&apos;re happy with this years results as-well, we recognize
-        that we need to start taking a more data-based approach in what we build
-        if we are to utilize our network of amazing volunteers effectively. We
-        also recognize that innovation often comes in uncharted territories
+        While we&apos;re happy with this years results as-well, we recognize 
+        the need to take a more data-based approach in what we build if we 
+        are to utilize our network of amazing volunteers effectively. 
+        </SubSection>
+        <SubSection contentSize="2xl">
+        We also recognize that innovation often comes in uncharted territories
         where data is often lacking - so for 2021 we want to find a good balance
         of choosing projects that align with our innovation approach, while
-        utilizing data to pick which ones may have the greater chance of having
-        a strong impact in the movement.
-      </SubSection>
+        utilizing data to pick which ones may have the greater chance of 
+        impact in our movement.
+        </SubSection>
+      
       <SubSection contentSize="2xl">
         We&apos;re really excited to hear your thoughts on our 2020 year in
         review, and if you like what we do, please consider supporting us by
         clicking the button below. Your donation ensures that all of our work
         and projects remain free and accessible to everyone, and we can&apos;t
-        begin to thank you enough for the support. With that out of the way,
-        here&apos;s our 2020 year in review!
+        begin to thank you enough for the support!
       </SubSection>
-      <div className="flex justify-center my-16">
-        <DarkButton href="/support">SUPPORT US</DarkButton>
+      <div className="flex justify-center my-16 mb-25">
+        <DarkButton href="/support">Support our work!</DarkButton>
       </div>
       <Sprite image={cow} />
     </>
