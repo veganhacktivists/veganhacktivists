@@ -24,6 +24,7 @@ import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { cow } from '../components/decoration/sprite';
 import { animated, useSpring } from '@react-spring/web';
 import { Waypoint } from 'react-waypoint';
+import useReduceMotion from '../hooks/useReduceMotion';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -75,10 +76,12 @@ const FINAL_SQUARES = [
 const Traffic: React.FC<{ number: number }> = ({ number }) => {
   const [onView, setOnView] = useState<boolean>(false);
 
+  const prefersReducedMotion = useReduceMotion();
+
   const { number: test } = useSpring({
     from: { number: 0 },
     to: { number },
-    config: { duration: 500 },
+    config: { duration: prefersReducedMotion ? 0 : 500 },
     cancel: !onView,
   });
 
@@ -270,31 +273,34 @@ const YearInReview: React.FC = () => {
       </div>
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-background py-16">
-        <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1}>
-        </FirstSubSection>
+        <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1} />
         <h2 className="text-3xl mx-auto">
           <span className="font-bold">Data Analytics |</span> Team Strawberry
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
-          We&apos;ve {' '}
+          We&apos;ve{' '}
           <Link href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
             <a className="text-magenta hover:underline active:text-magenta-light">
-            started up a new team
+              started up a new team
             </a>
-          </Link> dedicated to collecting and analyzing
-          data not only on the projects that we build, but Vegan Hacktivists as
-          an organization. This team marks our commitment to data, a commitment
-          to making sure that everything we do makes a big impact, and that
-          we&apos;re able to learn from our work in the past, as well as shaping
-          the work we do in the future.
+          </Link>{' '}
+          dedicated to collecting and analyzing data not only on the projects
+          that we build, but Vegan Hacktivists as an organization. This team
+          marks our commitment to data, a commitment to making sure that
+          everything we do makes a big impact, and that we&apos;re able to learn
+          from our work in the past, as well as shaping the work we do in the
+          future.
         </SubSection>
         <SubSection headerSize="3xl" contentSize="2xl">
-        Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the{' '}
+          Suan Chin is leading this team with 7 other data scientists. See the
+          entire team by visiting the{' '}
           <Link href="/people/team">
             <a className="text-magenta hover:underline active:text-magenta-light">
               team page here.
             </a>
-          </Link> We&apos;re excited to see how this team will shape the future of the work we do!
+          </Link>{' '}
+          We&apos;re excited to see how this team will shape the future of the
+          work we do!
         </SubSection>
         <h2 className="text-3xl mx-auto">
           <span className="font-bold">Specialists |</span> Team Blueberry
@@ -302,9 +308,9 @@ const YearInReview: React.FC = () => {
         <SubSection headerSize="3xl" contentSize="2xl">
           We recently introduced the Specialists team! 9 new activists have
           joined the team and each one currently fulfilling the roles of:
-          Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. 
-          This filled a gap where our team members could specifically get 
-          issues addressed on their projects through Team Bluebbery.
+          Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. This
+          filled a gap where our team members could specifically get issues
+          addressed on their projects through Team Bluebbery.
         </SubSection>
       </div>
       <SquareField
@@ -312,14 +318,18 @@ const YearInReview: React.FC = () => {
         className="hidden md:block"
       />
       <div className="py-16 -mt-7">
-      <FirstSubSection header="Minor changes with a BIG IMPACT" firstWordsNum={4}>
-        </FirstSubSection>
+        <FirstSubSection
+          header="Minor changes with a BIG IMPACT"
+          firstWordsNum={4}
+        />
         <div className="space-y-6 text-left mx-auto w-1/2">
           <p className="text-2xl">
-            &#127815; &nbsp; We integrated Google Analytics into all of our projects.
+            &#127815; &nbsp; We integrated Google Analytics into all of our
+            projects.
           </p>
           <p className="text-2xl">
-            &#127817; &nbsp; We started accepting applications from Python developers.
+            &#127817; &nbsp; We started accepting applications from Python
+            developers.
           </p>
           <p className="text-2xl">
             &#127818; &nbsp; We published our anonymous volunteer feedback form.
@@ -328,13 +338,16 @@ const YearInReview: React.FC = () => {
             &#127820; &nbsp; We launched our LinkedIn page for our volunteers.
           </p>
           <p className="text-2xl">
-            &#127822; &nbsp; We enabled bot notifications for community events & actions.
+            &#127822; &nbsp; We enabled bot notifications for community events &
+            actions.
           </p>
           <p className="text-2xl">
-            &#129373; &nbsp; We released and open-sourced several of our past projects.
+            &#129373; &nbsp; We released and open-sourced several of our past
+            projects.
           </p>
           <p className="text-2xl">
-            &#129365; &nbsp; We improved our on-boarding process and developer guides.
+            &#129365; &nbsp; We improved our on-boarding process and developer
+            guides.
           </p>
           <p className="text-2xl">
             &#127827; &nbsp; We installed advanced server monitoring software.
@@ -388,7 +401,8 @@ const YearInReview: React.FC = () => {
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 TWEETS BY OUR{' '}
-                <span className="font-bold">5 MINUTES 5 VEGANS</span> SUPPORT BOT
+                <span className="font-bold">5 MINUTES 5 VEGANS</span> SUPPORT
+                BOT
               </p>
             </div>
           </div>
@@ -513,18 +527,18 @@ const YearInReview: React.FC = () => {
         headerSize="3xl"
         contentSize="2xl"
       >
-        While we&apos;re happy with this years results as-well, we recognize 
-        the need to take a more data-based approach in what we build if we 
-        are to utilize our network of amazing volunteers effectively. 
-        </SubSection>
-        <SubSection contentSize="2xl">
+        While we&apos;re happy with this years results as-well, we recognize the
+        need to take a more data-based approach in what we build if we are to
+        utilize our network of amazing volunteers effectively.
+      </SubSection>
+      <SubSection contentSize="2xl">
         We also recognize that innovation often comes in uncharted territories
         where data is often lacking - so for 2021 we want to find a good balance
         of choosing projects that align with our innovation approach, while
-        utilizing data to pick which ones may have the greater chance of 
-        impact in our movement.
-        </SubSection>
-      
+        utilizing data to pick which ones may have the greater chance of impact
+        in our movement.
+      </SubSection>
+
       <SubSection contentSize="2xl">
         We&apos;re really excited to hear your thoughts on our 2020 year in
         review, and if you like what we do, please consider supporting us by
