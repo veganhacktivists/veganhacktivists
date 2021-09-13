@@ -100,7 +100,7 @@ const Traffic: React.FC<{ number: number }> = ({ number }) => {
   );
 };
 
-const Review2020: React.FC = () => {
+const YearInReview: React.FC = () => {
   return (
     <>
       <Head>
@@ -547,4 +547,4 @@ const Review2020: React.FC = () => {
   );
 };
 
-export default Review2020;
+export default YearInReview;
