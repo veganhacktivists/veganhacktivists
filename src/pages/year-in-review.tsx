@@ -81,7 +81,7 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
 
   const prefersReducedMotion = useReduceMotion();
 
-  const { number: test } = useSpring({
+  const { number: interpolatedNumber } = useSpring({
     from: { number: 0 },
     to: { number },
     config: { duration: prefersReducedMotion ? 0 : 500 },
@@ -97,7 +97,7 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
       />
       <span className="text-7xl md:text-8xl" aria-label={`${number}`}>
         <animated.span>
-          {test.to((x) =>
+          {interpolatedNumber.to((x) =>
             Math.floor(x)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
