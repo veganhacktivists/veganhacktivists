@@ -22,7 +22,7 @@ import { HighlightedProjects } from '../components/layout/review2020/Highlighted
 import { Organizations } from '../components/layout/review2020/Organizations';
 import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { cow } from '../components/decoration/sprite';
-import { animated, useSpring, config } from '@react-spring/web';
+import { animated, useSpring } from '@react-spring/web';
 import { Waypoint } from 'react-waypoint';
 
 const HERO_DECORATION_SQUARES = [
@@ -162,7 +162,7 @@ const Review2020: React.FC = () => {
         headerBold="28 TO 80 VOLUNTEERS"
       >
         We expanded from 3 teams of 28 volunteers to 7 teams of 80 volunteers!
-        We were anle to open up more positions including content creators,
+        We were able to open up more positions including content creators,
         animators, social media, advertising, and marketing experts.
       </HighlightBlock>
       <HighlightBlock
@@ -387,7 +387,7 @@ const Review2020: React.FC = () => {
               <p className="text-3xl text-white font-mono w-2/3">
                 COURSES FINISHED ON{' '}
                 <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN THE LAST
-                45 DAYS
+                2 MONTHS
               </p>
             </div>
             <div className="flex-1 text-left">
@@ -428,16 +428,18 @@ const Review2020: React.FC = () => {
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
                 <h1 className="text-yellow text-8xl font-mono font-bold">
-                  <Traffic number={15} />~
+                  <Traffic number={24} />
                 </h1>
-                <p className="text-3xl text-white font-mono font-bold w-2/3">
-                  UNIQUE VISITORS
+                <p className="text-3xl text-white font-mono w-2/3">
+                  <b>NEW POSTS</b> FROM THE CONTENT TEAM
                 </p>
               </div>
               <div className="flex-1 text-left mb-8">
-                <h1 className="text-yellow text-8xl font-mono font-bold">?</h1>
+                <h1 className="text-yellow text-8xl font-mono font-bold">
+                  <Traffic number={13926} />~
+                </h1>
                 <p className="text-3xl text-white font-mono font-bold w-2/3">
-                  UNIQUE PAGE VIEWS
+                  UNIQUE <b>PAGE VIEWS</b> ON THE BLOG
                 </p>
               </div>
             </div>
