@@ -1,5 +1,24 @@
+type textSize =
+  | 'xs'
+  | 'sm'
+  | 'base'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
+
 interface SubSectionContent {
   header?: string;
+  firstWordsNum?: number;
+  headerSize?: textSize;
+  contentSize?: textSize;
+  textColor?: string;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -21,15 +40,16 @@ export const HeaderContainer: React.FC = ({ children }) => {
 export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
   children,
+  firstWordsNum = 1,
 }) => {
   const tokenizedHeader = header.split(' ');
-  const firstWord = tokenizedHeader.shift();
+  const firstWords = tokenizedHeader.splice(0, firstWordsNum).join(' ');
   const remainingWords = tokenizedHeader.join(' ');
 
   return (
     <HeaderContainer>
       <div className="pb-[15px]">
-        <span className="font-italic text-3xl">{firstWord}</span>{' '}
+        <span className="font-italic text-3xl">{firstWords}</span>{' '}
         <BoldHeaderText>{remainingWords}</BoldHeaderText>
       </div>
       <p>{children}</p>
@@ -52,11 +72,18 @@ export const PlainHeader: React.FC<SubSectionContent> = ({
 export const SubSection: React.FC<SubSectionContent> = ({
   header,
   children,
+  headerSize = '2xl',
+  contentSize = 'xl',
+  textColor = 'black',
 }) => {
   return (
     <div className="mb-10">
-      <h1 className="text-2xl mb-3 font-bold">{header}</h1>
-      <p className="max-w-2xl text-xl m-auto">{children}</p>
+      <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
+        {header}
+      </h1>
+      <p className={`max-w-2xl text-${contentSize} text-${textColor} m-auto`}>
+        {children}
+      </p>
     </div>
   );
 };

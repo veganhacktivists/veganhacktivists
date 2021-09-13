@@ -80,6 +80,9 @@ module.exports = {
         'fill-pink': `inset 1000px 0 0 0 ${colors.pink.DEFAULT}`,
         'fill-pink-dark': `inset 1000px 0 0 0 ${colors.pink.dark}`,
       },
+      borderWidth: {
+        16: '16px',
+      },
     },
     colors,
     fontFamily: {

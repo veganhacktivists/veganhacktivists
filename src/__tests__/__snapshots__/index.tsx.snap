@@ -605,7 +605,7 @@ exports[`Application renders correctly 1`] = `
               class="flex flex-row justify-between px-10 mb-20 h-10"
             >
               <a
-                href="/#"
+                href="/year-in-review"
               >
                 <div
                   class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72"
