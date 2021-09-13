@@ -281,7 +281,7 @@ const YearInReview: React.FC = () => {
       <div className="bg-grey-background py-16">
         <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1} />
         <h2 className="text-3xl mx-auto">
-          <span className="font-bold">Data Analytics |</span> Team Strawberry
+          <span className="font-bold">Data Analytics |</span> Team Strawberry 🍓
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
           We&apos;ve{' '}
@@ -309,7 +309,7 @@ const YearInReview: React.FC = () => {
           work we do!
         </SubSection>
         <h2 className="text-3xl mx-auto">
-          <span className="font-bold">Specialists |</span> Team Blueberry
+          <span className="font-bold">Specialists |</span> Team Blueberry 🫐
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
           We recently introduced the Specialists team! 9 new activists have
