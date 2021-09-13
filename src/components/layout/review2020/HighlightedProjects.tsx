@@ -8,17 +8,13 @@ const PROJECTS = {
     url: 'veganbootcamp.org',
     content:
       // eslint-disable-next-line quotes
-      `Following the success of Vegan Bootcamp\'s launch in 2019 with over
-			 5000+ signups, we decided it was well worth our time and resources
-			 in updating Vegan Bootcamp from the ground up. We sent out a survey to
-			 all members and received a significant amount of feedback which helped us decide
-			 what additional content to add, features to create and upgrades to build. Vegan
-			 Bootcamp now includes community forums, individual courses, tags, better rewards,
-			 advanced statistics for referrals, content search, a vegan dietitian support
-			 program, a mentorship support program (in partnership with PETA), and comes
-			 translated in 10 different languages! By the time we launched the new Vegan
-			 Bootcamp we only had a month left in 2020, but we expect to garner a lot more
-			 signups in 2021 with these changes, which we hope translates in more vegans created.`,
+      `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups, 
+      we decided to invest more time in improving it. We sent out a survey to all members 
+      and received a large amount of feedback helping us decide what new content and 
+      features were needed. Vegan Bootcamp now includes community forums, individual 
+      courses, tags, better rewards, advanced statistics for referrals, content search, 
+      a vegan dietitian support program, a mentorship support program, and in 
+      10 different languages!`,
   },
   animalrightsmap: {
     title: 'Animal Rights Map',
