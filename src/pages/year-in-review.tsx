@@ -73,7 +73,10 @@ const FINAL_SQUARES = [
   { color: 'white', size: 16, right: 16, bottom: 0 },
 ];
 
-const Traffic: React.FC<{ number: number }> = ({ number }) => {
+const Traffic: React.FC<{ number: number; approx?: boolean }> = ({
+  number,
+  approx = false,
+}) => {
   const [onView, setOnView] = useState<boolean>(false);
 
   const prefersReducedMotion = useReduceMotion();
@@ -92,13 +95,16 @@ const Traffic: React.FC<{ number: number }> = ({ number }) => {
           setOnView(true);
         }}
       />
-      <animated.span>
-        {test.to((x) =>
-          Math.floor(x)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-        )}
-      </animated.span>
+      <span className="text-7xl md:text-8xl">
+        <animated.span>
+          {test.to((x) =>
+            Math.floor(x)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          )}
+        </animated.span>
+        {approx && <>~</>}
+      </span>
     </>
   );
 };
@@ -215,7 +221,7 @@ const YearInReview: React.FC = () => {
           COMMUNITY BUILDING
         </h1>
         <div className="w-2/3 mx-auto">
-          <div className="flex flex-col md:flex-row md:space-x-16">
+          <div className="flex flex-col md:flex-row md:gap-x-16">
             <div className="flex-1">
               <Image
                 src={pixelStar.src}
@@ -357,24 +363,24 @@ const YearInReview: React.FC = () => {
       <SquareField
         squares={[{ color: 'grey-light', size: 16, right: 0, bottom: 0 }]}
       />
-      <div className="bg-black py-24">
+      <div className="bg-black py-24 uppercase">
         <div className="w-5/6 md:w-2/3 lg:w-1/2 mx-auto space-y-8">
-          <h1 className="text-white text-6xl font-mono">BY THE NUMBERS</h1>
+          <h1 className="text-white text-6xl font-mono">By the numbers</h1>
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             OUR 2020 TRAFFIC
           </h2>
           <div className="flex flex-col md:flex-row gap-x-5">
             <div className="flex-1 text-left">
-              <h1 className="text-magenta text-8xl font-mono font-bold">
-                <Traffic number={318000} />~
+              <h1 className="text-magenta font-mono font-bold">
+                <Traffic number={318000} approx />
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE VISITORS
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-magenta text-8xl font-mono font-bold">
-                <Traffic number={1710000} />~
+              <h1 className="text-magenta font-mono font-bold">
+                <Traffic number={1710000} approx />
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE PAGE VIEWS
@@ -386,8 +392,8 @@ const YearInReview: React.FC = () => {
           </h2>
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
-              <h1 className="text-green text-8xl font-mono font-bold">
-                <Traffic number={734} />~
+              <h1 className="text-green font-mono font-bold">
+                <Traffic number={734} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 COURSES DONE ON{' '}
@@ -396,8 +402,8 @@ const YearInReview: React.FC = () => {
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-green text-8xl font-mono font-bold">
-                <Traffic number={8854} />~
+              <h1 className="text-green font-mono font-bold">
+                <Traffic number={8854} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 TWEETS BY OUR{' '}
@@ -408,8 +414,8 @@ const YearInReview: React.FC = () => {
           </div>
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
-              <h1 className="text-green text-8xl font-mono font-bold">
-                <Traffic number={2528} />~
+              <h1 className="text-green font-mono font-bold">
+                <Traffic number={2528} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 ANIMAL RIGHTS GROUPS ADDED TO{' '}
@@ -417,8 +423,8 @@ const YearInReview: React.FC = () => {
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-green text-8xl font-mono font-bold">
-                <Traffic number={46562} />~
+              <h1 className="text-green font-mono font-bold">
+                <Traffic number={46562} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 CLICKS DIRECTING ACTIVISTS TO ORGS{' '}
@@ -432,7 +438,7 @@ const YearInReview: React.FC = () => {
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row">
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
-                <h1 className="text-yellow text-8xl font-mono font-bold">
+                <h1 className="text-yellow font-mono font-bold">
                   <Traffic number={24} />
                 </h1>
                 <p className="text-3xl text-white font-mono w-2/3">
@@ -440,8 +446,8 @@ const YearInReview: React.FC = () => {
                 </p>
               </div>
               <div className="flex-1 text-left mb-8">
-                <h1 className="text-yellow text-8xl font-mono font-bold">
-                  <Traffic number={13926} />~
+                <h1 className="text-yellow font-mono font-bold">
+                  <Traffic number={13926} approx />
                 </h1>
                 <p className="text-3xl text-white font-mono font-bold w-2/3">
                   UNIQUE <b>PAGE VIEWS</b> ON THE BLOG

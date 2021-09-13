@@ -81,7 +81,9 @@ export const SubSection: React.FC<SubSectionContent> = ({
       <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
         {header}
       </h1>
-      <p className={`max-w-2xl text-${contentSize} text-${textColor} m-auto`}>
+      <p
+        className={`max-w-2xl text-${contentSize} text-${textColor} m-auto px-10`}
+      >
         {children}
       </p>
     </div>
