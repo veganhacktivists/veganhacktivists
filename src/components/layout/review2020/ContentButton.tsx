@@ -6,7 +6,7 @@ import ImageContainer from '../../decoration/imageContainer';
 
 export interface ContentButtonProps {
   contentTitle: string;
-  setContent?: (content: string) => void;
+  setContent: (content: string) => void;
   currentContent: string;
   down?: boolean;
   white?: boolean;
@@ -17,7 +17,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
   down = false,
   white = false,
   currentContent,
-  setContent = () => {},
+  setContent,
 }) => {
   const contentName = contentTitle.replace(/\s+/g, '').toLowerCase();
   const active = currentContent === contentName;
