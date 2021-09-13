@@ -108,6 +108,7 @@ const NavbarItems: React.FC = () => {
         href="https://www.instagram.com/veganhacktivists/"
         target="_blank"
         rel="noreferrer"
+        aria-label="Follow us on Instagram"
       >
         <FontAwesomeIcon icon={faInstagram} fixedWidth />
       </a>

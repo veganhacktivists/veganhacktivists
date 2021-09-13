@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/decoration/hero';
 import heroBackground from '../../public/images/review2020/VH-Hero-review.jpg';
 import heroTagline from '../../public/images/review2020/VH-Hero-text-review.png';
@@ -22,6 +22,8 @@ import { HighlightedProjects } from '../components/layout/review2020/Highlighted
 import { Organizations } from '../components/layout/review2020/Organizations';
 import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { cow } from '../components/decoration/sprite';
+import { animated, useSpring, config } from '@react-spring/web';
+import { Waypoint } from 'react-waypoint';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -69,6 +71,34 @@ const FINAL_SQUARES = [
   { color: 'grey-background', size: 16, right: 0, top: 0 },
   { color: 'white', size: 16, right: 16, bottom: 0 },
 ];
+
+const Traffic: React.FC<{ number: number }> = ({ number }) => {
+  const [onView, setOnView] = useState<boolean>(false);
+
+  const { number: test } = useSpring({
+    from: { number: 0 },
+    to: { number },
+    config: { duration: 500 },
+    cancel: !onView,
+  });
+
+  return (
+    <>
+      <Waypoint
+        onEnter={() => {
+          setOnView(true);
+        }}
+      />
+      <animated.span>
+        {test.to((x) =>
+          Math.floor(x)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        )}
+      </animated.span>
+    </>
+  );
+};
 
 const Review2020: React.FC = () => {
   return (
@@ -328,10 +358,10 @@ const Review2020: React.FC = () => {
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             OUR TRAFFIC
           </h2>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row gap-x-5">
             <div className="flex-1 text-left">
               <h1 className="text-magenta text-8xl font-mono font-bold">
-                318,000~
+                <Traffic number={318000} />~
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE VISITORS
@@ -339,7 +369,7 @@ const Review2020: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-magenta text-8xl font-mono font-bold">
-                1,710,000~
+                <Traffic number={1710000} />~
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE PAGE VIEWS
@@ -351,7 +381,9 @@ const Review2020: React.FC = () => {
           </h2>
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
-              <h1 className="text-green text-8xl font-mono font-bold">734~</h1>
+              <h1 className="text-green text-8xl font-mono font-bold">
+                <Traffic number={734} />~
+              </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 COURSES FINISHED ON{' '}
                 <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN THE LAST
@@ -360,7 +392,7 @@ const Review2020: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-green text-8xl font-mono font-bold">
-                8,854~
+                <Traffic number={8854} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 TWEETS BY OUR{' '}
@@ -372,7 +404,7 @@ const Review2020: React.FC = () => {
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
               <h1 className="text-green text-8xl font-mono font-bold">
-                2,528~
+                <Traffic number={2528} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 ANIMAL RIGHTS GROUPS ON{' '}
@@ -381,7 +413,7 @@ const Review2020: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-green text-8xl font-mono font-bold">
-                46,526~
+                <Traffic number={46562} />~
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 CLICKS SENT TO ORGS VIA{' '}
@@ -395,7 +427,9 @@ const Review2020: React.FC = () => {
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row">
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
-                <h1 className="text-yellow text-8xl font-mono font-bold">15</h1>
+                <h1 className="text-yellow text-8xl font-mono font-bold">
+                  <Traffic number={15} />~
+                </h1>
                 <p className="text-3xl text-white font-mono font-bold w-2/3">
                   UNIQUE VISITORS
                 </p>
