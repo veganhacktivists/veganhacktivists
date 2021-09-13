@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useReduceMotion: () => boolean = () => {
-  const [matches, setMatch] = React.useState(true);
-  React.useEffect(() => {
+  const [matches, setMatch] = useState(true);
+  useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const handleChange = () => {
       setMatch(mq.matches);

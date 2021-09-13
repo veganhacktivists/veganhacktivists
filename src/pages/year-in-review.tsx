@@ -73,7 +73,7 @@ const FINAL_SQUARES = [
   { color: 'white', size: 16, right: 16, bottom: 0 },
 ];
 
-const Traffic: React.FC<{ number: number; approx?: boolean }> = ({
+const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
   number,
   approx = false,
 }) => {
@@ -95,7 +95,7 @@ const Traffic: React.FC<{ number: number; approx?: boolean }> = ({
           setOnView(true);
         }}
       />
-      <span className="text-7xl md:text-8xl">
+      <span className="text-7xl md:text-8xl" aria-label={number}>
         <animated.span>
           {test.to((x) =>
             Math.floor(x)
@@ -328,36 +328,69 @@ const YearInReview: React.FC = () => {
           header="Minor changes with a BIG IMPACT"
           firstWordsNum={4}
         />
-        <div className="space-y-6 text-left mx-auto w-1/2">
-          <p className="text-2xl">
-            &#127815; &nbsp; We integrated Google Analytics into all of our
-            projects.
-          </p>
-          <p className="text-2xl">
-            &#127817; &nbsp; We started accepting applications from Python
-            developers.
-          </p>
-          <p className="text-2xl">
-            &#127818; &nbsp; We published our anonymous volunteer feedback form.
-          </p>
-          <p className="text-2xl">
-            &#127820; &nbsp; We launched our LinkedIn page for our volunteers.
-          </p>
-          <p className="text-2xl">
-            &#127822; &nbsp; We enabled bot notifications for community events &
-            actions.
-          </p>
-          <p className="text-2xl">
-            &#129373; &nbsp; We released and open-sourced several of our past
-            projects.
-          </p>
-          <p className="text-2xl">
-            &#129365; &nbsp; We improved our on-boarding process and developer
-            guides.
-          </p>
-          <p className="text-2xl">
-            &#127827; &nbsp; We installed advanced server monitoring software.
-          </p>
+        <div className="space-y-6 text-left mx-auto md:w-max text-2xl">
+          {[
+            {
+              icon: <>&#127815;</>,
+              description: (
+                <>We integrated Google Analytics into all of our projects.</>
+              ),
+            },
+            {
+              icon: <>&#127817;</>,
+              description: (
+                <>We started accepting applications from Python developers.</>
+              ),
+            },
+            {
+              icon: <>&#127818;</>,
+              description: (
+                <>We published our anonymous volunteer feedback form.</>
+              ),
+            },
+            {
+              icon: <> &#127820;</>,
+              description: (
+                <>We launched our LinkedIn page for our volunteers.</>
+              ),
+            },
+            {
+              icon: <>&#127822;</>,
+              description: (
+                <>
+                  We enabled bot notifications for community events & actions.
+                </>
+              ),
+            },
+            {
+              icon: <>&#129373;</>,
+              description: (
+                <>We released and open-sourced several of our past projects.</>
+              ),
+            },
+            {
+              icon: <>&#129365;</>,
+              description: (
+                <>We improved our on-boarding process and developer guides.</>
+              ),
+            },
+            {
+              icon: <>&#127827;</>,
+              description: (
+                <>We installed advanced server monitoring software.</>
+              ),
+            },
+          ].map(({ icon, description }, i) => (
+            <div
+              key={i}
+              className="flex flex-col md:flex-row gap-x-5 w-full justify-start"
+            >
+              <div className="mx-auto md:mx-0 text-5xl md:text-2xl">{icon}</div>
+              <div className="mx-auto md:mx-0 text-center md:text-left">
+                {description}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <SquareField
@@ -372,7 +405,7 @@ const YearInReview: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-x-5">
             <div className="flex-1 text-left">
               <h1 className="text-magenta font-mono font-bold">
-                <Traffic number={318000} approx />
+                <AnimatedNumber number={318000} approx />
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE VISITORS
@@ -380,7 +413,7 @@ const YearInReview: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-magenta font-mono font-bold">
-                <Traffic number={1710000} approx />
+                <AnimatedNumber number={1710000} approx />
               </h1>
               <p className="text-3xl text-white font-mono font-bold w-2/3">
                 UNIQUE PAGE VIEWS
@@ -393,7 +426,7 @@ const YearInReview: React.FC = () => {
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
-                <Traffic number={734} approx />
+                <AnimatedNumber number={734} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 COURSES DONE ON{' '}
@@ -403,7 +436,7 @@ const YearInReview: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
-                <Traffic number={8854} approx />
+                <AnimatedNumber number={8854} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 TWEETS BY OUR{' '}
@@ -415,7 +448,7 @@ const YearInReview: React.FC = () => {
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
-                <Traffic number={2528} approx />
+                <AnimatedNumber number={2528} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 ANIMAL RIGHTS GROUPS ADDED TO{' '}
@@ -424,7 +457,7 @@ const YearInReview: React.FC = () => {
             </div>
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
-                <Traffic number={46562} approx />
+                <AnimatedNumber number={46562} approx />
               </h1>
               <p className="text-3xl text-white font-mono w-2/3">
                 CLICKS DIRECTING ACTIVISTS TO ORGS{' '}
@@ -439,7 +472,7 @@ const YearInReview: React.FC = () => {
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
                 <h1 className="text-yellow font-mono font-bold">
-                  <Traffic number={24} />
+                  <AnimatedNumber number={24} />
                 </h1>
                 <p className="text-3xl text-white font-mono w-2/3">
                   <b>NEW POSTS</b> FROM THE CONTENT TEAM
@@ -447,7 +480,7 @@ const YearInReview: React.FC = () => {
               </div>
               <div className="flex-1 text-left mb-8">
                 <h1 className="text-yellow font-mono font-bold">
-                  <Traffic number={13926} approx />
+                  <AnimatedNumber number={13926} approx />
                 </h1>
                 <p className="text-3xl text-white font-mono font-bold w-2/3">
                   UNIQUE <b>PAGE VIEWS</b> ON THE BLOG
@@ -455,9 +488,9 @@ const YearInReview: React.FC = () => {
               </div>
             </div>
             <div className="flex-1 text-left flex flex-col">
-              <h3 className="text-3xl font-mono font-bold text-white mb-8">
+              <h2 className="text-3xl font-mono font-bold text-white mb-8">
                 TOP POSTS
-              </h3>
+              </h2>
               <a
                 className="text-white text-2xl underline active:opacity-50 cursor-pointer"
                 href="https://veganhacktivists.org/blog/covid-19-self-isolating-try-vegan"

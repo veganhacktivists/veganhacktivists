@@ -78,9 +78,11 @@ export const SubSection: React.FC<SubSectionContent> = ({
 }) => {
   return (
     <div className="mb-10">
-      <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
-        {header}
-      </h1>
+      {header && (
+        <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
+          {header}
+        </h1>
+      )}
       <p
         className={`max-w-2xl text-${contentSize} text-${textColor} m-auto px-10`}
       >
