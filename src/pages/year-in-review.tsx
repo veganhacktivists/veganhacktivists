@@ -143,7 +143,7 @@ const YearInReview: React.FC = () => {
         src={pixelHeart.src}
         height={pixelHeart.height / 3}
         width={pixelHeart.width / 3}
-        alt="Pixel heart"
+        alt=""
       />
       <SubSection
         header="We grew a lot as a community"
@@ -202,7 +202,7 @@ const YearInReview: React.FC = () => {
           src={pixelFlower.src}
           height={pixelFlower.height / 3}
           width={pixelFlower.width / 3}
-          alt="Pixel flower"
+          alt=""
         />
         <SubSection
           header="Strategy and experimentation"
@@ -237,7 +237,7 @@ const YearInReview: React.FC = () => {
                 src={pixelStar.src}
                 height={pixelStar.height / 3}
                 width={pixelStar.width / 3}
-                alt="Pixel art rendering of a heart with a green banner underneath"
+                alt=""
               />
               <SubSection
                 header="Volunteers"
@@ -255,7 +255,7 @@ const YearInReview: React.FC = () => {
                 src={pixelHeart.src}
                 height={pixelHeart.height / 3}
                 width={pixelHeart.width / 3}
-                alt="Pixel heart"
+                alt=""
               />
               <SubSection
                 header="Our Values"
@@ -283,24 +283,24 @@ const YearInReview: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
             <Image src={petaLogo} alt="peta logo" />
             <Image src={beyondLogo} alt="beyond animal logo" />
-            <Image src={counterglowLogo} alt="beyond animal logo" />
+            <Image src={counterglowLogo} alt="counterglow logo" />
           </div>
         </div>
       </div>
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-background py-16">
         <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1} />
-        <h2 className="text-3xl mx-auto flex flex-col md:flex-row justify-center">
-          <div className="my-auto">
-            <span className="font-bold">Data Analytics |</span> Team Strawberry
-          </div>
-          <div className="w-20 md:w-14 mx-auto md:mx-0">
+        <h2 className="text-3xl mx-auto flex flex-col justify-center">
+          <div className="w-36 mx-auto">
             <Image
               src={Strawberry}
               alt=""
               layout="responsive"
               loading="eager"
             />
+          </div>
+          <div className="px-5">
+            <span className="font-bold">Data Analytics |</span> Team Strawberry
           </div>
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
@@ -328,12 +328,12 @@ const YearInReview: React.FC = () => {
           We&apos;re excited to see how this team will shape the future of the
           work we do!
         </SubSection>
-        <h2 className="text-3xl mx-auto flex flex-col md:flex-row justify-center">
-          <div className="my-auto">
-            <span className="font-bold">Specialists |</span> Team Blueberry
-          </div>
-          <div className="w-20 md:w-14 mx-auto md:mx-0">
+        <h2 className="text-3xl mx-auto flex flex-col justify-center">
+          <div className="w-36 mx-auto">
             <Image src={Blueberry} alt="" layout="responsive" loading="eager" />
+          </div>
+          <div className="px-5">
+            <span className="font-bold">Specialists |</span> Team Blueberry
           </div>
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
