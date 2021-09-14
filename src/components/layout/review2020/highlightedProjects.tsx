@@ -13,8 +13,8 @@ const PROJECTS = {
       and received a large amount of feedback helping us decide what new content and
       features were needed. Vegan Bootcamp now includes community forums, individual
       courses, tags, better rewards, advanced statistics for referrals, content search,
-      a vegan dietitian support program, a mentorship support program, and in
-      10 different languages!`,
+      a vegan dietitian support program, a mentorship support program, and it now comes 
+      translated in 10 different languages!`,
   },
   animalrightsmap: {
     title: 'Animal Rights Map',
