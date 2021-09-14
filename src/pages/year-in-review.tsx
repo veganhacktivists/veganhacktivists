@@ -331,7 +331,6 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
       </div>
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-background py-16">
-        <FirstSubSection header="Our NEW TEAMS" firstWordsNum={1} />
         <h2 className="text-3xl mx-auto flex flex-col justify-center">
           <div className="w-36 mx-auto">
             <Image
