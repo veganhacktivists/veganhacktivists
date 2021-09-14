@@ -99,7 +99,7 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
           setOnView(true);
         }}
       />
-      <span className="text-7xl md:text-8xl" aria-label={`${number}`}>
+      <span className="text-7xl xl:text-8xl" aria-label={`${number}`}>
         <animated.span>
           {interpolatedNumber.to((x) =>
             Math.floor(x)
@@ -164,18 +164,18 @@ const YearInReview: React.FC = () => {
         headerBold="EIGHT PROJECTS"
         headerEnd="FOR THE MOVEMENT"
       >
-        Four of which were unique project ideas of our own! We were also 
-        luck enough to work on projects with Animal Rebellion, Animal Save 
-        Movement, Lebanese Vegans, and the Excelsior 4!
+        Four of which were unique project ideas of our own! We were also luck
+        enough to work on projects with Animal Rebellion, Animal Save Movement,
+        Lebanese Vegans, and the Excelsior 4!
       </HighlightBlock>
       <HighlightBlock
         borderColor="yellow"
         headerStart="WE EXPANDED OUR TEAM FROM"
         headerBold="28 TO 80 VOLUNTEERS"
       >
-        We expanded from just 3 teams of 28 volunteers to 7 teams of 
-        80 volunteers! We were able to open up more positions including 
-        content creators, animators, social, marketing, and advertising!
+        We expanded from just 3 teams of 28 volunteers to 7 teams of 80
+        volunteers! We were able to open up more positions including content
+        creators, animators, social, marketing, and advertising!
       </HighlightBlock>
       <HighlightBlock
         borderColor="green"
@@ -183,14 +183,14 @@ const YearInReview: React.FC = () => {
         headerBold="ADVISORY TEAM"
         headerEnd="OF VEGAN EXPERTS"
       >
-        We&apos;re incredibly thankful to now have a team of experienced 
-        vegan advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger 
-        and Michael Dearborn. Browse more of our advisors, {' '}
-          <Link href="https://veganhacktivists.org/people/advisors">
-            <a className="text-magenta hover:underline active:text-magenta-light">
+        We&apos;re incredibly thankful to now have a team of experienced vegan
+        advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and
+        Michael Dearborn. Browse more of our advisors,{' '}
+        <Link href="https://veganhacktivists.org/people/advisors">
+          <a className="text-magenta hover:underline active:text-magenta-light">
             click here!
-            </a>
-          </Link>{' '}
+          </a>
+        </Link>{' '}
       </HighlightBlock>
       <div className="h-16" />
       <SquareField
@@ -209,16 +209,18 @@ const YearInReview: React.FC = () => {
           headerSize="3xl"
           contentSize="2xl"
         >
-          Like 2019, we focused on building projects with little data on whether 
-          those projects would succeed. We consider this a high-risk strategy 
-          as we use hundreds of hours volunteer time on these experimental projects. 
-          </SubSection>
-          <SubSection contentSize="2xl">
-          We&apos;re thankful this worked last year as 3 of the 6 projects we 
-          built met our standards of success, so we continued with this methodology. 
-          We firmly believe it&apos;s important for any movement to innovate, try new tactics, 
-          build experimental tools, and strategize alternatively.
-          </SubSection>
+          Like 2019, we focused on building projects with little data on whether
+          those projects would succeed. We consider this a high-risk strategy as
+          we use hundreds of hours volunteer time on these experimental
+          projects.
+        </SubSection>
+        <SubSection contentSize="2xl">
+          We&apos;re thankful this worked last year as 3 of the 6 projects we
+          built met our standards of success, so we continued with this
+          methodology. We firmly believe it&apos;s important for any movement to
+          innovate, try new tactics, build experimental tools, and strategize
+          alternatively.
+        </SubSection>
       </div>
       <SquareField
         squares={[{ color: 'grey-light', size: 16, bottom: 0, right: 0 }]}
@@ -243,9 +245,9 @@ const YearInReview: React.FC = () => {
                 contentSize="2xl"
                 textColor="white"
               >
-                This year we attracted volunteers that worked for Trello, 
-                Microsoft, Etsy, Better Eating, Mercy for Animals, 
-                Save Movement and Paypal!
+                This year we attracted volunteers that worked for Trello,
+                Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement
+                and Paypal!
               </SubSection>
             </div>
             <div className="flex-1">
@@ -261,9 +263,9 @@ const YearInReview: React.FC = () => {
                 contentSize="2xl"
                 textColor="white"
               >
-               We came together as a community and decided on what 
-               values we wanted to adopt, and to formalize what our 
-               mission and goals were.
+                We came together as a community and decided on what values we
+                wanted to adopt, and to formalize what our mission and goals
+                were.
               </SubSection>
             </div>
           </div>
@@ -420,7 +422,7 @@ const YearInReview: React.FC = () => {
         squares={[{ color: 'grey-light', size: 16, right: 0, bottom: 0 }]}
       />
       <div className="bg-black py-24 uppercase">
-        <div className="w-5/6 md:w-2/3 lg:w-2/3 mx-auto space-y-8">
+        <div className="w-5/6 md:w-2/3 lg:w-1/2 mx-auto space-y-8">
           <h1 className="text-white text-6xl font-mono">By the numbers</h1>
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             OUR 2020 TRAFFIC
@@ -446,7 +448,7 @@ const YearInReview: React.FC = () => {
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             PROJECT STATISTICS
           </h2>
-          <div className="flex flex-col md:flex-row">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
                 <AnimatedNumber number={734} approx />
@@ -467,8 +469,6 @@ const YearInReview: React.FC = () => {
                 BOT
               </p>
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row">
             <div className="flex-1 text-left">
               <h1 className="text-green font-mono font-bold">
                 <AnimatedNumber number={2528} approx />
@@ -491,7 +491,7 @@ const YearInReview: React.FC = () => {
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             ON THE BLOG
           </h2>
-          <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 md:gap-y-0">
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
                 <h1 className="text-yellow font-mono font-bold">
@@ -510,61 +510,63 @@ const YearInReview: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex-1 text-left flex flex-col">
+            <div className="md:flex-1 text-left flex flex-col">
               <h2 className="text-3xl font-mono font-bold text-white mb-8">
                 TOP POSTS
               </h2>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/covid-19-self-isolating-try-vegan"
-              >
-                In this season of COVID-19 self-isolating: try Vegan!
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/why-a-global-pandemic-is-closely-tied-to-animal-agriculture"
-              >
-                Why a global pandemic is closely tied to animal agriculture.
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/the-problem-with-strays"
-              >
-                The Problem with Strays
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/this-is-the-time-for-veganism-to-go-back-to-its-roots"
-              >
-                It&apos;s Time for Veganism to Go Back to Its Roots
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/my-octopus-teacher-2020-step-into-nature-and-develop-a-gentleness"
-              >
-                My Octopus Teacher (2020): Step Into Nature And Develop A
-                Gentleness
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/dont-fall-for-clickbait-how-online-articles-misrepresent-veganism"
-              >
-                Don’t Fall for Clickbait: How Online Articles Misrepresent
-                Veganism
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/veganism-tour-around-the-world-what-does-veganism-look-like-in-other-countries"
-              >
-                Veganism Tour Around the World! – What Does Veganism Look Like
-                in Other Countries?
-              </a>
-              <a
-                className="text-white text-2xl underline active:opacity-50 cursor-pointer"
-                href="https://veganhacktivists.org/blog/eating-vegan-does-not-mean-losing-your-favorite-foods-only-changing-them"
-              >
-                Eating Vegan Doesn&apos;t Mean Losing Your Favorite Foods
-              </a>
+              <div className="flex flex-col normal-case">
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/covid-19-self-isolating-try-vegan"
+                >
+                  In this season of COVID-19 self-isolating: try Vegan!
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/why-a-global-pandemic-is-closely-tied-to-animal-agriculture"
+                >
+                  Why a global pandemic is closely tied to animal agriculture.
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/the-problem-with-strays"
+                >
+                  The Problem with Strays
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/this-is-the-time-for-veganism-to-go-back-to-its-roots"
+                >
+                  It&apos;s Time for Veganism to Go Back to Its Roots
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/my-octopus-teacher-2020-step-into-nature-and-develop-a-gentleness"
+                >
+                  My Octopus Teacher (2020): Step Into Nature And Develop A
+                  Gentleness
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/dont-fall-for-clickbait-how-online-articles-misrepresent-veganism"
+                >
+                  Don’t Fall for Clickbait: How Online Articles Misrepresent
+                  Veganism
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/veganism-tour-around-the-world-what-does-veganism-look-like-in-other-countries"
+                >
+                  Veganism Tour Around the World! – What Does Veganism Look Like
+                  in Other Countries?
+                </a>
+                <a
+                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+                  href="https://veganhacktivists.org/blog/eating-vegan-does-not-mean-losing-your-favorite-foods-only-changing-them"
+                >
+                  Eating Vegan Doesn&apos;t Mean Losing Your Favorite Foods
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -608,7 +610,7 @@ const YearInReview: React.FC = () => {
         and projects remain free and accessible to everyone, and we can&apos;t
         begin to thank you enough for the support!
       </SubSection>
-      <div className="flex justify-center my-16 mb-25">
+      <div className="flex justify-center my-16 mb-36">
         <DarkButton href="/support">Support our work!</DarkButton>
       </div>
       <Sprite image={cow} />
