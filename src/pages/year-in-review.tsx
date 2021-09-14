@@ -31,7 +31,10 @@ import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../hooks/useReduceMotion';
 import TopPosts from '../components/layout/review2020/topPosts';
 import type { GetStaticProps } from 'next';
-import type { IBlogEntry } from '../types/generated/contentful';
+import type {
+  IBlogEntry,
+  IBlogEntryFields,
+} from '../types/generated/contentful';
 import { getContents } from '../lib/cms';
 
 const HERO_DECORATION_SQUARES = [
@@ -129,7 +132,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'eating-vegan-does-not-mean-losing-your-favorite-foods-only-changing-them',
   ];
 
-  const topBlogs = await getContents({
+  const topBlogs = await getContents<IBlogEntryFields>({
     contentType: 'blogEntry',
     query: {
       filters: {
@@ -141,7 +144,11 @@ export const getStaticProps: GetStaticProps = async () => {
     other: { select: ['fields.slug', 'fields.title'] },
   });
 
-  return { props: { topBlogs } };
+  const ordered = topBlogs.sort(
+    (a, b) => slugs.indexOf(a.fields.slug) - slugs.indexOf(b.fields.slug)
+  );
+
+  return { props: { topBlogs: ordered } };
 };
 
 interface YearInReviewProps {
