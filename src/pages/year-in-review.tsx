@@ -495,7 +495,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               <h1 className="text-green font-mono font-bold">
                 <AnimatedNumber number={734} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3">
+              <p className="text-3xl text-white font-mono w-2/3 mb-10">
                 COURSES DONE ON{' '}
                 <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN UNDER 60
                 DAYS
@@ -505,7 +505,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               <h1 className="text-green font-mono font-bold">
                 <AnimatedNumber number={8854} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3">
+              <p className="text-3xl text-white font-mono w-2/3 mb-10">
                 TWEETS BY OUR{' '}
                 <span className="font-bold">5 MINUTES 5 VEGANS</span> SUPPORT
                 BOT
@@ -539,7 +539,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
                 <h1 className="text-yellow font-mono font-bold">
                   <AnimatedNumber number={24} />
                 </h1>
-                <p className="text-3xl text-white font-mono w-2/3">
+                <p className="text-3xl text-white font-mono w-2/3 mb-10">
                   <b>NEW POSTS</b> FROM THE CONTENT TEAM
                 </p>
               </div>
