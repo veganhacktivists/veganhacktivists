@@ -21,14 +21,18 @@ import pixelPig from '../../public/images/VH_PixelPig.png';
 import petaLogo from '../../public/images/review2020/peta.webp';
 import beyondLogo from '../../public/images/review2020/beyondanimal.webp';
 import counterglowLogo from '../../public/images/review2020/counterglow.webp';
-import { HighlightBlock } from '../components/layout/review2020/HighlightBlock';
-import { HighlightedProjects } from '../components/layout/review2020/HighlightedProjects';
-import { Organizations } from '../components/layout/review2020/Organizations';
+import { HighlightBlock } from '../components/layout/review2020/highlightBlock';
+import { HighlightedProjects } from '../components/layout/review2020/highlightedProjects';
+import { Organizations } from '../components/layout/review2020/organizations';
 import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { cow } from '../components/decoration/sprite';
 import { animated, useSpring } from '@react-spring/web';
 import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../hooks/useReduceMotion';
+import TopPosts from '../components/layout/review2020/topPosts';
+import type { GetStaticProps } from 'next';
+import type { IBlogEntry } from '../types/generated/contentful';
+import { getContents } from '../lib/cms';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -113,7 +117,38 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
   );
 };
 
-const YearInReview: React.FC = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const slugs = [
+    'covid-19-self-isolating-try-vegan',
+    'why-a-global-pandemic-is-closely-tied-to-animal-agriculture',
+    'the-problem-with-strays',
+    'this-is-the-time-for-veganism-to-go-back-to-its-roots',
+    'my-octopus-teacher-2020-step-into-nature-and-develop-a-gentleness',
+    'dont-fall-for-clickbait-how-online-articles-misrepresent-veganism',
+    'veganism-tour-around-the-world-what-does-veganism-look-like-in-other-countries',
+    'eating-vegan-does-not-mean-losing-your-favorite-foods-only-changing-them',
+  ];
+
+  const topBlogs = await getContents({
+    contentType: 'blogEntry',
+    query: {
+      filters: {
+        in: {
+          slug: slugs,
+        },
+      },
+    },
+    other: { select: ['fields.slug', 'fields.title'] },
+  });
+
+  return { props: { topBlogs } };
+};
+
+interface YearInReviewProps {
+  topBlogs: IBlogEntry[];
+}
+
+const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
   return (
     <>
       <Head>
@@ -511,62 +546,7 @@ const YearInReview: React.FC = () => {
               </div>
             </div>
             <div className="md:flex-1 text-left flex flex-col">
-              <h2 className="text-3xl font-mono font-bold text-white mb-8">
-                TOP POSTS
-              </h2>
-              <div className="flex flex-col normal-case">
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/covid-19-self-isolating-try-vegan"
-                >
-                  In this season of COVID-19 self-isolating: try Vegan!
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/why-a-global-pandemic-is-closely-tied-to-animal-agriculture"
-                >
-                  Why a global pandemic is closely tied to animal agriculture.
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/the-problem-with-strays"
-                >
-                  The Problem with Strays
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/this-is-the-time-for-veganism-to-go-back-to-its-roots"
-                >
-                  It&apos;s Time for Veganism to Go Back to Its Roots
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/my-octopus-teacher-2020-step-into-nature-and-develop-a-gentleness"
-                >
-                  My Octopus Teacher (2020): Step Into Nature And Develop A
-                  Gentleness
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/dont-fall-for-clickbait-how-online-articles-misrepresent-veganism"
-                >
-                  Don’t Fall for Clickbait: How Online Articles Misrepresent
-                  Veganism
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/veganism-tour-around-the-world-what-does-veganism-look-like-in-other-countries"
-                >
-                  Veganism Tour Around the World! – What Does Veganism Look Like
-                  in Other Countries?
-                </a>
-                <a
-                  className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
-                  href="https://veganhacktivists.org/blog/eating-vegan-does-not-mean-losing-your-favorite-foods-only-changing-them"
-                >
-                  Eating Vegan Doesn&apos;t Mean Losing Your Favorite Foods
-                </a>
-              </div>
+              <TopPosts topPosts={topBlogs.map((entry) => entry.fields)} />
             </div>
           </div>
         </div>

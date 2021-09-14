@@ -24,7 +24,7 @@ const normalizeFilter: (
   return Object.fromEntries(
     Object.entries(filter || {}).map(([value, filter]) => [
       `${value}[${filterType}]`,
-      filter,
+      Array.isArray(filter) ? filter.join(',') : filter,
     ])
   );
 };
@@ -36,6 +36,8 @@ export const getContents: <T>(options: {
       Partial<{
         ne?: Record<string, unknown>;
         exists?: Record<string, unknown>;
+        in?: Record<string, unknown>;
+        all?: Record<string, unknown>;
       }>;
   };
   other?: Record<string, unknown>;
