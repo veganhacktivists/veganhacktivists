@@ -411,7 +411,7 @@ exports[`should render correctly 1`] = `
   </div>
   <div
     class="absolute z-20"
-    style="left: 250.09432358301314px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
+    style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
       style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"

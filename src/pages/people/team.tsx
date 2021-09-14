@@ -73,8 +73,8 @@ const TeamSelector: React.FC<{
 }> = ({ teams, selectedTeam, selectCallback }) => {
   const [hovered, setHovered] = useState<string | null>();
 
-  const getBackgroundColor = (name: string, color: string) => {
-    if (selectedTeam === name || hovered === name) {
+  const getBackgroundColor = (slug: string, color: string) => {
+    if (selectedTeam === slug || hovered === slug) {
       return color;
     }
     return undefined;
@@ -84,14 +84,14 @@ const TeamSelector: React.FC<{
     <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
       {teams
         .map((t) => t.fields)
-        .map(({ name, color, icon, sprite }) => (
+        .map(({ name, color, icon, sprite, slug }) => (
           <button
-            style={{ backgroundColor: getBackgroundColor(name, color) }}
+            style={{ backgroundColor: getBackgroundColor(slug, color) }}
             className={'w-20 h-20 flex-grow-0 transition-colors'}
-            onClick={() => selectCallback(name)}
-            onMouseEnter={() => setHovered(name)}
+            onClick={() => selectCallback(slug)}
+            onMouseEnter={() => setHovered(slug)}
             onMouseLeave={() =>
-              setHovered((curr) => (curr === name ? null : curr))
+              setHovered((curr) => (curr === slug ? null : curr))
             }
             key={name}
           >
@@ -150,7 +150,7 @@ const useFilteredMembers = (
 ) => {
   return useMemo(() => {
     const filteredByTeam = selectedTeam
-      ? allMembers.filter((p) => p.fields.team!.fields.name === selectedTeam)
+      ? allMembers.filter((p) => p.fields.team!.fields.slug === selectedTeam)
       : allMembers;
 
     const paged = filteredByTeam.slice(0, pageSize * pageNumber);

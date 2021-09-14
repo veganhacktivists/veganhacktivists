@@ -155,6 +155,9 @@ export interface ITag extends Entry<ITagFields> {
 }
 
 export interface ITeamFields {
+  /** slug */
+  slug: string;
+
   /** name */
   name: string;
 
