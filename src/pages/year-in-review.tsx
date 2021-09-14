@@ -546,7 +546,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
                 <h1 className="text-yellow font-mono font-bold">
                   <AnimatedNumber number={13926} approx />
                 </h1>
-                <p className="text-3xl text-white font-mono font-bold w-2/3">
+                <p className="text-3xl text-white font-mono w-2/3">
                   UNIQUE <b>PAGE VIEWS</b> ON THE BLOG
                 </p>
               </div>
