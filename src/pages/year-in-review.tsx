@@ -334,6 +334,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         <h2 className="text-3xl mx-auto flex flex-col justify-center">
           <div className="w-36 mx-auto">
             <Image
+              className="drop-shadow-xl"
               src={Strawberry}
               alt=""
               layout="responsive"
@@ -371,7 +372,13 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         </SubSection>
         <h2 className="text-3xl mx-auto flex flex-col justify-center">
           <div className="w-36 mx-auto">
-            <Image src={Blueberry} alt="" layout="responsive" loading="eager" />
+            <Image
+              src={Blueberry}
+              alt=""
+              layout="responsive"
+              loading="eager"
+              className="drop-shadow-xl"
+            />
           </div>
           <div className="px-5 mb-5">
             <span className="font-bold">Specialists |</span> Team Blueberry
