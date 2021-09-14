@@ -464,7 +464,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         squares={[{ color: 'grey-light', size: 16, right: 0, bottom: 0 }]}
       />
       <div className="bg-black py-24 uppercase">
-        <div className="w-5/6 md:w-2/3 lg:w-1/2 mx-auto space-y-8">
+        <div className="w-5/6 md:w-2/3 mx-auto space-y-8">
           <h1 className="text-white text-6xl font-mono">By the numbers</h1>
           <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
             OUR 2020 TRAFFIC
