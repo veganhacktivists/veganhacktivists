@@ -103,9 +103,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 {' '}
                 -{' '}
                 <Link
-                  href={`/people/team#${
-                    team.fields.isInactive ? '' : team.fields.name
-                  }`}
+                  href={{
+                    pathname: '/people/team',
+                    hash: team.fields.isInactive ? null : team.fields.slug,
+                  }}
                   scroll={true}
                 >
                   <a>

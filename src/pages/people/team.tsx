@@ -19,6 +19,7 @@ import Sprite, { duck } from '../../components/decoration/sprite';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
+import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -85,28 +86,28 @@ const TeamSelector: React.FC<{
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite, slug }) => (
-          <button
-            style={{ backgroundColor: getBackgroundColor(slug, color) }}
-            className={'w-20 h-20 flex-grow-0 transition-colors'}
-            onClick={() => selectCallback(slug)}
-            onMouseEnter={() => setHovered(slug)}
-            onMouseLeave={() =>
-              setHovered((curr) => (curr === slug ? null : curr))
-            }
-            key={name}
-          >
-            {sprite ? (
-              <ContentfulImage
-                image={sprite}
-                alt={name}
-                width={75}
-                height={75}
-                priority
-              />
-            ) : (
-              <div className="text-4xl">{icon}</div>
-            )}
-          </button>
+          <Link key={slug} href={{ hash: slug }}>
+            <a
+              style={{ backgroundColor: getBackgroundColor(slug, color) }}
+              className={'w-20 h-20 flex-grow-0 transition-colors'}
+              onMouseEnter={() => setHovered(slug)}
+              onMouseLeave={() =>
+                setHovered((curr) => (curr === slug ? null : curr))
+              }
+            >
+              {sprite ? (
+                <ContentfulImage
+                  image={sprite}
+                  alt={name}
+                  width={75}
+                  height={75}
+                  priority
+                />
+              ) : (
+                <div className="text-4xl">{icon}</div>
+              )}
+            </a>
+          </Link>
         ))}
     </div>
   );
