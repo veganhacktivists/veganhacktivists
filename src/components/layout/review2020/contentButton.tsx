@@ -43,7 +43,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
       }}
     >
       <div className="cursor-pointer select-none">
-        <p className={`text-3xl font-mono text-${active ? 'white' : 'black'}`}>
+        <p className={`text-2xl font-bold font-mono text-${active ? 'white' : 'black'}`}>
           {contentTitle}
         </p>
         <div
