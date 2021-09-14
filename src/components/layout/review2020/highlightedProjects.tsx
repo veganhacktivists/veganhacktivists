@@ -63,9 +63,10 @@ export const HighlightedProjects: React.FC = ({}) => {
   const [project, setProject] = useState('veganbootcamp');
   return (
     <div className="py-24">
-      <h1 className="text-6xl text-grey font-mono mx-auto mb-12">
-        HIGHLIGHTED PROJECTS
-      </h1>
+      <FirstSubSection
+          header="See our HIGHLIGHTED PROJECTS"
+          firstWordsNum={2}
+        />
       <div className="flex flex-col md:flex-row justify-center gap-x-16">
         <div>
           <div className="overflow-hidden pb-80">
