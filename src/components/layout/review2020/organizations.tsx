@@ -58,7 +58,7 @@ const ORGANIZATIONS = {
 export const Organizations: React.FC = ({}) => {
   const [organization, setOrganization] = useState('savemovement');
   return (
-    <div className="py-24 bg-grey-background">
+    <div className="pb-20 pt-8 bg-grey-background">
       <FirstSubSection
           header="Working with ORGANIZATIONS"
           firstWordsNum={2}
