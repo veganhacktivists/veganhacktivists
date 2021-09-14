@@ -15,8 +15,8 @@ const ORGANIZATIONS = {
       of Save's work and newsletter. If you haven't heard of Save, their mission is to hold
       vigils at every slaughterhouse and to bear witness to every exploited animal. They also
       run the Climate and Health Save Movement, which promote reversing catastrophic climate
-      change and making plant-based diets accessible. It was an absolute joy getting time to
-      meet and work with their team of passionate activists!`,
+      change and making plant-based diets accessible. It was an absolute joy to meet and work 
+      with their team of passionate activists!`,
   },
   animalrebellion: {
     title: 'Animal Rebellion',
