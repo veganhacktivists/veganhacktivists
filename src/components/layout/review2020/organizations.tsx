@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import { DarkButton } from '../../decoration/buttons';
+import { FirstSubSection } from '../../decoration/textBlocks';
 import { ContentButton } from './contentButton';
 
 const ORGANIZATIONS = {
@@ -58,9 +59,10 @@ export const Organizations: React.FC = ({}) => {
   const [organization, setOrganization] = useState('savemovement');
   return (
     <div className="py-24 bg-grey-background">
-      <h1 className="text-5xl md:text-6xl text-grey font-mono mx-auto mb-12">
-        ORGANIZATIONS
-      </h1>
+      <FirstSubSection
+          header="Working with ORGANIZATIONS"
+          firstWordsNum={2}
+        />
       <div className="flex flex-col md:flex-row mx-auto justify-center gap-x-16">
         <div>
           <div className="overflow-hidden pb-80">
