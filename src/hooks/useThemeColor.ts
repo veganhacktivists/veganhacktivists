@@ -27,7 +27,7 @@ const byString: (object: any, path: string) => string | undefined = (
 };
 
 const useThemeColor: (color: string) => string | undefined = (color) => {
-  if (typeof color === 'string' && color.startsWith('#')) {
+  if (color.startsWith('#')) {
     return color;
   }
 

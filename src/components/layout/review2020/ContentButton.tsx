@@ -2,6 +2,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import React from 'react';
+import useThemeColor from '../../../hooks/useThemeColor';
 import ImageContainer from '../../decoration/imageContainer';
 
 export interface ContentButtonProps {
@@ -22,13 +23,18 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
   const contentName = contentTitle.replace(/\s+/g, '').toLowerCase();
   const active = currentContent === contentName;
 
+  const backgroundColor = useThemeColor(
+    active ? 'grey-dark' : white ? 'white' : 'grey-background'
+  );
+
   return (
     <div
-      className={`flex justify-center items-center h-12 w-80 bg-${
-        active ? 'grey-dark' : white ? 'white' : 'grey-background'
-      } mx-auto relative ${down ? '-bottom-80' : 'bottom-0'}`}
+      className={`flex justify-center items-center h-12 w-80 mx-auto relative ${
+        down ? '-bottom-80' : 'bottom-0'
+      }`}
       style={{
-        transition: 'bottom 200ms ease 0s',
+        transition: 'bottom 700ms ease 0s',
+        backgroundColor,
       }}
       onClick={() => {
         if (!active) {
@@ -36,22 +42,24 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         }
       }}
     >
-      <p className={`text-3xl font-mono text-${active ? 'white' : 'black'}`}>
-        {contentTitle}
-      </p>
-      <div
-        className={
-          'flex justify-center items-center absolute bottom-0 right-0 h-12 w-12'
-        }
-      >
-        <FontAwesomeIcon
-          size="lg"
-          icon={faChevronDown}
-          color={active ? 'white' : 'black'}
-          className={`transition-transform duration-200 ${
-            active ? 'rotate-180' : ''
-          }`}
-        />
+      <div className="cursor-pointer select-none">
+        <p className={`text-3xl font-mono text-${active ? 'white' : 'black'}`}>
+          {contentTitle}
+        </p>
+        <div
+          className={
+            'flex justify-center items-center absolute bottom-0 right-0 h-12 w-12'
+          }
+        >
+          <FontAwesomeIcon
+            size="lg"
+            icon={faChevronDown}
+            color={active ? 'white' : 'black'}
+            className={`transition-transform duration-700 ${
+              active ? 'rotate-180' : ''
+            }`}
+          />
+        </div>
       </div>
 
       <ImageContainer className="absolute -bottom-80 w-80 h-80">
