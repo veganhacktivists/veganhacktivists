@@ -63,7 +63,7 @@ const PROJECTS = {
 export const HighlightedProjects: React.FC = ({}) => {
   const [project, setProject] = useState('veganbootcamp');
   return (
-    <div className="py-24">
+    <div className="py-24 -mt-16">
       <FirstSubSection
           header="See our HIGHLIGHTED PROJECTS"
           firstWordsNum={2}
