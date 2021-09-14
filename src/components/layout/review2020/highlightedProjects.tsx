@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DarkButton } from '../../decoration/buttons';
 import { ContentButton } from './contentButton';
+import { FirstSubSection } from '../components/decoration/textBlocks';
 
 const PROJECTS = {
   veganbootcamp: {
