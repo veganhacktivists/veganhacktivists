@@ -42,12 +42,14 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   member,
   teamColor,
 }) => {
-  const { name, team, position, image } = member.fields;
+  const { name, team, position, image, isTeamLeader } = member.fields;
   const { name: teamName } = team!.fields;
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2">
-        {image && <ContentfulImage image={image} alt={name} />}
+        {image && (
+          <ContentfulImage image={image} alt={name} priority={isTeamLeader} />
+        )}
         <div
           style={{ backgroundColor: teamColor }}
           className={'absolute w-8 h-8'}
