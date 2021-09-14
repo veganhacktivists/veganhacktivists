@@ -111,7 +111,7 @@ export const HighlightedProjects: React.FC = ({}) => {
           <p className="text-2xl">
             {PROJECTS[project as keyof typeof PROJECTS].content}
           </p>
-          <div className="flex mt-4">
+          <div className="flex mt-10">
             <DarkButton
               href={'https://' + PROJECTS[project as keyof typeof PROJECTS].url}
             >

@@ -96,13 +96,13 @@ export const Organizations: React.FC = ({}) => {
           </div>
         </div>
         <div className="w-3/4 md:w-1/2 lg:w-1/3 md:text-left gap-y-4 mt-8 md:mt-0 mx-auto md:mx-0">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-4xl font-bold mb-8">
             {ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].title}
           </h1>
           <p className="text-2xl">
             {ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].content}
           </p>
-          <div className="flex">
+          <div className="flex mt-10">
             <DarkButton
               href={
                 'https://' +
