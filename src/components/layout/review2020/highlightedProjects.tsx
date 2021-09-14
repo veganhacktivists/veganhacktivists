@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import { DarkButton } from '../../decoration/buttons';
 import { ContentButton } from './contentButton';
 import { FirstSubSection } from '../components/decoration/textBlocks';
@@ -108,8 +109,11 @@ export const HighlightedProjects: React.FC = ({}) => {
           <div className="flex mt-10">
             <DarkButton
               href={'https://' + PROJECTS[project as keyof typeof PROJECTS].url}
+              className="normal-case"
             >
-              {PROJECTS[project as keyof typeof PROJECTS].url}
+              {firstLetterUppercase(
+                PROJECTS[project as keyof typeof PROJECTS].url
+              )}
             </DarkButton>
           </div>
         </div>

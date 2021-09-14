@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import { DarkButton } from '../../decoration/buttons';
 import { ContentButton } from './contentButton';
 
@@ -108,8 +109,11 @@ export const Organizations: React.FC = ({}) => {
                 'https://' +
                 ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].url
               }
+              className="normal-case"
             >
-              {ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].url}
+              {firstLetterUppercase(
+                ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].url
+              )}
             </DarkButton>
           </div>
         </div>
