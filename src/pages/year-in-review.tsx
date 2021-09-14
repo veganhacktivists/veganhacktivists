@@ -340,7 +340,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               loading="eager"
             />
           </div>
-          <div className="px-5">
+          <div className="px-5 mb-5">
             <span className="font-bold">Data Analytics |</span> Team Strawberry
           </div>
         </h2>
@@ -373,7 +373,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
           <div className="w-36 mx-auto">
             <Image src={Blueberry} alt="" layout="responsive" loading="eager" />
           </div>
-          <div className="px-5">
+          <div className="px-5 mb-5">
             <span className="font-bold">Specialists |</span> Team Blueberry
           </div>
         </h2>
