@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DarkButton } from '../../decoration/buttons';
-import { ContentButton } from './ContentButton';
+import { ContentButton } from './contentButton';
 
 const PROJECTS = {
   veganbootcamp: {
@@ -8,12 +8,12 @@ const PROJECTS = {
     url: 'veganbootcamp.org',
     content:
       // eslint-disable-next-line quotes
-      `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups, 
-      we decided to invest more time in improving it. We sent out a survey to all members 
-      and received a large amount of feedback helping us decide what new content and 
-      features were needed. Vegan Bootcamp now includes community forums, individual 
-      courses, tags, better rewards, advanced statistics for referrals, content search, 
-      a vegan dietitian support program, a mentorship support program, and in 
+      `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups,
+      we decided to invest more time in improving it. We sent out a survey to all members
+      and received a large amount of feedback helping us decide what new content and
+      features were needed. Vegan Bootcamp now includes community forums, individual
+      courses, tags, better rewards, advanced statistics for referrals, content search,
+      a vegan dietitian support program, a mentorship support program, and in
       10 different languages!`,
   },
   animalrightsmap: {
