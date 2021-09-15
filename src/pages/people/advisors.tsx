@@ -1,9 +1,7 @@
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Sprite, { duck } from '../../components/decoration/sprite';
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
-import JoinTheTeam from '../../components/layout/joinTheTeam';
 import Image from 'next/image';
 import {
   faInternetExplorer,
@@ -18,10 +16,7 @@ import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
-import PeopleLayout, {
-  PeopleButtons,
-  PeopleHero,
-} from '../../components/layout/people';
+import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import type {
   ISocialLinks,
