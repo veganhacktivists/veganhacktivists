@@ -18,7 +18,10 @@ import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
-import { PeopleButtons, PeopleHero } from '../../components/layout/people';
+import PeopleLayout, {
+  PeopleButtons,
+  PeopleHero,
+} from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import type {
   ISocialLinks,
@@ -26,6 +29,7 @@ import type {
 } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
+import type PageWithLayout from '../../types/persistentLayout';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   facebook: faFacebookSquare,
@@ -40,18 +44,11 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   email: faEnvelopeSquare,
 };
 
-const TEAM_SQUARES1 = [
+const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
   { color: 'grey-lighter', size: 16, left: 16, top: 0 },
   { color: 'grey-light', size: 16, right: 0, bottom: 0 },
   { color: 'white', size: 16, right: 0, top: 0 },
-];
-
-const TEAM_SQUARES2 = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-lighter', size: 16, left: 0, top: 0 },
-  { color: 'grey-darker', size: 16, right: 0, bottom: 0 },
-  { color: 'grey', size: 16, right: 16, top: 0 },
 ];
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -115,14 +112,12 @@ interface AdvisorsProps {
   advisors: ITeamMember[];
 }
 
-const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
+const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
   return (
     <>
       <Head>
         <title>Our Advisors | Vegan Hacktivists</title>
       </Head>
-      <PeopleHero />
-      <PeopleButtons />
       <FirstSubSection header="Our advisors">
         We&apos;re so incredibly thankful to have a team of experienced advisors
         that support us! Advisors lend thier experience by providing valuable
@@ -137,7 +132,7 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
           ))}
         </div>
       </div>
-      <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
+      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16">
         <Image
           src={PixelHeart.src}
@@ -153,11 +148,10 @@ const Advisors: React.FC<AdvisorsProps> = ({ advisors }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-      <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
-      <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
-      <JoinTheTeam />
     </>
   );
 };
+
+Advisors.getLayout = PeopleLayout;
 
 export default Advisors;

@@ -2,22 +2,19 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import PixelPig from '../../../public/images/VH_PixelPig.png';
-import Sprite, { goat } from '../../components/decoration/sprite';
-import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
-import { GrantsCallToAction } from '../../components/layout/grants';
+import AboutLayout from '../../components/layout/about';
+import type PageWithLayout from '../../types/persistentLayout';
 
-const OurMission: React.FC = () => {
+const OurStory: PageWithLayout = () => {
   return (
     <>
       <Head>
         <title>Our Story | Vegan Hacktivists</title>
       </Head>
-      <AboutHero />
-      <AboutButtons />
       <FirstSubSection header="Our story">
         We started in 2019 as a one-person team with the goal of building a
         simple animal rights tech project. After the launch of our first
@@ -78,10 +75,10 @@ const OurMission: React.FC = () => {
           </Link>
         </SubSection>
       </div>
-      <GrantsCallToAction />
-      <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
   );
 };
 
-export default OurMission;
+OurStory.getLayout = AboutLayout;
+
+export default OurStory;

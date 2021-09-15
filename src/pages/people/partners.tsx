@@ -1,10 +1,8 @@
 import Head from 'next/head';
-import { PeopleHero, PeopleButtons } from '../../components/layout/people';
+import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
-import Sprite, { duck } from '../../components/decoration/sprite';
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
-import JoinTheTeam from '../../components/layout/joinTheTeam';
 import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import React from 'react';
@@ -18,19 +16,13 @@ import { DarkButton } from '../../components/decoration/buttons';
 import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
+import type PageWithLayout from '../../types/persistentLayout';
 
-const TEAM_SQUARES1 = [
+const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
   { color: 'grey-lighter', size: 16, left: 16, top: 0 },
   { color: 'grey-light', size: 16, right: 0, bottom: 0 },
   { color: 'white', size: 16, right: 0, top: 0 },
-];
-
-const TEAM_SQUARES2 = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-lighter', size: 16, left: 0, top: 0 },
-  { color: 'grey-darker', size: 16, right: 0, bottom: 0 },
-  { color: 'grey', size: 16, right: 16, top: 0 },
 ];
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -98,14 +90,12 @@ interface PartnerProps {
   partners: ITeamMember[];
 }
 
-const Partners: React.FC<PartnerProps> = ({ partners }) => {
+const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
   return (
     <>
       <Head>
         <title>Our Partners | Vegan Hacktivists</title>
       </Head>
-      <PeopleHero />
-      <PeopleButtons />
       <FirstSubSection header="Our partners">
         Here are our fantastic partners whom we support and are supported by.
         Take a look at them below, visit them, and support the amazing work they
@@ -114,7 +104,7 @@ const Partners: React.FC<PartnerProps> = ({ partners }) => {
       <div className="m-10 mb-36">
         <PartnerList partners={partners} />
       </div>
-      <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
+      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
         <Image
           src={PixelHeart.src}
@@ -130,11 +120,10 @@ const Partners: React.FC<PartnerProps> = ({ partners }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-      <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
-      <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
-      <JoinTheTeam />
     </>
   );
 };
+
+Partners.getLayout = PeopleLayout;
 
 export default Partners;

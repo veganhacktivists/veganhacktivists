@@ -8,6 +8,7 @@ import TagManager from 'react-gtm-module';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import type { NextPage } from 'next';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -15,7 +16,15 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   axe(React, ReactDOM, 1000);
 }
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       TagManager.initialize({
@@ -24,14 +33,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     }
   }, []);
 
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <>
       <PageWrapper>
         <Header />
-
-        <MainWrapper>
-          <Component {...pageProps} />
-        </MainWrapper>
+        <MainWrapper>{getLayout(<Component {...pageProps} />)}</MainWrapper>
         <Footer />
       </PageWrapper>
     </>
