@@ -44,7 +44,13 @@ const Info: React.FC<{
               {button.content}
             </DarkButton>
             <div className="w-1/4">
-              <Image src={boxicon} alt="" />
+              <Image
+                src={boxicon}
+                alt=""
+                layout="fixed"
+                height={100}
+                width={100}
+              />
             </div>
           </div>
         </div>

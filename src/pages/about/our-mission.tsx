@@ -7,6 +7,7 @@ import {
   SubSection,
   FirstSubSection,
 } from '../../components/decoration/textBlocks';
+import { GrantsCallToAction } from '../../components/layout/grants';
 
 const OurMission: React.FC = () => {
   return (
@@ -69,6 +70,7 @@ const OurMission: React.FC = () => {
           </SubSection>
         </div>
       </div>
+      <GrantsCallToAction />
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
   );
