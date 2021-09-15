@@ -6,20 +6,19 @@ import type { GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
 import type { ITeamFields } from '../../types/generated/contentful';
-import { PeopleHero, PeopleButtons } from '../../components/layout/people';
+import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { WhiteButton } from '../../components/decoration/buttons';
 import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
-import JoinTheTeam from '../../components/layout/joinTheTeam';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
-import Sprite, { duck } from '../../components/decoration/sprite';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
 import Link from 'next/link';
+import type PageWithLayout from '../../types/persistentLayout';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -70,8 +69,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
 const TeamSelector: React.FC<{
   teams: ITeam[];
   selectedTeam: string | null;
-  selectCallback: (arg0: string | null) => void;
-}> = ({ teams, selectedTeam, selectCallback }) => {
+}> = ({ teams, selectedTeam }) => {
   const [hovered, setHovered] = useState<string | null>();
 
   const getBackgroundColor = (slug: string, color: string) => {
@@ -163,18 +161,11 @@ const useFilteredMembers = (
   }, [allMembers, selectedTeam, pageSize, pageNumber]);
 };
 
-const TEAM_SQUARES1 = [
+const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
   { color: 'grey-lighter', size: 16, left: 16, top: 0 },
   { color: 'grey-light', size: 16, right: 0, bottom: 0 },
   { color: 'white', size: 16, right: 0, top: 0 },
-];
-
-const TEAM_SQUARES2 = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-lighter', size: 16, left: 0, top: 0 },
-  { color: 'grey-darker', size: 16, right: 0, bottom: 0 },
-  { color: 'grey', size: 16, right: 16, top: 0 },
 ];
 
 interface TeamProps {
@@ -182,8 +173,8 @@ interface TeamProps {
   teamMembers: ITeamMember[];
 }
 
-const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
-  const [team, setTeam] = useHash();
+const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
+  const [team] = useHash();
 
   const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
   const [shuffledTeamMembers, setShuffledTeamMembers] = useState<ITeamMember[]>(
@@ -218,8 +209,6 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
       <Head>
         <title>Our Team | Vegan Hacktivists</title>
       </Head>
-      <PeopleHero />
-      <PeopleButtons />
       <FirstSubSection header="Our team">
         We&apos;re so grateful to have so many passionate vegan volunteers with
         us supporting the movement! Each team below is run independently from
@@ -227,17 +216,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
         <b>Please click one of the icons below!</b>
       </FirstSubSection>
       <div className="m-10">
-        <TeamSelector
-          selectedTeam={team}
-          selectCallback={(team) => {
-            if (team === null) {
-              setTeam('');
-            } else {
-              setTeam(team);
-            }
-          }}
-          teams={shuffledTeams}
-        />
+        <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
           <WhiteButton
@@ -248,7 +227,7 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           </WhiteButton>
         )}
       </div>
-      <SquareField squares={TEAM_SQUARES1} className="hidden md:block" />
+      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-gray-background pb-10 pt-16 px-10">
         <Image
           src={PixelHeart.src}
@@ -264,11 +243,10 @@ const Team: React.FC<TeamProps> = ({ teams, teamMembers }) => {
           and active for the animals. Interested in joining? Scroll down!
         </FirstSubSection>
       </div>
-      <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
-      <SquareField squares={TEAM_SQUARES2} className="hidden md:block" />
-      <JoinTheTeam />
     </>
   );
 };
+
+Team.getLayout = PeopleLayout;
 
 export default Team;

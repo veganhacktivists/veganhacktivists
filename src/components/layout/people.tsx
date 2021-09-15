@@ -3,6 +3,9 @@ import Hero from '../decoration/hero';
 import SquareField from '../decoration/squares';
 import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.jpg';
 import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
+import React from 'react';
+import Sprite, { duck } from '../decoration/sprite';
+import JoinTheTeam from './joinTheTeam';
 
 export enum Site {
   Patreon = 'patreon',
@@ -21,7 +24,7 @@ export interface SocialLink {
   link: string;
 }
 
-export const PeopleButtons: React.FC = () => {
+const PeopleButtons: React.FC = () => {
   return (
     <div className="mb-5 mt-10 flex justify-center flex-wrap">
       <NavButton href="/people/team">OUR TEAM</NavButton>
@@ -40,7 +43,7 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
-export const PeopleHero: React.FC = () => {
+const PeopleHero: React.FC = () => {
   return (
     <>
       <Hero
@@ -61,3 +64,26 @@ export const PeopleHero: React.FC = () => {
     </>
   );
 };
+
+const PeopleLayout: React.FC = (page) => {
+  return (
+    <>
+      <PeopleHero />
+      <PeopleButtons />
+      {page}
+      <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
+      <SquareField
+        squares={[
+          { color: 'white', size: 16, left: 0, bottom: 0 },
+          { color: 'grey-lighter', size: 16, left: 0, top: 0 },
+          { color: 'grey-darker', size: 16, right: 0, bottom: 0 },
+          { color: 'grey', size: 16, right: 16, top: 0 },
+        ]}
+        className="hidden md:block"
+      />
+      <JoinTheTeam />
+    </>
+  );
+};
+
+export default PeopleLayout;
