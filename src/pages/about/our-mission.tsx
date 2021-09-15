@@ -1,22 +1,19 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import PixelCow from '../../../public/images/VH_PixelCow.png';
-import Sprite, { goat } from '../../components/decoration/sprite';
-import { AboutButtons, AboutHero } from '../../components/layout/about';
 import {
   SubSection,
   FirstSubSection,
 } from '../../components/decoration/textBlocks';
-import { GrantsCallToAction } from '../../components/layout/grants';
+import AboutLayout from '../../components/layout/about';
+import type PageWithLayout from '../../types/persistentLayout';
 
-const OurMission: React.FC = () => {
+const OurMission: PageWithLayout = () => {
   return (
     <>
       <Head>
         <title>Our Mission | Vegan Hacktivists</title>
       </Head>
-      <AboutHero />
-      <AboutButtons />
       <FirstSubSection header="Our mission">
         Our mission is to build new, data-driven, disruptive, and innovative
         projects to help see an end to animal exploitation. We believe the
@@ -70,10 +67,10 @@ const OurMission: React.FC = () => {
           </SubSection>
         </div>
       </div>
-      <GrantsCallToAction />
-      <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
   );
 };
+
+OurMission.getLayout = AboutLayout;
 
 export default OurMission;
