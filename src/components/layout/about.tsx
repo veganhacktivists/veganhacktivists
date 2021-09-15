@@ -1,11 +1,11 @@
-import { NavButton } from '../../decoration/buttons';
-import Hero from '../../decoration/hero';
-import SquareField from '../../decoration/squares';
-import heroBackground from '../../../../public/images/VH-pigs-hero.jpg';
-import heroTagline from '../../../../public/images/about/hero-tagline.png';
+import { NavButton } from '../decoration/buttons';
+import Hero from '../decoration/hero';
+import SquareField from '../decoration/squares';
+import heroBackground from '../../../public/images/VH-pigs-hero.jpg';
+import heroTagline from '../../../public/images/about/hero-tagline.png';
 import React from 'react';
-import { GrantsCallToAction } from '../grants';
-import Sprite, { goat } from '../../decoration/sprite';
+import { GrantsCallToAction } from './grants';
+import Sprite, { goat } from '../decoration/sprite';
 
 const AboutButtons: React.FC = () => {
   return (
@@ -55,6 +55,16 @@ const AboutLayout: React.FC = (page) => {
       <AboutHero />
       <AboutButtons />
       {page}
+      <SquareField
+        squares={[
+          { color: 'white', size: 16, top: 0 },
+          { color: 'grey-background', size: 16, bottom: 0, left: 16 },
+          { color: 'grey-background', size: 16, bottom: 0, right: 0 },
+          { color: 'grey-background', size: 16, bottom: 0, right: 16 },
+          { color: 'white', size: 16, top: 0, right: 16 },
+        ]}
+        className="hidden md:block"
+      />
       <GrantsCallToAction />
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />
     </>
