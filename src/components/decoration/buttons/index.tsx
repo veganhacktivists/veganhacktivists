@@ -25,7 +25,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
@@ -37,7 +37,9 @@ const BaseButton: React.FC<ButtonProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const href = (props?.href as any)?.pathname || props.href || '';
 
-  props.className = classNames(props.className, { capitalize });
+  const { className, ...otherProps } = props;
+
+  const classes = classNames(className, { capitalize });
 
   return (
     <>
@@ -49,8 +51,12 @@ const BaseButton: React.FC<ButtonProps> = ({
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href} {...props}>
-          <a>{children}</a>
+        <Link {...linkProps} href={href}>
+          <a>
+            <div className={classes} {...otherProps}>
+              {children}
+            </div>
+          </a>
         </Link>
       )}
       {/* it's a submit button */}
@@ -70,16 +76,17 @@ const LightButton: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const classes = classNames(
-    baseButtonClasses,
-    'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
-    primary ? 'border-pink' : '',
-    className
-  );
-
   return (
-    <BaseButton {...props}>
-      <div className={classes}>{children}</div>
+    <BaseButton
+      {...props}
+      className={classNames(
+        baseButtonClasses,
+        'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
+        primary ? 'border-pink' : '',
+        className
+      )}
+    >
+      <div>{children}</div>
     </BaseButton>
   );
 };
@@ -90,19 +97,20 @@ const DarkButton: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const classes = classNames(
-    baseButtonClasses,
-    active
-      ? 'hover:shadow-fill-pink bg-magenta border-pink'
-      : 'hover:shadow-fill-green bg-grey-dark border-green',
-    'text-white',
-    { 'bg-grey-light cursor-not-allowed': props.disabled },
-    className
-  );
-
   return (
-    <BaseButton {...props}>
-      <div className={classes}>{children}</div>
+    <BaseButton
+      {...props}
+      className={classNames(
+        baseButtonClasses,
+        active
+          ? 'hover:shadow-fill-pink bg-magenta border-pink'
+          : 'hover:shadow-fill-green bg-grey-dark border-green',
+        'text-white',
+        { 'bg-grey-light cursor-not-allowed': props.disabled },
+        className
+      )}
+    >
+      {children}
     </BaseButton>
   );
 };

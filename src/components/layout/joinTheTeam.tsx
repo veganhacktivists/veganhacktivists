@@ -10,12 +10,7 @@ const JoinTheTeam: React.FC = () => {
         <p className="mb-12 text-grey-dark pt-16">
           <span className="text-5xl font-mono text-white">JOIN OUR TEAM</span>
         </p>
-        <Image
-          src={teamIcons.src}
-          width={teamIcons.width}
-          height={teamIcons.height}
-          alt="Compassion, Creativity, Code"
-        />
+        <Image src={teamIcons} alt="Compassion, Creativity, Code" />
         <p className="pb-5 mt-4 text-white">
           Are you a developer, designer, writer, or other creative professional
           wanting to use skills for the animals? We&apos;re always looking for

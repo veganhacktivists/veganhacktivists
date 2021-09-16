@@ -342,14 +342,12 @@ exports[`should render correctly 1`] = `
         class="relative mx-10 md:mx-auto mt-10 md:w-1/3"
       >
         <a
-          class="capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10"
           href="https://discord.gg/Yt3zADeJKx"
           rel="noreferrer"
           target="_blank"
         >
-          <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10"
-          >
+          <div>
             Join VH: Playground
           </div>
         </a>
@@ -449,14 +447,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/Vnrv6N"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -514,14 +510,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -579,14 +573,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -644,14 +636,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -709,14 +699,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -774,14 +762,12 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -826,14 +812,12 @@ exports[`should render correctly 1`] = `
           class="w-2/3 mx-auto"
         >
           <a
-            class="capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2"
             href="https://veganhacktivists.typeform.com/to/PBK1we"
             rel="noreferrer"
             target="_blank"
           >
-            <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2"
-            >
+            <div>
               Apply Now
             </div>
           </a>
@@ -919,9 +903,12 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono capitalize"
+            href="/people/team"
           >
-            Learn more
+            <div>
+              Learn more
+            </div>
           </div>
         </a>
       </div>

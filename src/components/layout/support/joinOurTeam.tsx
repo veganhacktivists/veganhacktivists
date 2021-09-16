@@ -11,12 +11,7 @@ const JoinOurTeam: React.FC = () => {
             Join Our Team
           </span>
         </p>
-        <Image
-          src={teamIcons.src}
-          width={teamIcons.width}
-          height={teamIcons.height}
-          alt="Compassion, Creativity, Code"
-        />
+        <Image src={teamIcons} alt="Compassion, Creativity, Code" />
         <div className="flex justify-center flex-wrap">
           <LightButton href="/join" className="font-semibold m-5 font-mono">
             Learn more

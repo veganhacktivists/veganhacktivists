@@ -3,7 +3,6 @@
 exports[`WhiteButton should render correctly 1`] = `
 <DocumentFragment>
   <a
-    class="capitalize"
     href="https://example.org"
     rel="noreferrer"
     target="_blank"

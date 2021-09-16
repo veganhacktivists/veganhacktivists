@@ -11,12 +11,7 @@ const MeetOurTeam: React.FC = () => {
             Meet our team
           </span>
         </p>
-        <Image
-          src={teamIcons.src}
-          width={teamIcons.width}
-          height={teamIcons.height}
-          alt="Compassion, Creativity, Code"
-        />
+        <Image src={teamIcons} alt="Compassion, Creativity, Code" />
         <div className="flex justify-center flex-wrap">
           <LightButton
             href="/people/team"
