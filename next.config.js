@@ -11,6 +11,12 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/challenge',
+        destination:
+          'https://gist.github.com/GRardB/7e2990bbea8c2e50e2b501b712d8c169',
+        permanent: false,
+      },
+      {
         source: '/people',
         destination: '/people/team',
         permanent: true,
