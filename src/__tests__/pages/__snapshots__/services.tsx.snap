@@ -204,7 +204,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Apply for a free website!
@@ -270,7 +270,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Let's chat about your idea!
@@ -336,7 +336,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="/grants"
               >
                 Learn about our grant program!
@@ -402,7 +402,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Ask for advice, contact us!
@@ -614,7 +614,7 @@ exports[`should render correctly 1`] = `
           class="pt-5 pb-10"
         >
           <button
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10 capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10 capitalize"
             type="submit"
           >
             Submit

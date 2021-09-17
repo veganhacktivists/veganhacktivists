@@ -61,7 +61,7 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold capitalize"
             href="/about"
           >
             Learn More
@@ -206,7 +206,7 @@ exports[`Application renders correctly 1`] = `
         href="/about/our-mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white font-mono capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white font-mono capitalize"
           href="/about/our-mission"
         >
           Our Mission
@@ -289,7 +289,7 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white font-mono capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white font-mono capitalize"
             href="/projects"
           >
             See All Projects
@@ -363,7 +363,7 @@ exports[`Application renders correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
             href="/people/team"
           >
             Meet the Team
@@ -373,7 +373,7 @@ exports[`Application renders correctly 1`] = `
           href="/join"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
             href="/join"
           >
             Apply to Join
@@ -433,7 +433,7 @@ exports[`Application renders correctly 1`] = `
         href="/blog"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold capitalize"
           href="/blog"
         >
           See All Posts
@@ -523,7 +523,7 @@ exports[`Application renders correctly 1`] = `
                 href="/grants"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72 capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72 capitalize"
                   href="/grants"
                 >
                   Apply now!
@@ -605,7 +605,7 @@ exports[`Application renders correctly 1`] = `
                 href="/year-in-review"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72 capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white md:max-w-72 capitalize"
                   href="/year-in-review"
                 >
                   See our impact!
