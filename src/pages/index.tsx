@@ -14,6 +14,7 @@ import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
+import CookiesCTA from './../components/CookiesCTA';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -62,6 +63,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <Head>
         <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
       </Head>
+      <CookiesCTA />
       <Hero
         main
         imageBackground={heroBackground}
@@ -75,7 +77,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
-          Building for the animal rights movement since 2019. 
+          Building for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
