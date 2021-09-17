@@ -25,7 +25,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
