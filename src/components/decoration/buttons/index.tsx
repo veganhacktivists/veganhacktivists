@@ -86,7 +86,7 @@ const LightButton: React.FC<ButtonProps> = ({
         className
       )}
     >
-      <div>{children}</div>
+      {children}
     </BaseButton>
   );
 };
@@ -121,18 +121,19 @@ const GreenButton: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const classes = classNames(
-    baseButtonClasses,
-    primary
-      ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
-      : 'hover:shadow-fill-green bg-green-light border-green',
-    'text-white',
-    className
-  );
-
   return (
-    <BaseButton {...props}>
-      <div className={classes}>{children}</div>
+    <BaseButton
+      {...props}
+      className={classNames(
+        baseButtonClasses,
+        primary
+          ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
+          : 'hover:shadow-fill-green bg-green-light border-green',
+        'text-white',
+        className
+      )}
+    >
+      {children}
     </BaseButton>
   );
 };

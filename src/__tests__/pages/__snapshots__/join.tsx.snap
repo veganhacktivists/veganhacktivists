@@ -347,9 +347,7 @@ exports[`should render correctly 1`] = `
           rel="noreferrer"
           target="_blank"
         >
-          <div>
-            Join VH: Playground
-          </div>
+          Join VH: Playground
         </a>
       </div>
     </div>
@@ -452,9 +450,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -515,9 +511,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -578,9 +572,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -641,9 +633,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -704,9 +694,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -767,9 +755,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -817,9 +803,7 @@ exports[`should render correctly 1`] = `
             rel="noreferrer"
             target="_blank"
           >
-            <div>
-              Apply Now
-            </div>
+            Apply Now
           </a>
         </div>
       </div>
@@ -906,9 +890,7 @@ exports[`should render correctly 1`] = `
             class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono capitalize"
             href="/people/team"
           >
-            <div>
-              Learn more
-            </div>
+            Learn more
           </div>
         </a>
       </div>

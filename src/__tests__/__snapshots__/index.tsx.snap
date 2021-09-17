@@ -64,9 +64,7 @@ exports[`Application renders correctly 1`] = `
             class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold capitalize"
             href="/about"
           >
-            <div>
-              Learn More
-            </div>
+            Learn More
           </div>
         </a>
       </div>
@@ -368,9 +366,7 @@ exports[`Application renders correctly 1`] = `
             class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
             href="/people/team"
           >
-            <div>
-              Meet the Team
-            </div>
+            Meet the Team
           </div>
         </a>
         <a
@@ -380,9 +376,7 @@ exports[`Application renders correctly 1`] = `
             class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold capitalize"
             href="/join"
           >
-            <div>
-              Apply to Join
-            </div>
+            Apply to Join
           </div>
         </a>
       </div>
@@ -442,9 +436,7 @@ exports[`Application renders correctly 1`] = `
           class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold capitalize"
           href="/blog"
         >
-          <div>
-            See All Posts
-          </div>
+          See All Posts
         </div>
       </a>
     </div>

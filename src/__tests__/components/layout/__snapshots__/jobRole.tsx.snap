@@ -60,9 +60,7 @@ exports[`should render correctly 1`] = `
           class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 capitalize"
           href="#"
         >
-          <div>
-            Apply Now
-          </div>
+          Apply Now
         </div>
       </a>
     </div>
