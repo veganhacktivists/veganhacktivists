@@ -8,9 +8,14 @@ exports[`WhiteButton should render correctly 1`] = `
     target="_blank"
   >
     <div
-      class="border-2 border-opacity-50 p-3"
+      class="capitalize"
+      href="https://example.org"
     >
-      Foo
+      <div
+        class="border-2 border-opacity-50 p-3"
+      >
+        Foo
+      </div>
     </div>
   </a>
 </DocumentFragment>

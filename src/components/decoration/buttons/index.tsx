@@ -32,12 +32,11 @@ const BaseButton: React.FC<ButtonProps> = ({
   children,
   linkProps,
   capitalize = true,
+  className = '',
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const href = (props?.href as any)?.pathname || props.href || '';
-
-  const { className, ...otherProps } = props;
 
   const classes = classNames(className, { capitalize });
 
@@ -45,22 +44,28 @@ const BaseButton: React.FC<ButtonProps> = ({
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <a href={href} target="_blank" rel="noreferrer" {...props}>
-          {children}
+        <a href={href} target="_blank" rel="noreferrer">
+          <div {...props} className={classes}>
+            {children}
+          </div>
         </a>
       )}
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
         <Link {...linkProps} href={href}>
           <a>
-            <div className={classes} {...otherProps}>
+            <div className={classes} {...props}>
               {children}
             </div>
           </a>
         </Link>
       )}
       {/* it's a submit button */}
-      {!href && <button {...props}>{children}</button>}
+      {!href && (
+        <button {...props} className={classes}>
+          {children}
+        </button>
+      )}
     </>
   );
 };
