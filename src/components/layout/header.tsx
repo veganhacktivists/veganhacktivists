@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
 import Link from 'next/link';
 import logoBig from '../../../public/images/VH-logo-web-white.png';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import CustomImage from '../decoration/customImage';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -19,7 +19,7 @@ const LeftSide: React.FC = () => {
       {/* root */}
       <Link href="/">
         <a className={classNames({ hidden: !isRootPage })}>
-          <Image
+          <CustomImage
             src={logoBig}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"
@@ -32,7 +32,7 @@ const LeftSide: React.FC = () => {
       {/* others */}
       <Link href="/">
         <a className={classNames({ hidden: isRootPage })}>
-          <Image
+          <CustomImage
             src={logoOneLine}
             alt="Vegan Hacktivists Logo"
             layout="intrinsic"

@@ -9,7 +9,6 @@ import heroBackground from '../../public/images/joinUs/VH-chicken2-hero.jpg';
 import heroTagline from '../../public/images/joinUs/VH-join-hero-text.png';
 import PixelFlower from '../../public/images/VH_PixelFlower.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
-import Image from 'next/image';
 import heartLogo from '../../public/images/joinUs/VH-join-mini-icon-heart.png';
 import checkLogo from '../../public/images/joinUs/VH-join-mini-icon-check.png';
 import resumeLogo from '../../public/images/joinUs/VH-join-mini-icon-resume.png';
@@ -26,6 +25,7 @@ import Sprite, { sheep, chicks } from '../components/decoration/sprite';
 import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
+import CustomImage from '../components/decoration/customImage';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
@@ -187,7 +187,7 @@ const Join: React.FC = () => (
       </div>
     </div>
     <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10">
-      <Image
+      <CustomImage
         src={PixelFlower.src}
         width={PixelFlower.width / 3}
         height={PixelFlower.height / 3}
@@ -212,7 +212,7 @@ const Join: React.FC = () => (
           <h2 className="text-4xl font-modo font-bold mb-10">
             Other Talents & Specialists
           </h2>
-          <Image
+          <CustomImage
             src={PixelBulb}
             width={PixelBulb.width / 3}
             height={PixelBulb.height / 3}

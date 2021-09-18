@@ -2,10 +2,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Circle from '../../decoration/circle';
-import Image from 'next/image';
 
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
 import useThemeColor from '../../../hooks/useThemeColor';
+import CustomImage from '../../decoration/customImage';
 
 interface HeaderProps {
   query: string;
@@ -30,7 +30,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
       <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
       <div className="flex flex-col justify-center md:w-1/2 z-10 pb-10">
         <div className="w-48 mx-auto my-10">
-          <Image src={roundLogo} alt="" />
+          <CustomImage src={roundLogo} alt="" />
         </div>
         <div className="text-2xl px-16 font-mono">
           This is the official blog for the VH! We regularly post project

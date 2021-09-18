@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import type { Asset } from 'contentful';
-import Image from 'next/image';
+import React from 'react';
 import useThemeColor from '../hooks/useThemeColor';
+import CustomImage from './decoration/customImage';
 import ImageContainer from './decoration/imageContainer';
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
@@ -58,7 +59,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
               />
             </ImageContainer>
           ) : (
-            <Image src={icon as StaticImageData} layout="responsive" alt="" />
+            <CustomImage
+              src={icon as StaticImageData}
+              layout="responsive"
+              alt=""
+            />
           )}
         </div>
       </div>

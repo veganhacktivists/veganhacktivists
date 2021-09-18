@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import PixelChicken from '../../../public/images/VH_PixelChicken.png';
+import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
   SubSection,
@@ -22,7 +22,7 @@ const OurValues: PageWithLayout = () => {
       </FirstSubSection>
       <div className="m-10 pb-10">
         <div className="pb-5">
-          <Image
+          <CustomImage
             src={PixelChicken.src}
             width={PixelChicken.width / 3}
             height={PixelChicken.height / 3}

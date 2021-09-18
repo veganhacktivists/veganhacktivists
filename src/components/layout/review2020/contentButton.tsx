@@ -1,8 +1,8 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
 import React from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
+import CustomImage from '../../decoration/customImage';
 import ImageContainer from '../../decoration/imageContainer';
 
 export interface ContentButtonProps {
@@ -43,7 +43,11 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
       }}
     >
       <div className="cursor-pointer select-none">
-        <p className={`text-2xl font-semibold font-mono text-${active ? 'white' : 'black'}`}>
+        <p
+          className={`text-2xl font-semibold font-mono text-${
+            active ? 'white' : 'black'
+          }`}
+        >
           {contentTitle}
         </p>
         <div
@@ -63,7 +67,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
       </div>
 
       <ImageContainer className="absolute -bottom-80 w-80 h-80">
-        <Image
+        <CustomImage
           src={`/images/review2020/${contentName}.webp`}
           alt={contentName + ' logo'}
           layout="fill"

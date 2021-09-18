@@ -1,13 +1,13 @@
-import Image from 'next/image';
 import { LightButton } from '../../decoration/buttons';
 import PollinationProjectLogo from '../../../../public/images/grants/PollinationProject-Logo.jpg';
+import CustomImage from '../../decoration/customImage';
 
 const GrantsPollinationProject: React.FC = () => {
   return (
     <>
       <div className="flex max-w-screen-lg mx-auto flex-row mt-12 flex-wrap">
         <div className="w-screen md:max-w-md">
-          <Image
+          <CustomImage
             src={PollinationProjectLogo}
             layout="responsive"
             alt="Logo of The Pollination Project"

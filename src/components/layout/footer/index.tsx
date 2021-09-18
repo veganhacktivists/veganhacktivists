@@ -1,9 +1,9 @@
 import Circle from '../../decoration/circle';
-import Image from 'next/image';
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
 import Links from './links';
 import Social from './social';
 import SquareField from '../../decoration/squares';
+import CustomImage from '../../decoration/customImage';
 
 const FOOTER_TOP_DECORATION_SQUARES = [
   { color: 'gray-dark', size: 16, left: 0, bottom: 0 },
@@ -17,7 +17,7 @@ const FOOTER_DECORATION_SQUARES = [
 
 const Logo: React.FC = () => (
   <div className="pt-10 md:pt-0">
-    <Image
+    <CustomImage
       src={roundLogo}
       alt="VH Round Logo"
       width={roundLogo.width * 0.4}

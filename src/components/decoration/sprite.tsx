@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
-import Image from 'next/image';
 import chicken from '../../../public/images/sprite_chicken.gif';
 import pig from '../../../public/images/sprite_pig.gif';
 import sheep from '../../../public/images/sprite_sheep.gif';
@@ -13,6 +12,7 @@ import fishg from '../../../public/images/sprite_fish_green.gif';
 import fishb from '../../../public/images/sprite_fish_blue.gif';
 import useWindowSize from '../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
+import CustomImage from './customImage';
 
 interface SpriteProps {
   image: StaticImageData;
@@ -72,7 +72,7 @@ const Sprite: React.FC<SpriteProps> = ({
         rotateY: reverse ? undefined : 180,
       }}
     >
-      <Image
+      <CustomImage
         src={image}
         height={image.height * scale}
         width={image.width * scale}

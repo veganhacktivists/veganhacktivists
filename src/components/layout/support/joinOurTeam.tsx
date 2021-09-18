@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { LightButton } from '../../decoration/buttons';
 import teamIcons from '../../../../public/images/VH-team-icons.png';
+import CustomImage from '../../decoration/customImage';
 
 const JoinOurTeam: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const JoinOurTeam: React.FC = () => {
             Join Our Team
           </span>
         </p>
-        <Image src={teamIcons} alt="Compassion, Creativity, Code" />
+        <CustomImage src={teamIcons} alt="Compassion, Creativity, Code" />
         <div className="flex justify-center flex-wrap">
           <LightButton href="/join" className="font-semibold m-5 font-mono">
             Learn more

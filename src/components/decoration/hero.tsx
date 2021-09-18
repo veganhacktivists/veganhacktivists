@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { ImageProps } from 'next/image';
-import Image from 'next/image';
 import Circle from './circle';
+import CustomImage from './customImage';
 
 interface HeroClassNames {
   container?: string;
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <div className={containerClasses}>
-      <Image
+      <CustomImage
         alt=""
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         src={imageBackground as any}
@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({
               'ml-5 md:ml-56 xl:ml-36 2xl:ml-5 py-20 md:py-20 lg:py-20': !main,
             })}
           >
-            <Image
+            <CustomImage
               src={tagline.image}
               alt={tagline.alt}
               width={

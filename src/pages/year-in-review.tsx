@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Hero from '../components/decoration/hero';
@@ -36,6 +35,7 @@ import type {
   IBlogEntryFields,
 } from '../types/generated/contentful';
 import { getContents } from '../lib/cms';
+import CustomImage from '../components/decoration/customImage';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -181,7 +181,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         see all our accomplishments we&apos;ve made thanks to your generous
         support, our partners, and most of all our amazing volunteers!
       </FirstSubSection>
-      <Image
+      <CustomImage
         src={pixelHeart.src}
         height={pixelHeart.height / 3}
         width={pixelHeart.width / 3}
@@ -240,7 +240,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         className="hidden md:block"
       />
       <div className="bg-gray-background py-8">
-        <Image
+        <CustomImage
           src={pixelFlower.src}
           height={pixelFlower.height / 3}
           width={pixelFlower.width / 3}
@@ -275,7 +275,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         <div className="w-2/3 mx-auto">
           <div className="flex flex-col md:flex-row md:gap-x-16">
             <div className="flex-1">
-              <Image
+              <CustomImage
                 src={pixelStar.src}
                 height={pixelStar.height / 3}
                 width={pixelStar.width / 3}
@@ -293,7 +293,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               </SubSection>
             </div>
             <div className="flex-1">
-              <Image
+              <CustomImage
                 src={pixelHeart.src}
                 height={pixelHeart.height / 3}
                 width={pixelHeart.width / 3}
@@ -323,9 +323,9 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
             to both serve them and rely on them as our new friends.
           </SubSection>
           <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
-            <Image src={petaLogo} alt="peta logo" />
-            <Image src={beyondLogo} alt="beyond animal logo" />
-            <Image src={counterglowLogo} alt="counterglow logo" />
+            <CustomImage src={petaLogo} alt="peta logo" />
+            <CustomImage src={beyondLogo} alt="beyond animal logo" />
+            <CustomImage src={counterglowLogo} alt="counterglow logo" />
           </div>
         </div>
       </div>
@@ -333,7 +333,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
       <div className="bg-grey-background py-16">
         <h2 className="text-3xl mx-auto flex flex-col justify-center">
           <div className="w-36 mx-auto">
-            <Image
+            <CustomImage
               className="drop-shadow-xl"
               src={Strawberry}
               alt=""
@@ -372,7 +372,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         </SubSection>
         <h2 className="text-3xl mx-auto flex flex-col justify-center">
           <div className="w-36 mx-auto">
-            <Image
+            <CustomImage
               src={Blueberry}
               alt=""
               layout="responsive"
@@ -573,7 +573,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
       <Organizations />
       <SquareField squares={FINAL_SQUARES} className="hidden md:block" />
       <div className="h-16" />
-      <Image
+      <CustomImage
         src={pixelPig.src}
         height={pixelPig.height / 3}
         width={pixelPig.width / 3}

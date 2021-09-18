@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
@@ -19,6 +18,7 @@ import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
 import Link from 'next/link';
 import type PageWithLayout from '../../types/persistentLayout';
+import CustomImage from '../../components/decoration/customImage';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -229,7 +229,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-gray-background pb-10 pt-16 px-10">
-        <Image
+        <CustomImage
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}

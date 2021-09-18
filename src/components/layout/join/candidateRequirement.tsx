@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import useThemeColor from '../../../hooks/useThemeColor';
+import CustomImage from '../../decoration/customImage';
 
 export interface CandidateRequirementProps {
   image: StaticImageData;
@@ -19,7 +19,7 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   return (
     <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
       <div style={{ backgroundColor }} className="p-3 pb-1">
-        <Image
+        <CustomImage
           src={image}
           alt=""
           width={iconSize}

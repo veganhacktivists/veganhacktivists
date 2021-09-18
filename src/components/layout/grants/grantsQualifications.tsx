@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import { LightButton } from '../../decoration/buttons';
 import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
+import CustomImage from '../../decoration/customImage';
 
 interface INumberIcons {
   [key: string]: StaticImageData;
@@ -25,7 +25,7 @@ const GrantsQualificationsStep: React.FC<GrantsQualificationsStepProps> = ({
   return (
     <div className="flex flex-row my-6">
       <div className="w-24 h-24 bg-gray-darker flex-shrink-0 flex items-center justify-center">
-        <Image
+        <CustomImage
           src={numberIcon.src}
           height={numberIcon.height * 0.35}
           width={numberIcon.width * 0.35}

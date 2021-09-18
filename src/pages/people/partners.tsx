@@ -3,7 +3,6 @@ import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
-import Image from 'next/image';
 import type { GetStaticProps } from 'next';
 import React from 'react';
 import { getContents } from '../../lib/cms';
@@ -17,6 +16,7 @@ import ImageContainer from '../../components/decoration/imageContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import type PageWithLayout from '../../types/persistentLayout';
+import CustomImage from '../../components/decoration/customImage';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -106,7 +106,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
-        <Image
+        <CustomImage
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}

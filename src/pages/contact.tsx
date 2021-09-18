@@ -1,9 +1,9 @@
 import ContactUsForm from '../components/forms/contactUs';
 import Head from 'next/head';
-import Image from 'next/image';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import SquareField from '../components/decoration/squares';
+import CustomImage from '../components/decoration/customImage';
 
 const Contact: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
       />
       <div className="bg-grey-background px-5">
         <div className="pt-10">
-          <Image
+          <CustomImage
             src={pixelHeart}
             alt=""
             height={pixelHeart.height / 2}

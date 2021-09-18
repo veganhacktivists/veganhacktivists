@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import PixelCow from '../../../public/images/VH_PixelCow.png';
+import CustomImage from '../../components/decoration/customImage';
 import {
   SubSection,
   FirstSubSection,
@@ -22,7 +22,7 @@ const OurMission: PageWithLayout = () => {
       </FirstSubSection>
       <div className="m-10 pb-10">
         <div className="pb-5">
-          <Image
+          <CustomImage
             src={PixelCow.src}
             width={PixelCow.width / 3}
             height={PixelCow.height / 3}

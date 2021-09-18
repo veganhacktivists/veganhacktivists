@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
 import useThemeColor from '../../../hooks/useThemeColor';
+import CustomImage from '../../decoration/customImage';
 
 export interface JobRoleProps {
   image: StaticImageData;
@@ -33,7 +33,7 @@ const JobRole: React.FC<JobRoleProps> = ({
         style={{ backgroundColor }}
         className="md:h-52 flex flex-col justify-center py-8"
       >
-        <Image alt={title} src={image} objectFit="contain" />
+        <CustomImage alt={title} src={image} objectFit="contain" />
       </div>
       <h2 className="text-4xl font-modo font-bold my-8 md:px-8">{title}</h2>
       <p className="px-10 md:px-8 text-2xl text-center">{description}</p>

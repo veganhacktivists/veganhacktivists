@@ -2,7 +2,6 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
-import Image from 'next/image';
 import {
   faInternetExplorer,
   faLinkedin,
@@ -25,6 +24,7 @@ import type {
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import type PageWithLayout from '../../types/persistentLayout';
+import CustomImage from '../../components/decoration/customImage';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
   facebook: faFacebookSquare,
@@ -94,7 +94,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
       <div className="text-left w-5/6 mx-auto my-0">
         <div className="text-2xl font-bold">{name}</div>
         <div className="font-italic">{position}</div>
-        {socialLinks !== undefined && (
+        {socialLinks && (
           <div className="mt-6">
             <SocialLinks socialLinks={socialLinks} />
           </div>
@@ -129,7 +129,7 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16">
-        <Image
+        <CustomImage
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}

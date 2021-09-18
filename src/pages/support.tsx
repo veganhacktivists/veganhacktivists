@@ -8,7 +8,6 @@ import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import HeartLogo from '../../public/images/support/heart-icon.png';
 import PixelHeart from '../../public/images/VH_PixelHeart.png';
-import Image from 'next/image';
 import Sprite, { pig, chicken } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { PlainHeader } from '../components/decoration/textBlocks';
@@ -17,6 +16,7 @@ import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import { getPatrons } from '../lib/patreon';
 import useThemeColor from '../hooks/useThemeColor';
+import CustomImage from '../components/decoration/customImage';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -49,7 +49,7 @@ const DonationCard: React.FC<{
       <div style={{ backgroundColor }}>
         <div className={'absolute w-8 h-8 transparent'} />
         <div className="p-12">
-          <Image
+          <CustomImage
             src={image.src}
             width={image.width / 3}
             height={image.height / 3}
@@ -152,7 +152,7 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
       />
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
-        <Image
+        <CustomImage
           src={PixelHeart.src}
           width={PixelHeart.width / 3}
           height={PixelHeart.height / 3}

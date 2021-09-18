@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -14,6 +13,7 @@ import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
+import CustomImage from '../components/decoration/customImage';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -75,7 +75,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
-          Building for the animal rights movement since 2019. 
+          Building for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
@@ -86,7 +86,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         className="hidden md:block"
       />
       <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
-        <Image
+        <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}

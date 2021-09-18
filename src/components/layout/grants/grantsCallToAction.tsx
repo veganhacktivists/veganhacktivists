@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
@@ -6,6 +5,7 @@ import PixelFlowers from '../../../../public/images/VH_PixelFlowers.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
+import CustomImage from '../../decoration/customImage';
 
 const Info: React.FC<{
   title: string;
@@ -30,7 +30,7 @@ const Info: React.FC<{
     <div className="flex flex-col gap-14 mb-20">
       <div style={{ backgroundColor: color }}>
         <div className="overflow-hidden w-full">
-          <Image src={image} alt="" />
+          <CustomImage src={image} alt="" />
         </div>
         <div className="items-center">
           <div className="text-left break-words max-w-sm md:pb-8 px-10">
@@ -44,7 +44,7 @@ const Info: React.FC<{
               {button.content}
             </DarkButton>
             <div className="w-1/4">
-              <Image
+              <CustomImage
                 src={boxicon}
                 alt=""
                 layout="fixed"

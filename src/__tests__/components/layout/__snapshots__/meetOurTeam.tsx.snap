@@ -34,7 +34,8 @@ exports[`should render correctly 1`] = `
           alt="Compassion, Creativity, Code"
           data-nimg="intrinsic"
           decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          src="/_next/image?url=%2Ffoo.png&w=1080&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
         <noscript />
@@ -46,7 +47,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono capitalize"
             href="/people/team"
           >
             Learn more
