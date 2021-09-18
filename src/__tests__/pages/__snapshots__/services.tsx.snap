@@ -16,7 +16,7 @@ exports[`should render correctly 1`] = `
           sizes="100vw"
           src="/_next/image?url=%2Ffoo.png&w=3840&q=75"
           srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center; filter: blur(20px); background-size: cover; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=); background-position: center;"
         />
         <noscript />
       </div>
@@ -45,7 +45,7 @@ exports[`should render correctly 1`] = `
               decoding="async"
               src="/_next/image?url=%2Ffoo.png&w=750&q=75"
               srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; filter: blur(20px); background-size: cover; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=); background-position: 0% 0%;"
             />
             <noscript />
           </div>
@@ -204,7 +204,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Apply for a free website!
@@ -270,7 +270,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Let's chat about your idea!
@@ -336,7 +336,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="/grants"
               >
                 Learn about our grant program!
@@ -402,7 +402,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white max-w-sm capitalize"
                 href="#contact-us"
               >
                 Ask for advice, contact us!
@@ -452,17 +452,17 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="bg-grey-background px-10 md:px-0"
+    class="bg-grey-background px-10 md:px-0 pt-10"
   >
+    <div
+      class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"
+    >
+      If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
+    </div>
     <div
       class="md:w-2/3 mx-auto pt-5"
       id="contact-us"
     >
-      <div
-        class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"
-      >
-        If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
-      </div>
       <form
         class="flex flex-col gap-5"
       >
@@ -614,7 +614,7 @@ exports[`should render correctly 1`] = `
           class="pt-5 pb-10"
         >
           <button
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10 capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green bg-grey-dark border-green text-white w-52 px-10 capitalize"
             type="submit"
           >
             Submit
