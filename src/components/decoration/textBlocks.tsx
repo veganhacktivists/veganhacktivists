@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 type textSize =
   | 'xs'
   | 'sm'
@@ -19,6 +21,7 @@ interface SubSectionContent {
   headerSize?: textSize;
   contentSize?: textSize;
   textColor?: string;
+  className?: string;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -29,9 +32,17 @@ export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
   );
 };
 
-export const HeaderContainer: React.FC = ({ children }) => {
+export const HeaderContainer: React.FC<{ className?: string }> = ({
+  children,
+  className,
+}) => {
   return (
-    <div className="text-grey content-center px-5 mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl">
+    <div
+      className={classNames(
+        'text-grey content-center px-5 mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl',
+        className
+      )}
+    >
       <h1 className="mb-10">{children}</h1>
     </div>
   );
@@ -41,13 +52,14 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
   children,
   firstWordsNum = 1,
+  className = '',
 }) => {
   const tokenizedHeader = header.split(' ');
   const firstWords = tokenizedHeader.splice(0, firstWordsNum).join(' ');
   const remainingWords = tokenizedHeader.join(' ');
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className={className}>
       <div className="pb-[15px]">
         <span className="font-italic text-3xl">{firstWords}</span>{' '}
         <BoldHeaderText>{remainingWords}</BoldHeaderText>
