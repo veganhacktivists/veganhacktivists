@@ -4,6 +4,8 @@ import {
   PatreonButton,
 } from '../../decoration/buttons';
 
+import Link from 'next/link';
+
 const Social: React.FC = () => {
   return (
     <div className="pt-10 text-left">
@@ -15,9 +17,9 @@ const Social: React.FC = () => {
         in touch!
       </div>
       <div className="font-bold pt-5 text-lg">
-        <a href="/contact">
-          hello@veganhacktivists.org
-        </a>
+        <Link href="/contact">
+          <a>hello@veganhacktivists.org</a>
+        </Link>
       </div>
       <div className="flex pt-5">
         <InstagramButton
