@@ -15,7 +15,7 @@ const Social: React.FC = () => {
         in touch!
       </div>
       <div className="font-bold pt-5 text-lg">
-        <a href="mailto:hello@veganhacktivists.org">
+        <a href="/contact">
           hello@veganhacktivists.org
         </a>
       </div>
