@@ -33,9 +33,9 @@ const Contact: React.FC = () => {
           firstWordsNum={2}
           className="my-0"
         >
-          If you&apos;d like to talk about any of these services, please use our
-          contact form to get in touch! We do our best to respond to every email
-          within 48 hours.
+          If you&apos;d like to get in touch with us, please use our contact form below! 
+          We do our best to respond to every email within 48 hours. Please make 
+          sure to check your spam folder!
         </FirstSubSection>
 
         <ContactUsForm />
