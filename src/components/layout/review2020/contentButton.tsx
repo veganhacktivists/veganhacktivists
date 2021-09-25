@@ -36,10 +36,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
     <div
       className={classNames(
         'flex justify-center items-center h-12 w-80 mx-auto relative mb-[4px]',
-        {
-          '-bottom-80': down,
-          'bottom-0': !down,
-        }
+        down ? '-bottom-80' : 'bottom-0'
       )}
       style={{
         transition: 'bottom 700ms ease 0s',
