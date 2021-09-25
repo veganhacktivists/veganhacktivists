@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import { CookiesProvider } from 'react-cookie';
 import Header from '../components/layout/header';
 import Footer from '../components/layout/footer';
 import PageWrapper, { MainWrapper } from '../components/layout/wrapper';
@@ -36,13 +37,13 @@ const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <>
+    <CookiesProvider>
       <PageWrapper>
         <Header />
         <MainWrapper>{getLayout(<Component {...pageProps} />)}</MainWrapper>
         <Footer />
       </PageWrapper>
-    </>
+    </CookiesProvider>
   );
 };
 
