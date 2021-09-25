@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
-const CONSENT_COOKIE_NAME = 'vh-analytics';
+const CONSENT_COOKIE_NAME = 'vh_analytics';
 
 const CookiesCTA: React.FC = () => {
   const [cookies, setCookies] = useCookies([CONSENT_COOKIE_NAME]);
-  const [cookie, setCookie] = useState<boolean>(null);
+  const [cookie, setCookie] = useState<boolean | null>(null);
 
   useEffect(() => {
     const value = cookies[CONSENT_COOKIE_NAME];
