@@ -14,7 +14,6 @@ import type { IBlogEntry, IProject } from '../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
-import CookiesCTA from './../components/CookiesCTA';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -63,7 +62,6 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <Head>
         <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
       </Head>
-      <CookiesCTA />
       <Hero
         main
         imageBackground={heroBackground}

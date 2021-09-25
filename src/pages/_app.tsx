@@ -25,6 +25,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const AppWrapper: React.FC = ({ children }) => {
+  return <CookiesProvider>{children}</CookiesProvider>;
+};
+
 const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -37,13 +41,13 @@ const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <CookiesProvider>
+    <AppWrapper>
       <PageWrapper>
         <Header />
         <MainWrapper>{getLayout(<Component {...pageProps} />)}</MainWrapper>
         <Footer />
       </PageWrapper>
-    </CookiesProvider>
+    </AppWrapper>
   );
 };
 
