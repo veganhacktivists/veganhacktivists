@@ -42,7 +42,7 @@ const OurStory: PageWithLayout = () => {
           We have seven development teams, one design team, one content team,
           and one specialist team, making up a total of 10 active teams in the
           Vegan Hacktivists. Each team has around 8 members, and each team has
-          it’s own leadership and seperate independent work that they do. Some
+          it’s own leadership and separate independent work that they do. Some
           are building new projects, some are maintaining our most active
           projects, while others are building tech and supporting other
           organizations that requested our help.
