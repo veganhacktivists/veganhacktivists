@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { DarkButton } from './decoration/buttons';
 
 const CONSENT_COOKIE_NAME = 'vh_analytics';
 
@@ -48,12 +49,9 @@ const CookiesCTA: React.FC = () => {
         <p className="font-mono text-xl mb-7">
           This website uses cookies to enhance your browsing experience.
         </p>
-        <div
-          onClick={() => onChange(true)}
-          className="border-l-8 border-green inline-block mb-4 px-16 py-2 text-xl bg-gray ease-out duration-[2s] cursor-pointer hover:shadow-fill-green text-white font-mono font-semibold"
-        >
+        <DarkButton className="w-3/4 mb-4" onClick={() => onChange(true)}>
           Accept cookies
-        </div>
+        </DarkButton>
         <p
           onClick={() => onChange(false)}
           className="font-mono underline cursor-pointer"

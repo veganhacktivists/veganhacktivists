@@ -1,5 +1,6 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import React from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
 import CustomImage from '../../decoration/customImage';
@@ -29,9 +30,10 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
 
   return (
     <div
-      className={`flex justify-center items-center h-12 w-80 mx-auto relative ${
+      className={classNames(
+        'flex justify-center items-center h-12 w-80 mx-auto relative',
         down ? '-bottom-80' : 'bottom-0'
-      }`}
+      )}
       style={{
         transition: 'bottom 700ms ease 0s',
         backgroundColor,
