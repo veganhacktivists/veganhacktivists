@@ -7,15 +7,15 @@ const CONSENT_COOKIE_NAME = 'vh_analytics';
 const CookiesCTA: React.FC = () => {
   const [cookies, setCookies] = useCookies([CONSENT_COOKIE_NAME]);
   const [cookie, setCookie] = useState<boolean | null>(null);
+  const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
     const value = cookies[CONSENT_COOKIE_NAME];
+    setShow(true);
 
     if (!value) return;
     setCookie(value === 'true');
   }, []);
-
-  const [show, setShow] = useState<boolean>(true);
 
   useEffect(() => {
     if (cookie === null) return;
