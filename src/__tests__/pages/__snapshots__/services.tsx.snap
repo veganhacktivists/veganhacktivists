@@ -522,9 +522,13 @@ exports[`should render correctly 1`] = `
             </span>
           </label>
           <div
-            class=" css-2b097c-container"
+            class="text-left css-b62m3t-container"
             id="service"
           >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-service-live-region"
+            />
             <span
               aria-atomic="false"
               aria-live="polite"
@@ -532,39 +536,40 @@ exports[`should render correctly 1`] = `
               class="css-1f43avz-a11yText-A11yText"
             />
             <div
-              class=" css-sn38g5-control"
+              class=" css-19mcfkt-control"
             >
               <div
-                class=" css-1m9kztm-ValueContainer"
+                class=" css-1921abj-ValueContainer"
               >
                 <div
-                  class=" css-1oxpzol-placeholder"
+                  class=" css-1kaopbn-placeholder"
+                  id="react-select-service-placeholder"
                 >
                   Select...
                 </div>
                 <div
-                  class="css-1w7gl0u-Input"
+                  class=" css-m5szu9-Input"
+                  data-value=""
                 >
-                  <div
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="react-select-service-listbox"
+                    aria-describedby="react-select-service-placeholder"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-owns="react-select-service-listbox"
+                    autocapitalize="none"
+                    autocomplete="off"
+                    autocorrect="off"
                     class=""
-                    style="display: inline-block;"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      autocapitalize="none"
-                      autocomplete="off"
-                      autocorrect="off"
-                      id="react-select-service-input"
-                      spellcheck="false"
-                      style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                      tabindex="0"
-                      type="text"
-                      value=""
-                    />
-                    <div
-                      style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                    />
-                  </div>
+                    id="react-select-service-input"
+                    role="combobox"
+                    spellcheck="false"
+                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
               <div
