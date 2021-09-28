@@ -73,7 +73,7 @@ exports[`Application renders correctly 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
         style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
@@ -90,7 +90,7 @@ exports[`Application renders correctly 1`] = `
         />
       </svg>
       <svg
-        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
         style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"

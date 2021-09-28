@@ -133,6 +133,9 @@ export interface ISocialLinks extends Entry<ISocialLinksFields> {
 }
 
 export interface ITagFields {
+  /** slug */
+  slug: string;
+
   /** name */
   name: string;
 }

@@ -1,28 +1,52 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Circle from '../../decoration/circle';
 
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
 import useThemeColor from '../../../hooks/useThemeColor';
 import CustomImage from '../../decoration/customImage';
+import type { ITag, ITagFields } from '../../../types/generated/contentful';
+import classNames from 'classnames';
 
 interface HeaderProps {
   query: string;
-  onQueryChange: (query: string) => void;
+  tags: ITag[];
+  onSearchChange: (query: string) => void;
+  onTagChange: (tag: ITagFields['name'] | null | undefined) => void;
 }
 
-const TAGS = [
-  'Project Updates',
-  'Announcements',
-  'Meet the Team',
-  'Data and Research',
-  'Interviews',
-  'Other',
-];
+const BlogsHeader: React.FC<HeaderProps> = ({
+  query,
+  tags,
+  onSearchChange,
+  onTagChange,
+}) => {
+  const [currentTag, setCurrentTag] = useState<string | null | undefined>(
+    undefined
+  );
 
-const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
   const greyLight = useThemeColor('grey-light');
+
+  useEffect(() => {
+    onTagChange(currentTag);
+  }, [currentTag]);
+
+  const Tag: React.FC<{ name: string; slug: string | null; active: boolean }> =
+    ({ name, slug, active }) => {
+      return (
+        <div
+          className={classNames('pb-2 cursor-pointer select-none', {
+            'bg-grey': active,
+          })}
+          onClick={() => {
+            setCurrentTag(active ? undefined : slug);
+          }}
+        >
+          {name}
+        </div>
+      );
+    };
 
   return (
     <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden">
@@ -47,7 +71,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
             id="blogQuery"
             value={query}
             onChange={(e) => {
-              onQueryChange(e.target.value);
+              onSearchChange(e.target.value);
             }}
           />
           <div>
@@ -58,11 +82,14 @@ const BlogsHeader: React.FC<HeaderProps> = ({ query, onQueryChange }) => {
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10">
             Categories
           </div>
-          {TAGS.map((tag, i) => (
-            <div key={i} className="pb-2">
-              {tag}
-            </div>
+          {tags.map((tag) => (
+            <Tag
+              key={tag.fields.slug}
+              {...tag.fields}
+              active={tag.fields.slug === currentTag}
+            />
           ))}
+          <Tag name="Other" slug={null} active={currentTag === null} />
         </div>
       </div>
     </div>

@@ -1,5 +1,9 @@
 import type { GetStaticProps } from 'next';
-import type { IBlogEntry } from '../../types/generated/contentful';
+import type {
+  IBlogEntry,
+  ITag,
+  ITagFields,
+} from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,41 +19,61 @@ import { DarkButton } from '../../components/decoration/buttons';
 import { getBlogEntries } from '../../lib/cms/helpers';
 import SquareField from '../../components/decoration/squares';
 import BlogsHeader from '../../components/layout/blog/blogsHeader';
+import Newsletter from '../../components/layout/newsletter';
+import { getContents } from '../../lib/cms';
 
 interface BlogProps {
   blogs: IBlogEntry[];
+  tags: ITag[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await getBlogEntries();
+  const tags = await getContents<ITagFields>({ contentType: 'tag' });
 
   return {
     props: {
       blogs,
+      tags,
     },
     revalidate: 480,
   };
 };
 
-const Blog: React.FC<BlogProps> = ({ blogs }) => {
-  const [query, setQuery] = useState<string>('');
+const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
+  entry,
+  tagQuery
+) => {
+  if (tagQuery === undefined) return true;
+
+  if (tagQuery !== null) {
+    return !!entry.fields.tags?.find((tag) => tag.fields.slug === tagQuery);
+  }
+
+  return !entry.fields.tags;
+};
+
+const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const [tagQuery, setTagQuery] = useState<string | null | undefined>(null);
 
   const [firstBlog, ...otherBlogs] = blogs;
 
-  const filterKeys = ['fields.title']; //['fields.title', 'fields.excerpt']
+  const filterKeys = ['fields.title'];
 
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
     options: { keys: filterKeys },
-    term: query,
-  });
+    term: searchQuery,
+  }).filter((entry) => filterByTag(entry, tagQuery));
 
   const filteredEntries = useFuse({
     data: otherBlogs,
     options: { keys: filterKeys },
-    term: query,
+    term: searchQuery,
     sort: true,
-  });
+  }).filter((entry) => filterByTag(entry, tagQuery));
 
   const {
     startIndex,
@@ -77,7 +101,12 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
         ]}
         className="z-10 hidden md:block"
       />
-      <BlogsHeader onQueryChange={setQuery} query={query} />
+      <BlogsHeader
+        tags={tags}
+        onSearchChange={setSearchQuery}
+        onTagChange={setTagQuery}
+        query={searchQuery}
+      />
       <SquareField
         squares={[
           { color: 'green-light', size: 32, top: -16, left: 0 },

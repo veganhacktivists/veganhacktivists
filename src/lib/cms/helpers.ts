@@ -72,7 +72,7 @@ export const getBlogEntries: (
   limit?: number
 ) => Promise<Entry<IBlogEntryFields>[]> = async (limit) => {
   const fields =
-    'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.content';
+    'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.content,fields.tags';
 
   const [newBlogs, oldBlogs] = await Promise.all([
     getContents<IBlogEntryFields>({
