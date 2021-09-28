@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
         <div className="absolute top-0 left-0 right-0">
           <SquareField
             squares={FOOTER_DECORATION_SQUARES}
-            className="hidden md:block"
+            className="hidden xl:block"
           />
         </div>
         <Links />

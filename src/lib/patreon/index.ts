@@ -2,7 +2,7 @@ const accessToken = process.env.PATREON_ACCESS_TOKEN;
 const campaignId = process.env.PATREON_CAMPAIGN_ID;
 
 export const getPatrons: () => Promise<string[]> = async () => {
-  const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null`;
+  const patronsUrl = `https://www.patreon.com/api/oauth2/api/campaigns/${campaignId}/pledges?include=patron.null&count=1000`;
 
   const pages = [];
   let currUrl = patronsUrl;
@@ -39,5 +39,5 @@ export const getPatrons: () => Promise<string[]> = async () => {
     });
   });
 
-  return patrons;
+  return Array.from(new Set(patrons));
 };
