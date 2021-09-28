@@ -36,7 +36,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
     ({ name, slug, active }) => {
       return (
         <div
-          className={classNames('pb-2 cursor-pointer select-none', {
+          className={classNames('pb-2 cursor-pointer select-none px-10 py-2', {
             'bg-grey': active,
           })}
           onClick={() => {
@@ -62,24 +62,26 @@ const BlogsHeader: React.FC<HeaderProps> = ({
           for reading!
         </div>
       </div>
-      <div className="bg-grey-dark mt-10 p-10">
-        <label className="border-2 border-grey-lighter p-2 text-xl w-full flex justify-around">
-          <input
-            className="bg-invisible outline-none pr-2"
-            type="text"
-            name="query"
-            id="blogQuery"
-            value={query}
-            onChange={(e) => {
-              onSearchChange(e.target.value);
-            }}
-          />
-          <div>
-            <FontAwesomeIcon icon={faSearch} color={greyLight} />
-          </div>
-        </label>
+      <div className="bg-grey-dark mt-10">
+        <div className="px-10 pt-10">
+          <label className="border-2 border-grey-lighter p-2 text-xl w-full flex justify-around">
+            <input
+              className="bg-invisible outline-none pr-2"
+              type="text"
+              name="query"
+              id="blogQuery"
+              value={query}
+              onChange={(e) => {
+                onSearchChange(e.target.value);
+              }}
+            />
+            <div>
+              <FontAwesomeIcon icon={faSearch} color={greyLight} />
+            </div>
+          </label>
+        </div>
         <div className="mt-5 text-left text-xl">
-          <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10">
+          <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
             Categories
           </div>
           {tags.map((tag) => (
