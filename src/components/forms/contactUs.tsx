@@ -39,24 +39,20 @@ const ContactUsForm: React.FC = () => {
     };
 
     await toast
-      .promise(
-        submit,
-        {
-          pending: 'Submitting...',
-          error:
-            'Something went wrong processing your submission! Please try again later',
-          success: 'Your request was sent successfully!',
-        },
-        {
-          onClose: () => {
-            if (isSubmitSuccessful) {
-              reload();
-            }
-          },
-        }
-      )
+      .promise(submit, {
+        pending: 'Submitting...',
+        error:
+          'Something went wrong processing your submission! Please try again later',
+        success: 'Your request was sent successfully!',
+      })
       .then(() => {
         reset();
+        setTimeout(() => {
+          reload();
+        }, 5000);
+      })
+      .catch(() => {
+        //ignore
       });
   }, []);
 
