@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import axios from 'axios';
 import { Controller, useForm } from 'react-hook-form';
 import type { GrantsForm } from '../../../pages/api/grant-request';
@@ -6,10 +6,9 @@ import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import Spinner from '../../decoration/spinner';
 
-import 'react-toastify/dist/ReactToastify.css';
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
@@ -50,44 +49,28 @@ const GrantsApplication: React.FC = () => {
     register,
     watch,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<GrantsForm>({});
 
   const { reload } = useRouter();
-  const [success, setSuccess] = useState(false);
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
-      const submit = async () => axios.post('/api/grant-request', data);
-
       await toast
-        .promise(
-          submit,
-          {
-            success: {
-              render: () => {
-                setSuccess(true);
-                return 'Your request was sent successfully!';
-              },
-            },
-            error:
-              'Something went wrong processing your submission! Please try again later',
-            pending: 'Submitting...',
-          },
-          {
-            onClose: () => {
-              if (success) {
-                reload();
-              }
-            },
-          }
-        )
-        .then(() => {
-          reset();
+        .promise(axios.post('/api/grant-request', data), {
+          success: 'Your request was sent successfully!',
+          error:
+            'Something went wrong processing your submission! Please try again later',
+          loading: 'Submitting...',
         })
         .then(() => {
-          reload();
-        });
+          reset();
+          setTimeout(() => {
+            reload();
+          }, 5000);
+        })
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        .catch(() => {});
     },
     []
   );
@@ -351,13 +334,12 @@ const GrantsApplication: React.FC = () => {
         </FormSection>
         <DarkButton
           type="submit"
-          disabled={isSubmitting || success}
+          disabled={isSubmitting || isSubmitSuccessful}
           className="font-mono uppercase w-64 mt-10"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}
         </DarkButton>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };

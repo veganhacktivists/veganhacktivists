@@ -1,4 +1,6 @@
+import React from 'react';
 import CookiesCTA from '../cookiesCTA';
+import { Toaster } from 'react-hot-toast';
 
 const PageWrapper: React.FC = ({ children }) => {
   return (
@@ -13,6 +15,7 @@ export const MainWrapper: React.FC = ({ children }) => {
     <main className="text-center min-h-[40rem]">
       {children}
       <CookiesCTA />
+      <Toaster toastOptions={{ position: 'bottom-right', duration: 5000 }} />
     </main>
   );
 };

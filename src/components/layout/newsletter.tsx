@@ -1,12 +1,10 @@
 import axios from 'axios';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
 import TextInput from '../forms/inputs/textInput';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 interface NewsletterRequestProps {
   email: string;
@@ -20,19 +18,15 @@ const Newsletter: React.FC = () => {
   } = useForm<NewsletterRequestProps>();
 
   const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
-    const submit = async () =>
-      axios.post('/api/subscribe-to-newsletter', props);
-
     await toast
-      .promise(submit, {
-        pending: 'pending',
-        error: 'error',
-        success: 'success',
+      .promise(axios.post('/api/subscribe-to-newsletter', props), {
+        loading: 'Submitting...',
+        error:
+          'An error has ocurred. Please check that your email is correct and try again',
+        success: 'Welcome to the newsletter!',
       })
-      // for some reason if the promise fails the error propagates
-      .catch(() => {
-        //ignore
-      });
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      .catch(() => {});
   }, []);
 
   return (
@@ -60,12 +54,11 @@ const Newsletter: React.FC = () => {
           </TextInput>
         </div>
         <div>
-          <DarkButton type="submit">
+          <DarkButton type="submit" disabled={isSubmitting}>
             {isSubmitting ? <Spinner /> : 'Sign up!'}
           </DarkButton>
         </div>
       </form>
-      <ToastContainer position="bottom-right" />
     </>
   );
 };

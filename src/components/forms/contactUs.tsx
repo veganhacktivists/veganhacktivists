@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
@@ -8,8 +7,8 @@ import SelectInput from './inputs/selectInput';
 import Label from './inputs/label';
 import TextInput from './inputs/textInput';
 import TextArea from './inputs/textArea';
+import { toast } from 'react-hot-toast';
 
-import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
 
@@ -34,30 +33,21 @@ const ContactUsForm: React.FC = () => {
   const { reload } = useRouter();
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    const submit = async () => {
-      axios.post('/api/contact-us', values);
-    };
-
     await toast
-      .promise(
-        submit,
-        {
-          pending: 'Submitting...',
-          error:
-            'Something went wrong processing your submission! Please try again later',
-          success: 'Your request was sent successfully!',
-        },
-        {
-          onClose: () => {
-            if (isSubmitSuccessful) {
-              reload();
-            }
-          },
-        }
-      )
+      .promise(axios.post('/api/contact-usa', values), {
+        loading: 'Submitting...',
+        error:
+          'Something went wrong processing your submission! Please try again later',
+        success: 'Your request was sent successfully!',
+      })
       .then(() => {
         reset();
-      });
+        setTimeout(() => {
+          reload();
+        }, 5000);
+      })
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      .catch(() => {});
   }, []);
 
   return (
@@ -125,7 +115,6 @@ const ContactUsForm: React.FC = () => {
           </DarkButton>
         </div>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };
