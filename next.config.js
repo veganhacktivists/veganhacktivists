@@ -21,6 +21,11 @@ module.exports = {
         destination: '/people/team',
         permanent: true,
       },
+      {
+        source: '/team',
+        destination: '/people/team',
+        permanent: true,
+      },
     ];
   },
 };
