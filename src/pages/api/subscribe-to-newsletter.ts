@@ -19,7 +19,8 @@ const handler: NextApiHandler = async (req, res) => {
   }
   try {
     await subscribeToNewsletter(req.body.email);
-  } catch (e) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (e: any) {
     return res.status(e.status).json(errorBody(e.status));
   }
 
