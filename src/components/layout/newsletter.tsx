@@ -25,11 +25,11 @@ const Newsletter: React.FC = () => {
 
     await toast
       .promise(submit, {
-        pending: 'pending',
-        error: 'error',
-        success: 'success',
+        pending: 'Submitting...',
+        error:
+          'An error has ocurred. Please check that your email is correct and try again',
+        success: 'Welcome to the newsletter!',
       })
-      // for some reason if the promise fails the error propagates
       .catch(() => {
         //ignore
       });
