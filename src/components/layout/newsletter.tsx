@@ -38,13 +38,13 @@ const Newsletter: React.FC = () => {
   return (
     <>
       <form
-        className="p-10 bg-grey-background space-y-10"
+        className="p-10 bg-grey-background space-y-10 text-2xl"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="text-2xl">Sign up and never miss a post!</div>
+        <div className="">Sign up and never miss a post!</div>
         <div className="mx-auto md:w-1/3">
           <TextInput
-            className="text-3xl w-full"
+            className="w-full"
             {...register('email', {
               required: 'Please enter an email!',
               pattern: {
@@ -55,10 +55,14 @@ const Newsletter: React.FC = () => {
             })}
             placeholder="email"
             error={errors.email?.message}
-          />
+          >
+            <></>
+          </TextInput>
         </div>
         <div>
-          <DarkButton type="submit">{JSON.stringify(isSubmitting)}</DarkButton>
+          <DarkButton type="submit">
+            {isSubmitting ? <Spinner /> : 'Sign up!'}
+          </DarkButton>
         </div>
       </form>
       <ToastContainer position="bottom-right" />
