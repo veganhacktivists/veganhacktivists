@@ -2,6 +2,7 @@
 import type { NextApiHandler } from 'next';
 import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import HttpCodes from 'http-status-codes';
+import { errorBody } from '../../lib/helpers/api';
 
 export interface GrantsForm {
   // Section A - About you
@@ -32,7 +33,9 @@ export interface GrantsForm {
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== 'POST') {
-    return res.status(HttpCodes.NOT_IMPLEMENTED).end();
+    return res
+      .status(HttpCodes.NOT_IMPLEMENTED)
+      .json(errorBody(HttpCodes.NOT_IMPLEMENTED));
   }
 
   const { name, email }: GrantsForm = req.body;
