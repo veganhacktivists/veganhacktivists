@@ -36,7 +36,7 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
                     layout="responsive"
                   />
                 </ImageContainer>
-                <div className="font-bold text-3xl text-left line-clamp-3 mt-5">
+                <div className="font-bold text-2xl text-left line-clamp-3 mt-5">
                   {blog.fields.title}
                 </div>
               </a>
