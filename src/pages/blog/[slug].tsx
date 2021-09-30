@@ -160,12 +160,14 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
         <div className="mx-auto">
           <div className="px-5 lg:w-3/5 pt-20 mx-auto">
             <ImageContainer className="border-2 border-white mx-auto">
-              <ContentfulImage
-                image={featuredImage}
-                alt=""
-                layout="responsive"
-                priority
-              />
+              {featuredImage && (
+                <ContentfulImage
+                  image={featuredImage}
+                  alt=""
+                  layout="responsive"
+                  priority
+                />
+              )}
             </ImageContainer>
           </div>
           <div className="mt-20">
