@@ -7,6 +7,7 @@ import Spinner from '../decoration/spinner';
 import TextInput from '../forms/inputs/textInput';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { FirstSubSection } from '../decoration/textBlocks';
 
 interface NewsletterRequestProps {
   email: string;
@@ -36,12 +37,13 @@ const Newsletter: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <form
-        className="p-10 bg-grey-background space-y-10 text-2xl"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div className="">Sign up and never miss a post!</div>
+    <div className="p-10 bg-grey-background">
+      <FirstSubSection header="Our Newsletter">
+        Sign up to our newsletter and never miss a post! We&apos;ll send you
+        occasional updated from our blog, and sneak previews for our upcoming
+        projects and events.
+      </FirstSubSection>
+      <form className="space-y-10 text-2xl" onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto md:w-1/3">
           <TextInput
             className="w-full"
@@ -53,7 +55,7 @@ const Newsletter: React.FC = () => {
                 message: 'Please enter a valid email',
               },
             })}
-            placeholder="email"
+            placeholder="Enter your email"
             error={errors.email?.message}
           >
             <></>
@@ -66,7 +68,7 @@ const Newsletter: React.FC = () => {
         </div>
       </form>
       <ToastContainer position="bottom-right" />
-    </>
+    </div>
   );
 };
 
