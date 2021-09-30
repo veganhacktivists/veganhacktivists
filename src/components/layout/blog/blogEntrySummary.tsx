@@ -26,6 +26,8 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     </Link>
   );
 
+  const { slug, title, featuredImage, content, excerpt } = blog.fields;
+
   return (
     <div
       className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
@@ -33,14 +35,14 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         'grid-cols-1 md:grid-cols-2': heading,
       })}
     >
-      <div className={classNames('w-full overflow-hidden relative h-full')}>
+      <div
+        className={classNames('w-full overflow-hidden relative h-full', {
+          'md:h-64': !heading,
+        })}
+      >
         <LinkToBlog>
           <ImageContainer>
-            <ContentfulImage
-              image={blog.fields.featuredImage}
-              alt=""
-              layout="responsive"
-            />
+            <ContentfulImage image={featuredImage} alt="" layout="responsive" />
           </ImageContainer>
         </LinkToBlog>
         {heading && (
@@ -65,21 +67,19 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           <LinkToBlog>
             <b
               className="text-2xl font-mono font-semibold md:line-clamp-2"
-              title={blog.fields.title}
+              title={title}
             >
-              {blog.fields.title}
+              {title}
             </b>
           </LinkToBlog>
           <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
             {documentToReactComponents(
-              blog.fields.excerpt.content.length === 0
-                ? blog.fields.content
-                : blog.fields.excerpt
+              excerpt.content.length === 0 ? content : excerpt
             )}
           </div>
         </div>
         {heading || (
-          <DarkButton className="mb-0" href={`/blog/${blog.fields.slug}`}>
+          <DarkButton className="mb-0" href={`/blog/${slug}`}>
             Read More
           </DarkButton>
         )}
