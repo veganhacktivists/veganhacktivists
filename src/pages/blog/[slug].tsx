@@ -222,7 +222,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       </div>
       <div className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5 border-[1px] border-grey-lighter">
         {image && (
-          <div className="w-64">
+          <div className="w-full md:w-64">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>
