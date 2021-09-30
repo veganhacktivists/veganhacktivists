@@ -77,6 +77,7 @@ module.exports = {
       },
       screens: {
         '3xl': '1600px',
+        '4xl': '2000px',
       },
       boxShadow: {
         'fill-green': `inset 1000px 0 0 0 ${colors.green.DEFAULT}`,

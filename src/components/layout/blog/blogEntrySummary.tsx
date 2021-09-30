@@ -30,14 +30,16 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
 
   return (
     <div
-      className={classNames('shadow-xl h-full grid overflow-hidden bg-white', {
-        'grid-cols-1': !heading,
-        'grid-cols-1 md:grid-cols-2': heading,
-      })}
+      className={classNames(
+        'shadow-xl h-full grid overflow-hidden bg-white grid-cols-1',
+        {
+          'md:grid-cols-2': heading,
+        }
+      )}
     >
       <div
         className={classNames('w-full overflow-hidden relative h-full', {
-          'md:max-h-44 3xl:max-h-64': !heading,
+          'md:max-h-44 4xl:max-h-64': !heading,
         })}
       >
         <LinkToBlog>
