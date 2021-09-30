@@ -39,9 +39,11 @@ const Newsletter: React.FC = () => {
   return (
     <div className="p-10 bg-grey-background">
       <FirstSubSection header="Our Newsletter">
-        Sign up to our newsletter and never miss a post! We&apos;ll send you
-        occasional updated from our blog, and sneak previews for our upcoming
-        projects and events.
+        <div className="md:w-2/3 mx-auto">
+          Sign up to our newsletter and never miss a post! We&apos;ll send you
+          occasional updated from our blog, and sneak previews for our upcoming
+          projects and events.
+        </div>
       </FirstSubSection>
       <form className="space-y-10 text-2xl" onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto md:w-1/3">
