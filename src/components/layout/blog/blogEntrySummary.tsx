@@ -37,7 +37,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     >
       <div
         className={classNames('w-full overflow-hidden relative h-full', {
-          'md:h-64': !heading,
+          'md:max-h-44 3xl:max-h-64': !heading,
         })}
       >
         <LinkToBlog>
