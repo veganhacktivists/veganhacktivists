@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 import chicken from '../../../../public/images/sprite_chicken.gif';
@@ -15,6 +15,7 @@ import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
 import CustomImage from '../customImage';
 import classNames from 'classnames';
 import cssAnimations from './animations.module.css';
+import FloatingHeart from './FloatingHeart';
 
 interface SpriteProps {
   image: StaticImageData;
@@ -98,6 +99,19 @@ const Sprite: React.FC<SpriteProps> = ({
           />
         </div>
       </animated.div>
+      <FloatingHeart position={spring.left} size="md" float={jumping} />
+      <FloatingHeart
+        position={spring.left}
+        size="lg"
+        float={jumping}
+        delay={300}
+      />
+      <FloatingHeart
+        position={spring.left}
+        size="md"
+        float={jumping}
+        delay={600}
+      />
     </>
   );
 };
