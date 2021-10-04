@@ -444,7 +444,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20 hidden"
+    class="absolute z-20 select-none hidden"
     style="left: 0px;"
   >
     <div
@@ -477,7 +477,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20 hidden"
+    class="absolute z-20 select-none hidden"
     style="left: 0px;"
   >
     <div
@@ -510,7 +510,7 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20 hidden"
+    class="absolute z-20 select-none hidden"
     style="left: 0px;"
   >
     <div
