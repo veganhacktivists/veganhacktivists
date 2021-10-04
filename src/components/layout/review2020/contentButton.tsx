@@ -28,10 +28,14 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
     active ? 'grey-dark' : white ? 'white' : 'grey-background'
   );
 
+  const borderColor = useThemeColor(
+    active ? 'grey-dark' : !white ? 'white' : 'grey-background'
+  );
+
   return (
     <div
       className={classNames(
-        'flex justify-center items-center h-12 w-80 mx-auto relative',
+        'flex justify-center items-center h-12 w-80 mx-auto relative mb-[4px]',
         down ? '-bottom-80' : 'bottom-0'
       )}
       style={{
@@ -68,7 +72,10 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         </div>
       </div>
 
-      <ImageContainer className="absolute -bottom-80 w-80 h-80">
+      <ImageContainer
+        className="absolute -bottom-80 w-80 h-80 border-t-4"
+        style={{ borderColor }}
+      >
         <CustomImage
           src={`/images/review2020/${contentName}.webp`}
           alt={contentName + ' logo'}
