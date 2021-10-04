@@ -1,0 +1,29 @@
+@keyframes jump {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 0.5px;
+  }
+}
+
+@keyframes riseAndFade {
+  from {
+    bottom: 50px;
+    opacity: 1;
+  }
+  to {
+    bottom: 150px;
+    opacity: 0;
+  }
+}
+
+.sprite {
+  animation: jump 1s cubic-bezier(0, 200, 1, 200); /*https://css-tricks.com/advanced-css-animation-using-cubic-bezier*/
+  bottom: 0px;
+}
+
+.heart {
+  animation: riseAndFade 1.5s ease-out forwards;
+  opacity: 0;
+}

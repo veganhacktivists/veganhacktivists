@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { DarkButton } from './decoration/buttons';
 
 const CONSENT_COOKIE_NAME = 'vh_analytics';
 
 const CookiesCTA: React.FC = () => {
   const [cookies, setCookies] = useCookies([CONSENT_COOKIE_NAME]);
   const [cookie, setCookie] = useState<boolean | null>(null);
+  const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
     const value = cookies[CONSENT_COOKIE_NAME];
+    setShow(true);
 
     if (!value) return;
     setCookie(value === 'true');
   }, []);
-
-  const [show, setShow] = useState<boolean>(true);
 
   useEffect(() => {
     if (cookie === null) return;
@@ -34,8 +35,11 @@ const CookiesCTA: React.FC = () => {
   }
 
   return (
-    <div id="cookies" className="fixed right-0 bottom-0 z-50 p-8">
-      <div className="bg-white relative p-8 pb-4 max-w-full shadow-lg w-[400px]">
+    <div
+      id="cookies"
+      className="fixed bottom-0 right-1/2 translate-x-1/2 md:translate-x-0 md:right-0 z-50 pt-8 px-8 md:pb-8"
+    >
+      <div className="bg-white relative p-8 pb-4 max-w-full shadow-lg w-screen md:w-[400px]">
         <div
           onClick={() => {
             setShow(false);
@@ -48,12 +52,9 @@ const CookiesCTA: React.FC = () => {
         <p className="font-mono text-xl mb-7">
           This website uses cookies to enhance your browsing experience.
         </p>
-        <div
-          onClick={() => onChange(true)}
-          className="border-l-8 border-green inline-block mb-4 px-16 py-2 text-xl bg-gray ease-out duration-[2s] cursor-pointer hover:shadow-fill-green text-white font-mono font-semibold"
-        >
+        <DarkButton className="w-3/4 mb-4" onClick={() => onChange(true)}>
           Accept cookies
-        </div>
+        </DarkButton>
         <p
           onClick={() => onChange(false)}
           className="font-mono underline cursor-pointer"

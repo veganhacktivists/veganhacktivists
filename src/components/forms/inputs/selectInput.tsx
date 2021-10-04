@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import useThemeColor from '../../../hooks/useThemeColor';
-import type { Styles } from 'react-select';
+import type { StylesConfig } from 'react-select';
 import Select from 'react-select';
-import CreatableSelect, { makeCreatableSelect } from 'react-select/creatable';
-import type { ThemeConfig } from 'react-select/src/theme';
+import CreatableSelect from 'react-select/creatable';
+import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
 
 interface OptionType {
   label: string;
@@ -48,44 +48,48 @@ const SelectInput: React.FC<SelectInputProps> = ({
     },
   });
 
-  const styles: Partial<Styles<{ label: string; value: string }, false>> = {
-    placeholder: (provided) => ({
-      ...provided,
-      color: '#a1a1aa',
-    }),
-    dropdownIndicator: (provided) => ({
-      ...provided,
-      backgroundColor: grey,
-      height,
-      verticalAlign: 'middle',
-      marginTop: 'auto',
-      marginBottom: 'auto',
-    }),
-    control: (provided) => ({
-      ...provided,
-      minHeight: height,
-      height,
-      border: error ? undefined : 0,
-      borderColor: error && red,
-      fontSize: '1.25rem',
-    }),
-    valueContainer: (provided) => ({
-      ...provided,
-      height,
-      padding: '0 6px',
-    }),
-    input: (provided) => ({
-      ...provided,
-      margin: '0px',
-    }),
-    indicatorSeparator: () => ({
-      display: 'none',
-    }),
-    indicatorsContainer: (provided) => ({
-      ...provided,
-      height,
-    }),
-  };
+  const styles: Partial<StylesConfig<{ label: string; value: string }, false>> =
+    {
+      placeholder: (provided) => ({
+        ...provided,
+        color: '#a1a1aa',
+      }),
+      singleValue: (provided) => ({
+        ...provided,
+      }),
+      dropdownIndicator: (provided) => ({
+        ...provided,
+        backgroundColor: grey,
+        height,
+        verticalAlign: 'middle',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+      }),
+      control: (provided) => ({
+        ...provided,
+        minHeight: height,
+        height,
+        border: error ? undefined : 0,
+        borderColor: error && red,
+        fontSize: '1.25rem',
+      }),
+      valueContainer: (provided) => ({
+        ...provided,
+        height,
+        padding: '0 6px',
+      }),
+      input: (provided) => ({
+        ...provided,
+        margin: '0px',
+      }),
+      indicatorSeparator: () => ({
+        display: 'none',
+      }),
+      indicatorsContainer: (provided) => ({
+        ...provided,
+        height,
+      }),
+    };
 
   const SelectComponent = () =>
     creatable ? (
@@ -107,6 +111,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         theme={theme}
         styles={styles}
         options={allOptions}
+        className="text-left"
       />
     ) : (
       <Select
@@ -121,6 +126,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         theme={theme}
         styles={styles}
         options={allOptions}
+        className="text-left"
       />
     );
 

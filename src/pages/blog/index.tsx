@@ -15,6 +15,7 @@ import { DarkButton } from '../../components/decoration/buttons';
 import { getBlogEntries } from '../../lib/cms/helpers';
 import SquareField from '../../components/decoration/squares';
 import BlogsHeader from '../../components/layout/blog/blogsHeader';
+import Newsletter from '../../components/layout/newsletter';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -116,7 +117,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             <div>
               <FontAwesomeIcon icon={leftArrow} size="xs" />
             </div>
-            <span className="pl-3">Previous</span>
+            <span className="pl-3 hidden md:block">Previous</span>
           </DarkButton>
           <DarkButton
             onClick={() => {
@@ -126,7 +127,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             disabled={!nextEnabled}
           >
             <div className="flex">
-              <span className="pr-3">Next</span>
+              <span className="pr-3 hidden md:block">Next</span>
               <div>
                 <FontAwesomeIcon icon={rightArrow} size="xs" />
               </div>
@@ -134,6 +135,15 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
           </DarkButton>
         </div>
       </div>
+      <SquareField
+        squares={[
+          { color: 'grey-background', size: 16, bottom: 0 },
+          { color: 'grey-light', size: 16, top: 0, right: 0 },
+          { color: 'grey-background', size: 16, bottom: 0, right: 0 },
+        ]}
+        className="hidden md:block"
+      />
+      <Newsletter />
     </>
   );
 };

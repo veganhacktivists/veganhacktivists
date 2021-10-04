@@ -422,21 +422,124 @@ exports[`should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20"
+    class="absolute z-20 cursor-pointer"
     style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
-      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      class="relative"
     >
-      <img
-        alt=""
-        data-nimg="fixed"
-        decoding="async"
-        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
-        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-      />
-      <noscript />
+      <div
+        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      >
+        <img
+          alt=""
+          data-nimg="fixed"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 0ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 300ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 600ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
     </div>
   </div>
   <div
@@ -522,9 +625,13 @@ exports[`should render correctly 1`] = `
             </span>
           </label>
           <div
-            class=" css-2b097c-container"
+            class="text-left css-b62m3t-container"
             id="service"
           >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-service-live-region"
+            />
             <span
               aria-atomic="false"
               aria-live="polite"
@@ -532,39 +639,40 @@ exports[`should render correctly 1`] = `
               class="css-1f43avz-a11yText-A11yText"
             />
             <div
-              class=" css-sn38g5-control"
+              class=" css-19mcfkt-control"
             >
               <div
-                class=" css-1m9kztm-ValueContainer"
+                class=" css-1921abj-ValueContainer"
               >
                 <div
-                  class=" css-1oxpzol-placeholder"
+                  class=" css-1kaopbn-placeholder"
+                  id="react-select-service-placeholder"
                 >
                   Select...
                 </div>
                 <div
-                  class="css-1w7gl0u-Input"
+                  class=" css-m5szu9-Input"
+                  data-value=""
                 >
-                  <div
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="react-select-service-listbox"
+                    aria-describedby="react-select-service-placeholder"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-owns="react-select-service-listbox"
+                    autocapitalize="none"
+                    autocomplete="off"
+                    autocorrect="off"
                     class=""
-                    style="display: inline-block;"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      autocapitalize="none"
-                      autocomplete="off"
-                      autocorrect="off"
-                      id="react-select-service-input"
-                      spellcheck="false"
-                      style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                      tabindex="0"
-                      type="text"
-                      value=""
-                    />
-                    <div
-                      style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                    />
-                  </div>
+                    id="react-select-service-input"
+                    role="combobox"
+                    spellcheck="false"
+                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
               <div

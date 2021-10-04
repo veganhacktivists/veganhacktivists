@@ -160,12 +160,14 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
         <div className="mx-auto">
           <div className="px-5 lg:w-3/5 pt-20 mx-auto">
             <ImageContainer className="border-2 border-white mx-auto">
-              <ContentfulImage
-                image={featuredImage}
-                alt=""
-                layout="responsive"
-                priority
-              />
+              {featuredImage && (
+                <ContentfulImage
+                  image={featuredImage}
+                  alt=""
+                  layout="responsive"
+                  priority
+                />
+              )}
             </ImageContainer>
           </div>
           <div className="mt-20">
@@ -222,7 +224,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       </div>
       <div className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5 border-[1px] border-grey-lighter">
         {image && (
-          <div className="w-64">
+          <div className="w-full md:w-64">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>
