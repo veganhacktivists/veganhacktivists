@@ -370,7 +370,7 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="absolute z-20 cursor-pointer"
+    class="absolute z-20 cursor-pointer select-none"
     style="left: 64px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
@@ -969,7 +969,7 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="absolute z-20 cursor-pointer"
+    class="absolute z-20 cursor-pointer select-none"
     style="left: 64px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div

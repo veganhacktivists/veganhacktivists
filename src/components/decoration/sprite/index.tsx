@@ -69,7 +69,7 @@ const Sprite: React.FC<SpriteProps> = ({
   return (
     <>
       <animated.div
-        className="absolute z-20 cursor-pointer"
+        className="absolute z-20 cursor-pointer select-none"
         style={{
           ...spring,
           height: image.height * scale,
