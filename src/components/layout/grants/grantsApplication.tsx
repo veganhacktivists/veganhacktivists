@@ -73,9 +73,6 @@ const GrantsApplication: React.FC = () => {
           setTimeout(() => {
             reload();
           }, 5000);
-        })
-        .catch(() => {
-          // ignore
         });
     },
     []

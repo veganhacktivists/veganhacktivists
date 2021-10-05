@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { DarkButton } from '../decoration/buttons';
@@ -51,9 +51,6 @@ const ContactUsForm: React.FC = () => {
         setTimeout(() => {
           reload();
         }, 5000);
-      })
-      .catch(() => {
-        //ignore
       });
   }, []);
 
