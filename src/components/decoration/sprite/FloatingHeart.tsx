@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import smHeart from '../../../../public/images/VH_Pixel_Heart_Small.png';
 import mdHeart from '../../../../public/images/VH_Pixel_Heart_Medium.png';
 import lgHeart from '../../../../public/images/VH_Pixel_Heart_Large.png';
