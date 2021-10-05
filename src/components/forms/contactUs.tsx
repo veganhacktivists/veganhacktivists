@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
-import axios from 'axios';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
 import SelectInput from './inputs/selectInput';
@@ -12,6 +11,7 @@ import TextArea from './inputs/textArea';
 import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
+import ky from 'ky';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -34,9 +34,10 @@ const ContactUsForm: React.FC = () => {
   const { reload } = useRouter();
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    const submit = async () => {
-      axios.post('/api/contact-us', values);
-    };
+    const submit = async () =>
+      ky.post('/api/contact-us', {
+        json: values,
+      });
 
     await toast
       .promise(submit, {

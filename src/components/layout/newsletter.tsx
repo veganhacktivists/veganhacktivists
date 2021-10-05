@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
@@ -8,6 +7,7 @@ import TextInput from '../forms/inputs/textInput';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { FirstSubSection } from '../decoration/textBlocks';
+import ky from 'ky';
 
 interface NewsletterRequestProps {
   email: string;
@@ -22,7 +22,9 @@ const Newsletter: React.FC = () => {
 
   const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
     const submit = async () =>
-      axios.post('/api/subscribe-to-newsletter', props);
+      ky.post('/api/subscribe-to-newsletter', {
+        json: props,
+      });
 
     await toast
       .promise(submit, {

@@ -33,9 +33,9 @@ const handler: NextApiHandler = async (req, res) => {
         message,
       }),
     });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (e: any) {
-    return res.status(e.response.status).json({});
+  } catch (e: unknown) {
+    debugger;
+    return res.status((e as Response).status).json({});
   }
 
   res.status(HttpCodes.OK).json({});
