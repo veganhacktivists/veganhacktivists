@@ -148,8 +148,6 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
     return <div>Loading...</div>;
   }
 
-  console.log({ blog: blog.fields.content });
-
   const { title, author, content, featuredImage } = blog.fields;
 
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
