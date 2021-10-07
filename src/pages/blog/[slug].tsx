@@ -93,7 +93,9 @@ const richTextOptions: Options = {
       </Link>
     ),
 
-    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => (
+      <p className="mb-5 last:mb-0">{children}</p>
+    ),
   },
 };
 
@@ -177,7 +179,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
               {title}
             </h1>
             <BlogContentContainer>
-              <div className="text-left text-xl leading-loose space-y-4">
+              <div className="text-left text-xl leading-relaxed space-y-4">
                 {author && (
                   <div>
                     Written by{' '}
