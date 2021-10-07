@@ -93,7 +93,7 @@ const richTextOptions: Options = {
       </Link>
     ),
 
-    [BLOCKS.PARAGRAPH]: (node, children) => <>{children}</>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
   },
 };
 
@@ -145,6 +145,8 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
   if (!blog) {
     return <div>Loading...</div>;
   }
+
+  console.log({ blog: blog.fields.content });
 
   const { title, author, content, featuredImage } = blog.fields;
 
