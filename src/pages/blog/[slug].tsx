@@ -94,7 +94,7 @@ const richTextOptions: Options = {
     ),
 
     [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="mb-5 last:mb-0">{children}</p>
+      <p className="mt-5 first:mt-0">{children}</p>
     ),
   },
 };
