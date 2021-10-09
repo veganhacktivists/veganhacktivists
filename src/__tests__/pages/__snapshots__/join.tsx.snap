@@ -145,7 +145,7 @@ exports[`should render correctly 1`] = `
   </div>
   <div>
     <div
-      class="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl"
+      class="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl"
     >
       <div
         class="flex flex-col gap-4"

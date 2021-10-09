@@ -178,7 +178,7 @@ const Join: React.FC = () => (
       qualifications, but encourage you to apply either way!
     </FirstSubSection>
     <div>
-      <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 drop-shadow-2xl text-2xl">
+      <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl">
         <div className="flex flex-col gap-4">
           {CANDIDATE_REQUIREMENTS.map((requirement, i) => (
             <CandidateRequirement key={i} {...requirement} />
