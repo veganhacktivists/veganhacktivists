@@ -86,6 +86,31 @@ export interface IProject extends Entry<IProjectFields> {
   };
 }
 
+export interface ISingleValuesFields {
+  /** name */
+  name: string;
+
+  /** value */
+  value: string;
+}
+
+export interface ISingleValues extends Entry<ISingleValuesFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "singleValues";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ISocialLinksFields {
   /** twitter */
   twitter?: string | undefined;
@@ -133,6 +158,9 @@ export interface ISocialLinks extends Entry<ISocialLinksFields> {
 }
 
 export interface ITagFields {
+  /** slug */
+  slug: string;
+
   /** name */
   name: string;
 }
@@ -240,6 +268,7 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
 export type CONTENT_TYPE =
   | "blogEntry"
   | "project"
+  | "singleValues"
   | "socialLinks"
   | "tag"
   | "team"
