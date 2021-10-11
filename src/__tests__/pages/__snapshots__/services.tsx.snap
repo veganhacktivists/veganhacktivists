@@ -145,7 +145,7 @@ exports[`should render correctly 1`] = `
       </h1>
     </div>
     <div
-      class="flex flex-col md:space-y-20 items-center mx-auto text-2xl mb-28"
+      class="flex flex-col md:space-y-20 items-center mx-auto text-2xl mb-20"
     >
       <div>
         <div
@@ -418,6 +418,32 @@ exports[`should render correctly 1`] = `
             </a>
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      class="mb-20 flex flex-col md:flex-row mx-auto text-xl w-full xl:w-3/5 items-center justify-center gap-x-10 px-3"
+    >
+      <div
+        class="imageContainer"
+      >
+        <div
+          style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 375px; height: 375px;"
+        >
+          <img
+            alt=""
+            data-nimg="fixed"
+            decoding="async"
+            src="/_next/image?url=%2Ffoo.png&w=750&q=75"
+            srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+          <noscript />
+        </div>
+      </div>
+      <div
+        class="text-center md:text-left text-grey-darker"
+      >
+        We do on ocassion offer paid services for activists and/or organizations that need dedicated or priority speed support. If you fit that criteria, please contact us below. Our pricing is based on your budget and is discounted for non-profits.
       </div>
     </div>
   </div>
