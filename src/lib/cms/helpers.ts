@@ -62,6 +62,7 @@ export const getFeaturedProjects: () => Promise<Entry<IProjectFields>[]> =
       },
       other: {
         order: '-fields.date',
+        limit: 8,
       },
     });
 
