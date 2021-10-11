@@ -19,6 +19,7 @@ import BlogContentContainer, {
   Sidebar,
 } from '../../components/layout/blog/blogPageLayout';
 import Link from 'next/link';
+import SubtleBorder from '../../components/decoration/subtleBorder';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -224,7 +225,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       <div className="text-grey-dark text-3xl font-bold mb-10">
         About the Author
       </div>
-      <div className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5 border-[1px] border-grey-lighter">
+      <SubtleBorder className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5">
         {image && (
           <div className="w-full md:w-64">
             <ImageContainer>
@@ -236,7 +237,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
           <div className="text-3xl font-bold">{name}</div>
           {description && <div>{documentToReactComponents(description)}</div>}
         </div>
-      </div>
+      </SubtleBorder>
     </div>
   );
 };

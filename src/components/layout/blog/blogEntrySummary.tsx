@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { DarkButton } from '../../../components/decoration/buttons';
 import Link from 'next/link';
+import SubtleBorder from '../../decoration/subtleBorder';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -29,13 +30,10 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   const { slug, title, featuredImage, excerpt } = blog.fields;
 
   return (
-    <div
-      className={classNames(
-        'shadow-xl h-full grid overflow-hidden bg-white grid-cols-1',
-        {
-          'md:grid-cols-2': heading,
-        }
-      )}
+    <SubtleBorder
+      className={classNames('h-full grid overflow-hidden grid-cols-1', {
+        'md:grid-cols-2': heading,
+      })}
     >
       <div
         className={classNames('w-full overflow-hidden relative h-full', {
@@ -84,7 +82,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </DarkButton>
         )}
       </div>
-    </div>
+    </SubtleBorder>
   );
 };
 

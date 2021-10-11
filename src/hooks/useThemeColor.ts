@@ -32,7 +32,10 @@ const useThemeColor: (color: string) => string | undefined = (color) => {
 
   const obj = byString(
     colors,
-    color.replace(/([a-z]+)-(light|dark|background|over-background)/g, '$1.$2')
+    color.replace(
+      /([a-z]+)-(light|dark|background|over-background|border)/g,
+      '$1.$2'
+    )
   );
 
   return (obj as any).DEFAULT || obj;

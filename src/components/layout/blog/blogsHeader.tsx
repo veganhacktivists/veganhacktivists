@@ -84,14 +84,16 @@ const BlogsHeader: React.FC<HeaderProps> = ({
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
             Categories
           </div>
-          {tags.map((tag) => (
-            <Tag
-              key={tag.fields.slug}
-              {...tag.fields}
-              active={tag.fields.slug === currentTag}
-            />
-          ))}
-          <Tag name="Other" slug={null} active={currentTag === null} />
+          <div>
+            {tags.map((tag) => (
+              <Tag
+                key={tag.fields.slug}
+                {...tag.fields}
+                active={tag.fields.slug === currentTag}
+              />
+            ))}
+            <Tag name="Other" slug={null} active={currentTag === null} />
+          </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ const colors = {
     darker: '#1D1D1D',
     light: '#B4B4B4',
     lighter: '#CACACA',
+    border: '#DDDDDD',
     background: '#E2E2E2',
     'over-background': '#F3F4F6',
   },
@@ -72,6 +73,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      dropShadow: {
+        border: '2px 2px 4px rgba(0, 0, 0, 0.05)',
+      },
       zIndex: {
         '-10': '-10',
       },
