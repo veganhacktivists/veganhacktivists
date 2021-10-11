@@ -101,9 +101,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="pb-5">
           We&apos;re a diverse community of passionate vegan activists from all
           around the world, <b>volunteering our time and skills</b> towards the
-          animal rights movement. We build free technology and offer free services 
-          with the goal of reducing or stopping the mass amounts of suffering caused 
-          by factory farming.
+          animal rights movement. We build free technology and offer free
+          services with the goal of reducing or stopping the mass amounts of
+          suffering caused by factory farming.
         </p>
         <p>
           <b>We do this for the animals</b> - we do this because coding is our

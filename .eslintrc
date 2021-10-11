@@ -38,14 +38,6 @@
     ],
     "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
     "@typescript-eslint/array-type": ["warn", { "default": "array" }],
-    "@typescript-eslint/ban-types": [
-      "warn",
-      {
-        "types": {
-          "undefined": "mark the property as optional (`?`) instead of specifying the type as `undefined`"
-        }
-      }
-    ],
     "@typescript-eslint/no-empty-function": ["warn"],
 
     // misc
