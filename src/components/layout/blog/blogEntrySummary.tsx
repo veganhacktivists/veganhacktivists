@@ -75,9 +75,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </b>
           </LinkToBlog>
           <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
-            {documentToReactComponents(
-              excerpt.content.length === 0 ? content : excerpt
-            )}
+            {documentToReactComponents(excerpt)}
           </div>
         </div>
         {heading || (
