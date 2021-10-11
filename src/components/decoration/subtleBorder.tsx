@@ -1,13 +1,25 @@
 import classNames from 'classnames';
 
-const SubtleBorder: React.FC<{ className?: string }> = ({
+interface SubtleBorderProps {
+  className?: string;
+  border?: boolean;
+  shadow?: boolean;
+}
+
+const SubtleBorder: React.FC<SubtleBorderProps> = ({
   children,
   className,
+  border = true,
+  shadow = true,
 }) => {
   return (
     <div
       className={classNames(
-        'border-grey-border border-[0.5px] drop-shadow-border',
+        'bg-white',
+        {
+          'border-grey-border border-[0.5px]': border,
+          'drop-shadow-border': shadow,
+        },
         className
       )}
     >

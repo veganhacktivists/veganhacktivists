@@ -2,6 +2,7 @@ import { LightButton } from '../../decoration/buttons';
 import React from 'react';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import BlogEntrySummary from '../blog/blogEntrySummary';
+import SubtleBorder from '../../decoration/subtleBorder';
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (
@@ -18,7 +19,9 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-2 gap-y-4 lg:px-32 px-4">
         {entries.map((entry) => (
-          <BlogEntrySummary key={entry.fields.slug} blog={entry} />
+          <SubtleBorder border={false} key={entry.fields.slug}>
+            <BlogEntrySummary blog={entry} />
+          </SubtleBorder>
         ))}
       </div>
       <div className="bg-grey w-full relative h-32 bottom-32 -z-10" />

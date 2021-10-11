@@ -30,7 +30,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   const { slug, title, featuredImage, excerpt } = blog.fields;
 
   return (
-    <SubtleBorder
+    <div
       className={classNames('h-full grid overflow-hidden grid-cols-1', {
         'md:grid-cols-2': heading,
       })}
@@ -82,7 +82,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </DarkButton>
         )}
       </div>
-    </SubtleBorder>
+    </div>
   );
 };
 
