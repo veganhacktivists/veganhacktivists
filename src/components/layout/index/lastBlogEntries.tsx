@@ -6,7 +6,7 @@ import BlogEntrySummary from '../blog/blogEntrySummary';
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (
     <>
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
+      <div className="content-center mx-auto md:w-1/2 text-2xl pt-16">
         <p className="text-grey-dark pb-5">
           <span className="font-italic font-semibold text-3xl">On the </span>
           <b className="text-5xl font-mono">BLOG</b>

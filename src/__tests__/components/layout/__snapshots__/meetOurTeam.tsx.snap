@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
     class="bg-black"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12"
+      class="content-center mx-auto md:w-1/2 text-2xl pb-12"
     >
       <p
         class="mb-12 text-grey-dark pt-16"

@@ -74,7 +74,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           container: 'bg-center',
         }}
       >
-        <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+        <div className="relative text-white mx-auto md:w-1/2 text-2xl">
           Building for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
@@ -85,7 +85,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
+      <div className="content-center mx-auto my-24 md:w-1/2 text-2xl px-5">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -131,7 +131,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         className="hidden md:block"
       />
       <div className="bg-grey-background">
-        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
+        <div className="content-center mx-auto md:w-1/2 text-2xl pt-16 px-5">
           <p className="text-grey-dark pb-5">
             <span className="font-italic font-semibold text-3xl">
               Featured{' '}
