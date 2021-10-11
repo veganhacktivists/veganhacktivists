@@ -50,7 +50,7 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+        class="relative text-white mx-auto md:w-1/2 text-2xl"
       >
         Building for the animal rights movement since 2019.
       </div>
@@ -137,7 +137,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5"
+    class="content-center mx-auto my-24 md:w-1/2 text-2xl px-5"
   >
     <div
       style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -183,7 +183,7 @@ exports[`Application renders correctly 1`] = `
       <b>
         volunteering our time and skills
       </b>
-       towards the animal rights movement. We build free technology with the goal of reducing or stopping the mass amounts of suffering caused by factory farming and other forms of animal exploitation.
+       towards the animal rights movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
     </p>
     <p>
       <b>
@@ -216,21 +216,124 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20"
+    class="absolute z-20 cursor-pointer select-none"
     style="left: 192px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
-      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      class="relative"
     >
-      <img
-        alt=""
-        data-nimg="fixed"
-        decoding="async"
-        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
-        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-      />
-      <noscript />
+      <div
+        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      >
+        <img
+          alt=""
+          data-nimg="fixed"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 0ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 300ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 600ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
     </div>
   </div>
   <div
@@ -257,7 +360,7 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey-background"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5"
+      class="content-center mx-auto md:w-1/2 text-2xl pt-16 px-5"
     >
       <p
         class="text-grey-dark pb-5"
@@ -319,7 +422,7 @@ exports[`Application renders correctly 1`] = `
     class="bg-black"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12"
+      class="content-center mx-auto md:w-1/2 text-2xl pb-12"
     >
       <p
         class="mb-12 text-grey-dark pt-16"
@@ -397,7 +500,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16"
+    class="content-center mx-auto md:w-1/2 text-2xl pt-16"
   >
     <p
       class="text-grey-dark pb-5"
@@ -640,21 +743,124 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="absolute z-20"
+    class="absolute z-20 cursor-pointer select-none"
     style="left: 64px; height: 250px; transform: translateY(-250px) rotateY(180deg);"
   >
     <div
-      style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      class="relative"
     >
-      <img
-        alt=""
-        data-nimg="fixed"
-        decoding="async"
-        src="/_next/image?url=%2Ffoo.png&w=640&q=75"
-        srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-      />
-      <noscript />
+      <div
+        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      >
+        <img
+          alt=""
+          data-nimg="fixed"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=640&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 0ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 300ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute z-20 select-none hidden"
+    style="left: 0px;"
+  >
+    <div
+      class="relative"
+      style="animation-delay: 600ms;"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          alt=""
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </div>
     </div>
   </div>
 </DocumentFragment>

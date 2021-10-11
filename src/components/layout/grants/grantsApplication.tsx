@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from 'react';
-import axios from 'axios';
+import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import type { GrantsForm } from '../../../pages/api/grant-request';
 import { DarkButton } from '../../decoration/buttons';
@@ -16,6 +15,7 @@ import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import classNames from 'classnames';
 import SquareField from '../../decoration/squares';
 import { useRouter } from 'next/router';
+import ky from 'ky';
 
 const FormSection: React.FC<{
   section: string;
@@ -50,43 +50,29 @@ const GrantsApplication: React.FC = () => {
     register,
     watch,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<GrantsForm>({});
 
   const { reload } = useRouter();
-  const [success, setSuccess] = useState(false);
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
-      const submit = async () => axios.post('/api/grant-request', data);
+      const submit = async () => ky.post('/api/grant-request', { json: data });
 
       await toast
-        .promise(
-          submit,
-          {
-            success: {
-              render: () => {
-                setSuccess(true);
-                return 'Your request was sent successfully!';
-              },
-            },
-            error:
-              'Something went wrong processing your submission! Please try again later',
-            pending: 'Submitting...',
+        .promise(submit, {
+          success: {
+            render: 'Your request was sent successfully!',
           },
-          {
-            onClose: () => {
-              if (success) {
-                reload();
-              }
-            },
-          }
-        )
-        .then(() => {
-          reset();
+          error:
+            'Something went wrong processing your submission! Please try again later',
+          pending: 'Submitting...',
         })
         .then(() => {
-          reload();
+          reset();
+          setTimeout(() => {
+            reload();
+          }, 5000);
         });
     },
     []
@@ -351,7 +337,7 @@ const GrantsApplication: React.FC = () => {
         </FormSection>
         <DarkButton
           type="submit"
-          disabled={isSubmitting || success}
+          disabled={isSubmitting || isSubmitSuccessful}
           className="font-mono uppercase w-64 mt-10"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}

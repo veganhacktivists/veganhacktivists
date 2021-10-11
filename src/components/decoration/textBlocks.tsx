@@ -22,6 +22,7 @@ interface SubSectionContent {
   contentSize?: textSize;
   textColor?: string;
   className?: string;
+  spacing?: number;
 }
 
 export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
@@ -39,7 +40,7 @@ export const HeaderContainer: React.FC<{ className?: string }> = ({
   return (
     <div
       className={classNames(
-        'text-grey content-center px-5 mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl',
+        'text-grey content-center px-5 mx-auto my-12 md:w-1/2 text-2xl',
         className
       )}
     >
@@ -87,9 +88,10 @@ export const SubSection: React.FC<SubSectionContent> = ({
   headerSize = '2xl',
   contentSize = 'xl',
   textColor = 'black',
+  spacing = 10,
 }) => {
   return (
-    <div className="mb-10">
+    <div className={`mb-${spacing}`}>
       {header && (
         <h1 className={`text-${headerSize} text-${textColor}  mb-3 font-bold`}>
           {header}

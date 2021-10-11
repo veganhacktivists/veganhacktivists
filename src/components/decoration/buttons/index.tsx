@@ -1,5 +1,9 @@
 import React from 'react';
-import { faInstagram, faPatreon } from '@fortawesome/free-brands-svg-icons';
+import {
+  faInstagram,
+  faPatreon,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -157,7 +161,6 @@ const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return <BaseButton {...props}>{children}</BaseButton>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
@@ -174,8 +177,7 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
+const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
       {...props}
@@ -185,7 +187,23 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
       )}
     >
       <div className="h-8 w-8 flex justify-center items-center">
-        <FontAwesomeIcon size="2x" icon={faInstagram} />
+        <FontAwesomeIcon size="2x" fixedWidth icon={faYoutube} />
+      </div>
+    </IconButton>
+  );
+};
+
+const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
+  return (
+    <IconButton
+      {...props}
+      className={classNames(
+        'bg-white hover:bg-blue text-grey hover:text-white rounded-full px-2 py-2',
+        className
+      )}
+    >
+      <div className="h-8 w-8 flex justify-center items-center">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
       </div>
     </IconButton>
   );
@@ -240,6 +258,7 @@ export {
   SubmitButton,
   PatreonButton,
   InstagramButton,
+  YoutubeButton,
   LightButton,
   DarkButton,
   WhiteButton,

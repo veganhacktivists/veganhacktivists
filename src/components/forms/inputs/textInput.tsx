@@ -10,15 +10,20 @@ const TextInput = React.forwardRef<
   React.InputHTMLAttributes<HTMLInputElement> & {
     error?: string;
   }
->(({ error, children, ...props }, ref) => {
+>(({ error, children, className, ...props }, ref) => {
   return (
     <>
       <Label name={props.name || ''}>{children}</Label>
       <input
         ref={ref}
-        className={classNames(inputClassNames, 'w-full', {
-          'ring-2 ring-red': error,
-        })}
+        className={classNames(
+          inputClassNames,
+          'w-full',
+          {
+            'ring-2 ring-red': error,
+          },
+          className
+        )}
         {...props}
         id={props.id || props.name}
       />

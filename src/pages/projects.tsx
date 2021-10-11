@@ -172,7 +172,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           activists that reach out to us. Below is a list of our work, and which
           of our teams worked on it.
         </FirstSubSection>
-        <div className="flex flex-col space-y-20 items-center mx-auto drop-shadow-2xl text-2xl pb-20">
+        <div className="flex flex-col space-y-20 items-center mx-auto text-2xl pb-20">
           <div className="flex flex-wrap place-content-center justify-center">
             <WhiteButton
               className="w-40 uppercase flex-1 m-1"
@@ -210,7 +210,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             ))}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <WhiteButton
-                className="font-mono content-center drop-shadow-2xl text-2xl mt-16"
+                className="font-mono content-center text-2xl mt-16"
                 onClick={() => viewMore()}
               >
                 Load more

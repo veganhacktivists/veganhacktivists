@@ -2,6 +2,7 @@ import {
   ExternalLinkButton,
   InstagramButton,
   PatreonButton,
+  YoutubeButton,
 } from '../../decoration/buttons';
 
 import Link from 'next/link';
@@ -21,15 +22,18 @@ const Social: React.FC = () => {
           <a>hello@veganhacktivists.org</a>
         </Link>
       </div>
-      <div className="flex pt-5">
+      <div className="flex gap-x-2 pt-5">
         <InstagramButton
-          className="mr-2"
           href="https://www.instagram.com/veganhacktivists/"
           aria-label="Follow us on Instagram!"
         />
         <PatreonButton
           href="https://www.patreon.com/veganhacktivists"
           aria-label="Support Us on Patreon!"
+        />
+        <YoutubeButton
+          href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+          aria-label="Subscribe to our Youtube channel!"
         />
       </div>
       <div className="pt-10 text-center">

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { IBlogEntry } from '../../../types/generated/contentful';
+import { DarkButton } from '../../decoration/buttons';
 import ImageContainer from '../../decoration/imageContainer';
 import ContentfulImage from '../contentfulImage';
 
@@ -21,26 +22,34 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
   return (
     <div className="bg-grey-background mb-10 h-full">
       {blogs.map((blog) => {
+        const { title, slug, featuredImage } = blog.fields;
+
         return (
           <div
             key={blog.fields.slug}
             title={blog.fields.title}
             className="p-5 w-full lg:w-96"
           >
-            <Link href={`/blog/${blog.fields.slug}`}>
-              <a>
-                <ImageContainer>
-                  <ContentfulImage
-                    image={blog.fields.featuredImage}
-                    alt=""
-                    layout="responsive"
-                  />
-                </ImageContainer>
-                <div className="font-bold text-3xl text-left line-clamp-3 mt-5">
-                  {blog.fields.title}
-                </div>
-              </a>
-            </Link>
+            <div className="mb-4">
+              <Link href={`/blog/${slug}`}>
+                <a>
+                  <ImageContainer>
+                    <ContentfulImage
+                      image={featuredImage}
+                      alt=""
+                      layout="responsive"
+                    />
+                  </ImageContainer>
+                  <div className="font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5">
+                    {title}
+                  </div>
+                </a>
+              </Link>
+            </div>
+
+            <DarkButton href={`/blog/${slug}`} className="w-full">
+              Read more
+            </DarkButton>
           </div>
         );
       })}

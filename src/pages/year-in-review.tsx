@@ -250,6 +250,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
           header="Strategy and experimentation"
           headerSize="3xl"
           contentSize="2xl"
+          spacing={4}
         >
           Like 2019, we focused on building projects with little data on whether
           those projects would succeed. We consider this a high-risk strategy as
@@ -345,7 +346,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
             <span className="font-bold">Data Analytics |</span> Team Strawberry
           </div>
         </h2>
-        <SubSection headerSize="3xl" contentSize="2xl">
+        <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           We&apos;ve{' '}
           <Link href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
             <a className="text-magenta hover:underline active:text-magenta-light">
@@ -359,7 +360,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
           from our work in the past, as well as shaping the work we do in the
           future.
         </SubSection>
-        <SubSection headerSize="3xl" contentSize="2xl">
+        <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           Suan Chin is leading this team with 7 other data scientists. See the
           entire team by visiting the{' '}
           <Link href="/people/team">
@@ -583,12 +584,13 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         header="Finishing up and moving forward!"
         headerSize="3xl"
         contentSize="2xl"
+        spacing={4}
       >
         While we&apos;re happy with this years results as-well, we recognize the
         need to take a more data-based approach in what we build if we are to
         utilize our network of amazing volunteers effectively.
       </SubSection>
-      <SubSection contentSize="2xl">
+      <SubSection contentSize="2xl" spacing={4}>
         We also recognize that innovation often comes in uncharted territories
         where data is often lacking - so for 2021 we want to find a good balance
         of choosing projects that align with our innovation approach, while
@@ -596,7 +598,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         in our movement.
       </SubSection>
 
-      <SubSection contentSize="2xl">
+      <SubSection contentSize="2xl" spacing={4}>
         We&apos;re really excited to hear your thoughts on our 2020 year in
         review, and if you like what we do, please consider supporting us by
         clicking the button below. Your donation ensures that all of our work

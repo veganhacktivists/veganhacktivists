@@ -1,3 +1,5 @@
+import got from 'got';
+
 const accessToken = process.env.PATREON_ACCESS_TOKEN;
 const campaignId = process.env.PATREON_CAMPAIGN_ID;
 
@@ -9,12 +11,14 @@ export const getPatrons: () => Promise<string[]> = async () => {
   let hasNextPage = true;
 
   while (hasNextPage) {
-    const res = await fetch(currUrl, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    const data = await res.json();
+    const data = (await got
+      .get(currUrl, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .json()) as Record<string, any>;
 
     pages.push(data);
     if (!data.links?.next) {

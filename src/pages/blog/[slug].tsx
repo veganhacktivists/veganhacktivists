@@ -93,7 +93,9 @@ const richTextOptions: Options = {
       </Link>
     ),
 
-    [BLOCKS.PARAGRAPH]: (node, children) => <>{children}</>,
+    [BLOCKS.PARAGRAPH]: (node, children) => (
+      <p className="mt-5 first:mt-0">{children}</p>
+    ),
   },
 };
 
@@ -160,12 +162,14 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
         <div className="mx-auto">
           <div className="px-5 lg:w-3/5 pt-20 mx-auto">
             <ImageContainer className="border-2 border-white mx-auto">
-              <ContentfulImage
-                image={featuredImage}
-                alt=""
-                layout="responsive"
-                priority
-              />
+              {featuredImage && (
+                <ContentfulImage
+                  image={featuredImage}
+                  alt=""
+                  layout="responsive"
+                  priority
+                />
+              )}
             </ImageContainer>
           </div>
           <div className="mt-20">
@@ -173,7 +177,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
               {title}
             </h1>
             <BlogContentContainer>
-              <div className="text-left text-xl leading-loose space-y-4">
+              <div className="text-left text-xl leading-relaxed space-y-4">
                 {author && (
                   <div>
                     Written by{' '}
@@ -222,7 +226,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       </div>
       <div className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5 border-[1px] border-grey-lighter">
         {image && (
-          <div className="w-64">
+          <div className="w-full md:w-64">
             <ImageContainer>
               <ContentfulImage image={image} alt="" />
             </ImageContainer>

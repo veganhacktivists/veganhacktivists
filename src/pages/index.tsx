@@ -74,7 +74,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           container: 'bg-center',
         }}
       >
-        <div className="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl">
+        <div className="relative text-white mx-auto md:w-1/2 text-2xl">
           Building for the animal rights movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
@@ -85,7 +85,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5">
+      <div className="content-center mx-auto my-24 md:w-1/2 text-2xl px-5">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -101,9 +101,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="pb-5">
           We&apos;re a diverse community of passionate vegan activists from all
           around the world, <b>volunteering our time and skills</b> towards the
-          animal rights movement. We build free technology with the goal of
-          reducing or stopping the mass amounts of suffering caused by factory
-          farming and other forms of animal exploitation.
+          animal rights movement. We build free technology and offer free
+          services with the goal of reducing or stopping the mass amounts of
+          suffering caused by factory farming.
         </p>
         <p>
           <b>We do this for the animals</b> - we do this because coding is our
@@ -131,7 +131,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         className="hidden md:block"
       />
       <div className="bg-grey-background">
-        <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5">
+        <div className="content-center mx-auto md:w-1/2 text-2xl pt-16 px-5">
           <p className="text-grey-dark pb-5">
             <span className="font-italic font-semibold text-3xl">
               Featured{' '}

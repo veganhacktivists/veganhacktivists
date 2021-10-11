@@ -1,8 +1,14 @@
-import type { AxiosResponse } from 'axios';
-import axios from 'axios';
+import Mailgun from 'mailgun.js';
 import { firstLetterUppercase } from '../helpers/strings';
+import formData from 'form-data';
 
-const MAILGUN_URL = 'https://api.mailgun.net/v3/veganhacktivists.org/messages';
+const DOMAIN = 'veganhacktivists.org';
+
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({
+  username: 'api',
+  key: process.env.MAILGUN_API_KEY || '',
+});
 
 interface Email {
   to: string;
@@ -11,18 +17,8 @@ interface Email {
   html: string;
 }
 
-const sendMail: (data: Email) => Promise<AxiosResponse<Email>> = async (
-  data
-) => {
-  return await axios.request({
-    url: MAILGUN_URL,
-    method: 'POST',
-    auth: {
-      username: 'api',
-      password: process.env.MAILGUN_API_KEY || '',
-    },
-    params: data,
-  });
+const sendMail: (data: Email) => Promise<Response> = async (data) => {
+  return await mg.messages.create(DOMAIN, data);
 };
 
 export const createFormattedMessage: (data: Record<string, string>) => string =
