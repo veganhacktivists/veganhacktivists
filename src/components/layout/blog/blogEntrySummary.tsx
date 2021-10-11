@@ -26,7 +26,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     </Link>
   );
 
-  const { slug, title, featuredImage, content, excerpt } = blog.fields;
+  const { slug, title, featuredImage, excerpt } = blog.fields;
 
   return (
     <div
