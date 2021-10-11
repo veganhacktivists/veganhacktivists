@@ -421,27 +421,27 @@ exports[`should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="mb-20 flex flex-col md:flex-row mx-auto text-xl w-full xl:w-3/5 items-center justify-center gap-x-10 px-3"
+      class="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center"
     >
       <div
         class="imageContainer"
       >
         <div
-          style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 375px; height: 375px;"
+          style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 166.66666666666666px; height: 166.66666666666666px;"
         >
           <img
             alt=""
             data-nimg="fixed"
             decoding="async"
-            src="/_next/image?url=%2Ffoo.png&w=750&q=75"
-            srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
+            src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+            srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
           <noscript />
         </div>
       </div>
       <div
-        class="text-center md:text-left text-grey-darker"
+        class="text-center text-grey-darker px-3 md:w-2/3"
       >
         We do on ocassion offer paid services for activists and/or organizations that need dedicated or priority speed support. If you fit that criteria, please contact us below. Our pricing is based on your budget and is discounted for non-profits.
       </div>

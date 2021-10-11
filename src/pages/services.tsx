@@ -161,17 +161,17 @@ const Services: React.FC = () => (
           />
         ))}
       </div>
-      <div className="mb-20 flex flex-col md:flex-row mx-auto text-xl w-full xl:w-3/5 items-center justify-center gap-x-10 px-3">
+      <div className="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center">
         <ImageContainer>
           <CustomImage
             src={PixelBulb}
             alt=""
             layout="fixed"
-            height={PixelBulb.height * 0.75}
-            width={PixelBulb.width * 0.75}
+            height={PixelBulb.height / 3}
+            width={PixelBulb.width / 3}
           />
         </ImageContainer>
-        <div className="text-center md:text-left text-grey-darker">
+        <div className="text-center text-grey-darker px-3 md:w-2/3">
           We do on ocassion offer paid services for activists and/or
           organizations that need dedicated or priority speed support. If you
           fit that criteria, please contact us below. Our pricing is based on
