@@ -1,22 +1,26 @@
-import React from 'react';
-import Head from 'next/head';
 import type { GetStaticProps } from 'next';
-import Hero from '../components/decoration/hero';
+import Head from 'next/head';
+import React from 'react';
+import HeartLogo from '../../public/images/support/heart-icon.png';
+import PatreonLogo from '../../public/images/support/patreon-logo.png';
+import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
-import PayPalLogo from '../../public/images/support/paypal-logo.png';
-import PatreonLogo from '../../public/images/support/patreon-logo.png';
-import HeartLogo from '../../public/images/support/heart-icon.png';
 import PixelHeart from '../../public/images/VH_PixelHeart.png';
-import Sprite, { pig, chicken } from '../components/decoration/sprite';
+import {
+  ExternalLinkButton,
+  LightButton,
+} from '../components/decoration/buttons';
+import CustomImage from '../components/decoration/customImage';
+import Hero from '../components/decoration/hero';
+import Sprite, { chicken, pig } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { PlainHeader } from '../components/decoration/textBlocks';
-import { LightButton } from '../components/decoration/buttons';
-import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
-import { getPatrons } from '../lib/patreon';
+import PatreonSupporters from '../components/layout/support/patreonSupporters';
+import ProgressBar from '../components/layout/support/progressBar';
 import useThemeColor from '../hooks/useThemeColor';
-import CustomImage from '../components/decoration/customImage';
+import { getPatrons, getPledgeSum } from '../lib/patreon';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -70,7 +74,10 @@ const Paragraph: React.FC = ({ children }) => (
   <p className="text-xl md:w-3/4 mx-auto mb-20 px-10">{children}</p>
 );
 
-const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
+const Support: React.FC<{ patrons: string[]; pledgeSum: number }> = ({
+  patrons,
+  pledgeSum,
+}) => {
   return (
     <>
       <Head>
@@ -142,6 +149,30 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         or check. We have a fiscal sponsor that will let you claim your donation
         as tax deductable!
       </Paragraph>
+      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
+      <div className="bg-grey-darker py-16">
+        <h2 className="mb-8 text-4xl text-white font-bold">
+          Monthly Patreon Goals
+        </h2>
+        <Paragraph>
+          <span className="text-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
+            mattis enim ut tellus elementum sagittis vitae et. Nibh tortor id
+            aliquet lectus proin nibh nisl condimentum id.
+          </span>
+        </Paragraph>
+        <ProgressBar currentAmount={pledgeSum} />
+        <div className="flex justify-center mt-16">
+          <ExternalLinkButton
+            href="https://www.patreon.com/veganhacktivists"
+            className="text-xl text-white font-mono font-bold"
+            capitalize={false}
+          >
+            <div className="px-4">Help us by donating now!</div>
+          </ExternalLinkButton>
+        </div>
+      </div>
       <SquareField
         squares={[
           { color: 'gray-background', size: 16, bottom: 0, left: 0 },
@@ -150,7 +181,6 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
         ]}
         className="hidden md:block"
       />
-      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
         <CustomImage
           src={PixelHeart.src}
@@ -185,10 +215,12 @@ const Support: React.FC<{ patrons: string[] }> = ({ patrons }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const patrons = await getPatrons();
+  const pledgeSum = await getPledgeSum('EUR');
 
   return {
     props: {
       patrons,
+      pledgeSum,
     },
     revalidate: 480,
   };
