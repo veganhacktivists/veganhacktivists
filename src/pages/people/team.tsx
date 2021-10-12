@@ -19,6 +19,7 @@ import useViewMore from '../../hooks/useViewMore';
 import Link from 'next/link';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
+import ImageContainer from '../../components/decoration/imageContainer';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -46,9 +47,19 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   const { name: teamName } = team!.fields;
   return (
     <div className="w-64">
-      <div className="bg-grey w-100 h-64 flex justify-end mb-2">
+      <div className="bg-grey w-100 h-64 flex justify-end mb-2 group">
         {image && (
-          <ContentfulImage image={image} alt={name} priority={isTeamLeader} />
+          <ImageContainer className="relative filter grayscale group-hover:grayscale-0">
+            <ContentfulImage image={image} alt={name} priority={isTeamLeader} />
+            <div
+              className={
+                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-20'
+              }
+              style={{
+                backgroundColor: teamColor,
+              }}
+            />
+          </ImageContainer>
         )}
         <div
           style={{ backgroundColor: teamColor }}
