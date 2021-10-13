@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import type { GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
@@ -20,6 +20,7 @@ import Link from 'next/link';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import ImageContainer from '../../components/decoration/imageContainer';
+import SocialLinks from '../../components/layout/team/socialLinks';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -43,7 +44,8 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   member,
   teamColor,
 }) => {
-  const { name, team, position, image, isTeamLeader } = member.fields;
+  const { name, team, position, image, isTeamLeader, socialLinks } =
+    member.fields;
   const { name: teamName } = team!.fields;
   return (
     <div className="w-64">
@@ -73,6 +75,14 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
           {teamName}
         </div>
       </div>
+      {socialLinks && (
+        <div className="mt-2">
+          <SocialLinks
+            socialLinks={socialLinks.fields}
+            className="justify-center"
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -2,42 +2,16 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
-import {
-  faInternetExplorer,
-  faLinkedin,
-  faFacebookSquare,
-  faInstagramSquare,
-  faTwitterSquare,
-  faGithubSquare,
-  faYoutubeSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
-import type {
-  ISocialLinks,
-  ITeamMember,
-} from '../../types/generated/contentful';
+import type { ITeamMember } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
-
-const SOCIAL_LINK_KEY_TO_ICON: Record<string, FontAwesomeIconProps['icon']> = {
-  facebook: faFacebookSquare,
-  twitter: faTwitterSquare,
-  instagram: faInstagramSquare,
-  github: faGithubSquare,
-  website: faInternetExplorer,
-  linkedIn: faLinkedin,
-  // TODO: Do we have an icon for this?
-  activistHub: faInstagramSquare,
-  youtube: faYoutubeSquare,
-  email: faEnvelopeSquare,
-};
+import React from 'react';
+import SocialLinks from '../../components/layout/team/socialLinks';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -60,29 +34,6 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const SocialLinks: React.FC<{ socialLinks: ISocialLinks }> = ({
-  socialLinks,
-}) => {
-  const hasAnySocialLinks = Object.keys(socialLinks).length > 0;
-  if (!hasAnySocialLinks) {
-    return null;
-  }
-  return (
-    <div>
-      {Object.entries(socialLinks).map(([key, value]) => (
-        <a key={key} href={value}>
-          <FontAwesomeIcon
-            size="2x"
-            fixedWidth
-            icon={SOCIAL_LINK_KEY_TO_ICON[key]}
-            color="grey"
-          />
-        </a>
-      ))}
-    </div>
-  );
-};
-
 const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   const { name, image, socialLinks, position } = advisor.fields;
   return (
@@ -95,8 +46,11 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
         <div className="text-2xl font-bold">{name}</div>
         <div className="font-italic">{position}</div>
         {socialLinks && (
-          <div className="mt-6">
-            <SocialLinks socialLinks={socialLinks} />
+          <div className="mt-2">
+            <SocialLinks
+              socialLinks={socialLinks.fields}
+              className="justify-start"
+            />
           </div>
         )}
       </div>

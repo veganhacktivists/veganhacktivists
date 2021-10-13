@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import ImageContainer from '../../decoration/imageContainer';
 import { DarkButton } from '../../../components/decoration/buttons';
 import Link from 'next/link';
-import SubtleBorder from '../../decoration/subtleBorder';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
