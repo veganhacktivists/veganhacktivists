@@ -9,6 +9,7 @@ import {
 import {
   faEnvelope,
   faGlobe as websiteIcon,
+  faFistRaised as activistHubIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -27,7 +28,7 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<
   website: websiteIcon,
   linkedIn: linkedInIcon,
   // TODO: Do we have an icon for this?
-  activistHub: instagramIcon,
+  activistHub: activistHubIcon,
   youtube: youtubeIcon,
   email: faEnvelope,
 };
