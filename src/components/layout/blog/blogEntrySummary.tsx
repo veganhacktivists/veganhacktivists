@@ -26,16 +26,13 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     </Link>
   );
 
-  const { slug, title, featuredImage, content, excerpt } = blog.fields;
+  const { slug, title, featuredImage, excerpt } = blog.fields;
 
   return (
     <div
-      className={classNames(
-        'shadow-xl h-full grid overflow-hidden bg-white grid-cols-1',
-        {
-          'md:grid-cols-2': heading,
-        }
-      )}
+      className={classNames('h-full grid overflow-hidden grid-cols-1', {
+        'md:grid-cols-2': heading,
+      })}
     >
       <div
         className={classNames('w-full overflow-hidden relative h-full', {
@@ -75,9 +72,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </b>
           </LinkToBlog>
           <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
-            {documentToReactComponents(
-              excerpt.content.length === 0 ? content : excerpt
-            )}
+            {documentToReactComponents(excerpt)}
           </div>
         </div>
         {heading || (

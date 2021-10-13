@@ -7,15 +7,18 @@ import SquareField from '../components/decoration/squares';
 import Sprite, { pig } from '../components/decoration/sprite';
 import ContactUsForm from '../components/forms/contactUs';
 
+import { FirstSubSection } from '../components/decoration/textBlocks';
+import { DarkButton } from '../components/decoration/buttons';
+import ImageContainer from '../components/decoration/imageContainer';
+import CustomImage from '../components/decoration/customImage';
+
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';
 import heroTagline from '../../public/images/services/VH-services-hero-text.png';
 import adviceIcon from '../../public/images/services/Services-icon-advice.png';
 import fundingIcon from '../../public/images/services/Services-icon-funding.png';
 import projectIcon from '../../public/images/services/Services-icon-project.png';
 import webIcon from '../../public/images/services/Services-icon-web.png';
-
-import { FirstSubSection } from '../components/decoration/textBlocks';
-import { DarkButton } from '../components/decoration/buttons';
+import PixelBulb from '../../public/images/VH_PixelBulb.png';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -149,7 +152,7 @@ const Services: React.FC = () => (
         selective with who we can help with our limited resources. Ask us either
         way!
       </FirstSubSection>
-      <div className="flex flex-col md:space-y-20 items-center mx-auto drop-shadow-2xl text-2xl mb-28">
+      <div className="flex flex-col md:space-y-20 items-center mx-auto text-2xl mb-20">
         {SERVICE_BLOCKS.map((service, index) => (
           <Service
             key={service.title}
@@ -157,6 +160,23 @@ const Services: React.FC = () => (
             {...service}
           />
         ))}
+      </div>
+      <div className="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center">
+        <ImageContainer>
+          <CustomImage
+            src={PixelBulb}
+            alt=""
+            layout="fixed"
+            height={PixelBulb.height / 3}
+            width={PixelBulb.width / 3}
+          />
+        </ImageContainer>
+        <div className="text-center text-grey-darker px-3 md:w-2/3">
+          We do on ocassion offer paid services for activists and/or
+          organizations that need dedicated or priority speed support. If you
+          fit that criteria, please contact us below. Our pricing is based on
+          your budget and is discounted for non-profits.
+        </div>
       </div>
     </div>
     <Sprite image={pig} pixelsLeft={3} pixelsRight={1} />

@@ -5,7 +5,7 @@ import CustomImage from '../../decoration/customImage';
 const JoinOurTeam: React.FC = () => {
   return (
     <div className="bg-black">
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12">
+      <div className="content-center mx-auto md:w-1/2 text-2xl pb-12">
         <p className="mb-12 text-grey-dark pt-16">
           <span className="text-5xl font-mono uppercase text-white">
             Join Our Team

@@ -41,7 +41,7 @@ const Newsletter: React.FC = () => {
   return (
     <div className="p-10 bg-grey-background">
       <FirstSubSection header="Our Newsletter">
-        <div className="md:w-1/4 mx-auto">
+        <div className="md:w-4/5 mx-auto">
           Sign up to our newsletter and never miss a post! We&apos;ll send you
           occasional updated from our blog, and sneak previews for our upcoming
           projects and events.

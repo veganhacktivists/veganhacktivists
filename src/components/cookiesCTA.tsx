@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { DarkButton } from './decoration/buttons';
+import SubtleBorder from './decoration/subtleBorder';
 
 const CONSENT_COOKIE_NAME = 'vh_analytics';
 
@@ -39,7 +40,7 @@ const CookiesCTA: React.FC = () => {
       id="cookies"
       className="fixed bottom-0 right-1/2 translate-x-1/2 md:translate-x-0 md:right-0 z-50 pt-8 px-8 md:pb-8"
     >
-      <div className="bg-white relative p-8 pb-4 max-w-full shadow-lg w-screen md:w-[400px]">
+      <SubtleBorder className="bg-white relative p-8 pb-4 max-w-full w-screen md:w-[400px]">
         <div
           onClick={() => {
             setShow(false);
@@ -61,7 +62,7 @@ const CookiesCTA: React.FC = () => {
         >
           No cookies, please
         </p>
-      </div>
+      </SubtleBorder>
     </div>
   );
 };

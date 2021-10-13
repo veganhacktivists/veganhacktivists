@@ -62,6 +62,7 @@ export const getFeaturedProjects: () => Promise<Entry<IProjectFields>[]> =
       },
       other: {
         order: '-fields.date',
+        limit: 8,
       },
     });
 
@@ -72,7 +73,7 @@ export const getBlogEntries: (
   limit?: number
 ) => Promise<Entry<IBlogEntryFields>[]> = async (limit) => {
   const fields =
-    'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.content';
+    'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.tags';
 
   const [newBlogs, oldBlogs] = await Promise.all([
     getContents<IBlogEntryFields>({

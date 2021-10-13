@@ -2,11 +2,12 @@ import { LightButton } from '../../decoration/buttons';
 import React from 'react';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import BlogEntrySummary from '../blog/blogEntrySummary';
+import SubtleBorder from '../../decoration/subtleBorder';
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (
     <>
-      <div className="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16">
+      <div className="content-center mx-auto md:w-1/2 text-2xl pt-16">
         <p className="text-grey-dark pb-5">
           <span className="font-italic font-semibold text-3xl">On the </span>
           <b className="text-5xl font-mono">BLOG</b>
@@ -18,7 +19,9 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-2 gap-y-4 lg:px-32 px-4">
         {entries.map((entry) => (
-          <BlogEntrySummary key={entry.fields.slug} blog={entry} />
+          <SubtleBorder border={false} key={entry.fields.slug}>
+            <BlogEntrySummary blog={entry} />
+          </SubtleBorder>
         ))}
       </div>
       <div className="bg-grey w-full relative h-32 bottom-32 -z-10" />

@@ -37,7 +37,7 @@ const Circle: React.FC<CircleProps> = ({
       width={radius * 2 + 'vw'}
       height={radius * 2 + 'vw'}
       style={style}
-      className={`overflow-visible absolute transform ${xTransform} ${yTransform}
+      className={`overflow-visible absolute transform pointer-events-none ${xTransform} ${yTransform}
     `}
     >
       <circle

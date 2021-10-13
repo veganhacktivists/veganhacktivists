@@ -50,7 +50,7 @@ exports[`Application renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="relative text-white mx-auto md:w-1/2 drop-shadow-2xl text-2xl"
+        class="relative text-white mx-auto md:w-1/2 text-2xl"
       >
         Building for the animal rights movement since 2019.
       </div>
@@ -73,7 +73,7 @@ exports[`Application renders correctly 1`] = `
       class="absolute inset-0 overflow-hidden"
     >
       <svg
-        class="overflow-visible absolute transform translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
+        class="overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
     "
         height="60vw"
         style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
@@ -90,7 +90,7 @@ exports[`Application renders correctly 1`] = `
         />
       </svg>
       <svg
-        class="overflow-visible absolute transform -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
+        class="overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
     "
         height="68vw"
         style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
@@ -137,7 +137,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="content-center mx-auto my-24 md:w-1/2 drop-shadow-2xl text-2xl px-5"
+    class="content-center mx-auto my-24 md:w-1/2 text-2xl px-5"
   >
     <div
       style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -183,7 +183,7 @@ exports[`Application renders correctly 1`] = `
       <b>
         volunteering our time and skills
       </b>
-       towards the animal rights movement. We build free technology with the goal of reducing or stopping the mass amounts of suffering caused by factory farming and other forms of animal exploitation.
+       towards the animal rights movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
     </p>
     <p>
       <b>
@@ -360,7 +360,7 @@ exports[`Application renders correctly 1`] = `
     class="bg-grey-background"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16 px-5"
+      class="content-center mx-auto md:w-1/2 text-2xl pt-16 px-5"
     >
       <p
         class="text-grey-dark pb-5"
@@ -422,7 +422,7 @@ exports[`Application renders correctly 1`] = `
     class="bg-black"
   >
     <div
-      class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pb-12"
+      class="content-center mx-auto md:w-1/2 text-2xl pb-12"
     >
       <p
         class="mb-12 text-grey-dark pt-16"
@@ -500,7 +500,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="content-center mx-auto md:w-1/2 drop-shadow-2xl text-2xl pt-16"
+    class="content-center mx-auto md:w-1/2 text-2xl pt-16"
   >
     <p
       class="text-grey-dark pb-5"

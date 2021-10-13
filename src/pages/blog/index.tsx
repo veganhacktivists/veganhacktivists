@@ -1,5 +1,9 @@
 import type { GetStaticProps } from 'next';
-import type { IBlogEntry } from '../../types/generated/contentful';
+import type {
+  IBlogEntry,
+  ITag,
+  ITagFields,
+} from '../../types/generated/contentful';
 import { usePagination } from 'react-use-pagination';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,41 +20,61 @@ import { getBlogEntries } from '../../lib/cms/helpers';
 import SquareField from '../../components/decoration/squares';
 import BlogsHeader from '../../components/layout/blog/blogsHeader';
 import Newsletter from '../../components/layout/newsletter';
+import { getContents } from '../../lib/cms';
+import SubtleBorder from '../../components/decoration/subtleBorder';
 
 interface BlogProps {
   blogs: IBlogEntry[];
+  tags: ITag[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await getBlogEntries();
+  const tags = await getContents<ITagFields>({ contentType: 'tag' });
 
   return {
     props: {
       blogs,
+      tags,
     },
     revalidate: 480,
   };
 };
 
-const Blog: React.FC<BlogProps> = ({ blogs }) => {
-  const [query, setQuery] = useState<string>('');
+const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
+  entry,
+  tagQuery
+) => {
+  if (tagQuery === undefined) return true;
+
+  if (tagQuery !== null) {
+    return !!entry.fields.tags?.find((tag) => tag.fields.slug === tagQuery);
+  }
+
+  return !entry.fields.tags;
+};
+
+const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const [tagQuery, setTagQuery] = useState<string | null | undefined>(null);
 
   const [firstBlog, ...otherBlogs] = blogs;
 
-  const filterKeys = ['fields.title']; //['fields.title', 'fields.excerpt']
+  const filterKeys = ['fields.title'];
 
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
     options: { keys: filterKeys },
-    term: query,
-  });
+    term: searchQuery,
+  }).filter((entry) => filterByTag(entry, tagQuery));
 
   const filteredEntries = useFuse({
     data: otherBlogs,
     options: { keys: filterKeys },
-    term: query,
+    term: searchQuery,
     sort: true,
-  });
+  }).filter((entry) => filterByTag(entry, tagQuery));
 
   const {
     startIndex,
@@ -78,7 +102,12 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
         ]}
         className="z-10 hidden md:block"
       />
-      <BlogsHeader onQueryChange={setQuery} query={query} />
+      <BlogsHeader
+        tags={tags}
+        onSearchChange={setSearchQuery}
+        onTagChange={setTagQuery}
+        query={searchQuery}
+      />
       <SquareField
         squares={[
           { color: 'green-light', size: 32, top: -16, left: 0 },
@@ -91,21 +120,29 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
         className="hidden lg:block"
       />
       <div className="pt-20 pb-20">
-        <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
-          {filteredFirstBlog.length !== 0 && currentPage === 0 && (
-            <div
-              key={filteredFirstBlog[0].fields.slug}
-              className={'col-span-full'}
-            >
-              <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
-            </div>
-          )}
-          {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
-            <div key={blog.fields.slug} className="col-span-full md:col-span-1">
-              <BlogEntrySummary blog={blog} />
-            </div>
-          ))}
-        </div>
+        {!filteredFirstBlog.length && !filteredEntries.length ? (
+          <div className="mx-auto text-xl">No entries match your query</div>
+        ) : (
+          <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
+            {filteredFirstBlog.length !== 0 && currentPage === 0 && (
+              <SubtleBorder
+                key={filteredFirstBlog[0].fields.slug}
+                className="col-span-full"
+              >
+                <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
+              </SubtleBorder>
+            )}
+            {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
+              <SubtleBorder
+                key={blog.fields.slug}
+                className="col-span-full md:col-span-1"
+              >
+                <BlogEntrySummary blog={blog} />
+              </SubtleBorder>
+            ))}
+          </div>
+        )}
+
         <div className="flex flex-row mx-auto gap-10 justify-center p-16">
           <DarkButton
             onClick={() => {
