@@ -139,9 +139,9 @@ exports[`should render correctly 1`] = `
             services
           </span>
         </div>
-        <p>
+        <div>
           Aside from building our own projects, we also serve the greater community! If you’re an animal rights activist, organization, or just a vegan who needs help - let us know! Please keep in mind that while all of our services are free this unfortunately means we have to be selective with who we can help with our limited resources. Ask us either way!
-        </p>
+        </div>
       </h1>
     </div>
     <div

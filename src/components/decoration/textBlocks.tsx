@@ -65,7 +65,7 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
         <span className="font-italic text-3xl">{firstWords}</span>{' '}
         <BoldHeaderText>{remainingWords}</BoldHeaderText>
       </div>
-      <p>{children}</p>
+      <div>{children}</div>
     </HeaderContainer>
   );
 };
