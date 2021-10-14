@@ -20,7 +20,9 @@ import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import ProgressBar from '../components/layout/support/progressBar';
 import useThemeColor from '../hooks/useThemeColor';
-import { getPatrons, getPledgeSum } from '../lib/patreon';
+import { getContents } from '../lib/cms';
+import { getPatrons } from '../lib/patreon';
+import type { ISingleValuesFields } from '../types/generated/contentful';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -74,9 +76,9 @@ const Paragraph: React.FC = ({ children }) => (
   <p className="text-xl md:w-3/4 mx-auto mb-20 px-10">{children}</p>
 );
 
-const Support: React.FC<{ patrons: string[]; pledgeSum: number }> = ({
+const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
   patrons,
-  pledgeSum,
+  patreonFunding,
 }) => {
   return (
     <>
@@ -162,7 +164,7 @@ const Support: React.FC<{ patrons: string[]; pledgeSum: number }> = ({
             aliquet lectus proin nibh nisl condimentum id.
           </span>
         </Paragraph>
-        <ProgressBar currentAmount={pledgeSum} />
+        <ProgressBar currentAmount={patreonFunding} />
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
             href="https://www.patreon.com/veganhacktivists"
@@ -215,12 +217,18 @@ const Support: React.FC<{ patrons: string[]; pledgeSum: number }> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const patrons = await getPatrons();
-  const pledgeSum = await getPledgeSum('EUR');
+  const patreonFundingQuery = await getContents<ISingleValuesFields>({
+    contentType: 'singleValues',
+    query: {
+      name: 'patreon-funding',
+    },
+  });
+  const patreonFunding = parseFloat(patreonFundingQuery[0].fields.value);
 
   return {
     props: {
       patrons,
-      pledgeSum,
+      patreonFunding,
     },
     revalidate: 480,
   };
