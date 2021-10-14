@@ -9,13 +9,16 @@ import {
 import {
   faEnvelope,
   faGlobe as websiteIcon,
-  faFistRaised as activistHubIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import type { ISocialLinksFields } from '../../../types/generated/contentful';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+
+import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
+import ImageContainer from '../../decoration/imageContainer';
+import CustomImage from '../../decoration/customImage';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<
   keyof ISocialLinksFields,
@@ -28,7 +31,7 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<
   website: websiteIcon,
   linkedIn: linkedInIcon,
   // TODO: Do we have an icon for this?
-  activistHub: activistHubIcon,
+  activistHub: ahIcon,
   youtube: youtubeIcon,
   email: faEnvelope,
 };
@@ -46,6 +49,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   if (!hasAnySocialLinks) {
     return null;
   }
+
   return (
     <div
       className={classNames(
@@ -53,14 +57,25 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         className
       )}
     >
-      {Object.entries(socialLinks).map(([key, value]) => (
+      {Object.entries({ ...socialLinks }).map(([key, value]) => (
         <a key={key} href={value} target="_blank" rel="noreferrer">
           <div className="bg-grey-background text-grey-dark p-1">
-            <FontAwesomeIcon
-              // size="lg"
-              fixedWidth
-              icon={SOCIAL_LINK_KEY_TO_ICON[key as keyof ISocialLinksFields]}
-            />
+            {key === 'activistHub' ? (
+              <ImageContainer>
+                <CustomImage
+                  src={ahIcon}
+                  alt=""
+                  layout="fixed"
+                  width={30}
+                  height={24}
+                />
+              </ImageContainer>
+            ) : (
+              <FontAwesomeIcon
+                fixedWidth
+                icon={SOCIAL_LINK_KEY_TO_ICON[key as keyof ISocialLinksFields]}
+              />
+            )}
           </div>
         </a>
       ))}
