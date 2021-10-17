@@ -14,6 +14,7 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
 } from 'react';
+import useThemeColor from '../../../hooks/useThemeColor';
 
 export interface ButtonProps
   extends AriaAttributes,
@@ -29,7 +30,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
@@ -90,7 +91,7 @@ const LightButton: React.FC<ButtonProps> = ({
       {...props}
       className={classNames(
         baseButtonClasses,
-        'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
+        'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
         primary ? 'border-pink' : '',
         className
       )}
@@ -111,13 +112,17 @@ const DarkButton: React.FC<ButtonProps> = ({
       {...props}
       className={classNames(
         baseButtonClasses,
-        active
-          ? 'hover:shadow-fill-pink bg-magenta border-pink'
-          : 'hover:shadow-fill-green bg-grey-dark border-green',
-        'text-white',
-        { 'bg-grey-light cursor-not-allowed': props.disabled },
+        'transition-all bg-grey-dark overflow-hidden text-white',
+        active ? 'border-pink' : 'border-green hover:!bg-left',
         className
       )}
+      style={{
+        background: `linear-gradient(to right, ${useThemeColor(
+          'green'
+        )},  50%, ${useThemeColor(active ? 'magenta' : 'grey-dark')} 50%)`,
+        backgroundSize: '200% 100%',
+        backgroundPosition: 'right',
+      }}
     >
       {children}
     </BaseButton>
