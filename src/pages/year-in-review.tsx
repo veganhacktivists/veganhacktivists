@@ -339,7 +339,6 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               src={Strawberry}
               alt=""
               layout="responsive"
-              loading="eager"
             />
           </div>
           <div className="px-5 mb-5">
@@ -377,7 +376,6 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
               src={Blueberry}
               alt=""
               layout="responsive"
-              loading="eager"
               className="drop-shadow-xl"
             />
           </div>

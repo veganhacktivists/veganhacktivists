@@ -94,7 +94,6 @@ const Sprite: React.FC<SpriteProps> = ({
             height={image.height * scale}
             width={image.width * scale}
             alt=""
-            loading="eager"
             layout="fixed"
           />
         </div>
