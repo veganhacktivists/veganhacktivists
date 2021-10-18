@@ -54,7 +54,6 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
             height={chicken.height * 0.5}
             width={chicken.width * 0.5}
             alt=""
-            loading="eager"
           />
         </div>
       </div>
