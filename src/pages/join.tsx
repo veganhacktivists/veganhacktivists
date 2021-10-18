@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Hero from '../components/decoration/hero';
 import type { CandidateRequirementProps } from '../components/layout/join/candidateRequirement';
 import CandidateRequirement from '../components/layout/join/candidateRequirement';
@@ -26,6 +25,7 @@ import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import CustomImage from '../components/decoration/customImage';
+import { NextSeo } from 'next-seo';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
@@ -156,9 +156,7 @@ const HERO_DECORATION_SQUARES = [
 
 const Join: React.FC = () => (
   <>
-    <Head>
-      <title>Join us | Vegan Hacktivists</title>
-    </Head>
+    <NextSeo title="Join Us" />
     <Hero
       imageBackground={heroBackground}
       tagline={{

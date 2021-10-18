@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 
 import Hero from '../components/decoration/hero';
 import InfoBox from '../components/infoBox';
@@ -19,6 +18,7 @@ import fundingIcon from '../../public/images/services/Services-icon-funding.png'
 import projectIcon from '../../public/images/services/Services-icon-project.png';
 import webIcon from '../../public/images/services/Services-icon-web.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
+import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -125,9 +125,7 @@ const Service: React.FC<ServiceProps> = ({
 
 const Services: React.FC = () => (
   <>
-    <Head>
-      <title>Services | Vegan Hacktivists</title>
-    </Head>
+    <NextSeo title="Services" />
     <div>
       <Hero
         imageBackground={heroBackground}

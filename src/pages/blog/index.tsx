@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { DarkButton } from '../../components/decoration/buttons';
 import { getBlogEntries } from '../../lib/cms/helpers';
 import SquareField from '../../components/decoration/squares';
@@ -91,9 +91,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
 
   return (
     <>
-      <Head>
-        <title>Blog | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Blog" />
       <SquareField
         squares={[
           { color: 'grey', size: 32, top: 0, left: 0 },

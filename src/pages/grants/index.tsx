@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import SquareField from '../../components/decoration/squares';
 import Sprite, { pig, chicks } from '../../components/decoration/sprite';
 import {
@@ -10,6 +9,7 @@ import {
   GrantsApplication,
 } from '../../components/layout/grants/index';
 import JoinTheTeam from '../../components/layout/joinTheTeam';
+import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -38,9 +38,7 @@ const GRANTS_QUALIFICATIONS_SQUARES = [
 const Grants: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Seed Funding Grants | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Seed Funding Grants" />
       <GrantsHero />
       <SquareField
         squares={HERO_DECORATION_SQUARES}

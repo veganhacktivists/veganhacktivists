@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import PixelCow from '../../../public/images/VH_PixelCow.png';
 import CustomImage from '../../components/decoration/customImage';
 import {
@@ -11,9 +11,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 const OurMission: PageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>Our Mission | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Our Mission" />
       <FirstSubSection header="Our mission">
         Our mission is to build new, data-driven, disruptive, and innovative
         projects to help see an end to animal exploitation. We believe the
