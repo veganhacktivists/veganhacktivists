@@ -4,11 +4,12 @@ import AnimatedBar from './animatedBar';
 import PatreonGoal from './patreonGoal';
 import TickMarks from './tickMarks';
 
-interface ProgressBarProps {
+export interface ProgressBarProps {
   currentAmount: number;
+  goal: number;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
   return (
     <div className="hidden md:block max-w-6xl mx-8 xl:mx-auto relative mb-48">
       <div className="h-24 w-full bg-grey absolute bottom-0">
@@ -19,11 +20,16 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
           ]}
           className="relative z-10"
         />
-        <AnimatedBar target={currentAmount} />
+        <AnimatedBar current={currentAmount} goal={5000} />
       </div>
       <TickMarks />
       <div className="flex flex-row items-end w-full">
-        <PatreonGoal goalAmount={1353} goalColor="yellow" goalOrder={1}>
+        <PatreonGoal
+          goalAmount={1353}
+          goalColor="yellow"
+          goalOrder={1}
+          totalAmount={goal}
+        >
           Needed to cover operational expenses
         </PatreonGoal>
         <PatreonGoal
@@ -31,6 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
           previousAmount={1353}
           goalColor="yellow-orange"
           goalOrder={2}
+          totalAmount={goal}
         >
           Can afford more useful services and tech
         </PatreonGoal>
@@ -39,6 +46,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
           previousAmount={2500}
           goalColor="orange"
           goalOrder={3}
+          totalAmount={goal}
         >
           We can ramp up value and services offered
         </PatreonGoal>
@@ -47,6 +55,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
           previousAmount={3750}
           goalColor="magenta"
           goalOrder={4}
+          totalAmount={goal}
         >
           Self-Sustainable Goal
         </PatreonGoal>

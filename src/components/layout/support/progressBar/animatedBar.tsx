@@ -5,18 +5,19 @@ import useReduceMotion from '../../../../hooks/useReduceMotion';
 import chicken from '../../../../../public/images/sprite_chicken.gif';
 import CustomImage from '../../../decoration/customImage';
 
-interface AnimatedBarProps {
-  target?: number;
+export interface AnimatedBarProps {
+  current: number;
+  goal: number;
 }
 
-const AnimatedBar: React.FC<AnimatedBarProps> = ({ target }) => {
+const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
   const [onView, setOnView] = useState<boolean>(false);
 
   const prefersReducedMotion = useReduceMotion();
 
   const { currentAmount } = useSpring({
     from: { currentAmount: 0 },
-    to: { currentAmount: target },
+    to: { currentAmount: current },
     config: prefersReducedMotion ? { duration: 0 } : config.molasses,
     cancel: !onView,
   });
@@ -24,7 +25,7 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ target }) => {
     <>
       <div className="flex flex-row">
         <animated.div
-          style={{ width: currentAmount.to((num) => (num / 5000) * 100 + '%') }}
+          style={{ width: currentAmount.to((num) => (num / goal) * 100 + '%') }}
           className="h-24 relative bg-green border-green border-r-[3px] box-border"
         >
           <div className="flex flex-col space-y-2 justify-end h-40 w-48 absolute -bottom-40 -right-48 border-green border-l-[3px] pl-4">

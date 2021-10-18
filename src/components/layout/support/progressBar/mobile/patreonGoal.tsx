@@ -1,20 +1,15 @@
 import React from 'react';
 import useThemeColor from '../../../../../hooks/useThemeColor';
-
-interface PatreonGoalProps {
-  goalAmount: number;
-  goalOrder: number;
-  previousAmount?: number;
-  goalColor: string;
-}
+import type { PatreonGoalProps } from '../patreonGoal';
 
 const PatreonGoal: React.FC<PatreonGoalProps> = ({
   goalAmount,
   previousAmount = 0,
   goalColor,
+  totalAmount,
   children,
 }) => {
-  const percentage = ((goalAmount - previousAmount) / 5000) * 100 + '%';
+  const percentage = ((goalAmount - previousAmount) / totalAmount) * 100 + '%';
 
   return (
     <div

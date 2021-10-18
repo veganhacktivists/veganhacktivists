@@ -4,19 +4,16 @@ import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../../../../../hooks/useReduceMotion';
 import chicken from '../../../../../../public/images/sprite_chicken.gif';
 import CustomImage from '../../../../decoration/customImage';
+import type { AnimatedBarProps } from '../animatedBar';
 
-interface AnimatedBarProps {
-  target?: number;
-}
-
-const AnimatedBar: React.FC<AnimatedBarProps> = ({ target }) => {
+const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
   const [onView, setOnView] = useState<boolean>(false);
 
   const prefersReducedMotion = useReduceMotion();
 
   const { currentAmount } = useSpring({
     from: { currentAmount: 0 },
-    to: { currentAmount: target },
+    to: { currentAmount: current },
     config: prefersReducedMotion ? { duration: 0 } : config.molasses,
     cancel: !onView,
   });
@@ -25,7 +22,7 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ target }) => {
       <div className="flex flex-col-reverse absolute h-full">
         <animated.div
           style={{
-            height: currentAmount.to((num) => (num / 5000) * 100 + '%'),
+            height: currentAmount.to((num) => (num / goal) * 100 + '%'),
           }}
           className="w-24 relative bg-green border-green border-t-[3px]"
         >

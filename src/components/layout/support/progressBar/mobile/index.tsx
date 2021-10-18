@@ -1,20 +1,23 @@
 import React from 'react';
+import type { ProgressBarProps } from '..';
 import SquareField from '../../../../decoration/squares';
 import AnimatedBar from './animatedBar';
 import PatreonGoal from './patreonGoal';
 import TickMarks from './tickMarks';
 
-interface MobileProgressBarProps {
-  currentAmount: number;
-}
-
-const MobileProgressBar: React.FC<MobileProgressBarProps> = ({
+const MobileProgressBar: React.FC<ProgressBarProps> = ({
   currentAmount,
+  goal,
 }) => {
   return (
     <div className="md:hidden relative h-[600px] flex flex-row justify-center">
       <div className="flex flex-col-reverse h-full w-40">
-        <PatreonGoal goalAmount={1353} goalColor="yellow" goalOrder={1}>
+        <PatreonGoal
+          goalAmount={1353}
+          goalColor="yellow"
+          goalOrder={1}
+          totalAmount={goal}
+        >
           Needed to cover operational expenses
         </PatreonGoal>
         <PatreonGoal
@@ -22,6 +25,7 @@ const MobileProgressBar: React.FC<MobileProgressBarProps> = ({
           previousAmount={1353}
           goalColor="yellow-orange"
           goalOrder={2}
+          totalAmount={goal}
         >
           Can afford more useful services and tech
         </PatreonGoal>
@@ -30,6 +34,7 @@ const MobileProgressBar: React.FC<MobileProgressBarProps> = ({
           previousAmount={2500}
           goalColor="orange"
           goalOrder={3}
+          totalAmount={goal}
         >
           We can ramp up value and services offered
         </PatreonGoal>
@@ -38,12 +43,13 @@ const MobileProgressBar: React.FC<MobileProgressBarProps> = ({
           previousAmount={3750}
           goalColor="magenta"
           goalOrder={4}
+          totalAmount={goal}
         >
           Self-Sustainable Goal
         </PatreonGoal>
       </div>
       <div className="h-full w-24 bg-grey relative">
-        <AnimatedBar target={currentAmount} />
+        <AnimatedBar current={currentAmount} goal={goal} />
         <SquareField
           squares={[
             { top: 0, left: 0, color: 'black', size: 5, opacity: 30 },
