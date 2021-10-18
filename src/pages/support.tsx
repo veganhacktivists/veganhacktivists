@@ -166,7 +166,9 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />
-        <MobileProgressBar currentAmount={patreonFunding} goal={5000} />
+        <div className="overflow-hidden py-2">
+          <MobileProgressBar currentAmount={patreonFunding} goal={5000} />
+        </div>
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
             href="https://www.patreon.com/veganhacktivists"

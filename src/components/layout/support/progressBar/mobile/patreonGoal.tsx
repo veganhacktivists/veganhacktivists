@@ -25,7 +25,7 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
         </h1>
         <p className="text-lg text-white mb-2">{children}</p>
       </div>
-      <div className="w-24 h-full absolute top-[-3px] -right-24 border-white border-t-[3px]" />
+      <div className="w-full h-full absolute top-[-3px] right-[-15vw] border-white border-t-[3px]" />
     </div>
   );
 };

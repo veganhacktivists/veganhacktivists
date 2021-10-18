@@ -19,12 +19,12 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
   });
   return (
     <>
-      <div className="flex flex-col-reverse absolute h-full">
+      <div className="flex flex-col-reverse absolute h-full w-[15vw]">
         <animated.div
           style={{
             height: currentAmount.to((num) => (num / goal) * 100 + '%'),
           }}
-          className="w-24 relative bg-green border-green border-t-[3px]"
+          className="relative bg-green border-green border-t-[3px]"
         >
           <div className="flex flex-col space-y-2 text-right items-end h-40 w-36 absolute top-[-3px] -right-36 z-30 border-green border-t-[3px] pl-4 bg-grey-darker">
             <div className="flex flex-row">

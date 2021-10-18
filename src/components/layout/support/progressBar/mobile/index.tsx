@@ -48,7 +48,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
           Self-Sustainable Goal
         </PatreonGoal>
       </div>
-      <div className="h-full w-24 bg-grey relative">
+      <div className="h-full w-[15vw] bg-grey relative">
         <AnimatedBar current={currentAmount} goal={goal} />
         <SquareField
           squares={[
