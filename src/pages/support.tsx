@@ -19,7 +19,6 @@ import { PlainHeader } from '../components/decoration/textBlocks';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import ProgressBar from '../components/layout/support/progressBar';
-import MobileProgressBar from '../components/layout/support/progressBar/mobile';
 import useThemeColor from '../hooks/useThemeColor';
 import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
@@ -166,9 +165,6 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />
-        <div className="overflow-hidden py-2">
-          <MobileProgressBar currentAmount={patreonFunding} goal={5000} />
-        </div>
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
             href="https://www.patreon.com/veganhacktivists"
