@@ -10,7 +10,7 @@ interface ProgressBarProps {
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount }) => {
   return (
-    <div className="max-w-6xl mx-8 md:mx-auto relative mb-48">
+    <div className="hidden md:block max-w-6xl mx-8 xl:mx-auto relative mb-48">
       <div className="h-24 w-full bg-grey absolute bottom-0">
         <SquareField
           squares={[

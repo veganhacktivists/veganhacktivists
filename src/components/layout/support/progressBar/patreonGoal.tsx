@@ -12,15 +12,9 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
   goalAmount,
   previousAmount = 0,
   goalColor,
-  goalOrder,
   children,
 }) => {
   const percentage = ((goalAmount - previousAmount) / 5000) * 100 + '%';
-  const spacers: JSX.Element[] = [];
-
-  for (let i = 1; i < goalOrder; i++) {
-    spacers.push(<div className="h-36 md:h-0" />);
-  }
 
   return (
     <div
@@ -36,7 +30,6 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
         </h1>
         <p className="text-lg md:text-xl text-white">{children}</p>
       </div>
-      {spacers}
       <div className="h-24" />
     </div>
   );
