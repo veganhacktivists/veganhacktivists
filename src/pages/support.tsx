@@ -158,10 +158,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         </h2>
         <Paragraph>
           <span className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
-            mattis enim ut tellus elementum sagittis vitae et. Nibh tortor id
-            aliquet lectus proin nibh nisl condimentum id.
+          See our Patreon goals below - help us grow and be more effective!
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />

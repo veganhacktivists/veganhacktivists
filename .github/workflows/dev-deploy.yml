@@ -24,6 +24,7 @@ env:
   MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
   PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
   PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+  MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
 
 jobs:
   build_and_push:
@@ -71,6 +72,7 @@ jobs:
             --env CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN \
             --env CF_ENVIRONMENT=$CF_ENVIRONMENT \
             --env MAILGUN_API_KEY=$MAILGUN_API_KEY \
+            --env MAILCHIMP_AUDIENCE_ID=$MAILCHIMP_AUDIENCE_ID \
             --label traefik.enable=true \
             --label traefik.docker.network=traefik-public \
             --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \

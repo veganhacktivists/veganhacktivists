@@ -32,7 +32,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={1}
             totalAmount={goal}
           >
-            Needed to cover operational expenses
+            Needed to cover basic operational expenses
           </PatreonGoal>
           <PatreonGoal
             goalAmount={2500}
@@ -41,7 +41,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={2}
             totalAmount={goal}
           >
-            Can afford more useful services and tech
+            We can utilize more useful services and tech
           </PatreonGoal>
           <PatreonGoal
             goalAmount={3750}
