@@ -12,7 +12,7 @@ const fillStyle: (from: string, to: string) => React.CSSProperties = (
   to
 ) => {
   return {
-    background: `linear-gradient(to right, ${getThemeColor(
+    backgroundImage: `linear-gradient(to right, ${getThemeColor(
       to
     )},  50%, ${getThemeColor(from)} 50%)`,
     backgroundSize: '250% 100%',
