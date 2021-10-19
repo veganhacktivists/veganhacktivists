@@ -47,7 +47,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono hover:!bg-left transition-all duration-500 ease-linear capitalize"
             href="/people/team"
             style="background-size: 250% 100%; background-position: right;"
           >
