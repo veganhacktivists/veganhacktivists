@@ -80,7 +80,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
             </div>
           </label>
         </div>
-        <div className="mt-5 text-left text-xl">
+        <div className="my-5 text-left text-xl">
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
             Categories
           </div>
