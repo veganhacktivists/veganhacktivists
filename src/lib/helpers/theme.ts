@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import tailwindConfig from '../../tailwind.config';
+import tailwindConfig from '../../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 const fullConfig = resolveConfig(tailwindConfig as any);
@@ -25,7 +25,7 @@ const byString: (object: any, path: string) => string | undefined = (
   return object;
 };
 
-const useThemeColor: (color: string) => string | undefined = (color) => {
+const getThemeColor: (color: string) => string | undefined = (color) => {
   if (color.startsWith('#')) {
     return color;
   }
@@ -41,4 +41,4 @@ const useThemeColor: (color: string) => string | undefined = (color) => {
   return (obj as any).DEFAULT || obj;
 };
 
-export default useThemeColor;
+export default getThemeColor;

@@ -14,6 +14,7 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
 } from 'react';
+import { FillBackground } from './utils';
 
 export interface ButtonProps
   extends AriaAttributes,
@@ -29,7 +30,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
+  'p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
 );
 
 const BaseButton: React.FC<ButtonProps> = ({
@@ -90,7 +91,7 @@ const LightButton: React.FC<ButtonProps> = ({
       {...props}
       className={classNames(
         baseButtonClasses,
-        'hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
+        'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
         primary ? 'border-pink' : '',
         className
       )}
@@ -107,20 +108,19 @@ const DarkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <BaseButton
-      {...props}
-      className={classNames(
-        baseButtonClasses,
-        active
-          ? 'hover:shadow-fill-pink bg-magenta border-pink'
-          : 'hover:shadow-fill-green bg-grey-dark border-green',
-        'text-white',
-        { 'bg-grey-light cursor-not-allowed': props.disabled },
-        className
-      )}
-    >
-      {children}
-    </BaseButton>
+    <FillBackground base={active ? 'magenta' : 'grey-dark'} fill="green">
+      <BaseButton
+        {...props}
+        className={classNames(
+          baseButtonClasses,
+          'transition-all overflow-hidden text-white',
+          active ? 'border-pink' : 'border-green',
+          className
+        )}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
   );
 };
 
@@ -131,29 +131,27 @@ const GreenButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <BaseButton
-      {...props}
-      className={classNames(
-        baseButtonClasses,
-        primary
-          ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
-          : 'hover:shadow-fill-green bg-green-light border-green',
-        'text-white',
-        className
-      )}
+    <FillBackground
+      base={primary ? 'fuchsia' : 'green-light'}
+      fill={primary ? 'pink' : 'green'}
     >
-      {children}
-    </BaseButton>
+      <BaseButton
+        {...props}
+        className={classNames(baseButtonClasses, 'text-white', className)}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
   );
 };
 
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <BaseButton {...props}>
-      <div className="hover:shadow-fill-pink-dark bg-magenta border-l-8 border-pink-dark py-2 ease-linear duration-500">
-        {children}
-      </div>
-    </BaseButton>
+    <FillBackground base="magenta" fill="pink-dark">
+      <BaseButton {...props}>
+        <div className="border-l-8 border-pink-dark py-2">{children}</div>
+      </BaseButton>
+    </FillBackground>
   );
 };
 
