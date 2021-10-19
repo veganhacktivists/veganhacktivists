@@ -8,8 +8,9 @@ exports[`WhiteButton should render correctly 1`] = `
     target="_blank"
   >
     <div
-      class="capitalize"
+      class="hover:!bg-left transition-all duration-500 ease-in-out capitalize"
       href="https://example.org"
+      style="background-size: 200% 100%; background-position: right;"
     >
       <div
         class="border-2 border-opacity-50 p-3"

@@ -87,17 +87,19 @@ const LightButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <BaseButton
-      {...props}
-      className={classNames(
-        baseButtonClasses,
-        'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
-        primary ? 'border-pink' : '',
-        className
-      )}
-    >
-      {children}
-    </BaseButton>
+    <FillBackground base="white" fill="green">
+      <BaseButton
+        {...props}
+        className={classNames(
+          baseButtonClasses,
+          'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
+          primary ? 'border-pink' : '',
+          className
+        )}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
   );
 };
 
@@ -223,9 +225,11 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <BaseButton {...props}>
-      <div className={classes}>{children}</div>
-    </BaseButton>
+    <FillBackground base="white" fill="green">
+      <BaseButton {...props}>
+        <div className={classes}>{children}</div>
+      </BaseButton>
+    </FillBackground>
   );
 };
 
