@@ -206,9 +206,9 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                 href="#contact-us"
-                style="background-size: 200% 100%; background-position: right;"
+                style="background-size: 250% 100%; background-position: right;"
               >
                 Apply for a free website!
               </div>
@@ -275,9 +275,9 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                 href="#contact-us"
-                style="background-size: 200% 100%; background-position: right;"
+                style="background-size: 250% 100%; background-position: right;"
               >
                 Let's chat about your idea!
               </div>
@@ -344,9 +344,9 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                 href="/grants"
-                style="background-size: 200% 100%; background-position: right;"
+                style="background-size: 250% 100%; background-position: right;"
               >
                 Learn about our grant program!
               </div>
@@ -413,9 +413,9 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                 href="#contact-us"
-                style="background-size: 200% 100%; background-position: right;"
+                style="background-size: 250% 100%; background-position: right;"
               >
                 Ask for advice, contact us!
               </div>
@@ -760,8 +760,8 @@ exports[`should render correctly 1`] = `
           class="pt-5 pb-10"
         >
           <button
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green w-52 px-10 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
-            style="background-size: 200% 100%; background-position: right;"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green w-52 px-10 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            style="background-size: 250% 100%; background-position: right;"
             type="submit"
           >
             Submit

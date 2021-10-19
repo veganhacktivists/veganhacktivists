@@ -15,7 +15,7 @@ const fillStyle: (from: string, to: string) => React.CSSProperties = (
     background: `linear-gradient(to right, ${getThemeColor(
       to
     )},  50%, ${getThemeColor(from)} 50%)`,
-    backgroundSize: '200% 100%',
+    backgroundSize: '250% 100%',
     backgroundPosition: 'right',
   };
 };

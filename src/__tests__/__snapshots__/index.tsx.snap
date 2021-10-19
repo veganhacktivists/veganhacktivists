@@ -61,9 +61,9 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
             href="/about"
-            style="background-size: 200% 100%; background-position: right;"
+            style="background-size: 250% 100%; background-position: right;"
           >
             Learn More
           </div>
@@ -208,9 +208,9 @@ exports[`Application renders correctly 1`] = `
         href="/about/our-mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-500 ease-in-out capitalize"
           href="/about/our-mission"
-          style="background-size: 200% 100%; background-position: right;"
+          style="background-size: 250% 100%; background-position: right;"
         >
           Our Mission
         </div>
@@ -395,9 +395,9 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-500 ease-in-out capitalize"
             href="/projects"
-            style="background-size: 200% 100%; background-position: right;"
+            style="background-size: 250% 100%; background-position: right;"
           >
             See All Projects
           </div>
@@ -471,9 +471,9 @@ exports[`Application renders correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
             href="/people/team"
-            style="background-size: 200% 100%; background-position: right;"
+            style="background-size: 250% 100%; background-position: right;"
           >
             Meet the Team
           </div>
@@ -482,9 +482,9 @@ exports[`Application renders correctly 1`] = `
           href="/join"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
             href="/join"
-            style="background-size: 200% 100%; background-position: right;"
+            style="background-size: 250% 100%; background-position: right;"
           >
             Apply to Join
           </div>
@@ -543,9 +543,9 @@ exports[`Application renders correctly 1`] = `
         href="/blog"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold hover:!bg-left transition-all duration-500 ease-in-out capitalize"
           href="/blog"
-          style="background-size: 200% 100%; background-position: right;"
+          style="background-size: 250% 100%; background-position: right;"
         >
           See All Posts
         </div>
@@ -635,9 +635,9 @@ exports[`Application renders correctly 1`] = `
                 href="/grants"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                   href="/grants"
-                  style="background-size: 200% 100%; background-position: right;"
+                  style="background-size: 250% 100%; background-position: right;"
                 >
                   Apply now!
                 </div>
@@ -720,9 +720,9 @@ exports[`Application renders correctly 1`] = `
                 href="/year-in-review"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-500 ease-in-out capitalize"
                   href="/year-in-review"
-                  style="background-size: 200% 100%; background-position: right;"
+                  style="background-size: 250% 100%; background-position: right;"
                 >
                   See our impact!
                 </div>
