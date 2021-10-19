@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import useThemeColor from '../../hooks/useThemeColor';
+import getThemeColor from '../../lib/helpers/theme';
 
 interface SquareFieldSquareProps extends SquareProps {
   left?: number;
@@ -31,7 +31,7 @@ const Square: React.FC<SquareFieldSquareProps> = ({
   bottom,
   left,
 }) => {
-  const backgroundColor = useThemeColor(color);
+  const backgroundColor = getThemeColor(color);
 
   return (
     <div

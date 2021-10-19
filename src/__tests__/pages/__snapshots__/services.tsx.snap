@@ -206,7 +206,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all bg-grey-dark overflow-hidden text-white border-green hover:!bg-left max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left hover:transition-all hover:translate-x-2 duration-500 ease-in capitalize"
                 href="#contact-us"
                 style="background-size: 200% 100%; background-position: right;"
               >
@@ -275,7 +275,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all bg-grey-dark overflow-hidden text-white border-green hover:!bg-left max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left hover:transition-all hover:translate-x-2 duration-500 ease-in capitalize"
                 href="#contact-us"
                 style="background-size: 200% 100%; background-position: right;"
               >
@@ -344,7 +344,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all bg-grey-dark overflow-hidden text-white border-green hover:!bg-left max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left hover:transition-all hover:translate-x-2 duration-500 ease-in capitalize"
                 href="/grants"
                 style="background-size: 200% 100%; background-position: right;"
               >
@@ -413,7 +413,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all bg-grey-dark overflow-hidden text-white border-green hover:!bg-left max-w-sm capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green max-w-sm hover:!bg-left hover:transition-all hover:translate-x-2 duration-500 ease-in capitalize"
                 href="#contact-us"
                 style="background-size: 200% 100%; background-position: right;"
               >
@@ -428,7 +428,7 @@ exports[`should render correctly 1`] = `
       class="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center"
     >
       <div
-        class="imageContainer"
+        class="image-container"
       >
         <div
           style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 166.66666666666666px; height: 166.66666666666666px;"
@@ -760,7 +760,7 @@ exports[`should render correctly 1`] = `
           class="pt-5 pb-10"
         >
           <button
-            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all bg-grey-dark overflow-hidden text-white border-green hover:!bg-left w-52 px-10 capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green w-52 px-10 hover:!bg-left hover:transition-all hover:translate-x-2 duration-500 ease-in capitalize"
             style="background-size: 200% 100%; background-position: right;"
             type="submit"
           >

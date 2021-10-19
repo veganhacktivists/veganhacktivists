@@ -4,7 +4,7 @@ import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
 import PixelFlowers from '../../../../public/images/VH_PixelFlowers.png';
 import { DarkButton } from '../../decoration/buttons';
 import React from 'react';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 
 const Info: React.FC<{
@@ -24,7 +24,7 @@ const Info: React.FC<{
   backgroundColor = 'white',
   button,
 }) => {
-  const color = useThemeColor(backgroundColor);
+  const color = getThemeColor(backgroundColor);
 
   return (
     <div className="flex flex-col gap-14 mb-20">

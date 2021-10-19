@@ -2,7 +2,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React from 'react';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 import ImageContainer from '../../decoration/imageContainer';
 
@@ -24,11 +24,11 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
   const contentName = contentTitle.replace(/\s+/g, '').toLowerCase();
   const active = currentContent === contentName;
 
-  const backgroundColor = useThemeColor(
+  const backgroundColor = getThemeColor(
     active ? 'grey-dark' : white ? 'white' : 'grey-background'
   );
 
-  const borderColor = useThemeColor(
+  const borderColor = getThemeColor(
     active ? 'grey-dark' : !white ? 'white' : 'grey-background'
   );
 

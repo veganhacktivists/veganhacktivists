@@ -1,4 +1,4 @@
-import useThemeColor from '../../hooks/useThemeColor';
+import getThemeColor from '../../lib/helpers/theme';
 
 interface CircleProps {
   color?: string;
@@ -27,7 +27,7 @@ const Circle: React.FC<CircleProps> = ({
   if (yAlign == 'top') yTransform = '-translate-y-2/4 lg:-translate-y-3/4';
 
   const style = {
-    color: useThemeColor(color),
+    color: getThemeColor(color),
     [xAlign == 'left' ? 'left' : 'right']: 0,
     [yAlign == 'top' ? 'top' : 'bottom']: 0,
   };

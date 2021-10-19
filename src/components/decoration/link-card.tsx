@@ -1,4 +1,4 @@
-import useThemeColor from '../../hooks/useThemeColor';
+import getThemeColor from '../../lib/helpers/theme';
 import { DarkButton } from './buttons';
 
 interface LinkCardProps {
@@ -14,7 +14,7 @@ const LinkCard: React.FC<LinkCardProps> = ({
   buttonText,
   color,
 }) => {
-  const backgroundColor = useThemeColor(color);
+  const backgroundColor = getThemeColor(color);
   return (
     <div>
       <div style={{ backgroundColor }}>{header}</div>

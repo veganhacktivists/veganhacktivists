@@ -14,7 +14,7 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
 } from 'react';
-import useThemeColor from '../../../hooks/useThemeColor';
+import { FillBackground } from './utils';
 
 export interface ButtonProps
   extends AriaAttributes,
@@ -108,24 +108,19 @@ const DarkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <BaseButton
-      {...props}
-      className={classNames(
-        baseButtonClasses,
-        'transition-all bg-grey-dark overflow-hidden text-white',
-        active ? 'border-pink' : 'border-green hover:!bg-left',
-        className
-      )}
-      style={{
-        background: `linear-gradient(to right, ${useThemeColor(
-          'green'
-        )},  50%, ${useThemeColor(active ? 'magenta' : 'grey-dark')} 50%)`,
-        backgroundSize: '200% 100%',
-        backgroundPosition: 'right',
-      }}
-    >
-      {children}
-    </BaseButton>
+    <FillBackground base={active ? 'magenta' : 'grey-dark'} fill="green">
+      <BaseButton
+        {...props}
+        className={classNames(
+          baseButtonClasses,
+          'transition-all overflow-hidden text-white',
+          active ? 'border-pink' : 'border-green',
+          className
+        )}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
   );
 };
 
@@ -136,29 +131,27 @@ const GreenButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <BaseButton
-      {...props}
-      className={classNames(
-        baseButtonClasses,
-        primary
-          ? 'hover:shadow-fill-pink bg-fuchsia border-pink'
-          : 'hover:shadow-fill-green bg-green-light border-green',
-        'text-white',
-        className
-      )}
+    <FillBackground
+      base={primary ? 'fuchsia' : 'green-light'}
+      fill={primary ? 'pink' : 'green'}
     >
-      {children}
-    </BaseButton>
+      <BaseButton
+        {...props}
+        className={classNames(baseButtonClasses, 'text-white', className)}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
   );
 };
 
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <BaseButton {...props}>
-      <div className="hover:shadow-fill-pink-dark bg-magenta border-l-8 border-pink-dark py-2 ease-linear duration-500">
-        {children}
-      </div>
-    </BaseButton>
+    <FillBackground base="magenta" fill="pink-dark">
+      <BaseButton {...props}>
+        <div className="border-l-8 border-pink-dark py-2">{children}</div>
+      </BaseButton>
+    </FillBackground>
   );
 };
 
