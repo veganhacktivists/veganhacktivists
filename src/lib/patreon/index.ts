@@ -45,3 +45,24 @@ export const getPatrons: () => Promise<string[]> = async () => {
 
   return Array.from(new Set(patrons));
 };
+
+export const getPledgeSum: (currency: 'USD' | 'EUR') => Promise<number> =
+  async (currency: 'USD' | 'EUR') => {
+    const campaignUrl =
+      'https://www.patreon.com/api/oauth2/api/current_user/campaigns';
+
+    const response = (await got
+      .get(campaignUrl, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .json()) as Record<string, any>;
+
+    return (
+      (currency === 'USD'
+        ? response.data[0].attributes.campaign_pledge_sum
+        : response.data[0].attributes.pledge_sum) / 100
+    );
+  };
