@@ -55,7 +55,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
             <ContentfulImage image={image} alt={name} priority={isTeamLeader} />
             <div
               className={
-                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-20'
+                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
               }
               style={{
                 backgroundColor: teamColor,
