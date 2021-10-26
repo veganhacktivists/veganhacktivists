@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { Asset } from 'contentful';
 import React from 'react';
-import useThemeColor from '../hooks/useThemeColor';
+import getThemeColor from '../lib/helpers/theme';
 import CustomImage from './decoration/customImage';
 import ImageContainer from './decoration/imageContainer';
 import SquareField from './decoration/squares';
@@ -26,7 +26,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   title,
   layout = 'horizontal',
 }) => {
-  const backgroundColor = useThemeColor(iconBgColor);
+  const backgroundColor = getThemeColor(iconBgColor);
 
   return (
     <div

@@ -1,5 +1,5 @@
 import React from 'react';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 
 export interface CandidateRequirementProps {
@@ -15,7 +15,7 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   description,
   color,
 }) => {
-  const backgroundColor = useThemeColor(color);
+  const backgroundColor = getThemeColor(color);
   return (
     <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
       <div style={{ backgroundColor }} className="p-3 pb-1">

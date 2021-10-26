@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Circle from '../../decoration/circle';
 
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 import type { ITag, ITagFields } from '../../../types/generated/contentful';
 import classNames from 'classnames';
@@ -26,7 +26,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
     undefined
   );
 
-  const greyLight = useThemeColor('grey-light');
+  const greyLight = getThemeColor('grey-light');
 
   useEffect(() => {
     onTagChange(currentTag);
@@ -80,7 +80,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
             </div>
           </label>
         </div>
-        <div className="mt-5 text-left text-xl">
+        <div className="my-5 text-left text-xl">
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
             Categories
           </div>

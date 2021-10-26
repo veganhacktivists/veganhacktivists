@@ -1,4 +1,5 @@
 const twColors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 const colors = {
   // Grays
@@ -83,11 +84,6 @@ module.exports = {
         '3xl': '1600px',
         '4xl': '2000px',
       },
-      boxShadow: {
-        'fill-green': `inset 1000px 0 0 0 ${colors.green.DEFAULT}`,
-        'fill-pink': `inset 1000px 0 0 0 ${colors.pink.DEFAULT}`,
-        'fill-pink-dark': `inset 1000px 0 0 0 ${colors.pink.dark}`,
-      },
       borderWidth: {
         16: '16px',
       },
@@ -102,5 +98,10 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    plugin(({ addComponents }) => {
+      addComponents({ '.image-container > div': { verticalAlign: 'middle' } });
+    }),
+  ],
 };

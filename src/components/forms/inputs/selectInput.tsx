@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import type { StylesConfig } from 'react-select';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
@@ -24,9 +24,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
   creatable = false,
   ...props
 }) => {
-  const grey = useThemeColor('grey') as string;
-  const lightGrey = useThemeColor('grey-light') as string;
-  const red = useThemeColor('red') as string;
+  const grey = getThemeColor('grey') as string;
+  const lightGrey = getThemeColor('grey-light') as string;
+  const red = getThemeColor('red') as string;
 
   const [allOptions, setAllOptions] = useState(options);
   const [value, setValue] = useState<string | null>(null);

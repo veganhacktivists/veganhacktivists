@@ -20,7 +20,7 @@ import { PlainHeader } from '../components/decoration/textBlocks';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import ProgressBar from '../components/layout/support/progressBar';
-import useThemeColor from '../hooks/useThemeColor';
+import getThemeColor from '../lib/helpers/theme';
 import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';
@@ -43,7 +43,7 @@ const DonationCard: React.FC<{
   image: StaticImageData;
   large?: boolean;
 }> = ({ title, buttonText, buttonHref, image, color, large, children }) => {
-  const backgroundColor = useThemeColor(color);
+  const backgroundColor = getThemeColor(color);
 
   return (
     <div
@@ -157,10 +157,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         </h2>
         <Paragraph>
           <span className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
-            mattis enim ut tellus elementum sagittis vitae et. Nibh tortor id
-            aliquet lectus proin nibh nisl condimentum id.
+          See our Patreon goals below - help us grow and be more effective!
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />

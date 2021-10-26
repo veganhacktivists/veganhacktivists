@@ -24,7 +24,7 @@ const handler: NextApiHandler = async (req, res) => {
   try {
     await sendMail({
       to: OUR_EMAIL,
-      from: email,
+      from: OUR_EMAIL,
       subject: `Contact about ${service} from ${name}`,
       html: createFormattedMessage({
         name,

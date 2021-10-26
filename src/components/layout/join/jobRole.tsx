@@ -1,7 +1,7 @@
 import React from 'react';
 import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
-import useThemeColor from '../../../hooks/useThemeColor';
+import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 
 export interface JobRoleProps {
@@ -21,7 +21,7 @@ const JobRole: React.FC<JobRoleProps> = ({
   description,
   href,
 }) => {
-  const backgroundColor = useThemeColor(color);
+  const backgroundColor = getThemeColor(color);
 
   return (
     <div className="bg-gray-background text-grey-dark">

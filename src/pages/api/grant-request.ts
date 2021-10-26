@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiHandler } from 'next';
 import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import HttpCodes from 'http-status-codes';
@@ -38,13 +37,11 @@ const handler: NextApiHandler = async (req, res) => {
       .json(errorBody(HttpCodes.NOT_IMPLEMENTED));
   }
 
-  const { name, email }: GrantsForm = req.body;
-
   try {
     await sendMail({
       to: OUR_EMAIL,
-      from: email,
-      subject: `Grant request from ${name}`,
+      from: OUR_EMAIL,
+      subject: `Grant request from ${req.body.name}`,
       html: createFormattedMessage(req.body),
     });
   } catch (e: unknown) {

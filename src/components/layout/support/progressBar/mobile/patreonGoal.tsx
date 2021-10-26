@@ -1,5 +1,5 @@
 import React from 'react';
-import useThemeColor from '../../../../../hooks/useThemeColor';
+import getThemeColor from '../../../../../lib/helpers/theme';
 import type { PatreonGoalProps } from '../patreonGoal';
 
 const PatreonGoal: React.FC<PatreonGoalProps> = ({
@@ -19,7 +19,7 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
       <div>
         <h1
           className="font-mono text-4xl md:text-5xl mb-2"
-          style={{ color: useThemeColor(goalColor) }}
+          style={{ color: getThemeColor(goalColor) }}
         >
           &euro;{goalAmount.toLocaleString('en-US')}
         </h1>

@@ -58,8 +58,9 @@ exports[`should render correctly 1`] = `
         href="/#"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 bg-w-x2 transition-shadow ease-out duration-[2s] font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate hover:shadow-fill-green text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
           href="#"
+          style="background-size: 250% 100%; background-position: right;"
         >
           Apply Now
         </div>
