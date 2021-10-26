@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
@@ -118,11 +118,13 @@ const NavbarItems: React.FC = () => {
 
 const RightSide: React.FC = () => {
   const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const menuInputCheckRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleRouteChange = () => {
-      setMenuOpen(false);
+      if (!menuInputCheckRef.current) return;
+      menuInputCheckRef.current.checked = false;
     };
 
     router.events.on('routeChangeStart', handleRouteChange);
@@ -131,28 +133,25 @@ const RightSide: React.FC = () => {
     };
   }, []);
 
+  const buttonMenuId = 'menu-button';
+
   return (
     <>
-      <div className="block xl:hidden text-white text-right p-5 bg-black flex-1">
-        <FontAwesomeIcon
-          icon={faBars}
-          size="2x"
-          onClick={() => {
-            setMenuOpen((open) => !open);
-          }}
-          className="cursor-pointer"
+      <div className="block xl:hidden text-white text-right p-5 bg-black flex-1 cursor-pointer">
+        <input
+          type="checkbox"
+          hidden
+          ref={menuInputCheckRef}
+          id={buttonMenuId}
+          className="peer"
         />
-        <div
-          className={classNames(
-            'font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 lg:flex flex-grow items-stretch w-64 max-w-min',
-            menuOpen ? 'flex flex-col' : 'hidden'
-          )}
-        >
-          {menuOpen && (
-            <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
-              <NavbarItems />
-            </div>
-          )}
+        <label htmlFor={buttonMenuId} className="cursor-pointer">
+          <FontAwesomeIcon icon={faBars} size="2x" />
+        </label>
+        <div className="font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 lg:flex flex-grow items-stretch w-64 max-w-min flex-col hidden peer-checked:flex">
+          <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
+            <NavbarItems />
+          </div>
         </div>
       </div>
       <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full ml-auto justify-end align-middle uppercase font-semibold hidden xl:flex flex-nowrap">
