@@ -52,6 +52,9 @@ export interface IDocsCategoryFields {
 
   /** name */
   name: string;
+
+  /** parent */
+  parent?: IDocsCategory | undefined;
 }
 
 export interface IDocsCategory extends Entry<IDocsCategoryFields> {
@@ -81,20 +84,14 @@ export interface IDocumentationFields {
   /** excerpt */
   excerpt?: Document | undefined;
 
-  /** publishDate */
-  publishDate?: string | undefined;
-
   /** content */
-  content?: Document | undefined;
+  content: Document;
 
   /** author */
   author?: ITeamMember | undefined;
 
-  /** featuredImage */
-  featuredImage?: Asset | undefined;
-
-  /** Documentation Category */
-  documentationCategory?: IDocsCategory[] | undefined;
+  /** Category */
+  category: IDocsCategory;
 }
 
 export interface IDocumentation extends Entry<IDocumentationFields> {

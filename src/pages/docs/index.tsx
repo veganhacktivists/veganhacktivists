@@ -1,12 +1,15 @@
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import type { Entry } from 'contentful';
 import { NextSeo } from 'next-seo';
 import React, { useState } from 'react';
 import Circle from '../../components/decoration/circle';
-import Sidebar from 'react-sidebar';
+import Sidebar from '../../components/layout/docs/sidebar';
 import { getContents } from '../../lib/cms';
 import type {
   IDocsCategory,
   IDocsCategoryFields,
   IDocumentation,
+  IDocumentationFields,
 } from '../../types/generated/contentful';
 
 export const getStaticProps = async () => {
@@ -17,9 +20,33 @@ export const getStaticProps = async () => {
     getContents({ contentType: 'documentation' }),
   ]);
 
+  const compareCategories: (
+    a: Entry<IDocsCategoryFields>,
+    b: Entry<IDocsCategoryFields>
+  ) => number = (a, b) => {
+    if (a.fields.parent === undefined && b.fields.parent === undefined) {
+      return 0;
+    } else if (a.fields.parent === undefined) {
+      return -1;
+    } else if (b.fields.parent === undefined) {
+      return 1;
+    }
+
+    return a.fields.parent?.fields?.name > b.fields.parent?.fields?.name
+      ? 1
+      : b.fields.parent?.fields?.name > a.fields.parent?.fields?.name
+      ? -1
+      : 0;
+  };
+
   return {
     props: {
-      categories,
+      // TODO: clean this up. This way, parent props always are first in the list
+      categories: categories
+        .sort(compareCategories)
+        .sort(compareCategories)
+        .sort(compareCategories)
+        .sort(compareCategories),
       documentation: documentation,
     },
     revalidate: 480,
@@ -50,28 +77,39 @@ const Header: React.FC = () => {
   );
 };
 
+const Content: React.FC<{ documentation: IDocumentationFields }> = ({
+  documentation,
+}) => {
+  return (
+    <div className="w-full flex-[3]">
+      {documentToReactComponents(documentation.content)}
+    </div>
+  );
+};
+
 const Docs: React.FC<DocsProps> = ({ categories, documentation }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>('general');
+
+  const docs = documentation.find(
+    (doc) => doc.fields.category?.fields.slug === selectedCategory
+  );
+
   return (
     <>
       <NextSeo title="Docs" noindex />
       <Header />
-      <div>
+      <div className="flex flex-row">
         <Sidebar
-          open={sidebarOpen}
-          sidebar={
-            <div className="top-1/2 absolute z-30 text-black">test!</div>
-          }
-        >
-          <button
-            className="absolute top-1/2"
-            onClick={() => setSidebarOpen(true)}
-          >
-            Open sidebar
-          </button>
-        </Sidebar>
+          categories={categories.map((cat) => cat.fields)}
+          onSelectCategory={setSelectedCategory}
+          selectedCategory={selectedCategory}
+        />
+        {docs ? (
+          <Content documentation={docs.fields} />
+        ) : (
+          <div>Can&apos;t find this docs!</div>
+        )}
       </div>
-      <div>content</div>
     </>
   );
 };
