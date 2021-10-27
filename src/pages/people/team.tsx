@@ -239,12 +239,14 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
-          <WhiteButton
-            className="font-mono content-center text-2xl mt-10"
-            onClick={() => viewMore()}
-          >
-            Load more
-          </WhiteButton>
+          <div className="mt-10">
+            <WhiteButton
+              className="font-mono content-center text-2xl"
+              onClick={() => viewMore()}
+            >
+              Load more
+            </WhiteButton>
+          </div>
         )}
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
