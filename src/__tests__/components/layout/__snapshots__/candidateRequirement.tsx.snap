@@ -9,8 +9,8 @@ exports[`should render correctly 1`] = `
       class="p-3 pb-1"
       style="background-color: rgb(241, 90, 59);"
     >
-      <div
-        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 60px; height: 60px;"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 60px; height: 60px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
       >
         <img
           alt=""
@@ -21,7 +21,7 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
         />
         <noscript />
-      </div>
+      </span>
     </div>
     <p
       class="w-5/8 text-center md:text-left md:text-2xl"

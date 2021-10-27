@@ -6,8 +6,8 @@ exports[`should render correctly 1`] = `
     <div
       class="relative flex justify-start bg-center"
     >
-      <div
-        style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+      <span
+        style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
       >
         <img
           alt=""
@@ -19,26 +19,26 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
         />
         <noscript />
-      </div>
+      </span>
       <div
         class="flex flex-col justify-center w-1/2 z-10"
       >
         <div
           class="ml-5 md:ml-56 xl:ml-36 2xl:ml-5 py-20 md:py-20 lg:py-20"
         >
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          <span
+            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
           >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
             >
               <img
                 alt=""
                 aria-hidden="true"
                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
               />
-            </div>
+            </span>
             <img
               alt="Supporting the Animal Rights Movement"
               data-nimg="intrinsic"
@@ -48,7 +48,7 @@ exports[`should render correctly 1`] = `
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             />
             <noscript />
-          </div>
+          </span>
         </div>
       </div>
       <div
@@ -170,11 +170,11 @@ exports[`should render correctly 1`] = `
             <div
               class="p-10 my-auto w-full"
             >
-              <div
-                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              <span
+                style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
               >
-                <div
-                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                <span
+                  style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
                 />
                 <img
                   alt=""
@@ -186,7 +186,7 @@ exports[`should render correctly 1`] = `
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
                 <noscript />
-              </div>
+              </span>
             </div>
           </div>
           <div
@@ -239,11 +239,11 @@ exports[`should render correctly 1`] = `
             <div
               class="p-10 my-auto w-full"
             >
-              <div
-                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              <span
+                style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
               >
-                <div
-                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                <span
+                  style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
                 />
                 <img
                   alt=""
@@ -255,7 +255,7 @@ exports[`should render correctly 1`] = `
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
                 <noscript />
-              </div>
+              </span>
             </div>
           </div>
           <div
@@ -308,11 +308,11 @@ exports[`should render correctly 1`] = `
             <div
               class="p-10 my-auto w-full"
             >
-              <div
-                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              <span
+                style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
               >
-                <div
-                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                <span
+                  style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
                 />
                 <img
                   alt=""
@@ -324,7 +324,7 @@ exports[`should render correctly 1`] = `
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
                 <noscript />
-              </div>
+              </span>
             </div>
           </div>
           <div
@@ -377,11 +377,11 @@ exports[`should render correctly 1`] = `
             <div
               class="p-10 my-auto w-full"
             >
-              <div
-                style="display: block; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              <span
+                style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
               >
-                <div
-                  style="display: block; box-sizing: border-box; padding-top: 100%;"
+                <span
+                  style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
                 />
                 <img
                   alt=""
@@ -393,7 +393,7 @@ exports[`should render correctly 1`] = `
                   style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                 />
                 <noscript />
-              </div>
+              </span>
             </div>
           </div>
           <div
@@ -430,8 +430,8 @@ exports[`should render correctly 1`] = `
       <div
         class="image-container"
       >
-        <div
-          style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 166.66666666666666px; height: 166.66666666666666px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 166.66666666666666px; height: 166.66666666666666px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
         >
           <img
             alt=""
@@ -442,7 +442,7 @@ exports[`should render correctly 1`] = `
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
           <noscript />
-        </div>
+        </span>
       </div>
       <div
         class="text-center text-grey-darker px-3 md:w-2/3"
@@ -458,8 +458,8 @@ exports[`should render correctly 1`] = `
     <div
       class="relative"
     >
-      <div
-        style="overflow: hidden; box-sizing: border-box; display: inline-block; position: relative; width: 250px; height: 250px;"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 250px; height: 250px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
       >
         <img
           alt=""
@@ -470,7 +470,7 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
         <noscript />
-      </div>
+      </span>
     </div>
   </div>
   <div
@@ -481,19 +481,19 @@ exports[`should render correctly 1`] = `
       class="relative"
       style="animation-delay: 0ms;"
     >
-      <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
       >
-        <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
         >
           <img
             alt=""
             aria-hidden="true"
             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
-        </div>
+        </span>
         <img
           alt=""
           data-nimg="intrinsic"
@@ -503,7 +503,7 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
         <noscript />
-      </div>
+      </span>
     </div>
   </div>
   <div
@@ -514,19 +514,19 @@ exports[`should render correctly 1`] = `
       class="relative"
       style="animation-delay: 300ms;"
     >
-      <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
       >
-        <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
         >
           <img
             alt=""
             aria-hidden="true"
             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
-        </div>
+        </span>
         <img
           alt=""
           data-nimg="intrinsic"
@@ -536,7 +536,7 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
         <noscript />
-      </div>
+      </span>
     </div>
   </div>
   <div
@@ -547,19 +547,19 @@ exports[`should render correctly 1`] = `
       class="relative"
       style="animation-delay: 600ms;"
     >
-      <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
       >
-        <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
         >
           <img
             alt=""
             aria-hidden="true"
             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
-        </div>
+        </span>
         <img
           alt=""
           data-nimg="intrinsic"
@@ -569,7 +569,7 @@ exports[`should render correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
         <noscript />
-      </div>
+      </span>
     </div>
   </div>
   <div
