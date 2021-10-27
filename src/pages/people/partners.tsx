@@ -11,7 +11,7 @@ import type {
 } from '../../types/generated/contentful';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
-import ImageContainer from '../../components/decoration/imageContainer';
+
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import type PageWithLayout from '../../types/persistentLayout';
@@ -49,9 +49,9 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
     <div className="flex flex-col lg:flex-row mx-auto mb-10 justify-between">
       <div className="">
         {image && (
-          <ImageContainer className="w-full sm:w-72 xl:w-96 mx-auto">
+          <div className="w-full sm:w-72 xl:w-96 mx-auto">
             <ContentfulImage image={image} alt="" layout="responsive" />
-          </ImageContainer>
+          </div>
         )}
       </div>
       <div className="flex flex-col justify-around bg-gray-background px-10 py-10 w-full">

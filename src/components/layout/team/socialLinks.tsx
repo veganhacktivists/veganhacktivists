@@ -17,7 +17,7 @@ import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
 import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
-import ImageContainer from '../../decoration/imageContainer';
+
 import CustomImage from '../../decoration/customImage';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<
@@ -61,15 +61,13 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         <a key={key} href={value} target="_blank" rel="noreferrer">
           <div className="bg-grey-background text-grey-dark p-1">
             {key === 'activistHub' ? (
-              <ImageContainer>
-                <CustomImage
-                  src={ahIcon}
-                  alt=""
-                  layout="fixed"
-                  width={30}
-                  height={24}
-                />
-              </ImageContainer>
+              <CustomImage
+                src={ahIcon}
+                alt=""
+                layout="fixed"
+                width={30}
+                height={24}
+              />
             ) : (
               <FontAwesomeIcon
                 fixedWidth

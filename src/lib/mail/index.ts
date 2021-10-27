@@ -4,6 +4,9 @@ import formData from 'form-data';
 
 const DOMAIN = 'veganhacktivists.org';
 
+// https://github.com/mailgun/mailgun-js/issues/203
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
   username: 'api',

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import { DarkButton } from '../../decoration/buttons';
-import ImageContainer from '../../decoration/imageContainer';
+
 import ContentfulImage from '../contentfulImage';
 
 const BlogContentContainer: React.FC = ({ children }) => {
@@ -33,13 +33,12 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
             <div className="mb-4">
               <Link href={`/blog/${slug}`}>
                 <a>
-                  <ImageContainer>
-                    <ContentfulImage
-                      image={featuredImage}
-                      alt=""
-                      layout="responsive"
-                    />
-                  </ImageContainer>
+                  <ContentfulImage
+                    image={featuredImage}
+                    alt=""
+                    layout="responsive"
+                  />
+
                   <div className="font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5">
                     {title}
                   </div>

@@ -110,7 +110,10 @@ const DarkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base={active ? 'magenta' : 'grey-dark'} fill="green">
+    <FillBackground
+      base={active ? 'magenta' : 'grey-dark'}
+      fill={active ? 'magenta' : 'green'}
+    >
       <BaseButton
         {...props}
         className={classNames(
@@ -218,8 +221,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
   const classes = classNames(
     'border-2 border-opacity-50 p-3',
     {
-      'bg-gray': active,
-      'text-white': active,
+      'bg-gray text-white border-grey': active,
     },
     className
   );

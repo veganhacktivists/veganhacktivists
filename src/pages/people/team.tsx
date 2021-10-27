@@ -19,7 +19,6 @@ import useViewMore from '../../hooks/useViewMore';
 import Link from 'next/link';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
-import ImageContainer from '../../components/decoration/imageContainer';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { NextSeo } from 'next-seo';
 
@@ -52,7 +51,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2 group">
         {image && (
-          <ImageContainer className="relative filter grayscale group-hover:grayscale-0">
+          <div className="relative filter grayscale group-hover:grayscale-0">
             <ContentfulImage image={image} alt={name} priority={isTeamLeader} />
             <div
               className={
@@ -62,7 +61,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
                 backgroundColor: teamColor,
               }}
             />
-          </ImageContainer>
+          </div>
         )}
         <div
           style={{ backgroundColor: teamColor }}
@@ -239,12 +238,14 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
-          <WhiteButton
-            className="font-mono content-center text-2xl mt-10"
-            onClick={() => viewMore()}
-          >
-            Load more
-          </WhiteButton>
+          <div className="mt-10">
+            <WhiteButton
+              className="font-mono content-center text-2xl"
+              onClick={() => viewMore()}
+            >
+              Load more
+            </WhiteButton>
+          </div>
         )}
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />

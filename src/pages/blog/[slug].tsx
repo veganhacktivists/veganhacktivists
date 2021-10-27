@@ -10,8 +10,6 @@ import {
   getBlogPreviewBySlug,
 } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-
-import ImageContainer from '../../components/decoration/imageContainer';
 import SquareField from '../../components/decoration/squares';
 import React from 'react';
 import Circle from '../../components/decoration/circle';
@@ -161,16 +159,16 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
         <Header />
         <div className="mx-auto">
           <div className="px-5 lg:w-3/5 pt-20 mx-auto">
-            <ImageContainer className="border-2 border-white mx-auto">
-              {featuredImage && (
+            {featuredImage && (
+              <div className="border-2 border-white mx-auto">
                 <ContentfulImage
                   image={featuredImage}
                   alt=""
                   layout="responsive"
                   priority
                 />
-              )}
-            </ImageContainer>
+              </div>
+            )}
           </div>
           <div className="mt-20">
             <h1 className="text-4xl font-bold w-3/4 mx-auto text-left">
@@ -227,9 +225,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       <SubtleBorder className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5">
         {image && (
           <div className="w-full md:w-64">
-            <ImageContainer>
-              <ContentfulImage image={image} alt="" />
-            </ImageContainer>
+            <ContentfulImage image={image} alt="" />
           </div>
         )}
         <div className="text-center lg:text-left lg:w-3/5">

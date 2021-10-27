@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
-import ImageContainer from '../../decoration/imageContainer';
 
 export interface ContentButtonProps {
   contentTitle: string;
@@ -71,8 +70,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
           />
         </div>
       </div>
-
-      <ImageContainer
+      <div
         className="absolute -bottom-80 w-80 h-80 border-t-4"
         style={{ borderColor }}
       >
@@ -81,7 +79,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
           alt={contentName + ' logo'}
           layout="fill"
         />
-      </ImageContainer>
+      </div>
     </div>
   );
 };
