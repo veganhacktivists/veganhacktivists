@@ -5,7 +5,7 @@ FROM node:16-alpine3.13 AS deps
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --ignore-optional --frozen-lockfile
+RUN yarn install --ignore-optional
 
 # Rebuild the source code only when needed
 FROM node:16-alpine3.13 AS builder

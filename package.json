@@ -19,6 +19,9 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@mailchimp/mailchimp_marketing": "^3.0.70",
     "@react-spring/web": "^9.3.0",
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "1.2.95",
+    "@swc/core-linux-musl": "^1.2.42",
     "@tailwindcss/line-clamp": "^0.2.2",
     "classnames": "^2.3.1",
     "contentful": "^9.1.4",
@@ -76,7 +79,14 @@
       "<rootDir>/node_modules/"
     ],
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": [
+        "<rootDir>/node_modules/babel-jest",
+        {
+          "presets": [
+            "next/babel"
+          ]
+        }
+      ]
     },
     "moduleNameMapper": {
       "\\.(eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
