@@ -25,11 +25,7 @@ const buildCategoryTree: (
     }
 
     const parent = categoryPosition[category.parent.fields.slug];
-    // cats.find(
-    //   (cat) => cat.category.slug === category.parent?.fields.slug
-    // ) ;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     parent.children.push({
       category,
       children: [],
