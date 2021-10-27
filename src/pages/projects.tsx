@@ -174,30 +174,34 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
         </FirstSubSection>
         <div className="flex flex-col space-y-20 items-center mx-auto text-2xl pb-20">
           <div className="flex flex-wrap place-content-center justify-center">
-            <WhiteButton
-              className="w-40 uppercase flex-1 m-1"
-              active={selectedYear === null}
-              type="button"
-              onClick={() => {
-                setSelectedYear(null);
-                reset();
-              }}
-            >
-              View all
-            </WhiteButton>
-            {projectYears.map((year) => (
+            <div className="m-1">
               <WhiteButton
-                key={year}
-                className="w-40 flex-1 m-1"
+                className="w-40 uppercase flex-1"
+                active={selectedYear === null}
                 type="button"
                 onClick={() => {
-                  setSelectedYear(year);
+                  setSelectedYear(null);
                   reset();
                 }}
-                active={selectedYear === year}
               >
-                {year}
+                View all
               </WhiteButton>
+            </div>
+            {projectYears.map((year) => (
+              <div className="m-1" key={year}>
+                <WhiteButton
+                  key={year}
+                  className="w-40 flex-1"
+                  type="button"
+                  onClick={() => {
+                    setSelectedYear(year);
+                    reset();
+                  }}
+                  active={selectedYear === year}
+                >
+                  {year}
+                </WhiteButton>
+              </div>
             ))}
           </div>
           <div className="w-3/4 mx-auto">
@@ -209,12 +213,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
               />
             ))}
             {pagedProjects.length < projectsForSelectedYear.length && (
-              <WhiteButton
-                className="font-mono content-center text-2xl mt-16"
-                onClick={() => viewMore()}
-              >
-                Load more
-              </WhiteButton>
+              <div className="mt-16">
+                <WhiteButton
+                  className="font-mono content-center text-2xl"
+                  onClick={() => viewMore()}
+                >
+                  Load more
+                </WhiteButton>
+              </div>
             )}
           </div>
         </div>
