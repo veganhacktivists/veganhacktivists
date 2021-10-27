@@ -95,6 +95,7 @@
     }
   },
   "optionalDependencies": {
+    "@next/swc-linux-x64-musl": "^12.0.1-canary.2",
     "contentful-management": "^7.44.2",
     "contentful-typescript-codegen": "^3.2.2"
   }
