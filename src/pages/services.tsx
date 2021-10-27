@@ -9,7 +9,7 @@ import ContactUsForm from '../components/forms/contactUs';
 
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import { DarkButton } from '../components/decoration/buttons';
-import ImageContainer from '../components/decoration/imageContainer';
+
 import CustomImage from '../components/decoration/customImage';
 
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';
@@ -162,15 +162,14 @@ const Services: React.FC = () => (
         ))}
       </div>
       <div className="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center">
-        <ImageContainer>
-          <CustomImage
-            src={PixelBulb}
-            alt=""
-            layout="fixed"
-            height={PixelBulb.height / 3}
-            width={PixelBulb.width / 3}
-          />
-        </ImageContainer>
+        <CustomImage
+          src={PixelBulb}
+          alt=""
+          layout="fixed"
+          height={PixelBulb.height / 3}
+          width={PixelBulb.width / 3}
+        />
+
         <div className="text-center text-grey-darker px-3 md:w-2/3">
           We do on ocassion offer paid services for activists and/or
           organizations that need dedicated or priority speed support. If you

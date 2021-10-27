@@ -2,7 +2,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
-import ImageContainer from '../../decoration/imageContainer';
+
 import { DarkButton } from '../../../components/decoration/buttons';
 import Link from 'next/link';
 
@@ -40,9 +40,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         })}
       >
         <LinkToBlog>
-          <ImageContainer>
-            <ContentfulImage image={featuredImage} alt="" layout="responsive" />
-          </ImageContainer>
+          <ContentfulImage image={featuredImage} alt="" layout="responsive" />
         </LinkToBlog>
         {heading && (
           <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">

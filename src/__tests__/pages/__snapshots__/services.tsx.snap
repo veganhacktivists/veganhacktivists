@@ -427,23 +427,19 @@ exports[`should render correctly 1`] = `
     <div
       class="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center"
     >
-      <div
-        class="image-container"
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 166.66666666666666px; height: 166.66666666666666px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
       >
-        <span
-          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 166.66666666666666px; height: 166.66666666666666px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-        >
-          <img
-            alt=""
-            data-nimg="fixed"
-            decoding="async"
-            src="/_next/image?url=%2Ffoo.png&w=384&q=75"
-            srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
-          <noscript />
-        </span>
-      </div>
+        <img
+          alt=""
+          data-nimg="fixed"
+          decoding="async"
+          src="/_next/image?url=%2Ffoo.png&w=384&q=75"
+          srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </span>
       <div
         class="text-center text-grey-darker px-3 md:w-2/3"
       >

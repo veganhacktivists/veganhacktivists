@@ -3,7 +3,7 @@ import type { Asset } from 'contentful';
 import React from 'react';
 import getThemeColor from '../lib/helpers/theme';
 import CustomImage from './decoration/customImage';
-import ImageContainer from './decoration/imageContainer';
+
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
 
@@ -51,13 +51,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         </div>
         <div className="p-10 my-auto w-full">
           {(icon as Asset).fields ? (
-            <ImageContainer>
-              <ContentfulImage
-                image={icon as Asset}
-                layout="responsive"
-                alt=""
-              />
-            </ImageContainer>
+            <ContentfulImage image={icon as Asset} layout="responsive" alt="" />
           ) : (
             <CustomImage
               src={icon as StaticImageData}
