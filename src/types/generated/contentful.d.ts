@@ -55,6 +55,9 @@ export interface IDocsCategoryFields {
 
   /** parent */
   parent?: IDocsCategory | undefined;
+
+  /** color */
+  color?: string | undefined;
 }
 
 export interface IDocsCategory extends Entry<IDocsCategoryFields> {
