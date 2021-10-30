@@ -206,7 +206,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         headerBold="EIGHT PROJECTS"
         headerEnd="FOR THE MOVEMENT"
       >
-        Four of which were unique project ideas of our own! We were also luck
+        Four of which were unique project ideas of our own! We were also lucky
         enough to work on projects with Animal Rebellion, Animal Save Movement,
         Lebanese Vegans, and the Excelsior 4!
       </HighlightBlock>
