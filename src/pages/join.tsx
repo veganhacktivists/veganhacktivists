@@ -228,7 +228,7 @@ const Join: React.FC = () => (
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               className="font-semibold font-mono px-16 py-2"
             >
-              
+              Apply Now
             </LightButton>
           </div>
         </div>
