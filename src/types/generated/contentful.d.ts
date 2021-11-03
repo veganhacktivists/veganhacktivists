@@ -53,11 +53,14 @@ export interface IDocsCategoryFields {
   /** name */
   name: string;
 
-  /** parent */
-  parent?: IDocsCategory | undefined;
+  /** order */
+  order: number;
 
   /** color */
   color?: string | undefined;
+
+  /** sections */
+  sections: IDocsSection[];
 }
 
 export interface IDocsCategory extends Entry<IDocsCategoryFields> {
@@ -77,24 +80,46 @@ export interface IDocsCategory extends Entry<IDocsCategoryFields> {
   };
 }
 
-export interface IDocumentationFields {
+export interface IDocsSectionFields {
   /** slug */
-  slug?: string | undefined;
+  slug: string;
 
   /** title */
-  title?: string | undefined;
+  title: string;
 
-  /** excerpt */
-  excerpt?: Document | undefined;
+  /** subsections */
+  subsections?: IDocumentation[] | undefined;
+
+  /** content */
+  content?: Document | undefined;
+}
+
+export interface IDocsSection extends Entry<IDocsSectionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "docsSection";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IDocumentationFields {
+  /** slug */
+  slug: string;
+
+  /** title */
+  title: string;
 
   /** content */
   content: Document;
-
-  /** author */
-  author?: ITeamMember | undefined;
-
-  /** Category */
-  category: IDocsCategory;
 }
 
 export interface IDocumentation extends Entry<IDocumentationFields> {
@@ -336,6 +361,7 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
 export type CONTENT_TYPE =
   | "blogEntry"
   | "docsCategory"
+  | "docsSection"
   | "documentation"
   | "project"
   | "singleValues"

@@ -1,53 +1,29 @@
+import type { Options } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { Entry } from 'contentful';
+import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Circle from '../../components/decoration/circle';
 import Sidebar from '../../components/layout/docs/sidebar';
 import { getContents } from '../../lib/cms';
 import type {
   IDocsCategory,
   IDocsCategoryFields,
-  IDocumentation,
-  IDocumentationFields,
+  IDocsSection,
 } from '../../types/generated/contentful';
+import ContentfulImage from '../../components/layout/contentfulImage';
+import Link from 'next/link';
 
-export const getStaticProps = async () => {
-  const [categories, documentation] = await Promise.all([
-    getContents<IDocsCategoryFields>({
-      contentType: 'docsCategory',
-    }),
-    getContents({ contentType: 'documentation' }),
-  ]);
-
-  const compareCategories: (
-    a: Entry<IDocsCategoryFields>,
-    b: Entry<IDocsCategoryFields>
-  ) => number = (a, b) => {
-    if (a.fields.parent === undefined && b.fields.parent === undefined) {
-      return 0;
-    } else if (a.fields.parent === undefined) {
-      return -1;
-    } else if (b.fields.parent === undefined) {
-      return 1;
-    }
-
-    return a.fields.parent?.fields?.name > b.fields.parent?.fields?.name
-      ? 1
-      : b.fields.parent?.fields?.name > a.fields.parent?.fields?.name
-      ? -1
-      : 0;
-  };
+export const getStaticProps: GetStaticProps = async () => {
+  const categories = await getContents<IDocsCategoryFields>({
+    contentType: 'docsCategory',
+    other: { order: 'fields.order', include: 3 },
+  });
 
   return {
     props: {
-      // TODO: clean this up. This way, parent props always are first in the list
-      categories: categories
-        .sort(compareCategories)
-        .sort(compareCategories)
-        .sort(compareCategories)
-        .sort(compareCategories),
-      documentation: documentation,
+      categories,
     },
     revalidate: 480,
   };
@@ -55,7 +31,6 @@ export const getStaticProps = async () => {
 
 interface DocsProps {
   categories: IDocsCategory[];
-  documentation: IDocumentation[];
   // ...
 }
 
@@ -77,22 +52,130 @@ const Header: React.FC = () => {
   );
 };
 
-const Content: React.FC<{ documentation: IDocumentationFields }> = ({
-  documentation,
-}) => {
+const richTextOptions: Options = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => (
+      <div>
+        <ContentfulImage
+          image={node.data?.target}
+          alt={node.data?.target?.fields?.title}
+        />
+      </div>
+    ),
+    [BLOCKS.HEADING_1]: (node, children) => (
+      <h1 className="text-3xl pt-10">{children}</h1>
+    ),
+    [BLOCKS.HEADING_2]: (node, children) => (
+      <h2 className="text-2xl pt-7">{children}</h2>
+    ),
+    [BLOCKS.HEADING_3]: (node, children) => (
+      <h2 className="text-xl pt-5">{children}</h2>
+    ),
+    [BLOCKS.UL_LIST]: (node, children) => (
+      <ul className="list-disc list-inside">{children}</ul>
+    ),
+    [BLOCKS.OL_LIST]: (node, children) => (
+      <ul className="list-disc list-inside">{children}</ul>
+    ),
+    [INLINES.HYPERLINK]: (node, children) => (
+      <Link href={node.data.uri}>
+        <a className="underline font-semibold hover:text-grey visited:text-grey">
+          {children}
+        </a>
+      </Link>
+    ),
+    [BLOCKS.PARAGRAPH]: (node, children) => (
+      <p className="mt-5 first:mt-0">{children}</p>
+    ),
+  },
+};
+
+interface ContentProps {
+  section: IDocsSection;
+  category: IDocsCategory;
+}
+
+const Content: React.FC<ContentProps> = ({ section, category }) => {
+  const { subsections, content, slug } = section.fields;
+
+  const updatedAt = useMemo(() => {
+    const categoryDate = new Date(category.sys.updatedAt);
+    const sectionDate = new Date(section.sys.updatedAt);
+    const docDates =
+      section.fields.subsections?.map((doc) => new Date(doc.sys.updatedAt)) ||
+      [];
+
+    return [categoryDate, sectionDate, ...docDates].reduce((a, b) =>
+      a < b ? a : b
+    );
+  }, [category.fields.slug]);
+
   return (
-    <div className="w-full flex-[3]">
-      {documentToReactComponents(documentation.content)}
+    <div className="w-full flex-[3] mt-10 text-left pr-48">
+      <div className="mb-5 flex flex-row justify-between">
+        <div>
+          <div
+            className="font-mono text-xl font-bold"
+            style={{ color: category.fields.color }}
+          >
+            {category.fields.name}
+          </div>
+          <div className="text-3xl font-bold">{section.fields.title}</div>
+        </div>
+        <div className="text-normal">
+          Last updated:{' '}
+          {new Intl.DateTimeFormat('en', {
+            month: 'long',
+            year: 'numeric',
+            day: 'numeric',
+          }).format(updatedAt)}
+        </div>
+      </div>
+
+      {content && (
+        <div id={slug}>
+          {(documentToReactComponents(content), richTextOptions)}
+        </div>
+      )}
+      {subsections?.map((doc) => {
+        return (
+          <div key={doc.fields.slug} id={doc.fields.slug}>
+            <h2 className="text-2xl font-bold">{doc.fields.title}</h2>
+            {documentToReactComponents(doc.fields.content, richTextOptions)}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-const Docs: React.FC<DocsProps> = ({ categories, documentation }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('general');
+const getAllSections: (
+  categories: IDocsCategory[]
+) => Record<string, IDocsSection> = (categories) => {
+  const sections: Record<string, IDocsSection> = {};
+  categories.forEach((cat) => {
+    cat.fields.sections?.forEach((section) => {
+      sections[section.fields.slug] = section;
+    });
+  });
 
-  const docs = documentation.find(
-    (doc) => doc.fields.category?.fields.slug === selectedCategory
+  return sections;
+};
+
+const Docs: React.FC<DocsProps> = ({ categories }) => {
+  const allSections = useMemo(() => getAllSections(categories), [categories]);
+
+  const [selectedSectionSlug, setSelectedSectionSlug] = useState(
+    categories[0].fields.sections[0].fields.slug
   );
+
+  const category = categories.find((cat) =>
+    cat.fields.sections.find(
+      (section) => section.fields.slug === selectedSectionSlug
+    )
+  );
+
+  const docsToShow = allSections[selectedSectionSlug].fields.subsections;
 
   return (
     <>
@@ -101,11 +184,14 @@ const Docs: React.FC<DocsProps> = ({ categories, documentation }) => {
       <div className="flex flex-row">
         <Sidebar
           categories={categories.map((cat) => cat.fields)}
-          onSelectCategory={setSelectedCategory}
-          selectedCategory={selectedCategory}
+          onSelectSection={setSelectedSectionSlug}
+          selectedSection={selectedSectionSlug}
         />
-        {docs ? (
-          <Content documentation={docs.fields} />
+        {docsToShow ? (
+          <Content
+            section={allSections[selectedSectionSlug]}
+            category={category as IDocsCategory}
+          />
         ) : (
           <div>Can&apos;t find this docs!</div>
         )}
