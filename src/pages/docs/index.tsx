@@ -42,7 +42,7 @@ const Header: React.FC = () => {
     <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 overflow-hidden min-h-[350px]">
       <Circle opacity={0.1} />
       <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
-      <div className="flex flex-col gap-y-10 justify-center md:w-1/2 z-10 pb-10 text-2xl px-16 font-mono">
+      <div className="flex flex-col gap-y-10 justify-center md:w-2/3 z-10 pb-10 text-2xl px-16 font-mono">
         <h1 className="text-4xl">Vegan Hacktivists - Documentation</h1>
         <div>
           Whether you&apos;re a developer, designer, or just someone interested
@@ -117,13 +117,13 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
     <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
       <div className="mb-5 flex flex-row justify-between">
         <div>
-          <div
+          <h2
             className="font-mono text-xl font-bold"
             style={{ color: category.fields.color }}
           >
             {category.fields.name}
-          </div>
-          <div className="text-3xl font-bold">{section.fields.title}</div>
+          </h2>
+          <h3 className="text-3xl font-bold">{section.fields.title}</h3>
         </div>
         <div className="text-normal text-right md:text-left">
           <span className="font-bold">Last updated:</span>{' '}
