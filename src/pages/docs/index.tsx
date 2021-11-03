@@ -116,7 +116,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
   return (
     <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
       <div className="mb-5 flex flex-row justify-between">
-        <div>
+        <div id={slug}>
           <h2
             className="font-mono text-xl font-bold"
             style={{ color: category.fields.color }}
@@ -136,14 +136,14 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           </span>
         </div>
       </div>
-
       {content && (
-        <div id={slug}>
-          {documentToReactComponents(content, richTextOptions)}
-        </div>
+        <div>{documentToReactComponents(content, richTextOptions)}</div>
       )}
       {subsections?.map((doc) => (
-        <SubSection key={doc.fields.slug} {...doc.fields} />
+        <>
+          <hr className="text-grey-light first-of-type:hidden" />
+          <SubSection key={doc.fields.slug} {...doc.fields} />
+        </>
       ))}
     </div>
   );
@@ -166,7 +166,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
         }}
       />
       <div key={slug} id={slug} ref={ref}>
-        <h2 className="text-2xl font-bold">{title}</h2>
+        <h2 className="text-2xl font-bold pt-10">{title}</h2>
         {documentToReactComponents(content, richTextOptions)}
       </div>
     </>
