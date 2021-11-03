@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import useDocsStore from '../../../lib/stores/docsStore';
 import type {
@@ -64,6 +64,7 @@ const Section: React.FC<SectionProps> = ({
   subsections,
 }) => {
   const lightGrey = getThemeColor('grey-light');
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const { selectedSectionSlug, setSelectedSectionSlug } = useDocsStore();
 
@@ -73,10 +74,14 @@ const Section: React.FC<SectionProps> = ({
     <div
       className="pl-5 border-l-4 my-2"
       style={{ borderColor: isSelected ? color : lightGrey }}
+      ref={sectionRef}
     >
       <div
         onClick={() => {
           setSelectedSectionSlug(slug);
+          setTimeout(() => {
+            sectionRef.current?.scrollIntoView();
+          });
         }}
         className="cursor-pointer py-1 text-xl font-bold"
       >
