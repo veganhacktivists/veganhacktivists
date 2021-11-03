@@ -72,10 +72,10 @@ const richTextOptions: Options = {
       <h2 className="text-xl pt-5">{children}</h2>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc list-inside">{children}</ul>
+      <ul className="list-disc ml-5">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc list-inside">{children}</ul>
+      <ul className="list-disc ml-5">{children}</ul>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
       <Link href={node.data.uri}>
@@ -111,7 +111,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
   }, [category.fields.slug]);
 
   return (
-    <div className="w-full flex-[3] mt-10 text-left pr-48">
+    <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
       <div className="mb-5 flex flex-row justify-between">
         <div>
           <div
@@ -122,13 +122,15 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           </div>
           <div className="text-3xl font-bold">{section.fields.title}</div>
         </div>
-        <div className="text-normal">
+        <div className="text-normal text-right md:text-left">
           Last updated:{' '}
-          {new Intl.DateTimeFormat('en', {
-            month: 'long',
-            year: 'numeric',
-            day: 'numeric',
-          }).format(updatedAt)}
+          <span className="block md:inline">
+            {new Intl.DateTimeFormat('en', {
+              month: 'long',
+              year: 'numeric',
+              day: 'numeric',
+            }).format(updatedAt)}
+          </span>
         </div>
       </div>
 
@@ -175,13 +177,11 @@ const Docs: React.FC<DocsProps> = ({ categories }) => {
     )
   );
 
-  const docsToShow = allSections[selectedSectionSlug].fields.subsections;
-
   return (
     <>
       <NextSeo title="Docs" noindex />
       <Header />
-      <div className="flex flex-row">
+      <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar
           categories={categories.map((cat) => cat.fields)}
           onSelectSection={setSelectedSectionSlug}

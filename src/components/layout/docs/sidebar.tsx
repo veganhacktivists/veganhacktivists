@@ -19,7 +19,7 @@ const Documentation: React.FC<DocumentationProps> = ({
   const [, setSelectedDoc] = useHash();
 
   return (
-    <div>
+    <li>
       <div
         onClick={() => {
           onSelect();
@@ -29,7 +29,7 @@ const Documentation: React.FC<DocumentationProps> = ({
       >
         {title}
       </div>
-    </div>
+    </li>
   );
 };
 interface SectionProps extends IDocsSectionFields {
@@ -64,7 +64,7 @@ const Section: React.FC<SectionProps> = ({
         {title}
       </div>
       {subsections && (
-        <div className="list-item list-disc mx-4 px-1 list-outside">
+        <ul className="list-disc mx-4 px-1 list-outside">
           {subsections.map((doc) => (
             <Documentation
               key={doc.fields.slug}
@@ -74,7 +74,7 @@ const Section: React.FC<SectionProps> = ({
               }}
             />
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
@@ -95,10 +95,7 @@ const Category: React.FC<CategoryProps> = ({
   return (
     <details className="pl-5" open>
       <summary
-        onClick={() => {
-          // onSelectCategory(item.category.slug);
-        }}
-        className="cursor-pointer w-min px-2 py-1 font-mono text-2xl font-bold text-white"
+        className="cursor-pointer md:w-4/5 box-border px-2 py-1 font-mono text-2xl font-bold text-white"
         style={{
           backgroundColor: color || lightGrey,
         }}
@@ -138,7 +135,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   }, [selectedSection]);
 
   return (
-    <div className="sticky left-0 top-0 w-1/4 max-h-screen overflow-auto text-left p-10 h-screen space-y-4">
+    <div className="md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-screen space-y-4 py-20">
       {categories.map((cat) => (
         <Category
           key={cat.slug}
