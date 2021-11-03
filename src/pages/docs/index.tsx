@@ -105,9 +105,9 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       section.fields.subsections?.map((doc) => new Date(doc.sys.updatedAt)) ||
       [];
 
-    return [categoryDate, sectionDate, ...docDates].reduce((a, b) =>
-      a < b ? a : b
-    );
+    return [categoryDate, sectionDate, ...docDates]
+      .filter((x) => !!x)
+      .reduce((a, b) => (a < b ? a : b));
   }, [category.fields.slug]);
 
   return (
@@ -134,7 +134,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
 
       {content && (
         <div id={slug}>
-          {(documentToReactComponents(content), richTextOptions)}
+          {documentToReactComponents(content, richTextOptions)}
         </div>
       )}
       {subsections?.map((doc) => {
@@ -187,14 +187,10 @@ const Docs: React.FC<DocsProps> = ({ categories }) => {
           onSelectSection={setSelectedSectionSlug}
           selectedSection={selectedSectionSlug}
         />
-        {docsToShow ? (
-          <Content
-            section={allSections[selectedSectionSlug]}
-            category={category as IDocsCategory}
-          />
-        ) : (
-          <div>Can&apos;t find this docs!</div>
-        )}
+        <Content
+          section={allSections[selectedSectionSlug]}
+          category={category as IDocsCategory}
+        />
       </div>
     </>
   );

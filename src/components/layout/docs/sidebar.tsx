@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useHash } from '../../../hooks/useHash';
 import getThemeColor from '../../../lib/helpers/theme';
 import type {
@@ -7,15 +7,22 @@ import type {
   IDocumentationFields,
 } from '../../../types/generated/contentful';
 
-type DocumentationProps = IDocumentationFields;
+interface DocumentationProps extends IDocumentationFields {
+  onSelect: () => void;
+}
 
-const Documentation: React.FC<DocumentationProps> = ({ title, slug }) => {
+const Documentation: React.FC<DocumentationProps> = ({
+  title,
+  slug,
+  onSelect,
+}) => {
   const [, setSelectedDoc] = useHash();
 
   return (
     <div>
       <div
         onClick={() => {
+          onSelect();
           setSelectedDoc(slug);
         }}
         className="cursor-pointer py-1"
@@ -56,11 +63,19 @@ const Section: React.FC<SectionProps> = ({
       >
         {title}
       </div>
-      <div className="list-item list-disc mx-4 px-1 list-outside">
-        {subsections?.map((doc) => (
-          <Documentation key={doc.fields.slug} {...doc.fields} />
-        ))}
-      </div>
+      {subsections && (
+        <div className="list-item list-disc mx-4 px-1 list-outside">
+          {subsections.map((doc) => (
+            <Documentation
+              key={doc.fields.slug}
+              {...doc.fields}
+              onSelect={() => {
+                onChangeSelected(slug);
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -116,7 +131,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   selectedSection,
   onSelectSection,
 }) => {
-  const router = useRouter();
+  const [, setHash] = useHash();
+
+  useEffect(() => {
+    setHash('');
+  }, [selectedSection]);
 
   return (
     <div className="sticky left-0 top-0 w-1/4 max-h-screen overflow-auto text-left p-10 h-screen space-y-4">
