@@ -7,10 +7,12 @@ import type {
   IDocsSectionFields,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
+import Link from 'next/link';
 
 interface DocumentationProps extends IDocumentationFields {
   color: string;
   sectionSlug: IDocsSectionFields['slug'];
+  categorySlug: IDocsCategoryFields['slug'];
 }
 
 const Documentation: React.FC<DocumentationProps> = ({
@@ -18,6 +20,7 @@ const Documentation: React.FC<DocumentationProps> = ({
   slug,
   color,
   sectionSlug,
+  categorySlug,
 }) => {
   const { currentDocSlug, setCurrentDocSlug, setSelectedSectionSlug } =
     useDocsStore();
@@ -27,38 +30,50 @@ const Documentation: React.FC<DocumentationProps> = ({
 
   return (
     <li>
-      <div
-        onClick={() => {
-          setCurrentDocSlug(slug);
-          setSelectedSectionSlug(sectionSlug);
-          setTimeout(() => {
-            document.getElementById(slug)?.scrollIntoView();
-          });
-        }}
-        onMouseEnter={() => {
-          setHover(true);
-        }}
-        onMouseLeave={() => {
-          setHover(false);
-        }}
-        className={classNames('cursor-pointer py-1', {
-          'font-bold': isSelected,
-        })}
-        style={{
-          color: isSelected || hover ? color : 'inherit',
+      <Link
+        href={{
+          pathname: '/docs/[category]/[section]',
+          query: { category: categorySlug, section: sectionSlug },
+          hash: slug,
         }}
       >
-        {title}
-      </div>
+        <a>
+          <div
+            onClick={() => {
+              setCurrentDocSlug(slug);
+              setSelectedSectionSlug(sectionSlug);
+              setTimeout(() => {
+                document.getElementById(slug)?.scrollIntoView();
+              });
+            }}
+            onMouseEnter={() => {
+              setHover(true);
+            }}
+            onMouseLeave={() => {
+              setHover(false);
+            }}
+            className={classNames('cursor-pointer py-1', {
+              'font-bold': isSelected,
+            })}
+            style={{
+              color: isSelected || hover ? color : 'inherit',
+            }}
+          >
+            {title}
+          </div>
+        </a>
+      </Link>
     </li>
   );
 };
 interface SectionProps extends IDocsSectionFields {
   color: IDocsCategoryFields['color'];
+  categorySlug: IDocsCategoryFields['slug'];
 }
 
 const Section: React.FC<SectionProps> = ({
   slug,
+  categorySlug,
   title,
   color,
   subsections,
@@ -66,7 +81,9 @@ const Section: React.FC<SectionProps> = ({
   const lightGrey = getThemeColor('grey-light');
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const { selectedSectionSlug, setSelectedSectionSlug } = useDocsStore();
+  const selectedSectionSlug = useDocsStore(
+    (state) => state.selectedSectionSlug
+  );
 
   const isSelected = selectedSectionSlug === slug;
 
@@ -76,23 +93,24 @@ const Section: React.FC<SectionProps> = ({
       style={{ borderColor: isSelected ? color : lightGrey }}
       ref={sectionRef}
     >
-      <div
-        onClick={() => {
-          setSelectedSectionSlug(slug);
-          setTimeout(() => {
-            document.getElementById(slug)?.scrollIntoView();
-          });
+      <Link
+        href={{
+          pathname: '/docs/[category]/[section]',
+          query: { category: categorySlug, section: slug },
         }}
-        className="cursor-pointer py-1 text-xl font-bold"
       >
-        {title}
-      </div>
+        <a>
+          <div className="cursor-pointer py-1 text-xl font-bold">{title}</div>
+        </a>
+      </Link>
+
       {subsections && (
         <ul className="mx-4 px-1 list-outside">
           {subsections.map((doc) => (
             <Documentation
               key={doc.fields.slug}
               {...doc.fields}
+              categorySlug={categorySlug}
               sectionSlug={slug}
               color={color}
             />
@@ -105,7 +123,7 @@ const Section: React.FC<SectionProps> = ({
 
 type CategoryProps = IDocsCategoryFields;
 
-const Category: React.FC<CategoryProps> = ({ name, color, sections }) => {
+const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
   const lightGrey = getThemeColor('grey-light');
 
   return (
@@ -123,6 +141,7 @@ const Category: React.FC<CategoryProps> = ({ name, color, sections }) => {
           <Section
             key={section.fields.slug}
             {...section.fields}
+            categorySlug={slug}
             color={color}
           />
         ))}
