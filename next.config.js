@@ -26,6 +26,11 @@ module.exports = {
         destination: '/people/team',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/docs/general/introduction',
+        permanent: true,
+      },
     ];
   },
 };
