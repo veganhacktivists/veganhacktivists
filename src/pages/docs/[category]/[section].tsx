@@ -1,7 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { Fragment, useEffect, useMemo, useRef } from 'react';
 import { Waypoint } from 'react-waypoint';
 import Sidebar from '../../../components/layout/docs/sidebar';
 import { getContents } from '../../../lib/cms';
@@ -9,7 +9,6 @@ import type {
   IDocsCategory,
   IDocsCategoryFields,
   IDocsSection,
-  IDocsSectionFields,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
@@ -49,30 +48,44 @@ interface DocsProps {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const [category, section, categories] = await Promise.all([
-    getContents<IDocsCategoryFields>({
-      contentType: 'docsCategory',
-      query: {
-        slug: params?.category,
-      },
-    }),
-    getContents<IDocsSectionFields>({
-      contentType: 'docsSection',
-      query: {
-        slug: params?.section,
-      },
-    }),
-    getContents<IDocsCategoryFields>({
-      contentType: 'docsCategory',
-      other: { order: 'fields.order', include: 3 },
-    }),
-  ]);
+  const category = (
+    await (params?.category
+      ? getContents<IDocsCategoryFields>({
+          contentType: 'docsCategory',
+          query: {
+            slug: params?.category,
+          },
+          other: {
+            limit: 1,
+            include: 3,
+          },
+        })
+      : getContents<IDocsCategoryFields>({
+          contentType: 'docsCategory',
+          other: {
+            order: 'fields.order',
+            include: 3,
+            limit: 1,
+          },
+        }))
+  )[0] as IDocsCategory;
 
-  if (!category || !section) {
-    return { notFound: true };
-  }
+  const section = params?.section
+    ? category.fields.sections.find(
+        (section) => section.fields.slug === params?.section
+      )
+    : category.fields.sections[0];
 
-  return { props: { category: category[0], section: section[0], categories } };
+  const categories = await getContents<IDocsCategoryFields>({
+    contentType: 'docsCategory',
+    other: { order: 'fields.order', include: 3 },
+  });
+
+  // if (!category || !section) {
+  //   return { notFound: true };
+  // }
+
+  return { props: { category, section, categories } };
 };
 
 const Header: React.FC = () => {
@@ -178,10 +191,10 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
         <div>{documentToReactComponents(content, richTextOptions)}</div>
       )}
       {subsections?.map((doc) => (
-        <>
-          <hr className="text-grey-light first-of-type:hidden" />
+        <Fragment key={doc.fields.slug}>
+          <hr className="text-grey-light first-of-type:hidden mt-10" />
           <SubSection key={doc.fields.slug} {...doc.fields} />
-        </>
+        </Fragment>
       ))}
     </div>
   );
