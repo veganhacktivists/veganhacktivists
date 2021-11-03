@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       categories,
     },
-    revalidate: 480,
+    revalidate: 10, // TODO: change to 480 when David stops testing stuff
   };
 };
 
