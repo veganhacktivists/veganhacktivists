@@ -43,7 +43,7 @@ const Header: React.FC = () => {
       <Circle opacity={0.1} />
       <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
       <div className="flex flex-col gap-y-10 justify-center md:w-2/3 z-10 pb-10 text-2xl px-16 font-mono">
-        <h1 className="text-4xl">Vegan Hacktivists - Documentation</h1>
+        <h1 className="text-4xl">VH Documentation</h1>
         <div>
           Whether you&apos;re a developer, designer, or just someone interested
           in our internal policies, find detailed documentation of everything
