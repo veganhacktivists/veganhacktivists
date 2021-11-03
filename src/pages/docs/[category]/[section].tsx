@@ -1,41 +1,79 @@
-import type { Options } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { GetStaticProps } from 'next';
+import type { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import React, { useEffect, useMemo, useRef } from 'react';
-import Circle from '../../components/decoration/circle';
-import Sidebar from '../../components/layout/docs/sidebar';
-import { getContents } from '../../lib/cms';
+import { Waypoint } from 'react-waypoint';
+import Sidebar from '../../../components/layout/docs/sidebar';
+import { getContents } from '../../../lib/cms';
 import type {
   IDocsCategory,
   IDocsCategoryFields,
   IDocsSection,
+  IDocsSectionFields,
   IDocumentationFields,
-} from '../../types/generated/contentful';
-import ContentfulImage from '../../components/layout/contentfulImage';
+} from '../../../types/generated/contentful';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
-import useDocsStore from '../../lib/stores/docsStore';
-import { Waypoint } from 'react-waypoint';
+import ContentfulImage from '../../../components/layout/contentfulImage';
+import Circle from '../../../components/decoration/circle';
+import useDocsStore from '../../../lib/stores/docsStore';
+import { useHash } from '../../../hooks/useHash';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
     contentType: 'docsCategory',
     other: { order: 'fields.order', include: 3 },
   });
 
+  const allPaths: { category: string; section: string }[] = [];
+  categories.forEach((category) => {
+    category.fields.sections.forEach((section) => {
+      allPaths.push({
+        category: category.fields.slug,
+        section: section.fields.slug,
+      });
+    });
+  });
+
   return {
-    props: {
-      categories,
-    },
-    revalidate: 10, // TODO: change to 480 when David stops testing stuff
+    paths: allPaths.map((path) => ({ params: path })),
+    fallback: true,
   };
 };
 
 interface DocsProps {
   categories: IDocsCategory[];
-  // ...
+  section: IDocsSection;
+  category: IDocsCategory;
 }
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const [category, section, categories] = await Promise.all([
+    getContents<IDocsCategoryFields>({
+      contentType: 'docsCategory',
+      query: {
+        slug: params?.category,
+      },
+    }),
+    getContents<IDocsSectionFields>({
+      contentType: 'docsSection',
+      query: {
+        slug: params?.section,
+      },
+    }),
+    getContents<IDocsCategoryFields>({
+      contentType: 'docsCategory',
+      other: { order: 'fields.order', include: 3 },
+    }),
+  ]);
+
+  if (!category || !section) {
+    return { notFound: true };
+  }
+
+  return { props: { category: category[0], section: section[0], categories } };
+};
 
 const Header: React.FC = () => {
   return (
@@ -173,33 +211,16 @@ const SubSection: React.FC<IDocumentationFields> = ({
   );
 };
 
-const getAllSections: (
-  categories: IDocsCategory[]
-) => Record<string, IDocsSection> = (categories) => {
-  const sections: Record<string, IDocsSection> = {};
-  categories.forEach((cat) => {
-    cat.fields.sections?.forEach((section) => {
-      sections[section.fields.slug] = section;
-    });
-  });
-
-  return sections;
-};
-
-const Docs: React.FC<DocsProps> = ({ categories }) => {
-  const allSections = useMemo(() => getAllSections(categories), [categories]);
-
-  const { selectedSectionSlug, setSelectedSectionSlug } = useDocsStore();
+const Docs: React.FC<DocsProps> = ({ categories, category, section }) => {
+  const { setCurrentDocSlug, setSelectedSectionSlug, setSelectedCategorySlug } =
+    useDocsStore();
+  const [currentDocSlug] = useHash();
 
   useEffect(() => {
-    setSelectedSectionSlug(categories[0].fields.sections[0].fields.slug);
-  }, [categories]);
-
-  const category = categories.find((cat) =>
-    cat.fields.sections.find(
-      (section) => section.fields.slug === selectedSectionSlug
-    )
-  );
+    setCurrentDocSlug(currentDocSlug);
+    setSelectedCategorySlug(category.fields.slug);
+    setSelectedSectionSlug(section.fields.slug);
+  }, []);
 
   return (
     <>
@@ -207,12 +228,7 @@ const Docs: React.FC<DocsProps> = ({ categories }) => {
       <Header />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
-        {selectedSectionSlug && (
-          <Content
-            section={allSections[selectedSectionSlug]}
-            category={category as IDocsCategory}
-          />
-        )}
+        <Content section={section} category={category} />
       </div>
     </>
   );
