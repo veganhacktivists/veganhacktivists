@@ -11,7 +11,7 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import { NextSeo } from 'next-seo';
@@ -22,6 +22,7 @@ import BlogsHeader from '../../components/layout/blog/blogsHeader';
 import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
+import { config, useSpring } from '@react-spring/core';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -89,6 +90,26 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     initialPageSize: 9,
   });
 
+  const blogContainer = useRef<HTMLDivElement>(null);
+  const [, setY] = useSpring(() => ({ y: 0 }));
+
+  const scrollUp = () => {
+    if (blogContainer.current) {
+      const target =
+        window.scrollY + blogContainer.current.getBoundingClientRect().top;
+
+      setY({
+        y: target,
+        reset: true,
+        from: { y: window.scrollY },
+        onChange: (props) => {
+          window.scroll(0, props.value.y);
+        },
+        config: config.slow,
+      });
+    }
+  };
+
   return (
     <>
       <NextSeo title="Blog" />
@@ -117,7 +138,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         ]}
         className="hidden lg:block"
       />
-      <div className="pt-20 pb-20">
+      <div className="pt-20 pb-20" ref={blogContainer}>
         {!filteredFirstBlog.length && !filteredEntries.length ? (
           <div className="mx-auto text-xl">No entries match your query</div>
         ) : (
@@ -145,6 +166,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           <DarkButton
             onClick={() => {
               setPreviousPage();
+              scrollUp();
             }}
             className="font-mono font-bold uppercase flex"
             disabled={!previousEnabled}
@@ -157,6 +179,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           <DarkButton
             onClick={() => {
               setNextPage();
+              scrollUp();
             }}
             className="font-mono font-bold uppercase"
             disabled={!nextEnabled}

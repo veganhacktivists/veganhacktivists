@@ -56,7 +56,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'green',
     squareColor: '#58a345',
     title: 'Developers',
-    href: 'https://veganhacktivists.typeform.com/to/Vnrv6N',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for developers to build unique, interesting, or
@@ -71,7 +71,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'yellow-orange',
     squareColor: '#eb7d23',
     title: 'UI Designers',
-    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for UI designers to support us by producing modern,
@@ -87,7 +87,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'pink',
     squareColor: '#d31679',
     title: 'Graphic Designers',
-    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for graphic designers to support us by producing
@@ -102,7 +102,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'yellow',
     squareColor: '#fcb216',
     title: 'Social or Marketing',
-    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for people with backgrounds in social media,
@@ -117,7 +117,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'red',
     squareColor: '#c61f45',
     title: 'Content Creators',
-    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for people with backgrounds in writing, and creating
@@ -132,7 +132,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'purple',
     squareColor: '#692c81',
     title: 'Translators',
-    href: 'https://veganhacktivists.typeform.com/to/PBK1we',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
         We&apos;re looking for people that can help us translate vegan content
@@ -223,7 +223,7 @@ const Join: React.FC = () => (
           </p>
           <div className="w-2/3 mx-auto">
             <LightButton
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               className="font-semibold font-mono px-16 py-2"
             >
               Apply Now

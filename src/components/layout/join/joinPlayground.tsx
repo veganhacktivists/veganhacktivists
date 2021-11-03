@@ -15,10 +15,10 @@ const JoinPlayground: React.FC = () => {
           </h2>
           <div className="text-2xl">
             <p className="mb-4">
-              Join <b>VH: Playground</b>, our open source community, to begin
-              contributing to animal rights projects today! Due to limited spots
-              on our core teams, we&apos;re only recruiting developers active in
-              Playground.
+            We launched a open-source community available to the public called <b>VH: Playground</b>, 
+            with over 400+ members and counting! Playground allows developers who don&apos;t have the 
+            time or specific skills to join the core Vegan Hacktivists team to still contribute 
+              to the movement, whether that be on our open source projects or your own!
             </p>
           </div>
           <div className="relative mx-10 md:mx-auto mt-10 md:w-1/3">
