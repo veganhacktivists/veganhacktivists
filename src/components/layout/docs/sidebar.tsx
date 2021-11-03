@@ -80,7 +80,7 @@ const Section: React.FC<SectionProps> = ({
         onClick={() => {
           setSelectedSectionSlug(slug);
           setTimeout(() => {
-            sectionRef.current?.scrollIntoView();
+            document.getElementById(slug)?.scrollIntoView();
           });
         }}
         className="cursor-pointer py-1 text-xl font-bold"
