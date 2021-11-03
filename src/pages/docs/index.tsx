@@ -3,7 +3,7 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import Circle from '../../components/decoration/circle';
 import Sidebar from '../../components/layout/docs/sidebar';
 import { getContents } from '../../lib/cms';
@@ -11,9 +11,12 @@ import type {
   IDocsCategory,
   IDocsCategoryFields,
   IDocsSection,
+  IDocumentationFields,
 } from '../../types/generated/contentful';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import Link from 'next/link';
+import useDocsStore from '../../lib/stores/docsStore';
+import { Waypoint } from 'react-waypoint';
 
 export const getStaticProps: GetStaticProps = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -42,10 +45,10 @@ const Header: React.FC = () => {
       <div className="flex flex-col gap-y-10 justify-center md:w-1/2 z-10 pb-10 text-2xl px-16 font-mono">
         <h1 className="text-4xl">Vegan Hacktivists - Documentation</h1>
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis
-          tempora ipsum provident et doloremque, numquam vel repudiandae nulla
-          necessitatibus neque quisquam voluptatem similique odit quas incidunt
-          aperiam eaque exercitationem accusamus!
+          Whether you&apos;re a developer, designer, or just someone interested
+          in our internal policies, find detailed documentation of everything
+          and anything you&apos;d ever need to know about us in one convenient
+          spot! We update our documentation every week.
         </div>
       </div>
     </div>
@@ -123,7 +126,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           <div className="text-3xl font-bold">{section.fields.title}</div>
         </div>
         <div className="text-normal text-right md:text-left">
-          Last updated:{' '}
+          <span className="font-bold">Last updated:</span>{' '}
           <span className="block md:inline">
             {new Intl.DateTimeFormat('en', {
               month: 'long',
@@ -139,15 +142,34 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           {documentToReactComponents(content, richTextOptions)}
         </div>
       )}
-      {subsections?.map((doc) => {
-        return (
-          <div key={doc.fields.slug} id={doc.fields.slug}>
-            <h2 className="text-2xl font-bold">{doc.fields.title}</h2>
-            {documentToReactComponents(doc.fields.content, richTextOptions)}
-          </div>
-        );
-      })}
+      {subsections?.map((doc) => (
+        <SubSection key={doc.fields.slug} {...doc.fields} />
+      ))}
     </div>
+  );
+};
+
+const SubSection: React.FC<IDocumentationFields> = ({
+  slug,
+  title,
+  content,
+}) => {
+  const setCurrentDocSlug = useDocsStore((state) => state.setCurrentDocSlug);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  return (
+    <>
+      <Waypoint
+        onEnter={() => {
+          setCurrentDocSlug(slug);
+        }}
+      />
+      <div key={slug} id={slug} ref={ref}>
+        <h2 className="text-2xl font-bold">{title}</h2>
+        {documentToReactComponents(content, richTextOptions)}
+      </div>
+    </>
   );
 };
 
@@ -167,9 +189,11 @@ const getAllSections: (
 const Docs: React.FC<DocsProps> = ({ categories }) => {
   const allSections = useMemo(() => getAllSections(categories), [categories]);
 
-  const [selectedSectionSlug, setSelectedSectionSlug] = useState(
-    categories[0].fields.sections[0].fields.slug
-  );
+  const { selectedSectionSlug, setSelectedSectionSlug } = useDocsStore();
+
+  useEffect(() => {
+    setSelectedSectionSlug(categories[0].fields.sections[0].fields.slug);
+  }, [categories]);
 
   const category = categories.find((cat) =>
     cat.fields.sections.find(
@@ -182,15 +206,13 @@ const Docs: React.FC<DocsProps> = ({ categories }) => {
       <NextSeo title="Docs" noindex />
       <Header />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
-        <Sidebar
-          categories={categories.map((cat) => cat.fields)}
-          onSelectSection={setSelectedSectionSlug}
-          selectedSection={selectedSectionSlug}
-        />
-        <Content
-          section={allSections[selectedSectionSlug]}
-          category={category as IDocsCategory}
-        />
+        <Sidebar categories={categories.map((cat) => cat.fields)} />
+        {selectedSectionSlug && (
+          <Content
+            section={allSections[selectedSectionSlug]}
+            category={category as IDocsCategory}
+          />
+        )}
       </div>
     </>
   );

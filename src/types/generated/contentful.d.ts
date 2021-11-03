@@ -57,7 +57,7 @@ export interface IDocsCategoryFields {
   order: number;
 
   /** color */
-  color?: string | undefined;
+  color: string;
 
   /** sections */
   sections: IDocsSection[];

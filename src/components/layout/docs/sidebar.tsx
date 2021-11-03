@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
-import { useHash } from '../../../hooks/useHash';
+import classNames from 'classnames';
+import { useState } from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
+import useDocsStore from '../../../lib/stores/docsStore';
 import type {
   IDocsCategoryFields,
   IDocsSectionFields,
@@ -8,24 +9,44 @@ import type {
 } from '../../../types/generated/contentful';
 
 interface DocumentationProps extends IDocumentationFields {
-  onSelect: () => void;
+  color: string;
+  sectionSlug: IDocsSectionFields['slug'];
 }
 
 const Documentation: React.FC<DocumentationProps> = ({
   title,
   slug,
-  onSelect,
+  color,
+  sectionSlug,
 }) => {
-  const [, setSelectedDoc] = useHash();
+  const { currentDocSlug, setCurrentDocSlug, setSelectedSectionSlug } =
+    useDocsStore();
+
+  const [hover, setHover] = useState(false);
+  const isSelected = currentDocSlug === slug;
 
   return (
     <li>
       <div
         onClick={() => {
-          onSelect();
-          setSelectedDoc(slug);
+          setCurrentDocSlug(slug);
+          setSelectedSectionSlug(sectionSlug);
+          setTimeout(() => {
+            document.getElementById(slug)?.scrollIntoView();
+          });
         }}
-        className="cursor-pointer py-1"
+        onMouseEnter={() => {
+          setHover(true);
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
+        className={classNames('cursor-pointer py-1', {
+          'font-bold': isSelected,
+        })}
+        style={{
+          color: isSelected || hover ? color : 'inherit',
+        }}
       >
         {title}
       </div>
@@ -33,8 +54,6 @@ const Documentation: React.FC<DocumentationProps> = ({
   );
 };
 interface SectionProps extends IDocsSectionFields {
-  onChangeSelected: SidebarProps['onSelectSection'];
-  selectedSection: SidebarProps['selectedSection'];
   color: IDocsCategoryFields['color'];
 }
 
@@ -43,12 +62,12 @@ const Section: React.FC<SectionProps> = ({
   title,
   color,
   subsections,
-  onChangeSelected,
-  selectedSection,
 }) => {
   const lightGrey = getThemeColor('grey-light');
 
-  const isSelected = selectedSection === slug;
+  const { selectedSectionSlug, setSelectedSectionSlug } = useDocsStore();
+
+  const isSelected = selectedSectionSlug === slug;
 
   return (
     <div
@@ -57,21 +76,20 @@ const Section: React.FC<SectionProps> = ({
     >
       <div
         onClick={() => {
-          onChangeSelected(slug);
+          setSelectedSectionSlug(slug);
         }}
         className="cursor-pointer py-1 text-xl font-bold"
       >
         {title}
       </div>
       {subsections && (
-        <ul className="list-disc mx-4 px-1 list-outside">
+        <ul className="mx-4 px-1 list-outside">
           {subsections.map((doc) => (
             <Documentation
               key={doc.fields.slug}
               {...doc.fields}
-              onSelect={() => {
-                onChangeSelected(slug);
-              }}
+              sectionSlug={slug}
+              color={color}
             />
           ))}
         </ul>
@@ -80,16 +98,9 @@ const Section: React.FC<SectionProps> = ({
   );
 };
 
-type CategoryProps = IDocsCategoryFields &
-  Pick<SidebarProps, 'onSelectSection' | 'selectedSection'>;
+type CategoryProps = IDocsCategoryFields;
 
-const Category: React.FC<CategoryProps> = ({
-  name,
-  color,
-  onSelectSection,
-  selectedSection,
-  sections,
-}) => {
+const Category: React.FC<CategoryProps> = ({ name, color, sections }) => {
   const lightGrey = getThemeColor('grey-light');
 
   return (
@@ -107,8 +118,6 @@ const Category: React.FC<CategoryProps> = ({
           <Section
             key={section.fields.slug}
             {...section.fields}
-            onChangeSelected={onSelectSection}
-            selectedSection={selectedSection}
             color={color}
           />
         ))}
@@ -119,30 +128,13 @@ const Category: React.FC<CategoryProps> = ({
 
 interface SidebarProps {
   categories: IDocsCategoryFields[];
-  selectedSection: IDocsSectionFields['slug'];
-  onSelectSection: (slug: IDocsSectionFields['slug']) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-  categories,
-  selectedSection,
-  onSelectSection,
-}) => {
-  const [, setHash] = useHash();
-
-  useEffect(() => {
-    setHash('');
-  }, [selectedSection]);
-
+const Sidebar: React.FC<SidebarProps> = ({ categories }) => {
   return (
     <div className="md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-screen space-y-4 py-20">
       {categories.map((cat) => (
-        <Category
-          key={cat.slug}
-          {...cat}
-          selectedSection={selectedSection}
-          onSelectSection={onSelectSection}
-        />
+        <Category key={cat.slug} {...cat} />
       ))}
     </div>
   );
