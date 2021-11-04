@@ -233,7 +233,7 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
     currentDocSlug && setCurrentDocSlug(currentDocSlug);
     category?.fields.slug && setSelectedCategorySlug(category.fields.slug);
     section?.fields.slug && setSelectedSectionSlug(section.fields.slug);
-  }, [currentDocSlug, category.fields.slug, section.fields.slug]);
+  }, [currentDocSlug, category?.fields.slug, section?.fields.slug]);
 
   return (
     <>
