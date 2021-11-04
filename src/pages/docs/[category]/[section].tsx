@@ -230,9 +230,9 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
   const [currentDocSlug] = useHash();
 
   useEffect(() => {
-    setCurrentDocSlug(currentDocSlug);
-    setSelectedCategorySlug(category.fields.slug);
-    setSelectedSectionSlug(section.fields.slug);
+    currentDocSlug && setCurrentDocSlug(currentDocSlug);
+    category?.fields.slug && setSelectedCategorySlug(category.fields.slug);
+    section?.fields.slug && setSelectedSectionSlug(section.fields.slug);
   }, [currentDocSlug, category.fields.slug, section.fields.slug]);
 
   return (
