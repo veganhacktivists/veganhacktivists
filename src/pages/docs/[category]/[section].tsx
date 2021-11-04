@@ -81,11 +81,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     other: { order: 'fields.order', include: 3 },
   });
 
-  // if (!category || !section) {
-  //   return { notFound: true };
-  // }
+  if (!categories || !category || !section) {
+    return { notFound: true };
+  }
 
-  return { props: { category, section, categories } };
+  return { props: { category, section, categories }, revalidate: 480 };
 };
 
 const Header: React.FC = () => {
@@ -224,7 +224,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
   );
 };
 
-const Docs: React.FC<DocsProps> = ({ categories, category, section }) => {
+const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
   const { setCurrentDocSlug, setSelectedSectionSlug, setSelectedCategorySlug } =
     useDocsStore();
   const [currentDocSlug] = useHash();
@@ -241,7 +241,9 @@ const Docs: React.FC<DocsProps> = ({ categories, category, section }) => {
       <Header />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
-        <Content section={section} category={category} />
+        {section && category && (
+          <Content section={section} category={category} />
+        )}
       </div>
     </>
   );
