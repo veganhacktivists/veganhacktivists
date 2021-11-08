@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withPWA = require('next-pwa');
+
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
@@ -34,3 +37,10 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withPWA({
+  ...nextConfig,
+  pwa: {
+    sw: '/service-worker.js',
+  },
+});
