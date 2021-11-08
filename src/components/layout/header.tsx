@@ -145,10 +145,18 @@ const RightSide: React.FC = () => {
           id={buttonMenuId}
           className="peer"
         />
-        <label htmlFor={buttonMenuId} className="cursor-pointer">
+        <label
+          htmlFor={buttonMenuId}
+          className="cursor-pointer"
+          aria-haspopup
+          aria-controls="mobile-menu"
+        >
           <FontAwesomeIcon icon={faBars} size="2x" />
         </label>
-        <div className="font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 flex-grow items-stretch w-64 max-w-min flex-col hidden peer-checked:flex">
+        <div
+          id="mobile-menu"
+          className="font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 flex-grow items-stretch w-64 max-w-min flex-col hidden peer-checked:flex"
+        >
           <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
             <NavbarItems />
           </div>

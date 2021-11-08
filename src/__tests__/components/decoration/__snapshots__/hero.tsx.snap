@@ -9,7 +9,7 @@ exports[`should render correctly when providing a URL string 1`] = `
       alt=""
       src="https://via.placeholder.com/500x500"
     />
-    <div
+    <h1
       class="flex flex-col justify-center w-1/2 z-10"
     />
     <div
@@ -63,7 +63,7 @@ exports[`should render correctly when providing static image data 1`] = `
       alt=""
       src="[object Object]"
     />
-    <div
+    <h1
       class="flex flex-col justify-center w-1/2 z-10"
     />
     <div

@@ -22,7 +22,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
 
   const LinkToBlog: React.FC = ({ children }) => (
     <Link href={`/blog/${blog.fields.slug}`}>
-      <a>{children}</a>
+      <a aria-label={blog.fields.title}>{children}</a>
     </Link>
   );
 

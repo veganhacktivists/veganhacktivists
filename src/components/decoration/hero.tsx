@@ -63,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({
         priority
         {...backgroundImageProps}
       />
-      <div className={contentClasses}>
+      <h1 className={contentClasses}>
         {tagline && (
           <div
             className={classNames({
@@ -73,6 +73,7 @@ const Hero: React.FC<HeroProps> = ({
             <CustomImage
               src={tagline.image}
               alt={tagline.alt}
+              title={tagline.alt}
               width={
                 (tagline.image.width / tagline.image.height) * taglineHeight
               }
@@ -82,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         )}
         {children}
-      </div>
+      </h1>
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
         <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />

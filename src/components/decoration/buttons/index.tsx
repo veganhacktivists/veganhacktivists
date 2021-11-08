@@ -9,16 +9,10 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { LinkProps } from 'next/link';
-import type {
-  AriaAttributes,
-  MouseEventHandler,
-  ButtonHTMLAttributes,
-} from 'react';
+import type { MouseEventHandler, ButtonHTMLAttributes } from 'react';
 import { FillBackground } from './utils';
 
-export interface ButtonProps
-  extends AriaAttributes,
-    ButtonHTMLAttributes<unknown> {
+export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
   primary?: boolean;
   href?: LinkProps['href'];
   className?: string;
@@ -38,6 +32,7 @@ const BaseButton: React.FC<ButtonProps> = ({
   linkProps,
   capitalize = true,
   className = '',
+  'aria-label': ariaLabel,
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,7 +44,7 @@ const BaseButton: React.FC<ButtonProps> = ({
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <a href={href} target="_blank" rel="noreferrer">
+        <a href={href} target="_blank" rel="noreferrer" aria-label={ariaLabel}>
           <div {...props} className={classes}>
             {children}
           </div>
@@ -58,7 +53,7 @@ const BaseButton: React.FC<ButtonProps> = ({
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
         <Link {...linkProps} href={href}>
-          <a>
+          <a aria-label={ariaLabel}>
             <div className={classes} {...props}>
               {children}
             </div>
@@ -67,7 +62,7 @@ const BaseButton: React.FC<ButtonProps> = ({
       )}
       {/* it's a submit button */}
       {!href && (
-        <button {...props} className={classes}>
+        <button {...props} className={classes} aria-label={ariaLabel}>
           {children}
         </button>
       )}
@@ -167,6 +162,7 @@ const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
+      aria-label="Support us on Patreon!"
       {...props}
       className={classNames(
         'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-2 py-2',
@@ -183,6 +179,7 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
+      aria-label="Subscribe to our Youtube channel!"
       {...props}
       className={classNames(
         'bg-white hover:bg-red text-grey hover:text-white rounded-full px-2 py-2',
@@ -199,6 +196,7 @@ const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
+      aria-label="Follow us on Instagram!"
       {...props}
       className={classNames(
         'bg-white hover:bg-blue text-grey hover:text-white rounded-full px-2 py-2',
