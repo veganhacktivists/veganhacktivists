@@ -99,7 +99,7 @@ const Header: React.FC = () => {
           Whether you&apos;re a developer, designer, or just someone interested
           in our internal policies, find detailed documentation of everything
           and anything you&apos;d ever need to know about us in one convenient
-          spot! We update our documentation every week.
+          spot!
         </div>
       </div>
     </div>
