@@ -2,11 +2,11 @@
   "name": "Vegan Hacktivists",
   "short_name": "Hacktivists",
   "lang": "en-US",
-  "start_url": "https://veganhacktivists.org/",
+  "start_url": "/",
   "display": "minimal-ui",
   "theme_color": "#000000",
   "background_color": "#000000",
-  "prefer_related_applications": "false",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icons/icon-72x72.png",

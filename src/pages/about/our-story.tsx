@@ -1,4 +1,5 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
+
 import Link from 'next/link';
 import PixelPig from '../../../public/images/VH_PixelPig.png';
 import CustomImage from '../../components/decoration/customImage';
@@ -12,9 +13,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 const OurStory: PageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>Our Story | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Our Story" />
       <FirstSubSection header="Our story">
         We started in 2019 as a one-person team with the goal of building a
         simple animal rights tech project. After the launch of our first

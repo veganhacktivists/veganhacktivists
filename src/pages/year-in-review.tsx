@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Hero from '../components/decoration/hero';
@@ -36,6 +35,7 @@ import type {
 } from '../types/generated/contentful';
 import { getContents } from '../lib/cms';
 import CustomImage from '../components/decoration/customImage';
+import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -158,9 +158,7 @@ interface YearInReviewProps {
 const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
   return (
     <>
-      <Head>
-        <title>2020 in Review | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="2020 in Review" />
       <Hero
         imageBackground={heroBackground}
         tagline={{
@@ -206,7 +204,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         headerBold="EIGHT PROJECTS"
         headerEnd="FOR THE MOVEMENT"
       >
-        Four of which were unique project ideas of our own! We were also luck
+        Four of which were unique project ideas of our own! We were also lucky
         enough to work on projects with Animal Rebellion, Animal Save Movement,
         Lebanese Vegans, and the Excelsior 4!
       </HighlightBlock>

@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withPWA = require('next-pwa');
+
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
@@ -26,6 +29,19 @@ module.exports = {
         destination: '/people/team',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/docs/general/introduction',
+        permanent: true,
+      },
     ];
   },
 };
+
+module.exports = withPWA({
+  ...nextConfig,
+  pwa: {
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development',
+  },
+});

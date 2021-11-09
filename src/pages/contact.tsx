@@ -1,16 +1,14 @@
 import ContactUsForm from '../components/forms/contactUs';
-import Head from 'next/head';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import SquareField from '../components/decoration/squares';
 import CustomImage from '../components/decoration/customImage';
+import { NextSeo } from 'next-seo';
 
 const Contact: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Contact Us | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Contact Us" />
       <SquareField
         squares={[
           { size: 16, top: 0, color: 'grey-light' },
@@ -33,9 +31,9 @@ const Contact: React.FC = () => {
           firstWordsNum={2}
           className="my-0"
         >
-          If you&apos;d like to get in touch with us, please use our contact form below! 
-          We do our best to respond to every email within 48 hours. Please make 
-          sure to check your spam folder!
+          If you&apos;d like to get in touch with us, please use our contact
+          form below! We do our best to respond to every email within 48 hours.
+          Please make sure to check your spam folder!
         </FirstSubSection>
 
         <ContactUsForm />

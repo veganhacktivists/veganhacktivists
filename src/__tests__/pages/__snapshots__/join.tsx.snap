@@ -19,7 +19,7 @@ exports[`should render correctly 1`] = `
       />
       <noscript />
     </span>
-    <div
+    <h1
       class="flex flex-col justify-center w-1/2 z-10"
     >
       <div
@@ -45,11 +45,12 @@ exports[`should render correctly 1`] = `
             src="/_next/image?url=%2Ffoo.png&w=750&q=75"
             srcset="/_next/image?url=%2Ffoo.png&w=384&q=75 1x, /_next/image?url=%2Ffoo.png&w=750&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            title="You are their voice"
           />
           <noscript />
         </span>
       </div>
-    </div>
+    </h1>
     <div
       class="absolute inset-0 overflow-hidden"
     >
@@ -332,11 +333,11 @@ exports[`should render correctly 1`] = `
         <p
           class="mb-4"
         >
-          Join 
+          We launched a open-source community available to the public called 
           <b>
             VH: Playground
           </b>
-          , our open source community, to begin contributing to animal rights projects today! Due to limited spots on our core teams, we're only recruiting developers active in Playground.
+          , with over 400+ members and counting! Playground allows developers who don't have the time or specific skills to join the core Vegan Hacktivists team to still contribute to the movement, whether that be on our open source projects or your own!
         </p>
       </div>
       <div
@@ -555,13 +556,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/Vnrv6N"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/Vnrv6N"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -622,13 +623,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -689,13 +690,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -756,13 +757,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -823,13 +824,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -890,13 +891,13 @@ exports[`should render correctly 1`] = `
           class="my-8 w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now
@@ -944,13 +945,13 @@ exports[`should render correctly 1`] = `
           class="w-2/3 mx-auto"
         >
           <a
-            href="https://veganhacktivists.typeform.com/to/PBK1we"
+            href="https://forms.gle/zN5rYjZ8nLXXgktZA"
             rel="noreferrer"
             target="_blank"
           >
             <div
               class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-              href="https://veganhacktivists.typeform.com/to/PBK1we"
+              href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
               Apply Now

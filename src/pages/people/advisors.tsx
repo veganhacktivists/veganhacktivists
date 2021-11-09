@@ -1,5 +1,5 @@
 import type { GetStaticProps } from 'next';
-import Head from 'next/head';
+
 import SquareField from '../../components/decoration/squares';
 import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 
@@ -12,6 +12,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import React from 'react';
 import SocialLinks from '../../components/layout/team/socialLinks';
+import { NextSeo } from 'next-seo';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -64,18 +65,16 @@ interface AdvisorsProps {
 const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
   return (
     <>
-      <Head>
-        <title>Our Advisors | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Our Advisors" />
       <FirstSubSection header="Our advisors">
         We&apos;re so incredibly thankful to have a team of experienced advisors
         that support us! Advisors lend thier experience by providing valuable
         personal feedback for our projects and organization.
       </FirstSubSection>
-      <div className="m-10">
-        <div className="flex flex-wrap justify-center ">
+      <div className="my-10 lg:w-2/3 mx-auto">
+        <div className="grid md:grid-cols-3 justify-center ">
           {advisors.map((advisor) => (
-            <div className="m-5" key={advisor.sys.id}>
+            <div className="my-5 mx-auto" key={advisor.sys.id}>
               <AdvisorCard advisor={advisor} />
             </div>
           ))}

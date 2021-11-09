@@ -10,8 +10,6 @@ import {
   getBlogPreviewBySlug,
 } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import Head from 'next/head';
-
 import SquareField from '../../components/decoration/squares';
 import React from 'react';
 import Circle from '../../components/decoration/circle';
@@ -20,6 +18,7 @@ import BlogContentContainer, {
 } from '../../components/layout/blog/blogPageLayout';
 import Link from 'next/link';
 import SubtleBorder from '../../components/decoration/subtleBorder';
+import { NextSeo } from 'next-seo';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -155,9 +154,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
 
   return (
     <>
-      <Head>
-        <title>{title} | Vegan Hacktivists Blog</title>
-      </Head>
+      <NextSeo title={title} titleTemplate="%s | Vegan Hacktivists Blog" />
       <div>
         <Header />
         <div className="mx-auto">

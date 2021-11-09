@@ -46,6 +46,99 @@ export interface IBlogEntry extends Entry<IBlogEntryFields> {
   };
 }
 
+export interface IDocsCategoryFields {
+  /** slug */
+  slug: string;
+
+  /** name */
+  name: string;
+
+  /** order */
+  order: number;
+
+  /** color */
+  color: string;
+
+  /** sections */
+  sections: IDocsSection[];
+}
+
+export interface IDocsCategory extends Entry<IDocsCategoryFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "docsCategory";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IDocsSectionFields {
+  /** slug */
+  slug: string;
+
+  /** title */
+  title: string;
+
+  /** subsections */
+  subsections?: IDocumentation[] | undefined;
+
+  /** content */
+  content?: Document | undefined;
+}
+
+export interface IDocsSection extends Entry<IDocsSectionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "docsSection";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IDocumentationFields {
+  /** slug */
+  slug: string;
+
+  /** title */
+  title: string;
+
+  /** content */
+  content: Document;
+}
+
+export interface IDocumentation extends Entry<IDocumentationFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "documentation";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IProjectFields {
   /** name */
   name: string;
@@ -267,6 +360,9 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
 
 export type CONTENT_TYPE =
   | "blogEntry"
+  | "docsCategory"
+  | "docsSection"
+  | "documentation"
   | "project"
   | "singleValues"
   | "socialLinks"

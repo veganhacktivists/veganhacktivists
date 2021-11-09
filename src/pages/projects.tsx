@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Head from 'next/head';
+
 import Hero from '../components/decoration/hero';
 import {
   DarkButton,
@@ -23,6 +23,7 @@ import Sprite, { chicken } from '../components/decoration/sprite';
 import Link from 'next/link';
 import useViewMore from '../hooks/useViewMore';
 import { firstLetterUppercase } from '../lib/helpers/strings';
+import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -147,9 +148,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
 
   return (
     <>
-      <Head>
-        <title>Projects | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Projects" />
       <div>
         <Hero
           imageBackground={heroBackground}

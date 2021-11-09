@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
@@ -14,6 +13,7 @@ import type { GetStaticProps } from 'next';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 import CustomImage from '../components/decoration/customImage';
+import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -59,9 +59,10 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   return (
     <>
-      <Head>
-        <title>Vegan Hacktivists | Compassion, Creativity, Code!</title>
-      </Head>
+      <NextSeo
+        title="Vegan Hacktivists"
+        titleTemplate="%s | Compassion, Creativity, Code!"
+      />
       <Hero
         main
         imageBackground={heroBackground}

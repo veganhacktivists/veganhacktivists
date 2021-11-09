@@ -10,6 +10,8 @@ import TagManager from 'react-gtm-module';
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { NextPage } from 'next';
+import type { DefaultSeoProps } from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -25,8 +27,17 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const SEO: DefaultSeoProps = {
+  titleTemplate: '%s | Vegan Hacktivists',
+};
+
 const AppWrapper: React.FC = ({ children }) => {
-  return <CookiesProvider>{children}</CookiesProvider>;
+  return (
+    <CookiesProvider>
+      <DefaultSeo {...SEO} />
+      {children}
+    </CookiesProvider>
+  );
 };
 
 const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {

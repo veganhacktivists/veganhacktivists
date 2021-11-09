@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect, useMemo, useState } from 'react';
-import Head from 'next/head';
+
 import type { GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
@@ -20,6 +20,7 @@ import Link from 'next/link';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
+import { NextSeo } from 'next-seo';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -226,9 +227,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
 
   return (
     <>
-      <Head>
-        <title>Our Team | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Our Team" />
       <FirstSubSection header="Our team">
         We&apos;re so grateful to have so many passionate vegan volunteers with
         us supporting the movement! Each team below is run independently from

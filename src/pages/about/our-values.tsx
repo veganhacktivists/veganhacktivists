@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import PixelChicken from '../../../public/images/VH_PixelChicken.png';
 import CustomImage from '../../components/decoration/customImage';
 import {
@@ -7,13 +6,12 @@ import {
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
 import type PageWithLayout from '../../types/persistentLayout';
+import { NextSeo } from 'next-seo';
 
 const OurValues: PageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>Our Values | Vegan Hacktivists</title>
-      </Head>
+      <NextSeo title="Our Values" />
       <FirstSubSection header="Our values">
         We embrace strong core values for our organization and recruit diverse
         and talented volunteers. By making our community open and safe for
