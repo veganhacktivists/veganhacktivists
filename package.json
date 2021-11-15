@@ -19,7 +19,6 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@mailchimp/mailchimp_marketing": "^3.0.72",
     "@react-spring/web": "^9.3.0",
-    "@swc/core-linux-musl": "^1.2.42",
     "@tailwindcss/line-clamp": "^0.2.2",
     "classnames": "^2.3.1",
     "contentful": "^9.1.4",
