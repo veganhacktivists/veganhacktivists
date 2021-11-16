@@ -183,7 +183,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                     <span className="font-bold">|</span>{' '}
                     <span className="uppercase">
                       {new Intl.DateTimeFormat('en', {
-                        month: 'short',
+                        month: 'long',
                         year: 'numeric',
                         day: 'numeric',
                       }).format(date)}
