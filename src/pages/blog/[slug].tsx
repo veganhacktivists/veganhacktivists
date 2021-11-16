@@ -181,7 +181,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                     Written by{' '}
                     <span className="font-bold">{author.fields.name}</span>{' '}
                     <span className="font-bold">|</span>{' '}
-                    <span className="uppercase">
+                    <span>
                       {new Intl.DateTimeFormat('en', {
                         month: 'long',
                         year: 'numeric',
