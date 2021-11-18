@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  web:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  db:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - vh-data:/home/dynamodblocal/data
+
+volumes:
+  vh-data:
