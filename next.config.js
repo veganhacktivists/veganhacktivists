@@ -3,6 +3,7 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = {
+  optimizeFonts: false,
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
