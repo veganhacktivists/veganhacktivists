@@ -14,6 +14,7 @@ import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 import CustomImage from '../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import dynamodb from '../lib/database/dynamo';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -57,6 +58,8 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
+  const res = dynamodb.get({ TableName: 'test', Key: {} }).promise();
+
   return (
     <>
       <NextSeo

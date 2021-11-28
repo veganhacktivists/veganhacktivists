@@ -12,6 +12,7 @@
     "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.41.0",
     "@contentful/rich-text-react-renderer": "^15.5.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -20,6 +21,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.70",
     "@react-spring/web": "^9.3.0",
     "@tailwindcss/line-clamp": "^0.2.2",
+    "aws-sdk": "^2.1032.0",
     "classnames": "^2.3.1",
     "contentful": "^9.1.4",
     "crypto-js": "^4.1.1",

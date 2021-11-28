@@ -7,11 +7,14 @@ services:
     depends_on:
       - db
   db:
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    working_dir: /home/dynamodblocal
     image: amazon/dynamodb-local:latest
     ports:
       - 8000:8000
     volumes:
       - vh-data:/home/dynamodblocal/data
+    user: root
 
 volumes:
   vh-data:
