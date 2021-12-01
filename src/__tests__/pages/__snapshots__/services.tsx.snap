@@ -678,7 +678,7 @@ exports[`should render correctly 1`] = `
                   Select...
                 </div>
                 <div
-                  class=" css-1fyl6xp-Input"
+                  class=" css-4o4p50-Input"
                   data-value=""
                 >
                   <input
