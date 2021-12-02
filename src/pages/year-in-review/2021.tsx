@@ -1,51 +1,38 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import Hero from '../components/decoration/hero';
-import heroBackground from '../../public/images/review2020/VH-Hero-review.jpg';
-import heroTagline from '../../public/images/review2020/VH-Hero-text-review.png';
-import SquareField from '../components/decoration/squares';
-
-import Strawberry from '../../public/images/review2020/icon-strawberry-outline.png';
-import Blueberry from '../../public/images/review2020/icon-blueberry-outline.png';
+import Hero from '../../components/decoration/hero';
+import SquareField from '../../components/decoration/squares';
 
 import {
   FirstSubSection,
   SubSection,
-} from '../components/decoration/textBlocks';
-import pixelHeart from '../../public/images/VH_PixelHeart.png';
-import pixelFlower from '../../public/images/VH_PixelFlower.png';
-import pixelStar from '../../public/images/VH_PixelStar.png';
-import pixelPig from '../../public/images/VH_PixelPig.png';
-import petaLogo from '../../public/images/review2020/peta.webp';
-import beyondLogo from '../../public/images/review2020/beyondanimal.webp';
-import counterglowLogo from '../../public/images/review2020/counterglow.webp';
-import { HighlightBlock } from '../components/layout/review2020/highlightBlock';
-import { HighlightedProjects } from '../components/layout/review2020/highlightedProjects';
-import { Organizations } from '../components/layout/review2020/organizations';
-import { DarkButton } from '../components/decoration/buttons';
-import Sprite, { cow } from '../components/decoration/sprite';
+} from '../../components/decoration/textBlocks';
+import { HighlightBlock } from '../../components/layout/yearInReview/highlightBlock';
+import { HighlightedProjects } from '../../components/layout/yearInReview/highlightedProjects';
+import { Organizations } from '../../components/layout/yearInReview/organizations';
+import { DarkButton } from '../../components/decoration/buttons';
+import Sprite, { cow } from '../../components/decoration/sprite';
 import { animated, useSpring } from '@react-spring/web';
 import { Waypoint } from 'react-waypoint';
-import useReduceMotion from '../hooks/useReduceMotion';
-import TopPosts from '../components/layout/review2020/topPosts';
+import useReduceMotion from '../../hooks/useReduceMotion';
+import TopPosts from '../../components/layout/yearInReview/topPosts';
 import type { GetStaticProps } from 'next';
 import type {
   IBlogEntry,
   IBlogEntryFields,
-} from '../types/generated/contentful';
-import { getContents } from '../lib/cms';
-import CustomImage from '../components/decoration/customImage';
+} from '../../types/generated/contentful';
+import { getContents } from '../../lib/cms';
+import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
 
-const HERO_DECORATION_SQUARES = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'green', size: 32, left: 16, bottom: 0 },
-  { color: 'yellow', size: 16, left: 0, top: 0 },
-
-  { color: 'red', size: 32, right: 0, top: -16 },
-  { color: 'orange', size: 16, right: 32, bottom: 16 },
-  { color: 'white', size: 16, right: 32, bottom: 0 },
-];
+// images imports
+import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.jpg';
+import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
+import pixelHeart from '../../../public/images/VH_PixelHeart.png';
+import pixelFlower from '../../../public/images/VH_PixelFlower.png';
+import pixelStar from '../../../public/images/VH_PixelStar.png';
+import pixelPig from '../../../public/images/VH_PixelPig.png';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
@@ -155,30 +142,27 @@ interface YearInReviewProps {
   topBlogs: IBlogEntry[];
 }
 
-const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
+const YearInReview2021: React.FC<YearInReviewProps> = ({ topBlogs }) => {
   return (
     <>
-      <NextSeo title="2020 in Review" />
-      <Hero
-        imageBackground={heroBackground}
-        tagline={{
-          image: heroTagline,
-          alt: '2020 year in review',
-        }}
-        alignment="left"
-        classNameMapping={{
-          container: 'bg-center',
-        }}
+      <NextSeo title="2021 in Review" />
+      <YearInReviewHeader
+        year={2021}
+        hero={
+          <Hero
+            imageBackground={heroBackground}
+            tagline={{
+              image: heroTagline,
+              alt: '2020 year in review',
+            }}
+            alignment="left"
+            classNameMapping={{
+              container: 'bg-center',
+            }}
+          />
+        }
       />
-      <SquareField
-        squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-      <FirstSubSection header="Our 2020 year in review" firstWordsNum={2}>
-        We&apos;re so happy to release our 2020 year in review! Scroll down to
-        see all our accomplishments we&apos;ve made thanks to your generous
-        support, our partners, and most of all our amazing volunteers!
-      </FirstSubSection>
+
       <CustomImage
         src={pixelHeart.src}
         height={pixelHeart.height / 3}
@@ -609,4 +593,4 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
   );
 };
 
-export default YearInReview;
+export default YearInReview2021;

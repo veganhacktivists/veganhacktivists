@@ -59,10 +59,7 @@ export const Organizations: React.FC = ({}) => {
   const [organization, setOrganization] = useState('savemovement');
   return (
     <div className="pb-20 pt-8 bg-grey-background">
-      <FirstSubSection
-          header="Working with ORGANIZATIONS"
-          firstWordsNum={2}
-        />
+      <FirstSubSection header="Working with ORGANIZATIONS" firstWordsNum={2} />
       <div className="flex flex-col md:flex-row mx-auto justify-center gap-x-16">
         <div>
           <div className="overflow-hidden pb-80">
