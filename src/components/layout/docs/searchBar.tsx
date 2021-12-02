@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { IDocsCategoryFields } from '../../../types/generated/contentful';
 import { FillBackground } from '../../decoration/buttons/utils';
 import TextInput from '../../forms/inputs/textInput';
@@ -14,23 +14,26 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const searchItems: SearchItem[] = [];
-
-  categories.forEach((cat) => {
-    cat.sections.forEach((sec) => {
-      searchItems.push({
-        category: cat,
-        section: sec,
-      });
-      sec.fields.subsections?.forEach((sub) => {
+  const searchItems = useMemo(() => {
+    const searchItems: SearchItem[] = [];
+    categories.forEach((cat) => {
+      cat.sections.forEach((sec) => {
         searchItems.push({
           category: cat,
           section: sec,
-          subsection: sub,
+        });
+        sec.fields.subsections?.forEach((sub) => {
+          searchItems.push({
+            category: cat,
+            section: sec,
+            subsection: sub,
+          });
         });
       });
     });
-  });
+
+    return searchItems;
+  }, [categories]);
 
   return (
     <div className="flex pl-5 pb-12">

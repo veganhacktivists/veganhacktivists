@@ -31,8 +31,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   setSearchTerm,
   ...props
 }) => {
-  // const [results, setResults] = useState<(IDocsCategory | IDocsSection | IDocumentation)[]>([]);
-
   const res = useFuse<SearchItem>({
     data: searchItems,
     term: searchTerm,
@@ -43,7 +41,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         'subsection.fields.title',
       ],
       threshold: 0,
-      location: 0,
+      ignoreLocation: true,
+      isCaseSensitive: false,
     },
   });
 
