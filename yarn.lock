@@ -956,6 +956,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@contentful/rich-text-plain-text-renderer@^15.6.2":
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-plain-text-renderer/-/rich-text-plain-text-renderer-15.6.2.tgz#a2c8172d0a1053eb4f3a7828b880bec02cf67fb9"
+  integrity sha512-VicDMI2KDT5We6zpmE2aj5/obrMDIL/aUGFDKMXsKROgPMq6XfpoW+nl+RJkz+V0YApLCKUbj+B0oQ4AANdVEw==
+  dependencies:
+    "@contentful/rich-text-types" "^15.6.2"
+
 "@contentful/rich-text-react-renderer@^15.5.1":
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.6.2.tgz#da778bcd4ec2f61fd5a7459d4411f7a292f795fc"

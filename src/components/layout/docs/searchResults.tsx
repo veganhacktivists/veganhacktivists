@@ -13,6 +13,7 @@ export interface SearchItem {
   category: IDocsCategoryFields;
   section: IDocsSection;
   subsection?: IDocumentation;
+  text?: string;
 }
 
 interface SearchResultsProps
@@ -39,6 +40,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         'category.name',
         'section.fields.title',
         'subsection.fields.title',
+        'text',
       ],
       threshold: 0,
       ignoreLocation: true,
@@ -71,20 +73,21 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                   },
                   hash: item.subsection?.fields.slug,
                 }}
-                passHref
               >
-                <Highlighter
-                  searchWords={[searchTerm]}
-                  textToHighlight={
-                    item.category.name +
-                    ' -> ' +
-                    item.section.fields.title +
-                    (item.subsection
-                      ? ' -> ' + item.subsection.fields.title
-                      : '')
-                  }
-                  highlightTag={'b'}
-                />
+                <a>
+                  <Highlighter
+                    searchWords={[searchTerm]}
+                    textToHighlight={
+                      item.category.name +
+                      ' -> ' +
+                      item.section.fields.title +
+                      (item.subsection
+                        ? ' -> ' + item.subsection.fields.title
+                        : '')
+                    }
+                    highlightTag="b"
+                  />
+                </a>
               </Link>
             </div>
           );
