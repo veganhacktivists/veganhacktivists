@@ -16,8 +16,9 @@ const PERKS: PerkProps[] = [
     title: 'SquareSpace website subscription',
     children: (
       <>
-        <div>Valued at around $200 a year, or $17 a month.</div>
-        <div>You own, we pay - just keep active!</div>
+        <div>Valued at around $200, we&apos;ll pay for the first year!</div>
+        <div>You own it - we&apos;ll help you design and maintain it!</div>
+        <div>Easy to update with little to no experience.</div>
       </>
     ),
   },

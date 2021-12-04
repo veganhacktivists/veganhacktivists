@@ -62,14 +62,18 @@ export const getStaticProps: GetStaticProps = async ({
 
 const richTextOptions: Options = {
   renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => (
-      <div>
-        <ContentfulImage
-          image={node.data?.target}
-          alt={node.data?.target?.fields?.title}
-        />
-      </div>
-    ),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const imageData = node.data.target;
+      const { title, description } = imageData?.fields;
+      return (
+        <div>
+          <ContentfulImage image={imageData} alt={title} />
+          {description && (
+            <div className="italic text-base text-gray-dark">{description}</div>
+          )}
+        </div>
+      );
+    },
     [BLOCKS.HEADING_1]: (node, children) => (
       <h1 className="text-3xl pt-10">{children}</h1>
     ),
@@ -80,10 +84,10 @@ const richTextOptions: Options = {
       <h2 className="text-xl pt-5">{children}</h2>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc list-inside">{children}</ul>
+      <ul className="list-disc ml-5">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc list-inside">{children}</ul>
+      <ul className="list-disc ml-5">{children}</ul>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
       <Link href={node.data.uri}>
@@ -181,9 +185,9 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                     Written by{' '}
                     <span className="font-bold">{author.fields.name}</span>{' '}
                     <span className="font-bold">|</span>{' '}
-                    <span className="uppercase">
+                    <span>
                       {new Intl.DateTimeFormat('en', {
-                        month: 'short',
+                        month: 'long',
                         year: 'numeric',
                         day: 'numeric',
                       }).format(date)}

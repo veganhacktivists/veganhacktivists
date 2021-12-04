@@ -12,7 +12,8 @@
     "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.6.2",
+    "@contentful/rich-text-plain-text-renderer": "^15.6.2",
+    "@contentful/rich-text-react-renderer": "^15.5.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -36,6 +37,7 @@
     "react-cookie": "^4.1.1",
     "react-dom": "17.0.2",
     "react-gtm-module": "^2.0.11",
+    "react-highlight-words": "^0.17.0",
     "react-hook-form": "^7.19.1",
     "react-select": "^5.2.1",
     "react-toastify": "^8.1.0",
@@ -54,6 +56,7 @@
     "@types/mailchimp__mailchimp_marketing": "^3.0.2",
     "@types/react": "17.0.34",
     "@types/react-gtm-module": "^2.0.1",
+    "@types/react-highlight-words": "^0.16.3",
     "@types/tailwindcss": "^2.2.4",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
