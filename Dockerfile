@@ -5,7 +5,7 @@ FROM node:16-alpine3.13 AS deps
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --ignore-optional --frozen-lockfile
+RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM node:16-alpine3.13 AS builder
@@ -66,4 +66,4 @@ EXPOSE ${PORT}
 ENV NEXT_TELEMETRY_DISABLED 1
 
 ENTRYPOINT ["tini", "--"]
-CMD ["yarn", "start"]
+CMD ["node_modules/.bin/next", "start"]
