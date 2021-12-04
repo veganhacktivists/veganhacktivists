@@ -29,48 +29,48 @@
     "got": "^11.8.2",
     "http-status-codes": "^2.1.4",
     "ky": "^0.28.7",
-    "mailgun.js": "^3.7.2",
-    "next": "12.0.3",
-    "next-pwa": "^5.4.0",
+    "mailgun.js": "^4.1.0",
+    "next": "12.0.6",
+    "next-pwa": "^5.4.4",
     "next-seo": "^4.28.1",
     "react": "17.0.2",
     "react-cookie": "^4.1.1",
     "react-dom": "17.0.2",
     "react-gtm-module": "^2.0.11",
     "react-highlight-words": "^0.17.0",
-    "react-hook-form": "^7.19.1",
+    "react-hook-form": "^7.20.5",
     "react-select": "^5.2.1",
     "react-toastify": "^8.1.0",
     "react-use-pagination": "^2.0.1",
     "react-waypoint": "^10.1.0",
     "sharp": "^0.29.2",
     "tailwindcss": "^2.2.19",
-    "zustand": "^3.6.5"
+    "zustand": "^3.6.6"
   },
   "devDependencies": {
     "@axe-core/react": "^4.2.2",
-    "@testing-library/dom": "^8.11.0",
-    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^12.1.2",
     "@types/crypto-js": "^4.0.2",
     "@types/mailchimp__mailchimp_marketing": "^3.0.2",
-    "@types/react": "17.0.34",
+    "@types/react": "17.0.37",
     "@types/react-gtm-module": "^2.0.1",
     "@types/react-highlight-words": "^0.16.3",
     "@types/tailwindcss": "^2.2.4",
-    "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "@typescript-eslint/parser": "^5.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.3.0",
-    "eslint": "8.2.0",
-    "eslint-config-next": "12.0.3",
+    "eslint": "8.4.0",
+    "eslint-config-next": "12.0.6",
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.0",
-    "lint-staged": "^11.2.6",
+    "lint-staged": "^12.1.2",
     "postcss": "^8.3.11",
-    "prettier": "^2.3.2",
-    "typescript": "4.4.4"
+    "prettier": "^2.5.1",
+    "typescript": "4.5.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -98,7 +98,7 @@
     }
   },
   "optionalDependencies": {
-    "contentful-management": "^7.45.0",
+    "contentful-management": "^7.45.5",
     "contentful-typescript-codegen": "^3.2.2"
   }
 }
