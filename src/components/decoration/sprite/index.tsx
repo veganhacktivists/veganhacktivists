@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
-import chicken from '../../../../public/images/sprite_chicken.gif';
-import pig from '../../../../public/images/sprite_pig.gif';
-import sheep from '../../../../public/images/sprite_sheep.gif';
-import cow from '../../../../public/images/sprite_cow.gif';
-import goat from '../../../../public/images/sprite_goat.gif';
-import duck from '../../../../public/images/sprite_duck.gif';
-import chicks from '../../../../public/images/sprite_chicks.gif';
-import fishg from '../../../../public/images/sprite_fish_green.gif';
-import fishb from '../../../../public/images/sprite_fish_blue.gif';
+import chicken from '../../../../public/images/animated/sprite_chicken.gif';
+import pig from '../../../../public/images/animated/sprite_pig.gif';
+import sheep from '../../../../public/images/animated/sprite_sheep.gif';
+import cow from '../../../../public/images/animated/sprite_cow.gif';
+import goat from '../../../../public/images/animated/sprite_goat.gif';
+import duck from '../../../../public/images/animated/sprite_duck.gif';
+import chicks from '../../../../public/images/animated/sprite_chicks.gif';
+import fishg from '../../../../public/images/animated/sprite_fish_green.gif';
+import fishb from '../../../../public/images/animated/sprite_fish_blue.gif';
 import useWindowSize from '../../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
 import CustomImage from '../customImage';

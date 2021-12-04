@@ -37,6 +37,7 @@ import { getContents } from '../../lib/cms';
 import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
 import YearInReviewHeader from '../../components/layout/yearInReview/layout';
+import CustomLink from '../../components/decoration/link';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
@@ -213,11 +214,9 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         We&apos;re incredibly thankful to now have a team of experienced vegan
         advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and
         Michael Dearborn. Browse more of our advisors,{' '}
-        <Link href="https://veganhacktivists.org/people/advisors">
-          <a className="text-magenta hover:underline active:text-magenta-light">
-            click here!
-          </a>
-        </Link>{' '}
+        <CustomLink href="https://veganhacktivists.org/people/advisors">
+          click here!
+        </CustomLink>
       </HighlightBlock>
       <div className="h-16" />
       <SquareField
@@ -332,11 +331,9 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           We&apos;ve{' '}
-          <Link href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
-            <a className="text-magenta hover:underline active:text-magenta-light">
-              started up a new team
-            </a>
-          </Link>{' '}
+          <CustomLink href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
+            started up a new team
+          </CustomLink>{' '}
           dedicated to collecting and analyzing data not only on the projects
           that we build, but Vegan Hacktivists as an organization. This team
           marks our commitment to data, a commitment to making sure that
@@ -347,11 +344,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           Suan Chin is leading this team with 7 other data scientists. See the
           entire team by visiting the{' '}
-          <Link href="/people/team">
-            <a className="text-magenta hover:underline active:text-magenta-light">
-              team page here.
-            </a>
-          </Link>{' '}
+          <CustomLink href="/people/team">team page here</CustomLink>.{' '}
           We&apos;re excited to see how this team will shape the future of the
           work we do!
         </SubSection>
