@@ -1,27 +1,11 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import Hero from '../../components/decoration/hero';
-import SquareField from '../../components/decoration/squares';
 
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
 import { HighlightBlock } from '../../components/layout/yearInReview/highlightBlock';
-import { HighlightedProjects } from '../../components/layout/yearInReview/highlightedProjects';
-import { Organizations } from '../../components/layout/yearInReview/organizations';
-import { DarkButton } from '../../components/decoration/buttons';
-import Sprite, { cow } from '../../components/decoration/sprite';
-import { animated, useSpring } from '@react-spring/web';
-import { Waypoint } from 'react-waypoint';
-import useReduceMotion from '../../hooks/useReduceMotion';
-import TopPosts from '../../components/layout/yearInReview/topPosts';
-import type { GetStaticProps } from 'next';
-import type {
-  IBlogEntry,
-  IBlogEntryFields,
-} from '../../types/generated/contentful';
-import { getContents } from '../../lib/cms';
 import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
 import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
@@ -31,87 +15,16 @@ import CustomLink from '../../components/decoration/link';
 import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.jpg';
 import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
 import pixelHeart from '../../../public/images/VH_PixelHeart.png';
-import pixelFlower from '../../../public/images/VH_PixelFlower.png';
-import pixelStar from '../../../public/images/VH_PixelStar.png';
-import pixelPig from '../../../public/images/VH_PixelPig.png';
+// import pixelFlower from '../../../public/images/VH_PixelFlower.png';
+// import pixelStar from '../../../public/images/VH_PixelStar.png';
+// import pixelPig from '../../../public/images/VH_PixelPig.png';
 import avocadoIcon from '../../../public/images/people/teamIcons/icon-avo.png';
 import peachIcon from '../../../public/images/people/teamIcons/icon-peach.png';
 import mangoIcon from '../../../public/images/people/teamIcons/icon-mango.png';
 import watermelonIcon from '../../../public/images/people/teamIcons/icon-wmelon.png';
 import sweetPotatoIcon from '../../../public/images/people/teamIcons/icon-spotato.png';
-
-const STRATEGY_DECORATION_SQUARES = [
-  { color: 'grey-background', size: 16, left: 0, bottom: 0 },
-  { color: 'white', size: 16, left: 32, top: 0 },
-];
-
-const NEW_TEAM_SQUARES = [
-  { color: 'grey', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-light', size: 16, left: 0, top: 0 },
-  { color: 'grey-light', size: 16, right: 0, bottom: 0 },
-];
-
-const MINOR_CHANGES_SQUARES = [
-  { color: 'grey-background', size: 16, left: 0, top: 0 },
-  { color: 'white', size: 16, right: 0, bottom: 0 },
-  { color: 'grey-background', size: 16, right: 0, top: 0 },
-];
-
-const PROJECT_SQUARES = [
-  { color: 'grey-dark', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-light', size: 16, left: 0, top: 0 },
-  { color: 'grey-light', size: 16, right: 0, bottom: 0 },
-];
-
-const ORGANIZATIONS_SQUARES = [
-  { color: 'grey-background', size: 16, bottom: 0, left: 0 },
-  { color: 'white', size: 16, top: 0, left: 32 },
-
-  { color: 'grey-background', size: 16, bottom: 0, right: 0 },
-  { color: 'white', size: 16, top: 0, right: 0 },
-];
-
-const FINAL_SQUARES = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-background', size: 16, right: 0, top: 0 },
-  { color: 'white', size: 16, right: 16, bottom: 0 },
-];
-
-const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
-  number,
-  approx = false,
-}) => {
-  const [onView, setOnView] = useState<boolean>(false);
-
-  const prefersReducedMotion = useReduceMotion();
-
-  const { number: interpolatedNumber } = useSpring({
-    from: { number: 0 },
-    to: { number },
-    config: { duration: prefersReducedMotion ? 0 : 500 },
-    cancel: !onView,
-  });
-
-  return (
-    <>
-      <Waypoint
-        onEnter={() => {
-          setOnView(true);
-        }}
-      />
-      <span className="text-7xl xl:text-8xl" aria-label={`${number}`}>
-        <animated.span>
-          {interpolatedNumber.to((x) =>
-            Math.floor(x)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          )}
-        </animated.span>
-        {approx && <>~</>}
-      </span>
-    </>
-  );
-};
+import FeedbackAndTesting from '../../components/layout/yearInReview/2021/feedbackAndTesting';
+import CommunityGrowth from '../../components/layout/yearInReview/2021/communityGrowth';
 
 // interface YearInReviewProps {}
 
@@ -186,8 +99,7 @@ const YearInReview2021: React.FC = () => {
           growth of our community with 5 new amazing teams! Please welcome Team
           Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
         </HighlightBlock>
-
-        <div className="flex flex-row w-1/2 mx-auto">
+        <div className="flex flex-row md:w-1/2 mx-auto">
           {[
             avocadoIcon,
             peachIcon,
@@ -201,6 +113,9 @@ const YearInReview2021: React.FC = () => {
           ))}
         </div>
       </div>
+      <FeedbackAndTesting />
+      <CommunityGrowth />
+      <div className="h-40" />
     </>
   );
 };

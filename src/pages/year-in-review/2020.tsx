@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
 import Hero from '../../components/decoration/hero';
 import heroBackground from '../../../public/images/yearInReview/2020/VH-Hero-review.jpg';
@@ -24,7 +23,6 @@ import { HighlightedProjects } from '../../components/layout/yearInReview/highli
 import { Organizations } from '../../components/layout/yearInReview/organizations';
 import { DarkButton } from '../../components/decoration/buttons';
 import Sprite, { cow } from '../../components/decoration/sprite';
-import { animated, useSpring } from '@react-spring/web';
 import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../../hooks/useReduceMotion';
 import TopPosts from '../../components/layout/yearInReview/topPosts';
@@ -38,6 +36,7 @@ import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
 import YearInReviewHeader from '../../components/layout/yearInReview/layout';
 import CustomLink from '../../components/decoration/link';
+import AnimatedNumber from '../../components/decoration/animatedNumber';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
@@ -75,42 +74,6 @@ const FINAL_SQUARES = [
   { color: 'grey-background', size: 16, right: 0, top: 0 },
   { color: 'white', size: 16, right: 16, bottom: 0 },
 ];
-
-const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
-  number,
-  approx = false,
-}) => {
-  const [onView, setOnView] = useState<boolean>(false);
-
-  const prefersReducedMotion = useReduceMotion();
-
-  const { number: interpolatedNumber } = useSpring({
-    from: { number: 0 },
-    to: { number },
-    config: { duration: prefersReducedMotion ? 0 : 500 },
-    cancel: !onView,
-  });
-
-  return (
-    <>
-      <Waypoint
-        onEnter={() => {
-          setOnView(true);
-        }}
-      />
-      <span className="text-7xl xl:text-8xl" aria-label={`${number}`}>
-        <animated.span>
-          {interpolatedNumber.to((x) =>
-            Math.floor(x)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          )}
-        </animated.span>
-        {approx && <>~</>}
-      </span>
-    </>
-  );
-};
 
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = [
