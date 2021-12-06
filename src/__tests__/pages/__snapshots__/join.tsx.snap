@@ -349,7 +349,7 @@ exports[`should render correctly 1`] = `
           target="_blank"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="https://discord.gg/Yt3zADeJKx"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -561,7 +561,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -628,7 +628,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -695,7 +695,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -762,7 +762,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -829,7 +829,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -896,7 +896,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -950,7 +950,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -1143,7 +1143,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/people/team"
             style="background-size: 250% 100%; background-position: right;"
           >
