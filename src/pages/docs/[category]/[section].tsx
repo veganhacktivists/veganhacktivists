@@ -18,6 +18,7 @@ import ContentfulImage from '../../../components/layout/contentfulImage';
 import Circle from '../../../components/decoration/circle';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
+import SquareField from '../../../components/decoration/squares';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -40,6 +41,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
+
+const HERO_DECORATION_SQUARES = [
+  { color: 'green', size: 32, left: 0, bottom: -16 },
+  { color: 'white', size: 16, left: 32, bottom: 0 },
+  { color: 'yellow', size: 16, left: 32, bottom: 16 },
+  { color: 'magenta', size: 32, right: 16, bottom: 0 },
+  { color: 'orange', size: 16, right: 0, top: 0 },
+  { color: 'white', size: 16, right: 0, bottom: 0 },
+];
 
 interface DocsProps {
   categories: IDocsCategory[];
@@ -239,6 +249,10 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
     <>
       <NextSeo title="Docs" noindex />
       <Header />
+      <SquareField
+        squares={HERO_DECORATION_SQUARES}
+        className="hidden md:block z-10"
+      />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
         {section && category && (
