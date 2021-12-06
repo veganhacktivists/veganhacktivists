@@ -51,15 +51,16 @@ const BaseButton: React.FC<ButtonProps> = ({
         </a>
       )}
       {/* it's an internal link */}
-      {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href}>
-          <a aria-label={ariaLabel}>
-            <div className={classes} {...props}>
-              {children}
-            </div>
-          </a>
-        </Link>
-      )}
+      {props.href &&
+        !(href.startsWith('http://') || href.startsWith('https://')) && (
+          <Link {...linkProps} href={props.href}>
+            <a aria-label={ariaLabel}>
+              <div className={classes} {...props}>
+                {children}
+              </div>
+            </a>
+          </Link>
+        )}
       {/* it's a submit button */}
       {!href && (
         <button {...props} className={classes} aria-label={ariaLabel}>
@@ -78,13 +79,15 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
 const LightButton: React.FC<ButtonProps> = ({
   children,
   primary,
+  disabled,
   className = '',
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="green">
+    <FillBackground base="white" fill="green" disabled={disabled}>
       <BaseButton
         {...props}
+        disabled={disabled}
         className={classNames(
           baseButtonClasses,
           'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
@@ -101,6 +104,7 @@ const LightButton: React.FC<ButtonProps> = ({
 const DarkButton: React.FC<ButtonProps> = ({
   children,
   active,
+  disabled,
   className = '',
   ...props
 }) => {
@@ -108,9 +112,11 @@ const DarkButton: React.FC<ButtonProps> = ({
     <FillBackground
       base={active ? 'magenta' : 'grey-dark'}
       fill={active ? 'magenta' : 'green'}
+      disabled={disabled}
     >
       <BaseButton
         {...props}
+        disabled={disabled}
         className={classNames(
           baseButtonClasses,
           'transition-all overflow-hidden text-white',

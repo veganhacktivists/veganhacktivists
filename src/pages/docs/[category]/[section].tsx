@@ -19,6 +19,9 @@ import Circle from '../../../components/decoration/circle';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
 import SquareField from '../../../components/decoration/squares';
+import { DarkButton } from '../../../components/decoration/buttons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -174,6 +177,22 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       .reduce((a, b) => (a < b ? a : b));
   }, [category.fields.slug]);
 
+  let sectionIndex = 0;
+
+  for (let i = 0; i < category.fields.sections.length; i++) {
+    if (category.fields.sections[i].fields.slug === slug) {
+      sectionIndex = i;
+      break;
+    }
+  }
+
+  const prev =
+    sectionIndex > 0 ? category.fields.sections[sectionIndex - 1] : undefined;
+  const next =
+    sectionIndex < category.fields.sections.length - 1
+      ? category.fields.sections[sectionIndex + 1]
+      : undefined;
+
   return (
     <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
       <div className="mb-5 flex flex-row justify-between">
@@ -206,6 +225,41 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           <SubSection key={doc.fields.slug} {...doc.fields} />
         </Fragment>
       ))}
+      <div className="flex space-x-4 justify-center items-center mt-10">
+        <p className="hidden lg:block">{prev && prev.fields.title}</p>
+        <DarkButton
+          disabled={prev === undefined}
+          href={
+            prev && {
+              pathname: '/docs/[category]/[section]',
+              query: {
+                category: category.fields.slug,
+                section: prev.fields.slug,
+              },
+            }
+          }
+        >
+          <FontAwesomeIcon size="sm" icon={faArrowLeft} />
+          &nbsp; Previous
+        </DarkButton>
+        &nbsp; &nbsp;
+        <DarkButton
+          disabled={next === undefined}
+          href={
+            next && {
+              pathname: '/docs/[category]/[section]',
+              query: {
+                category: category.fields.slug,
+                section: next.fields.slug,
+              },
+            }
+          }
+        >
+          Next &nbsp;
+          <FontAwesomeIcon size="sm" icon={faArrowRight} />
+        </DarkButton>
+        <p className="hidden lg:block">{next && next.fields.title}</p>
+      </div>
     </div>
   );
 };
