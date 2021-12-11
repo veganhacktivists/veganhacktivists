@@ -2,6 +2,7 @@ import React from 'react';
 import Circle from '../../../decoration/circle';
 import Sprite, { chicken } from '../../../decoration/sprite';
 import SquareField from '../../../decoration/squares';
+import { SectionHeader } from '../../../decoration/textBlocks';
 
 const FeedbackAndTesting: React.FC = () => {
   return (
@@ -17,9 +18,7 @@ const FeedbackAndTesting: React.FC = () => {
       <div className="relative">
         <div className="bg-grey-dark text-white text-3xl px-5 py-24">
           <div className="md:w-2/3 mx-auto">
-            <h1 className="text-6xl font-mono font-semibold mx-auto mb-10">
-              FEEDBACK <span className="font-italic text-4xl">and</span> TESTING
-            </h1>
+            <SectionHeader header={['Feedback', 'and', 'testing']} />
             <div>
               <p className="mb-10">
                 In order to be more effective, and to meet the needs of our

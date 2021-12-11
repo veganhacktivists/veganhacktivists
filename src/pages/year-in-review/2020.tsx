@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Hero from '../../components/decoration/hero';
 import heroBackground from '../../../public/images/yearInReview/2020/VH-Hero-review.jpg';
 import heroTagline from '../../../public/images/yearInReview/2020/VH-Hero-text-review.png';
@@ -23,8 +23,6 @@ import { HighlightedProjects } from '../../components/layout/yearInReview/highli
 import { Organizations } from '../../components/layout/yearInReview/organizations';
 import { DarkButton } from '../../components/decoration/buttons';
 import Sprite, { cow } from '../../components/decoration/sprite';
-import { Waypoint } from 'react-waypoint';
-import useReduceMotion from '../../hooks/useReduceMotion';
 import TopPosts from '../../components/layout/yearInReview/topPosts';
 import type { GetStaticProps } from 'next';
 import type {
@@ -37,6 +35,7 @@ import { NextSeo } from 'next-seo';
 import YearInReviewHeader from '../../components/layout/yearInReview/layout';
 import CustomLink from '../../components/decoration/link';
 import AnimatedNumber from '../../components/decoration/animatedNumber';
+import { sortByArray } from '../../lib/helpers/array';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
@@ -98,10 +97,7 @@ export const getStaticProps: GetStaticProps = async () => {
     },
     other: { select: ['fields.slug', 'fields.title'] },
   });
-
-  const ordered = topBlogs.sort(
-    (a, b) => slugs.indexOf(a.fields.slug) - slugs.indexOf(b.fields.slug)
-  );
+  const ordered = sortByArray(topBlogs, slugs, (blog) => blog.fields.slug);
 
   return { props: { topBlogs: ordered } };
 };

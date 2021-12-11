@@ -1,9 +1,10 @@
-import { FirstSubSection } from '../../../decoration/textBlocks';
+import { FirstSubSection, SectionHeader } from '../../../decoration/textBlocks';
 
 import docImage from '../../../../../public/images/yearInReview/2021/comm_docs.png';
 import safetyImage from '../../../../../public/images/yearInReview/2021/comm_safety.png';
 import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.png';
 import CustomImage from '../../../decoration/customImage';
+import React from 'react';
 
 const growthPoints: {
   image: StaticImageData;
@@ -51,9 +52,10 @@ const imageDimension = 150;
 const CommunityGrowth: React.FC = () => {
   return (
     <div>
-      <FirstSubSection
-        header="Encouraging community growth"
-        firstWordsNum={1}
+      <SectionHeader
+        header={['Encouraging', 'community growth']}
+        startWithItalics
+        className="text-grey"
       />
       <div className="mx-auto md:w-2/3">
         {growthPoints.map(({ image, header, content }) => (

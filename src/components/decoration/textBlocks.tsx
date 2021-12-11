@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Fragment } from 'react';
 
 type textSize =
   | 'xs'
@@ -25,22 +27,80 @@ interface SubSectionContent {
   spacing?: number;
 }
 
-export const BoldHeaderText: React.FC<SubSectionContent> = ({ children }) => {
+interface SectionHeaderProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  header: string | string[];
+  startWithItalics?: boolean;
+}
+
+// TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
+// in the sorts of custom <H1> components
+export const SectionHeader: React.FC<SectionHeaderProps> = ({
+  header,
+  startWithItalics = false,
+  className,
+  children,
+  ...props
+}) => {
+  const boldClasses = 'text-6xl font-mono font-semibold uppercase';
+  const italicClasses = 'font-italic text-4xl';
+
+  const classes = classNames('py-10', className);
+
   return (
-    <span className="font-mono font-bold text-5xl uppercase text-black">
-      {children}
-    </span>
+    <div {...props} className={classes}>
+      <h2>
+        {Array.isArray(header) ? (
+          <div>
+            {header.map((content, i) => {
+              const italics = startWithItalics ? i % 2 === 0 : i % 2 === 1;
+              return (
+                <Fragment key={i}>
+                  <span
+                    className={classNames({
+                      [italicClasses]: italics,
+                      [boldClasses]: !italics,
+                    })}
+                  >
+                    {content}
+                  </span>
+                  {i !== header.length - 1 && ' '}
+                </Fragment>
+              );
+            })}
+          </div>
+        ) : (
+          <span className={startWithItalics ? italicClasses : boldClasses}>
+            {header}
+          </span>
+        )}
+      </h2>
+      {children && (
+        <div className="mt-5 md:w-1/2 mx-auto text-3xl">{children}</div>
+      )}
+    </div>
   );
+};
+
+export const BoldHeaderText: React.FC<SubSectionContent> = ({
+  children,
+  className = 'text-black',
+}) => {
+  const classes = classNames(
+    'font-mono font-bold text-5xl uppercase',
+    className
+  );
+  return <span className={classes}>{children}</span>;
 };
 
 export const HeaderContainer: React.FC<{ className?: string }> = ({
   children,
-  className,
+  className = 'text-grey',
 }) => {
   return (
     <div
       className={classNames(
-        'text-grey content-center px-5 mx-auto my-12 md:w-1/2 text-2xl',
+        'content-center px-5 mx-auto my-12 md:w-1/2 text-2xl',
         className
       )}
     >
@@ -53,7 +113,7 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
   header = '',
   children,
   firstWordsNum = 1,
-  className = '',
+  className = 'text-grey',
 }) => {
   const tokenizedHeader = header.split(' ');
   const firstWords = tokenizedHeader.splice(0, firstWordsNum).join(' ');
@@ -63,7 +123,7 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
     <HeaderContainer className={className}>
       <div className="pb-[15px]">
         <span className="font-italic text-3xl">{firstWords}</span>{' '}
-        <BoldHeaderText>{remainingWords}</BoldHeaderText>
+        <BoldHeaderText className={className}>{remainingWords}</BoldHeaderText>
       </div>
       <div>{children}</div>
     </HeaderContainer>
