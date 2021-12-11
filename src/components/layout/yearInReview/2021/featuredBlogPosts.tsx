@@ -70,7 +70,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                   </div>
                   <div
                     style={{ backgroundColor: color }}
-                    className="font-bold p-5 text-white"
+                    className="font-bold p-5"
                   >
                     Meet {/* Sorry Suan Chin! */}
                     {name.includes('Suan')

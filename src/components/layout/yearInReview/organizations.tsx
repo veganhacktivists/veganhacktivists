@@ -4,10 +4,16 @@ import { DarkButton } from '../../decoration/buttons';
 import { FirstSubSection } from '../../decoration/textBlocks';
 import { ContentButton } from './contentButton';
 
+import saveMovementImage from '../../../../public/images/yearInReview/2020/savemovement.webp';
+import animalRebellionImage from '../../../../public/images/yearInReview/2020/animalrebellion.webp';
+import lebaneseVegansImage from '../../../../public/images/yearInReview/2020/lebanesevegans.webp';
+import theExcelsior4Image from '../../../../public/images/yearInReview/2020/theexcelsior4.webp';
+
 const ORGANIZATIONS = {
   savemovement: {
     title: 'Animal Save Movement',
     url: 'thesavemovement.org',
+    image: saveMovementImage,
     content:
       // eslint-disable-next-line quotes
       `We were able to work with Animal Save and help them with their new website. We also
@@ -15,12 +21,13 @@ const ORGANIZATIONS = {
       of Save's work and newsletter. If you haven't heard of Save, their mission is to hold
       vigils at every slaughterhouse and to bear witness to every exploited animal. They also
       run the Climate and Health Save Movement, which promote reversing catastrophic climate
-      change and making plant-based diets accessible. It was an absolute joy to meet and work 
+      change and making plant-based diets accessible. It was an absolute joy to meet and work
       with their team of passionate activists!`,
   },
   animalrebellion: {
     title: 'Animal Rebellion',
     url: 'animalrebellion.org',
+    image: animalRebellionImage,
     content:
       // eslint-disable-next-line quotes
       `We partnered with Animal Rebellion this year to help build their new website, which we dedicated
@@ -34,6 +41,7 @@ const ORGANIZATIONS = {
   lebanesevegans: {
     title: 'Lebanese Vegans',
     url: 'lebanesevegans.org',
+    image: lebaneseVegansImage,
     content:
       // eslint-disable-next-line quotes
       `The Lebanese Vegans social hub is the only animal rights and vegan support center in Southwest Asia and
@@ -45,6 +53,7 @@ const ORGANIZATIONS = {
   theexcelsior4: {
     title: 'The Excelsior 4',
     url: 'excelsior4.org',
+    image: theExcelsior4Image,
     content:
       // eslint-disable-next-line quotes
       `The Excelsior 4 are four activists are facing charges, with 21 counts in total after exposing criminal animal
@@ -55,64 +64,39 @@ const ORGANIZATIONS = {
   },
 };
 
-export const Organizations: React.FC = ({}) => {
-  const [organization, setOrganization] = useState('savemovement');
+export const Organizations: React.FC = () => {
+  const [currentOrgIndex, setcurrentOrgIndex] = useState(0);
+  const organization = Object.values(ORGANIZATIONS)[currentOrgIndex];
+
   return (
     <div className="pb-20 pt-8 bg-grey-background">
       <FirstSubSection header="Working with ORGANIZATIONS" firstWordsNum={2} />
       <div className="flex flex-col md:flex-row mx-auto justify-center gap-x-16">
         <div>
           <div className="overflow-hidden pb-80">
-            <ContentButton
-              white
-              contentTitle="Save Movement"
-              setContent={setOrganization}
-              currentContent={organization}
-            />
-            <ContentButton
-              white
-              down={organization === 'savemovement'}
-              contentTitle="Animal Rebellion"
-              setContent={setOrganization}
-              currentContent={organization}
-            />
-            <ContentButton
-              white
-              down={
-                organization === 'savemovement' ||
-                organization === 'animalrebellion'
-              }
-              contentTitle="Lebanese Vegans"
-              setContent={setOrganization}
-              currentContent={organization}
-            />
-            <ContentButton
-              white
-              down={organization !== 'theexcelsior4'}
-              contentTitle="The Excelsior 4"
-              setContent={setOrganization}
-              currentContent={organization}
-            />
+            {Object.values(ORGANIZATIONS).map(({ title, image }, i) => (
+              <ContentButton
+                white
+                down={currentOrgIndex < i}
+                key={title}
+                content={{ title, image }}
+                setContent={() => {
+                  setcurrentOrgIndex(i);
+                }}
+                active={i === currentOrgIndex}
+              />
+            ))}
           </div>
         </div>
         <div className="w-3/4 md:w-1/2 lg:w-1/3 md:text-left gap-y-4 mt-8 md:mt-0 mx-auto md:mx-0">
-          <h1 className="text-4xl font-bold mb-8">
-            {ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].title}
-          </h1>
-          <p className="text-2xl">
-            {ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].content}
-          </p>
+          <h1 className="text-4xl font-bold mb-8">{organization.title}</h1>
+          <p className="text-2xl">{organization.content}</p>
           <div className="flex mt-10">
             <DarkButton
-              href={
-                'https://' +
-                ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].url
-              }
+              href={'https://' + organization.url}
               className="normal-case"
             >
-              {firstLetterUppercase(
-                ORGANIZATIONS[organization as keyof typeof ORGANIZATIONS].url
-              )}
+              {firstLetterUppercase(organization.url)}
             </DarkButton>
           </div>
         </div>
