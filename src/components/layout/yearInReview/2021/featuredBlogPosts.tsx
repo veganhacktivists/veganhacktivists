@@ -17,7 +17,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
   featuredBlogPosts,
 }) => {
   return (
-    <div>
+    <div className="py-20">
       <SectionHeader
         className="text-grey"
         header={['Featured', 'blog posts']}

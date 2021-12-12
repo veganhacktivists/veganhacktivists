@@ -38,17 +38,14 @@ interface SectionHeaderProps
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   header,
   startWithItalics = false,
-  className,
   children,
   ...props
 }) => {
   const boldClasses = 'text-6xl font-mono font-semibold uppercase';
   const italicClasses = 'font-italic text-4xl';
 
-  const classes = classNames('py-10', className);
-
   return (
-    <div {...props} className={classes}>
+    <div {...props}>
       <h2>
         {Array.isArray(header) ? (
           <div>

@@ -5,6 +5,7 @@ import safetyImage from '../../../../../public/images/yearInReview/2021/comm_saf
 import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.png';
 import CustomImage from '../../../decoration/customImage';
 import React from 'react';
+import SectionContainer from '../sectionContainer';
 
 const growthPoints: {
   image: StaticImageData;
@@ -51,32 +52,44 @@ const imageDimension = 150;
 
 const CommunityGrowth: React.FC = () => {
   return (
-    <div>
-      <SectionHeader
-        header={['Encouraging', 'community growth']}
-        startWithItalics
-        className="text-grey"
-      />
-      <div className="mx-auto md:w-2/3">
-        {growthPoints.map(({ image, header, content }) => (
-          <div key={header} className="flex flex-row gap-x-10 mb-10 last:mb-0">
-            <div>
-              <CustomImage
-                src={image}
-                alt=""
-                layout="fixed"
-                height={imageDimension}
-                width={imageDimension}
-              />
-            </div>
-            <div className="md:text-left">
-              <h2 className="text-4xl font-bold text-grey mb-4">{header}</h2>
-              <div className="text-2xl">{content}</div>
-            </div>
+    <>
+      <SectionContainer
+        header={
+          <SectionHeader
+            header={['Encouraging', 'community growth']}
+            startWithItalics
+            className="text-grey"
+          />
+        }
+      >
+        <div>
+          <div className="mx-auto md:w-2/3">
+            {growthPoints.map(({ image, header, content }) => (
+              <div
+                key={header}
+                className="flex flex-row gap-x-10 mb-10 last:mb-0"
+              >
+                <div>
+                  <CustomImage
+                    src={image}
+                    alt=""
+                    layout="fixed"
+                    height={imageDimension}
+                    width={imageDimension}
+                  />
+                </div>
+                <div className="md:text-left">
+                  <h2 className="text-4xl font-bold text-grey mb-4">
+                    {header}
+                  </h2>
+                  <div className="text-2xl">{content}</div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </SectionContainer>
+    </>
   );
 };
 

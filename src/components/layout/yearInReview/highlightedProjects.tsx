@@ -11,10 +11,12 @@ export interface HighlightedProject extends IProjectFields {
 
 interface HighlightedProjectsProps {
   projects: HighlightedProject[];
+  darkBackground?: string;
 }
 
 export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
   projects,
+  darkBackground = false,
 }) => {
   const [projectIndex, setProjectIndex] = useState<number>(0);
   const project = projects[projectIndex];
@@ -32,6 +34,7 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
               return (
                 <div key={project.url}>
                   <ContentButton
+                    white={!darkBackground}
                     down={projectIndex < i}
                     content={{ image: project.image, title: project.name }}
                     setContent={() => {
@@ -49,7 +52,9 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
           <p className="text-2xl">{project.customDescription}</p>
           <div className="flex mt-10">
             <DarkButton href={'https://' + project.url} className="normal-case">
-              {firstLetterUppercase(project.url)}
+              {firstLetterUppercase(
+                project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+              )}
             </DarkButton>
           </div>
         </div>

@@ -18,18 +18,23 @@ import type { FeaturedBlogPostsProps } from '../../components/layout/yearInRevie
 import FeaturedBlogPosts from '../../components/layout/yearInReview/2021/featuredBlogPosts';
 import type {
   IBlogEntryFields,
+  IProjectFields,
   ITagFields,
   ITeamMemberFields,
 } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 import { getContents } from '../../lib/cms';
 import { sortByArray } from '../../lib/helpers/array';
+import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2021/featuredProjects';
+import { projectDescriptions } from '../../components/layout/yearInReview/2021/featuredProjects';
+import FeaturedProjects from '../../components/layout/yearInReview/2021/featuredProjects';
 
 interface YearInReviewProps {
-  featuredMembers: FeaturedBlogPostsProps['featuredBlogPosts'];
+  featuredBlogPosts: FeaturedBlogPostsProps['featuredBlogPosts'];
+  featuredProjects: FeaturedProjectsProps['projects'];
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+const getFeaturedBlogPosts = async () => {
   const memberNames = [
     'Joaquín Triñanes',
     'Stephan de Vries',
@@ -70,19 +75,53 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   });
 
+  return members.map((member) => ({
+    member,
+    blogEntry: meetTheMembers.find((blogEntry) =>
+      blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
+    ),
+  }));
+};
+
+export const getFeaturedProjects = async () => {
+  const projects = await getContents<IProjectFields>({
+    contentType: 'project',
+    query: {
+      filters: {
+        in: {
+          name: Object.keys(projectDescriptions),
+        },
+      },
+    },
+  });
+
+  const projectsSorted = sortByArray(
+    projects,
+    Object.keys(projectDescriptions),
+    (project) => project.fields.name
+  );
+
+  return projectsSorted.map((project) => project.fields);
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const [featuredBlogPosts, featuredProjects] = await Promise.all([
+    getFeaturedBlogPosts(),
+    getFeaturedProjects(),
+  ]);
+
   return {
     props: {
-      featuredMembers: members.map((member) => ({
-        member,
-        blogEntry: meetTheMembers.find((blogEntry) =>
-          blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
-        ),
-      })),
+      featuredBlogPosts,
+      featuredProjects,
     },
   };
 };
 
-const YearInReview2021: React.FC<YearInReviewProps> = ({ featuredMembers }) => {
+const YearInReview2021: React.FC<YearInReviewProps> = ({
+  featuredBlogPosts,
+  featuredProjects,
+}) => {
   return (
     <>
       <NextSeo title="2021 in Review" />
@@ -110,7 +149,8 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({ featuredMembers }) => {
         <AnimatedVideos />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
-        <FeaturedBlogPosts featuredBlogPosts={featuredMembers} />
+        <FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
+        <FeaturedProjects projects={featuredProjects} />
       </div>
     </>
   );

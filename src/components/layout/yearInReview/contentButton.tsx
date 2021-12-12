@@ -83,7 +83,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
             layout="fill"
           />
         ) : (
-          <CustomImage src={content.image} alt="" />
+          <CustomImage src={content.image} alt={content.title + ' logo'} />
         )}
       </div>
     </div>

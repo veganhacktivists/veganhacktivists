@@ -1,4 +1,5 @@
 import { SectionHeader } from '../../../decoration/textBlocks';
+import SectionContainer from '../sectionContainer';
 
 interface Change {
   icon: string;
@@ -54,23 +55,29 @@ const changes: Change[] = [
 const MinorChangesBigImpact: React.FC = () => {
   return (
     <>
-      <div className="bg-grey-dark pt-10 pb-20 text-white">
-        <SectionHeader
-          header={['Minor changes with a', 'big impact']}
-          startWithItalics
-        />
-        <div className="mx-auto w-2/3">
+      <SectionContainer
+        circles
+        color="grey-dark"
+        className="text-white"
+        header={
+          <SectionHeader
+            header={['Minor changes with a', 'big impact']}
+            startWithItalics
+          />
+        }
+      >
+        <div className="mx-auto text-3xl w-2/3 space-y-3">
           {changes.map(({ icon, text }) => (
             <div
               key={icon}
-              className="flex flex-col md:flex-row gap-x-5 w-full justify-start"
+              className="flex flex-col md:flex-row gap-x-10 w-full justify-start"
             >
-              <div>{icon}</div>
-              <div>{text}</div>
+              <div className="text-4xl">{icon}</div>
+              <div className="text-left">{text}</div>
             </div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </>
   );
 };
