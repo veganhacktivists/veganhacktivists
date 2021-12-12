@@ -214,6 +214,12 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
               day: 'numeric',
             }).format(updatedAt)}
           </span>
+          <span className="hidden md:inline"> | </span>
+          <Link href="/contact">
+            <a className="underline text-green opacity-100 hover:opacity-70">
+              Suggest Updates
+            </a>
+          </Link>
         </div>
       </div>
       {content && (
