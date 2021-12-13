@@ -14,7 +14,10 @@ import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.j
 import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
 import MinorChangesBigImpact from '../../components/layout/yearInReview/2021/minorChangesBigImpact';
 import DesignsForVeganOrgs from '../../components/layout/yearInReview/2021/designsForVeganOrgs';
-import type { FeaturedBlogPostsProps } from '../../components/layout/yearInReview/2021/featuredBlogPosts';
+import type {
+  BlogPostItem,
+  FeaturedBlogPostsProps,
+} from '../../components/layout/yearInReview/2021/featuredBlogPosts';
 import FeaturedBlogPosts from '../../components/layout/yearInReview/2021/featuredBlogPosts';
 import type {
   IBlogEntryFields,
@@ -28,6 +31,7 @@ import { sortByArray } from '../../lib/helpers/array';
 import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2021/featuredProjects';
 import { projectDescriptions } from '../../components/layout/yearInReview/2021/featuredProjects';
 import FeaturedProjects from '../../components/layout/yearInReview/2021/featuredProjects';
+import Rebrand from '../../components/layout/yearInReview/2021/rebrand';
 
 interface YearInReviewProps {
   featuredBlogPosts: FeaturedBlogPostsProps['featuredBlogPosts'];
@@ -151,6 +155,13 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
         <DesignsForVeganOrgs />
         <FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
         <FeaturedProjects projects={featuredProjects} />
+        <Rebrand
+          kate={
+            featuredBlogPosts.find(
+              (post) => post.member.fields.name === 'Kate Rodman'
+            ) as BlogPostItem
+          }
+        />
       </div>
     </>
   );

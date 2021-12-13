@@ -6,11 +6,12 @@ import type {
 import { SectionHeader } from '../../../decoration/textBlocks';
 import ContentfulImage from '../../contentfulImage';
 
+export interface BlogPostItem {
+  member: ITeamMember;
+  blogEntry: IBlogEntry;
+}
 export interface FeaturedBlogPostsProps {
-  featuredBlogPosts: {
-    member: ITeamMember;
-    blogEntry: IBlogEntry;
-  }[];
+  featuredBlogPosts: BlogPostItem[];
 }
 
 const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({

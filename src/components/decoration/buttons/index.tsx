@@ -220,6 +220,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
     'border-2 border-opacity-50 p-3',
     {
       'bg-gray text-white border-grey': active,
+      'text-black': !active,
     },
     className
   );
