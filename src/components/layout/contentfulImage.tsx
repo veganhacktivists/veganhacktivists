@@ -24,7 +24,7 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
   const { width, height } = details.image;
 
   const sizeProps =
-    props.layout === 'fixed' || !props.layout
+    props.layout !== 'fill' || !props.layout
       ? { width: width * ratio, height: height * ratio }
       : {};
 
@@ -32,10 +32,8 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
     <CustomImage
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       src={('https:' + url) as any}
-      width={width * ratio}
-      height={height * ratio}
       alt={alt}
-      // {...sizeProps}
+      {...sizeProps}
       {...props}
     />
   );

@@ -1,4 +1,3 @@
-import ContactUsForm from '../components/forms/contactUs';
 import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import SquareField from '../components/decoration/squares';
 import CustomImage from '../components/decoration/customImage';

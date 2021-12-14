@@ -7,7 +7,7 @@ import ContentfulImage from '../contentfulImage';
 import type { Asset } from 'contentful';
 import CustomImage from '../../decoration/customImage';
 export interface ContentButtonProps {
-  content: { title: string; image: any };
+  content: { title: string; image: Asset | StaticImageData };
   setContent: () => void;
   active: boolean;
   down?: boolean;

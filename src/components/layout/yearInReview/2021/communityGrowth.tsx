@@ -1,4 +1,4 @@
-import { FirstSubSection, SectionHeader } from '../../../decoration/textBlocks';
+import { SectionHeader } from '../../../decoration/textBlocks';
 
 import docImage from '../../../../../public/images/yearInReview/2021/comm_docs.png';
 import safetyImage from '../../../../../public/images/yearInReview/2021/comm_safety.png';
