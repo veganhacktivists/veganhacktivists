@@ -71,9 +71,7 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
   return (
     <>
       <SectionContainer
-        header={
-          <SectionHeader header={['Featured', 'projects']} startWithItalics />
-        }
+        header={<SectionHeader header={['Featured', 'projects']} />}
         color="grey-background"
       >
         <HighlightedProjects

@@ -13,6 +13,7 @@ const DesignsForVeganOrgs: React.FC = () => {
           <SectionHeader
             className="text-grey-dark"
             header={['Designs', 'for', 'Vegan Orgs']}
+            startWithBoldFont
           >
             We had the chance to provide on-the-house design support to vegan
             orgs that needed to represent themselves and stand out in the

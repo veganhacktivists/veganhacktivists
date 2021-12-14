@@ -19,11 +19,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
 }) => {
   return (
     <div className="py-20">
-      <SectionHeader
-        className="text-grey"
-        header={['Featured', 'blog posts']}
-        startWithItalics
-      >
+      <SectionHeader className="text-grey" header={['Featured', 'blog posts']}>
         We&apos;ve been having fun with our Blog! We launched our &ldquo;Meet
         The Team&rdquo; series so that we could both feature them for the
         incredible work that they do with us, and so that others from our

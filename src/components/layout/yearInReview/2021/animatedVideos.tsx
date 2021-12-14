@@ -15,7 +15,6 @@ const AnimatedVideos: React.FC = () => {
         <SectionHeader
           className="text-grey"
           header={['Our new', 'animated videos']}
-          startWithItalics
         >
           We&apos;ve partnered with{' '}
           <CustomLink href="https://expandedcircle.org/">
@@ -35,7 +34,7 @@ const AnimatedVideos: React.FC = () => {
           {/* TODO: better alts */}
           <div className="w-1/2">
             <iframe
-              className="w-full h-full"
+              className="w-full aspect-video"
               src="https://www.youtube.com/embed/9W_nU_znBQk"
               title="Activist Hub - World's first animal rights social network and outreach dashboard!"
               frameBorder="0"
@@ -53,7 +52,7 @@ const AnimatedVideos: React.FC = () => {
           </div>
           <div className="w-1/2">
             <iframe
-              className="w-full h-[30rem]"
+              className="w-full aspect-video"
               src="https://www.youtube.com/embed/D9svDr0UhqI"
               title="Vegan Bootcamp - Free 30 day vegan challenge program!"
               frameBorder="0"

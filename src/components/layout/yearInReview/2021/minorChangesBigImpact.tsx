@@ -60,10 +60,7 @@ const MinorChangesBigImpact: React.FC = () => {
         color="grey-dark"
         className="text-white"
         header={
-          <SectionHeader
-            header={['Minor changes with a', 'big impact']}
-            startWithItalics
-          />
+          <SectionHeader header={['Minor changes with a', 'big impact']} />
         }
       >
         <div className="mx-auto text-3xl w-2/3 space-y-3">

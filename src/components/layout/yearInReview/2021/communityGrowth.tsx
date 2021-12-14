@@ -57,7 +57,6 @@ const CommunityGrowth: React.FC = () => {
         header={
           <SectionHeader
             header={['Encouraging', 'community growth']}
-            startWithItalics
             className="text-grey"
           />
         }

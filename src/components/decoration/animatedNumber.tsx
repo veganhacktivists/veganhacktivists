@@ -1,12 +1,16 @@
 import { useSpring, animated } from '@react-spring/web';
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../../hooks/useReduceMotion';
 
-const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
-  number,
-  approx = false,
-}) => {
+const sizeRegex = /([a-z]{,3})?text-[0-9][^\s]+/g;
+
+const AnimatedNumber: React.FC<{
+  number: number;
+  approx?: boolean;
+  className?: string;
+}> = ({ number, className = '', approx = false }) => {
   const [onView, setOnView] = useState<boolean>(false);
 
   const prefersReducedMotion = useReduceMotion();
@@ -18,6 +22,15 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
     cancel: !onView,
   });
 
+  const sizeClasses = Array.from(className.matchAll(sizeRegex));
+  const classesWithoutSize = className.replaceAll(sizeRegex, '');
+
+  const classes = classNames(
+    'font-bold font-mono',
+    classesWithoutSize,
+    sizeClasses.length ? sizeClasses : 'text-7xl md:text-8xl'
+  );
+
   return (
     <>
       <Waypoint
@@ -25,7 +38,7 @@ const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
           setOnView(true);
         }}
       />
-      <span className="text-7xl xl:text-8xl" aria-label={`${number}`}>
+      <span className={classes} aria-label={`${number}`}>
         <animated.span>
           {interpolatedNumber.to((x) =>
             Math.floor(x)

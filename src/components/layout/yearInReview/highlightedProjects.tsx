@@ -23,10 +23,6 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
 
   return (
     <div className="py-24 -mt-16">
-      <FirstSubSection
-        header="See our HIGHLIGHTED PROJECTS"
-        firstWordsNum={2}
-      />
       <div className="flex flex-col md:flex-row justify-center gap-x-16">
         <div>
           <div className="overflow-hidden pb-80">

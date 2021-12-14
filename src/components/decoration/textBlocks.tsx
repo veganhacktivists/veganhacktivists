@@ -30,14 +30,14 @@ interface SubSectionContent {
 interface SectionHeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   header: string | string[];
-  startWithItalics?: boolean;
+  startWithBoldFont?: boolean;
 }
 
 // TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
 // in the sorts of custom <H1> components
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   header,
-  startWithItalics = false,
+  startWithBoldFont = false,
   children,
   ...props
 }) => {
@@ -50,7 +50,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {Array.isArray(header) ? (
           <div>
             {header.map((content, i) => {
-              const italics = startWithItalics ? i % 2 === 0 : i % 2 === 1;
+              const italics = startWithBoldFont ? i % 2 === 1 : i % 2 === 0;
               return (
                 <Fragment key={i}>
                   <span
@@ -67,7 +67,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
             })}
           </div>
         ) : (
-          <span className={startWithItalics ? italicClasses : boldClasses}>
+          <span className={startWithBoldFont ? boldClasses : italicClasses}>
             {header}
           </span>
         )}

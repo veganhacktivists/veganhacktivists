@@ -32,6 +32,12 @@ import type { FeaturedProjectsProps } from '../../components/layout/yearInReview
 import { projectDescriptions } from '../../components/layout/yearInReview/2021/featuredProjects';
 import FeaturedProjects from '../../components/layout/yearInReview/2021/featuredProjects';
 import Rebrand from '../../components/layout/yearInReview/2021/rebrand';
+import Partnerships from '../../components/layout/yearInReview/2021/partnerships';
+import NewsletterLaunch from '../../components/layout/yearInReview/2021/newsletterLaunch';
+import AdvisoryService from '../../components/layout/yearInReview/2021/advisoryService';
+import ByTheNumbers from '../../components/layout/yearInReview/2021/byTheNumbers';
+import Playground from '../../components/layout/yearInReview/2021/playground';
+import MovingForward from '../../components/layout/yearInReview/2021/movingForward';
 
 interface YearInReviewProps {
   featuredBlogPosts: FeaturedBlogPostsProps['featuredBlogPosts'];
@@ -162,6 +168,13 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
             ) as BlogPostItem
           }
         />
+        <Partnerships />
+        <NewsletterLaunch />
+        <AdvisoryService />
+        <ByTheNumbers />
+        {/* IdeaBoard */}
+        <Playground />
+        <MovingForward />
       </div>
     </>
   );

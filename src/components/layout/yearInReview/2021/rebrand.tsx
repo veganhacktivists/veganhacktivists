@@ -18,7 +18,7 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
       <SectionContainer
         color="grey-dark"
         className="text-white"
-        header={<SectionHeader header={['Our', 'rebrand']} startWithItalics />}
+        header={<SectionHeader header={['Our', 'rebrand']} />}
       >
         <div className="flex flex-col md:flex-row gap-x-24 md:w-2/3 justify-center mx-auto">
           <div className="max-w-screen-sm">

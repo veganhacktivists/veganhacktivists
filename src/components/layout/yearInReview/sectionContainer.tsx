@@ -4,7 +4,7 @@ import getThemeColor from '../../../lib/helpers/theme';
 import Circle from '../../decoration/circle';
 
 interface SectionContainerProps {
-  header: React.ReactNode;
+  header?: React.ReactNode;
   className?: string;
   color?: string;
   circles?: boolean;

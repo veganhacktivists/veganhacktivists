@@ -17,7 +17,12 @@ const FeedbackAndTesting: React.FC = () => {
         className="hidden md:block z-10"
       />
       <SectionContainer
-        header={<SectionHeader header={['Feedback', 'and', 'testing']} />}
+        header={
+          <SectionHeader
+            header={['Feedback', 'and', 'testing']}
+            startWithBoldFont
+          />
+        }
         color="grey-dark"
         className="text-white relative"
         circles

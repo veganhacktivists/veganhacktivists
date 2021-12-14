@@ -1,5 +1,4 @@
 const twColors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
 
 const colors = {
   // Grays
@@ -63,7 +62,6 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
-  mode: 'jit',
   purge: {
     content: [
       './src/components/**/*.{js,ts,jsx,tsx}',
@@ -98,10 +96,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    plugin(({ addComponents }) => {
-      addComponents({ '.image-container > div': { verticalAlign: 'middle' } });
-    }),
-  ],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

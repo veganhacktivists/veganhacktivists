@@ -579,6 +579,10 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         </div>
       </div>
       <SquareField squares={PROJECT_SQUARES} className="hidden md:block" />
+      <FirstSubSection
+        header="See our HIGHLIGHTED PROJECTS"
+        firstWordsNum={2}
+      />
       <HighlightedProjects
         projects={projects.map((project) => ({
           ...project.fields,
