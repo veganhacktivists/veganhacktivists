@@ -15,10 +15,10 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
   header,
   className,
   circles = false,
-  color = 'white',
+  color,
 }) => {
-  const classes = classNames(className, 'py-20', { relative: circles });
-  const backgroundColor = getThemeColor(color);
+  const classes = classNames(className, 'py-20 px-5', { relative: circles });
+  const backgroundColor = color ? getThemeColor(color) : 'inherit';
 
   return (
     <div className={classes} style={{ backgroundColor }}>

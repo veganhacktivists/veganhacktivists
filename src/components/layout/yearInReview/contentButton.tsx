@@ -50,13 +50,13 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
       }}
     >
       <div className="cursor-pointer select-none">
-        <p
+        <div
           className={`text-2xl font-semibold font-mono text-${
             active ? 'white' : 'black'
           }`}
         >
           {content.title}
-        </p>
+        </div>
         <div
           className={
             'flex justify-center items-center absolute bottom-0 right-0 h-12 w-12'

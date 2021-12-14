@@ -80,7 +80,7 @@ const MinorChangesBigImpact: React.FC = () => {
               className="flex flex-col md:flex-row gap-x-10 w-full justify-start"
             >
               <div className="text-4xl">{icon}</div>
-              <div className="text-left">{text}</div>
+              <div className="md:text-left">{text}</div>
             </div>
           ))}
         </div>

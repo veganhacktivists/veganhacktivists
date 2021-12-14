@@ -16,7 +16,7 @@ const Number: React.FC<React.PropsWithChildren<NumberProps>> = ({
   header = false,
 }) => {
   return (
-    <div className={classNames({ 'md:w-1/3 p-5': !header })}>
+    <div className={classNames({ 'w-full xl:w-1/2 2xl:w-1/3 p-5': !header })}>
       <div>
         <div>{number}</div>
         <div className="">{children}</div>

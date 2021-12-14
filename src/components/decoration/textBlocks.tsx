@@ -31,6 +31,7 @@ interface SectionHeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   header: string | string[];
   startWithBoldFont?: boolean;
+  smallerOnMobile?: boolean;
 }
 
 // TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
@@ -39,9 +40,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   header,
   startWithBoldFont = false,
   children,
+  smallerOnMobile,
   ...props
 }) => {
-  const boldClasses = 'text-6xl font-mono font-semibold uppercase';
+  const boldClasses = `${
+    smallerOnMobile ? 'text-5xl' : 'text-6xl'
+  } font-mono font-semibold uppercase`;
   const italicClasses = 'font-italic text-4xl';
 
   return (
@@ -154,11 +158,11 @@ export const SubSection: React.FC<SubSectionContent> = ({
           {header}
         </h1>
       )}
-      <p
+      <div
         className={`max-w-2xl text-${contentSize} text-${textColor} m-auto px-10`}
       >
         {children}
-      </p>
+      </div>
     </div>
   );
 };

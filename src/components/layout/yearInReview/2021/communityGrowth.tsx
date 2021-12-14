@@ -66,7 +66,7 @@ const CommunityGrowth: React.FC = () => {
             {growthPoints.map(({ image, header, content }) => (
               <div
                 key={header}
-                className="flex flex-row gap-x-10 mb-10 last:mb-0"
+                className="flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0"
               >
                 <div>
                   <CustomImage

@@ -46,7 +46,7 @@ const Playground: React.FC = () => {
                 developers in order to support folks outside of our network - so
                 far we&apos;ve attracted over 400 members, and counting!
               </p>
-              <div className="mt-5">
+              <div className="mt-5 w-min mx-auto">
                 <DarkButton
                   href="https://discord.gg/vw5HUX9HW5"
                   className="w-min font-semibold"

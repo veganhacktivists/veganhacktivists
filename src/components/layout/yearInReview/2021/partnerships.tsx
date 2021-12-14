@@ -20,13 +20,13 @@ const Partnership: React.FC<React.PropsWithChildren<PartnershipProps>> = ({
 }) => {
   return (
     <div>
-      <div className="flex md:flex-row gap-x-10">
-        <div className="w-40">
-          <CustomImage src={image} alt="" className="w-64" />
+      <div className="flex flex-col md:flex-row gap-x-10">
+        <div className="w-2/3 mx-auto md:w-40">
+          <CustomImage src={image} alt="" />
         </div>
-        <div className="flex flex-col text-left flex-1">
+        <div className="flex flex-col md:text-left flex-1">
           <div className="font-bold text-4xl">{title}</div>
-          <div>{children}</div>
+          <div className="space-y-5">{children}</div>
         </div>
       </div>
     </div>
@@ -39,6 +39,7 @@ const Partnerships: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
+            smallerOnMobile
             header={['Building meaningful', 'partnerships']}
             className="text-grey"
           >
@@ -113,20 +114,26 @@ const Partnerships: React.FC = () => {
           <Partnership image={otherPartner} title="Other Partnerships">
             <p>
               <CustomLink href="https://veganoutreach.org">
-                <b>Vegan Outreach</b>
+                <span className="block md:inline">
+                  <b>Vegan Outreach</b>
+                </span>
               </CustomLink>
-              &nbsp;&mdash;&nbsp;We partnered with Vegan Outreach&apos;s Vegan
-              Mentorship Program in order to provide free mentorship access to
-              Vegan Bootcamp and 3Movies.org participants.
+              <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
+              We partnered with Vegan Outreach&apos;s Vegan Mentorship Program
+              in order to provide free mentorship access to Vegan Bootcamp and
+              3Movies.org participants.
             </p>
             <p>
               <CustomLink href="https://www.legalimpactforchickens.org/">
-                <b>Legal Impact for Chickens</b>
+                <span className="block md:inline">
+                  <b>Legal Impact for Chickens</b>
+                </span>
               </CustomLink>
-              &nbsp;&mdash;&nbsp;We partnered with Legal Impact for Chickens for
-              our upcoming project, Start Pressuring! We&apos;ll be able to
-              provide successful pressure campaigns launched on our platform
-              with free legal support!
+              <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
+              We partnered with Legal Impact for Chickens for our upcoming
+              project, Start Pressuring! We&apos;ll be able to provide
+              successful pressure campaigns launched on our platform with free
+              legal support!
             </p>
           </Partnership>
         </div>

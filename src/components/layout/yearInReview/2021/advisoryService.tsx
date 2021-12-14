@@ -8,21 +8,14 @@ import { DarkButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
 
 const AdvisoryService: React.FC = () => {
-  const dim = 350;
   return (
     <>
       <SectionContainer>
-        <div className="flex flex-col md:flex-row md:w-3/4 mx-auto gap-x-10">
-          <div>
-            <CustomImage
-              src={advisorService}
-              alt=""
-              layout="fixed"
-              height={dim}
-              width={dim}
-            />
+        <div className="flex flex-col md:flex-row md:w-3/4 mx-auto gap-x-10 justify-center">
+          <div className="mx-auto w-2/3 md:w-[100rem] pb-5 md:pb-0 md:flex-grow">
+            <CustomImage src={advisorService} alt="" layout="responsive" />
           </div>
-          <div className="mx-auto text-left space-y-5 text-3xl">
+          <div className="mx-auto md:text-left space-y-5 text-3xl px-5">
             <SectionHeader
               header={['Our new', 'advisory service']}
               className="text-grey"

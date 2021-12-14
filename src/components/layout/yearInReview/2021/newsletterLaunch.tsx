@@ -11,8 +11,8 @@ const NewsletterLaunch: React.FC = () => {
   return (
     <>
       <SectionContainer color="grey-background" className="pb-0">
-        <div className="flex flex-col md:flex-row gap-x-24 md:w-2/3 justify-center mx-auto">
-          <div className="text-left w-2/3">
+        <div className="flex flex-col md:flex-row gap-x-24 gap-y-10 md:w-2/3 justify-center mx-auto">
+          <div className="md:text-left md:w-2/3">
             <SectionHeader
               header="Newsletter Launch"
               className="text-grey"
@@ -28,13 +28,13 @@ const NewsletterLaunch: React.FC = () => {
               newsletter!
             </div>
             <DarkButton
-              className="w-min font-semibold font-mono"
+              className="w-min font-semibold font-mono md:mb-10"
               href="/newsletter"
             >
               Sign up for our newsletter!
             </DarkButton>
           </div>
-          <div className="max-w-screen-sm">
+          <div className="max-w-screen-sm mb-10">
             <CustomImage src={newsletter} alt="" />
           </div>
         </div>

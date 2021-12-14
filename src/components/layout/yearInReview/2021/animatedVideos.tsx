@@ -37,8 +37,8 @@ const AnimatedVideos: React.FC = () => {
         }
       >
         <div>
-          <div className="flex flex-col md:flex-row mx-auto gap-10 w-2/3 mt-10">
-            <div className="w-1/2">
+          <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10">
+            <div className="md:w-1/2">
               <iframe
                 className="w-full aspect-video"
                 src="https://www.youtube.com/embed/9W_nU_znBQk"
@@ -47,16 +47,8 @@ const AnimatedVideos: React.FC = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-              {/* <Link href="https://youtu.be/9W_nU_znBQk">
-      <a>
-        <CustomImage
-          src={ahCover}
-          alt="Click me to see the Activist Hub video!"
-        />
-      </a>
-    </Link> */}
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <iframe
                 className="w-full aspect-video"
                 src="https://www.youtube.com/embed/D9svDr0UhqI"
@@ -65,14 +57,6 @@ const AnimatedVideos: React.FC = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-              {/* <Link href="https://youtu.be/D9svDr0UhqI">
-      <a>
-        <CustomImage
-          src={vbCover}
-          alt="Click me to see the Vegan Bootcamp video!"
-        />
-      </a>
-    </Link> */}
             </div>
           </div>
         </div>
