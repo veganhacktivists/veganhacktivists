@@ -135,7 +135,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
   return (
     <>
       <NextSeo title="2021 in Review" />
-      <div className="mb-20 text-2xl">
+      <div className="text-2xl">
         <YearInReviewHeader
           year={2021}
           hero={

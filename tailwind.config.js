@@ -62,14 +62,10 @@ colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
 module.exports = {
-  purge: {
-    content: [
-      './src/components/**/*.{js,ts,jsx,tsx}',
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-    ],
-    safelist: [],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       dropShadow: {

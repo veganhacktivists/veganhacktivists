@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import getThemeColor from '../../lib/helpers/theme';
 
 interface CircleProps {
@@ -16,7 +17,6 @@ const Circle: React.FC<CircleProps> = ({
   yAlign = 'top',
   xAlign = 'left',
   radiusZoom = 1,
-  ...trimmedProps
 }) => {
   const radius = Math.floor((100 * radiusZoom) / 3);
 
@@ -26,31 +26,29 @@ const Circle: React.FC<CircleProps> = ({
   if (xAlign == 'left') xTransform = '-translate-x-1/4';
   if (yAlign == 'top') yTransform = '-translate-y-2/4 lg:-translate-y-3/4';
 
+  const themeColor = getThemeColor(color);
+
   const style = {
-    color: getThemeColor(color),
+    color: themeColor,
     [xAlign == 'left' ? 'left' : 'right']: 0,
     [yAlign == 'top' ? 'top' : 'bottom']: 0,
   };
 
   return (
-    <svg
-      width={radius * 2 + 'vw'}
-      height={radius * 2 + 'vw'}
-      style={style}
-      className={`overflow-visible absolute transform pointer-events-none ${xTransform} ${yTransform}
-    `}
-    >
-      <circle
-        {...trimmedProps}
-        r={radius + 'vw'}
-        strokeWidth={thickness}
-        fillOpacity={0}
-        opacity={opacity}
-        className="stroke-current"
-        cx={radius + 'vw'}
-        cy={radius + 'vw'}
-      />
-    </svg>
+    <div
+      style={{
+        ...style,
+        width: radius * 2 + 'vw',
+        height: radius * 2 + 'vw',
+        border: `${thickness} solid ${themeColor}`,
+        opacity,
+      }}
+      className={classNames(
+        'rounded-full overflow-visible absolute transform pointer-events-none',
+        xTransform,
+        yTransform
+      )}
+    />
   );
 };
 
