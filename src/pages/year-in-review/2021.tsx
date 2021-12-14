@@ -143,7 +143,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
               imageBackground={heroBackground}
               tagline={{
                 image: heroTagline,
-                alt: '2020 year in review',
+                alt: '2021 year in review',
               }}
               alignment="left"
               classNameMapping={{
