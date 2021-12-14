@@ -28,8 +28,8 @@ const NewsletterLaunch: React.FC = () => {
               newsletter!
             </div>
             <DarkButton
-              // href="TODO"
               className="w-min font-semibold font-mono"
+              href="/newsletter"
             >
               Sign up for our newsletter!
             </DarkButton>
