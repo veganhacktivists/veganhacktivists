@@ -584,6 +584,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         firstWordsNum={2}
       />
       <HighlightedProjects
+        darkBackground
         projects={projects.map((project) => ({
           ...project.fields,
           customDescription: PROJECTS_DESCRIPTION[project.fields.name],

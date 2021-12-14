@@ -10,7 +10,7 @@ export interface HighlightedProject extends IProjectFields {
 
 interface HighlightedProjectsProps {
   projects: HighlightedProject[];
-  darkBackground?: string;
+  darkBackground?: boolean;
 }
 
 export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
