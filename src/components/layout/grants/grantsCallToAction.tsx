@@ -80,7 +80,7 @@ const GrantsCallToAction: React.FC = () => {
           backgroundColor="grey-over-background"
           button={{
             content: <>See&nbsp;our&nbsp;impact!</>,
-            href: '/year-in-review/2020',
+            href: '/year-in-review/2021',
           }}
         >
           Read our annual impact review and see what we&apos;ve accomplished
