@@ -19,6 +19,7 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
 }) => {
   const [projectIndex, setProjectIndex] = useState<number>(0);
   const project = projects[projectIndex];
+  console.log({ project });
 
   return (
     <div className="md:py-24 md:-mt-16">
@@ -46,7 +47,7 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
           <h1 className="text-4xl font-bold mb-8">{project.name}</h1>
           <p className="text-2xl">{project.customDescription}</p>
           <div className="flex mt-10 w-min">
-            <DarkButton href={'https://' + project.url} className="normal-case">
+            <DarkButton href={project.url} className="normal-case">
               {firstLetterUppercase(
                 project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
               )}

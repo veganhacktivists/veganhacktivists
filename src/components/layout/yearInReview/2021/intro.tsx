@@ -29,7 +29,7 @@ const Intro: React.FC = () => {
           contentSize="2xl"
         >
           This year, instead of focusing on experimental proejcts, we refined
-          our goals and built projects that focused primarily in filling
+          our goals and built projects that focused primarily on filling
           existing gaps in our movement. We grew more meaningful partnerships
           and we greatly improved our branding, design team, and services
           offered. We&apos;re excited to show you what we&apos;ve done below!
