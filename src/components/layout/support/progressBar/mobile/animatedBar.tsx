@@ -2,8 +2,8 @@ import { animated, useSpring, config } from '@react-spring/web';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 import useReduceMotion from '../../../../../hooks/useReduceMotion';
-import chicken from '../../../../../../public/images/sprite_chicken.gif';
 import CustomImage from '../../../../decoration/customImage';
+import { chicken } from '../../../../decoration/sprite';
 import type { AnimatedBarProps } from '../animatedBar';
 
 const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {

@@ -30,7 +30,7 @@
     "http-status-codes": "^2.1.4",
     "ky": "^0.28.7",
     "mailgun.js": "^4.1.0",
-    "next": "12.0.6",
+    "next": "12.0.7",
     "next-pwa": "^5.4.4",
     "next-seo": "^4.28.1",
     "react": "17.0.2",
@@ -44,7 +44,7 @@
     "react-use-pagination": "^2.0.1",
     "react-waypoint": "^10.1.0",
     "sharp": "^0.29.2",
-    "tailwindcss": "^2.2.19",
+    "tailwindcss": "^3.0.2",
     "zustand": "^3.6.6"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.3.0",
     "eslint": "8.4.0",
-    "eslint-config-next": "12.0.6",
+    "eslint-config-next": "12.0.7",
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.0",

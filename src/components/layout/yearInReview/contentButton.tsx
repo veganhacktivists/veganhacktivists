@@ -3,26 +3,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
+import ContentfulImage from '../contentfulImage';
+import type { Asset } from 'contentful';
 import CustomImage from '../../decoration/customImage';
-
 export interface ContentButtonProps {
-  contentTitle: string;
-  setContent: (content: string) => void;
-  currentContent: string;
+  content: { title: string; image: Asset | StaticImageData };
+  setContent: () => void;
+  active: boolean;
   down?: boolean;
   white?: boolean;
 }
 
+const isContentfulImage = (asset: Asset | StaticImageData): asset is Asset => {
+  return 'fields' in asset;
+};
+
 export const ContentButton: React.FC<ContentButtonProps> = ({
-  contentTitle,
+  content,
   down = false,
   white = false,
-  currentContent,
+  active,
   setContent,
 }) => {
-  const contentName = contentTitle.replace(/\s+/g, '').toLowerCase();
-  const active = currentContent === contentName;
-
   const backgroundColor = getThemeColor(
     active ? 'grey-dark' : white ? 'white' : 'grey-background'
   );
@@ -43,18 +45,18 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
       }}
       onClick={() => {
         if (!active) {
-          setContent(contentName);
+          setContent();
         }
       }}
     >
       <div className="cursor-pointer select-none">
-        <p
+        <div
           className={`text-2xl font-semibold font-mono text-${
             active ? 'white' : 'black'
           }`}
         >
-          {contentTitle}
-        </p>
+          {content.title}
+        </div>
         <div
           className={
             'flex justify-center items-center absolute bottom-0 right-0 h-12 w-12'
@@ -74,11 +76,15 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         className="absolute -bottom-80 w-80 h-80 border-t-4"
         style={{ borderColor }}
       >
-        <CustomImage
-          src={`/images/review2020/${contentName}.webp`}
-          alt={contentName + ' logo'}
-          layout="fill"
-        />
+        {isContentfulImage(content.image) ? (
+          <ContentfulImage
+            image={content.image}
+            alt={content.title + ' logo'}
+            layout="fill"
+          />
+        ) : (
+          <CustomImage src={content.image} alt={content.title + ' logo'} />
+        )}
       </div>
     </div>
   );

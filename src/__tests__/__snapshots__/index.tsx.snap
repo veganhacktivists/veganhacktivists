@@ -74,44 +74,18 @@ exports[`Application renders correctly 1`] = `
     <div
       class="absolute inset-0 overflow-hidden"
     >
-      <svg
-        class="overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
-    "
-        height="60vw"
-        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
-        width="60vw"
-      >
-        <circle
-          class="stroke-current"
-          cx="30vw"
-          cy="30vw"
-          fill-opacity="0"
-          opacity="0.1"
-          r="30vw"
-          stroke-width="20px"
-        />
-      </svg>
-      <svg
-        class="overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
-    "
-        height="68vw"
-        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
-        width="68vw"
-      >
-        <circle
-          class="stroke-current"
-          cx="34vw"
-          cy="34vw"
-          fill-opacity="0"
-          opacity="0.2"
-          r="34vw"
-          stroke-width="20px"
-        />
-      </svg>
+      <div
+        class="rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px; width: 60vw; height: 60vw; border: 20px solid #fff; opacity: 0.1;"
+      />
+      <div
+        class="rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px; width: 68vw; height: 68vw; border: 20px solid #fff; opacity: 0.2;"
+      />
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -340,7 +314,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -407,7 +381,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -494,7 +468,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -554,7 +528,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -706,7 +680,7 @@ exports[`Application renders correctly 1`] = `
               <div
                 class="mb-10 text-grey-dark pt-10 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
-                See our 2020 impact review
+                See our 2021 impact review
               </div>
               <div
                 class="mb-8 md:mb-0 text-2xl"
@@ -718,11 +692,11 @@ exports[`Application renders correctly 1`] = `
               class="flex flex-row justify-between px-10 mb-20 h-10"
             >
               <a
-                href="/year-in-review"
+                href="/year-in-review/2020"
               >
                 <div
                   class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
-                  href="/year-in-review"
+                  href="/year-in-review/2020"
                   style="background-size: 250% 100%; background-position: right;"
                 >
                   See our impact!
