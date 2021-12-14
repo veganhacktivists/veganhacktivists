@@ -19,7 +19,6 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
 }) => {
   const [projectIndex, setProjectIndex] = useState<number>(0);
   const project = projects[projectIndex];
-  console.log({ project });
 
   return (
     <div className="md:py-24 md:-mt-16">
