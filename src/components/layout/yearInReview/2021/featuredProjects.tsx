@@ -1,5 +1,6 @@
 import React from 'react';
 import type { IProjectFields } from '../../../../types/generated/contentful';
+import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import { HighlightedProjects } from '../highlightedProjects';
 import SectionContainer from '../sectionContainer';
@@ -81,6 +82,13 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
           }))}
         />
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-light', left: 0, bottom: 0 },
+          { color: 'grey', right: 0, top: 0 },
+        ]}
+      />
     </>
   );
 };

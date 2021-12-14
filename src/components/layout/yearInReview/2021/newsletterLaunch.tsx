@@ -4,6 +4,8 @@ import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
 
 import newsletter from '../../../../../public/images/yearInReview/2021/newsletter.png';
+import React from 'react';
+import SquareField from '../../../decoration/squares';
 
 const NewsletterLaunch: React.FC = () => {
   return (
@@ -26,8 +28,8 @@ const NewsletterLaunch: React.FC = () => {
               newsletter!
             </div>
             <DarkButton
-              className="font-semibold font-mono"
               // href="TODO"
+              className="w-min font-semibold font-mono"
             >
               Sign up for our newsletter!
             </DarkButton>
@@ -37,6 +39,13 @@ const NewsletterLaunch: React.FC = () => {
           </div>
         </div>
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-background', left: 0, top: 0 },
+          { color: 'grey-background', right: 0, top: 0 },
+        ]}
+      />
     </>
   );
 };

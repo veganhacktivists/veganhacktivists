@@ -6,6 +6,7 @@ import avPartner from '../../../../../public/images/yearInReview/2021/partner_av
 import pollinationPartner from '../../../../../public/images/yearInReview/2021/partner_pollinationproject.png';
 import otherPartner from '../../../../../public/images/yearInReview/2021/partner_other.png';
 import CustomLink from '../../../decoration/link';
+import SquareField from '../../../decoration/squares';
 
 interface PartnershipProps {
   image: StaticImageData;
@@ -130,6 +131,15 @@ const Partnerships: React.FC = () => {
           </Partnership>
         </div>
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-background', left: 0, bottom: 0 },
+          { color: 'white', left: 32, top: 0 },
+          { color: 'grey-background', right: 0, bottom: 0 },
+          { color: 'white', right: 0, top: 0 },
+        ]}
+      />
     </>
   );
 };

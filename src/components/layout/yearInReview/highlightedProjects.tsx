@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import type { IProjectFields } from '../../../types/generated/contentful';
 import { DarkButton } from '../../decoration/buttons';
-import { FirstSubSection } from '../../decoration/textBlocks';
 import { ContentButton } from './contentButton';
 
 export interface HighlightedProject extends IProjectFields {

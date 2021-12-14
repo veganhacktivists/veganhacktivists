@@ -37,7 +37,7 @@ const ByTheNumbers: React.FC = () => {
           <Number
             number={
               <AnimatedNumber
-                className="text-7xl md:text-8xl xl:text-9xl text-magenta"
+                className="text-7xl md:text-9xl text-magenta"
                 number={3e6}
               />
             }

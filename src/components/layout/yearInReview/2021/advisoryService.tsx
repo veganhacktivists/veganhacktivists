@@ -5,6 +5,7 @@ import advisorService from '../../../../../public/images/yearInReview/2021/advis
 import React from 'react';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import { DarkButton } from '../../../decoration/buttons';
+import SquareField from '../../../decoration/squares';
 
 const AdvisoryService: React.FC = () => {
   const dim = 350;
@@ -51,6 +52,14 @@ const AdvisoryService: React.FC = () => {
           </div>
         </div>
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-light', left: 0, bottom: 0 },
+          { color: 'grey', left: 0, top: 0 },
+          { color: 'grey-light', right: 0, bottom: 0 },
+        ]}
+      />
     </>
   );
 };

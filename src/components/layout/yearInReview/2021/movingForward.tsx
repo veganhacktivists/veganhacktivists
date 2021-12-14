@@ -3,10 +3,18 @@ import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
 
 import pixelPig from '../../../../../public/images/VH_PixelPig.png';
+import SquareField from '../../../decoration/squares';
 
 const MovingForward: React.FC = () => {
   return (
     <>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-light', left: 0, bottom: 0 },
+          { color: 'grey-light', right: 0, top: 0 },
+        ]}
+      />
       <SectionContainer color="grey-darker" className="text-white">
         <div className="text-center md:w-1/2 mx-auto space-y-5">
           <div>

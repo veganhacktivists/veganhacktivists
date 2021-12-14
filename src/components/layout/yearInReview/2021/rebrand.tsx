@@ -7,6 +7,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { BlogPostItem } from './featuredBlogPosts';
 import { LightButton } from '../../../decoration/buttons';
+import SquareField from '../../../decoration/squares';
 
 interface RebrandProps {
   kate: BlogPostItem;
@@ -63,6 +64,14 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
           </div>
         </div>
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey', left: 0, bottom: 0 },
+          { color: 'grey-light', left: 0, top: 0 },
+          { color: 'grey-light', right: 0, bottom: 0 },
+        ]}
+      />
     </>
   );
 };

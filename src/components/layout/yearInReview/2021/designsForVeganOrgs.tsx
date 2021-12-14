@@ -3,6 +3,7 @@ import sv from '../../../../../public/images/yearInReview/2021/DesignedLogo_SV.p
 import CustomImage from '../../../decoration/customImage';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
+import SquareField from '../../../decoration/squares';
 
 const DesignsForVeganOrgs: React.FC = () => {
   return (
@@ -28,6 +29,13 @@ const DesignsForVeganOrgs: React.FC = () => {
           <CustomImage src={sv} alt="Solutionary Vegan design" />
         </div>
       </SectionContainer>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-background', left: 0, top: 0 },
+          { color: 'white', right: 0, bottom: 0 },
+        ]}
+      />
     </>
   );
 };

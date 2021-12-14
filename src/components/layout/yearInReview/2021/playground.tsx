@@ -5,10 +5,19 @@ import CustomImage from '../../../decoration/customImage';
 import playgroundLogo from '../../../../../public/images/yearInReview/2021/playground.png';
 import discord from '../../../../../public/images/yearInReview/2021/discord.png';
 import { DarkButton } from '../../../decoration/buttons';
+import SquareField from '../../../decoration/squares';
 
 const Playground: React.FC = () => {
   return (
     <>
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: 'grey-background', left: 0, bottom: 0 },
+          { color: 'grey-background', right: 0, bottom: 0 },
+          { color: 'grey-light', right: 0, top: 0 },
+        ]}
+      />
       <SectionContainer color="grey-background" className="text-grey md:pb-40">
         <div className="flex md:w-2/3 mx-auto gap-x-10">
           <div className="md:text-left md:w-3/4">
