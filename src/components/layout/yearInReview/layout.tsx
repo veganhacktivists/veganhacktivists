@@ -18,7 +18,7 @@ const YearButton: React.FC<YearButtonProps> = ({ year }) => {
 const YearInReviewButtons: React.FC = () => {
   return (
     <div>
-      <div className="mb-5 mt-10 flex justify-center flex-wrap">
+      <div className="mb-15 pb-10 mt-10 flex justify-center flex-wrap">
         {[2020, 2021].map((year) => (
           <YearButton key={year} year={year} />
         ))}

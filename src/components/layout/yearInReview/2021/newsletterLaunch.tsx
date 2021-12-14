@@ -18,7 +18,7 @@ const NewsletterLaunch: React.FC = () => {
               className="text-grey"
               startWithBoldFont
             />
-            <div className="mb-10">
+            <div className="mb-10 mt-5">
               This year we&apos;ve been very fortunate to have a huge growth of
               interest in the vegan movement. Many have asked us to launch a
               newsletter to stay updated with our progress. This year we

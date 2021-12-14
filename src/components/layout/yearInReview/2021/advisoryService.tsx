@@ -15,7 +15,7 @@ const AdvisoryService: React.FC = () => {
           <div className="mx-auto w-2/3 md:w-[100rem] pb-5 md:pb-0 md:flex-grow">
             <CustomImage src={advisorService} alt="" layout="responsive" />
           </div>
-          <div className="mx-auto md:text-left space-y-5 text-3xl px-5">
+          <div className="mx-auto md:text-left space-y-5 text-2xl px-5">
             <SectionHeader
               header={['Our new', 'advisory service']}
               className="text-grey"
