@@ -80,10 +80,11 @@ export const projectDescriptions: Record<string, React.ReactNode> = {
       </p>
     <p className="pb-10">
 
-    </p>Watch Dominion also allows
+    Watch Dominion also allows
       other organizations to embed Dominion (without age restrictions or worries
       of it being taken down) on their own website while collecting watch-time
       statistics.
+      </p>
       
       <p className="pb-10">Anonymous for the Voiceless, DontWatch.org, Viena Animal Save,
       and many others use this project now for uninterrupted access.</p>
