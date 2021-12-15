@@ -54,7 +54,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                 key={blogEntry.fields.slug}
               >
                 <a>
-                  <div className="w-64">
+                  <div className="w-64 mx-auto">
                     <div className="bg-grey w-100 h-64 flex justify-end mb group">
                       {image && (
                         <div className="relative">
