@@ -140,7 +140,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={29} className="text-orange" approx />
               }
             >
-              <b>Grants requested</b> of us in 45 days
+              <b>Grants requested</b> of us in first 45 days
             </Number>
             {/* <Number
               number={
