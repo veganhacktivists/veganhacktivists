@@ -34,7 +34,10 @@ export const projectDescriptions: Record<string, React.ReactNode> = {
   'Vegan Linguists': (
     <>
     <p className="pb-10">
-      Every day, more and more people get connected to the internet. As a result,
+    Every day, more and more people with various languages get connected to the internet. 
+    </p>
+    <p className="pb-10">
+     As a result,
        it's becoming increasingly more important to translate online vegan 
        content to reach more people. Vegan Linguists is a free content 
        translation service run by vegans, for vegans. We translate vegan-
@@ -69,12 +72,19 @@ export const projectDescriptions: Record<string, React.ReactNode> = {
   ),
   'Watch Dominion': (
     <>
+    <p className="pb-10">
       Watch Dominion provides easy multi-language access to the most promoted
-      documentary in the vegan movement, Dominion. Watch Dominion also allows
+      documentary in the vegan movement, Dominion.
+      </p>
+    <p className="pb-10">
+
+    </p>Watch Dominion also allows
       other organizations to embed Dominion (without age restrictions or worries
       of it being taken down) on their own website while collecting watch-time
-      statistics. Anonymous for the Voiceless, DontWatch.org, Viena Animal Save,
-      and many others use this project now for uninterrupted access.
+      statistics.
+      
+      <p className="pb-10">Anonymous for the Voiceless, DontWatch.org, Viena Animal Save,
+      and many others use this project now for uninterrupted access.</p>
     </>
   ),
 };
