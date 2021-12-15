@@ -23,7 +23,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
   return (
     <div className={classes} style={{ backgroundColor }}>
       {circles && (
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
           <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />
         </div>
