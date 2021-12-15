@@ -17,8 +17,8 @@ const growthPoints: {
     header: 'Documentation',
     content: (
       <>
-        Growth doesn&apos;t just come in numbers, it comes into structure. We
-        combined our documentation from 4 different platforms into one easily
+        Growth doesn&apos;t just come in numbers, it comes in structure. We
+        combined our organization documentation from 4 different platforms into one easily
         digestible section of our new website.
       </>
     ),
@@ -66,7 +66,7 @@ const CommunityGrowth: React.FC = () => {
             {growthPoints.map(({ image, header, content }) => (
               <div
                 key={header}
-                className="flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0"
+                className="flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0 pb-10"
               >
                 <div>
                   <CustomImage

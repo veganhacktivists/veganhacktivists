@@ -28,7 +28,7 @@ const Intro: React.FC = () => {
           headerSize="3xl"
           contentSize="2xl"
         >
-          This year, instead of focusing on experimental proejcts, we refined
+          This year, instead of focusing on experimental projects, we refined
           our goals and built projects that focused primarily on filling
           existing gaps in our movement. We grew more meaningful partnerships
           and we greatly improved our branding, design team, and services

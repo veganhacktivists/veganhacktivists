@@ -34,10 +34,10 @@ const FeedbackAndTesting: React.FC = () => {
             newsletters, advisors, and testers to determine next steps for both
             our projects in development, and our own growth.
           </p>
-          <p className="mb-10">
+          <p className="mb-20">
             Together we were able to launch several surveys for before, during
             and after projects, in order to collect better data on requested
-            features and issues. We were extremely ecstatic to say that we made
+            features and issues. We are extremely pleased to say that we made
             meaningful changes on over 80% of the individual feedback received
             from testers.
           </p>
