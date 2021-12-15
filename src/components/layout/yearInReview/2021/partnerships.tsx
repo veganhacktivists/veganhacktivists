@@ -25,7 +25,7 @@ const Partnership: React.FC<React.PropsWithChildren<PartnershipProps>> = ({
           <CustomImage src={image} alt="" />
         </div>
         <div className="flex flex-col md:text-left flex-1">
-          <div className="font-bold text-4xl">{title}</div>
+          <div className="font-bold text-4xl pb-5">{title}</div>
           <div className="space-y-5">{children}</div>
         </div>
       </div>
@@ -50,7 +50,7 @@ const Partnerships: React.FC = () => {
           </SectionHeader>
         }
       >
-        <div className="md:w-3/4 mx-auto space-y-10">
+        <div className="md:w-3/4 mx-auto space-y-10 mt-10">
           <Partnership
             image={pollinationPartner}
             title="Partnership with The Pollination Project"
@@ -114,7 +114,7 @@ const Partnerships: React.FC = () => {
               in order to provide free mentorship access to Vegan Bootcamp and
               3Movies.org participants.
             </p>
-            <p>
+            <p className="pb-20">
               <CustomLink href="https://www.legalimpactforchickens.org/">
                 <span className="block md:inline">
                   <b>Legal Impact for Chickens</b>
