@@ -12,18 +12,16 @@ const formatNumber: (x: number) => string = (x) => {
 export const projectDescriptions: Record<string, React.ReactNode> = {
   'Activist Hub': (
     <>
-      <p>
+      <p className="pb-10">
         We surveyed over {formatNumber(1100)} animal rights activists to
         understand what tools would best support their advocacy. The number one
         request was a method of monitoring our effectiveness in order to make
         informed decisions about our strategy and future efforts. So, we created
         Activist Hub!
       </p>
-      <p>
-        Activist Hub is an online tool that allows activists to see how many
-        people they have inspired to watch documentaries like Dominion, The Game
-        Changers, Seaspiracy, to take a vegan challenge, to request a vegan
-        mentor, and even to go vegan!
+      <p className="pb-10">
+      Activist Hub is an online tool that allows activists to see how many people 
+      they have inspired to watch documentaries, to take a vegan challenge, and have gone vegan!
       </p>
       <p>
         Activist Hub also acts as the world’s first animal rights social
@@ -35,21 +33,38 @@ export const projectDescriptions: Record<string, React.ReactNode> = {
   ),
   'Vegan Linguists': (
     <>
-      Vegan Linguists is a free content translation service that translates
-      vegan-friendly content to help make veganism more accessible worldwide! We
+    <p className="pb-10">
+      Every day, more and more people get connected to the internet. As a result,
+       it's becoming increasingly more important to translate online vegan 
+       content to reach more people. Vegan Linguists is a free content 
+       translation service run by vegans, for vegans. We translate vegan-
+       friendly content to help make veganism more accessible worldwide! 
+       All you need to do is sign up and submit your content - or translate 
+       with us, for the animals!
+      </p>
+      <p>
+      We
       worked and launched with several well established organizations such as
       Animal Ethics, Faunalytics, Peace Advocacy Network, Sinergia Animal, among
       many others.
+      </p>
     </>
   ),
   '3 Movies': (
     <>
+    <p className="pb-10">
       Watch three thought-provoking movies that shed light on uncomfortable
-      realities, and explore other resources for support! 3movies.org allows you
+      realities, and explore other resources for support!
+      </p>
+      <p>
+      This project allows you
       to create your own landing page with vegan documentaries, videos,
       resources, challenges, and more, to share with friends, family, or online
-      - and then track all of the clicks and watch time you get. Your 3 Movies
-      link is the only link you&apos;ll ever need to share during your outreach!
+      - and then track all of the clicks and watch time you get.
+      </p>
+      <p>
+      Your 3 Movies
+      link is the only link you&apos;ll ever need to share during your outreach!</p>
     </>
   ),
   'Watch Dominion': (
