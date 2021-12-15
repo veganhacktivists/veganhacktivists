@@ -53,7 +53,11 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <FirstSubSection header={`Our ${year} year in review`} firstWordsNum={2}>
+      <FirstSubSection
+        header={`Our ${year} year in review`}
+        firstWordsNum={2}
+        className="pt-5"
+      >
         We&apos;re so happy to release our {year} year in review! Scroll down to
         see all our accomplishments we&apos;ve made thanks to your generous
         support, our partners, and most of all our amazing volunteers!

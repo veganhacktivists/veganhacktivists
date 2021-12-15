@@ -22,7 +22,7 @@ const Intro: React.FC = () => {
         width={pixelHeart.width / 3}
         alt=""
       />
-      <div className="px-5 mx-auto">
+      <div className="px-5 mx-auto pb-10">
         <SubSection
           header="We explored a lot this year"
           headerSize="3xl"
