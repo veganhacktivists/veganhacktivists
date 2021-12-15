@@ -29,7 +29,7 @@ const AdvisoryService: React.FC = () => {
               requests, and more!
             </p>
             <p>
-              We&apos;ve been very happy with the launch of this service and
+              We&apos;ve been very happy with this launch and
               we&apos;ve received over 100+ requests for advice! We&apos;ve helped
               organizations like Sinergia Animal, The Humane League, Vegan
               Tokyo, Mercy for Animals, PETA, Animal Rights Advocates, among many others!

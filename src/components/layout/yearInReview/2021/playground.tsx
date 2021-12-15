@@ -47,7 +47,7 @@ const Playground: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/3 flex-grow md:my-auto translate-y-1/2">
+          <div className="w-1/3 flex-grow md:my-auto translate-y-2/2">
             <CustomImage src={discord} alt="" />
           </div>
         </div>
