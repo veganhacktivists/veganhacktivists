@@ -1,8 +1,6 @@
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
-
-import playgroundLogo from '../../../../../public/images/yearInReview/2021/playground.png';
 import discord from '../../../../../public/images/yearInReview/2021/discord.png';
 import { DarkButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
