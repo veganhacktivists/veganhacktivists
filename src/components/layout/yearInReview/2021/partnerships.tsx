@@ -58,14 +58,14 @@ const Partnerships: React.FC = () => {
             <p>
               We&apos;re very happy to announce a partnership in where
               we&apos;re able to offer up to $1000 USD in seed funding grants
-              for oustanding, and effective, animal rights activism!
+              for outstanding, and effective, animal rights activism!
               Specifically we&apos;re looking for individual or grassroots
               groups whose primary purpose is to help reduce suffering for
               non-human farmed animals.
             </p>
             <p>
               In our first month alone, we averaged one grant request per day
-              received by various activists and organiations. Grant requests
+              received by various activists and organizations. Grant requests
               were for a wide variety of forms of activism, including: Singing,
               Virtual Reality, Drawing, Photography, Videography, Baking,
               Fundraising, Welfare Awareness, Child Education, Youth Skills,
@@ -75,7 +75,7 @@ const Partnerships: React.FC = () => {
             <p>
               We&apos;re excited to see where this partnership leads us in the
               future as we work together with The Pollination Project to get our
-              actvisits funded as much as possible.{' '}
+              activists funded as much as possible.{' '}
               <CustomLink href="https://thepollinationproject.org/">
                 To learn more, please click here
               </CustomLink>
@@ -88,7 +88,7 @@ const Partnerships: React.FC = () => {
           >
             <p>
               Anonymous for the Voiceless (AV) is a not-for-profit animal rights
-              organisation specialising in using conversation and standard
+              organisation specializing in using conversation and standard
               practice footage to edify the public about animal exploitation.
               They hold street activism events worldwide to edify the public
               towards supporting animal rights, living vegan and speaking up for
@@ -99,7 +99,7 @@ const Partnerships: React.FC = () => {
               of street outreach. We&apos;re excited to have partnered up with
               AV in order to be able to both provide them the tools they need to
               monitor and track the effectiveness of each group, while providing
-              social nework tech powered by Activist Hub.
+              social network tech powered by Activist Hub.
             </p>
           </Partnership>
           <Partnership image={otherPartner} title="Other Partnerships">

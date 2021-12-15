@@ -27,10 +27,10 @@ const MovingForward: React.FC = () => {
           <p>
             What a year! We&apos;re really happy with our work in the last 12
             months. Last year, we said we wanted to focus more on data-based
-            efforts (while staying trye to our spirit of experimentation) with
+            efforts (while staying true to our spirit of experimentation) with
             our projects and we think we really accomplished that with Activist
-            Hub and Vegan Linguists. We also feel like this ahs been our best
-            year yet with the amount of conenctions and friends we&apos;ve been
+            Hub and Vegan Linguists. We also feel like this has been our best
+            year yet with the amount of connections and friends we&apos;ve been
             able to make and support in the animal protection movement.
           </p>
           <p>
@@ -42,8 +42,8 @@ const MovingForward: React.FC = () => {
             all of the requests we get, but we love that this is a problem.
           </p>
           <p>
-            We&apos;re really excited to heaer your thoughts in our 2021 year in
-            review, and if you like what we do, please consider supporting un by
+            We&apos;re really excited to hear your thoughts in our 2021 year in
+            review, and if you like what we do, please consider supporting us by
             clicking the button below. Your donation ensures that all of our
             work and projects remain free and accessible to everyone, and we
             can&apos;t begin to thank you enough for the support!
