@@ -36,7 +36,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
           </SectionHeader>
         }
       >
-        <div className="flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto pb-5">
+        <div className="flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto pb-20 mb-10">
           {featuredBlogPosts.map(({ member, blogEntry }) => {
             const { name, team, image } = member.fields;
             const color = team?.fields.color;
