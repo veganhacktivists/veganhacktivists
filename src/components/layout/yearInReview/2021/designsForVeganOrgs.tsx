@@ -1,5 +1,6 @@
 import vcj from '../../../../../public/images/yearInReview/2021/DesignedLogo_VCJ.png';
 import sv from '../../../../../public/images/yearInReview/2021/DesignedLogo_SV.png';
+import ivff from '../../../../../public/images/yearInReview/2021/DesignedLogo_IVFF.png';
 import CustomImage from '../../../decoration/customImage';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
@@ -23,8 +24,11 @@ const DesignsForVeganOrgs: React.FC = () => {
         }
       >
         <div className="md:w-1/2 mx-auto">
-          <div className="mb-10">
+          <div className="mb-10"> 
             <CustomImage src={vcj} alt="Vegan Consulting Japan design" />
+          </div>
+          <div className="mb-10"> 
+            <CustomImage src={ivff} alt="International Vegan Film Festival design" />
           </div>
           <CustomImage src={sv} alt="Solutionary Vegan design" />
         </div>
