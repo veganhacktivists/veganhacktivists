@@ -54,7 +54,11 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
               look at design here at VH.
             </p>
             <div className="w-min pt-5 mx-auto md:mx-0">
-              <LightButton href="/resources/VH_BrandGuide.pdf" className="my-5">
+              <LightButton
+                href="/resources/VH_BrandGuide.pdf"
+                className="my-5"
+                linkProps={{ target: '_blank', rel: 'noreferrer' }}
+              >
                 See our new brand guide!
               </LightButton>
             </div>
