@@ -34,12 +34,14 @@ const AdvisoryService: React.FC = () => {
               Tokyo, Mercy for Animals, PETA, Animal Rights Advocates, among
               many others!
             </p>
+            <div className="pb-10 pt-5"> 
             <DarkButton
               href="/services"
               className="font-semibold font-mono w-min mx-auto md:mx-0 mt-5"
             >
               Check out our services
             </DarkButton>
+            </div>
           </div>
         </div>
       </SectionContainer>

@@ -33,7 +33,7 @@ const ByTheNumbers: React.FC = () => {
         color="grey-darker"
         header={<SectionHeader header="By the numbers" startWithBoldFont />}
       >
-        <div className="md:w-3/4 mx-auto text-left font-mono text-3xl">
+        <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pb-10">
           <Number
             number={
               <AnimatedNumber

@@ -22,7 +22,7 @@ const MovingForward: React.FC = () => {
               <CustomImage src={pixelPig} alt="" />
             </div>
 
-            <h2 className="font-bold text-4xl">Moving forward</h2>
+            <h2 className="font-bold text-4xl pt-5">Moving forward</h2>
           </div>
           <p>
             What a year! We&apos;re really happy with our work in the last 12
@@ -48,7 +48,7 @@ const MovingForward: React.FC = () => {
             work and projects remain free and accessible to everyone, and we
             can&apos;t begin to thank you enough for the support!
           </p>
-          <div className="w-min mx-auto">
+          <div className="w-min mx-auto pt-10 pb-10">
             <LightButton href="/support" className="w-min px-5">
               Support our work
             </LightButton>

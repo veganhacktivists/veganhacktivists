@@ -30,7 +30,9 @@ const DesignsForVeganOrgs: React.FC = () => {
           <div className="mb-10"> 
             <CustomImage src={ivff} alt="International Vegan Film Festival design" />
           </div>
+          <div className="mb-10"> 
           <CustomImage src={sv} alt="Solutionary Vegan design" />
+          </div>
         </div>
       </SectionContainer>
       <SquareField
