@@ -68,7 +68,7 @@ const Intro: React.FC = () => {
           growth of our community with 5 new amazing teams! Please welcome Team
           Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
         </HighlightBlock>
-        <div className="flex flex-row md:w-1/3 mx-auto mb-10">
+        <div className="flex flex-row md:w-1/3 mx-auto mb-20 mt-20">
           {[
             avocadoIcon,
             peachIcon,
