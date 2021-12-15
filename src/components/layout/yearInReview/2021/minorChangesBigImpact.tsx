@@ -14,8 +14,7 @@ const changes: Change[] = [
   },
   {
     icon: '🥝',
-    // TODO: Vue??
-    text: 'We utilized several new technologies: Docker, LaravelShift, Vue, Tailwind, and more.',
+    text: 'We utilized several new technologies: Docker, LaravelShift, Vue, Tailwind, React, Svelte and more.',
   },
   {
     icon: '🌽',
