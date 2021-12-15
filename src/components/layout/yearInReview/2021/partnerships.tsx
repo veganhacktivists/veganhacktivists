@@ -39,7 +39,6 @@ const Partnerships: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            smallerOnMobile
             header={['Building meaningful', 'partnerships']}
             className="text-grey"
           >

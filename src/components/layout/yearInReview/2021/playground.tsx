@@ -17,7 +17,7 @@ const Playground: React.FC = () => {
         ]}
       />
       <SectionContainer color="grey-background" className="text-grey md:pb-40">
-        <div className="flex md:w-2/3 mx-auto gap-x-10">
+        <div className="flex flex-col md:flex-row md:w-2/3 mx-auto gap-x-10">
           <div className="md:text-left md:w-3/4">
             <SectionHeader
               className="mt-5 mb-10"
@@ -37,7 +37,7 @@ const Playground: React.FC = () => {
                 developers in order to support folks outside of our network - so
                 far we&apos;ve attracted over 400 members, and counting!
               </p>
-              <div className="mt-5 pt-5 w-min">
+              <div className="mt-5 pt-5 w-min mx-auto md:mx-0">
                 <DarkButton
                   href="https://discord.gg/vw5HUX9HW5"
                   className="w-min font-semibold"
@@ -47,7 +47,7 @@ const Playground: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/3 flex-grow md:my-auto translate-y-2/2">
+          <div className="w-1/3 mx-auto mt-10 md:mt-0 md:mx-0 flex-grow md:my-auto translate-y-2/2">
             <CustomImage src={discord} alt="" />
           </div>
         </div>

@@ -28,7 +28,7 @@ const NewsletterLaunch: React.FC = () => {
               newsletter!
             </div>
             <DarkButton
-              className="w-min font-semibold font-mono md:mb-10"
+              className="w-min font-semibold font-mono md:mb-10 mx-auto md:mx-0"
               href="/newsletter"
             >
               Sign up for our newsletter!

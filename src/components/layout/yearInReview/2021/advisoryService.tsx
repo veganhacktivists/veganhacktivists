@@ -24,19 +24,19 @@ const AdvisoryService: React.FC = () => {
               We launched our newest service that allows folks to get advice
               from our team of experts. We have several advisors with a wide
               range of experience that now help. We&apos;ll happily advise any
-              vegan activist or organization - whether that be for their
-              tech, org structure, strategy, marketing, grant
-              requests, and more!
+              vegan activist or organization - whether that be for their tech,
+              org structure, strategy, marketing, grant requests, and more!
             </p>
             <p>
-              We&apos;ve been very happy with this launch and
-              we&apos;ve received over 100+ requests for advice! We&apos;ve helped
+              We&apos;ve been very happy with this launch and we&apos;ve
+              received over 100+ requests for advice! We&apos;ve helped
               organizations like Sinergia Animal, The Humane League, Vegan
-              Tokyo, Mercy for Animals, PETA, Animal Rights Advocates, among many others!
+              Tokyo, Mercy for Animals, PETA, Animal Rights Advocates, among
+              many others!
             </p>
             <DarkButton
               href="/services"
-              className="font-semibold font-mono w-min mt-5"
+              className="font-semibold font-mono w-min mx-auto md:mx-0 mt-5"
             >
               Check out our services
             </DarkButton>

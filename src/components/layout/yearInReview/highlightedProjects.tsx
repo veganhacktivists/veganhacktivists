@@ -45,7 +45,7 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
         <div className="md:w-1/2 lg:w-1/3 md:text-left mt-8 md:mt-0 mx-auto md:mx-0">
           <h1 className="text-4xl font-bold mb-8">{project.name}</h1>
           <p className="text-2xl">{project.customDescription}</p>
-          <div className="flex mt-10 w-min">
+          <div className="flex mt-10 w-min mx-auto md:mx-0">
             <DarkButton href={project.url} className="normal-case">
               {firstLetterUppercase(
                 project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
