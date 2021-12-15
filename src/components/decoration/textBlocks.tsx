@@ -77,7 +77,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         )}
       </h2>
       {children && (
-        <div className="mt-5 md:w-1/2 mx-auto text-3xl">{children}</div>
+        <div className="mt-5 md:w-1/2 mx-auto text-2xl">{children}</div>
       )}
     </div>
   );

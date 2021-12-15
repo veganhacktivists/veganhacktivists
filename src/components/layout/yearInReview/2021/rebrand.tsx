@@ -25,7 +25,7 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
           <div className="max-w-screen-sm">
             <CustomImage src={brandGuideImage} alt="Brand Guide" />
           </div>
-          <div className="text-3xl md:text-left mx-auto md:w-2/3 space-y-5">
+          <div className="text-2xl md:text-left mx-auto md:w-2/3 space-y-5">
             <p>
               This year, we decided to completely and professionally rebrand
               both the organization and our website from the ground up. We
@@ -55,7 +55,7 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
               - who&apos;s been at the heart of transforming the way we work and
               look at design here at the Vegan Hacktivists.
             </p>
-            <div className="w-min mx-auto">
+            <div className="w-min">
               <LightButton href="/resources/VH_BrandGuide.pdf" className="my-5">
                 See our new brand guide!
               </LightButton>
