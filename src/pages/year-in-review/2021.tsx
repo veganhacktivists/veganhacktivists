@@ -48,8 +48,8 @@ const getFeaturedBlogPosts = async () => {
   const memberNames = [
     'Joaquín Triñanes',
     'Stephan de Vries',
-    'David van Beveren',
     'Kate Rodman',
+    'David van Beveren',
     'Suan Chin Yeo',
   ];
 
