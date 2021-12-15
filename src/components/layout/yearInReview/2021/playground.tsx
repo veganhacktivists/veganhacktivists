@@ -21,15 +21,8 @@ const Playground: React.FC = () => {
       <SectionContainer color="grey-background" className="text-grey md:pb-40">
         <div className="flex md:w-2/3 mx-auto gap-x-10">
           <div className="md:text-left md:w-3/4">
-            <CustomImage
-              src={playgroundLogo}
-              alt=""
-              layout="fixed"
-              height={150}
-              width={150}
-            />
             <SectionHeader
-              className="mt-5"
+              className="mt-5 mb-10"
               header={['VH: Playground', 'launched']}
               startWithBoldFont
             />
@@ -46,7 +39,7 @@ const Playground: React.FC = () => {
                 developers in order to support folks outside of our network - so
                 far we&apos;ve attracted over 400 members, and counting!
               </p>
-              <div className="mt-5 w-min mx-auto">
+              <div className="mt-5 pt-5 w-min">
                 <DarkButton
                   href="https://discord.gg/vw5HUX9HW5"
                   className="w-min font-semibold"

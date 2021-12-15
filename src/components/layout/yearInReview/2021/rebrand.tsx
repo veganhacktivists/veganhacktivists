@@ -55,7 +55,7 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
               - who&apos;s been at the heart of transforming the way we work and
               look at design here at the Vegan Hacktivists.
             </p>
-            <div className="w-min">
+            <div className="w-min pt-5">
               <LightButton href="/resources/VH_BrandGuide.pdf" className="my-5">
                 See our new brand guide!
               </LightButton>
