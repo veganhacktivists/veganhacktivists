@@ -96,7 +96,7 @@ exports[`should render correctly 1`] = `
     class="content-center px-5 mx-auto my-12 md:w-1/2 text-2xl text-grey"
   >
     <h1
-      class="mb-10"
+      class="mb-10 pt-10"
     >
       <div
         class="pb-[15px]"
