@@ -2,10 +2,10 @@ import { DarkButton } from '../../../decoration/buttons';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
-
-import newsletter from '../../../../../public/images/yearInReview/2021/newsletter.png';
 import React from 'react';
 import SquareField from '../../../decoration/squares';
+
+import newsletter from '../../../../../public/images/yearInReview/2021/newsletter.png';
 
 const NewsletterLaunch: React.FC = () => {
   return (
@@ -35,8 +35,9 @@ const NewsletterLaunch: React.FC = () => {
               Sign up for our newsletter!
             </DarkButton>
           </div>
-          <div className="max-w-screen-sm mb-10">
+          <div className="relative max-w-screen-sm mb-10 h-min">
             <CustomImage src={newsletter} alt="" />
+            <div className="absolute bottom-0 w-full h-80 bg-gradient-to-t from-grey-background to-invisible" />
           </div>
         </div>
       </SectionContainer>
