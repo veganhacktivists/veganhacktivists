@@ -39,8 +39,8 @@ const growthPoints: {
     header: 'Safety',
     content: (
       <>
-        We now have a Code of Conduct for our growing community, and require all
-        leadership roles to complete our Effective Communication, Unconcious
+        We now have a Code of Conduct for our growing community, and ask all
+        roles to complete our Effective Communication, Unconcious
         Bias, and Consent training courses in order to foster a healthy and
         inclusive environment.
       </>
