@@ -26,7 +26,7 @@ const FeedbackAndTesting: React.FC = () => {
         className="text-white relative"
         circles
       >
-        <div>
+        <div className="md:w-2/3 mx-auto">
           <p className="mb-10">
             In order to be more effective, and to meet the needs of our movement
             better, we not only expanded our advisory team, but we expanded how

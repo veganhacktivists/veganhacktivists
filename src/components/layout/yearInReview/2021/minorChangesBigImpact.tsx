@@ -73,7 +73,7 @@ const MinorChangesBigImpact: React.FC = () => {
           <SectionHeader header={['Minor changes with a', 'big impact']} />
         }
       >
-        <div className="mx-auto text-2xl w-2/3 space-y-3">
+        <div className="mx-auto text-2xl md:w-2/3 space-y-3">
           {changes.map(({ icon, text }) => (
             <div
               key={icon}

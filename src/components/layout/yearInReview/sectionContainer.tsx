@@ -17,7 +17,9 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
   circles = false,
   color,
 }) => {
-  const classes = classNames(className, 'pt-20 pb-10', { relative: circles });
+  const classes = classNames(className, 'pt-20 pb-10 px-5', {
+    relative: circles,
+  });
   const backgroundColor = color ? getThemeColor(color) : 'inherit';
 
   return (

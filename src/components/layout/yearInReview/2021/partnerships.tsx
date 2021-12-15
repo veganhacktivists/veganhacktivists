@@ -50,7 +50,7 @@ const Partnerships: React.FC = () => {
           </SectionHeader>
         }
       >
-        <div className="px-10 md:w-3/4 mx-auto space-y-10">
+        <div className="md:w-3/4 mx-auto space-y-10">
           <Partnership
             image={pollinationPartner}
             title="Partnership with The Pollination Project"
