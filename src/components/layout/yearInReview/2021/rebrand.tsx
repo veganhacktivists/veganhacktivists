@@ -16,16 +16,13 @@ interface RebrandProps {
 const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
   return (
     <>
-      <SectionContainer
-        color="grey-dark"
-        className="text-white"
-        header={<SectionHeader header={['Our', 'rebrand']} />}
-      >
-        <div className="flex flex-col md:flex-row gap-x-24 md:w-2/3 justify-center mx-auto">
+      <SectionContainer color="grey-dark" className="text-white">
+        <div className="flex flex-col-reverse md:flex-row gap-x-24 md:w-2/3 justify-center mx-auto">
           <div className="max-w-screen-sm">
             <CustomImage src={brandGuideImage} alt="Brand Guide" />
           </div>
           <div className="text-2xl md:text-left mx-auto md:w-2/3 space-y-5">
+            <SectionHeader header={['Our', 'rebrand']} />
             <p>
               This year, we decided to completely and professionally rebrand
               both the organization and our website from the ground up. We
