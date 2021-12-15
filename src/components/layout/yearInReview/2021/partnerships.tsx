@@ -100,15 +100,7 @@ const Partnerships: React.FC = () => {
               of street outreach. We&apos;re excited to have partnered up with
               AV in order to be able to both provide them the tools they need to
               monitor and track the effectiveness of each group, while providing
-              social nework technology that helps them detach from
-              Facebook&apos;s overarching grip and censorship.
-            </p>
-            <p>
-              We worked very closely with AV&apos;s regional organizers and
-              leadership to make sure that the technology we provided, powered
-              by Activist Hub, worked exactly to their specific organiations
-              needs. We&apos;re more than excited to see how this partnership
-              benefits the grassroots street outreach movement!
+              social nework tech powered by Activist Hub.
             </p>
           </Partnership>
           <Partnership image={otherPartner} title="Other Partnerships">

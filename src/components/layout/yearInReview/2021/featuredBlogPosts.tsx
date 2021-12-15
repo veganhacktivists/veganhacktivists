@@ -32,7 +32,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
             &ldquo;Meet The Team&rdquo; series so that we could both feature
             them for the incredible work that they do with us, and so that
             others from our community could get to know each other better. We
-            plan on doing many more of this!
+            plan to do many more of these!
           </SectionHeader>
         }
       >
