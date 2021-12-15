@@ -30,6 +30,7 @@ const NewsletterLaunch: React.FC = () => {
             <DarkButton
               className="w-min font-semibold font-mono md:mb-10 mx-auto md:mx-0"
               href="/newsletter"
+              linkProps={{ target: '_blank', rel: 'noreferrer' }}
             >
               Sign up for our newsletter!
             </DarkButton>

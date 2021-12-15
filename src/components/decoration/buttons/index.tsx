@@ -9,7 +9,11 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { LinkProps } from 'next/link';
-import type { MouseEventHandler, ButtonHTMLAttributes } from 'react';
+import type {
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from 'react';
 import { FillBackground } from './utils';
 
 export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
@@ -17,7 +21,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
   href?: LinkProps['href'];
   className?: string;
   active?: boolean;
-  linkProps?: Partial<LinkProps>;
+  linkProps?: Partial<LinkProps> & Partial<AnchorHTMLAttributes<unknown>>;
   onClick?: MouseEventHandler;
   type?: 'submit' | 'reset' | 'button';
   capitalize?: boolean;
@@ -44,7 +48,13 @@ const BaseButton: React.FC<ButtonProps> = ({
     <>
       {/* it's an external link */}
       {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <a href={href} target="_blank" rel="noreferrer" aria-label={ariaLabel}>
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={ariaLabel}
+          {...linkProps}
+        >
           <div {...props} className={classes}>
             {children}
           </div>
@@ -53,7 +63,11 @@ const BaseButton: React.FC<ButtonProps> = ({
       {/* it's an internal link */}
       {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
         <Link {...linkProps} href={href}>
-          <a aria-label={ariaLabel}>
+          <a
+            target={linkProps?.target}
+            rel={linkProps?.rel}
+            aria-label={ariaLabel}
+          >
             <div className={classes} {...props}>
               {children}
             </div>
