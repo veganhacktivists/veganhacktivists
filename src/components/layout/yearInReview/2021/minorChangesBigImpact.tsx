@@ -27,25 +27,25 @@ const changes: Change[] = [
   },
   {
     icon: '🌶️',
-    text: 'We presented Vegan Linguists at 2021 Animal Advocacy Conference Asia!',
+    text: 'We presented Vegan Linguists at 2021 Animal Advocacy Conference Asia.',
   },
   {
     icon: '🥒',
-    text: 'We added three new courses to our Vegan Bootcamp program!',
+    text: 'We added three new courses to our Vegan Bootcamp program.',
   },
   {
     icon: '🍊',
     // TODO: this phrasing is weird (to me, the non native english speaker)
-    text: 'We moved away from Googe Translate and use human-traslations!',
+    text: 'We reduced our dependency on google for translations of projects.',
   },
   {
     icon: '🍋',
-    text: 'We streamlined our applications process into one easy to fill out form for new volunteers.',
+    text: 'We streamlined our applications process into one easy volunteer form.',
   },
   {
     icon: '🍍',
     // TODO: this text feels like a TODO
-    text: 'We started a series of interviews with farmed animal leaders with the goal of providing value.',
+    text: 'We started offering more of our services on other platforms like reddit.',
   },
   {
     icon: '🍐',

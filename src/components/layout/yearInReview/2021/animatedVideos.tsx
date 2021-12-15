@@ -37,7 +37,7 @@ const AnimatedVideos: React.FC = () => {
         }
       >
         <div>
-          <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10">
+          <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10 mb-10">
             <div className="md:w-1/2">
               <iframe
                 className="w-full aspect-video"
