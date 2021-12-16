@@ -46,6 +46,7 @@ interface YearInReviewProps {
 
 const getFeaturedBlogPosts = async () => {
   const memberNames = [
+    'Gerard O\'Neill',
     'Kate Rodman',
     'Joaquín Triñanes',
     'Suan Chin Yeo',
