@@ -14,7 +14,7 @@ const changes: Change[] = [
   },
   {
     icon: '🥝',
-    text: 'New utilized several new technologies: Docker, LaravelShift, Vue, Tailwind, React, Svelte and more.',
+    text: 'New technologies: Docker, LaravelShift, Vue, Tailwind, React, Svelte and more.',
   },
   {
     icon: '🌽',
