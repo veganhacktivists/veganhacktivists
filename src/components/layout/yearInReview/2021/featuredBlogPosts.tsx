@@ -36,7 +36,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
           </SectionHeader>
         }
       >
-        <div className="flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto pb-20 mb-10">
+        <div className="flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto md:pb-20 mb-10 md:mt-5">
           {featuredBlogPosts.map(({ member, blogEntry }) => {
             const { name, team, image } = member.fields;
             const color = team?.fields.color;
@@ -54,21 +54,19 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                 key={blogEntry.fields.slug}
               >
                 <a>
-                  <div className="w-64 mx-auto">
-                    <div className="bg-grey w-100 h-64 flex justify-end mb group">
-                      {image && (
-                        <div className="relative">
-                          <ContentfulImage image={image} alt={name} />
-                          <div
-                            className={
-                              'left-0 top-0 w-full h-full absolute opacity-10'
-                            }
-                            style={{
-                              backgroundColor: color,
-                            }}
-                          />
-                        </div>
-                      )}
+                  <div className="w-64 md:w-52 mx-auto">
+                    <div className="flex justify-end group aspect-square">
+                      <div className="relative h-min">
+                        <ContentfulImage image={image} alt={name} />
+                        <div
+                          className={
+                            'left-0 top-0 w-full h-full absolute opacity-10'
+                          }
+                          style={{
+                            backgroundColor: color,
+                          }}
+                        />
+                      </div>
                       <div
                         style={{ backgroundColor: color }}
                         className={'absolute w-8 h-8'}
