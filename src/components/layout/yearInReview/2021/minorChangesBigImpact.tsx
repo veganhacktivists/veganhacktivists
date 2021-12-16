@@ -48,7 +48,7 @@ const changes: Change[] = [
   },
   {
     icon: '🍐',
-    text: 'Weekly office hours for all teams where leaders are available to chat, work or play.',
+    text: 'Weekly office hours for teams where leaders are available to chat, work or play.',
   },
 ];
 
