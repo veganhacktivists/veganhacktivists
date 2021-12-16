@@ -74,11 +74,11 @@ const Partnerships: React.FC = () => {
             </p>
             <p>
               We&apos;re excited to see where this partnership leads us in the
-              future as we work together with The Pollination Project to get our
-              activists funded as much as possible.{' '}
+              future as we work together with {' '}
               <CustomLink href="https://thepollinationproject.org/">
-                To learn more, please click here
-              </CustomLink>
+              The Pollination Project
+              </CustomLink> to get these
+              activists funded as much as possible.
               .
             </p>
           </Partnership>
@@ -97,9 +97,8 @@ const Partnerships: React.FC = () => {
             <p>
               Traditionally, it&apos;s been very hard to track the effectiveness
               of street outreach. We&apos;re excited to have partnered up with
-              AV in order to be able to both provide them the tools they need to
-              monitor and track the effectiveness of each group, while providing
-              social network tech powered by Activist Hub.
+              AV in order to be able to provide them the tools they need to
+              monitor and track the effectiveness of each group with Activist Hub.
             </p>
           </Partnership>
           <Partnership image={otherPartner} title="Other Partnerships">
