@@ -46,11 +46,11 @@ interface YearInReviewProps {
 
 const getFeaturedBlogPosts = async () => {
   const memberNames = [
-    'Joaquín Triñanes',
-    'Stephan de Vries',
     'Kate Rodman',
-    'David van Beveren',
+    'Joaquín Triñanes',
     'Suan Chin Yeo',
+    'David van Beveren',
+    'Stephan de Vries',
   ];
 
   const [unorderedMembers, [meetTheTeamTag]] = await Promise.all([
