@@ -79,7 +79,6 @@ const Partnerships: React.FC = () => {
               The Pollination Project
               </CustomLink> to get these
               activists funded as much as possible.
-              .
             </p>
           </Partnership>
           <Partnership
