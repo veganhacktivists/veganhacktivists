@@ -56,7 +56,10 @@ const Partnerships: React.FC = () => {
             title="Partnership with The Pollination Project"
           >
             <p>
-              We&apos;re very happy to announce a partnership in where
+              We were very happy to {' '}
+              <CustomLink href="https://veganhacktivists.org/grants">
+              announce a partnership
+              </CustomLink> in where
               we&apos;re able to offer up to $1000 USD in seed funding grants
               for outstanding, and effective, animal rights activism!
               Specifically we&apos;re looking for individual or grassroots
@@ -97,7 +100,10 @@ const Partnerships: React.FC = () => {
               Traditionally, it&apos;s been very hard to track the effectiveness
               of street outreach. We&apos;re excited to have partnered up with
               AV in order to be able to provide them the tools they need to
-              monitor and track the effectiveness of each group with Activist Hub.
+              monitor and track the effectiveness of each group with {' '}
+              <CustomLink href="https://activisthub.org">
+              Activist Hub
+              </CustomLink>.
             </p>
           </Partnership>
           <Partnership image={otherPartner} title="Other Partnerships">
