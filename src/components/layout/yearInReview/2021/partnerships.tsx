@@ -110,7 +110,7 @@ const Partnerships: React.FC = () => {
               </CustomLink>
               <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
               We partnered with Vegan Outreach&apos;s Vegan Mentorship Program
-              in order to provide free mentorship access to Vegan Bootcamp and
+              in order to provide completely free mentorship access to all Vegan Bootcamp and
               3Movies.org participants.
             </p>
             <p className="pb-20">
