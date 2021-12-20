@@ -84,6 +84,7 @@ const getFeaturedBlogPosts = async () => {
     query: {
       'tags.sys.id': meetTheTeamTag.sys.id,
     },
+    other: { select: ['fields.slug', 'fields.title'] },
   });
 
   return members.map((member) => ({
