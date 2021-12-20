@@ -313,6 +313,9 @@ export interface ITeam extends Entry<ITeamFields> {
 }
 
 export interface ITeamMemberFields {
+  /** slug */
+  slug: string;
+
   /** name */
   name: string;
 

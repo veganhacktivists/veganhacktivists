@@ -45,13 +45,13 @@ interface YearInReviewProps {
 }
 
 const getFeaturedBlogPosts = async () => {
-  const memberNames = [
-    'Gerard O\'Neill',
-    'Kate Rodman',
-    'Joaquín Triñanes',
-    'Suan Chin Yeo',
-    'David van Beveren',
-    'Stephan de Vries',
+  const memberSlugs = [
+    'gerard-oneill',
+    'kate-rodman',
+    'joaquin-trinanes',
+    'suan-chin-yeo',
+    'david-van-beveren',
+    'stephan-de-vries',
   ];
 
   const [unorderedMembers, [meetTheTeamTag]] = await Promise.all([
@@ -60,7 +60,7 @@ const getFeaturedBlogPosts = async () => {
       query: {
         filters: {
           in: {
-            name: memberNames,
+            slug: memberSlugs,
           },
         },
       },
@@ -75,8 +75,8 @@ const getFeaturedBlogPosts = async () => {
 
   const members = sortByArray(
     unorderedMembers,
-    memberNames,
-    (member) => member.fields.name
+    memberSlugs,
+    (member) => member.fields.slug
   );
 
   const meetTheMembers = await getContents<IBlogEntryFields>({
