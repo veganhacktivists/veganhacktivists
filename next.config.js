@@ -41,6 +41,11 @@ const nextConfig = {
         destination: '/year-in-review/2021',
         permanent: false,
       },
+      {
+        source: '/joinplayground',
+        destination: 'https://discord.gg/Yt3zADeJKx',
+        permanent: false,
+      },
     ];
   },
 };
