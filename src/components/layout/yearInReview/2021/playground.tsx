@@ -27,7 +27,7 @@ const Playground: React.FC = () => {
             />
             <div className="space-y-5">
               <p>
-                We launched a open-source community available to the public
+                We launched an open-source community available to the public
                 called VH: Playground! Playground allows developers who
                 don&apos;t have the time or specific skills to join the core
                 Vegan Hacktivists team to still contribute to the movement,

@@ -17,8 +17,7 @@ const DesignsForVeganOrgs: React.FC = () => {
             header={['Designs', 'for', 'Vegan Orgs']}
             startWithBoldFont
           >
-            We had the chance to provide on-the-house design support to vegan
-            orgs that needed to represent themselves and stand out in the
+            We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the
             competitive digital landscape.
           </SectionHeader>
         }

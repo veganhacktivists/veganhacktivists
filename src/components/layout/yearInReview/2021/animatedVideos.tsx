@@ -27,12 +27,10 @@ const AnimatedVideos: React.FC = () => {
             <CustomLink href="https://expandedcircle.org/">
               Expanded Circle Collective
             </CustomLink>{' '}
-            (formerly known as Better Eating International) in order to produce
+             in order to produce
             two animated introductory videos for Activist Hub and Vegan
             Bootcamp! These videos are fantastic resources for viewers to
-            quickly get familiar with our work when on our landing page. We had
-            a great time working with the Expanded Circle team and we&apos;ll be
-            producing more with them for 2022.
+            quickly get familiar with our work. We look forward to continuing our work with them in the new year.
           </SectionHeader>
         }
       >

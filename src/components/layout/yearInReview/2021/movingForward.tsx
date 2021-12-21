@@ -25,21 +25,10 @@ const MovingForward: React.FC = () => {
             <h2 className="font-bold text-4xl pt-5">Moving forward</h2>
           </div>
           <p>
-            What a year! We&apos;re really happy with our work in the last 12
-            months. Last year, we said we wanted to focus more on data-based
-            efforts (while staying true to our spirit of experimentation) with
-            our projects and we think we really accomplished that with Activist
-            Hub and Vegan Linguists. We also feel like this has been our best
-            year yet with the amount of connections and friends we&apos;ve been
-            able to make and support in the animal protection movement.
+            What a year! We wanted to focus on data-based efforts while staying true to our spirit of experimental projects, and we were able to achieve those goals through Activist Hub and Vegan Linguists. This has truly been the best year for creating connections and partnerships in the animal protection movement, and we are extremely pleased with the work we've accomplished.
           </p>
           <p>
-            This year we&apos;ve also managed to really organize and make our
-            internal processes more efficient. This is important because
-            starting 2022, we want to now prioritize expanding our network of
-            volunteers in order to be able to keep up with the demand of our
-            services. We&apos;re almost at the point of being unable to handle
-            all of the requests we get, but we love that this is a problem.
+          This year, we have also prioritized organizing and optimizing internal processes. This was crucial for us since a core focus of 2022 is to expand our volunteer network to meet the demand of our services. We want to continue being able to serve the multifaceted needs of the vegan movement and empower people to become activists.
           </p>
           <p>
             We&apos;re really excited to hear your thoughts in our 2021 year in

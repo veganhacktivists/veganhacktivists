@@ -39,6 +39,7 @@ const ByTheNumbers: React.FC = () => {
               <AnimatedNumber
                 className="text-7xl md:text-9xl text-magenta"
                 number={3e6}
+                approx
               />
             }
           >
@@ -91,7 +92,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={134} className="text-yellow" approx />
               }
             >
-              New links added to <b>Vegan Cheat Sheet</b>
+              New resources added to <b>Vegan Cheat Sheet</b>
             </Number>
 
             <Number
@@ -140,7 +141,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={29} className="text-orange" approx />
               }
             >
-              <b>Grants requested</b> of us in first 45 days
+              <b>Grants requested</b> of us within the first 45 days
             </Number>
             {/* <Number
               number={

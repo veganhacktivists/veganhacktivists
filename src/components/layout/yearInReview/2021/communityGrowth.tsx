@@ -18,8 +18,7 @@ const growthPoints: {
     content: (
       <>
         Growth doesn&apos;t just come in numbers, it comes in structure. We
-        combined our organization documentation from 4 different platforms into one easily
-        digestible section of our new website.
+        combined our organization documentation from four different platforms into one user-friendly section of our new website.
       </>
     ),
   },
@@ -28,9 +27,7 @@ const growthPoints: {
     header: 'Technology',
     content: (
       <>
-        We&apos;ve embraced new technologies in order to be able to both improve
-        the quality of our projects, and bring in more talent, such as those who
-        prefer other languages like JavaScript.
+        We&apos;ve embraced new technologies to improve the overall quality and robustness of our projects, as well as meet our developers where they're at.
       </>
     ),
   },
@@ -40,7 +37,7 @@ const growthPoints: {
     content: (
       <>
         We now have a Code of Conduct for our growing community, and ask all
-        roles to complete our Effective Communication, Unconscious
+        volunteers to complete our Effective Communication, Unconscious
         Bias, and Consent training courses in order to foster a healthy and
         inclusive environment.
       </>

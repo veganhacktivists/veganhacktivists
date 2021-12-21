@@ -20,11 +20,8 @@ const NewsletterLaunch: React.FC = () => {
             />
             <div className="mb-10 mt-5">
               This year we&apos;ve been very fortunate to have a huge growth of
-              interest in the vegan movement. Many have asked us to launch a
-              newsletter to stay updated with our progress. This year we
-              launched newsletters for most of our major projects, and one for
-              everything. We&apos;ve accumulated over 15,000 emails from our
-              community which has been an overwhelming success. Signup for our
+              interest in the vegan movement. To stay up to date with our progress, we have launched a monthly newsletter to showcase our projects and general happenings. We&apos;ve accumulated over 15,000 emails from our
+              community which has been an overwhelming success. Sign up for our
               newsletter!
             </div>
             <DarkButton

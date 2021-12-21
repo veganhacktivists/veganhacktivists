@@ -50,7 +50,7 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
                   {kate.member.fields.name}
                 </a>
               </Link>{' '}
-              - who&apos;s been at the heart of transforming the way we work and
+              , who&apos;s been at the heart of transforming the way we work and
               look at design here at VH.
             </p>
             <div className="w-min pt-5 mx-auto md:mx-0">
