@@ -28,17 +28,18 @@ const FeedbackAndTesting: React.FC = () => {
       >
         <div className="md:w-2/3 mx-auto">
           <p className="mb-10">
-          To be more effective and meet the needs of our movement, we not only expanded our advisory team, but we expanded how
-            we receive feedback. We used a combination of internal polls,
-            newsletters, advisors, and testers to determine next steps for both
-            our projects in development and our own growth.
+            To be more effective and meet the needs of our movement, we not only
+            expanded our advisory team, but we expanded how we receive feedback.
+            We used a combination of internal polls, newsletters, advisors, and
+            testers to determine next steps for both our projects in development
+            and our own growth.
           </p>
           <p className="mb-20">
             Together we were able to launch several surveys for before, during,
             and after projects in order to collect better data on requested
             features and issues. We are extremely pleased to say that we made
-            meaningful changes based on over 80% of the individual feedback received
-            from testers.
+            meaningful changes based on over 80% of the individual feedback
+            received from testers.
           </p>
         </div>
       </SectionContainer>

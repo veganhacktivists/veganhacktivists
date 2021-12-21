@@ -19,10 +19,12 @@ const NewsletterLaunch: React.FC = () => {
               startWithBoldFont
             />
             <div className="mb-10 mt-5">
-              This year we&apos;ve been very fortunate to have a huge growth of
-              interest in the vegan movement. To stay up to date with our progress, we have launched a monthly newsletter to showcase our projects and general happenings. We&apos;ve accumulated over 15,000 emails from our
-              community which has been an overwhelming success. Sign up for our
-              newsletter!
+              Much has been happening in the vegan movement, and we are excited
+              to be part of those changes. To keep you up-to-date with our
+              progress, we have launched a monthly newsletter to showcase our
+              projects and general happenings. We&apos;ve accumulated over
+              15,000 emails from our community to date. Sign up for our
+              newsletter today!
             </div>
             <DarkButton
               className="w-min font-semibold font-mono md:mb-10 mx-auto md:mx-0"

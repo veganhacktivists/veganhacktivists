@@ -28,11 +28,11 @@ const Intro: React.FC = () => {
           headerSize="3xl"
           contentSize="2xl"
         >
-          This year, we refined
-          our goals and built projects that focused primarily on filling
-          existing gaps in our movement. We grew more meaningful partnerships
-          and we greatly improved our branding, design team, and services
-          offered. We&apos;re excited to show you what we&apos;ve done below!
+          This year, we refined our goals and built projects that focused
+          primarily on filling existing gaps in our movement. We grew more
+          meaningful partnerships and we greatly improved our branding, design
+          team, and services offered. We&apos;re excited to show you what
+          we&apos;ve done below!
         </SubSection>
       </div>
 
@@ -43,9 +43,9 @@ const Intro: React.FC = () => {
           headerBold="8 new projects"
           headerEnd="for the movement"
         >
-          <b>Four of which were in-house projects.</b> We were also lucky
-          enough to work on projects with Sehati Animal Sanctuary, Animal
-          Alliance Asia, Vegan Japan Consulting, and many more.
+          <b>Four of which were in-house projects.</b> We were also lucky enough
+          to work on projects with Sehati Animal Sanctuary, Animal Alliance
+          Asia, Vegan Japan Consulting, and many more.
         </HighlightBlock>
         <HighlightBlock
           borderColor="yellow"
@@ -65,8 +65,8 @@ const Intro: React.FC = () => {
           headerEnd="in just 6 months"
         >
           <b>More teams, more impact!</b> We&apos;re so happy to announce the
-          growth of our community with five new amazing teams. Please welcome Team
-          Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
+          growth of our community with five new amazing teams. Please welcome
+          Team Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
         </HighlightBlock>
         <div className="flex flex-row md:w-1/3 mx-auto mb-20 mt-20">
           {[

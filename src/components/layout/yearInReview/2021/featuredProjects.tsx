@@ -35,19 +35,19 @@ export const projectDescriptions: Record<string, React.ReactNode> = {
   'Vegan Linguists': (
     <>
       <p>
-        Every day, more and more people from around the world are being digitally connected.
+        Every day, more and more people from around the world are being
+        digitally connected.
       </p>
       <p>
-        It has become increasingly important to translate
-        online vegan content to reach more people. Vegan Linguists is a free
-        content translation service run by vegans, for vegans. We translate
-        vegan-content to help make veganism more accessible worldwide!
-        All you need to do is sign up and submit your content—or translate
-        with us, for the animals.
+        It has become increasingly important to translate online vegan content
+        to reach more people. Vegan Linguists is a free content translation
+        service run by vegans, for vegans. We translate vegan-content to help
+        make veganism more accessible worldwide! All you need to do is sign up
+        and submit your content—or volunteer as a translator, for the animals.
       </p>
       <p>
-      We are proud to have worked and launched with Animal Ethics, Faunalytics, Peace Advocacy Network, Sinergia Animal,
-        among many others.
+        We are proud to have worked and launched with Animal Ethics,
+        Faunalytics, Peace Advocacy Network, Sinergia Animal, among many others.
       </p>
     </>
   ),

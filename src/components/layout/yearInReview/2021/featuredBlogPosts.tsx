@@ -29,8 +29,10 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
             header={['Featured', 'blog posts']}
           >
             We&apos;ve been having fun with our blog! We launched our
-            &ldquo;Meet The Team&rdquo; series so we could feature their incredible work and introduce them to our community at large. We
-            plan to do many more of these!
+            &ldquo;Meet The Team&rdquo; series so we could feature the
+            incredible work done by our team and spotlight the dedicated
+            volunteers behind the scenes. We plan to deliver more amazing
+            content in 2022. Stay tuned!
           </SectionHeader>
         }
       >

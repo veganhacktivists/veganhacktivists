@@ -17,20 +17,24 @@ const DesignsForVeganOrgs: React.FC = () => {
             header={['Designs', 'for', 'Vegan Orgs']}
             startWithBoldFont
           >
-            We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the
-            competitive digital landscape.
+            We had the chance to provide on-the-house design support to vegan
+            organizations that needed to create their brand and identity, as
+            well as stand out in the competitive digital landscape.
           </SectionHeader>
         }
       >
         <div className="md:w-1/2 mx-auto">
-          <div className="mb-10"> 
+          <div className="mb-10">
             <CustomImage src={vcj} alt="Vegan Consulting Japan design" />
           </div>
-          <div className="mb-10"> 
-            <CustomImage src={ivff} alt="International Vegan Film Festival design" />
+          <div className="mb-10">
+            <CustomImage
+              src={ivff}
+              alt="International Vegan Film Festival design"
+            />
           </div>
-          <div className="mb-10"> 
-          <CustomImage src={sv} alt="Solutionary Vegan design" />
+          <div className="mb-10">
+            <CustomImage src={sv} alt="Solutionary Vegan design" />
           </div>
         </div>
       </SectionContainer>
