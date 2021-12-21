@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import type { IProjectFields } from '../../../types/generated/contentful';
 import { DarkButton } from '../../decoration/buttons';
 import { ContentButton } from './contentButton';
@@ -47,9 +46,7 @@ export const HighlightedProjects: React.FC<HighlightedProjectsProps> = ({
           <div className="text-2xl space-y-10">{project.customDescription}</div>
           <div className="flex mt-10 w-min mx-auto md:mx-0">
             <DarkButton href={project.url} className="normal-case">
-              {firstLetterUppercase(
-                project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
-              )}
+              {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
             </DarkButton>
           </div>
         </div>
