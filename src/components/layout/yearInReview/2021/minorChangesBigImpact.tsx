@@ -10,45 +10,43 @@ interface Change {
 const changes: Change[] = [
   {
     icon: '🍎',
-    text: 'We opened up a community voting channel in our work discord.',
+    text: 'Created guidelines around brand, design, and content',
   },
   {
     icon: '🥝',
-    text: 'New technologies: Docker, LaravelShift, Vue, Tailwind, React, Svelte and more.',
+    text: 'Incorporated new technologies including Docker, LaravelShift, Vue, Tailwind, React, Svelte, and more.',
   },
   {
     icon: '🌽',
-    text: 'We now have a design structure, brand guides, and content guidelines.',
+    text: 'Introduced a system to collect regular feedback from our advisory board',
   },
   {
     icon: '🥔',
-    text: 'We now gather detailed feedback from our advisory board every month.',
+    text: 'Added three new courses to Vegan Bootcamp',
   },
   {
     icon: '🌶️',
-    text: 'We presented Vegan Linguists at 2021 Animal Advocacy Conference Asia.',
+    text: 'Streamlined our volunteer application process',
   },
   {
     icon: '🥒',
-    text: 'We added three new courses to our Vegan Bootcamp program.',
+    text: 'Presented Vegan Linguists at 2021 Animal Advocacy Conference Asia',
   },
   {
     icon: '🍊',
-    // TODO: this phrasing is weird (to me, the non native english speaker)
-    text: 'We reduced our dependency on google for translations of projects.',
+    text: 'Launched a community voting channel on our Discord server',
   },
   {
     icon: '🍋',
-    text: 'We streamlined our applications process into one easy volunteer form.',
+    text: 'Leveraged external platforms, such as Reddit and Twitter, to promote our services',
   },
   {
     icon: '🍍',
-    // TODO: this text feels like a TODO
-    text: 'We started offering more of our services on other platforms like reddit.',
+    text: 'Added localization to projects for more accurate and clearer translations',
   },
   {
     icon: '🍐',
-    text: 'Weekly office hours for teams where leaders are available to chat, work or play.',
+    text: 'Started hosting weekly office hours for our team to chat, work, and play',
   },
 ];
 

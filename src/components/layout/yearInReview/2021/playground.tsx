@@ -35,7 +35,7 @@ const Playground: React.FC = () => {
               </p>
               <p>
                 In short, we wanted to build and foster a community of vegan
-                developers in order to support folks outside of our network - so
+                developers in order to support folks outside of our network—so
                 far we&apos;ve attracted over 400 members, and counting!
               </p>
               <div className="mt-5 pt-5 w-min mx-auto md:mx-0">
