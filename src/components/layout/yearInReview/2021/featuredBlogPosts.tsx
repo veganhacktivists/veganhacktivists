@@ -53,7 +53,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                 }}
                 key={blogEntry.fields.slug}
               >
-                <a>
+                <a target="_blank">
                   <div className="w-64 md:w-52 mx-auto">
                     <div className="flex justify-end group aspect-square">
                       <div className="relative h-min">
