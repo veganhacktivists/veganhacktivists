@@ -49,7 +49,7 @@ const getFeaturedBlogPosts = async () => {
     'gerard-oneill',
     'kate-rodman',
     'joaquin-trinanes',
-    'suan-chin-yeo',
+    'suan-chin',
     'david-van-beveren',
     'stephan-de-vries',
   ];
