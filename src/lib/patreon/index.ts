@@ -1,4 +1,4 @@
-import got from 'got';
+import axios from 'axios';
 
 const accessToken = process.env.PATREON_ACCESS_TOKEN;
 const campaignId = process.env.PATREON_CAMPAIGN_ID;
@@ -11,14 +11,14 @@ export const getPatrons: () => Promise<string[]> = async () => {
   let hasNextPage = true;
 
   while (hasNextPage) {
-    const data = (await got
-      .get(currUrl, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data: Record<string, any> = (
+      await axios.get(currUrl, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .json()) as Record<string, any>;
+    ).data;
 
     pages.push(data);
     if (!data.links?.next) {
@@ -46,23 +46,24 @@ export const getPatrons: () => Promise<string[]> = async () => {
   return Array.from(new Set(patrons));
 };
 
-export const getPledgeSum: (currency: 'USD' | 'EUR') => Promise<number> =
-  async (currency: 'USD' | 'EUR') => {
-    const campaignUrl =
-      'https://www.patreon.com/api/oauth2/api/current_user/campaigns';
+export const getPledgeSum: (
+  currency: 'USD' | 'EUR'
+) => Promise<number> = async (currency: 'USD' | 'EUR') => {
+  const campaignUrl =
+    'https://www.patreon.com/api/oauth2/api/current_user/campaigns';
 
-    const response = (await got
-      .get(campaignUrl, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .json()) as Record<string, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const response: Record<string, any> = (
+    await axios.get(campaignUrl, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+  ).data;
 
-    return (
-      (currency === 'USD'
-        ? response.data[0].attributes.campaign_pledge_sum
-        : response.data[0].attributes.pledge_sum) / 100
-    );
-  };
+  return (
+    (currency === 'USD'
+      ? response.data[0].attributes.campaign_pledge_sum
+      : response.data[0].attributes.pledge_sum) / 100
+  );
+};

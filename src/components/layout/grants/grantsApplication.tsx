@@ -15,7 +15,7 @@ import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import classNames from 'classnames';
 import SquareField from '../../decoration/squares';
 import { useRouter } from 'next/router';
-import ky from 'ky';
+import axios from 'axios';
 
 const FormSection: React.FC<{
   section: string;
@@ -57,7 +57,7 @@ const GrantsApplication: React.FC = () => {
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
-      const submit = async () => ky.post('/api/grant-request', { json: data });
+      const submit = async () => axios.post('/api/grant-request', data);
 
       await toast
         .promise(submit, {

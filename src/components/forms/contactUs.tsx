@@ -11,7 +11,7 @@ import TextArea from './inputs/textArea';
 import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
-import ky from 'ky';
+import axios from 'axios';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -34,10 +34,7 @@ const ContactUsForm: React.FC = () => {
   const { reload } = useRouter();
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    const submit = async () =>
-      ky.post('/api/contact-us', {
-        json: values,
-      });
+    const submit = async () => axios.post('/api/contact-us', values);
 
     await toast
       .promise(submit, {
