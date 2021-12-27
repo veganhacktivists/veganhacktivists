@@ -725,7 +725,7 @@ exports[`should render correctly 1`] = `
         <p
           class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for people with backgrounds in social media, marketing, and advertising. We need help managing our various project social accounts. This includes creating daily posts, designing content, and interacting with followers.
+          We're looking for people with backgrounds in social media, marketing, and advertising. We need help managing our various project social accounts. This includes creating posts, designing content, and interacting with followers.
         </p>
         <div
           class="my-8 w-2/3 mx-auto"
@@ -792,7 +792,7 @@ exports[`should render correctly 1`] = `
         <p
           class="px-10 md:px-8 text-2xl text-center"
         >
-          We're looking for people with backgrounds in writing, and creating content such as blogs, videos, and other content. Excellent grammar and spelling are a must. You'll be in charge of writing for our blogs, newssletters, Patreon, and other social platforms!
+          We're looking for people with a background in writing or content creation. Excellent grammar and spelling are a must. You'll be in charge of writing for our blog, newsletter, projects, Patreon, and other social platforms!
         </p>
         <div
           class="my-8 w-2/3 mx-auto"
