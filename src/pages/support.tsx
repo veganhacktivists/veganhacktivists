@@ -24,6 +24,7 @@ import getThemeColor from '../lib/helpers/theme';
 import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';
+import Link from 'next/link';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -98,17 +99,21 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       />
       <div className="px-10">
         <PlainHeader header="Support Us">
-          With your gift, we can make a greater and real impact to help change
-          the world for our animal friends. Thank you.
+          With your gift, we can make a greater impact and change the world for
+          our animal friends.
         </PlainHeader>
         <Paragraph>
-          Thank you so much for considering supporting us! We are a 100% vegan
-          volunteer team that builds technology for the animal rights movement
-          while supporting organizations and individual activists. We do this
-          for the animals - we do this because coding is our way of doing our
-          part for activism. If you believe in the work we do and want to
-          support us, please consider supporting us with a donation! It means
-          the world to us and the animals to have your support.
+          Thank you so much for considering supporting us. To kick off the new
+          year, we are hosting a fundraiser to help us achieve our goals for
+          2022. Every dollar raised up to $47,000 will be matched. Every dollar
+          helps us grow our projects and make a difference for the animals who
+          need us.
+          <br />
+          <br />
+          We are a vegan volunteer team that builds technology for organizations
+          and individual activists in the animal rights movement. If you believe
+          in the work we do and would like to support us, please consider making
+          a donation.
         </Paragraph>
       </div>
       <div className="flex flex-wrap justify-center items-end mb-16 mt-16">
@@ -129,7 +134,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           buttonHref="https://www.patreon.com/veganhacktivists"
           large
         >
-          Become a monthly supporter for as little as $5 a month!
+          Become a monthly supporter for as little as $5 a month
         </DonationCard>
         <DonationCard
           color="green"
@@ -138,17 +143,17 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           buttonText="contact us"
           buttonHref="mailto:hello@veganhacktivists.org"
         >
-          For tax-deductible (U.S.), larger donations
+          For larger donations (US tax-deductible)
         </DonationCard>
       </div>
       <Paragraph>
         We prefer a{' '}
         <span className="font-bold">monthly donation via Patreon</span> as that
-        gives us the most stability every month, but we also accept one time
-        donations via Paypal. If you would like to make a larger contribution of
-        $1000 or more (thank you!) please contact us for other options like wire
-        or check. We have a fiscal sponsor that will let you claim your donation
-        as tax deductable!
+        gives us the most stability every month, but we also accept one-time
+        donations via PayPal. If you would like to make a larger contribution of
+        $1,000 or more (thank you!), please{' '}
+        <Link href="mailto:hello@veganhacktivists.org">contact us</Link> for
+        other payment methods and tax deduction via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="bg-grey-darker py-16">
@@ -157,7 +162,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         </h2>
         <Paragraph>
           <span className="text-white">
-            See our Patreon goals below - help us grow and be more effective!
+            See our Patreon goals below, and help us grow and be more effective!
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />
@@ -167,7 +172,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             className="text-xl text-white font-mono font-bold"
             capitalize={false}
           >
-            <div className="px-4">Help us by donating now!</div>
+            <div className="px-4">Donate Now</div>
           </ExternalLinkButton>
         </div>
       </div>
@@ -189,11 +194,10 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
 
         <h2 className="mb-8 text-4xl font-bold">Thank You</h2>
         <Paragraph>
-          Thank you so much for your donation. We want to take a moment to thank
-          the people below for their continued support - for those who have
-          awarded us grants or contributed large donations - both one-time and
-          reoccurring. We cannot begin to describe how grateful we are and we
-          would not be able to do the work we do without you.
+          We want to take a moment to thank the people below for their
+          support—for those who have awarded us grants or contributed donations,
+          whether one-time or recurring. We are grateful for your belief in our
+          vision and support for our work.
         </Paragraph>
         <PatreonSupporters patrons={patrons} />
       </div>
