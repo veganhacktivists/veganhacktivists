@@ -24,7 +24,7 @@ import getThemeColor from '../lib/helpers/theme';
 import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';
-import Link from 'next/link';
+import CustomLink from '../components/decoration/link';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -152,8 +152,10 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         gives us the most stability every month, but we also accept one-time
         donations via PayPal. If you would like to make a larger contribution of
         $1,000 or more (thank you!), please{' '}
-        <Link href="mailto:hello@veganhacktivists.org">contact us</Link> for
-        other payment methods and tax deduction via our fiscal sponsor.
+        <CustomLink href="mailto:hello@veganhacktivists.org">
+          contact us
+        </CustomLink>{' '}
+        for other payment methods and tax deduction via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="bg-grey-darker py-16">
