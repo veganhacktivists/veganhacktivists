@@ -7,7 +7,7 @@ import TextInput from '../forms/inputs/textInput';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { FirstSubSection } from '../decoration/textBlocks';
-import ky from 'ky';
+import ky from 'ky-universal';
 
 interface NewsletterRequestProps {
   email: string;

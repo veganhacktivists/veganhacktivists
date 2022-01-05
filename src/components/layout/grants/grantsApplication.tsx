@@ -15,7 +15,7 @@ import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import classNames from 'classnames';
 import SquareField from '../../decoration/squares';
 import { useRouter } from 'next/router';
-import ky from 'ky';
+import ky from 'ky-universal';
 
 const FormSection: React.FC<{
   section: string;
