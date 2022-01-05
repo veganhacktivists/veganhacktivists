@@ -1,5 +1,10 @@
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSpring, useSprings, useTrail } from '@react-spring/core';
+import { animated } from '@react-spring/web';
 import classNames from 'classnames';
 import type { ImageProps } from 'next/image';
+import { useRef } from 'react';
 import Circle from './circle';
 import CustomImage from './customImage';
 
@@ -50,9 +55,25 @@ const Hero: React.FC<HeroProps> = ({
   );
 
   const taglineHeight = 566 * 0.6;
+  const ref = useRef<HTMLDivElement>(null);
+
+  const numberOfArrows = 3;
+  const opacityTrail = useTrail(numberOfArrows, {
+    loop: { reverse: true },
+    opacity: 0.5,
+    from: { opacity: 1 },
+    config: { mass: 5, tension: 2000, friction: 200 },
+  });
+
+  const spring = useSpring({
+    loop: { reverse: true },
+    bottom: 50,
+    from: { bottom: 0 },
+    config: { mass: 5, tension: 2000, friction: 200 },
+  });
 
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} ref={ref}>
       <CustomImage
         alt=""
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -84,6 +105,34 @@ const Hero: React.FC<HeroProps> = ({
         )}
         {children}
       </h1>
+      {main && (
+        <animated.div
+          // style={spring} // this or bottom and animate-bounce, depending on the level of detail
+          onClick={() => {
+            if (!ref.current) {
+              return;
+            }
+            window.scrollTo({
+              top: ref.current.offsetTop + ref.current.offsetHeight,
+              behavior: 'smooth',
+            });
+          }}
+          className="absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background text-5xl cursor-pointer z-10 bottom-10 animate-bounce"
+        >
+          {opacityTrail.map((style, i) => (
+            <animated.div
+              key={i}
+              style={{
+                ...style,
+                // transform: `translateY(${i * 2})`,
+              }}
+              className="relative h-7 w-full overflow-visible"
+            >
+              <FontAwesomeIcon icon={faChevronDown} />
+            </animated.div>
+          ))}
+        </animated.div>
+      )}
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
         <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />
