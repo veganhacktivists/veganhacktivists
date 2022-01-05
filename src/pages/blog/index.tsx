@@ -22,7 +22,6 @@ import BlogsHeader from '../../components/layout/blog/blogsHeader';
 import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
-import { config, useSpring } from '@react-spring/core';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -91,23 +90,14 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   });
 
   const blogContainer = useRef<HTMLDivElement>(null);
-  const [, setY] = useSpring(() => ({ y: 0 }));
 
   const scrollUp = () => {
-    if (blogContainer.current) {
-      const target =
-        window.scrollY + blogContainer.current.getBoundingClientRect().top;
+    if (!blogContainer.current) return;
 
-      setY({
-        y: target,
-        reset: true,
-        from: { y: window.scrollY },
-        onChange: (props) => {
-          window.scroll(0, props.value.y);
-        },
-        config: config.slow,
-      });
-    }
+    window.scrollTo({
+      top: blogContainer.current.offsetTop,
+      behavior: 'smooth',
+    });
   };
 
   return (
