@@ -7,7 +7,7 @@ interface PatreonResponse {
   links?: {
     next: string;
   };
-  included: any;
+  included: { attributes: { full_name: string } }[];
 }
 
 export const getPatrons: () => Promise<string[]> = async () => {
