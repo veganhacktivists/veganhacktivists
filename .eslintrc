@@ -11,7 +11,10 @@
     "react/self-closing-comp": ["warn"],
     "react/function-component-definition": [
       "warn",
-      { "namedComponents": "arrow-function" }
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
     ],
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-fragments": ["warn"],

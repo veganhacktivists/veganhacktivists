@@ -12,6 +12,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import { DefaultSeo } from 'next-seo';
+import type { NextRouter } from 'next/router';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -40,7 +41,34 @@ const AppWrapper: React.FC = ({ children }) => {
   );
 };
 
-const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
+// override the per-page layout here
+const getDefaultLayout: (
+  page: React.ReactNode,
+  options: NextRouter
+) => React.ReactNode = (page, { pathname }) => {
+  if (pathname === '/docs' || pathname.startsWith('/docs/')) {
+    return (
+      <>
+        <Header />
+        <MainWrapper>{page}</MainWrapper>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Header />
+      <MainWrapper>{page}</MainWrapper>
+      <Footer />
+    </>
+  );
+};
+
+const MyApp: React.FC<AppPropsWithLayout> = ({
+  Component,
+  pageProps,
+  router,
+}) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       TagManager.initialize({
@@ -54,9 +82,7 @@ const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   return (
     <AppWrapper>
       <PageWrapper>
-        <Header />
-        <MainWrapper>{getLayout(<Component {...pageProps} />)}</MainWrapper>
-        <Footer />
+        {getDefaultLayout(getLayout(<Component {...pageProps} />), router)}
       </PageWrapper>
     </AppWrapper>
   );
