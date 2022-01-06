@@ -157,7 +157,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ categories }) => {
   return (
-    <div className="md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-screen space-y-4 py-20">
+    <div className="md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-screen space-y-4 py-12">
       <SearchBar categories={categories} />
       {categories.map((cat) => (
         <Category key={cat.slug} {...cat} />
