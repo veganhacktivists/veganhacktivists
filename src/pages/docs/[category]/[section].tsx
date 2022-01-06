@@ -15,7 +15,6 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import ContentfulImage from '../../../components/layout/contentfulImage';
-import Circle from '../../../components/decoration/circle';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
 
@@ -86,24 +85,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   return { props: { category, section, categories }, revalidate: 480 };
-};
-
-const Header: React.FC = () => {
-  return (
-    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 overflow-hidden min-h-[350px]">
-      <Circle opacity={0.1} />
-      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
-      <div className="flex flex-col gap-y-10 justify-center md:w-2/3 z-10 pb-10 text-2xl px-16 font-mono">
-        <h1 className="text-4xl">VH Documentation</h1>
-        <div>
-          Whether you&apos;re a developer, designer, or just someone interested
-          in our internal policies, find detailed documentation of everything
-          and anything you&apos;d ever need to know about us in one convenient
-          spot!
-        </div>
-      </div>
-    </div>
-  );
 };
 
 const richTextOptions: Options = {
@@ -238,7 +219,6 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
   return (
     <>
       <NextSeo title="Docs" noindex />
-      <Header />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
         {section && category && (

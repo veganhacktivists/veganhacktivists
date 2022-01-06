@@ -32,11 +32,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/docs',
-        destination: '/docs/general/introduction',
-        permanent: true,
-      },
-      {
         source: '/year-in-review',
         destination: '/year-in-review/2021',
         permanent: false,
