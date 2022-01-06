@@ -15,7 +15,6 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import ContentfulImage from '../../../components/layout/contentfulImage';
-import Circle from '../../../components/decoration/circle';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import useDocsStore from '../../../lib/stores/docsStore';
 import type {
@@ -126,9 +126,25 @@ type CategoryProps = IDocsCategoryFields;
 
 const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
   const lightGrey = getThemeColor('grey-light');
+  const selectedCategory = useDocsStore((state) => state.selectedCategory);
+
+  const isActive = slug === selectedCategory;
+
+  const [open, setOpen] = useState(false);
+  const [firstRender, setFirstRender] = useState(true);
+  useEffect(() => {
+    if (firstRender) {
+      setFirstRender(false);
+      return;
+    }
+
+    if (!isActive) return;
+
+    setOpen(isActive);
+  }, [selectedCategory, firstRender]);
 
   return (
-    <details className="pl-5" open>
+    <details className="pl-5" open={open}>
       <summary
         className="cursor-pointer box-border px-2 py-1 font-mono text-2xl font-bold text-white"
         style={{
