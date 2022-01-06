@@ -1,12 +1,9 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSpring, useTrail } from '@react-spring/core';
-import { animated } from '@react-spring/web';
 import classNames from 'classnames';
 import type { ImageProps } from 'next/image';
-import { useCallback, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import Circle from './circle';
 import CustomImage from './customImage';
+import ScrollDownIndicator from './scrollDownIndicator';
 
 interface HeroClassNames {
   container?: string;
@@ -23,50 +20,6 @@ interface HeroProps {
   classNameMapping?: HeroClassNames;
   main?: boolean;
 }
-
-interface ScrollDownIndicatorProps {
-  onClick: () => void;
-}
-
-const ScrollDownIndicator: React.FC<ScrollDownIndicatorProps> = ({
-  onClick,
-}) => {
-  const numberOfArrows = 3;
-  const opacityTrail = useTrail(numberOfArrows, {
-    loop: { reverse: true },
-    opacity: 0.5,
-    from: { opacity: 1 },
-    config: { mass: 5, tension: 2000, friction: 200 },
-  });
-
-  const spring = useSpring({
-    loop: { reverse: true },
-    bottom: 50,
-    from: { bottom: 0 },
-    config: { mass: 5, tension: 2000, friction: 200 },
-  });
-
-  return (
-    <animated.div
-      // style={spring} // this or bottom and animate-bounce, depending on the level of detail
-      onClick={onClick}
-      className="absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background text-5xl cursor-pointer z-10 bottom-10 animate-bounce"
-    >
-      {opacityTrail.map((style, i) => (
-        <animated.div
-          key={i}
-          style={{
-            ...style,
-            // transform: `translateY(${i * 2})`,
-          }}
-          className="relative h-7 w-full overflow-visible"
-        >
-          <FontAwesomeIcon icon={faChevronDown} />
-        </animated.div>
-      ))}
-    </animated.div>
-  );
-};
 
 const Hero: React.FC<HeroProps> = ({
   imageBackground,

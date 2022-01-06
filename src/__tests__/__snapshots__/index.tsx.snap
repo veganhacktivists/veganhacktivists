@@ -72,15 +72,14 @@ exports[`Application renders correctly 1`] = `
       </div>
     </h1>
     <div
-      class="absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background text-5xl cursor-pointer z-10 bottom-10 animate-bounce"
+      class="absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
     >
       <div
-        class="relative h-7 w-full overflow-visible"
-        style="opacity: 1;"
+        class="sc-bdvvtL gBFbjO"
       >
         <svg
           aria-hidden="true"
-          class="svg-inline--fa fa-chevron-down fa-w-14 "
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
           data-icon="chevron-down"
           data-prefix="fas"
           focusable="false"
@@ -95,12 +94,11 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="relative h-7 w-full overflow-visible"
-        style="opacity: 1;"
+        class="sc-bdvvtL gBFbjO"
       >
         <svg
           aria-hidden="true"
-          class="svg-inline--fa fa-chevron-down fa-w-14 "
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
           data-icon="chevron-down"
           data-prefix="fas"
           focusable="false"
@@ -115,12 +113,11 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="relative h-7 w-full overflow-visible"
-        style="opacity: 1;"
+        class="sc-bdvvtL gBFbjO"
       >
         <svg
           aria-hidden="true"
-          class="svg-inline--fa fa-chevron-down fa-w-14 "
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
           data-icon="chevron-down"
           data-prefix="fas"
           focusable="false"
