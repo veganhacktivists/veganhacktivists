@@ -130,7 +130,7 @@ const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
   return (
     <details className="pl-5" open>
       <summary
-        className="cursor-pointer md:w-4/5 box-border px-2 py-1 font-mono text-2xl font-bold text-white"
+        className="cursor-pointer box-border px-2 py-1 font-mono text-2xl font-bold text-white"
         style={{
           backgroundColor: color || lightGrey,
         }}
