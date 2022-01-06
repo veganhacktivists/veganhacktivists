@@ -44,7 +44,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
         <div className="w-4/5">
           <TextInput
             className="h-full"
-            placeholder="Looking for something?"
+            placeholder="Search"
             onInput={(e) => {
               setSearchTerm(e.currentTarget.value);
             }}
