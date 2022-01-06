@@ -88,11 +88,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { category, section, categories }, revalidate: 480 };
 };
 
-const Header: React.FC = () => {
-  return (
-  );
-};
-
 const richTextOptions: Options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => (
@@ -225,7 +220,6 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
   return (
     <>
       <NextSeo title="Docs" noindex />
-      <Header />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
         {section && category && (
