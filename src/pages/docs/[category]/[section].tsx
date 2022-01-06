@@ -90,17 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const Header: React.FC = () => {
   return (
-    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 overflow-hidden min-h-[350px]">
-      <Circle opacity={0.1} />
-      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
-      <div className="flex flex-col gap-y-10 justify-center md:w-2/3 z-10 pb-10 text-2xl px-16 font-mono">
-        <h1 className="text-4xl">VH Documentation</h1>
-        <div>
-          Detailed documentation of our internal policies, guidelines, and
-          workflow processes—all in one convenient spot
-        </div>
-      </div>
-    </div>
   );
 };
 
