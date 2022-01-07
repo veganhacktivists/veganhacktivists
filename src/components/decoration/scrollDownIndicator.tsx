@@ -47,7 +47,7 @@ const ScrollDownIndicator: React.FC<ScrollDownIndicatorProps> = ({
   return (
     <div
       onClick={onClick}
-      className="absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
+      className="hidden md:block absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
     >
       {Array(3)
         .fill(null)
