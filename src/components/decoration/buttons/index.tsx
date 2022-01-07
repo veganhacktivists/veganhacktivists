@@ -96,7 +96,7 @@ const LightButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="green">
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton
         {...props}
         className={classNames(
@@ -120,6 +120,7 @@ const DarkButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <FillBackground
+      disabled={props.disabled}
       base={active ? 'magenta' : 'grey-dark'}
       fill={active ? 'magenta' : 'green'}
     >
@@ -146,6 +147,7 @@ const GreenButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <FillBackground
+      disabled={props.disabled}
       base={primary ? 'fuchsia' : 'green-light'}
       fill={primary ? 'pink' : 'green'}
     >
@@ -161,7 +163,7 @@ const GreenButton: React.FC<ButtonProps> = ({
 
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <FillBackground base="magenta" fill="pink-dark">
+    <FillBackground base="magenta" fill="pink-dark" disabled={props.disabled}>
       <BaseButton {...props}>
         <div className="border-l-8 border-pink-dark py-2">{children}</div>
       </BaseButton>
@@ -240,7 +242,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <FillBackground base="white" fill="green">
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton {...props}>
         <div className={classes}>{children}</div>
       </BaseButton>

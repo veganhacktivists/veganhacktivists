@@ -1,7 +1,9 @@
 import classNames from 'classnames';
 import type { ImageProps } from 'next/image';
+import React, { useCallback, useRef } from 'react';
 import Circle from './circle';
 import CustomImage from './customImage';
+import ScrollDownIndicator from './scrollDownIndicator';
 
 interface HeroClassNames {
   container?: string;
@@ -50,9 +52,20 @@ const Hero: React.FC<HeroProps> = ({
   );
 
   const taglineHeight = 566 * 0.6;
+  const ref = useRef<HTMLDivElement>(null);
+
+  const scrollToContent = useCallback(() => {
+    if (!ref.current) {
+      return;
+    }
+    window.scrollTo({
+      top: ref.current.offsetTop + ref.current.offsetHeight,
+      behavior: 'smooth',
+    });
+  }, []);
 
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} ref={ref}>
       <CustomImage
         alt=""
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -84,6 +97,7 @@ const Hero: React.FC<HeroProps> = ({
         )}
         {children}
       </h1>
+      {main && <ScrollDownIndicator onClick={scrollToContent} />}
       <div className="absolute inset-0 overflow-hidden">
         <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
         <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />

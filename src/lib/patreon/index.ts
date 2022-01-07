@@ -7,7 +7,7 @@ interface PatreonResponse {
   links?: {
     next: string;
   };
-  included: any;
+  included: { attributes: { full_name: string } }[];
 }
 
 export const getPatrons: () => Promise<string[]> = async () => {
@@ -18,20 +18,13 @@ export const getPatrons: () => Promise<string[]> = async () => {
   let hasNextPage = true;
 
   while (hasNextPage) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response = await ky.get(currUrl, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data = (await response.json()) as unknown as PatreonResponse;
-
-    // const data = (await ky
-    //   .get(currUrl, {})
-    //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    //   .json()) as Record<string, any>;
 
     pages.push(data);
     if (!data.links?.next) {
@@ -48,8 +41,7 @@ export const getPatrons: () => Promise<string[]> = async () => {
   ];
 
   pages.forEach((page) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    page.included.forEach((patron: any) => {
+    page.included.forEach((patron) => {
       if (patron.attributes.full_name) {
         patrons.push(patron.attributes.full_name);
       }
