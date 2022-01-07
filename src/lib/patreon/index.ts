@@ -1,4 +1,6 @@
 import ky from 'ky-universal';
+import type { IMultipleValuesFields } from '../../types/generated/contentful';
+import { getContents } from '../cms';
 
 const accessToken = process.env.PATREON_ACCESS_TOKEN;
 const campaignId = process.env.PATREON_CAMPAIGN_ID;
@@ -17,6 +19,13 @@ export const getPatrons: () => Promise<string[]> = async () => {
   let currUrl = patronsUrl;
   let hasNextPage = true;
 
+  const cmsPatrons = await getContents<IMultipleValuesFields>({
+    contentType: 'multipleValues',
+    query: { name: 'patreonDonors' },
+  });
+
+  const patrons = cmsPatrons[0].fields.values;
+
   while (hasNextPage) {
     const response = await ky.get(currUrl, {
       headers: {
@@ -33,12 +42,6 @@ export const getPatrons: () => Promise<string[]> = async () => {
       currUrl = data.links.next;
     }
   }
-
-  const patrons: string[] = [
-    'Krishan Chockalingam',
-    'Eat The Change',
-    'The Pollination Project',
-  ];
 
   pages.forEach((page) => {
     page.included.forEach((patron) => {

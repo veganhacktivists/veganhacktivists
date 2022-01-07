@@ -139,6 +139,31 @@ export interface IDocumentation extends Entry<IDocumentationFields> {
   };
 }
 
+export interface IMultipleValuesFields {
+  /** name */
+  name: string;
+
+  /** values */
+  values: string[];
+}
+
+export interface IMultipleValues extends Entry<IMultipleValuesFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "multipleValues";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IProjectFields {
   /** name */
   name: string;
@@ -366,6 +391,7 @@ export type CONTENT_TYPE =
   | "docsCategory"
   | "docsSection"
   | "documentation"
+  | "multipleValues"
   | "project"
   | "singleValues"
   | "socialLinks"
