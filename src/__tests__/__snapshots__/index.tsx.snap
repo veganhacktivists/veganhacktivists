@@ -72,46 +72,81 @@ exports[`Application renders correctly 1`] = `
       </div>
     </h1>
     <div
+      class="hidden md:block absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
+    >
+      <div
+        class="sc-bdvvtL gBFbjO"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
+          data-icon="chevron-down"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="sc-bdvvtL gBFbjO"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
+          data-icon="chevron-down"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="sc-bdvvtL gBFbjO"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-chevron-down fa-w-14 fa-2x "
+          data-icon="chevron-down"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
       class="absolute inset-0 overflow-hidden"
     >
-      <svg
-        class="overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4
-    "
-        height="60vw"
-        style="color: rgb(255, 255, 255); right: 0px; top: 0px;"
-        width="60vw"
-      >
-        <circle
-          class="stroke-current"
-          cx="30vw"
-          cy="30vw"
-          fill-opacity="0"
-          opacity="0.1"
-          r="30vw"
-          stroke-width="20px"
-        />
-      </svg>
-      <svg
-        class="overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4
-    "
-        height="68vw"
-        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px;"
-        width="68vw"
-      >
-        <circle
-          class="stroke-current"
-          cx="34vw"
-          cy="34vw"
-          fill-opacity="0"
-          opacity="0.2"
-          r="34vw"
-          stroke-width="20px"
-        />
-      </svg>
+      <div
+        class="rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
+        style="color: rgb(255, 255, 255); right: 0px; top: 0px; width: 60vw; height: 60vw; border: 20px solid #fff; opacity: 0.1;"
+      />
+      <div
+        class="rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
+        style="color: rgb(255, 255, 255); left: 0px; bottom: 0px; width: 68vw; height: 68vw; border: 20px solid #fff; opacity: 0.2;"
+      />
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -340,7 +375,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -407,7 +442,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -494,7 +529,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -554,7 +589,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible hidden md:block"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"
@@ -706,7 +741,7 @@ exports[`Application renders correctly 1`] = `
               <div
                 class="mb-10 text-grey-dark pt-10 text-3xl md:text-4xl font-mono font-semibold uppercase md:px-2"
               >
-                See our 2020 impact review
+                See our 2021 impact review
               </div>
               <div
                 class="mb-8 md:mb-0 text-2xl"
@@ -718,11 +753,11 @@ exports[`Application renders correctly 1`] = `
               class="flex flex-row justify-between px-10 mb-20 h-10"
             >
               <a
-                href="/year-in-review"
+                href="/year-in-review/2021"
               >
                 <div
                   class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
-                  href="/year-in-review"
+                  href="/year-in-review/2021"
                   style="background-size: 250% 100%; background-position: right;"
                 >
                   See our impact!

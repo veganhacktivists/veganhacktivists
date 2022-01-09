@@ -170,7 +170,9 @@ const useFilteredMembers = (
 ) => {
   return useMemo(() => {
     const filteredByTeam = selectedTeam
-      ? allMembers.filter((p) => p.fields.team!.fields.slug === selectedTeam)
+      ? allMembers.filter((p) => {
+          return p.fields.team?.fields.slug === selectedTeam;
+        })
       : allMembers;
 
     const paged = filteredByTeam.slice(0, pageSize * pageNumber);

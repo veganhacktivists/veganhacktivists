@@ -15,10 +15,8 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import ContentfulImage from '../../../components/layout/contentfulImage';
-import Circle from '../../../components/decoration/circle';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
-import SquareField from '../../../components/decoration/squares';
 import { DarkButton } from '../../../components/decoration/buttons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -44,15 +42,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
-
-const HERO_DECORATION_SQUARES = [
-  { color: 'green', size: 32, left: 0, bottom: -16 },
-  { color: 'white', size: 16, left: 32, bottom: 0 },
-  { color: 'yellow', size: 16, left: 32, bottom: 16 },
-  { color: 'magenta', size: 32, right: 16, bottom: 0 },
-  { color: 'orange', size: 16, right: 0, top: 0 },
-  { color: 'white', size: 16, right: 0, bottom: 0 },
-];
 
 interface DocsProps {
   categories: IDocsCategory[];
@@ -99,24 +88,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   return { props: { category, section, categories }, revalidate: 480 };
-};
-
-const Header: React.FC = () => {
-  return (
-    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 overflow-hidden min-h-[350px]">
-      <Circle opacity={0.1} />
-      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
-      <div className="flex flex-col gap-y-10 justify-center md:w-2/3 z-10 pb-10 text-2xl px-16 font-mono">
-        <h1 className="text-4xl">VH Documentation</h1>
-        <div>
-          Whether you&apos;re a developer, designer, or just someone interested
-          in our internal policies, find detailed documentation of everything
-          and anything you&apos;d ever need to know about us in one convenient
-          spot!
-        </div>
-      </div>
-    </div>
-  );
 };
 
 const richTextOptions: Options = {
@@ -236,13 +207,15 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
         <DarkButton
           disabled={prev === undefined}
           href={
-            prev && {
-              pathname: '/docs/[category]/[section]',
-              query: {
-                category: category.fields.slug,
-                section: prev.fields.slug,
-              },
-            }
+            prev
+              ? {
+                  pathname: '/docs/[category]/[section]',
+                  query: {
+                    category: category.fields.slug,
+                    section: prev.fields.slug,
+                  },
+                }
+              : undefined
           }
         >
           <FontAwesomeIcon size="sm" icon={faArrowLeft} />
@@ -252,13 +225,15 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
         <DarkButton
           disabled={next === undefined}
           href={
-            next && {
-              pathname: '/docs/[category]/[section]',
-              query: {
-                category: category.fields.slug,
-                section: next.fields.slug,
-              },
-            }
+            next
+              ? {
+                  pathname: '/docs/[category]/[section]',
+                  query: {
+                    category: category.fields.slug,
+                    section: next.fields.slug,
+                  },
+                }
+              : undefined
           }
         >
           Next &nbsp;
@@ -308,11 +283,6 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
   return (
     <>
       <NextSeo title="Docs" noindex />
-      <Header />
-      <SquareField
-        squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block z-10"
-      />
       <div className="flex flex-col md:flex-row bg-grey-over-background">
         <Sidebar categories={categories.map((cat) => cat.fields)} />
         {section && category && (

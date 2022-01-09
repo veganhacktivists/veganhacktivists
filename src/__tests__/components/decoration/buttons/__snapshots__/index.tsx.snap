@@ -13,7 +13,7 @@ exports[`WhiteButton should render correctly 1`] = `
       style="background-size: 250% 100%; background-position: right;"
     >
       <div
-        class="border-2 border-opacity-50 p-3"
+        class="border-2 border-opacity-50 p-3 text-black"
       >
         Foo
       </div>

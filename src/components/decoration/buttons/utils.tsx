@@ -36,10 +36,7 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
         'transition-all duration-[400ms] ease-linear',
         disabled ? '' : 'hover:!bg-left'
       ),
-      style: {
-        ...props.style,
-        ...fillStyle(disabled ? 'grey-light' : base, fill),
-      },
+      style: { ...props.style, ...(disabled ? {} : fillStyle(base, fill)) },
     });
   });
 

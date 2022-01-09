@@ -18,7 +18,7 @@ export const HighlightBlock: React.FC<HighlightBlockProps> = ({
   return (
     <div className="flex flex-col md:flex-row w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
       <h1
-        className="md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16"
+        className="md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase"
         style={{ borderColor: getThemeColor(borderColor) }}
       >
         {headerStart} <b>{headerBold}</b> {headerEnd}

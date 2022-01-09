@@ -9,7 +9,11 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { LinkProps } from 'next/link';
-import type { MouseEventHandler, ButtonHTMLAttributes } from 'react';
+import type {
+  MouseEventHandler,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from 'react';
 import { FillBackground } from './utils';
 
 export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
@@ -17,7 +21,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
   href?: LinkProps['href'];
   className?: string;
   active?: boolean;
-  linkProps?: Partial<LinkProps>;
+  linkProps?: Partial<LinkProps> & Partial<AnchorHTMLAttributes<unknown>>;
   onClick?: MouseEventHandler;
   type?: 'submit' | 'reset' | 'button';
   capitalize?: boolean;
@@ -27,6 +31,14 @@ const baseButtonClasses = classNames(
   'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
 );
 
+const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
+  const baseUrl = typeof href === 'string' ? href : href?.pathname;
+
+  return (
+    baseUrl?.startsWith('http://') || baseUrl?.startsWith('https://') || false
+  );
+};
+
 const BaseButton: React.FC<ButtonProps> = ({
   children,
   linkProps,
@@ -35,34 +47,24 @@ const BaseButton: React.FC<ButtonProps> = ({
   'aria-label': ariaLabel,
   ...props
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const href = (props?.href as any)?.pathname || props.href || '';
-
   const classes = classNames(className, { capitalize });
 
+  const isExternal = isExternalLink(props.href);
   return (
     <>
-      {/* it's an external link */}
-      {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <a href={href} target="_blank" rel="noreferrer" aria-label={ariaLabel}>
-          <div {...props} className={classes}>
-            {children}
-          </div>
-        </a>
-      )}
-      {/* it's an internal link */}
-      {props.href &&
-        !(href.startsWith('http://') || href.startsWith('https://')) && (
-          <Link {...linkProps} href={props.href}>
-            <a aria-label={ariaLabel}>
-              <div className={classes} {...props}>
-                {children}
-              </div>
-            </a>
-          </Link>
-        )}
-      {/* it's a submit button */}
-      {!href && (
+      {props.href ? (
+        <Link {...linkProps} href={props.href} passHref={isExternal}>
+          <a
+            target={linkProps?.target || isExternal ? '_blank' : undefined}
+            rel={linkProps?.rel || isExternal ? 'noreferrer' : undefined}
+            aria-label={ariaLabel}
+          >
+            <div className={classes} {...props}>
+              {children}
+            </div>
+          </a>
+        </Link>
+      ) : (
         <button {...props} className={classes} aria-label={ariaLabel}>
           {children}
         </button>
@@ -79,15 +81,13 @@ const SubmitButton: React.FC<ButtonProps> = (props) => {
 const LightButton: React.FC<ButtonProps> = ({
   children,
   primary,
-  disabled,
   className = '',
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="green" disabled={disabled}>
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton
         {...props}
-        disabled={disabled}
         className={classNames(
           baseButtonClasses,
           'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
@@ -104,19 +104,17 @@ const LightButton: React.FC<ButtonProps> = ({
 const DarkButton: React.FC<ButtonProps> = ({
   children,
   active,
-  disabled,
   className = '',
   ...props
 }) => {
   return (
     <FillBackground
+      disabled={props.disabled}
       base={active ? 'magenta' : 'grey-dark'}
       fill={active ? 'magenta' : 'green'}
-      disabled={disabled}
     >
       <BaseButton
         {...props}
-        disabled={disabled}
         className={classNames(
           baseButtonClasses,
           'transition-all overflow-hidden text-white',
@@ -138,6 +136,7 @@ const GreenButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <FillBackground
+      disabled={props.disabled}
       base={primary ? 'fuchsia' : 'green-light'}
       fill={primary ? 'pink' : 'green'}
     >
@@ -153,7 +152,7 @@ const GreenButton: React.FC<ButtonProps> = ({
 
 const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <FillBackground base="magenta" fill="pink-dark">
+    <FillBackground base="magenta" fill="pink-dark" disabled={props.disabled}>
       <BaseButton {...props}>
         <div className="border-l-8 border-pink-dark py-2">{children}</div>
       </BaseButton>
@@ -226,12 +225,13 @@ const WhiteButton: React.FC<ButtonProps> = ({
     'border-2 border-opacity-50 p-3',
     {
       'bg-gray text-white border-grey': active,
+      'text-black': !active,
     },
     className
   );
 
   return (
-    <FillBackground base="white" fill="green">
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton {...props}>
         <div className={classes}>{children}</div>
       </BaseButton>

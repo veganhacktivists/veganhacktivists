@@ -49,7 +49,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
     <div className="flex flex-col lg:flex-row mx-auto mb-10 justify-between">
       <div className="">
         {image && (
-          <div className="w-full sm:w-72 xl:w-96 mx-auto">
+          <div className="w-full sm:w-72 xl:w-96 mx-auto aspect-square">
             <ContentfulImage image={image} alt="" layout="responsive" />
           </div>
         )}

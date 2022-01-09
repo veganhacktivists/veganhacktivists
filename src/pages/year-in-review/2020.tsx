@@ -1,51 +1,43 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
-import Hero from '../components/decoration/hero';
-import heroBackground from '../../public/images/review2020/VH-Hero-review.jpg';
-import heroTagline from '../../public/images/review2020/VH-Hero-text-review.png';
-import SquareField from '../components/decoration/squares';
+import React from 'react';
+import Hero from '../../components/decoration/hero';
+import heroBackground from '../../../public/images/yearInReview/2020/VH-Hero-review.jpg';
+import heroTagline from '../../../public/images/yearInReview/2020/VH-Hero-text-review.png';
+import SquareField from '../../components/decoration/squares';
 
-import Strawberry from '../../public/images/review2020/icon-strawberry-outline.png';
-import Blueberry from '../../public/images/review2020/icon-blueberry-outline.png';
+import Strawberry from '../../../public/images/yearInReview/2020/icon-strawberry-outline.png';
+import Blueberry from '../../../public/images/yearInReview/2020/icon-blueberry-outline.png';
+import pixelHeart from '../../../public/images/VH_PixelHeart.png';
+import pixelFlower from '../../../public/images/VH_PixelFlower.png';
+import pixelStar from '../../../public/images/VH_PixelStar.png';
+import pixelPig from '../../../public/images/VH_PixelPig.png';
+import petaLogo from '../../../public/images/yearInReview/2020/peta.webp';
+import beyondLogo from '../../../public/images/yearInReview/2020/beyondanimal.webp';
+import counterglowLogo from '../../../public/images/yearInReview/2020/counterglow.webp';
 
 import {
   FirstSubSection,
   SubSection,
-} from '../components/decoration/textBlocks';
-import pixelHeart from '../../public/images/VH_PixelHeart.png';
-import pixelFlower from '../../public/images/VH_PixelFlower.png';
-import pixelStar from '../../public/images/VH_PixelStar.png';
-import pixelPig from '../../public/images/VH_PixelPig.png';
-import petaLogo from '../../public/images/review2020/peta.webp';
-import beyondLogo from '../../public/images/review2020/beyondanimal.webp';
-import counterglowLogo from '../../public/images/review2020/counterglow.webp';
-import { HighlightBlock } from '../components/layout/review2020/highlightBlock';
-import { HighlightedProjects } from '../components/layout/review2020/highlightedProjects';
-import { Organizations } from '../components/layout/review2020/organizations';
-import { DarkButton } from '../components/decoration/buttons';
-import Sprite, { cow } from '../components/decoration/sprite';
-import { animated, useSpring } from '@react-spring/web';
-import { Waypoint } from 'react-waypoint';
-import useReduceMotion from '../hooks/useReduceMotion';
-import TopPosts from '../components/layout/review2020/topPosts';
+} from '../../components/decoration/textBlocks';
+import { HighlightBlock } from '../../components/layout/yearInReview/highlightBlock';
+import { HighlightedProjects } from '../../components/layout/yearInReview/highlightedProjects';
+import { Organizations } from '../../components/layout/yearInReview/organizations';
+import { DarkButton } from '../../components/decoration/buttons';
+import Sprite, { cow } from '../../components/decoration/sprite';
+import TopPosts from '../../components/layout/yearInReview/topPosts';
 import type { GetStaticProps } from 'next';
 import type {
   IBlogEntry,
   IBlogEntryFields,
-} from '../types/generated/contentful';
-import { getContents } from '../lib/cms';
-import CustomImage from '../components/decoration/customImage';
+  IProject,
+  IProjectFields,
+} from '../../types/generated/contentful';
+import { getContents } from '../../lib/cms';
+import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
-
-const HERO_DECORATION_SQUARES = [
-  { color: 'white', size: 16, left: 0, bottom: 0 },
-  { color: 'green', size: 32, left: 16, bottom: 0 },
-  { color: 'yellow', size: 16, left: 0, top: 0 },
-
-  { color: 'red', size: 32, right: 0, top: -16 },
-  { color: 'orange', size: 16, right: 32, bottom: 16 },
-  { color: 'white', size: 16, right: 32, bottom: 0 },
-];
+import YearInReviewHeader from '../../components/layout/yearInReview/layout';
+import CustomLink from '../../components/decoration/link';
+import AnimatedNumber from '../../components/decoration/animatedNumber';
+import { sortByArray } from '../../lib/helpers/array';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
@@ -84,42 +76,6 @@ const FINAL_SQUARES = [
   { color: 'white', size: 16, right: 16, bottom: 0 },
 ];
 
-const AnimatedNumber: React.FC<{ number: number; approx?: boolean }> = ({
-  number,
-  approx = false,
-}) => {
-  const [onView, setOnView] = useState<boolean>(false);
-
-  const prefersReducedMotion = useReduceMotion();
-
-  const { number: interpolatedNumber } = useSpring({
-    from: { number: 0 },
-    to: { number },
-    config: { duration: prefersReducedMotion ? 0 : 500 },
-    cancel: !onView,
-  });
-
-  return (
-    <>
-      <Waypoint
-        onEnter={() => {
-          setOnView(true);
-        }}
-      />
-      <span className="text-7xl xl:text-8xl" aria-label={`${number}`}>
-        <animated.span>
-          {interpolatedNumber.to((x) =>
-            Math.floor(x)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          )}
-        </animated.span>
-        {approx && <>~</>}
-      </span>
-    </>
-  );
-};
-
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = [
     'covid-19-self-isolating-try-vegan',
@@ -143,42 +99,111 @@ export const getStaticProps: GetStaticProps = async () => {
     },
     other: { select: ['fields.slug', 'fields.title'] },
   });
-
-  const ordered = topBlogs.sort(
-    (a, b) => slugs.indexOf(a.fields.slug) - slugs.indexOf(b.fields.slug)
+  const orderedBlogEntries = sortByArray(
+    topBlogs,
+    slugs,
+    (blog) => blog.fields.slug
   );
 
-  return { props: { topBlogs: ordered } };
+  const projectNames = [
+    'Vegan Bootcamp',
+    'Animal Rights Map',
+    'Daily Nooch',
+    'My Daily Dozen',
+  ];
+
+  const projects = await getContents<IProjectFields>({
+    contentType: 'project',
+    query: {
+      filters: {
+        in: {
+          name: projectNames,
+        },
+      },
+    },
+  });
+
+  return {
+    props: {
+      topBlogs: orderedBlogEntries,
+      projects: sortByArray(
+        projects,
+        projectNames,
+        (project) => project.fields.name
+      ),
+    },
+  };
+};
+
+const PROJECTS_DESCRIPTION: Record<string, React.ReactNode> = {
+  'Vegan Bootcamp':
+    // eslint-disable-next-line quotes
+    `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups,
+      we decided to invest more time in improving it. We sent out a survey to all members
+      and received a large amount of feedback helping us decide what new content and
+      features were needed. Vegan Bootcamp now includes community forums, individual
+      courses, tags, better rewards, advanced statistics for referrals, content search,
+      a vegan dietitian support program, a mentorship support program, and it now comes
+      translated in 10 different languages!`,
+  'Animal Rights Map':
+    // eslint-disable-next-line quotes
+    `With over 2,500 groups, the Animal Rights Map is a globally updated map that helps
+      vegans find local groups to get active with. Our map includes everyone from the
+      largest organizations to the very small grassroots groups spread around the country.
+      We worked with a few organizations to import new groups automatically, and we have a
+      dedicated volunteer (that started this project) who meticulously updates the map
+      almost every day. We've received a lot of great feedback for the map from vegans
+      who were looking to get active - we plan on gathering more data soon and expanding
+      the features of this map for 2021!`,
+  'Daily Nooch':
+    // eslint-disable-next-line quotes
+    `With this project we wanted to create something a little more fun and light-weight that
+      vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop
+      source for daily vegan news, resources and inspiration. Designed to be your homepage,
+      get the latest news, quotes, art, memes, facts, videos, and more updated every day at
+      midnight. This project is very experimental and we don't know if vegans will use this
+      consistently, but in the meantime the team had a lot of fun building it. If folks like
+      it we have a bunch of fun ideas to explore that will add more interactivity to the project.`,
+  'My Daily Dozen':
+    // eslint-disable-next-line quotes
+    `Dr. Greger, founder of NutritionFacts.org, created an app called "Daily Dozen" that allows
+      you to track your diet and make sure you get the best nutrition possible - and details the
+      healthiest foods and how many servings of each we should try to check off every day.
+      We wanted to expand on this concept and create a web-based version of his app with
+      some additional features. Use My Daily Dozen to keep daily track of the foods
+      recommended by Dr. Greger in his New York Times Bestselling book, How Not to Die.
+      We hope that this project will give non-vegans the opportunity for an easier path
+      to veganism by adopting a plant-based lifestyle.`,
 };
 
 interface YearInReviewProps {
   topBlogs: IBlogEntry[];
+  projects: IProject[];
 }
 
-const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
+const YearInReview2020: React.FC<YearInReviewProps> = ({
+  topBlogs,
+  projects,
+}) => {
   return (
     <>
       <NextSeo title="2020 in Review" />
-      <Hero
-        imageBackground={heroBackground}
-        tagline={{
-          image: heroTagline,
-          alt: '2020 year in review',
-        }}
-        alignment="left"
-        classNameMapping={{
-          container: 'bg-center',
-        }}
+      <YearInReviewHeader
+        year={2020}
+        hero={
+          <Hero
+            imageBackground={heroBackground}
+            tagline={{
+              image: heroTagline,
+              alt: '2020 year in review',
+            }}
+            alignment="left"
+            classNameMapping={{
+              container: 'bg-center',
+            }}
+          />
+        }
       />
-      <SquareField
-        squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-      <FirstSubSection header="Our 2020 year in review" firstWordsNum={2}>
-        We&apos;re so happy to release our 2020 year in review! Scroll down to
-        see all our accomplishments we&apos;ve made thanks to your generous
-        support, our partners, and most of all our amazing volunteers!
-      </FirstSubSection>
       <CustomImage
         src={pixelHeart.src}
         height={pixelHeart.height / 3}
@@ -226,11 +251,9 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         We&apos;re incredibly thankful to now have a team of experienced vegan
         advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and
         Michael Dearborn. Browse more of our advisors,{' '}
-        <Link href="https://veganhacktivists.org/people/advisors">
-          <a className="text-magenta hover:underline active:text-magenta-light">
-            click here!
-          </a>
-        </Link>{' '}
+        <CustomLink href="https://veganhacktivists.org/people/advisors">
+          click here!
+        </CustomLink>
       </HighlightBlock>
       <div className="h-16" />
       <SquareField
@@ -345,11 +368,9 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           We&apos;ve{' '}
-          <Link href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
-            <a className="text-magenta hover:underline active:text-magenta-light">
-              started up a new team
-            </a>
-          </Link>{' '}
+          <CustomLink href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
+            started up a new team
+          </CustomLink>{' '}
           dedicated to collecting and analyzing data not only on the projects
           that we build, but Vegan Hacktivists as an organization. This team
           marks our commitment to data, a commitment to making sure that
@@ -360,11 +381,7 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           Suan Chin is leading this team with 7 other data scientists. See the
           entire team by visiting the{' '}
-          <Link href="/people/team">
-            <a className="text-magenta hover:underline active:text-magenta-light">
-              team page here.
-            </a>
-          </Link>{' '}
+          <CustomLink href="/people/team">team page here</CustomLink>.{' '}
           We&apos;re excited to see how this team will shape the future of the
           work we do!
         </SubSection>
@@ -562,7 +579,17 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
         </div>
       </div>
       <SquareField squares={PROJECT_SQUARES} className="hidden md:block" />
-      <HighlightedProjects />
+      <FirstSubSection
+        header="See our HIGHLIGHTED PROJECTS"
+        firstWordsNum={2}
+      />
+      <HighlightedProjects
+        darkBackground
+        projects={projects.map((project) => ({
+          ...project.fields,
+          customDescription: PROJECTS_DESCRIPTION[project.fields.name],
+        }))}
+      />
       <SquareField
         squares={ORGANIZATIONS_SQUARES}
         className="hidden md:block"
@@ -609,4 +636,4 @@ const YearInReview: React.FC<YearInReviewProps> = ({ topBlogs }) => {
   );
 };
 
-export default YearInReview;
+export default YearInReview2020;

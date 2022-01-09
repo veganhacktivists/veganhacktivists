@@ -11,7 +11,7 @@ import TextArea from './inputs/textArea';
 import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
-import ky from 'ky';
+import ky from 'ky-universal';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 

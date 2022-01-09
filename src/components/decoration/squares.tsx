@@ -15,14 +15,14 @@ interface SquareFieldProps {
 }
 
 export interface SquareProps {
-  size: number;
+  size?: number;
   color?: string;
   opacity?: number;
   className?: string;
 }
 
 const Square: React.FC<SquareFieldSquareProps> = ({
-  size,
+  size = 16,
   color = 'white',
   opacity = 100,
   className = '',
@@ -51,7 +51,7 @@ const Square: React.FC<SquareFieldSquareProps> = ({
 };
 
 const SquareField: React.FC<SquareFieldProps> = ({ squares, className }) => {
-  const classes = classNames('relative', 'overflow-visible', className);
+  const classes = classNames('relative overflow-visible z-10', className);
   return (
     <div className={classes}>
       {squares.map((squareFields, idx) => {

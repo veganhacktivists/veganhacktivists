@@ -58,7 +58,12 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
       )}
     >
       {Object.entries({ ...socialLinks }).map(([key, value]) => (
-        <a key={key} href={value} target="_blank" rel="noreferrer">
+        <a
+          key={key}
+          href={key === 'email' ? 'mailto:' + value : value}
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className="bg-grey-background text-grey-dark p-1">
             {key === 'activistHub' ? (
               <CustomImage

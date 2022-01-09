@@ -107,8 +107,8 @@ const JOB_ROLES: JobRoleProps[] = [
       <>
         We&apos;re looking for people with backgrounds in social media,
         marketing, and advertising. We need help managing our various project
-        social accounts. This includes creating daily posts, designing content,
-        and interacting with followers.
+        social accounts. This includes creating posts, designing content, and
+        interacting with followers.
       </>
     ),
   },
@@ -120,10 +120,10 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for people with backgrounds in writing, and creating
-        content such as blogs, videos, and other content. Excellent grammar and
-        spelling are a must. You&apos;ll be in charge of writing for our blogs,
-        newssletters, Patreon, and other social platforms!
+        We&apos;re looking for people with a background in writing or content
+        creation. Excellent grammar and spelling are a must. You&apos;ll be in
+        charge of writing for our blog, newsletter, projects, Patreon, and other
+        social platforms!
       </>
     ),
   },

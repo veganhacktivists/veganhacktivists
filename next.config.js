@@ -32,9 +32,14 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/docs',
-        destination: '/docs/general/introduction',
-        permanent: true,
+        source: '/year-in-review',
+        destination: '/year-in-review/2021',
+        permanent: false,
+      },
+      {
+        source: '/joinplayground',
+        destination: 'https://discord.gg/Yt3zADeJKx',
+        permanent: false,
       },
     ];
   },

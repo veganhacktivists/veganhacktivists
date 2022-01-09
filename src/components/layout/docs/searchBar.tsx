@@ -39,12 +39,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
   }, [categories]);
 
   return (
-    <div className="flex pl-5 pb-12">
+    <div className="flex pl-5 pb-4">
       <div className="flex flex-row h-12 w-full relative">
         <div className="w-4/5">
           <TextInput
             className="h-full"
-            placeholder="Looking for something?"
+            placeholder="Search"
             onInput={(e) => {
               setSearchTerm(e.currentTarget.value);
             }}
@@ -52,7 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
           />
         </div>
         <FillBackground base="grey-dark" fill="green">
-          <button className="h-12 w-12 flex justify-center items-center">
+          <button className="h-12 w-14 flex justify-center items-center">
             <FontAwesomeIcon icon={faSearch} size="lg" color="white" />
           </button>
         </FillBackground>
