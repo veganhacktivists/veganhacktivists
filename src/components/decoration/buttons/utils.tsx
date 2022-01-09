@@ -34,7 +34,7 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
       className: classNames(
         props.className,
         'transition-all duration-[400ms] ease-linear',
-        disabled ? '' : 'hover:!bg-left'
+        { 'hover:!bg-left': !disabled }
       ),
       style: { ...props.style, ...(disabled ? {} : fillStyle(base, fill)) },
     });

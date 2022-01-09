@@ -148,14 +148,9 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       .reduce((a, b) => (a < b ? a : b));
   }, [category.fields.slug]);
 
-  let sectionIndex = 0;
-
-  for (let i = 0; i < category.fields.sections.length; i++) {
-    if (category.fields.sections[i].fields.slug === slug) {
-      sectionIndex = i;
-      break;
-    }
-  }
+  const sectionIndex = category.fields.sections.findIndex(
+    (section) => section.fields.slug === slug
+  );
 
   const prev =
     sectionIndex > 0 ? category.fields.sections[sectionIndex - 1] : undefined;
