@@ -31,6 +31,14 @@ const baseButtonClasses = classNames(
   'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
 );
 
+const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
+  const baseUrl = typeof href === 'string' ? href : href?.pathname;
+
+  return (
+    baseUrl?.startsWith('http://') || baseUrl?.startsWith('https://') || false
+  );
+};
+
 const BaseButton: React.FC<ButtonProps> = ({
   children,
   linkProps,
@@ -39,33 +47,16 @@ const BaseButton: React.FC<ButtonProps> = ({
   'aria-label': ariaLabel,
   ...props
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const href = (props?.href as any)?.pathname || props.href || '';
-
   const classes = classNames(className, { capitalize });
 
+  const isExternal = isExternalLink(props.href);
   return (
     <>
-      {/* it's an external link */}
-      {(href?.startsWith('http://') || href?.startsWith('https://')) && (
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={ariaLabel}
-          {...linkProps}
-        >
-          <div {...props} className={classes}>
-            {children}
-          </div>
-        </a>
-      )}
-      {/* it's an internal link */}
-      {href && !(href.startsWith('http://') || href.startsWith('https://')) && (
-        <Link {...linkProps} href={href}>
+      {props.href ? (
+        <Link {...linkProps} href={props.href} passHref={isExternal}>
           <a
-            target={linkProps?.target}
-            rel={linkProps?.rel}
+            target={linkProps?.target || isExternal ? '_blank' : undefined}
+            rel={linkProps?.rel || isExternal ? 'noreferrer' : undefined}
             aria-label={ariaLabel}
           >
             <div className={classes} {...props}>
@@ -73,9 +64,7 @@ const BaseButton: React.FC<ButtonProps> = ({
             </div>
           </a>
         </Link>
-      )}
-      {/* it's a submit button */}
-      {!href && (
+      ) : (
         <button {...props} className={classes} aria-label={ariaLabel}>
           {children}
         </button>

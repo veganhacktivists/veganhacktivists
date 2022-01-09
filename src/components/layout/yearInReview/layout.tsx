@@ -59,8 +59,8 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
         className="pt-5"
       >
         We&apos;re so happy to release our {year} Year in Review! Scroll down to
-        read all of our accomplishments thanks to your generous
-        support, our partners, and most of all our amazing volunteers.
+        read all of our accomplishments thanks to your generous support, our
+        partners, and most of all our amazing volunteers.
       </FirstSubSection>
       <YearInReviewButtons />
     </div>
