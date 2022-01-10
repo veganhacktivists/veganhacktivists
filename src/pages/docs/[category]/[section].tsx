@@ -110,10 +110,13 @@ const richTextOptions: Options = {
       <h2 className="text-xl pt-5">{children}</h2>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
+      <ul className="list-disc ml-5 mt-5">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
+      <ul className="list-disc ml-5 mt-5">{children}</ul>
+    ),
+    [BLOCKS.LIST_ITEM]: (node, children) => (
+      <li className="mt-2">{children}</li>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
       <Link href={node.data.uri}>
