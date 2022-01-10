@@ -28,7 +28,7 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
           className="font-mono text-4xl md:text-5xl mb-2"
           style={{ color: getThemeColor(goalColor) }}
         >
-          &euro;{goalAmount.toLocaleString('en-US')}
+          &#36;{goalAmount.toLocaleString('en-US')}
         </h1>
         <p className="text-lg md:text-xl text-white">{children}</p>
       </div>
