@@ -133,7 +133,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           <div className="mx-auto text-xl">No entries match your query</div>
         ) : (
           <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
-            {filteredFirstBlog.length !== 0 && currentPage === 0 && (
+            {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
               <SubtleBorder
                 key={filteredFirstBlog[0].fields.slug}
                 className="col-span-full"
