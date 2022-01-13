@@ -134,7 +134,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
               {title}
             </h1>
             <BlogContentContainer>
-              <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow">
+              <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow overflow-x-auto">
                 {author && (
                   <div>
                     Written by{' '}
