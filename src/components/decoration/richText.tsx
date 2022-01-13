@@ -14,7 +14,6 @@ import type {
 import ContentfulImage from '../layout/contentfulImage';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import getThemeColor from '../../lib/helpers/theme';
 
 interface RichTextProps {
   document: Document;
