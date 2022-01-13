@@ -20,6 +20,7 @@ import { useHash } from '../../../hooks/useHash';
 import { DarkButton } from '../../../components/decoration/buttons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import RichText from '../../../components/decoration/richText';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -90,47 +91,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { category, section, categories }, revalidate: 480 };
 };
 
-const richTextOptions: Options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => (
-      <div>
-        <ContentfulImage
-          image={node.data?.target}
-          alt={node.data?.target?.fields?.title}
-        />
-      </div>
-    ),
-    [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="text-3xl pt-10">{children}</h1>
-    ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-2xl pt-7">{children}</h2>
-    ),
-    [BLOCKS.HEADING_3]: (node, children) => (
-      <h2 className="text-xl pt-5">{children}</h2>
-    ),
-    [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5 mt-5">{children}</ul>
-    ),
-    [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5 mt-5">{children}</ul>
-    ),
-    [BLOCKS.LIST_ITEM]: (node, children) => (
-      <li className="mt-2">{children}</li>
-    ),
-    [INLINES.HYPERLINK]: (node, children) => (
-      <Link href={node.data.uri}>
-        <a className="underline font-semibold hover:text-grey visited:text-grey">
-          {children}
-        </a>
-      </Link>
-    ),
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="mt-5 first:mt-0">{children}</p>
-    ),
-  },
-};
-
 interface ContentProps {
   section: IDocsSection;
   category: IDocsCategory;
@@ -192,7 +152,9 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
         </div>
       </div>
       {content && (
-        <div>{documentToReactComponents(content, richTextOptions)}</div>
+        <div>
+          <RichText document={content} />
+        </div>
       )}
       {subsections?.map((doc) => (
         <Fragment key={doc.fields.slug}>
@@ -261,7 +223,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
       />
       <div key={slug} id={slug} ref={ref}>
         <h2 className="text-2xl font-bold pt-10">{title}</h2>
-        {documentToReactComponents(content, richTextOptions)}
+        <RichText document={content} />
       </div>
     </>
   );

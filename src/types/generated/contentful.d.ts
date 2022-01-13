@@ -46,6 +46,31 @@ export interface IBlogEntry extends Entry<IBlogEntryFields> {
   };
 }
 
+export interface ICodeBlockFields {
+  /** content */
+  content: Document;
+
+  /** language */
+  language: string;
+}
+
+export interface ICodeBlock extends Entry<ICodeBlockFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "codeBlock";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IDocsCategoryFields {
   /** slug */
   slug: string;
@@ -388,6 +413,7 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
 
 export type CONTENT_TYPE =
   | "blogEntry"
+  | "codeBlock"
   | "docsCategory"
   | "docsSection"
   | "documentation"
