@@ -24,15 +24,10 @@ interface RichTextProps {
 const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
   codeBlock: (node) => {
     const { language, content }: ICodeBlockFields = node.data.target.fields;
-    const backgroundColor = getThemeColor('grey-background');
 
     return (
-      <div className="w-min border-2 border-grey-lighter">
-        <SyntaxHighlighter
-          showLineNumbers
-          language={language}
-          customStyle={{ backgroundColor }}
-        >
+      <div className="w-min border-2 border-grey-lighter bg-grey-over-background">
+        <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
       </div>
