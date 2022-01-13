@@ -25,7 +25,7 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
     const { language, content }: ICodeBlockFields = node.data.target.fields;
 
     return (
-      <div className="w-min border-2 border-grey-lighter bg-grey-over-background">
+      <div className="w-min border-2 border-grey-lighter">
         <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
@@ -67,7 +67,7 @@ const defaultRichTextOptions: Options = {
       <li className="mt-2">{children}</li>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <div className="border-l-4 border-l-grey-light mt-5 bg-grey-over-background px-3 max-w-fit">
+      <div className="border-l-4 border-l-grey-light mt-5 px-3 max-w-fit">
         {children}
       </div>
     ),
