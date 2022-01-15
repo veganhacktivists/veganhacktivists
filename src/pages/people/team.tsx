@@ -28,12 +28,15 @@ export const getStaticProps: GetStaticProps = async () => {
     contentType: 'teamMember',
     query: {
       type: 'team',
-      ne: {
-        isInactive: true,
+      filters: {
+        ne: {
+          isInactive: true,
+        },
       },
     },
     other: { order: 'fields.isTeamLeader' },
   });
+
   return {
     props: { teams, teamMembers },
     revalidate: 480,
