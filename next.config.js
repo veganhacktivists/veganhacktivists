@@ -41,6 +41,11 @@ const nextConfig = {
         destination: 'https://discord.gg/Yt3zADeJKx',
         permanent: false,
       },
+      {
+        source: '/apply',
+        destination: '/join',
+        permanent: true,
+      },
     ];
   },
 };
