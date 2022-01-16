@@ -1,4 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import React, { Fragment, useEffect, useMemo, useRef } from 'react';
@@ -11,10 +10,7 @@ import type {
   IDocsSection,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
-import ContentfulImage from '../../../components/layout/contentfulImage';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
 import { DarkButton } from '../../../components/decoration/buttons';
