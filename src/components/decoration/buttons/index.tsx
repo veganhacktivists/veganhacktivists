@@ -28,7 +28,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate'
+  'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring'
 );
 
 const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {

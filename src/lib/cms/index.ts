@@ -29,6 +29,11 @@ const normalizeFilter: (
   );
 };
 
+/**
+ *
+ * @param options
+ * @returns The content
+ */
 export const getContents: <T>(options: {
   contentType: CONTENT_TYPE;
   query?: Record<string, unknown> & {
