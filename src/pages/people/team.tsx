@@ -29,6 +29,9 @@ export const getStaticProps: GetStaticProps = async () => {
     query: {
       type: 'team',
       filters: {
+        exists: {
+          team: true,
+        },
         ne: {
           isInactive: true,
         },
