@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { DarkButton } from '../decoration/buttons';
@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
 import ky from 'ky-universal';
+import useErrorStore from '../../lib/stores/errorStore';
 
 type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
@@ -23,6 +24,7 @@ interface ContactUsSubmission {
 }
 
 const ContactUsForm: React.FC = () => {
+  const { pageThatErrored, clearErrorData } = useErrorStore();
   const {
     control,
     register,
@@ -30,8 +32,17 @@ const ContactUsForm: React.FC = () => {
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactUsSubmission>();
-
   const { reload } = useRouter();
+
+  const defaultErrorMessage = useErrorStore(
+    (state) => state.generateErrorMessage
+  )();
+
+  // Clear error data on unmount so if they don't submit
+  // the form is clear on return visits.
+  useEffect(() => {
+    return () => clearErrorData();
+  }, []);
 
   const onSubmit = useCallback(async (values: ContactUsSubmission) => {
     const submit = async () =>
@@ -99,6 +110,11 @@ const ContactUsForm: React.FC = () => {
                   value: option,
                   label: firstLetterUppercase(option),
                 }))}
+                defaultValue={
+                  pageThatErrored
+                    ? { value: 'website', label: 'Website' }
+                    : undefined
+                }
               />
             )}
           />
@@ -107,7 +123,11 @@ const ContactUsForm: React.FC = () => {
           )}
         </div>
         <div>
-          <TextArea error={errors.message?.message} {...register('message')} />
+          <TextArea
+            error={errors.message?.message}
+            {...register('message')}
+            defaultValue={defaultErrorMessage}
+          />
         </div>
         <div className="pt-5 pb-10">
           <DarkButton
