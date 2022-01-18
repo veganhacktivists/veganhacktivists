@@ -40,14 +40,18 @@ const defaultRichTextOptions: Options = {
       const contentType: CONTENT_TYPE = node.data.target.sys.contentType.sys.id;
       return <>{embeddedAssetRenderer?.[contentType]?.(node, children)}</>;
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node) => (
-      <div>
-        <ContentfulImage
-          image={node.data?.target}
-          alt={node.data?.target?.fields?.title}
-        />
-      </div>
-    ),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const imageData = node.data.target;
+      const { title, description } = imageData?.fields;
+      return (
+        <div>
+          <ContentfulImage image={imageData} alt={title} />
+          {description && (
+            <div className="italic text-base text-gray-dark">{description}</div>
+          )}
+        </div>
+      );
+    },
     [BLOCKS.HEADING_1]: (node, children) => (
       <h1 className="text-3xl pt-10">{children}</h1>
     ),
