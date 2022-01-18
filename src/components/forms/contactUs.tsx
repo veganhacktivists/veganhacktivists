@@ -110,11 +110,7 @@ const ContactUsForm: React.FC = () => {
                   value: option,
                   label: firstLetterUppercase(option),
                 }))}
-                defaultValue={
-                  pageThatErrored
-                    ? { value: 'website', label: 'Website' }
-                    : undefined
-                }
+                defaultValue={pageThatErrored ? 'website' : undefined}
               />
             )}
           />

@@ -14,7 +14,7 @@ interface SelectInputProps {
   error?: string;
   options: OptionType[];
   creatable?: boolean;
-  defaultValue?: OptionType;
+  defaultValue?: OptionType['value'];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -23,7 +23,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   error,
   options,
   creatable = false,
-  defaultValue: defaultValueProp,
+  defaultValue = null,
   ...props
 }) => {
   const grey = getThemeColor('grey') as string;
@@ -31,8 +31,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   const red = getThemeColor('red') as string;
 
   const [allOptions, setAllOptions] = useState(options);
-  const [value, setValue] = useState<string | null>(null);
-  const [defaultValue, setDefaultValue] = useState(defaultValueProp);
+  const [value, setValue] = useState<string | null>(defaultValue);
 
   useEffect(() => {
     props.onChange(value);
@@ -120,15 +119,11 @@ const SelectInput: React.FC<SelectInputProps> = ({
       <Select
         {...props}
         id={props.id || props.name}
-        value={
-          defaultValue || allOptions.find((option) => option.value === value)
-        }
+        value={allOptions.find((option) => option.value === value)}
         instanceId={props.id || props.name}
         placeholder={props.placeholder}
         onChange={(value) => {
           setValue(value?.value || null);
-          // Allow changes when reporting an error:
-          if (defaultValue) setDefaultValue(undefined);
         }}
         theme={theme}
         styles={styles}
