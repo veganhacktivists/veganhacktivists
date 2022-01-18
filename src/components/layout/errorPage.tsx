@@ -7,13 +7,13 @@ import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
 
 import errorTypeImage from '../../../public/images/VH-error-type.png';
+import Link from 'next/link';
 
 import avo from '../../../public/images/people/teamIcons/icon-avo.png';
 import mango from '../../../public/images/people/teamIcons/icon-mango.png';
-import peach from '../../../public/images/people/teamIcons/icon-avo.png';
-import spotato from '../../../public/images/people/teamIcons/icon-avo.png';
-import wmelon from '../../../public/images/people/teamIcons/icon-avo.png';
-import Link from 'next/link';
+import peach from '../../../public/images/people/teamIcons/icon-peach.png';
+import spotato from '../../../public/images/people/teamIcons/icon-spotato.png';
+import wmelon from '../../../public/images/people/teamIcons/icon-wmelon.png';
 
 interface ErrorProps {
   statusCode?: number;
