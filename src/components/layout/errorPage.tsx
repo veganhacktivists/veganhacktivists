@@ -6,13 +6,19 @@ import CustomImage from '../decoration/customImage';
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
 
+import errorTypeImage from '../../../public/images/VH-error-type.png';
+
+import avo from '../../../public/images/people/teamIcons/icon-avo.png';
+import mango from '../../../public/images/people/teamIcons/icon-mango.png';
+import peach from '../../../public/images/people/teamIcons/icon-avo.png';
+import spotato from '../../../public/images/people/teamIcons/icon-avo.png';
+import wmelon from '../../../public/images/people/teamIcons/icon-avo.png';
+
 interface ErrorProps {
   statusCode?: number;
 }
 
-const Error: NextPage<ErrorProps> = ({
-  statusCode: statusCodeProp,
-}: ErrorProps) => {
+const Error: NextPage<ErrorProps> = ({ statusCode = 404 }: ErrorProps) => {
   const router = useRouter();
 
   const { setErrorData, generateErrorMessage } = useErrorStore();
@@ -27,12 +33,9 @@ const Error: NextPage<ErrorProps> = ({
       <article className="min-h-[40rem] flex flex-col justify-center items-center p-4">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col md:flex-row justify-start gap-12">
-            <CustomImage
-              src="/images/VH-error-type.png"
-              width="320"
-              height="84"
-              alt="ERROR"
-            />
+            <div className="w-80">
+              <CustomImage src={errorTypeImage} alt="ERROR" priority />
+            </div>
             <div className="flex flex-col items-start justify-evenly gap-3 md:gap-0 text-2xl text-center md:text-left">
               <h1 className="text-red font-mono font-bold w-full">
                 {contactPageError ? 'Whoops!' : 'Page not found.'}
@@ -46,10 +49,10 @@ const Error: NextPage<ErrorProps> = ({
           </div>
           <div className="flex flex-col-reverse md:flex-row justify-start gap-12">
             <div className="md:-mt-3">
-              {['avo', 'mango', 'peach', 'spotato', 'wmelon'].map((fruit) => (
+              {[avo, mango, peach, spotato, wmelon].map((fruit) => (
                 <CustomImage
-                  key={fruit}
-                  src={`/images/people/teamIcons/icon-${fruit}.png`}
+                  key={fruit.src}
+                  src={fruit}
                   height="64"
                   width="64"
                   alt=""

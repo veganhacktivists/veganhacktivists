@@ -111,7 +111,7 @@ const ContactUsForm: React.FC = () => {
                   label: firstLetterUppercase(option),
                 }))}
                 defaultValue={
-                  Boolean(pageThatErrored)
+                  pageThatErrored
                     ? { value: 'website', label: 'Website' }
                     : null
                 }
