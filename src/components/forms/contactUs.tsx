@@ -24,7 +24,7 @@ interface ContactUsSubmission {
 }
 
 const ContactUsForm: React.FC = () => {
-  const { pageThatErrored, statusCode, clearErrorData } = useErrorStore();
+  const { pageThatErrored, clearErrorData } = useErrorStore();
   const {
     control,
     register,
@@ -33,6 +33,10 @@ const ContactUsForm: React.FC = () => {
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactUsSubmission>();
   const { reload } = useRouter();
+
+  const defaultErrorMessage = useErrorStore(
+    (state) => state.generateErrorMessage
+  )();
 
   // Clear error data on unmount so if they don't submit
   // the form is clear on return visits.
@@ -121,8 +125,8 @@ const ContactUsForm: React.FC = () => {
         <div>
           <TextArea
             error={errors.message?.message}
-            errorReportData={{ pageThatErrored, statusCode }} // When coming from ie. a 404 page
             {...register('message')}
+            defaultValue={defaultErrorMessage}
           />
         </div>
         <div className="pt-5 pb-10">

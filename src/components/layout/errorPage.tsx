@@ -15,9 +15,7 @@ const Error: NextPage<ErrorProps> = ({
 }: ErrorProps) => {
   const router = useRouter();
 
-  const setErrorData = useErrorStore((state) => state.setErrorData);
-
-  const statusCode: number = statusCodeProp || 404;
+  const { setErrorData, generateErrorMessage } = useErrorStore();
 
   const handleContactClick = () => setErrorData(router.asPath, statusCode);
 
@@ -25,7 +23,7 @@ const Error: NextPage<ErrorProps> = ({
 
   return (
     <>
-      <NextSeo title="Page Not Found" />
+      <NextSeo noindex title="Page Not Found" />
       <article className="min-h-[40rem] flex flex-col justify-center items-center p-4">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col md:flex-row justify-start gap-12">
@@ -64,9 +62,12 @@ const Error: NextPage<ErrorProps> = ({
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    // Any updates to the content of the body param below should also be
-                    // reflected in the `defaultErrorMessage` of `components/forms/inputs/textArea.tsx`
-                    href={`mailto:hello@veganhacktivists.org?subject=Website%20error!&body=%5BPlease%20tell%20us%20what%20you%20were%20doing%20prior%20to%20the%20error%20occurring...%5D%0D%0A%0D%0A...then%20I%20found%20a%20${statusCode}%20error%20at%20${router.asPath}%0D%0A%0D%0AThanks!`}
+                    href={`mailto:hello@veganhacktivists.org?subject=Website%20error!&body=${encodeURI(
+                      generateErrorMessage({
+                        pageThatErrored: router.asPath,
+                        statusCode,
+                      }) || ''
+                    )}`}
                   >
                     hello@veganhacktivists.org
                   </a>
