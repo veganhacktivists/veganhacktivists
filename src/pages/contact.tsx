@@ -1,9 +1,9 @@
 import ContactUsForm from '../components/forms/contactUs';
-import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import SquareField from '../components/decoration/squares';
 import CustomImage from '../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import { pixelHeart } from '../images/separators';
 
 const Contact: React.FC = () => {
   return (

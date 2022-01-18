@@ -1,7 +1,6 @@
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import SquareField from '../../components/decoration/squares';
-import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import type { GetStaticProps } from 'next';
 import React from 'react';
 import { getContents } from '../../lib/cms';
@@ -17,6 +16,7 @@ import { firstLetterUppercase } from '../../lib/helpers/strings';
 import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import { pixelHeart } from '../../images/separators';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
@@ -105,9 +105,9 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-grey-light pb-10 pt-16 px-10">
         <CustomImage
-          src={PixelHeart.src}
-          width={PixelHeart.width / 3}
-          height={PixelHeart.height / 3}
+          src={pixelHeart.src}
+          width={pixelHeart.width / 3}
+          height={pixelHeart.height / 3}
           alt="Our community"
         />
         <FirstSubSection header="Our community">

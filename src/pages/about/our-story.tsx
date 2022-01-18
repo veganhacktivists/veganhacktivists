@@ -1,13 +1,13 @@
 import { NextSeo } from 'next-seo';
 
 import Link from 'next/link';
-import PixelPig from '../../../public/images/VH_PixelPig.png';
 import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
+import { pixelPig } from '../../images/separators';
 import type PageWithLayout from '../../types/persistentLayout';
 
 const OurStory: PageWithLayout = () => {
@@ -23,9 +23,9 @@ const OurStory: PageWithLayout = () => {
       <div className="m-10 pb-10">
         <div className="pb-5">
           <CustomImage
-            src={PixelPig}
-            width={PixelPig.width / 3}
-            height={PixelPig.height / 3}
+            src={pixelPig}
+            width={pixelPig.width / 3}
+            height={pixelPig.height / 3}
             alt="Our story"
           />
         </div>

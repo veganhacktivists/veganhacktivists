@@ -1,9 +1,9 @@
-import PixelHeart from '../../../../public/images/VH_PixelHeart.png';
 import callImage from '../../../../public/images/grants/call.jpg';
 import squarespaceImage from '../../../../public/images/grants/squarespace.jpg';
 import contentImage from '../../../../public/images/grants/content.jpg';
 import designerImage from '../../../../public/images/grants/designer.jpg';
 import CustomImage from '../../decoration/customImage';
+import { pixelHeart } from '../../../images/separators';
 
 type PerkProps = React.PropsWithChildren<{
   image: StaticImageData;
@@ -75,9 +75,9 @@ const GrantsPerks: React.FC = () => {
   return (
     <div className="p-0 px-5 md:p-12 lg:p-0 pt-12 max-w-screen-lg mx-auto mt-10">
       <CustomImage
-        src={PixelHeart.src}
-        width={PixelHeart.width * 0.5}
-        height={PixelHeart.height * 0.5}
+        src={pixelHeart.src}
+        width={pixelHeart.width * 0.5}
+        height={pixelHeart.height * 0.5}
         alt="Heart icon"
       />
       <h3 className="p-4 md:p-0 text-4xl font-semibold mb-10 mt-12">

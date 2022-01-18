@@ -1,6 +1,5 @@
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
-import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import SquareField from '../components/decoration/squares';
@@ -14,6 +13,7 @@ import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 import CustomImage from '../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import { pixelHeart } from '../images/separators';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },

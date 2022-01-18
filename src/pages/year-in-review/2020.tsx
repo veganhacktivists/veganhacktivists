@@ -6,10 +6,6 @@ import SquareField from '../../components/decoration/squares';
 
 import Strawberry from '../../../public/images/yearInReview/2020/icon-strawberry-outline.png';
 import Blueberry from '../../../public/images/yearInReview/2020/icon-blueberry-outline.png';
-import pixelHeart from '../../../public/images/VH_PixelHeart.png';
-import pixelFlower from '../../../public/images/VH_PixelFlower.png';
-import pixelStar from '../../../public/images/VH_PixelStar.png';
-import pixelPig from '../../../public/images/VH_PixelPig.png';
 import petaLogo from '../../../public/images/yearInReview/2020/peta.webp';
 import beyondLogo from '../../../public/images/yearInReview/2020/beyondanimal.webp';
 import counterglowLogo from '../../../public/images/yearInReview/2020/counterglow.webp';
@@ -38,6 +34,12 @@ import YearInReviewHeader from '../../components/layout/yearInReview/layout';
 import CustomLink from '../../components/decoration/link';
 import AnimatedNumber from '../../components/decoration/animatedNumber';
 import { sortByArray } from '../../lib/helpers/array';
+import {
+  pixelFlower,
+  pixelHeart,
+  pixelPig,
+  pixelStar,
+} from '../../images/separators';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },

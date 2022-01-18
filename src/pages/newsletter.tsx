@@ -1,8 +1,8 @@
-import pixelHeart from '../../public/images/VH_PixelHeart.png';
 import SquareField from '../components/decoration/squares';
 import CustomImage from '../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
 import Newsletter from '../components/layout/newsletter';
+import { pixelHeart } from '../images/separators';
 
 const Contact: React.FC = () => {
   return (

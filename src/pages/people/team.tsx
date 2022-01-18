@@ -13,7 +13,6 @@ import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
-import PixelHeart from '../../../public/images/VH_PixelHeart.png';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
 import Link from 'next/link';
@@ -21,6 +20,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { NextSeo } from 'next-seo';
+import { pixelHeart } from '../../images/separators';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
@@ -259,9 +259,9 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="bg-gray-background pb-10 pt-16 px-10">
         <CustomImage
-          src={PixelHeart.src}
-          width={PixelHeart.width / 3}
-          height={PixelHeart.height / 3}
+          src={pixelHeart.src}
+          width={pixelHeart.width / 3}
+          height={pixelHeart.height / 3}
           alt="Our community"
         />
         <FirstSubSection header="Our community">

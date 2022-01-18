@@ -8,12 +8,13 @@ import useErrorStore from '../../lib/stores/errorStore';
 
 import errorTypeImage from '../../../public/images/VH-error-type.png';
 import Link from 'next/link';
-
-import avo from '../../../public/images/people/teamIcons/icon-avo.png';
-import mango from '../../../public/images/people/teamIcons/icon-mango.png';
-import peach from '../../../public/images/people/teamIcons/icon-peach.png';
-import spotato from '../../../public/images/people/teamIcons/icon-spotato.png';
-import wmelon from '../../../public/images/people/teamIcons/icon-wmelon.png';
+import {
+  avocado,
+  mango,
+  peach,
+  sweetPotato,
+  watermelon,
+} from '../../images/teams';
 
 interface ErrorProps {
   statusCode?: number;
@@ -50,7 +51,7 @@ const Error: NextPage<ErrorProps> = ({ statusCode = 404 }: ErrorProps) => {
           </div>
           <div className="flex flex-col-reverse md:flex-row justify-start gap-12">
             <div className="md:-mt-3">
-              {[avo, mango, peach, spotato, wmelon].map((fruit) => (
+              {[avocado, mango, peach, sweetPotato, watermelon].map((fruit) => (
                 <CustomImage
                   key={fruit.src}
                   src={fruit}

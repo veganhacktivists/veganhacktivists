@@ -7,7 +7,6 @@ import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
-import PixelHeart from '../../public/images/VH_PixelHeart.png';
 import {
   ExternalLinkButton,
   LightButton,
@@ -25,6 +24,7 @@ import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';
 import CustomLink from '../components/decoration/link';
+import { pixelHeart } from '../images/separators';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -188,9 +188,9 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       />
       <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
         <CustomImage
-          src={PixelHeart.src}
-          width={PixelHeart.width / 3}
-          height={PixelHeart.height / 3}
+          src={pixelHeart.src}
+          width={pixelHeart.width / 3}
+          height={pixelHeart.height / 3}
           alt="Our community"
         />
 

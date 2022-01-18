@@ -2,8 +2,8 @@ import { LightButton } from '../../../decoration/buttons';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
 
-import pixelPig from '../../../../../public/images/VH_PixelPig.png';
 import SquareField from '../../../decoration/squares';
+import { pixelPig } from '../../../../images/separators';
 
 const MovingForward: React.FC = () => {
   return (

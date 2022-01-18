@@ -3,21 +3,18 @@ import CustomLink from '../../../decoration/link';
 import { SubSection } from '../../../decoration/textBlocks';
 import { HighlightBlock } from '../highlightBlock';
 
-import pixelHeart from '../../../../../public/images/VH_PixelHeart.png';
-// import pixelFlower from '../../../public/images/VH_PixelFlower.png';
-// import pixelStar from '../../../public/images/VH_PixelStar.png';
-// import pixelPig from '../../../public/images/VH_PixelPig.png';
 import avocadoIcon from '../../../../../public/images/people/teamIcons/icon-avo.png';
 import peachIcon from '../../../../../public/images/people/teamIcons/icon-peach.png';
 import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.png';
 import watermelonIcon from '../../../../../public/images/people/teamIcons/icon-wmelon.png';
 import sweetPotatoIcon from '../../../../../public/images/people/teamIcons/icon-spotato.png';
+import { pixelHeart } from '../../../../images/separators';
 
 const Intro: React.FC = () => {
   return (
     <>
       <CustomImage
-        src={pixelHeart.src}
+        src={pixelHeart}
         height={pixelHeart.height / 3}
         width={pixelHeart.width / 3}
         alt=""

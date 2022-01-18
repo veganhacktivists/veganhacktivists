@@ -6,7 +6,6 @@ import type { JobRoleProps } from '../components/layout/join/jobRole';
 import JobRole from '../components/layout/join/jobRole';
 import heroBackground from '../../public/images/joinUs/VH-chicken2-hero.jpg';
 import heroTagline from '../../public/images/joinUs/VH-join-hero-text.png';
-import PixelFlower from '../../public/images/VH_PixelFlower.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
 import heartLogo from '../../public/images/joinUs/VH-join-mini-icon-heart.png';
 import checkLogo from '../../public/images/joinUs/VH-join-mini-icon-check.png';
@@ -26,6 +25,7 @@ import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import CustomImage from '../components/decoration/customImage';
 import { NextSeo } from 'next-seo';
+import { pixelFlower } from '../images/separators';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
@@ -186,9 +186,9 @@ const Join: React.FC = () => (
     </div>
     <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10">
       <CustomImage
-        src={PixelFlower.src}
-        width={PixelFlower.width / 3}
-        height={PixelFlower.height / 3}
+        src={pixelFlower.src}
+        width={pixelFlower.width / 3}
+        height={pixelFlower.height / 3}
         alt=""
       />
       <p>
