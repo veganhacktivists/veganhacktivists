@@ -14,7 +14,7 @@ interface SelectInputProps {
   error?: string;
   options: OptionType[];
   creatable?: boolean;
-  defaultValue: OptionType | null;
+  defaultValue?: OptionType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -32,9 +32,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   const [allOptions, setAllOptions] = useState(options);
   const [value, setValue] = useState<string | null>(null);
-  const [defaultValue, setDefaultValue] = useState<OptionType | null>(
-    defaultValueProp
-  );
+  const [defaultValue, setDefaultValue] = useState(defaultValueProp);
 
   useEffect(() => {
     props.onChange(value);
@@ -130,7 +128,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         onChange={(value) => {
           setValue(value?.value || null);
           // Allow changes when reporting an error:
-          if (defaultValue) setDefaultValue(null);
+          if (defaultValue) setDefaultValue(undefined);
         }}
         theme={theme}
         styles={styles}

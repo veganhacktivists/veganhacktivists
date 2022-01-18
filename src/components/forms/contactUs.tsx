@@ -113,7 +113,7 @@ const ContactUsForm: React.FC = () => {
                 defaultValue={
                   pageThatErrored
                     ? { value: 'website', label: 'Website' }
-                    : null
+                    : undefined
                 }
               />
             )}
