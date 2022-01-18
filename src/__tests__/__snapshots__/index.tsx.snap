@@ -17,7 +17,6 @@ exports[`Application renders correctly 1`] = `
         srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: top;"
       />
-      <noscript />
     </span>
     <h1
       class="flex flex-col justify-center w-1/2 z-10 py-10 xl:mt-0"
@@ -47,7 +46,6 @@ exports[`Application renders correctly 1`] = `
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             title="Compassion, Creativity, Code"
           />
-          <noscript />
         </span>
       </div>
       <div
@@ -62,7 +60,7 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/about"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -197,7 +195,6 @@ exports[`Application renders correctly 1`] = `
         srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
       />
-      <noscript />
     </span>
     <p
       class="mb-16 text-grey-dark"
@@ -244,7 +241,7 @@ exports[`Application renders correctly 1`] = `
         href="/about/our-mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
           href="/about/our-mission"
           style="background-size: 250% 100%; background-position: right;"
         >
@@ -271,7 +268,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -304,7 +300,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -337,7 +332,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -370,7 +364,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -431,7 +424,7 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green font-mono hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/projects"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -493,7 +486,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
       <p
         class="pb-5 mt-4 text-white"
@@ -507,7 +499,7 @@ exports[`Application renders correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/people/team"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -518,7 +510,7 @@ exports[`Application renders correctly 1`] = `
           href="/join"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/join"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -579,7 +571,7 @@ exports[`Application renders correctly 1`] = `
         href="/blog"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
           href="/blog"
           style="background-size: 250% 100%; background-position: right;"
         >
@@ -644,7 +636,6 @@ exports[`Application renders correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
-              <noscript />
             </span>
           </div>
           <div
@@ -671,7 +662,7 @@ exports[`Application renders correctly 1`] = `
                 href="/grants"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
                   href="/grants"
                   style="background-size: 250% 100%; background-position: right;"
                 >
@@ -692,7 +683,6 @@ exports[`Application renders correctly 1`] = `
                     srcset="/_next/image?url=%2Ffoo.png&w=128&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
                     style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                   />
-                  <noscript />
                 </span>
               </div>
             </div>
@@ -729,7 +719,6 @@ exports[`Application renders correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
               />
-              <noscript />
             </span>
           </div>
           <div
@@ -756,7 +745,7 @@ exports[`Application renders correctly 1`] = `
                 href="/year-in-review/2021"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate transition-all overflow-hidden text-white border-green md:max-w-72 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
                   href="/year-in-review/2021"
                   style="background-size: 250% 100%; background-position: right;"
                 >
@@ -777,7 +766,6 @@ exports[`Application renders correctly 1`] = `
                     srcset="/_next/image?url=%2Ffoo.png&w=128&q=75 1x, /_next/image?url=%2Ffoo.png&w=256&q=75 2x"
                     style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                   />
-                  <noscript />
                 </span>
               </div>
             </div>
@@ -804,7 +792,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -837,7 +824,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -870,7 +856,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -903,7 +888,6 @@ exports[`Application renders correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>

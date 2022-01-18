@@ -17,7 +17,6 @@ exports[`should render correctly 1`] = `
         srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 640w, /_next/image?url=%2Ffoo.png&w=750&q=75 750w, /_next/image?url=%2Ffoo.png&w=828&q=75 828w, /_next/image?url=%2Ffoo.png&w=1080&q=75 1080w, /_next/image?url=%2Ffoo.png&w=1200&q=75 1200w, /_next/image?url=%2Ffoo.png&w=1920&q=75 1920w, /_next/image?url=%2Ffoo.png&w=2048&q=75 2048w, /_next/image?url=%2Ffoo.png&w=3840&q=75 3840w"
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center;"
       />
-      <noscript />
     </span>
     <h1
       class="flex flex-col justify-center w-1/2 z-10"
@@ -47,7 +46,6 @@ exports[`should render correctly 1`] = `
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
             title="You are their voice"
           />
-          <noscript />
         </span>
       </div>
     </h1>
@@ -143,7 +141,6 @@ exports[`should render correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
-              <noscript />
             </span>
           </div>
           <p
@@ -170,7 +167,6 @@ exports[`should render correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
-              <noscript />
             </span>
           </div>
           <p
@@ -197,7 +193,6 @@ exports[`should render correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
-              <noscript />
             </span>
           </div>
           <p
@@ -224,7 +219,6 @@ exports[`should render correctly 1`] = `
                 srcset="/_next/image?url=%2Ffoo.png&w=64&q=75 1x, /_next/image?url=%2Ffoo.png&w=128&q=75 2x"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-position: center;"
               />
-              <noscript />
             </span>
           </div>
           <p
@@ -260,7 +254,6 @@ exports[`should render correctly 1`] = `
         srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
       />
-      <noscript />
     </span>
     <p>
       We ask that you please be or get familiar with 
@@ -323,7 +316,7 @@ exports[`should render correctly 1`] = `
           target="_blank"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="https://veganhacktivists.org/joinplayground"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -363,7 +356,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -396,7 +388,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -429,7 +420,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -462,7 +452,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -513,7 +502,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -535,7 +523,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -580,7 +568,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -602,7 +589,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -647,7 +634,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -669,7 +655,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -714,7 +700,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -736,7 +721,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -781,7 +766,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -803,7 +787,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -848,7 +832,6 @@ exports[`should render correctly 1`] = `
               srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
               style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
             />
-            <noscript />
           </span>
         </div>
         <h2
@@ -870,7 +853,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 my-4 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -908,7 +891,6 @@ exports[`should render correctly 1`] = `
             srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-          <noscript />
         </span>
         <p
           class="mt-4 mb-4 text-2xl px-10 md:px-0"
@@ -924,7 +906,7 @@ exports[`should render correctly 1`] = `
             target="_blank"
           >
             <div
-              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+              class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold font-mono px-16 py-2 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
               href="https://forms.gle/zN5rYjZ8nLXXgktZA"
               style="background-size: 250% 100%; background-position: right;"
             >
@@ -969,7 +951,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=640&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -1002,7 +983,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -1035,7 +1015,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -1068,7 +1047,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=256&q=75 1x, /_next/image?url=%2Ffoo.png&w=384&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
     </div>
   </div>
@@ -1108,7 +1086,6 @@ exports[`should render correctly 1`] = `
           srcset="/_next/image?url=%2Ffoo.png&w=640&q=75 1x, /_next/image?url=%2Ffoo.png&w=1080&q=75 2x"
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
-        <noscript />
       </span>
       <div
         class="flex justify-center flex-wrap"
@@ -1117,7 +1094,7 @@ exports[`should render correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono hover:!bg-left transition-all duration-[400ms] ease-linear capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-semibold m-5 font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/people/team"
             style="background-size: 250% 100%; background-position: right;"
           >

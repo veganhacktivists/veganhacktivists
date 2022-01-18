@@ -30,7 +30,7 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
         >
           <div className="flex flex-col space-y-2 justify-end h-40 w-48 absolute -bottom-40 -right-48 border-green border-l-[3px] pl-4">
             <div className="flex flex-row">
-              <h1 className="text-5xl font-mono text-green">&euro;</h1>
+              <h1 className="text-5xl font-mono text-green">&#36;</h1>
               <animated.h1 className="text-5xl font-mono text-green">
                 {currentAmount.to((num) => {
                   return Math.floor(num).toLocaleString('en-US');

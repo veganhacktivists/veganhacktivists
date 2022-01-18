@@ -1,9 +1,7 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { getContents } from '../../lib/cms';
 import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
-import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import {
   getAllBlogSlugs,
   getBlogEntries,
@@ -16,9 +14,9 @@ import Circle from '../../components/decoration/circle';
 import BlogContentContainer, {
   Sidebar,
 } from '../../components/layout/blog/blogPageLayout';
-import Link from 'next/link';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { NextSeo } from 'next-seo';
+import RichText from '../../components/decoration/richText';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -58,49 +56,6 @@ export const getStaticProps: GetStaticProps = async ({
     },
     revalidate: 480,
   };
-};
-
-const richTextOptions: Options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const imageData = node.data.target;
-      const { title, description } = imageData?.fields;
-      return (
-        <div>
-          <ContentfulImage image={imageData} alt={title} />
-          {description && (
-            <div className="italic text-base text-gray-dark">{description}</div>
-          )}
-        </div>
-      );
-    },
-    [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="text-4xl pt-10 font-bold">{children}</h1>
-    ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-3xl pt-7 font-bold">{children}</h2>
-    ),
-    [BLOCKS.HEADING_3]: (node, children) => (
-      <h2 className="text-2xl pt-5 font-bold">{children}</h2>
-    ),
-    [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
-    ),
-    [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
-    ),
-    [INLINES.HYPERLINK]: (node, children) => (
-      <Link href={node.data.uri}>
-        <a className="underline font-semibold hover:text-grey visited:text-grey">
-          {children}
-        </a>
-      </Link>
-    ),
-
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="mt-5 first:mt-0">{children}</p>
-    ),
-  },
 };
 
 const getEntryOrPreview: (
@@ -179,7 +134,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
               {title}
             </h1>
             <BlogContentContainer>
-              <div className="text-left text-xl leading-relaxed space-y-4">
+              <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow overflow-x-auto">
                 {author && (
                   <div>
                     Written by{' '}
@@ -196,7 +151,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 )}
                 <div className="divide-y divide-grey-light">
                   <div className="pb-10">
-                    {documentToReactComponents(content, richTextOptions)}
+                    <RichText document={content} />
                   </div>
                   {author && (
                     <div className="pt-5">

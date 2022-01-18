@@ -29,6 +29,11 @@ const normalizeFilter: (
   );
 };
 
+/**
+ *
+ * @param options
+ * @returns The content
+ */
 export const getContents: <T>(options: {
   contentType: CONTENT_TYPE;
   query?: Record<string, unknown> & {
@@ -40,7 +45,17 @@ export const getContents: <T>(options: {
         all?: Record<string, unknown>;
       }>;
   };
-  other?: Record<string, unknown>;
+  other?: Record<string, unknown> &
+    Partial<{
+      order: string | string[];
+      /**
+       * Levels of nesting
+       */
+      include: number;
+      limit: number;
+      skip: number;
+      select: string | string[];
+    }>;
 }) => Promise<Entry<T>[]> = async ({ contentType, query = {}, other }) => {
   const { filters, ...eqFilter } = query;
 

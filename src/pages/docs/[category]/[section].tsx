@@ -1,4 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import React, { Fragment, useEffect, useMemo, useRef } from 'react';
@@ -11,12 +10,13 @@ import type {
   IDocsSection,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import type { Options } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
-import ContentfulImage from '../../../components/layout/contentfulImage';
 import useDocsStore from '../../../lib/stores/docsStore';
 import { useHash } from '../../../hooks/useHash';
+import { DarkButton } from '../../../components/decoration/buttons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import RichText from '../../../components/decoration/richText';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -87,44 +87,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { category, section, categories }, revalidate: 480 };
 };
 
-const richTextOptions: Options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => (
-      <div>
-        <ContentfulImage
-          image={node.data?.target}
-          alt={node.data?.target?.fields?.title}
-        />
-      </div>
-    ),
-    [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="text-3xl pt-10">{children}</h1>
-    ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-2xl pt-7">{children}</h2>
-    ),
-    [BLOCKS.HEADING_3]: (node, children) => (
-      <h2 className="text-xl pt-5">{children}</h2>
-    ),
-    [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
-    ),
-    [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5">{children}</ul>
-    ),
-    [INLINES.HYPERLINK]: (node, children) => (
-      <Link href={node.data.uri}>
-        <a className="underline font-semibold hover:text-grey visited:text-grey">
-          {children}
-        </a>
-      </Link>
-    ),
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="mt-5 first:mt-0">{children}</p>
-    ),
-  },
-};
-
 interface ContentProps {
   section: IDocsSection;
   category: IDocsCategory;
@@ -144,6 +106,17 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       .filter((x) => !!x)
       .reduce((a, b) => (a < b ? a : b));
   }, [category.fields.slug]);
+
+  const sectionIndex = category.fields.sections.findIndex(
+    (section) => section.fields.slug === slug
+  );
+
+  const prev =
+    sectionIndex > 0 ? category.fields.sections[sectionIndex - 1] : undefined;
+  const next =
+    sectionIndex < category.fields.sections.length - 1
+      ? category.fields.sections[sectionIndex + 1]
+      : undefined;
 
   return (
     <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
@@ -166,10 +139,18 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
               day: 'numeric',
             }).format(updatedAt)}
           </span>
+          <span className="hidden md:inline"> | </span>
+          <Link href="/contact">
+            <a className="underline text-green opacity-100 hover:opacity-70">
+              Suggest Updates
+            </a>
+          </Link>
         </div>
       </div>
       {content && (
-        <div>{documentToReactComponents(content, richTextOptions)}</div>
+        <div>
+          <RichText document={content} />
+        </div>
       )}
       {subsections?.map((doc) => (
         <Fragment key={doc.fields.slug}>
@@ -177,6 +158,45 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           <SubSection key={doc.fields.slug} {...doc.fields} />
         </Fragment>
       ))}
+      <div className="flex space-x-4 justify-center items-center mt-10">
+        <p className="hidden lg:block">{prev && prev.fields.title}</p>
+        <DarkButton
+          disabled={prev === undefined}
+          href={
+            prev
+              ? {
+                  pathname: '/docs/[category]/[section]',
+                  query: {
+                    category: category.fields.slug,
+                    section: prev.fields.slug,
+                  },
+                }
+              : undefined
+          }
+        >
+          <FontAwesomeIcon size="sm" icon={faArrowLeft} />
+          &nbsp; Previous
+        </DarkButton>
+        &nbsp; &nbsp;
+        <DarkButton
+          disabled={next === undefined}
+          href={
+            next
+              ? {
+                  pathname: '/docs/[category]/[section]',
+                  query: {
+                    category: category.fields.slug,
+                    section: next.fields.slug,
+                  },
+                }
+              : undefined
+          }
+        >
+          Next &nbsp;
+          <FontAwesomeIcon size="sm" icon={faArrowRight} />
+        </DarkButton>
+        <p className="hidden lg:block">{next && next.fields.title}</p>
+      </div>
     </div>
   );
 };
@@ -199,7 +219,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
       />
       <div key={slug} id={slug} ref={ref}>
         <h2 className="text-2xl font-bold pt-10">{title}</h2>
-        {documentToReactComponents(content, richTextOptions)}
+        <RichText document={content} />
       </div>
     </>
   );
