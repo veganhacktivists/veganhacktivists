@@ -13,6 +13,7 @@ import mango from '../../../public/images/people/teamIcons/icon-mango.png';
 import peach from '../../../public/images/people/teamIcons/icon-avo.png';
 import spotato from '../../../public/images/people/teamIcons/icon-avo.png';
 import wmelon from '../../../public/images/people/teamIcons/icon-avo.png';
+import Link from 'next/link';
 
 interface ErrorProps {
   statusCode?: number;
@@ -62,18 +63,23 @@ const Error: NextPage<ErrorProps> = ({ statusCode = 404 }: ErrorProps) => {
             <div className="w-full md:w-min flex justify-center">
               {contactPageError ? (
                 <span className="font-mono text-2xl md:text-left font-bold">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={`mailto:hello@veganhacktivists.org?subject=Website%20error!&body=${encodeURI(
-                      generateErrorMessage({
-                        pageThatErrored: router.asPath,
-                        statusCode,
-                      }) || ''
-                    )}`}
+                  <Link
+                    href={{
+                      pathname: 'mailto:hello@veganhacktivists.org',
+                      query: {
+                        subject: 'Website error!',
+                        body: generateErrorMessage({
+                          pageThatErrored: router.asPath,
+                          statusCode,
+                        }),
+                      },
+                    }}
+                    passHref
                   >
-                    hello@veganhacktivists.org
-                  </a>
+                    <a target="_blank" rel="noreferrer">
+                      hello@veganhacktivists.org
+                    </a>
+                  </Link>
                 </span>
               ) : (
                 <DarkButton
