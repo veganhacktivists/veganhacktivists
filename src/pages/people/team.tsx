@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect, useMemo, useState } from 'react';
 
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps, GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
 import type { ITeamFields } from '../../types/generated/contentful';
@@ -53,6 +53,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   const { name, team, position, image, isTeamLeader, socialLinks } =
     member.fields;
   const { name: teamName } = team!.fields;
+
   return (
     <div className="w-64">
       <div className="bg-grey w-100 h-64 flex justify-end mb-2 group">

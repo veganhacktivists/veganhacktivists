@@ -13,6 +13,10 @@ import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import { DefaultSeo } from 'next-seo';
 import type { NextRouter } from 'next/router';
+import { ErrorBoundary } from 'react-error-boundary';
+import Error from 'next/error';
+import ErrorPage from './_error';
+import useErrorStore from '../lib/stores/errorStore';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');

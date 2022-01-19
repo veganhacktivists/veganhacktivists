@@ -3,13 +3,13 @@ import type { NextPageContext } from 'next';
 
 import ErrorPage from '../components/layout/errorPage';
 
-export async function getServerSideProps({ res, err }: NextPageContext) {
+export const getInitialProps = ({ res, err }: NextPageContext) => {
   const statusCode =
     res?.statusCode || err?.statusCode || StatusCodes.NOT_FOUND;
 
   return {
     props: { statusCode },
   };
-}
+};
 
 export default ErrorPage;

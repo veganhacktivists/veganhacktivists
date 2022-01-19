@@ -1,3 +1,6 @@
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
@@ -26,12 +29,16 @@ const PageWrapper: React.FC = ({ children }) => {
 
 export const MainWrapper: React.FC = ({ children }) => {
   return (
-    <>
+    <ErrorBoundary
+      fallbackRender={(props) => {
+        return <ErrorPage {...props} />;
+      }}
+    >
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
       </main>
-    </>
+    </ErrorBoundary>
   );
 };
 

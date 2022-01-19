@@ -15,19 +15,38 @@ import {
   sweetPotato,
   watermelon,
 } from '../../images/teams';
+import { StatusCodes } from 'http-status-codes';
+import type { FallbackProps } from 'react-error-boundary';
+import { useEffect } from 'react';
 
-interface ErrorProps {
+interface ErrorProps extends Partial<FallbackProps> {
   statusCode?: number;
 }
 
-const Error: NextPage<ErrorProps> = ({ statusCode = 404 }: ErrorProps) => {
+const Error: NextPage<ErrorProps> = ({
+  statusCode,
+  error,
+  resetErrorBoundary,
+}) => {
   const router = useRouter();
+
+  useEffect(() => {
+    return () => {
+      resetErrorBoundary?.();
+    };
+  }, []);
 
   const { setErrorData, generateErrorMessage } = useErrorStore();
 
-  const handleContactClick = () => setErrorData(router.asPath, statusCode);
+  const handleContactClick = () => {
+    resetErrorBoundary?.();
+    setErrorData({ pageThatErrored: router.asPath, statusCode, error });
+  };
 
   const contactPageError: string | boolean = router.asPath === '/contact';
+
+  const message =
+    statusCode === StatusCodes.NOT_FOUND ? 'Page not found.' : 'Whoops!';
 
   return (
     <>
@@ -39,9 +58,7 @@ const Error: NextPage<ErrorProps> = ({ statusCode = 404 }: ErrorProps) => {
               <CustomImage src={errorTypeImage} alt="ERROR" priority />
             </div>
             <div className="flex flex-col items-start justify-evenly gap-3 md:gap-0 text-2xl text-center md:text-left">
-              <h1 className="text-red font-mono font-bold w-full">
-                {contactPageError ? 'Whoops!' : 'Page not found.'}
-              </h1>
+              <h1 className="text-red font-mono font-bold w-full">{message}</h1>
               <div className="font-mono w-full">
                 {contactPageError
                   ? 'Please contact us at...'

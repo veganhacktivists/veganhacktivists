@@ -1,40 +1,48 @@
 import create from 'zustand';
 
 export interface ErrorStoreProps {
-  pageThatErrored: string | null;
-  statusCode: number | null;
+  pageThatErrored?: string;
+  statusCode?: number;
+  error?: Error;
 }
 
 interface ErrorStoreMethods {
-  setErrorData: (
-    pageThatErrored: ErrorStoreProps['pageThatErrored'],
-    statusCode: ErrorStoreProps['statusCode']
-  ) => void;
+  setErrorData: (data: ErrorStoreProps) => void;
   clearErrorData: () => void;
   generateErrorMessage: (context?: ErrorStoreProps) => string | undefined;
 }
 
 const useErrorStore = create<ErrorStoreProps & ErrorStoreMethods>(
   (set, get) => ({
-    pageThatErrored: null,
-    statusCode: null,
+    pageThatErrored: undefined,
+    statusCode: undefined,
 
-    setErrorData: (pageThatErrored, statusCode) =>
-      set((state) => ({
-        ...state,
+    setErrorData: ({ pageThatErrored, statusCode, error }) =>
+      set(() => ({
         pageThatErrored,
         statusCode,
+        error,
       })),
 
     clearErrorData: () =>
-      set((state) => ({ ...state, pageThatErrored: null, statusCode: null })),
+      set(() => ({
+        pageThatErrored: undefined,
+        statusCode: undefined,
+        error: undefined,
+      })),
     generateErrorMessage: (context) => {
-      const { pageThatErrored, statusCode } = context || get();
+      const { pageThatErrored, statusCode, error } = context || get();
+
+      const thenHappened = error
+        ? 'a client error happened'
+        : `I found a ${statusCode} error`;
 
       const defaultErrorMessage = pageThatErrored
         ? `[Please tell us what you were doing prior to the error occurring...]
 
-...then I found a ${statusCode} error at ${pageThatErrored}.
+...then ${thenHappened} at ${pageThatErrored}${
+            error ? `: ${error.name}. ${error.message}` : ''
+          }.
 
 Thanks!`
         : undefined;

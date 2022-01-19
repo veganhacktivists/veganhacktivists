@@ -1,3 +1,8 @@
+import { StatusCodes } from 'http-status-codes';
 import ErrorPage from '../components/layout/errorPage';
 
-export default ErrorPage;
+const NotFound: React.FC = () => {
+  return <ErrorPage statusCode={StatusCodes.NOT_FOUND} />;
+};
+
+export default NotFound;
