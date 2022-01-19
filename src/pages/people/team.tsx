@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect, useMemo, useState } from 'react';
 
-import type { GetServerSideProps, GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import type { ITeam } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
 import type { ITeamFields } from '../../types/generated/contentful';
