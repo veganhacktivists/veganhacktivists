@@ -17,6 +17,7 @@ import BlogContentContainer, {
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { NextSeo } from 'next-seo';
 import RichText from '../../components/decoration/richText';
+import SocialLinks from '../../components/layout/team/socialLinks';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -67,7 +68,11 @@ const getEntryOrPreview: (
   }
 
   return (
-    await getContents({ contentType: 'blogEntry', query: { slug } })
+    await getContents({
+      contentType: 'blogEntry',
+      query: { slug },
+      other: { include: 3 },
+    })
   )[0] as IBlogEntry;
 };
 
@@ -174,7 +179,7 @@ interface AuthorCardProps {
 }
 
 const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
-  const { image, name, description } = author.fields;
+  const { image, name, description, socialLinks } = author.fields;
 
   return (
     <div className="mb-14">
@@ -183,8 +188,19 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       </div>
       <SubtleBorder className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5">
         {image && (
-          <div className="w-full md:w-64">
-            <ContentfulImage image={image} alt="" />
+          <div>
+            <div className="w-full md:w-64">
+              <ContentfulImage image={image} alt="" />
+            </div>
+            {socialLinks && (
+              <div>
+                <SocialLinks
+                  socialLinks={socialLinks.fields}
+                  className="justify-center"
+                  theme="dark"
+                />
+              </div>
+            )}
           </div>
         )}
         <div className="text-center lg:text-left lg:w-3/5">
