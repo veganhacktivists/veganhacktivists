@@ -191,11 +191,11 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
   const { image, name, description, socialLinks } = author.fields;
 
   return (
-    <div className="mb-14">
+    <div className="mb-14 w-full md:w-2/3 lg:w-full mx-auto">
       <div className="text-grey-dark text-left text-3xl font-bold mb-10">
         About the Author
       </div>
-      <SubtleBorder className="flex flex-col md:flex-row bg-grey-background">
+      <SubtleBorder className="flex flex-col lg:flex-row bg-grey-background">
         {image && (
           <div className="aspect-square lg:h-64">
             <ContentfulImage image={image} alt="" />
