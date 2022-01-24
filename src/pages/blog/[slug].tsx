@@ -154,7 +154,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                       </span>
                     </div>
                   )}
-                  <div className="divide-y md:divide-none divide-grey-light">
+                  <div className="divide-y lg:divide-none divide-grey-light">
                     <div>
                       <div className="pb-10">
                         <RichText document={content} />
@@ -171,7 +171,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 <Sidebar blogs={otherBlogs} />
               </BlogContentContainer>
               {author && (
-                <div className="hidden lg:block pt-5 lg:w-4/5 mx-auto">
+                <div className="hidden lg:block pt-5 lg:w-4/5 mx-auto px-5">
                   <AuthorCard author={author} />
                 </div>
               )}
