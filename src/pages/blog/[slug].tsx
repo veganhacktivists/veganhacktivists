@@ -171,7 +171,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 <Sidebar blogs={otherBlogs} />
               </BlogContentContainer>
               {author && (
-                <div className="hidden lg:block pt-5 lg:w-4/5 mx-auto px-5">
+                <div className="hidden lg:block pt-5 ml-[12.5vw] w-3/4 xl:max-w-6xl">
                   <AuthorCard author={author} />
                 </div>
               )}
