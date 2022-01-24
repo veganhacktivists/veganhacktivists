@@ -46,7 +46,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   className = '',
   theme = 'light',
 }) => {
-  const hasAnySocialLinks = Object.keys(socialLinks).length > 0;
+  const hasAnySocialLinks = socialLinks && Object.keys(socialLinks).length > 0;
   if (!hasAnySocialLinks) {
     return null;
   }

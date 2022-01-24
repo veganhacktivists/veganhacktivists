@@ -13,6 +13,7 @@ export const getBlogPreviewBySlug: (
   const response = await previewClient.getEntries({
     'fields.slug': slug,
     content_type: 'blogEntry',
+    include: 3,
   });
 
   return response.items[0] as IBlogEntry;
