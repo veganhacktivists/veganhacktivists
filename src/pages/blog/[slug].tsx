@@ -1,7 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { getContents } from '../../lib/cms';
 import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
   getAllBlogSlugs,
   getBlogEntries,
@@ -17,6 +16,7 @@ import BlogContentContainer, {
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { NextSeo } from 'next-seo';
 import RichText from '../../components/decoration/richText';
+import SocialLinks from '../../components/layout/team/socialLinks';
 
 interface BlogEntryProps {
   blog: IBlogEntry;
@@ -67,7 +67,11 @@ const getEntryOrPreview: (
   }
 
   return (
-    await getContents({ contentType: 'blogEntry', query: { slug } })
+    await getContents({
+      contentType: 'blogEntry',
+      query: { slug },
+      other: { include: 3 },
+    })
   )[0] as IBlogEntry;
 };
 
@@ -133,35 +137,45 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
             <h1 className="text-5xl font-bold w-3/4 mx-auto text-left">
               {title}
             </h1>
-            <BlogContentContainer>
-              <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow overflow-x-auto">
-                {author && (
-                  <div>
-                    Written by{' '}
-                    <span className="font-bold">{author.fields.name}</span>{' '}
-                    <span className="font-bold">|</span>{' '}
-                    <span>
-                      {new Intl.DateTimeFormat('en', {
-                        month: 'long',
-                        year: 'numeric',
-                        day: 'numeric',
-                      }).format(date)}
-                    </span>
-                  </div>
-                )}
-                <div className="divide-y divide-grey-light">
-                  <div className="pb-10">
-                    <RichText document={content} />
-                  </div>
+            <div className="md:divide-y divide-grey-light">
+              <BlogContentContainer>
+                <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow overflow-x-auto">
                   {author && (
-                    <div className="pt-5">
-                      <AuthorCard author={author} />
+                    <div>
+                      Written by{' '}
+                      <span className="font-bold">{author.fields.name}</span>{' '}
+                      <span className="font-bold">|</span>{' '}
+                      <span>
+                        {new Intl.DateTimeFormat('en', {
+                          month: 'long',
+                          year: 'numeric',
+                          day: 'numeric',
+                        }).format(date)}
+                      </span>
                     </div>
                   )}
+                  <div className="divide-y lg:divide-none divide-grey-light">
+                    <div>
+                      <div className="pb-10">
+                        <RichText document={content} />
+                      </div>
+                    </div>
+                    {author && (
+                      <div className="lg:hidden pt-5 mx-auto">
+                        <AuthorCard author={author} />
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <Sidebar blogs={otherBlogs} />
-            </BlogContentContainer>
+
+                <Sidebar blogs={otherBlogs} />
+              </BlogContentContainer>
+              {author && (
+                <div className="hidden lg:block pt-5 ml-[12.5vw] w-3/4 xl:max-w-6xl">
+                  <AuthorCard author={author} />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -174,22 +188,35 @@ interface AuthorCardProps {
 }
 
 const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
-  const { image, name, description } = author.fields;
+  const { image, name, description, socialLinks } = author.fields;
 
   return (
-    <div className="mb-14">
-      <div className="text-grey-dark text-3xl font-bold mb-10">
+    <div className="mb-14 w-full md:w-2/3 lg:w-full mx-auto">
+      <div className="text-grey-dark text-left text-3xl font-bold mb-10">
         About the Author
       </div>
-      <SubtleBorder className="flex flex-col lg:flex-row gap-x-10 bg-grey-background p-5">
+      <SubtleBorder className="flex flex-col lg:flex-row bg-grey-background">
         {image && (
-          <div className="w-full md:w-64">
+          <div className="aspect-square lg:h-64">
             <ContentfulImage image={image} alt="" />
           </div>
         )}
-        <div className="text-center lg:text-left lg:w-3/5">
+        <div className="p-5 pl-10 pt-10 text-center lg:text-left h-full lg:h-64 w-full">
           <div className="text-3xl font-bold">{name}</div>
-          {description && <div>{documentToReactComponents(description)}</div>}
+          {description && (
+            <div className="text-xl">
+              <RichText document={description} />
+            </div>
+          )}
+          {socialLinks && (
+            <div className="md:ml-auto -px-5 pt-5 md:w-fit">
+              <SocialLinks
+                socialLinks={socialLinks.fields}
+                className="justify-center"
+                theme="dark"
+              />
+            </div>
+          )}
         </div>
       </SubtleBorder>
     </div>

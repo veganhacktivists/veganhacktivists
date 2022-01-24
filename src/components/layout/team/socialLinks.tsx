@@ -30,7 +30,6 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<
   github: githubIcon,
   website: websiteIcon,
   linkedIn: linkedInIcon,
-  // TODO: Do we have an icon for this?
   activistHub: ahIcon,
   youtube: youtubeIcon,
   email: faEnvelope,
@@ -39,11 +38,13 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<
 interface SocialLinksProps {
   socialLinks: ISocialLinksFields;
   className?: string;
+  theme?: 'dark' | 'light';
 }
 
 const SocialLinks: React.FC<SocialLinksProps> = ({
   socialLinks,
   className = '',
+  theme = 'light',
 }) => {
   const hasAnySocialLinks = Object.keys(socialLinks).length > 0;
   if (!hasAnySocialLinks) {
@@ -64,7 +65,13 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
           target="_blank"
           rel="noreferrer"
         >
-          <div className="bg-grey-background text-grey-dark p-1">
+          <div
+            className={classNames(
+              theme === 'light' ? 'bg-grey-background' : 'bg-grey',
+              theme === 'light' ? 'text-grey-dark' : 'text-grey-background',
+              'p-1'
+            )}
+          >
             {key === 'activistHub' ? (
               <CustomImage
                 src={ahIcon}
