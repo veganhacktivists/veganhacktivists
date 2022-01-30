@@ -73,7 +73,7 @@ exports[`Application renders correctly 1`] = `
       class="hidden md:block absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
     >
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
@@ -92,7 +92,7 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
@@ -111,7 +111,7 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
