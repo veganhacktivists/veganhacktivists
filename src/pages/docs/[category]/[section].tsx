@@ -17,6 +17,7 @@ import { DarkButton } from '../../../components/decoration/buttons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RichText from '../../../components/decoration/richText';
+import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -46,28 +47,48 @@ interface DocsProps {
   category: IDocsCategory;
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const category = (
-    await (params?.category
-      ? getContents<IDocsCategoryFields>({
-          contentType: 'docsCategory',
-          query: {
-            slug: params?.category,
-          },
-          other: {
-            limit: 1,
-            include: 3,
-          },
-        })
-      : getContents<IDocsCategoryFields>({
-          contentType: 'docsCategory',
-          other: {
-            order: 'fields.order',
-            include: 3,
-            limit: 1,
-          },
-        }))
-  )[0] as IDocsCategory;
+const getCategoryOrPreview: (
+  slug: IDocsCategoryFields['slug'] | undefined,
+  preview: boolean
+) => Promise<IDocsCategory> = async (slug, preview) => {
+  if (preview) {
+    if (!slug) {
+      throw 'Slug is not defined';
+    }
+    return await getDocCategoryPreviewBySlug(slug);
+  }
+
+  const docs = await (slug
+    ? getContents<IDocsCategoryFields>({
+        contentType: 'docsCategory',
+        query: {
+          slug,
+        },
+        other: {
+          limit: 1,
+          include: 3,
+        },
+      })
+    : getContents<IDocsCategoryFields>({
+        contentType: 'docsCategory',
+        other: {
+          order: 'fields.order',
+          include: 3,
+          limit: 1,
+        },
+      }));
+
+  return docs[0] as IDocsCategory;
+};
+
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+}) => {
+  const category = await getCategoryOrPreview(
+    params?.category as string | undefined,
+    preview
+  );
 
   const section = params?.section
     ? category.fields.sections.find(
@@ -84,7 +105,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  return { props: { category, section, categories }, revalidate: 480 };
+  return {
+    props: {
+      category,
+      section,
+      categories: preview ? [category, ...categories] : categories,
+    },
+    revalidate: 480,
+  };
 };
 
 interface ContentProps {
