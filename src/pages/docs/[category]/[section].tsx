@@ -109,7 +109,11 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       category,
       section,
-      categories: preview ? [category, ...categories] : categories,
+      categories:
+        preview &&
+        !categories.find((cat) => cat.fields.slug === category.fields.slug)
+          ? [category, ...categories]
+          : categories,
     },
     revalidate: 480,
   };
