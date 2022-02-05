@@ -210,6 +210,9 @@ export interface IProjectFields {
 
   /** isFeatured */
   isFeatured: boolean;
+
+  /** isRetired */
+  isRetired: boolean;
 }
 
 export interface IProject extends Entry<IProjectFields> {
