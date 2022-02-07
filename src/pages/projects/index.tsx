@@ -1,28 +1,27 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
-import Hero from '../components/decoration/hero';
+import Hero from '../../components/decoration/hero';
 import {
   DarkButton,
   LightButton,
   WhiteButton,
-} from '../components/decoration/buttons';
-import heroBackground from '../../public/images/VH-Hero-lamb.jpg';
-import heroTagline from '../../public/images/projects/hero-tagline.png';
-import lampImage from '../../public/images/Services-icon-project.png';
-import JoinTheTeam from '../components/layout/joinTheTeam';
-import SquareField from '../components/decoration/squares';
-import { FirstSubSection } from '../components/decoration/textBlocks';
-import type { IProject } from '../types/generated/contentful';
+} from '../../components/decoration/buttons';
+import heroBackground from '../../../public/images/VH-Hero-lamb.jpg';
+import heroTagline from '../../../public/images/projects/hero-tagline.png';
+import lampImage from '../../../public/images/Services-icon-project.png';
+import JoinTheTeam from '../../components/layout/joinTheTeam';
+import SquareField from '../../components/decoration/squares';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
+import type { IProject } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
-import { getProjects } from '../lib/cms/helpers';
+import { getProjects } from '../../lib/cms/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import ContentfulImage from '../components/layout/contentfulImage';
-import InfoBox from '../components/infoBox';
-import classNames from 'classnames';
-import Sprite, { chicken } from '../components/decoration/sprite';
+import ContentfulImage from '../../components/layout/contentfulImage';
+import InfoBox from '../../components/infoBox';
+import Sprite, { chicken } from '../../components/decoration/sprite';
 import Link from 'next/link';
-import useViewMore from '../hooks/useViewMore';
-import { firstLetterUppercase } from '../lib/helpers/strings';
+import useViewMore from '../../hooks/useViewMore';
+import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { NextSeo } from 'next-seo';
 
 const HERO_DECORATION_SQUARES = [
@@ -56,21 +55,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface ProjectCardProps {
   project: IProject;
-  index: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const { name, description, url, date: dateStr, image, team } = project.fields;
 
   const date = new Date(dateStr);
   const imageSize = 280;
   return (
-    <div
-      key={name}
-      className={classNames('flex flex-col sm:flex-row justify-between', {
-        'mt-10': index !== 0,
-      })}
-    >
+    <div className="flex flex-col sm:flex-row justify-between">
       {image && (
         <div className="flex-shrink">
           <ContentfulImage
@@ -79,7 +72,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             layout="fixed"
             height={imageSize}
             width={imageSize}
-            priority={index < 4}
           />
         </div>
       )}
@@ -144,6 +136,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
 
   const { pageNumber, pageSize, viewMore, reset } = useViewMore(10);
 
+  useEffect(() => {
+    reset();
+  }, [selectedYear]);
+
   const pagedProjects = projectsForSelectedYear.slice(0, pageSize * pageNumber);
 
   return (
@@ -180,7 +176,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                 type="button"
                 onClick={() => {
                   setSelectedYear(null);
-                  reset();
                 }}
               >
                 View all
@@ -194,7 +189,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
                   type="button"
                   onClick={() => {
                     setSelectedYear(year);
-                    reset();
                   }}
                   active={selectedYear === year}
                 >
@@ -204,12 +198,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
             ))}
           </div>
           <div className="w-3/4 mx-auto">
-            {pagedProjects.map((project, i) => (
-              <ProjectCard
+            {pagedProjects.map((project) => (
+              <div
                 key={project.fields.name}
-                project={project}
-                index={i}
-              />
+                className="flex flex-col sm:flex-row justify-between mt-10 first:mt-0"
+              >
+                <ProjectCard key={project.fields.name} project={project} />
+              </div>
             ))}
             {pagedProjects.length < projectsForSelectedYear.length && (
               <div className="mt-16">
