@@ -48,7 +48,7 @@ const Info: React.FC<{
                 src={boxicon}
                 alt=""
                 layout="fixed"
-                height={100}
+                height={(boxicon.height / boxicon.width) * 100}
                 width={100}
               />
             </div>
