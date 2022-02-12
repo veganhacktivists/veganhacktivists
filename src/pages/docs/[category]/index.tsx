@@ -2,16 +2,24 @@ import type { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { getContents } from '../../../lib/cms';
+import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
 import type {
+  IDocsCategory,
   IDocsCategoryFields,
   IDocsSectionFields,
 } from '../../../types/generated/contentful';
 
-export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
+const getCategoryOrPreview: (
+  slug: IDocsCategoryFields['slug'],
+  preview: boolean
+) => Promise<IDocsCategory> = async (slug, preview) => {
+  if (preview) {
+    return await getDocCategoryPreviewBySlug(slug);
+  }
   const cats = await getContents<IDocsCategoryFields>({
     contentType: 'docsCategory',
     query: {
-      slug: params?.category,
+      slug,
     },
     other: {
       order: 'fields.order',
@@ -20,7 +28,18 @@ export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       limit: 1,
     },
   });
-  const category = cats[0];
+
+  return cats[0] as IDocsCategory;
+};
+
+export const getStaticProps: GetStaticProps = async ({
+  params = {},
+  preview = false,
+}) => {
+  const category = await getCategoryOrPreview(
+    params.category as string,
+    preview
+  );
 
   return {
     props: {

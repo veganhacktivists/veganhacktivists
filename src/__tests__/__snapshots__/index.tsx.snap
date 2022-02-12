@@ -33,7 +33,7 @@ exports[`Application renders correctly 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM5LjU5OTk5OTk5OTk5OTk3IiBoZWlnaHQ9IjMzOS41OTk5OTk5OTk5OTk5NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27339.59999999999997%27%20height=%27339.59999999999997%27/%3e"
               style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
           </span>
@@ -73,7 +73,7 @@ exports[`Application renders correctly 1`] = `
       class="hidden md:block absolute left-1/2 right-1/2 -translate-x-1/2 text-grey-over-background cursor-pointer z-[100] bottom-10 w-10 h-24"
     >
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
@@ -92,7 +92,7 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
@@ -111,7 +111,7 @@ exports[`Application renders correctly 1`] = `
         </svg>
       </div>
       <div
-        class="sc-bdvvtL gBFbjO"
+        class="chevron"
       >
         <svg
           aria-hidden="true"
@@ -183,7 +183,7 @@ exports[`Application renders correctly 1`] = `
         <img
           alt=""
           aria-hidden="true"
-          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+          src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
           style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
         />
       </span>
@@ -288,7 +288,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -320,7 +320,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -352,7 +352,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -474,7 +474,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27500%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -624,7 +624,7 @@ exports[`Application renders correctly 1`] = `
                 <img
                   alt=""
                   aria-hidden="true"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27500%27/%3e"
                   style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
                 />
               </span>
@@ -707,7 +707,7 @@ exports[`Application renders correctly 1`] = `
                 <img
                   alt=""
                   aria-hidden="true"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%27500%27/%3e"
                   style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
                 />
               </span>
@@ -812,7 +812,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -844,7 +844,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -876,7 +876,7 @@ exports[`Application renders correctly 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY2LjY2NjY2NjY2NjY2NjY2IiBoZWlnaHQ9IjE2Ni42NjY2NjY2NjY2NjY2NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27166.66666666666666%27%20height=%27166.66666666666666%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>

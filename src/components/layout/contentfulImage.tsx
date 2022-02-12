@@ -7,12 +7,13 @@ interface ContentfulImageProps
   image: Asset;
   alt: string;
   ratio?: number;
+  downloadWidth?: number;
 }
 
 const ContentfulImage: React.FC<ContentfulImageProps> = ({
   image,
   alt,
-  ratio = 1,
+  downloadWidth,
   ...props
 }) => {
   const { url, details } = image.fields.file;
@@ -24,12 +25,15 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
   const { width, height } = details.image;
 
   const sizeProps =
-    props.layout !== 'fill' || !props.layout
-      ? { width: width * ratio, height: height * ratio }
-      : {};
+    props.layout !== 'fill' || !props.layout ? { width, height } : {};
 
   return (
     <CustomImage
+      loader={
+        downloadWidth === undefined
+          ? downloadWidth
+          : ({ src, quality = 75 }) => `${src}?w=${downloadWidth}&q=${quality}`
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       src={('https:' + url) as any}
       alt={alt}

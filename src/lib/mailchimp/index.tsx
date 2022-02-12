@@ -16,8 +16,6 @@ export const subscribeToNewsletter: (email: string) => Promise<void> = async (
 
   await mailchimp.lists.setListMember(LIST_ID, hash, {
     email_address: email,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
     status_if_new: 'subscribed',
   });
 

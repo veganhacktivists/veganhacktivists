@@ -3,9 +3,24 @@ import client, { getContents, previewClient } from '.';
 import type {
   IBlogEntry,
   IBlogEntryFields,
+  IDocsCategory,
+  IDocsCategoryFields,
   IProjectFields,
   ITeamFields,
 } from '../../types/generated/contentful';
+
+export const getDocCategoryPreviewBySlug: (
+  slug: IDocsCategoryFields['slug']
+) => Promise<IDocsCategory> = async (slug) => {
+  const response = await previewClient.getEntries({
+    'fields.slug': slug,
+    content_type: 'docsCategory',
+    include: 4,
+    limit: 1,
+  });
+
+  return response.items[0] as IDocsCategory;
+};
 
 export const getBlogPreviewBySlug: (
   slug: string

@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview = false,
 }) => {
   const blog = await getEntryOrPreview(params.slug as string, preview);
+
   if (!blog) {
     return {
       notFound: true,
