@@ -40,7 +40,7 @@ const NewsletterPopup: React.FC = () => {
         onChange(false);
       }}
     >
-      <Newsletter onChange={onChange} />
+      <Newsletter onChange={onChange} showCancelButton />
     </Modal>
   );
 };

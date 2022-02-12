@@ -15,9 +15,13 @@ interface NewsletterRequestProps {
 
 interface NewsletterProps {
   onChange?: (signedUp: boolean) => void;
+  showCancelButton?: boolean;
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ onChange }) => {
+const Newsletter: React.FC<NewsletterProps> = ({
+  onChange,
+  showCancelButton,
+}) => {
   const {
     register,
     handleSubmit,
@@ -103,10 +107,22 @@ const Newsletter: React.FC<NewsletterProps> = ({ onChange }) => {
             >
               <></>
             </TextInput>
+            <div className="flex flex-col md:flex-row mt-5 align-baseline gap-x-10 gap-y-2 justify-center">
+              <DarkButton className="w-full md:w-auto" type="submit">
+                {isSubmitting ? <Spinner /> : 'Sign up!'}
+              </DarkButton>
+              {showCancelButton && (
+                <div className="my-auto">
+                  <p
+                    onClick={() => onChange?.(false)}
+                    className="font-mono underline cursor-pointer"
+                  >
+                    No thanks
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-          <DarkButton className="w-full md:w-auto" type="submit">
-            {isSubmitting ? <Spinner /> : 'Sign up!'}
-          </DarkButton>
         </div>
       </form>
     </div>
