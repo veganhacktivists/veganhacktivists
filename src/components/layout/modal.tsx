@@ -22,12 +22,10 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      setTransitionClasses(isOpen ? '-translate-y-1/2' : INITIAL_CONTENT_CLASS);
-      setOverlayTransitionClasses(
-        isOpen ? 'bg-opacity-75' : INITIAL_OVERLAY_CLASS
-      );
-    }, 1);
+    setTransitionClasses(isOpen ? '-translate-y-1/2' : INITIAL_CONTENT_CLASS);
+    setOverlayTransitionClasses(
+      isOpen ? 'bg-opacity-75' : INITIAL_OVERLAY_CLASS
+    );
   }, [isOpen]);
 
   const reduceMotion = useReduceMotion();
