@@ -10,11 +10,18 @@ const NewsletterPopup: React.FC = () => {
   useEffect(() => {
     const userHasSignedUp = cookies['newsletter'];
 
+    let timeoutHandle: NodeJS.Timeout;
     if (userHasSignedUp === undefined) {
-      setTimeout(() => {
+      timeoutHandle = setTimeout(() => {
         setOpen(true);
       }, 60 * 1000);
     }
+
+    return () => {
+      if (timeoutHandle) {
+        clearTimeout(timeoutHandle);
+      }
+    };
   }, []);
 
   return (
