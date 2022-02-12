@@ -81,6 +81,9 @@ module.exports = {
       borderWidth: {
         16: '16px',
       },
+      transitionProperty: {
+        'background-position': 'background-position',
+      },
     },
     colors,
     fontFamily: {

@@ -33,8 +33,10 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
     return React.cloneElement(child, {
       className: classNames(
         props.className,
-        'transition-all duration-[400ms] ease-linear',
-        { 'hover:!bg-left': !disabled }
+        'transition-background-position duration-[400ms] ease-linear',
+        {
+          'hover:!bg-left': !disabled,
+        }
       ),
       style: { ...props.style, ...(disabled ? {} : fillStyle(base, fill)) },
     });
