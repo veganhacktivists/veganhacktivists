@@ -24,6 +24,10 @@ const NewsletterPopup: React.FC = () => {
     };
   }, []);
 
+  if (cookies['newsletter'] !== undefined) {
+    return null;
+  }
+
   const onChange = (signedUp: boolean) => {
     setOpen(false);
     setCookies('newsletter', signedUp, {
