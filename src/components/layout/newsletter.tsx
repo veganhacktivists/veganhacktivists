@@ -82,8 +82,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
       </h1>
       <div
         className={classNames(
-          'mx-auto text-center text-2xl',
-          popup ? 'hidden md:block mb-4' : 'mb-8'
+          'mx-auto text-center text-2xl mb-8',
+          popup ? 'hidden md:block' : ''
         )}
       >
         Join our newsletter now and never miss an update! <br />
@@ -91,8 +91,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
       </div>
       <div
         className={classNames(
-          'mx-auto w-full text-xl font-italic',
-          popup ? 'mb-4 md:w-2/3' : 'mb-8'
+          'mx-auto w-full text-xl font-italic mb-8',
+          popup ? 'md:w-2/3' : ''
         )}
       >
         {[
