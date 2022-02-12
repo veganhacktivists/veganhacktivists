@@ -91,7 +91,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
 
       <form className="text-2xl" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col space-x-2 justify-center items-center gap-y-8">
-          <div className="md:w-1/2">
+          <div className="w-2/3 xl:w-1/2">
             <TextInput
               {...register('email', {
                 required: 'Please enter an email!',
@@ -107,21 +107,28 @@ const Newsletter: React.FC<NewsletterProps> = ({
             >
               <></>
             </TextInput>
-            <div className="flex flex-col md:flex-row mt-5 align-baseline gap-x-10 gap-y-2 justify-center">
-              <DarkButton className="w-full md:w-auto" type="submit">
-                {isSubmitting ? <Spinner /> : 'Sign up!'}
-              </DarkButton>
-              {showCancelButton && (
-                <div className="my-auto">
-                  <p
-                    onClick={() => onChange?.(false)}
-                    className="font-mono underline cursor-pointer"
-                  >
-                    No thanks
-                  </p>
-                </div>
-              )}
-            </div>
+          </div>
+          <div className="flex flex-col md:flex-row align-baseline gap-x-10 gap-y-2 justify-center">
+            <DarkButton className="w-full md:w-auto mx-auto" type="submit">
+              {isSubmitting ? <Spinner /> : 'Sign up!'}
+            </DarkButton>
+            {showCancelButton && (
+              <div className="m-auto">
+                <p
+                  onClick={() => {
+                    if (!isSubmitting) {
+                      onChange?.(false);
+                    }
+                  }}
+                  className={classNames('font-mono underline cursor-pointer', {
+                    'cursor-pointer': !isSubmitting,
+                    'cursor-not-allowed': isSubmitting,
+                  })}
+                >
+                  No thanks
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </form>
