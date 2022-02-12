@@ -6,12 +6,11 @@ import { useCookies } from 'react-cookie';
 const NewsletterPopup: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [cookies, setCookies] = useCookies(['newsletter']);
+  const userHasSignedUp = cookies['newsletter'] !== undefined;
 
   useEffect(() => {
-    const userHasSignedUp = cookies['newsletter'];
-
     let timeoutHandle: NodeJS.Timeout;
-    if (userHasSignedUp === undefined) {
+    if (!userHasSignedUp) {
       timeoutHandle = setTimeout(() => {
         setOpen(true);
       }, 60 * 1000);
@@ -24,7 +23,7 @@ const NewsletterPopup: React.FC = () => {
     };
   }, []);
 
-  if (cookies['newsletter'] !== undefined) {
+  if (userHasSignedUp) {
     return null;
   }
 
