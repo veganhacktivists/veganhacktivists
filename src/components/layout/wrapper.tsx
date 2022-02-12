@@ -2,6 +2,7 @@ import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
+import NewsletterPopup from './newsletterPopup';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -37,6 +38,7 @@ export const MainWrapper: React.FC = ({ children }) => {
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
+        <NewsletterPopup />
       </main>
     </ErrorBoundary>
   );
