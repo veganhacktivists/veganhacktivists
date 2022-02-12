@@ -60,7 +60,7 @@ exports[`Application renders correctly 1`] = `
           href="/about"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/about"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -241,7 +241,7 @@ exports[`Application renders correctly 1`] = `
         href="/about/our-mission"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
           href="/about/our-mission"
           style="background-size: 250% 100%; background-position: right;"
         >
@@ -424,7 +424,7 @@ exports[`Application renders correctly 1`] = `
           href="/projects"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green font-mono transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/projects"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -499,7 +499,7 @@ exports[`Application renders correctly 1`] = `
           href="/people/team"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/people/team"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -510,7 +510,7 @@ exports[`Application renders correctly 1`] = `
           href="/join"
         >
           <div
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold m-5 font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
             href="/join"
             style="background-size: 250% 100%; background-position: right;"
           >
@@ -571,7 +571,7 @@ exports[`Application renders correctly 1`] = `
         href="/blog"
       >
         <div
-          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+          class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
           href="/blog"
           style="background-size: 250% 100%; background-position: right;"
         >
@@ -662,7 +662,7 @@ exports[`Application renders correctly 1`] = `
                 href="/grants"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
                   href="/grants"
                   style="background-size: 250% 100%; background-position: right;"
                 >
@@ -745,7 +745,7 @@ exports[`Application renders correctly 1`] = `
                 href="/year-in-review/2021"
               >
                 <div
-                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-all duration-[400ms] ease-linear hover:!bg-left capitalize"
+                  class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green md:max-w-72 transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
                   href="/year-in-review/2021"
                   style="background-size: 250% 100%; background-position: right;"
                 >

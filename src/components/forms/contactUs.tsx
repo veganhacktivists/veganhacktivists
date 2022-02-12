@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
 import SelectInput from './inputs/selectInput';
@@ -8,7 +8,6 @@ import Label from './inputs/label';
 import TextInput from './inputs/textInput';
 import TextArea from './inputs/textArea';
 
-import 'react-toastify/dist/ReactToastify.css';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { useRouter } from 'next/router';
 import ky from 'ky-universal';
@@ -135,7 +134,6 @@ const ContactUsForm: React.FC = () => {
           </DarkButton>
         </div>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };

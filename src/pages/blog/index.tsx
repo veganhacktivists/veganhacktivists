@@ -191,7 +191,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         ]}
         className="hidden md:block"
       />
-      <Newsletter />
+      <div className="bg-grey-background">
+        <Newsletter />
+      </div>
     </>
   );
 };

@@ -5,10 +5,9 @@ import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Spinner from '../../decoration/spinner';
 
-import 'react-toastify/dist/ReactToastify.css';
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
@@ -343,7 +342,6 @@ const GrantsApplication: React.FC = () => {
           {isSubmitting ? <Spinner /> : 'Submit'}
         </DarkButton>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };

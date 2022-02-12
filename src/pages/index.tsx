@@ -1,19 +1,19 @@
+import type { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
+import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
+import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { GrantsCallToAction } from '../components/layout/grants/index';
-import JoinTheTeam from '../components/layout/joinTheTeam';
-import Sprite, { cow, goat } from '../components/decoration/sprite';
 import FeaturedProject from '../components/layout/index/featuredProject';
-import type { IBlogEntry, IProject } from '../types/generated/contentful';
-import type { GetStaticProps } from 'next';
-import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
-import CustomImage from '../components/decoration/customImage';
-import { NextSeo } from 'next-seo';
+import JoinTheTeam from '../components/layout/joinTheTeam';
 import { pixelHeart } from '../images/separators';
+import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
+import type { IBlogEntry, IProject } from '../types/generated/contentful';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
