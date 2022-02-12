@@ -1,40 +1,40 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import React from 'react';
 
 interface ModalProps {
   open: boolean;
-  animationDuration?: string;
+  onClose?: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  children,
-  open,
-  animationDuration = '500ms',
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-
+const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
   return (
-    <div
-      ref={ref}
-      className={classNames(
-        'fixed top-0 z-[999] w-full h-full flex items-center justify-center',
-        open ? '' : 'pointer-events-none'
-      )}
-    >
+    <div className={classNames({ invisible: !open })}>
       <div
-        className={`absolute top-0 w-full h-full bg-black ${
+        onClick={() => {
+          onClose?.();
+        }}
+        className={classNames(
+          'fixed w-full top-0 left-0 h-full bg-black transition-all duration-700 z-[999]',
           open ? 'opacity-70' : 'opacity-0'
-        } transition-all ease-out`}
-        style={{ transitionDuration: animationDuration }}
+        )}
       />
       <div
-        className={`h-full w-full flex items-center justify-center ${
-          open ? 'translate-y-[0vh]' : 'translate-y-[100vh]'
-        } transition-all ease-out`}
-        style={{ transitionDuration: animationDuration }}
+        className={classNames(
+          'z-[1000] w-full md:w-1/2 fixed top-1/2 left-1/2  -translate-x-1/2 transition-all duration-700',
+          {
+            '-translate-y-1/2': open,
+          }
+        )}
       >
-        {children}
+        <div
+          onClick={() => {
+            onClose?.();
+          }}
+          className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer"
+        >
+          &#10005;
+        </div>
+        <div>{children}</div>
       </div>
     </div>
   );

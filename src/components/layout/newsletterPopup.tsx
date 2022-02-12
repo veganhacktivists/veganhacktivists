@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie';
 
 const NewsletterPopup: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [cookies] = useCookies(['newsletter']);
+  const [cookies, setCookies] = useCookies(['newsletter']);
 
   useEffect(() => {
     const userHasSignedUp = cookies['newsletter'];
@@ -24,9 +24,23 @@ const NewsletterPopup: React.FC = () => {
     };
   }, []);
 
+  const onChange = (signedUp: boolean) => {
+    setOpen(false);
+    setCookies('newsletter', signedUp, {
+      path: '/',
+      sameSite: 'strict',
+      maxAge: signedUp ? 60 * 60 * 24 * 360 * 10 : 60 * 60 * 24 * 14, // 10 years or 2 weeks
+    });
+  };
+
   return (
-    <Modal open={open} animationDuration="700ms">
-      <Newsletter popup setOpen={setOpen} />
+    <Modal
+      open={open}
+      onClose={() => {
+        onChange(false);
+      }}
+    >
+      <Newsletter onChange={onChange} />
     </Modal>
   );
 };
