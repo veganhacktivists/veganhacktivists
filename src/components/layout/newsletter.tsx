@@ -3,7 +3,6 @@ import ky from 'ky-universal';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { pixelEnvelope } from '../../images/separators';
 import { DarkButton } from '../decoration/buttons';
 import CustomImage from '../decoration/customImage';
@@ -27,10 +26,15 @@ const Newsletter: React.FC<NewsletterProps> = ({ onChange }) => {
 
   const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
     const submit = async () => {
-      await ky.post('/api/subscribe-to-newsletter', {
-        json: props,
-      });
-      onChange?.(true);
+      try {
+        await ky.post('/api/subscribe-to-newsletter', {
+          json: props,
+        });
+        onChange?.(true);
+      } catch (e) {
+        onChange?.(false);
+        throw e;
+      }
     };
 
     await toast
