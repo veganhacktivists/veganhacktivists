@@ -4,7 +4,7 @@ import Newsletter from './newsletter';
 import { useCookies } from 'react-cookie';
 
 const NewsletterPopup: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [cookies, setCookies] = useCookies(['newsletter']);
   const userHasSignedUp = cookies['newsletter'] !== undefined;
 
@@ -12,7 +12,7 @@ const NewsletterPopup: React.FC = () => {
     let timeoutHandle: NodeJS.Timeout;
     if (!userHasSignedUp) {
       timeoutHandle = setTimeout(() => {
-        setOpen(true);
+        setIsOpen(true);
       }, 60 * 1000);
     }
 
@@ -28,7 +28,7 @@ const NewsletterPopup: React.FC = () => {
   }
 
   const onChange = (signedUp: boolean) => {
-    setOpen(false);
+    setIsOpen(false);
     setCookies('newsletter', signedUp, {
       path: '/',
       sameSite: 'strict',
@@ -38,7 +38,7 @@ const NewsletterPopup: React.FC = () => {
 
   return (
     <Modal
-      open={open}
+      isOpen={isOpen}
       onClose={() => {
         onChange(false);
       }}

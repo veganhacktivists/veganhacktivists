@@ -1,31 +1,52 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement('#main');
 
 interface ModalProps {
-  open: boolean;
+  isOpen: boolean;
   onClose?: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
+const INITIAL_CONTENT_CLASS = 'translate-y-full';
+const INITIAL_OVERLAY_CLASS = 'bg-opacity-0';
+
+const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
+  const [transitionClasses, setTransitionClasses] = useState(
+    INITIAL_CONTENT_CLASS
+  );
+  const [overlayTransitionClasses, setOverlayTransitionClasses] = useState(
+    INITIAL_OVERLAY_CLASS
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTransitionClasses(isOpen ? '-translate-y-1/2' : INITIAL_CONTENT_CLASS);
+      setOverlayTransitionClasses(
+        isOpen ? 'bg-opacity-75' : INITIAL_OVERLAY_CLASS
+      );
+    }, 1);
+  }, [isOpen]);
+
   return (
-    <div className={classNames({ invisible: !open })}>
-      <div
-        onClick={() => {
-          onClose?.();
-        }}
-        className={classNames(
-          'fixed w-full top-0 left-0 h-full bg-black transition-all duration-700 z-[999]',
-          open ? 'opacity-70' : 'opacity-0'
-        )}
-      />
-      <div
-        className={classNames(
-          'z-[1000] w-full md:w-1/2 fixed top-1/2 left-1/2  -translate-x-1/2 transition-all duration-700',
-          {
-            '-translate-y-1/2': open,
-          }
-        )}
-      >
+    <ReactModal
+      isOpen={isOpen}
+      className={classNames(
+        'fixed w-full md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 z-[9999] transition-all duration-700',
+        transitionClasses
+      )}
+      overlayClassName={classNames(
+        'bg-black inset-0 fixed transition-all duration-700 z-[9998]',
+        overlayTransitionClasses
+      )}
+      onRequestClose={() => {
+        onClose?.();
+      }}
+      shouldCloseOnEsc
+      shouldCloseOnOverlayClick
+    >
+      <div>
         <div
           onClick={() => {
             onClose?.();
@@ -36,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
         </div>
         <div>{children}</div>
       </div>
-    </div>
+    </ReactModal>
   );
 };
 
