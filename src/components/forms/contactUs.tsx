@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { DarkButton } from '../decoration/buttons';
 import Spinner from '../decoration/spinner';
 import SelectInput from './inputs/selectInput';
@@ -135,7 +135,6 @@ const ContactUsForm: React.FC = () => {
           </DarkButton>
         </div>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };

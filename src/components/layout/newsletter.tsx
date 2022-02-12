@@ -3,7 +3,7 @@ import ky from 'ky-universal';
 import React, { useCallback } from 'react';
 import { useCookies } from 'react-cookie';
 import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { pixelEnvelope } from '../../images/separators';
 import { DarkButton } from '../decoration/buttons';
@@ -163,7 +163,6 @@ const Newsletter: React.FC<NewsletterProps> = ({
           )}
         </div>
       </form>
-      <ToastContainer position="bottom-right" />
     </div>
   );
 };

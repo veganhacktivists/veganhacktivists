@@ -1,5 +1,6 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { ToastContainer } from 'react-toastify';
 import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 import NewsletterPopup from './newsletterPopup';
@@ -40,6 +41,7 @@ export const MainWrapper: React.FC = ({ children }) => {
         <CookiesCTA />
         <NewsletterPopup />
       </main>
+      <ToastContainer position="bottom-right" />
     </ErrorBoundary>
   );
 };
