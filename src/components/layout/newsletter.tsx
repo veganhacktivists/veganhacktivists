@@ -34,7 +34,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
 
   const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
     const submit = async () => {
-      ky.post('/api/subscribe-to-newsletter', {
+      await ky.post('/api/subscribe-to-newsletter', {
         json: props,
       });
 
@@ -150,12 +150,12 @@ const Newsletter: React.FC<NewsletterProps> = ({
               className="w-full md:w-auto"
               type="button"
               onClick={() => {
-                setOpen(false);
                 setCookies('newsletter', 'false', {
                   path: '/',
                   sameSite: 'strict',
                   maxAge: 60 * 60 * 24 * 14, // 2 weeks
                 });
+                setOpen(false);
               }}
             >
               No Thanks
