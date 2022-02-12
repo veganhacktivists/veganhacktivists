@@ -5,6 +5,8 @@ import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 import NewsletterPopup from './newsletterPopup';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
   return (
