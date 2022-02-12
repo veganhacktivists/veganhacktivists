@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import ky from 'ky-universal';
 import React, { useCallback } from 'react';
-import { useCookies } from 'react-cookie';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,37 +15,22 @@ interface NewsletterRequestProps {
 }
 
 interface NewsletterProps {
-  popup?: boolean;
-  setOpen?: (open: boolean) => void;
+  onChange?: (signedUp: boolean) => void;
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({
-  popup = false,
-  setOpen = () => {},
-}) => {
+const Newsletter: React.FC<NewsletterProps> = ({ onChange }) => {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm<NewsletterRequestProps>();
 
-  const [_, setCookies] = useCookies(['newsletter']);
-
   const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
     const submit = async () => {
       await ky.post('/api/subscribe-to-newsletter', {
         json: props,
       });
-
-      setCookies('newsletter', 'true', {
-        path: '/',
-        sameSite: 'strict',
-        maxAge: 60 * 60 * 24 * 360 * 10, // Ten years
-      });
-
-      if (popup) {
-        setOpen(false);
-      }
+      onChange?.(true);
     };
 
     await toast
@@ -62,12 +46,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
   }, []);
 
   return (
-    <div
-      className={classNames(
-        'p-8 bg-grey-background text-grey w-full mx-auto',
-        popup ? '' : 'md:w-1/2'
-      )}
-    >
+    <div className="p-8 bg-grey-background text-grey w-full mx-auto">
       <div className="flex justify-center">
         <CustomImage
           src={pixelEnvelope.src}
@@ -76,56 +55,35 @@ const Newsletter: React.FC<NewsletterProps> = ({
           alt="Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
         />
       </div>
-      <h1 className={classNames('text-center', popup ? 'mb-4' : 'mb-8')}>
+      <h1 className="text-center mb-8">
         <span className="font-italic text-3xl">Our</span>{' '}
         <span className="font-bold text-4xl">NEWSLETTER</span>
       </h1>
-      <div
-        className={classNames(
-          'mx-auto text-center text-2xl mb-8',
-          popup ? 'hidden md:block' : ''
-        )}
-      >
+      <div className="mx-auto text-center text-2xl mb-8">
         Join our newsletter now and never miss an update! <br />
         Sign up now to receive...
       </div>
-      <div
-        className={classNames(
-          'mx-auto w-full text-xl font-italic mb-8',
-          popup ? 'md:w-2/3' : ''
-        )}
-      >
-        {[
-          'Instant updates from our blog',
-          'Exclusive previews of upcoming events',
-          'Early access to events',
-          'And Much More!',
-        ].map((bulletText, i) => (
-          <div
-            className={classNames(
-              'inline-flex text-left items-baseline space-x-2 w-full p-1',
-              popup ? 'md:w-1/2' : ''
-            )}
-            key={i}
-          >
-            <div>
-              <div className="w-2 h-2 mb-1 bg-green" />
-            </div>
-            <p>{bulletText}</p>
-          </div>
-        ))}
+      <div className={classNames('mx-auto text-xl font-italic mb-8 w-fit')}>
+        <ul className="list-none">
+          {[
+            'Instant updates from our blog',
+            'Exclusive previews of upcoming events',
+            'Early access to events',
+            'And Much More!',
+          ].map((bulletText, i) => (
+            <li
+              className="before:bg-green before:inline-block before:w-2 before:h-2 flex flex-row gap-x-2 items-baseline p-1 w-fit text-left"
+              key={i}
+            >
+              {bulletText}
+            </li>
+          ))}
+        </ul>
       </div>
 
       <form className="text-2xl" onSubmit={handleSubmit(onSubmit)}>
-        <div
-          className={classNames(
-            'flex flex-col space-x-2 justify-center',
-            popup
-              ? 'md:flex-row items-end md:items-baseline space-y-2'
-              : 'items-center space-y-8'
-          )}
-        >
-          <div className={classNames('w-full', popup ? 'md:w-1/3' : '')}>
+        <div className="flex flex-col space-x-2 justify-center items-center gap-y-8">
+          <div className="md:w-1/2">
             <TextInput
               {...register('email', {
                 required: 'Please enter an email!',
@@ -145,22 +103,6 @@ const Newsletter: React.FC<NewsletterProps> = ({
           <DarkButton className="w-full md:w-auto" type="submit">
             {isSubmitting ? <Spinner /> : 'Sign up!'}
           </DarkButton>
-          {popup && (
-            <DarkButton
-              className="w-full md:w-auto"
-              type="button"
-              onClick={() => {
-                setCookies('newsletter', 'false', {
-                  path: '/',
-                  sameSite: 'strict',
-                  maxAge: 60 * 60 * 24 * 14, // 2 weeks
-                });
-                setOpen(false);
-              }}
-            >
-              No Thanks
-            </DarkButton>
-          )}
         </div>
       </form>
     </div>
