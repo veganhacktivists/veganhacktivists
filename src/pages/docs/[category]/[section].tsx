@@ -136,7 +136,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
 
     return [categoryDate, sectionDate, ...docDates]
       .filter((x) => !!x)
-      .reduce((a, b) => (a < b ? a : b));
+      .sort()[0];
   }, [category.fields.slug]);
 
   const sectionIndex = category.fields.sections.findIndex(
