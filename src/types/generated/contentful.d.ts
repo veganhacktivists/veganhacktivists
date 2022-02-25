@@ -211,8 +211,8 @@ export interface IProjectFields {
   /** isFeatured */
   isFeatured: boolean;
 
-  /** isRetired */
-  isRetired: boolean;
+  /** Retired info */
+  retiredInfo?: IRetiredProjectInfo | undefined;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -225,6 +225,34 @@ export interface IProject extends Entry<IProjectFields> {
     contentType: {
       sys: {
         id: "project";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IRetiredProjectInfoFields {
+  /** Retire date */
+  retireDate: string;
+
+  /** Archive URL */
+  archiveUrl?: string | undefined;
+
+  /** screenshots */
+  screenshots: Asset[];
+}
+
+export interface IRetiredProjectInfo extends Entry<IRetiredProjectInfoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "retiredProjectInfo";
         linkType: "ContentType";
         type: "Link";
       };
@@ -422,6 +450,7 @@ export type CONTENT_TYPE =
   | "documentation"
   | "multipleValues"
   | "project"
+  | "retiredProjectInfo"
   | "singleValues"
   | "socialLinks"
   | "tag"
