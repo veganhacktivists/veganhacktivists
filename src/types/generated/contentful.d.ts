@@ -210,6 +210,12 @@ export interface IProjectFields {
 
   /** isFeatured */
   isFeatured: boolean;
+
+  /** Retired info */
+  retiredInfo?: IRetiredProjectInfo | undefined;
+
+  /** Repo URL */
+  repoUrl?: string | undefined;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -222,6 +228,34 @@ export interface IProject extends Entry<IProjectFields> {
     contentType: {
       sys: {
         id: "project";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IRetiredProjectInfoFields {
+  /** Retire date */
+  retireDate: string;
+
+  /** Archive URL */
+  archiveUrl?: string | undefined;
+
+  /** screenshots */
+  screenshots: Asset[];
+}
+
+export interface IRetiredProjectInfo extends Entry<IRetiredProjectInfoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "retiredProjectInfo";
         linkType: "ContentType";
         type: "Link";
       };
@@ -411,6 +445,28 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
+export interface IYoutubeVideoFields {
+  /** id */
+  id: string;
+}
+
+export interface IYoutubeVideo extends Entry<IYoutubeVideoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "youtubeVideo";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | "blogEntry"
   | "codeBlock"
@@ -419,11 +475,13 @@ export type CONTENT_TYPE =
   | "documentation"
   | "multipleValues"
   | "project"
+  | "retiredProjectInfo"
   | "singleValues"
   | "socialLinks"
   | "tag"
   | "team"
-  | "teamMember";
+  | "teamMember"
+  | "youtubeVideo";
 
 export type LOCALE_CODE = "en-US";
 

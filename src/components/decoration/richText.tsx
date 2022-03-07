@@ -10,10 +10,12 @@ import React from 'react';
 import type {
   CONTENT_TYPE,
   ICodeBlockFields,
+  IYoutubeVideoFields,
 } from '../../types/generated/contentful';
 import ContentfulImage from '../layout/contentfulImage';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import YoutubeVideo from './youtubeVideo';
 
 interface RichTextProps {
   document: Document;
@@ -29,6 +31,15 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
         <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
+      </div>
+    );
+  },
+  youtubeVideo: (node) => {
+    const { id }: IYoutubeVideoFields = node.data.target.fields;
+
+    return (
+      <div className="my-10 w-full md:w-4/5 mx-auto">
+        <YoutubeVideo id={id} />
       </div>
     );
   },

@@ -2,6 +2,7 @@ import React from 'react';
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
+import YoutubeVideo from '../../../decoration/youtubeVideo';
 
 import SectionContainer from '../sectionContainer';
 
@@ -36,24 +37,16 @@ const AnimatedVideos: React.FC = () => {
       >
         <div>
           <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10 mb-10">
-            <div className="md:w-1/2">
-              <iframe
-                className="w-full aspect-video"
-                src="https://www.youtube.com/embed/9W_nU_znBQk"
+            <div className="w-full">
+              <YoutubeVideo
+                id="9W_nU_znBQk"
                 title="Activist Hub - World's first animal rights social network and outreach dashboard!"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
               />
             </div>
-            <div className="md:w-1/2">
-              <iframe
-                className="w-full aspect-video"
-                src="https://www.youtube.com/embed/D9svDr0UhqI"
+            <div className="w-full">
+              <YoutubeVideo
+                id="D9svDr0UhqI"
                 title="Vegan Bootcamp - Free 30 day vegan challenge program!"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
               />
             </div>
           </div>
