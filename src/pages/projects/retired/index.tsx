@@ -13,14 +13,16 @@ import type { GetStaticProps } from 'next';
 import { getContents } from '../../../lib/cms';
 import SubtleBorder from '../../../components/decoration/subtleBorder';
 interface RetiredProjectsProps {
-  projects: IProjectFields[];
+  projects: (IProjectFields & { retiredInfo: IRetiredProjectInfo })[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
     query: {
-      name: 'Daily Nooch',
+      filters: {
+        exists: { retiredInfo: true },
+      },
     },
     other: {
       order: '-fields.date',
@@ -36,6 +38,7 @@ const RetiredProjects: React.FC<RetiredProjectsProps> = ({ projects }) => {
   return (
     <>
       <NextSeo title="Retired projects" />
+      <h1 className="text-4xl font-bold my-10">Retired projects</h1>
       <div className="md:w-1/2 mx-auto">
         <SubtleBorder>
           {projects.map((project) => (

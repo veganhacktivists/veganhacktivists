@@ -213,6 +213,9 @@ export interface IProjectFields {
 
   /** Retired info */
   retiredInfo?: IRetiredProjectInfo | undefined;
+
+  /** Repo URL */
+  repoUrl?: string | undefined;
 }
 
 export interface IProject extends Entry<IProjectFields> {

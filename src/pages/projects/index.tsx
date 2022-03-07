@@ -165,7 +165,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects, projectYears }) => {
           We&apos;re constantly working on new projects every month, whether
           they&apos;re ideas of our own or supporting organizations and
           activists that reach out to us. Below is a list of our work, and which
-          of our teams worked on it.
+          of our teams worked on it.{' '}
+          <Link href="/projects/retired">
+            <a className="underline">See our retired projects here</a>
+          </Link>
+          .
         </FirstSubSection>
         <div className="flex flex-col space-y-20 items-center mx-auto text-2xl pb-20">
           <div className="flex flex-wrap place-content-center justify-center">

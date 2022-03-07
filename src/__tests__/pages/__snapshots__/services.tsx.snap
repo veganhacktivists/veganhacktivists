@@ -178,7 +178,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
                 href="#contact-us"
                 style="background-size: 250% 100%; background-position: right;"
               >
@@ -246,7 +246,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
                 href="#contact-us"
                 style="background-size: 250% 100%; background-position: right;"
               >
@@ -314,7 +314,7 @@ exports[`should render correctly 1`] = `
               href="/grants"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
                 href="/grants"
                 style="background-size: 250% 100%; background-position: right;"
               >
@@ -382,7 +382,7 @@ exports[`should render correctly 1`] = `
               href="/#contact-us"
             >
               <div
-                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
+                class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
                 href="#contact-us"
                 style="background-size: 250% 100%; background-position: right;"
               >
@@ -720,7 +720,7 @@ exports[`should render correctly 1`] = `
           class="pt-5 pb-10"
         >
           <button
-            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green w-52 px-10 transition-background-position duration-[400ms] ease-linear hover:!bg-left capitalize"
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green w-52 px-10 transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
             style="background-size: 250% 100%; background-position: right;"
             type="submit"
           >
