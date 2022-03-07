@@ -40,7 +40,7 @@ const Playground: React.FC = () => {
               </p>
               <div className="mt-5 pt-5 w-min mx-auto md:mx-0">
                 <DarkButton
-                  href="https://discord.gg/vw5HUX9HW5"
+                  href="https://discord.gg/cRqJBmUR9b"
                   className="w-min font-semibold"
                 >
                   Join the playground
