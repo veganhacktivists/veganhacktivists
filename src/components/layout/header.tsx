@@ -15,7 +15,7 @@ const LeftSide: React.FC = () => {
   const isRootPage = pathname === '/';
 
   return (
-    <div className="bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle items-center flex-shrink">
+    <div className="bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle flex items-center flex-shrink">
       {/* root */}
       <Link href="/">
         <a className={classNames('block', { hidden: !isRootPage })}>
@@ -31,7 +31,7 @@ const LeftSide: React.FC = () => {
       </Link>
       {/* others */}
       <Link href="/">
-        <a className={classNames('block', { hidden: isRootPage })}>
+        <a className={classNames('flex items-center', { hidden: isRootPage })}>
           <CustomImage
             src={logoOneLine}
             alt="Vegan Hacktivists Logo"
