@@ -12,6 +12,7 @@ import type { Asset } from 'contentful';
 import type { GetStaticProps } from 'next';
 import { getContents } from '../../../lib/cms';
 import SubtleBorder from '../../../components/decoration/subtleBorder';
+import SimpleReactLightbox from 'simple-react-lightbox';
 interface RetiredProjectsProps {
   projects: (IProjectFields & { retiredInfo: IRetiredProjectInfo })[];
 }
@@ -41,11 +42,13 @@ const RetiredProjects: React.FC<RetiredProjectsProps> = ({ projects }) => {
       <h1 className="text-4xl font-bold my-10">Retired projects</h1>
       <div className="md:w-1/2 mx-auto">
         <SubtleBorder>
-          {projects.map((project) => (
-            <div key={project.name}>
-              <RetiredProject {...project} />
-            </div>
-          ))}
+          <SimpleReactLightbox>
+            {projects.map((project) => (
+              <div key={project.name}>
+                <RetiredProject {...project} />
+              </div>
+            ))}
+          </SimpleReactLightbox>
         </SubtleBorder>
       </div>
     </>
