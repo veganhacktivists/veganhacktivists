@@ -18,7 +18,7 @@ const LeftSide: React.FC = () => {
     <div className="bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle flex items-center flex-shrink">
       {/* root */}
       <Link href="/">
-        <a className={classNames('block', { hidden: !isRootPage })}>
+        <a className={classNames({ hidden: !isRootPage })}>
           <CustomImage
             src={logoBig}
             alt="Vegan Hacktivists Logo"
