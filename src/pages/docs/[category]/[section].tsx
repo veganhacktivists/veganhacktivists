@@ -18,6 +18,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RichText from '../../../components/decoration/richText';
 import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
+import type { Entry } from 'contentful';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({
@@ -66,7 +67,7 @@ const getCategoryOrPreview: (
         },
         other: {
           limit: 1,
-          include: 3,
+          include: 4,
         },
       })
     : getContents<IDocsCategoryFields>({
@@ -98,7 +99,10 @@ export const getStaticProps: GetStaticProps = async ({
 
   const categories = await getContents<IDocsCategoryFields>({
     contentType: 'docsCategory',
-    other: { order: 'fields.order', include: 3 },
+    other: {
+      order: 'fields.order',
+      include: 4,
+    },
   });
 
   if (!categories || !category || !section) {
@@ -134,9 +138,12 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       section.fields.subsections?.map((doc) => new Date(doc.sys.updatedAt)) ||
       [];
 
-    return [categoryDate, sectionDate, ...docDates]
-      .filter((x) => !!x)
-      .sort()[0];
+    const mostRecentDate = [categoryDate, sectionDate, ...docDates].reduce(
+      (date, mostRecent) => (date > mostRecent ? date : mostRecent),
+      categoryDate
+    );
+
+    return mostRecentDate;
   }, [category.fields.slug]);
 
   const sectionIndex = category.fields.sections.findIndex(
