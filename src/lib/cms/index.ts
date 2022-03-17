@@ -79,7 +79,46 @@ export const getContents: <T>(options: {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return response.items as Entry<any>[];
+  return response.items.map(removeEntriesWithoutFields) as Entry<any>[];
+};
+
+/**
+  Contentful is supposed to remove archived items from the response, and it does.
+  The problem is that it keeps them as a nested field inside the parent entry.
+  Archived entries can only be filtered knowing the exact nesting of the fields, so as a solution we remove those invalid entries by hand. an invalid entry is the one that only has a `sys` field.
+  For more info: https://www.contentful.com/developers/docs/tutorials/general/determine-entry-asset-state/
+*/
+const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
+  entry
+) => {
+  if ('sys' in entry && Object.keys(entry).length === 1) {
+    return null;
+  }
+
+  const entries = entry.fields
+    ? Object.entries(entry.fields)
+        .map(([key, value]) => {
+          let filteredValue;
+          if (Array.isArray(value)) {
+            filteredValue = value
+              .filter((child) => !!child.fields)
+              .map(removeEntriesWithoutFields);
+          } else if (typeof value === 'object') {
+            filteredValue = removeEntriesWithoutFields(value);
+          } else {
+            filteredValue = value;
+          }
+
+          return [key, filteredValue];
+        })
+
+        .filter(([, value]) => !!value)
+    : [];
+
+  const filteredFields = Object.fromEntries(entries);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return { ...entry, fields: filteredFields } as Entry<any>;
 };
 
 export const getAllIdsOfType: (

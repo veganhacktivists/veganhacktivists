@@ -103,13 +103,6 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           our animal friends.
         </PlainHeader>
         <Paragraph>
-          Thank you so much for considering supporting us. To kick off the new
-          year, we are hosting a fundraiser to help us achieve our goals for
-          2022. Every dollar raised up to $47,000 will be matched. Every dollar
-          helps us grow our projects and make a difference for the animals who
-          need us.
-          <br />
-          <br />
           We are a vegan volunteer team that builds technology for organizations
           and individual activists in the animal rights movement. If you believe
           in the work we do and would like to support us, please consider making

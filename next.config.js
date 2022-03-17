@@ -38,7 +38,7 @@ const nextConfig = {
       },
       {
         source: '/joinplayground',
-        destination: 'https://discord.gg/Yt3zADeJKx',
+        destination: 'https://discord.gg/cRqJBmUR9b',
         permanent: false,
       },
       {

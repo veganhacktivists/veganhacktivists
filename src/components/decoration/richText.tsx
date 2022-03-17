@@ -10,10 +10,12 @@ import React from 'react';
 import type {
   CONTENT_TYPE,
   ICodeBlockFields,
+  IYoutubeVideoFields,
 } from '../../types/generated/contentful';
 import ContentfulImage from '../layout/contentfulImage';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import YoutubeVideo from './youtubeVideo';
 
 interface RichTextProps {
   document: Document;
@@ -29,6 +31,15 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
         <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
+      </div>
+    );
+  },
+  youtubeVideo: (node) => {
+    const { id }: IYoutubeVideoFields = node.data.target.fields;
+
+    return (
+      <div className="my-10 w-full md:w-4/5 mx-auto">
+        <YoutubeVideo id={id} />
       </div>
     );
   },
@@ -53,13 +64,13 @@ const defaultRichTextOptions: Options = {
       );
     },
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="text-3xl pt-10">{children}</h1>
+      <h1 className="font-bold text-3xl pt-10">{children}</h1>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-2xl pt-7">{children}</h2>
+      <h2 className="font-bold text-2xl pt-7">{children}</h2>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h2 className="text-xl pt-5">{children}</h2>
+      <h3 className="font-bold text-xl pt-5">{children}</h3>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
       <ul className="list-disc ml-5 mt-5">{children}</ul>

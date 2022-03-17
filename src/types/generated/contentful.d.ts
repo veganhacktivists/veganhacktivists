@@ -445,6 +445,28 @@ export interface ITeamMember extends Entry<ITeamMemberFields> {
   };
 }
 
+export interface IYoutubeVideoFields {
+  /** id */
+  id: string;
+}
+
+export interface IYoutubeVideo extends Entry<IYoutubeVideoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "youtubeVideo";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | "blogEntry"
   | "codeBlock"
@@ -458,7 +480,8 @@ export type CONTENT_TYPE =
   | "socialLinks"
   | "tag"
   | "team"
-  | "teamMember";
+  | "teamMember"
+  | "youtubeVideo";
 
 export type LOCALE_CODE = "en-US";
 
