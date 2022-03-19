@@ -51,7 +51,7 @@ exports[`Application renders correctly 1`] = `
       <div
         class="relative text-white mx-auto md:w-1/2 text-2xl"
       >
-        Building for the animal rights movement since 2019.
+        Building for the animal protection movement since 2019.
       </div>
       <div
         class="relative mx-auto mt-10"
@@ -213,11 +213,11 @@ exports[`Application renders correctly 1`] = `
     <p
       class="pb-5"
     >
-      We're a diverse community of passionate vegan activists from all around the world, 
+      We're a diverse community of passionate animal advocates from all around the world, 
       <b>
         volunteering our time and skills
       </b>
-       towards the animal rights movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
+       towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
     </p>
     <p>
       <b>

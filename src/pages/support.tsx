@@ -104,7 +104,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         </PlainHeader>
         <Paragraph>
           We are a vegan volunteer team that builds technology for organizations
-          and individual activists in the animal rights movement. If you believe
+          and individual activists in the animal protection movement. If you believe
           in the work we do and would like to support us, please consider making
           a donation.
         </Paragraph>

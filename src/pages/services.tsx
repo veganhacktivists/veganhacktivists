@@ -131,7 +131,7 @@ const Services: React.FC = () => (
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'Supporting the Animal Rights Movement',
+          alt: 'Supporting the Animal Protection Movement',
         }}
         alignment="left"
         classNameMapping={{
