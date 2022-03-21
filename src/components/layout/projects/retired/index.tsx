@@ -56,16 +56,19 @@ const RetiredProject: React.FC<
         </div>
         {openModal && (
           <Modal
+            className="bg-white px-10"
             isOpen={openModal}
             onClose={() => {
               setOpenModal(false);
             }}
           >
-            <Carousel
-              images={[image, ...retiredInfo.fields.screenshots]}
-              selectedItemIndex={carouselIndex}
-              onChangeItem={setCarouselIndex}
-            />
+            <div className="aspect-square">
+              <Carousel
+                images={[image, ...retiredInfo.fields.screenshots]}
+                selectedItemIndex={carouselIndex}
+                onChangeItem={setCarouselIndex}
+              />
+            </div>
           </Modal>
         )}
         <div className="flex flex-col gap-3 text-left">

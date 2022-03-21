@@ -8,12 +8,18 @@ ReactModal.setAppElement('#main');
 interface ModalProps {
   isOpen: boolean;
   onClose?: () => void;
+  className?: string;
 }
 
 const INITIAL_CONTENT_CLASS = 'translate-y-full';
 const INITIAL_OVERLAY_CLASS = 'bg-opacity-0';
 
-const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
+const Modal: React.FC<ModalProps> = ({
+  children,
+  isOpen,
+  onClose,
+  className,
+}) => {
   const [transitionClasses, setTransitionClasses] = useState(
     INITIAL_CONTENT_CLASS
   );
@@ -50,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
       shouldCloseOnEsc
       shouldCloseOnOverlayClick
     >
-      <div>
+      <div className={className}>
         <div
           onClick={() => {
             onClose?.();
