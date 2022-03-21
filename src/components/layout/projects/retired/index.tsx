@@ -31,9 +31,9 @@ const RetiredProject: React.FC<
 
   return (
     <>
-      <div className="px-20 py-10 flex flex-col md:flex-row gap-10">
-        <div className="flex flex-col gap-0 cursor-pointer group">
-          <div className="h-80 aspect-square">
+      <div className="px-10 md:px-20 py-10 flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col flex-shrink gap-y-0 cursor-pointer group">
+          <div className="max-h-80 aspect-square">
             <Carousel
               onClickItem={() => {
                 setOpenModal(true);
@@ -41,34 +41,18 @@ const RetiredProject: React.FC<
               images={[image, ...retiredInfo.fields.screenshots]}
               selectedItemIndex={carouselIndex}
               onChangeItem={setCarouselIndex}
+              imageClassName="max-h-80 lg:h-min lg:max-h-80 lg:aspect-square"
             />
           </div>
           <DarkButton
             onClick={() => {
               setOpenModal(true);
             }}
-            className="-mt-1"
+            className="-translate-y-2"
           >
             View Screenshots
           </DarkButton>
         </div>
-        {openModal && (
-          <Modal
-            className="bg-white px-10"
-            isOpen={openModal}
-            onClose={() => {
-              setOpenModal(false);
-            }}
-          >
-            <div className="aspect-square">
-              <Carousel
-                images={[image, ...retiredInfo.fields.screenshots]}
-                selectedItemIndex={carouselIndex}
-                onChangeItem={setCarouselIndex}
-              />
-            </div>
-          </Modal>
-        )}
         <div className="flex flex-col gap-3 text-left">
           <div className="font-bold text-3xl">{name}</div>
           <div className="text-grey">
@@ -96,6 +80,26 @@ const RetiredProject: React.FC<
           </div>
         </div>
       </div>
+      {openModal && (
+        <Modal
+          className="bg-white px-10"
+          isOpen={openModal}
+          onClose={() => {
+            setOpenModal(false);
+          }}
+        >
+          <div className="aspect-square">
+            <Carousel
+              images={[image, ...retiredInfo.fields.screenshots]}
+              selectedItemIndex={carouselIndex}
+              onChangeItem={setCarouselIndex}
+              autoFocus
+              dynamicHeight
+              imageClassName="w-full md:w-3/4 mx-auto py-10"
+            />
+          </div>
+        </Modal>
+      )}
     </>
   );
 };
