@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 import type {
   IProjectFields,
@@ -7,7 +6,6 @@ import type {
 import { DarkButton } from '../../../decoration/buttons';
 import RichText from '../../../decoration/richText';
 import Carousel from '../../carousel';
-import ContentfulImage from '../../contentfulImage';
 import Modal from '../../modal';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {

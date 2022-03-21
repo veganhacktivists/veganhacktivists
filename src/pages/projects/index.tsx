@@ -134,14 +134,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
         We&apos;re constantly working on new projects every month, whether
         they&apos;re ideas of our own or supporting organizations and activists
         that reach out to us. Below is a list of our work, and which of our
-        teams worked on it.{' '}
-        <CustomLink href="/projects/retired">
-          See our retired projects here
-        </CustomLink>{' '}
-        <Link href="/projects/retired">
-          <a className="underline">See our retired projects here</a>
-        </Link>
-        .
+        teams worked on it.
       </FirstSubSection>
       <YearSelector
         years={projectYears}

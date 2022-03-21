@@ -62,7 +62,7 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
 
   return (
     <>
-      <NextSeo title="Retired projects" />
+      <NextSeo title="Retired Projects" />
       <FirstSubSection header="Retired projects">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta minima
         nemo rem velit. Quisquam vitae aliquid ut quos provident natus vel,
