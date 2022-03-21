@@ -1,16 +1,14 @@
 import classNames from 'classnames';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type {
   IProjectFields,
   IRetiredProjectInfo,
 } from '../../../../types/generated/contentful';
 import { DarkButton } from '../../../decoration/buttons';
 import RichText from '../../../decoration/richText';
+import Carousel from '../../carousel';
 import ContentfulImage from '../../contentfulImage';
-import SimpleReactLightbox, {
-  SRLWrapper,
-  useLightbox,
-} from 'simple-react-lightbox';
+import Modal from '../../modal';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   month: 'short',
@@ -30,35 +28,46 @@ const RetiredProject: React.FC<
     [date]
   );
 
-  const { openLightbox } = useLightbox();
+  const [openModal, setOpenModal] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   return (
     <>
-      <div className="px-40 py-20 flex flex-col md:flex-row gap-10">
-        <div
-          className="flex flex-col gap-0 cursor-pointer group"
-          // onClick={() => {
-          //   openLightbox();
-          // }}
-        >
-          <div className="h-80 w-80">
-            <SRLWrapper>
-              {retiredInfo.fields.screenshots.map((screenshot) => (
-                <a key={screenshot.sys.id}>
-                  <ContentfulImage alt="" image={screenshot} />
-                </a>
-              ))}
-            </SRLWrapper>
+      <div className="px-20 py-10 flex flex-col md:flex-row gap-10">
+        <div className="flex flex-col gap-0 cursor-pointer group">
+          <div className="h-80 aspect-square">
+            <Carousel
+              onClickItem={() => {
+                setOpenModal(true);
+              }}
+              images={[image, ...retiredInfo.fields.screenshots]}
+              selectedItemIndex={carouselIndex}
+              onChangeItem={setCarouselIndex}
+            />
           </div>
           <DarkButton
             onClick={() => {
-              openLightbox(1);
+              setOpenModal(true);
             }}
             className="-mt-1"
           >
             View Screenshots
           </DarkButton>
         </div>
+        {openModal && (
+          <Modal
+            isOpen={openModal}
+            onClose={() => {
+              setOpenModal(false);
+            }}
+          >
+            <Carousel
+              images={[image, ...retiredInfo.fields.screenshots]}
+              selectedItemIndex={carouselIndex}
+              onChangeItem={setCarouselIndex}
+            />
+          </Modal>
+        )}
         <div className="flex flex-col gap-3 text-left">
           <div className="font-bold text-3xl">{name}</div>
           <div className="text-grey">

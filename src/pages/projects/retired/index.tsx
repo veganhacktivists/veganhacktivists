@@ -1,20 +1,20 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import RetiredProject from '../../../components/layout/projects/retired';
 import type {
-  IProject,
   IProjectFields,
   IRetiredProjectInfo,
-  ITeam,
 } from '../../../types/generated/contentful';
-import { BLOCKS } from '@contentful/rich-text-types';
-import type { Asset } from 'contentful';
 import type { GetStaticProps } from 'next';
 import { getContents } from '../../../lib/cms';
-import SubtleBorder from '../../../components/decoration/subtleBorder';
-import SimpleReactLightbox from 'simple-react-lightbox';
+import type PageWithLayout from '../../../types/persistentLayout';
+import ProjectsLayout from '../../../components/layout/projects/layout';
+import YearSelector from '../../../components/layout/projects/yearSelector';
+import { FirstSubSection } from '../../../components/decoration/textBlocks';
+import CustomLink from '../../../components/decoration/link';
 interface RetiredProjectsProps {
   projects: (IProjectFields & { retiredInfo: IRetiredProjectInfo })[];
+  projectYears: number[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -30,29 +30,63 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   });
 
+  const projectYears = Array.from(
+    new Set(
+      projects.map((project) => new Date(project.fields.date).getFullYear())
+    )
+  ).sort((a, b) => b - a);
+
   return {
-    props: { projects: projects.map((project) => project.fields) },
+    props: {
+      projects: projects.map((project) => project.fields),
+      projectYears,
+    },
   };
 };
 
-const RetiredProjects: React.FC<RetiredProjectsProps> = ({ projects }) => {
+const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
+  projects,
+  projectYears,
+}) => {
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+
+  const projectsForSelectedYear = useMemo(() => {
+    if (selectedYear === null) {
+      return projects;
+    }
+    return projects.filter((project) => {
+      const date = new Date(project.date);
+      return date.getFullYear() === selectedYear;
+    });
+  }, [selectedYear, projects]);
+
   return (
     <>
       <NextSeo title="Retired projects" />
-      <h1 className="text-4xl font-bold my-10">Retired projects</h1>
-      <div className="md:w-1/2 mx-auto">
-        <SubtleBorder>
-          <SimpleReactLightbox>
-            {projects.map((project) => (
-              <div key={project.name}>
-                <RetiredProject {...project} />
-              </div>
-            ))}
-          </SimpleReactLightbox>
-        </SubtleBorder>
+      <FirstSubSection header="Retired projects">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta minima
+        nemo rem velit. Quisquam vitae aliquid ut quos provident natus vel,
+        beatae libero repellat, culpa labore reprehenderit aut nisi. Amet. Text
+        TBD.{' '}
+        <CustomLink href="/projects">
+          See our maintained projects here
+        </CustomLink>
+        .
+      </FirstSubSection>
+      <YearSelector
+        years={projectYears}
+        selectedYear={selectedYear}
+        onChange={setSelectedYear}
+      />
+      <div className="md:w-3/4 mx-auto">
+        {projectsForSelectedYear.map((project) => (
+          <RetiredProject key={project.name} {...project} />
+        ))}
       </div>
     </>
   );
 };
+
+RetiredProjects.getLayout = ProjectsLayout;
 
 export default RetiredProjects;

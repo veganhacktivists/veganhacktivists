@@ -8,12 +8,14 @@ interface ContentfulImageProps
   alt: string;
   ratio?: number;
   downloadWidth?: number;
+  thumbnail?: boolean;
 }
 
 const ContentfulImage: React.FC<ContentfulImageProps> = ({
   image,
   alt,
   downloadWidth,
+  thumbnail = false,
   ...props
 }) => {
   const { url, details } = image.fields.file;
@@ -39,6 +41,9 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
       alt={alt}
       {...sizeProps}
       {...props}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
+      srl_gallery_image={thumbnail ? 'true' : undefined}
     />
   );
 };

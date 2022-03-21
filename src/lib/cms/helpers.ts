@@ -63,6 +63,11 @@ export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
 export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
+    query: {
+      filters: {
+        exists: { retiredInfo: false },
+      },
+    },
     other: {
       order: '-fields.date',
     },
