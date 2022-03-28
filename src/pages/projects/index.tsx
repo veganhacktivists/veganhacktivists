@@ -141,7 +141,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
         selectedYear={selectedYear}
         onChange={setSelectedYear}
       />
-      <div className="w-3/4 mx-auto my-10">
+      <div className="w-3/4 mx-auto my-10 text-xl">
         {pagedProjects.map((project) => (
           <div
             key={project.fields.name}
