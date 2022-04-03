@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface GreyBoxProps {
   title: React.ReactNode;
 }

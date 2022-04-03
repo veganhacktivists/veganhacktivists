@@ -3,7 +3,7 @@ import type {
   IProjectFields,
   IRetiredProjectInfo,
 } from '../../../../types/generated/contentful';
-import { DarkButton, GreyButton } from '../../../decoration/buttons';
+import { GreyButton } from '../../../decoration/buttons';
 import GreyBox from '../../../decoration/greyBox';
 import RichText from '../../../decoration/richText';
 import Carousel from '../../carousel';
