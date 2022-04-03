@@ -128,6 +128,25 @@ const DarkButton: React.FC<ButtonProps> = ({
   );
 };
 
+const GreyButton: React.FC<ButtonProps> = ({
+  className,
+  children,
+  ...props
+}) => {
+  return (
+    <BaseButton
+      {...props}
+      className={classNames(
+        baseButtonClasses,
+        'bg-grey border-none overflow-hidden text-white',
+        className
+      )}
+    >
+      {children}
+    </BaseButton>
+  );
+};
+
 const GreenButton: React.FC<ButtonProps> = ({
   children,
   primary,
@@ -272,4 +291,5 @@ export {
   WhiteButton,
   GreenButton,
   NavButton,
+  GreyButton,
 };

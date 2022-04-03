@@ -3,7 +3,8 @@ import type {
   IProjectFields,
   IRetiredProjectInfo,
 } from '../../../../types/generated/contentful';
-import { DarkButton } from '../../../decoration/buttons';
+import { DarkButton, GreyButton } from '../../../decoration/buttons';
+import GreyBox from '../../../decoration/greyBox';
 import RichText from '../../../decoration/richText';
 import Carousel from '../../carousel';
 import Modal from '../../modal';
@@ -32,8 +33,8 @@ const RetiredProject: React.FC<
   return (
     <>
       <div className="px-10 md:px-20 py-10 flex flex-col lg:flex-row gap-10">
-        <div className="flex flex-col flex-shrink gap-y-0 cursor-pointer group">
-          <div className="max-h-80 aspect-square">
+        <div className="cursor-pointer">
+          <div className="max-h-80 aspect-square" style={{ width: 280 }}>
             <Carousel
               onClickItem={() => {
                 setOpenModal(true);
@@ -44,62 +45,59 @@ const RetiredProject: React.FC<
               imageClassName="max-h-80 lg:h-min lg:max-h-80 lg:aspect-square"
             />
           </div>
-          <DarkButton
-            onClick={() => {
-              setOpenModal(true);
-            }}
-            className="-translate-y-2"
-          >
-            View Screenshots
-          </DarkButton>
         </div>
         <div className="flex flex-col gap-3 text-left">
           <div className="font-bold text-3xl">{name}</div>
-          <div className="text-grey">
-            <b>Created:</b> {createdDate}
-            <div className="mx-2 inline-block bg-grey w-1 h-1 align-middle" />
-            <b>Retired:</b> {retiredDate}
-          </div>
           <div className="text-xl">
             <RichText document={description} />
           </div>
-          <div className="flex flex-col md:flex-row mt-10 justify-start gap-10">
+        </div>
+        <div className="flex flex-col gap-3">
+          <GreyBox title="Release date">{createdDate}</GreyBox>
+          <GreyBox title="Retired date">{retiredDate}</GreyBox>
+          <div className="flex flex-col md:flex-row gap-3">
             {retiredInfo.fields.archiveUrl && (
-              <DarkButton
-                className="w-fit"
+              <GreyButton
+                className="md:w-fit"
                 href={encodeURI(retiredInfo.fields.archiveUrl)}
               >
                 Archive
-              </DarkButton>
+              </GreyButton>
             )}
             {repoUrl && (
-              <DarkButton className="w-fit" href={repoUrl}>
+              <GreyButton className="md:w-fit" href={repoUrl}>
                 GitHub
-              </DarkButton>
+              </GreyButton>
             )}
           </div>
+          <GreyButton
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
+            View Screenshots
+          </GreyButton>
         </div>
       </div>
-      {openModal && (
-        <Modal
-          className="bg-white px-10"
-          isOpen={openModal}
-          onClose={() => {
-            setOpenModal(false);
-          }}
-        >
-          <div className="aspect-square">
-            <Carousel
-              images={[image, ...retiredInfo.fields.screenshots]}
-              selectedItemIndex={carouselIndex}
-              onChangeItem={setCarouselIndex}
-              autoFocus
-              dynamicHeight
-              imageClassName="w-full md:w-3/4 mx-auto py-10"
-            />
-          </div>
-        </Modal>
-      )}
+      <Modal
+        className=""
+        modalClassName="md:w-[33vw]"
+        isOpen={openModal}
+        onClose={() => {
+          setOpenModal(false);
+        }}
+      >
+        <div className="bg-white">
+          <Carousel
+            images={[image, ...retiredInfo.fields.screenshots]}
+            selectedItemIndex={carouselIndex}
+            onChangeItem={setCarouselIndex}
+            autoFocus
+            dynamicHeight
+            imageClassName=""
+          />
+        </div>
+      </Modal>
     </>
   );
 };

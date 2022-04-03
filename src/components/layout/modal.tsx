@@ -9,6 +9,7 @@ interface ModalProps {
   isOpen: boolean;
   onClose?: () => void;
   className?: string;
+  modalClassName?: string;
 }
 
 const INITIAL_CONTENT_CLASS = 'translate-y-full';
@@ -19,6 +20,7 @@ const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   className,
+  modalClassName,
 }) => {
   const [transitionClasses, setTransitionClasses] = useState(
     INITIAL_CONTENT_CLASS
@@ -40,6 +42,7 @@ const Modal: React.FC<ModalProps> = ({
     <ReactModal
       isOpen={isOpen}
       className={classNames(
+        modalClassName,
         'fixed w-full md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 z-[9999] transition-all motion-reduce:transition-none duration-700',
         transitionClasses
       )}
@@ -61,7 +64,7 @@ const Modal: React.FC<ModalProps> = ({
           onClick={() => {
             onClose?.();
           }}
-          className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer"
+          className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
         >
           &#10005;
         </div>

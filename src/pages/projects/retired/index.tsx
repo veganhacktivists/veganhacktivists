@@ -64,21 +64,24 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
     <>
       <NextSeo title="Retired Projects" />
       <FirstSubSection header="Retired projects">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta minima
-        nemo rem velit. Quisquam vitae aliquid ut quos provident natus vel,
-        beatae libero repellat, culpa labore reprehenderit aut nisi. Amet. Text
-        TBD.{' '}
-        <CustomLink href="/projects">
-          See our maintained projects here
-        </CustomLink>
-        .
+        <div>
+          Unfortunately, no matter how fun or interesting the idea is, not all
+          projects will, or have, taken off the way we wanted &mdash; nor
+          addressed the problems it aimed to solve. While not every project will
+          be impactful, each project has helped us learn and grow as a
+          community, as developers, designers, and as an organization.{' '}
+          <CustomLink href="/projects">
+            See our maintained projects here
+          </CustomLink>
+          .
+        </div>
       </FirstSubSection>
       <YearSelector
         years={projectYears}
         selectedYear={selectedYear}
         onChange={setSelectedYear}
       />
-      <div className="md:w-3/4 mx-auto">
+      <div className="md:w-3/4 4xl:w-1/2 mx-auto">
         {projectsForSelectedYear.map((project) => (
           <RetiredProject key={project.name} {...project} />
         ))}
