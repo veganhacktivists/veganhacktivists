@@ -14,7 +14,6 @@ import { NextSeo } from 'next-seo';
 import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
 import YearSelector from '../../components/layout/projects/yearSelector';
-import CustomLink from '../../components/decoration/link';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
