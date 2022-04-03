@@ -34,7 +34,17 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const { name, description, url, date: dateStr, image, team } = project.fields;
+  const {
+    name,
+    description,
+    url,
+    date: dateStr,
+    image,
+    team,
+    retiredInfo,
+  } = project.fields;
+
+  const isRetired = !!retiredInfo;
 
   const date = new Date(dateStr);
   const imageSize = 280;
@@ -55,17 +65,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <h1 className="text-4xl font-bold mb-5">{name}</h1>
         <div className="text-xl">{documentToReactComponents(description)}</div>
         <div className="mt-10 flex flex-wrap items-center">
-          <DarkButton href={url} className="font-mono" capitalize={false}>
-            {firstLetterUppercase(
-              url.replace(/https?:\/\//, '').replace(/\/$/, '')
-            )}
-          </DarkButton>
+          {isRetired ? (
+            <DarkButton href="/projects/retired">Retired projects</DarkButton>
+          ) : (
+            <DarkButton href={url} capitalize={false}>
+              {firstLetterUppercase(
+                url.replace(/https?:\/\//, '').replace(/\/$/, '')
+              )}
+            </DarkButton>
+          )}
+
           <span className="font-bold sm:pl-5">
             <span className="text-grey">
-              {new Intl.DateTimeFormat('en', {
-                month: 'short',
-                year: 'numeric',
-              }).format(date)}
+              {isRetired
+                ? 'This project has been retired'
+                : new Intl.DateTimeFormat('en', {
+                    month: 'short',
+                    year: 'numeric',
+                  }).format(date)}
+              {}
             </span>
             {team && (
               <>
