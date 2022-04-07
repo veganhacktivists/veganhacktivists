@@ -205,6 +205,9 @@ export interface IProjectFields {
   /** url */
   url: string;
 
+  /** URL name */
+  urlName?: string | undefined;
+
   /** date */
   date: string;
 

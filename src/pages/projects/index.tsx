@@ -38,6 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     name,
     description,
     url,
+    urlName,
     date: dateStr,
     image,
     team,
@@ -69,14 +70,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <DarkButton href="/projects/retired">Retired projects</DarkButton>
           ) : (
             <DarkButton href={url} capitalize={false}>
-              {firstLetterUppercase(
-                toBaseUrl(
-                  url
-                    .replace(/^https?:\/\//, '')
-                    .replace(/^w{3}/, '')
-                    .replace(/\/$/, '')
-                )
-              )}
+              {urlName ||
+                firstLetterUppercase(
+                  toBaseUrl(
+                    url
+                      .replace(/^https?:\/\//, '')
+                      .replace(/^w{3}/, '')
+                      .replace(/\/$/, '')
+                  )
+                )}
             </DarkButton>
           )}
 
