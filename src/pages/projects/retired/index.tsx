@@ -66,11 +66,10 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
       <NextSeo title="Retired Projects" />
       <FirstSubSection header="Retired projects">
         <div>
-          Unfortunately, no matter how fun or interesting the idea is, not all
-          projects will, or have, taken off the way we wanted &mdash; nor
-          addressed the problems it aimed to solve. While not every project will
-          be impactful, each project has helped us learn and grow as a
-          community, as developers, designers, and as an organization.{' '}
+        Unfortunately no matter how fun or interesting the idea is, not every 
+        project creates impact the way we&apos;d like — or address the problems it 
+        aimed to solve. While not every project succeeds, each project has helped 
+        us learn and grow as both a community and as individuals.{' '}
           <CustomLink href="/projects">
             See our maintained projects here
           </CustomLink>
