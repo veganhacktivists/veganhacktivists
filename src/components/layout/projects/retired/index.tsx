@@ -7,6 +7,7 @@ import { GreyButton } from '../../../decoration/buttons';
 import GreyBox from '../../../decoration/greyBox';
 import RichText from '../../../decoration/richText';
 import Carousel from '../../carousel';
+import ContentfulImage from '../../contentfulImage';
 import Modal from '../../modal';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -33,17 +34,9 @@ const RetiredProject: React.FC<
   return (
     <>
       <div className="px-10 md:px-20 py-10 flex flex-col lg:flex-row gap-10">
-        <div className="cursor-pointer">
+        <div>
           <div className="max-h-80 aspect-square" style={{ width: 280 }}>
-            <Carousel
-              onClickItem={() => {
-                setOpenModal(true);
-              }}
-              images={[image, ...retiredInfo.fields.screenshots]}
-              selectedItemIndex={carouselIndex}
-              onChangeItem={setCarouselIndex}
-              imageClassName="max-h-80 lg:h-min lg:max-h-80 lg:aspect-square"
-            />
+            <ContentfulImage image={image} alt={`${name} logo`} />
           </div>
         </div>
         <div className="flex flex-col gap-3 text-left">
@@ -87,14 +80,13 @@ const RetiredProject: React.FC<
           setOpenModal(false);
         }}
       >
-        <div className="bg-white">
+        <div className="bg-white max-h-screen overflow-auto">
           <Carousel
-            images={[image, ...retiredInfo.fields.screenshots]}
+            images={retiredInfo.fields.screenshots}
             selectedItemIndex={carouselIndex}
             onChangeItem={setCarouselIndex}
             autoFocus
             dynamicHeight
-            imageClassName=""
           />
         </div>
       </Modal>
