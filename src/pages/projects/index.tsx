@@ -9,7 +9,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import ContentfulImage from '../../components/layout/contentfulImage';
 import Link from 'next/link';
 import useViewMore from '../../hooks/useViewMore';
-import { firstLetterUppercase } from '../../lib/helpers/strings';
+import { firstLetterUppercase, toBaseUrl } from '../../lib/helpers/strings';
 import { NextSeo } from 'next-seo';
 import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
@@ -70,7 +70,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ) : (
             <DarkButton href={url} capitalize={false}>
               {firstLetterUppercase(
-                url.replace(/https?:\/\//, '').replace(/\/$/, '')
+                toBaseUrl(
+                  url
+                    .replace(/^https?:\/\//, '')
+                    .replace(/^w{3}/, '')
+                    .replace(/\/$/, '')
+                )
               )}
             </DarkButton>
           )}
