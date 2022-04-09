@@ -32,21 +32,24 @@ const BlogsHeader: React.FC<HeaderProps> = ({
     onTagChange(currentTag);
   }, [currentTag]);
 
-  const Tag: React.FC<{ name: string; slug: string | null; active: boolean }> =
-    ({ name, slug, active }) => {
-      return (
-        <div
-          className={classNames('pb-2 cursor-pointer select-none px-10 py-2', {
-            'bg-grey': active,
-          })}
-          onClick={() => {
-            setCurrentTag(active ? undefined : slug);
-          }}
-        >
-          {name}
-        </div>
-      );
-    };
+  const Tag: React.FC<{
+    name: string;
+    slug: string | null;
+    active: boolean;
+  }> = ({ name, slug, active }) => {
+    return (
+      <div
+        className={classNames('pb-2 cursor-pointer select-none px-10 py-2', {
+          'bg-grey': active,
+        })}
+        onClick={() => {
+          setCurrentTag(active ? undefined : slug);
+        }}
+      >
+        {name}
+      </div>
+    );
+  };
 
   return (
     <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden">
@@ -66,7 +69,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
         <div className="px-10 pt-10">
           <label className="border-2 border-grey-lighter p-2 text-xl w-full flex justify-around">
             <input
-              className="bg-invisible outline-none pr-2"
+              className="bg-invisible outline-none pr-2 w-full"
               type="text"
               name="query"
               id="blogQuery"
