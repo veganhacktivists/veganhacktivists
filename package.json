@@ -41,6 +41,7 @@
     "react-highlight-words": "^0.17.0",
     "react-hook-form": "^7.27.1",
     "react-modal": "^3.14.4",
+    "react-qr-code": "^2.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-select": "^5.2.1",
     "react-syntax-highlighter": "^15.4.5",
