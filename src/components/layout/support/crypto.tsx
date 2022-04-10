@@ -1,16 +1,10 @@
-import { faBitcoin, faEthereum } from '@fortawesome/free-brands-svg-icons';
-import type {
-  IconDefinition} from '@fortawesome/free-solid-svg-icons';
-import {
-  faBitcoinSign,
-  faCopy
-} from '@fortawesome/free-solid-svg-icons';
+import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faBitcoinSign, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 import getThemeColor from '../../../lib/helpers/theme';
-import { GreenButton } from '../../decoration/buttons';
-import TextInput from '../../forms/inputs/textInput';
 
 interface CryptoWalletProps {
   code: string;
@@ -28,10 +22,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({ code, icon, color }) => {
   }, [code]);
 
   return (
-    <div className="flex flex-row justify-center">
-      <div className="my-auto" style={{ color }}>
-        <FontAwesomeIcon icon={icon} size="2x" fixedWidth />
-      </div>
+    <div className="flex flex-col justify-center md:flex-row">
       <div style={{ backgroundColor: color }} className="py-1 my-auto">
         <FontAwesomeIcon
           icon={icon}
@@ -40,22 +31,23 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({ code, icon, color }) => {
           className="text-white"
         />
       </div>
-      <div className="flex flex-row w-full px-2 py-2 text-xl bg-grey-over-background text-grey focus:ring-1 focus:ring-grey">
-        <div className="w-full max-w-sm pr-10 my-auto -mr-10 text-ellipsis overflow-clip">
-          {code}
+      <div className="inline-block">
+        <div className="flex flex-row flex-1 w-full px-2 py-2 text-xl bg-grey-over-background text-grey focus:ring-1 focus:ring-grey">
+          <div className="max-w-sm pr-10 my-auto -mr-10 overflow-hidden md:w-full text-ellipsis">
+            {code}
+          </div>
+          <div className="w-5 h-5 mx-2 my-auto bg-black aspect-square" />
+          <button
+            onClick={onCopy}
+            className="flex flex-row justify-center px-4 py-2 -my-2 -mr-2 text-2xl text-white cursor-pointer w-min bg-green gap-x-2"
+          >
+            Copy
+            <div className="my-auto">
+              <FontAwesomeIcon icon={faCopy} />
+            </div>
+          </button>
         </div>
-        <div className="w-5 h-5 my-auto bg-black aspect-square" />
       </div>
-
-      <button
-        onClick={onCopy}
-        className="flex flex-row justify-center px-4 py-2 my-auto text-2xl text-white cursor-pointer bg-green gap-x-2"
-      >
-        Copy
-        <div className="my-auto">
-          <FontAwesomeIcon icon={faCopy} />
-        </div>
-      </button>
     </div>
   );
 };
@@ -68,7 +60,7 @@ const Crypto: React.FC = () => {
         Click the QR code to view the QR code enlarged, or copy the code to your
         clipboard.
       </div>
-      <div className="flex flex-col w-1/2 mx-auto gap-y-5">
+      <div className="flex flex-col mx-auto md:w-1/2 gap-y-5">
         <CryptoWallet
           color={getThemeColor('yellow')}
           code="14qFZxHb3C8UuijTLJYccZVQzgVbQrQh1f"
