@@ -66,9 +66,6 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
             className="whitespace-nowrap flex flex-row justify-center px-4 py-2 text-2xl text-white cursor-pointer w-min bg-green gap-x-2"
           >
             Copy
-            <div className="my-auto">
-              <FontAwesomeIcon icon={faCopy as IconProp} />
-            </div>
           </button>
         </div>
       </div>
@@ -111,12 +108,12 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
 const Crypto: React.FC = () => {
   return (
     <div className="py-5 mx-auto space-y-5 text-xl bg-grey-background">
-      <h3 className="text-2xl font-bold">We accept cryptocurrency!</h3>
+      <h3 className="pt-5 font-mono text-3xl font-bold">We accept cryptocurrency!</h3>
       <div>
-        Click the QR code to view the QR code enlarged, or copy the code to your
+        Click the QR code to view it enlarged, or copy the code to your
         clipboard.
       </div>
-      <div className="grid gap-y-5 mx-auto md:px-10 lg:w-3/4">
+      <div className="grid gap-y-5 mx-auto md:px-10 lg:w-3/4 pb-2">
         <CryptoWallet
           color={getThemeColor('yellow')}
           code="14qFZxHb3C8UuijTLJYccZVQzgVbQrQh1f"
@@ -130,7 +127,7 @@ const Crypto: React.FC = () => {
           currencyName="Ethereum"
         />
       </div>
-      <div>
+      <div className="pb-2">
         Want to send something else?{' '}
         <CustomLink className="font-bold" href="/contact">
           Contact us!
