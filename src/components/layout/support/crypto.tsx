@@ -49,7 +49,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
         </div>
         <div className="flex flex-row w-full">
           <div className="flex flex-row min-w-0 w-full px-2 py-2 text-xl bg-grey-over-background text-grey focus:ring-1 focus:ring-grey justify-between">
-            <div className="pr-10 my-auto -mr-10 overflow-hidden text-ellipsis whitespace-nowrap">
+            <div className="pr-10 my-auto -mr-10 overflow-hidden text-ellipsis whitespace-nowrap font-mono md:text-2xl">
               {code}
             </div>
             <div
@@ -90,7 +90,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
                 <QRCode value={code} level={QR_LEVEL} />
               </div>
               <div className="flex flex-row justify-center gap-3 mt-5 min-w-0 w-screen md:w-auto px-2">
-                <div className="text-ellipsis overflow-hidden whitespace-nowrap">
+                <div className="text-ellipsis overflow-hidden whitespace-nowrap font-mono text-lg md:text-xl">
                   {code}
                 </div>
                 <div className="cursor-pointer" onClick={onCopy}>
@@ -108,7 +108,9 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
 const Crypto: React.FC = () => {
   return (
     <div className="py-5 mx-auto space-y-5 text-xl bg-grey-background">
-      <h3 className="pt-5 font-mono text-3xl font-bold">We accept cryptocurrency!</h3>
+      <h3 className="pt-5 font-mono text-3xl font-bold">
+        We accept cryptocurrency!
+      </h3>
       <div>
         Click the QR code to view it enlarged, or copy the code to your
         clipboard.
