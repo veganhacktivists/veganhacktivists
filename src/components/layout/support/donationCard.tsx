@@ -42,8 +42,8 @@ const DonationCard: React.FC<DonationCardProps> = ({
         </div>
       </div>
       <div className="p-8">
-        <h1 className="text-3xl font-bold pb-5 font-mono">{title}</h1>
-        <p className="text-xl mx-auto mb-8">{children}</p>
+        <h1 className="pb-5 font-mono text-3xl font-bold">{title}</h1>
+        <p className="mx-auto mb-8 text-xl">{children}</p>
         <LightButton href={buttonHref}>{buttonText}</LightButton>
       </div>
     </div>

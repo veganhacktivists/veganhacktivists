@@ -39,7 +39,7 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const Paragraph: React.FC = ({ children }) => (
-  <p className="text-xl md:w-3/4 mx-auto mb-20 px-10">{children}</p>
+  <p className="px-10 mx-auto mb-20 text-xl md:w-3/4">{children}</p>
 );
 
 const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
@@ -73,8 +73,8 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           consider making a donation.
         </Paragraph>
       </div>
-      <div className="w-fit mx-auto my-16">
-        <div className="flex flex-wrap justify-center items-end gap-10 mb-5">
+      <div className="mx-auto my-16 md:w-fit">
+        <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
           <DonationCard
             color="blue"
             image={PayPalLogo}
@@ -121,8 +121,8 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         for other payment methods and tax deduction via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
-      <div className="bg-grey-darker py-16">
-        <h2 className="mb-8 text-4xl text-white font-bold">
+      <div className="py-16 bg-grey-darker">
+        <h2 className="mb-8 text-4xl font-bold text-white">
           Monthly Patreon Goals
         </h2>
         <Paragraph>
@@ -134,7 +134,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
             href="https://www.patreon.com/veganhacktivists"
-            className="text-xl text-white font-mono font-bold"
+            className="font-mono text-xl font-bold text-white"
             capitalize={false}
           >
             <div className="px-4">Donate Now</div>
@@ -149,7 +149,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         ]}
         className="hidden md:block"
       />
-      <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
+      <div className="px-10 pt-10 pb-20 mx-auto bg-gray-background">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
