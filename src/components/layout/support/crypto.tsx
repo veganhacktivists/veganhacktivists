@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import getThemeColor from '../../../lib/helpers/theme';
 import Modal from '../modal';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+import CustomLink from '../../decoration/link';
 
 interface CryptoWalletProps {
   code: string;
@@ -128,6 +129,12 @@ const Crypto: React.FC = () => {
           icon={faEthereum}
           currencyName="Ethereum"
         />
+      </div>
+      <div>
+        Want to send something else?{' '}
+        <CustomLink className="font-bold" href="/contact">
+          Contact us!
+        </CustomLink>
       </div>
     </div>
   );
