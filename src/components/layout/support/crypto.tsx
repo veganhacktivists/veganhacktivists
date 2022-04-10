@@ -1,26 +1,14 @@
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faBitcoinSign, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faCopy as faCopyRegular } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback, useState } from 'react';
-import ReactModal from 'react-modal';
 import QRCode from 'react-qr-code';
 import { toast } from 'react-toastify';
 import getThemeColor from '../../../lib/helpers/theme';
 import Modal from '../modal';
-
-interface CryptoModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const CryptoModal: React.FC<CryptoModalProps> = ({ isOpen, onClose }) => {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      test
-    </Modal>
-  );
-};
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface CryptoWalletProps {
   code: string;
@@ -29,7 +17,12 @@ interface CryptoWalletProps {
   currencyName: string;
 }
 
-const CryptoWallet: React.FC<CryptoWalletProps> = ({ code, icon, color }) => {
+const CryptoWallet: React.FC<CryptoWalletProps> = ({
+  code,
+  icon,
+  color,
+  currencyName,
+}) => {
   const onCopy = useCallback(() => {
     toast.promise(navigator.clipboard.writeText(code), {
       success: 'Code succesfully copied!',
@@ -73,7 +66,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({ code, icon, color }) => {
           >
             Copy
             <div className="my-auto">
-              <FontAwesomeIcon icon={faCopy} />
+              <FontAwesomeIcon icon={faCopy as IconProp} />
             </div>
           </button>
         </div>
@@ -84,8 +77,30 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({ code, icon, color }) => {
           setModalOpen(false);
         }}
       >
-        <div className="bg-white mx-auto w-screen left-0">
-          <QRCode value={code} size={300} level={QR_LEVEL} />
+        <div className="bg-white">
+          <div className="mx-auto ms:w-full md:w-full text-center">
+            <div style={{ backgroundColor: color }} className="w-full">
+              <div className="text-white font-bold font-mono text-4xl py-10">
+                <div>Donate {currencyName}</div>
+                <div className="mt-5">
+                  <FontAwesomeIcon icon={icon} fixedWidth size="2x" />
+                </div>
+              </div>
+            </div>
+            <div className="mx-auto w-fit py-10">
+              <div className="mx-auto w-fit">
+                <QRCode value={code} level={QR_LEVEL} />
+              </div>
+              <div className="flex flex-row justify-center gap-3 mt-5 min-w-0 w-screen md:w-auto px-2">
+                <div className="text-ellipsis overflow-hidden whitespace-nowrap">
+                  {code}
+                </div>
+                <div className="cursor-pointer" onClick={onCopy}>
+                  <FontAwesomeIcon size="lg" icon={faCopyRegular} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </>
