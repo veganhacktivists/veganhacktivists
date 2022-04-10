@@ -10,6 +10,7 @@ interface ModalProps {
   onClose?: () => void;
   className?: string;
   modalClassName?: string;
+  overlayClassName?: string;
 }
 
 const INITIAL_CONTENT_CLASS = 'translate-y-full';
@@ -21,6 +22,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   className,
   modalClassName,
+  overlayClassName,
 }) => {
   const [transitionClasses, setTransitionClasses] = useState(
     INITIAL_CONTENT_CLASS
@@ -47,6 +49,7 @@ const Modal: React.FC<ModalProps> = ({
         transitionClasses
       )}
       overlayClassName={classNames(
+        overlayClassName,
         'bg-black inset-0 fixed transition-all motion-reduce:transition-none duration-700 z-[9998]',
         overlayTransitionClasses
       )}

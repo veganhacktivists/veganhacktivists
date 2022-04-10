@@ -25,6 +25,8 @@ import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';
 import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
+import DonationCard from '../components/layout/support/donationCard';
+import Crypto from '../components/layout/support/crypto';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -36,46 +38,8 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
-const DonationCard: React.FC<{
-  title: string;
-  buttonText: string;
-  buttonHref: string;
-  color: string;
-  image: StaticImageData;
-  large?: boolean;
-}> = ({ title, buttonText, buttonHref, image, color, large, children }) => {
-  const backgroundColor = getThemeColor(color);
-
-  return (
-    <div
-      style={{
-        width: `${large ? '400px' : '300px'}`,
-        height: `${large ? '540px' : '400px'}`,
-      }}
-      className="flex-col mx-5 mb-5 bg-gray-lighter"
-    >
-      <div style={{ backgroundColor }}>
-        <div className={'absolute w-8 h-8 transparent'} />
-        <div className="p-12">
-          <CustomImage
-            src={image.src}
-            width={image.width / 3}
-            height={image.height / 3}
-            alt="Our community"
-          />
-        </div>
-      </div>
-      <div className="p-8">
-        <h1 className="text-3xl font-bold pb-5 font-mono">{title}</h1>
-        <p className="text-xl mx-auto mb-8">{children}</p>
-        <LightButton href={buttonHref}>{buttonText}</LightButton>
-      </div>
-    </div>
-  );
-};
-
 const Paragraph: React.FC = ({ children }) => (
-  <p className="text-xl md:w-3/4 mx-auto mb-20 px-10">{children}</p>
+  <p className="px-10 mx-auto mb-20 text-xl md:w-3/4">{children}</p>
 );
 
 const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
@@ -109,36 +73,42 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           consider making a donation.
         </Paragraph>
       </div>
-      <div className="flex flex-wrap justify-center items-end mb-16 mt-16">
-        <DonationCard
-          color="blue"
-          image={PayPalLogo}
-          title="PayPal"
-          buttonText="donate"
-          buttonHref="https://paypal.me/davidvanbeveren"
-        >
-          For one-time, smaller donations
-        </DonationCard>
-        <DonationCard
-          color="orange"
-          image={PatreonLogo}
-          title="Patreon"
-          buttonText="become a patron"
-          buttonHref="https://www.patreon.com/veganhacktivists"
-          large
-        >
-          Become a monthly supporter for as little as $5 a month
-        </DonationCard>
-        <DonationCard
-          color="green"
-          image={HeartLogo}
-          title="Other"
-          buttonText="contact us"
-          buttonHref="mailto:hello@veganhacktivists.org"
-        >
-          For larger donations (US tax-deductible)
-        </DonationCard>
+      <div className="mx-auto my-16 md:w-fit">
+        <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
+          <DonationCard
+            color="blue"
+            image={PayPalLogo}
+            title="PayPal"
+            buttonText="donate"
+            buttonHref="https://paypal.me/davidvanbeveren"
+          >
+            For one-time, smaller donations
+          </DonationCard>
+          <DonationCard
+            color="orange"
+            image={PatreonLogo}
+            title="Patreon"
+            buttonText="become a patron"
+            buttonHref="https://www.patreon.com/veganhacktivists"
+            large
+          >
+            Become a monthly supporter for as little as $5 a month
+          </DonationCard>
+          <DonationCard
+            color="green"
+            image={HeartLogo}
+            title="Other"
+            buttonText="contact us"
+            buttonHref="mailto:hello@veganhacktivists.org"
+          >
+            For larger donations (US tax-deductible)
+          </DonationCard>
+        </div>
+        <div className="">
+          <Crypto />
+        </div>
       </div>
+
       <Paragraph>
         We prefer a{' '}
         <span className="font-bold">monthly donation via Patreon</span> as that
@@ -151,8 +121,8 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         for other payment methods and tax deduction via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
-      <div className="bg-grey-darker py-16">
-        <h2 className="mb-8 text-4xl text-white font-bold">
+      <div className="py-16 bg-grey-darker">
+        <h2 className="mb-8 text-4xl font-bold text-white">
           Monthly Patreon Goals
         </h2>
         <Paragraph>
@@ -164,7 +134,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
             href="https://www.patreon.com/veganhacktivists"
-            className="text-xl text-white font-mono font-bold"
+            className="font-mono text-xl font-bold text-white"
             capitalize={false}
           >
             <div className="px-4">Donate Now</div>
@@ -179,7 +149,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         ]}
         className="hidden md:block"
       />
-      <div className="pt-10 pb-20 mx-auto px-10 bg-gray-background">
+      <div className="px-10 pt-10 pb-20 mx-auto bg-gray-background">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}

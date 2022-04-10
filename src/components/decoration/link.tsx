@@ -1,16 +1,28 @@
 import React from 'react';
 
-import type { LinkProps } from 'next/link';
+import type { LinkProps as NextLinkProps } from 'next/link';
 import Link from 'next/link';
+import classNames from 'classnames';
 
 const linkClassNames = 'text-magenta hover:underline active:text-magenta-light';
 
-const CustomLink: React.FC<LinkProps> = ({ children, href, ...props }) => {
+interface LinkProps extends NextLinkProps {
+  className?: string;
+}
+
+const CustomLink: React.FC<LinkProps> = ({
+  className,
+  children,
+  href,
+  ...props
+}) => {
   const url = typeof href === 'string' ? href : href.pathname;
+
+  const classes = classNames(className, linkClassNames);
 
   return url?.startsWith('http://') || url?.startsWith('https://') ? (
     <a
-      className={linkClassNames}
+      className={classes}
       target="_blank"
       rel="noreferrer"
       href={href.toString()}
@@ -20,7 +32,7 @@ const CustomLink: React.FC<LinkProps> = ({ children, href, ...props }) => {
     </a>
   ) : (
     <Link {...props} href={href}>
-      <a className={linkClassNames}>{children}</a>
+      <a className={classes}>{children}</a>
     </Link>
   );
 };
