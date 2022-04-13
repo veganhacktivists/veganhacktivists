@@ -1,14 +1,13 @@
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { faBitcoinSign, faCopy } from '@fortawesome/free-solid-svg-icons';
-import { faCopy as faCopyRegular } from '@fortawesome/free-regular-svg-icons';
+import { faBitcoinSign } from '@fortawesome/free-solid-svg-icons';
+import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback, useState } from 'react';
 import QRCode from 'react-qr-code';
 import { toast } from 'react-toastify';
 import getThemeColor from '../../../lib/helpers/theme';
 import Modal from '../modal';
-import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import CustomLink from '../../decoration/link';
 
 interface CryptoWalletProps {
@@ -94,7 +93,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
                   {code}
                 </div>
                 <div className="cursor-pointer" onClick={onCopy}>
-                  <FontAwesomeIcon size="lg" icon={faCopyRegular} />
+                  <FontAwesomeIcon size="lg" icon={faCopy} />
                 </div>
               </div>
             </div>
