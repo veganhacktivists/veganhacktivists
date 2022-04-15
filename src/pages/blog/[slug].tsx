@@ -202,8 +202,8 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
             <ContentfulImage image={image} alt="" />
           </div>
         )}
-        <div className="p-5 pl-10 pt-10 text-center lg:text-left h-full lg:h-64 w-full">
-          <div className="text-3xl font-bold">{name}</div>
+        <div className="p-5 pl-10 pt-8 text-center lg:text-left h-full lg:h-64 w-full">
+          <div className="text-3xl font-bold pb-4">{name}</div>
           {description && (
             <div className="text-xl">
               <RichText document={description} />
