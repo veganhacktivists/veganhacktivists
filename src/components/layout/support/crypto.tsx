@@ -2,6 +2,7 @@ import { faBitcoinSign } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback, useState } from 'react';
+import type { QRCodeProps } from 'react-qr-code';
 import QRCode from 'react-qr-code';
 import { toast } from 'react-toastify';
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
@@ -35,7 +36,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const QR_LEVEL = 'H';
+  const QR_LEVEL: QRCodeProps['level'] = 'H';
 
   return (
     <>
