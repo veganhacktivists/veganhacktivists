@@ -5,35 +5,41 @@ const hashToString: (hash: string) => string = (hash) => {
   return decodeURI(hash.substring(1));
 };
 
-export const useHash: () => readonly [string, (newHash: string) => void] =
-  () => {
-    const [hash, setHash] = useState<string>('');
-    const router = useRouter();
-    const onHashChange = useCallback(() => {
-      setHash(hashToString(window.location.hash));
-    }, []);
+interface UseHashProps {
+  shallow?: boolean;
+}
 
-    useEffect(() => {
-      setHash(hashToString(window.location.hash));
+export const useHash: (
+  props?: UseHashProps
+) => readonly [string, (newHash?: string | null) => void] = (
+  { shallow } = { shallow: true }
+) => {
+  const [hash, setHash] = useState<string>('');
+  const router = useRouter();
+  const onHashChange = useCallback(() => {
+    setHash(hashToString(window.location.hash));
+  }, []);
 
-      router.events.on('hashChangeComplete', onHashChange);
-      return () => {
-        router.events.off('hashChangeComplete', onHashChange);
-        window.removeEventListener('hashchange', onHashChange);
-      };
-    }, []);
+  useEffect(() => {
+    setHash(hashToString(window.location.hash));
 
-    const _setHash = useCallback(
-      (newHash: string) => {
-        if (newHash !== hash) {
-          router.replace('#' + newHash, undefined, {
-            shallow: true,
-            scroll: false,
-          });
-        }
-      },
-      [hash]
-    );
+    router.events.on('hashChangeComplete', onHashChange);
+    return () => {
+      router.events.off('hashChangeComplete', onHashChange);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
 
-    return [hash, _setHash] as const;
-  };
+  const _setHash = useCallback(
+    (newHash) => {
+      if (!newHash) {
+        router.push({ hash: '' }, undefined, { shallow, scroll: false });
+      } else if (newHash !== hash) {
+        router.push({ hash: newHash }, undefined, { shallow, scroll: false });
+      }
+    },
+    [hash, shallow, router]
+  );
+
+  return [hash, _setHash] as const;
+};

@@ -11,7 +11,7 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import { NextSeo } from 'next-seo';
@@ -22,6 +22,8 @@ import BlogsHeader from '../../components/layout/blog/blogsHeader';
 import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
+import { useRouter } from 'next/router';
+import { useHash } from '../../hooks/useHash';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -47,7 +49,7 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 ) => {
   if (tagQuery === undefined) return true;
 
-  if (tagQuery !== null) {
+  if (tagQuery !== null && tagQuery !== 'other') {
     return !!entry.fields.tags?.find((tag) => tag.fields.slug === tagQuery);
   }
 
@@ -56,8 +58,20 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [hash, setHash] = useHash({ shallow: false });
 
-  const [tagQuery, setTagQuery] = useState<string | null | undefined>(null);
+  const [tagQuery, setTagQuery] = useState<string | null | undefined>(
+    hash ? hash : undefined
+  );
+
+  const handleTagQuery = (tag?: string | null) => {
+    setTagQuery(tag);
+    setHash(tag);
+  };
+
+  useEffect(() => {
+    setTagQuery(hash);
+  }, [hash]);
 
   const [firstBlog, ...otherBlogs] = blogs;
 
@@ -113,8 +127,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       />
       <BlogsHeader
         tags={tags}
+        currentTag={tagQuery}
         onSearchChange={setSearchQuery}
-        onTagChange={setTagQuery}
+        onTagChange={handleTagQuery}
         query={searchQuery}
       />
       <SquareField

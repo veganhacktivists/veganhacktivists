@@ -13,7 +13,8 @@ interface HeaderProps {
   query: string;
   tags: ITag[];
   onSearchChange: (query: string) => void;
-  onTagChange: (tag: ITagFields['name'] | null | undefined) => void;
+  onTagChange: (tag?: ITagFields['name'] | null) => void;
+  currentTag?: string | null;
 }
 
 const BlogsHeader: React.FC<HeaderProps> = ({
@@ -21,16 +22,9 @@ const BlogsHeader: React.FC<HeaderProps> = ({
   tags,
   onSearchChange,
   onTagChange,
+  currentTag,
 }) => {
-  const [currentTag, setCurrentTag] = useState<string | null | undefined>(
-    undefined
-  );
-
   const greyLight = getThemeColor('grey-light');
-
-  useEffect(() => {
-    onTagChange(currentTag);
-  }, [currentTag]);
 
   const Tag: React.FC<{
     name: string;
@@ -43,7 +37,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
           'bg-grey': active,
         })}
         onClick={() => {
-          setCurrentTag(active ? undefined : slug);
+          onTagChange(active ? undefined : slug);
         }}
       >
         {name}
@@ -95,7 +89,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
                 active={tag.fields.slug === currentTag}
               />
             ))}
-            <Tag name="Other" slug={null} active={currentTag === null} />
+            <Tag name="Other" slug="other" active={currentTag === null} />
           </div>
         </div>
       </div>
