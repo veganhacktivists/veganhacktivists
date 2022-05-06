@@ -24,6 +24,7 @@ import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useRouter } from 'next/router';
 import { useHash } from '../../hooks/useHash';
+import useQueryParams from '../../hooks/useQueryParams';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -57,8 +58,12 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 };
 
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const [hash, setHash] = useHash({ shallow: false });
+  const [queryParams, setQueryParams, isReady] = useQueryParams();
+
+  const [search, setSearch] = useState<string>(
+    (queryParams['q'] as string) || ''
+  );
 
   const [tagQuery, setTagQuery] = useState<string | null | undefined>(
     hash || undefined
@@ -70,8 +75,19 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   };
 
   useEffect(() => {
+    setSearch((queryParams.q as string) || '');
+    setPage(
+      queryParams.page ? Number.parseInt(queryParams.page as string) - 1 : 0
+    );
+  }, [isReady]);
+
+  useEffect(() => {
     setTagQuery(hash || undefined);
   }, [hash]);
+
+  useEffect(() => {
+    setQueryParams('q', search ? search : null);
+  }, [search]);
 
   const [firstBlog, ...otherBlogs] = blogs;
 
@@ -80,13 +96,13 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
     options: { keys: filterKeys },
-    term: searchQuery,
+    term: search,
   }).filter((entry) => filterByTag(entry, tagQuery));
 
   const filteredEntries = useFuse({
     data: otherBlogs,
     options: { keys: filterKeys },
-    term: searchQuery,
+    term: search,
     sort: true,
   }).filter((entry) => filterByTag(entry, tagQuery));
 
@@ -95,6 +111,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     endIndex,
     setPreviousPage,
     setNextPage,
+    setPage,
     currentPage,
     previousEnabled,
     nextEnabled,
@@ -102,6 +119,14 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     totalItems: filteredEntries.length,
     initialPageSize: 9,
   });
+
+  useEffect(() => {
+    if (currentPage === 0) {
+      setQueryParams('page', null);
+      return;
+    }
+    setQueryParams('page', currentPage + 1);
+  }, [currentPage]);
 
   const blogContainer = useRef<HTMLDivElement>(null);
 
@@ -128,9 +153,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       <BlogsHeader
         tags={tags}
         currentTag={tagQuery}
-        onSearchChange={setSearchQuery}
+        onSearchChange={setSearch}
         onTagChange={handleTagQuery}
-        query={searchQuery}
+        query={search}
       />
       <SquareField
         squares={[
