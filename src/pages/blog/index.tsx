@@ -61,7 +61,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [hash, setHash] = useHash({ shallow: false });
 
   const [tagQuery, setTagQuery] = useState<string | null | undefined>(
-    hash ? hash : undefined
+    hash || undefined
   );
 
   const handleTagQuery = (tag?: string | null) => {
@@ -70,7 +70,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   };
 
   useEffect(() => {
-    setTagQuery(hash);
+    setTagQuery(hash || undefined);
   }, [hash]);
 
   const [firstBlog, ...otherBlogs] = blogs;
