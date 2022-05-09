@@ -17,6 +17,7 @@ import adviceIcon from '../../public/images/services/Services-icon-advice.png';
 import fundingIcon from '../../public/images/services/Services-icon-funding.png';
 import projectIcon from '../../public/images/services/Services-icon-project.png';
 import webIcon from '../../public/images/services/Services-icon-web.png';
+import designIcon from '../../public/images/services/Services-icon-design.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
 import { NextSeo } from 'next-seo';
 
@@ -53,6 +54,18 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     button: {
       text: 'Apply for a free website!',
       href: '#contact-us',
+    },
+  },
+  {
+    title: 'Design',
+    content:
+      'We have a dedicated design team that can help you with your branding, logo, socail media banners, icons, funding documents, website design, and more! Note that requests are free but accepted on a case-by-case basis, we encourage you to submit your request to us below!',
+    icon: designIcon,
+    iconBgColor: 'yellow-dark',
+    iconAccentColor: 'yellow-orange',
+    button: {
+      text: 'Request a free design!',
+      href: 'https://forms.gle/guiL6sLCJCDdy7Yy5',
     },
   },
   {
