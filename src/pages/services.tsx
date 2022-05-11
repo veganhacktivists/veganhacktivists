@@ -59,7 +59,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Design',
     content:
-      'We have a dedicated design team that can help you with your branding, logo, socail media banners, icons, funding documents, website design, and more! Note that requests are free but accepted on a case-by-case basis, we encourage you to submit your request to us below!',
+      'We have a dedicated design team that can help you with your branding, logo, social media banners, icons, funding documents, website design, and more! Note that requests are free but accepted on a case-by-case basis, we encourage you to submit your request to us below!',
     icon: designIcon,
     iconBgColor: 'yellow-dark',
     iconAccentColor: 'yellow-orange',
