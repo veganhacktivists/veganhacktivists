@@ -19,7 +19,6 @@ import { PlainHeader } from '../components/decoration/textBlocks';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
 import ProgressBar from '../components/layout/support/progressBar';
-import getThemeColor from '../lib/helpers/theme';
 import { getContents } from '../lib/cms';
 import { getPatrons } from '../lib/patreon';
 import type { ISingleValuesFields } from '../types/generated/contentful';

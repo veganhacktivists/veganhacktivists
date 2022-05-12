@@ -100,9 +100,13 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
         .map(([key, value]) => {
           let filteredValue;
           if (Array.isArray(value)) {
-            filteredValue = value
-              .filter((child) => !!child.fields)
-              .map(removeEntriesWithoutFields);
+            if (typeof value[0] !== 'object' || !Array.isArray(value)) {
+              filteredValue = value;
+            } else {
+              filteredValue = value
+                .filter((child) => !!child.fields)
+                .map(removeEntriesWithoutFields);
+            }
           } else if (typeof value === 'object') {
             filteredValue = removeEntriesWithoutFields(value);
           } else {

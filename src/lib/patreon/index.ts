@@ -22,6 +22,7 @@ export const getPatrons: () => Promise<string[]> = async () => {
   const cmsPatrons = await getContents<IMultipleValuesFields>({
     contentType: 'multipleValues',
     query: { name: 'patreonDonors' },
+    other: { limit: 1 },
   });
 
   const patrons = cmsPatrons[0].fields.values;
