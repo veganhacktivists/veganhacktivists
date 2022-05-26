@@ -451,7 +451,7 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="bg-black"
+    class="bg-black px-5"
   >
     <div
       class="content-center mx-auto md:w-1/2 text-2xl pb-12"
