@@ -144,7 +144,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           yAlign="bottom"
           color="grey-light"
           radius={30}
-          opacity={0.6}
+          opacity={0.1}
         />
         <Circle
           xAlign="right"
