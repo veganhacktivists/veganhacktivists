@@ -99,8 +99,8 @@ const Hero: React.FC<HeroProps> = ({
       </h1>
       {main && <ScrollDownIndicator onClick={scrollToContent} />}
       <div className="absolute inset-0 overflow-hidden">
-        <Circle xAlign="right" radiusZoom={0.9} opacity={0.1} />
-        <Circle yAlign="bottom" radiusZoom={1.04} opacity={0.2} />
+        <Circle xAlign="right" radius={30} opacity={0.1} />
+        <Circle yAlign="bottom" radius={34} opacity={0.2} />
       </div>
     </div>
   );

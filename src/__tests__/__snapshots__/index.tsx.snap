@@ -217,7 +217,7 @@ exports[`Application renders correctly 1`] = `
       <b>
         volunteering our time and skills
       </b>
-       towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.at
+       towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
     </p>
     <p>
       <b>
@@ -384,10 +384,18 @@ exports[`Application renders correctly 1`] = `
     />
   </div>
   <div
-    class="bg-gray text-white text-2xl w-full"
+    class="bg-gray text-white text-2xl w-full relative overflow-hidden"
   >
     <div
-      class="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8"
+      class="z-10 rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
+      style="color: rgb(180, 180, 180); left: 0px; bottom: 0px; width: 60vw; height: 60vw; border: 20px solid #b4b4b4;"
+    />
+    <div
+      class="z-10 rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
+      style="color: rgb(41, 41, 41); right: 0px; top: 0px; width: 100vw; height: 100vw; border: 20px solid #292929;"
+    />
+    <div
+      class="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 z-20 relative"
     >
       <div
         class="mb-2"
@@ -420,7 +428,7 @@ exports[`Application renders correctly 1`] = `
         />
       </div>
       <div>
-        Learn more about us watching the above video!
+        Watch our other videos by clicking the button below!
       </div>
       <div
         class="w-fit mx-auto"
@@ -486,7 +494,7 @@ exports[`Application renders correctly 1`] = `
         <b>
           100% free for everyone
         </b>
-        , we don’t do premium versions, advertisments, or sell user data what-so-ever.
+        , we don't do premium versions, advertisments, or sell user data what-so-ever.
       </p>
       <div
         class="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16"

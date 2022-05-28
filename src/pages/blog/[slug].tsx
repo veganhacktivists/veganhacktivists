@@ -80,13 +80,8 @@ const Header: React.FC = () => {
   return (
     <div className="absolute w-full -z-10 overflow-hidden">
       <div className="relative z-10">
-        <Circle opacity={0.1} xAlign="left" yAlign="top" radiusZoom={0.5} />
-        <Circle
-          opacity={0.05}
-          xAlign="right"
-          yAlign="bottom"
-          radiusZoom={0.3}
-        />
+        <Circle opacity={0.1} xAlign="left" yAlign="top" radius={16} />
+        <Circle opacity={0.05} xAlign="right" yAlign="bottom" radius={11} />
       </div>
       <div className="bg-black relative h-36 lg:h-80" />
       <div className="z-20">

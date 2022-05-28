@@ -7,6 +7,7 @@ import {
   LightButton,
   WhiteButton,
 } from '../components/decoration/buttons';
+import Circle from '../components/decoration/circle';
 import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
 import CustomLink from '../components/decoration/link';
@@ -142,8 +143,24 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         ]}
         className="hidden md:block"
       />
-      <div className="bg-gray text-white text-2xl w-full">
-        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8">
+      <div className="bg-gray text-white text-2xl w-full relative overflow-hidden">
+        <Circle
+          xAlign="left"
+          yAlign="bottom"
+          color="grey-light"
+          opacity={1}
+          className="z-10"
+          radius={30}
+        />
+        <Circle
+          xAlign="right"
+          yAlign="top"
+          color="grey-dark"
+          opacity={1}
+          className="z-10"
+          radius={50}
+        />
+        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 z-20 relative">
           <SectionHeader
             className="mb-2"
             header={['Watch our', 'intro video']}
@@ -175,8 +192,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             <b className="text-5xl font-mono">PROJECTS</b>
           </p>
           <p>
-            Every project we release is <b>100% free for everyone</b>, we don’t
-            do premium versions, advertisments, or sell user data what-so-ever.
+            Every project we release is <b>100% free for everyone</b>, we
+            don&apos;t do premium versions, advertisments, or sell user data
+            what-so-ever.
           </p>
           <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
             {featuredProjects.map((project) => (

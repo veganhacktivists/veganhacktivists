@@ -7,7 +7,8 @@ interface CircleProps {
   thickness?: string;
   xAlign?: 'left' | 'right';
   yAlign?: 'top' | 'bottom';
-  radiusZoom?: number;
+  radius?: number;
+  className?: string;
 }
 
 const Circle: React.FC<CircleProps> = ({
@@ -16,10 +17,9 @@ const Circle: React.FC<CircleProps> = ({
   thickness = '20px',
   yAlign = 'top',
   xAlign = 'left',
-  radiusZoom = 1,
+  radius = 33,
+  className,
 }) => {
-  const radius = Math.floor((100 * radiusZoom) / 3);
-
   let xTransform = 'translate-x-1/4';
   let yTransform = 'translate-y-2/4 lg:translate-y-3/4';
 
@@ -38,12 +38,13 @@ const Circle: React.FC<CircleProps> = ({
     <div
       style={{
         ...style,
-        width: radius * 2 + 'vw',
-        height: radius * 2 + 'vw',
+        width: `${radius * 2}vw`,
+        height: `${radius * 2}vw`,
         border: `${thickness} solid ${themeColor}`,
-        opacity,
+        opacity: opacity == 1 ? undefined : opacity,
       }}
       className={classNames(
+        className,
         'rounded-full overflow-visible absolute transform pointer-events-none',
         xTransform,
         yTransform

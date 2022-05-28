@@ -47,8 +47,8 @@ const BlogsHeader: React.FC<HeaderProps> = ({
 
   return (
     <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden">
-      <Circle opacity={0.1} />
-      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radiusZoom={0.5} />
+      <Circle opacity={0.1} radius={33} />
+      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radius={16} />
       <div className="flex flex-col justify-center md:w-1/2 z-10 pb-10">
         <div className="w-48 mx-auto my-10">
           <CustomImage src={roundLogo} alt="" />
