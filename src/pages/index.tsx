@@ -143,19 +143,17 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           xAlign="left"
           yAlign="bottom"
           color="grey-light"
-          opacity={1}
-          className="z-10"
           radius={30}
+          opacity={0.6}
         />
         <Circle
           xAlign="right"
           yAlign="top"
           color="grey-dark"
-          opacity={1}
-          className="z-10"
           radius={50}
+          opacity={0.6}
         />
-        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 z-20 relative">
+        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 relative">
           <SectionHeader
             className="mb-2"
             header={['Watch our', 'intro video']}

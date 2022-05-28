@@ -41,7 +41,7 @@ const Circle: React.FC<CircleProps> = ({
         width: `${radius * 2}vw`,
         height: `${radius * 2}vw`,
         border: `${thickness} solid ${themeColor}`,
-        opacity: opacity == 1 ? undefined : opacity,
+        opacity,
       }}
       className={classNames(
         className,

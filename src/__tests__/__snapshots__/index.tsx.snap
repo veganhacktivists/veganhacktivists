@@ -387,15 +387,15 @@ exports[`Application renders correctly 1`] = `
     class="bg-gray text-white text-2xl w-full relative overflow-hidden"
   >
     <div
-      class="z-10 rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
-      style="color: rgb(180, 180, 180); left: 0px; bottom: 0px; width: 60vw; height: 60vw; border: 20px solid #b4b4b4;"
+      class="rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
+      style="color: rgb(180, 180, 180); left: 0px; bottom: 0px; width: 60vw; height: 60vw; border: 20px solid #b4b4b4; opacity: 0.6;"
     />
     <div
-      class="z-10 rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
-      style="color: rgb(41, 41, 41); right: 0px; top: 0px; width: 100vw; height: 100vw; border: 20px solid #292929;"
+      class="rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
+      style="color: rgb(41, 41, 41); right: 0px; top: 0px; width: 100vw; height: 100vw; border: 20px solid #292929; opacity: 0.6;"
     />
     <div
-      class="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 z-20 relative"
+      class="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 relative"
     >
       <div
         class="mb-2"
