@@ -368,7 +368,7 @@ exports[`Application renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="relative overflow-visible z-10"
+    class="relative overflow-visible z-10 hidden md:block"
   >
     <div
       class="absolute"

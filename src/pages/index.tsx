@@ -140,6 +140,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           { right: 0, top: 0, color: 'white' },
           { right: 16, top: 16, color: 'white' },
         ]}
+        className="hidden md:block"
       />
       <div className="bg-gray text-white text-2xl w-full">
         <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8">
