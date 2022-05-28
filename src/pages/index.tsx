@@ -151,7 +151,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <div className="py-2">
             <YoutubeVideo id="jaW8n1pd97U" />
           </div>
-          <div>Learn more about us watching the above video!</div>
+          <div>Watch our other videos by clicking the button below!</div>
           <div className="w-fit mx-auto">
             <LightButton
               className=""
