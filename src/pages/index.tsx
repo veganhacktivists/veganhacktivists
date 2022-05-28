@@ -2,11 +2,18 @@ import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
-import { DarkButton, LightButton } from '../components/decoration/buttons';
+import {
+  DarkButton,
+  LightButton,
+  WhiteButton,
+} from '../components/decoration/buttons';
 import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
+import CustomLink from '../components/decoration/link';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
+import { SectionHeader } from '../components/decoration/textBlocks';
+import YoutubeVideo from '../components/decoration/youtubeVideo';
 import { GrantsCallToAction } from '../components/layout/grants/index';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
@@ -104,7 +111,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           around the world, <b>volunteering our time and skills</b> towards the
           animal protection movement. We build free technology and offer free
           services with the goal of reducing or stopping the mass amounts of
-          suffering caused by factory farming.
+          suffering caused by factory farming.at
         </p>
         <p>
           <b>We do this for the animals</b> - we do this because coding is our
@@ -127,6 +134,33 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         </div>
       </div>
       <Sprite image={cow} />
+      <SquareField
+        squares={[
+          { left: 0, bottom: 0, color: 'gray' },
+          { right: 0, top: 0, color: 'white' },
+          { right: 16, top: 16, color: 'white' },
+        ]}
+      />
+      <div className="bg-gray text-white text-2xl w-full">
+        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8">
+          <SectionHeader
+            className="mb-2"
+            header={['Watch our', 'intro video']}
+          />
+          <div className="py-2">
+            <YoutubeVideo id="jaW8n1pd97U" />
+          </div>
+          <div>Learn more about us watching the above video!</div>
+          <div className="w-fit mx-auto">
+            <LightButton
+              className=""
+              href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+            >
+              Visit our channel
+            </LightButton>
+          </div>
+        </div>
+      </div>
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className="hidden md:block"

@@ -217,7 +217,7 @@ exports[`Application renders correctly 1`] = `
       <b>
         volunteering our time and skills
       </b>
-       towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.
+       towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.at
     </p>
     <p>
       <b>
@@ -365,6 +365,79 @@ exports[`Application renders correctly 1`] = `
           style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
       </span>
+    </div>
+  </div>
+  <div
+    class="relative overflow-visible z-10"
+  >
+    <div
+      class="absolute"
+      style="background-color: rgb(69, 69, 69); width: 64px; height: 64px; opacity: 1; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 0px; right: 0px;"
+    />
+    <div
+      class="absolute"
+      style="background-color: rgb(255, 255, 255); width: 64px; height: 64px; opacity: 1; top: 64px; right: 64px;"
+    />
+  </div>
+  <div
+    class="bg-gray text-white text-2xl w-full"
+  >
+    <div
+      class="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8"
+    >
+      <div
+        class="mb-2"
+      >
+        <h2>
+          <div>
+            <span
+              class="font-italic text-4xl"
+            >
+              Watch our
+            </span>
+             
+            <span
+              class="text-5xl md:text-6xl font-mono font-semibold uppercase"
+            >
+              intro video
+            </span>
+          </div>
+        </h2>
+      </div>
+      <div
+        class="py-2"
+      >
+        <iframe
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+          class="w-full aspect-video"
+          src="https://www.youtube.com/embed/jaW8n1pd97U"
+        />
+      </div>
+      <div>
+        Learn more about us watching the above video!
+      </div>
+      <div
+        class="w-fit mx-auto"
+      >
+        <a
+          href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <div
+            class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
+            href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+            style="background-size: 250% 100%; background-position: right;"
+          >
+            Visit our channel
+          </div>
+        </a>
+      </div>
     </div>
   </div>
   <div
