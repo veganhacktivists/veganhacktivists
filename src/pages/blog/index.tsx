@@ -22,7 +22,6 @@ import BlogsHeader from '../../components/layout/blog/blogsHeader';
 import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
-import { useRouter } from 'next/router';
 import { useHash } from '../../hooks/useHash';
 
 interface BlogProps {

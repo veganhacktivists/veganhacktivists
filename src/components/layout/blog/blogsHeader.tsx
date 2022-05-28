@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Circle from '../../decoration/circle';
 
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';

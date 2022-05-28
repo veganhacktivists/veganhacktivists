@@ -2,15 +2,10 @@ import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
-import {
-  DarkButton,
-  LightButton,
-  WhiteButton,
-} from '../components/decoration/buttons';
+import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Circle from '../components/decoration/circle';
 import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
-import CustomLink from '../components/decoration/link';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { SectionHeader } from '../components/decoration/textBlocks';

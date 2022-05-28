@@ -18,7 +18,6 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RichText from '../../../components/decoration/richText';
 import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
-import type { Entry } from 'contentful';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({

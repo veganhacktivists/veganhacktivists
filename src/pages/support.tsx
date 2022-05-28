@@ -7,10 +7,7 @@ import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
-import {
-  ExternalLinkButton,
-  LightButton,
-} from '../components/decoration/buttons';
+import { ExternalLinkButton } from '../components/decoration/buttons';
 import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
 import Sprite, { chicken, pig } from '../components/decoration/sprite';
