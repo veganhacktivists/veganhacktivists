@@ -17,18 +17,21 @@ model User {
   posts     Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
 
 model Vote {
-  id        String   @id @default(cuid())
   user      User     @relation(fields: [userId], references: [id])
-  userId    String
+  userId    String   @map("user_id")
   post      Post     @relation(fields: [postId], references: [id])
-  postId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  postId    String   @map("post_id")
+  isUpvote  Boolean  @map("is_upvote")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-  @@unique([postId, userId])
+  @@id([postId, userId])
+  @@map("votes")
 }
 
 model Post {
@@ -36,8 +39,10 @@ model Post {
   title     String
   body      String
   user      User     @relation(fields: [userId], references: [id])
-  userId    String
+  userId    String   @map("user_id")
   votes     Vote[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("posts")
 }
