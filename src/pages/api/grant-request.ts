@@ -3,6 +3,7 @@ import type { NextApiHandler } from 'next';
 import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import HttpCodes from 'http-status-codes';
 import { errorBody } from '../../lib/helpers/api';
+import GrantsEmailTemplate from '../../components/layout/grants/emailTemplate';
 
 export interface GrantsForm {
   // Section A - About you
@@ -46,6 +47,17 @@ const handler: NextApiHandler = async (req, res) => {
       from: email,
       subject: `Grant request from ${name}`,
       html: createFormattedMessage(req.body),
+    });
+
+    const confirmationMail = GrantsEmailTemplate.render({
+      props: { email, name },
+    });
+
+    await sendMail({
+      to: email,
+      from: OUR_EMAIL,
+      subject: 'Thank you for your request',
+      html: confirmationMail.html,
     });
   } catch (e: unknown) {
     return res.status((e as Response).status).json({});

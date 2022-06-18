@@ -12,6 +12,9 @@
     "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "@brail/core": "^0.1.0",
+    "@brail/mjml": "^0.0.1",
+    "@brail/react": "^0.0.9",
     "@contentful/rich-text-plain-text-renderer": "^15.6.2",
     "@contentful/rich-text-react-renderer": "^15.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
