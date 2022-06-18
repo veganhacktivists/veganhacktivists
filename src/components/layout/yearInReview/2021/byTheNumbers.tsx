@@ -5,12 +5,12 @@ import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 
-interface NumberProps {
+interface NumberProps extends React.PropsWithChildren {
   number: React.ReactNode;
   header?: boolean;
 }
 
-const Number: React.FC<React.PropsWithChildren<NumberProps>> = ({
+const Number: React.FC<NumberProps> = ({
   number,
   children,
   header = false,

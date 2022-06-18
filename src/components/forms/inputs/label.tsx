@@ -1,4 +1,4 @@
-interface LabelProps {
+interface LabelProps extends React.PropsWithChildren {
   name: string;
 }
 

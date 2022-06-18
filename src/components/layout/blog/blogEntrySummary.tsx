@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { DarkButton } from '../../../components/decoration/buttons';
 import Link from 'next/link';
+import React from 'react';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -20,7 +21,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
 }) => {
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
-  const LinkToBlog: React.FC = ({ children }) => (
+  const LinkToBlog: React.FC<React.PropsWithChildren> = ({ children }) => (
     <Link href={`/blog/${blog.fields.slug}`}>
       <a aria-label={blog.fields.title}>{children}</a>
     </Link>

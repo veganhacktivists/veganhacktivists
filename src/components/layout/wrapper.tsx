@@ -22,7 +22,7 @@ const JumpToContent: React.FC = () => {
   );
 };
 
-const PageWrapper: React.FC = ({ children }) => {
+const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
@@ -33,7 +33,9 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
-export const MainWrapper: React.FC = ({ children }) => {
+export const MainWrapper: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const error = useErrorStore((state) => state.error);
   const { asPath } = useRouter();
 
@@ -46,10 +48,13 @@ export const MainWrapper: React.FC = ({ children }) => {
         return <ErrorPage {...props} />;
       }}
     >
+      {/* TODO: for some reason multiple children give a time error on this main tag */}
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
-        {children}
-        <CookiesCTA />
-        {hideNewsletter || <NewsletterPopup />}
+        <>
+          {children}
+          <CookiesCTA />
+          {hideNewsletter || <NewsletterPopup />}
+        </>
       </main>
       <ToastContainer position="bottom-right" />
     </ErrorBoundary>

@@ -2,6 +2,7 @@ import { LightButton } from '../../decoration/buttons';
 import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
 import CustomImage from '../../decoration/customImage';
+import type { StaticImageData } from 'next/image';
 
 interface INumberIcons {
   [key: string]: StaticImageData;
@@ -12,9 +13,8 @@ const NUMBER_ICONS: INumberIcons = {
   '2': number2,
 };
 
-interface GrantsQualificationsStepProps {
+interface GrantsQualificationsStepProps extends React.PropsWithChildren {
   step: string;
-  children: React.ReactNode;
 }
 
 const GrantsQualificationsStep: React.FC<GrantsQualificationsStepProps> = ({

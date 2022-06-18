@@ -5,7 +5,7 @@ import useReduceMotion from '../../hooks/useReduceMotion';
 
 ReactModal.setAppElement('#main');
 
-interface ModalProps {
+interface ModalProps extends React.PropsWithChildren {
   isOpen: boolean;
   onClose?: () => void;
   className?: string;

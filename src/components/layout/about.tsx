@@ -6,6 +6,7 @@ import heroTagline from '../../../public/images/about/hero-tagline.png';
 import React from 'react';
 import { GrantsCallToAction } from './grants';
 import Sprite, { goat } from '../decoration/sprite';
+import type { Layout } from '../../types/persistentLayout';
 
 const AboutButtons: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ const AboutHero: React.FC = () => {
   );
 };
 
-const AboutLayout: React.FC = (page) => {
+const AboutLayout: Layout = (page) => {
   return (
     <>
       <AboutHero />

@@ -34,7 +34,7 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
-const Paragraph: React.FC = ({ children }) => (
+const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
   <p className="px-10 mx-auto mb-20 text-xl md:w-3/4">{children}</p>
 );
 
