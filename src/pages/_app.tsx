@@ -32,7 +32,7 @@ const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
 };
 
-const AppWrapper: React.FC = ({ children }) => {
+const AppWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <CookiesProvider>
       <DefaultSeo {...SEO} />

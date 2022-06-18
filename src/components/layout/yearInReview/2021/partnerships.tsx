@@ -7,13 +7,14 @@ import pollinationPartner from '../../../../../public/images/yearInReview/2021/p
 import otherPartner from '../../../../../public/images/yearInReview/2021/partner_other.png';
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
+import type { StaticImageData } from 'next/image';
 
-interface PartnershipProps {
+interface PartnershipProps extends React.PropsWithChildren {
   image: StaticImageData;
   title: React.ReactNode;
 }
 
-const Partnership: React.FC<React.PropsWithChildren<PartnershipProps>> = ({
+const Partnership: React.FC<PartnershipProps> = ({
   image,
   title,
   children,

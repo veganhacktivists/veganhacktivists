@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-interface SubtleBorderProps {
+interface SubtleBorderProps extends React.PropsWithChildren {
   className?: string;
   border?: boolean;
   shadow?: boolean;

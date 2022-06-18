@@ -3,7 +3,7 @@ import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import Circle from '../../decoration/circle';
 
-interface SectionContainerProps {
+interface SectionContainerProps extends React.PropsWithChildren {
   header?: React.ReactNode;
   className?: string;
   color?: string;

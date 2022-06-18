@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { ImageProps } from 'next/image';
+import type { ImageProps, StaticImageData } from 'next/image';
 import React, { useCallback, useRef } from 'react';
 import Circle from './circle';
 import CustomImage from './customImage';
@@ -9,7 +9,7 @@ interface HeroClassNames {
   container?: string;
   content?: string;
 }
-interface HeroProps {
+interface HeroProps extends React.PropsWithChildren {
   imageBackground: ImageProps['src'];
   backgroundImageProps?: Partial<ImageProps>;
   tagline?: {

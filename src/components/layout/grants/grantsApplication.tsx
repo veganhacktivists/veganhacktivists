@@ -16,11 +16,18 @@ import SquareField from '../../decoration/squares';
 import { useRouter } from 'next/router';
 import ky from 'ky-universal';
 
-const FormSection: React.FC<{
+interface FormSectionProps extends React.PropsWithChildren {
   section: string;
   sectionName: string;
   dark?: boolean;
-}> = ({ children, section, sectionName, dark = false }) => {
+}
+
+const FormSection: React.FC<FormSectionProps> = ({
+  children,
+  section,
+  sectionName,
+  dark = false,
+}) => {
   return (
     <div
       className={classNames({

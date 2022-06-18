@@ -1,12 +1,15 @@
 // import type { IBlogEntry } from '../../../types/generated/contentful';
 
 import Link from 'next/link';
+import React from 'react';
 import type { IBlogEntry } from '../../../types/generated/contentful';
 import { DarkButton } from '../../decoration/buttons';
 
 import ContentfulImage from '../contentfulImage';
 
-const BlogContentContainer: React.FC = ({ children }) => {
+const BlogContentContainer: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   return (
     <div className="flex flex-col lg:flex-row gap-x-10 mt-10 w-3/4 mx-auto">
       {children}
@@ -14,7 +17,7 @@ const BlogContentContainer: React.FC = ({ children }) => {
   );
 };
 
-export const Body: React.FC = ({ children }) => {
+export const Body: React.FC<React.PropsWithChildren> = ({ children }) => {
   return <>{children}</>;
 };
 

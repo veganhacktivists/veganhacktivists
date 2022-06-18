@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 const linkClassNames = 'text-magenta hover:underline active:text-magenta-light';
 
-interface LinkProps extends NextLinkProps {
+interface LinkProps extends React.PropsWithChildren<NextLinkProps> {
   className?: string;
 }
 

@@ -6,6 +6,7 @@ import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
 import React from 'react';
 import Sprite, { duck } from '../decoration/sprite';
 import JoinTheTeam from './joinTheTeam';
+import type { Layout } from '../../types/persistentLayout';
 
 export enum Site {
   Patreon = 'patreon',
@@ -65,7 +66,7 @@ const PeopleHero: React.FC = () => {
   );
 };
 
-const PeopleLayout: React.FC = (page) => {
+const PeopleLayout: Layout = (page) => {
   return (
     <>
       <PeopleHero />

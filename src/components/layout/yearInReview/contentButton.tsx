@@ -6,6 +6,7 @@ import getThemeColor from '../../../lib/helpers/theme';
 import ContentfulImage from '../contentfulImage';
 import type { Asset } from 'contentful';
 import CustomImage from '../../decoration/customImage';
+import type { StaticImageData } from 'next/image';
 export interface ContentButtonProps {
   content: { title: string; image: Asset | StaticImageData };
   setContent: () => void;

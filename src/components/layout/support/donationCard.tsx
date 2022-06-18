@@ -1,8 +1,9 @@
+import type { StaticImageData } from 'next/image';
 import getThemeColor from '../../../lib/helpers/theme';
 import { LightButton } from '../../decoration/buttons';
 import CustomImage from '../../decoration/customImage';
 
-interface DonationCardProps {
+interface DonationCardProps extends React.PropsWithChildren {
   title: string;
   buttonText: string;
   buttonHref: string;

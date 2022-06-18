@@ -3,6 +3,7 @@ import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
+import type { StaticImageData } from 'next/image';
 
 export interface JobRoleProps {
   image: StaticImageData;

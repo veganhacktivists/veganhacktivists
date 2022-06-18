@@ -6,8 +6,9 @@ import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 import { pixelFlower } from '../../../images/separators';
+import type { StaticImageData } from 'next/image';
 
-const Info: React.FC<{
+interface InfoProps extends React.PropsWithChildren {
   title: string;
   image: StaticImageData;
   boxicon: StaticImageData;
@@ -16,7 +17,9 @@ const Info: React.FC<{
     content: React.ReactNode;
     href: string;
   };
-}> = ({
+}
+
+const Info: React.FC<InfoProps> = ({
   children,
   title,
   boxicon,

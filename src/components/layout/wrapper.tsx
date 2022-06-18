@@ -20,7 +20,7 @@ const JumpToContent: React.FC = () => {
   );
 };
 
-const PageWrapper: React.FC = ({ children }) => {
+const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
@@ -31,7 +31,9 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
-export const MainWrapper: React.FC = ({ children }) => {
+export const MainWrapper: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   return (
     <ErrorBoundary
       fallbackRender={(props) => {

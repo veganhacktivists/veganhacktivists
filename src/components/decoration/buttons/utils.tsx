@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 
-interface FillBackgroundProps {
+interface FillBackgroundProps extends React.PropsWithChildren {
   base: string;
   fill: string;
   disabled?: boolean;

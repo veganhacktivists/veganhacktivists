@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import type { Asset } from 'contentful';
+import type { StaticImageData } from 'next/image';
 import React from 'react';
 import getThemeColor from '../lib/helpers/theme';
 import CustomImage from './decoration/customImage';
@@ -7,9 +8,8 @@ import CustomImage from './decoration/customImage';
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
 
-interface InfoBoxProps {
+interface InfoBoxProps extends React.PropsWithChildren {
   align?: 'left' | 'right';
-  children: React.ReactNode;
   icon: StaticImageData | Asset;
   iconAccentColor: string;
   iconBgColor: string;

@@ -1,11 +1,8 @@
-interface GreyBoxProps {
+interface GreyBoxProps extends React.PropsWithChildren {
   title: React.ReactNode;
 }
 
-const GreyBox: React.FC<React.PropsWithChildren<GreyBoxProps>> = ({
-  title,
-  children,
-}) => {
+const GreyBox: React.FC<GreyBoxProps> = ({ title, children }) => {
   return (
     <div className="border-[1px] border-grey text-xl">
       <div className="bg-grey text-white uppercase px-5 py-2">{title}</div>

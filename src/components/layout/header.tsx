@@ -46,12 +46,12 @@ const LeftSide: React.FC = () => {
   );
 };
 
-interface INavbarItem {
+interface NavbarItemProps extends React.PropsWithChildren {
   href: string;
   className?: string;
 }
 
-const NavBarItem: React.FC<INavbarItem> = ({
+const NavBarItem: React.FC<NavbarItemProps> = ({
   children,
   href,
   className = '',
