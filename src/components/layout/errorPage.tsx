@@ -59,8 +59,9 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
               <h1 className="w-full font-mono font-bold text-red">{message}</h1>
               <div className="w-full font-mono">
                 {contactPageError
-                  ? 'Please contact us at...'
-                  : 'If you believe this is a mistake...'}
+                  ? 'Please contact us at'
+                  : 'If you believe this is a mistake'}
+                &hellip;
               </div>
             </div>
           </div>
