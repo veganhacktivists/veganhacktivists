@@ -6,6 +6,7 @@ import Header from '../components/layout/header';
 import Footer from '../components/layout/footer';
 import PageWrapper, { MainWrapper } from '../components/layout/wrapper';
 import TagManager from 'react-gtm-module';
+import { SessionProvider } from 'next-auth/react';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -34,10 +35,12 @@ const SEO: DefaultSeoProps = {
 
 const AppWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <CookiesProvider>
-      <DefaultSeo {...SEO} />
-      {children}
-    </CookiesProvider>
+    <SessionProvider>
+      <CookiesProvider>
+        <DefaultSeo {...SEO} />
+        {children}
+      </CookiesProvider>
+    </SessionProvider>
   );
 };
 
