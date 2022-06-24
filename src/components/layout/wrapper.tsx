@@ -69,7 +69,7 @@ export const MainWrapper: React.FC<
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
-        <NewsletterPopup />
+        {showNewsletter && <NewsletterPopup />}
       </main>
       <ToastContainer position="bottom-right" />
     </ErrorBoundary>
