@@ -1,6 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import type { SignInResponse } from 'next-auth/react';
-import { useSession } from 'next-auth/react';
 import { getSession } from 'next-auth/react';
 import { getProviders, signIn } from 'next-auth/react';
 import { useState } from 'react';
@@ -31,7 +30,6 @@ export const getServerSideProps: GetServerSideProps<SignInProps> = async ({
 const SignIn: NextPage<SignInProps> = ({ providers }) => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const session = useSession();
 
   if (!providers?.email) return null;
 
