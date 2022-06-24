@@ -5,6 +5,7 @@ import prisma from '../../../lib/db/prisma';
 import { OUR_EMAIL } from '../../../lib/mail';
 
 export default NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   providers: [
     EmailProvider({
