@@ -28,6 +28,7 @@ FROM node:${NODE_VERSION} AS builder
 
 ARG CF_SPACE_ID
 ARG CF_DELIVERY_ACCESS_TOKEN
+ARG CF_PREVIEW_ACCESS_TOKEN
 ARG CF_ENVIRONMENT
 ARG PATREON_ACCESS_TOKEN
 ARG PATREON_CAMPAIGN_ID
@@ -39,7 +40,6 @@ ENV NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN yarn prisma generate
 RUN yarn prisma migrate deploy
 RUN yarn build && yarn install --production --ignore-optional --ignore-scripts --prefer-offline
 
