@@ -2,9 +2,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+
   workflow_dispatch:
     inputs:
       logLevel:
@@ -29,11 +27,13 @@ env:
   MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
   MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
   MAILCHIMP_SERVER_ID: ${{ secrets.MAILCHIMP_SERVER_ID }}
+  NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+  EMAIL_SERVER_URL: ${{ secrets.EMAIL_SERVER_URL }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
@@ -49,11 +49,11 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build container image
         run: |
-          docker build -t $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID .
+          docker build -t $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID --build-arg DATABASE_URL=$DATABASE_URL .
           docker push $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME
+
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     needs: build_and_push
     steps:
       - name: Configure AWS credentials
@@ -69,7 +69,7 @@ jobs:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           KEY: ${{ secrets.SSH_SECRET_KEY }}
-          envs: IMAGE_NAME,AWS_REGISTRY,AWS_REPOSITORY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID,GOOGLE_TAG_MANAGER_CONTAINER_ID,MAILCHIMP_AUDIENCE_ID,MAILCHIMP_API_KEY,MAILCHIMP_SERVER_ID
+          envs: IMAGE_NAME,AWS_REGISTRY,AWS_REPOSITORY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID,GOOGLE_TAG_MANAGER_CONTAINER_ID,MAILCHIMP_AUDIENCE_ID,MAILCHIMP_API_KEY,MAILCHIMP_SERVER_ID,DATABASE_URL,EMAIL_SERVER_URL,NEXTAUTH_SECRET
           script: |
             aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 182016694564.dkr.ecr.us-east-2.amazonaws.com
             docker pull ${AWS_REGISTRY}/${AWS_REPOSITORY}:${IMAGE_NAME}
@@ -88,6 +88,9 @@ jobs:
             --env MAILCHIMP_AUDIENCE_ID=$MAILCHIMP_AUDIENCE_ID \
             --env MAILCHIMP_API_KEY=$MAILCHIMP_API_KEY \
             --env MAILCHIMP_SERVER_ID=$MAILCHIMP_SERVER_ID \
+            --env DATABASE_URL=$DATABASE_URL \
+            --env EMAIL_SERVER_URL=$EMAIL_SERVER_URL \
+            --env NEXTAUTH_SECRET=$NEXTAUTH_SECRET \
             --label traefik.enable=true \
             --label traefik.docker.network=traefik-public \
             --label traefik.http.middlewares.https-redirect.redirectscheme.scheme=https \
