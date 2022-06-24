@@ -22,7 +22,7 @@ const JumpToContent: React.FC = () => {
   );
 };
 
-const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
+const PageWrapper: React.FC = ({ children }) => {
   return (
     <>
       <JumpToContent />
