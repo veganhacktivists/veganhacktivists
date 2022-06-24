@@ -16,6 +16,7 @@ import CustomImage from '../customImage';
 import classNames from 'classnames';
 import cssAnimations from './animations.module.css';
 import FloatingHeart from './FloatingHeart';
+import type { StaticImageData } from 'next/image';
 
 interface SpriteProps {
   image: StaticImageData;

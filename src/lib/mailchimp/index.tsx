@@ -19,8 +19,6 @@ export const subscribeToNewsletter: (email: string) => Promise<void> = async (
     status_if_new: 'subscribed',
   });
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   await mailchimp.lists.updateListMemberTags(LIST_ID, hash, {
     tags: [{ name: TAG, status: 'active' }],
   });

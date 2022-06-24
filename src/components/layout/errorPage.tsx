@@ -61,8 +61,9 @@ const Error: NextPage<ErrorProps> = ({
               <h1 className="text-red font-mono font-bold w-full">{message}</h1>
               <div className="font-mono w-full">
                 {contactPageError
-                  ? 'Please contact us at...'
-                  : 'If you believe this is a mistake...'}
+                  ? 'Please contact us at'
+                  : 'If you believe this is a mistake'}
+                &hellip;
               </div>
             </div>
           </div>

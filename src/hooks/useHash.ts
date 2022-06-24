@@ -31,7 +31,7 @@ export const useHash: (
   }, []);
 
   const _setHash = useCallback(
-    (newHash) => {
+    (newHash?: string | null) => {
       if (!newHash) {
         router.push({ hash: '' }, undefined, { shallow, scroll: false });
       } else if (newHash !== hash) {

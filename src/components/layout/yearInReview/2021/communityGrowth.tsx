@@ -6,6 +6,7 @@ import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.
 import CustomImage from '../../../decoration/customImage';
 import React from 'react';
 import SectionContainer from '../sectionContainer';
+import type { StaticImageData } from 'next/image';
 
 const growthPoints: {
   image: StaticImageData;
