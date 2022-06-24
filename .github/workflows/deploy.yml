@@ -14,6 +14,8 @@ on:
 
 env:
   AWS_REGISTRY: ${{ secrets.AWS_PRIVATE_REGISTRY }}
+  REGISTRY: "registry.digitalocean.com/veganhacktivists"
+  DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
   AWS_REPOSITORY: vh-site-registry-repository
   IMAGE_NAME: vh-site-stg
   CF_SPACE_ID: ${{ secrets.CF_SPACE_ID }}
@@ -37,32 +39,26 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_REGISTRY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_REGISTRY }}
-          aws-region: us-east-2
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
       - name: Build container image
         run: |
-          docker build -t $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID --build-arg DATABASE_URL=$DATABASE_URL .
-          docker push $AWS_REGISTRY/$AWS_REPOSITORY:$IMAGE_NAME
+          docker build -t $REGISTRY/$IMAGE_NAME:$(echo $GITHUB_SHA | head -c7) --build-arg CF_SPACE_ID=$CF_SPACE_ID --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID --build-arg GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID --build-arg DATABASE_URL=$DATABASE_URL .
+
+      - name: Log in to DigitalOcean Container Registry
+        run: doctl registry login
+
+      - name: Push image to DigitalOcean Container Registry
+        run: docker push $REGISTRY/$IMAGE_NAME:$(echo $GITHUB_SHA | head -c7)
 
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push
     steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_REGISTRY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_REGISTRY }}
-          aws-region: us-east-2
-
       - name: Deploy to Digital Ocean droplet via SSH action
         uses: appleboy/ssh-action@v0.1.3
         with:
@@ -71,7 +67,6 @@ jobs:
           KEY: ${{ secrets.SSH_SECRET_KEY }}
           envs: IMAGE_NAME,AWS_REGISTRY,AWS_REPOSITORY,GITHUB_SHA,COMMAND,CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN,CF_ENVIRONMENT,MAILGUN_API_KEY,PATREON_ACCESS_TOKEN,PATREON_CAMPAIGN_ID,GOOGLE_TAG_MANAGER_CONTAINER_ID,MAILCHIMP_AUDIENCE_ID,MAILCHIMP_API_KEY,MAILCHIMP_SERVER_ID,DATABASE_URL,EMAIL_SERVER_URL,NEXTAUTH_SECRET
           script: |
-            aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 182016694564.dkr.ecr.us-east-2.amazonaws.com
             docker pull ${AWS_REGISTRY}/${AWS_REPOSITORY}:${IMAGE_NAME}
             docker stop $IMAGE_NAME
             docker rm $IMAGE_NAME
