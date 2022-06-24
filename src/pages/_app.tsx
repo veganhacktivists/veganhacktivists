@@ -50,7 +50,7 @@ const getDefaultLayout: (
     return (
       <>
         <Header />
-        <MainWrapper>{page}</MainWrapper>
+        <MainWrapper pathname={pathname}>{page}</MainWrapper>
       </>
     );
   }
@@ -58,7 +58,7 @@ const getDefaultLayout: (
   return (
     <>
       <Header />
-      <MainWrapper>{page}</MainWrapper>
+      <MainWrapper pathname={pathname}>{page}</MainWrapper>
       <Footer />
     </>
   );

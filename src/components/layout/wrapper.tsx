@@ -6,6 +6,8 @@ import CookiesCTA from '../cookiesCTA';
 import NewsletterPopup from './newsletterPopup';
 
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from '../../pages/404';
+import _error from '../../pages/_error';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -20,7 +22,7 @@ const JumpToContent: React.FC = () => {
   );
 };
 
-const PageWrapper: React.FC = ({ children }) => {
+const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
@@ -31,9 +33,35 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
-export const MainWrapper: React.FC = ({ children }) => {
+interface MainWrapperProps {
+  pathname: string;
+}
+
+export const MainWrapper: React.FC<
+  React.PropsWithChildren<MainWrapperProps>
+> = ({ children, pathname }) => {
+  const errorCallback = () => {
+    showNewsletter = false;
+  };
+
+  /*
+   * Checking for sites, where the newsletter popup shouldn't be shown
+   */
+  let showNewsletter = true;
+  if (pathname === '/docs' || pathname.startsWith('/docs/')) {
+    showNewsletter = false;
+  }
+  //I expect only one Element (the error page) getting passed as children
+  if (children && typeof children === 'object' && 'type' in children) {
+    //Check for the error pages
+    if (children.type === NotFound || children.type === _error) {
+      showNewsletter = false;
+    }
+  }
+
   return (
     <ErrorBoundary
+      onError={errorCallback}
       fallbackRender={(props) => {
         return <ErrorPage {...props} />;
       }}
@@ -41,7 +69,7 @@ export const MainWrapper: React.FC = ({ children }) => {
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
-        <NewsletterPopup />
+        {showNewsletter && <NewsletterPopup />}
       </main>
       <ToastContainer position="bottom-right" />
     </ErrorBoundary>
