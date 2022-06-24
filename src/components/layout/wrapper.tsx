@@ -33,10 +33,13 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
-export const MainWrapper: React.FC<{ pathname: string }> = ({
-  children,
-  pathname,
-}) => {
+interface MainWrapperProps {
+  pathname: string;
+}
+
+export const MainWrapper: React.FC<
+  React.PropsWithChildren<MainWrapperProps>
+> = ({ children, pathname }) => {
   const errorCallback = () => {
     showNewsletter = false;
   };
