@@ -16,7 +16,8 @@ import type {
 } from 'react';
 import { FillBackground } from './utils';
 
-export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
+export interface ButtonProps
+  extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
   primary?: boolean;
   href?: LinkProps['href'];
   className?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import getThemeColor from '../../../../lib/helpers/theme';
 
-export interface PatreonGoalProps {
+export interface PatreonGoalProps extends React.PropsWithChildren {
   goalAmount: number;
   goalOrder: number;
   previousAmount?: number;

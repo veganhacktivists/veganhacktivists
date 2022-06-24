@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 type textSize =
   | 'xs'
@@ -17,7 +17,7 @@ type textSize =
   | '8xl'
   | '9xl';
 
-interface SubSectionContent {
+interface SubSectionContent extends React.PropsWithChildren {
   header?: string;
   firstWordsNum?: number;
   headerSize?: textSize;
@@ -28,7 +28,9 @@ interface SubSectionContent {
 }
 
 interface SectionHeaderProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends React.PropsWithChildren<
+    DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  > {
   header: string | string[];
   startWithBoldFont?: boolean;
 }
@@ -90,10 +92,9 @@ export const BoldHeaderText: React.FC<SubSectionContent> = ({
   return <span className={classes}>{children}</span>;
 };
 
-export const HeaderContainer: React.FC<{ className?: string }> = ({
-  children,
-  className = 'text-grey',
-}) => {
+export const HeaderContainer: React.FC<
+  React.PropsWithChildren<{ className?: string }>
+> = ({ children, className = 'text-grey' }) => {
   return (
     <div
       className={classNames(

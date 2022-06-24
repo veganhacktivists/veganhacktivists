@@ -8,6 +8,7 @@ import JoinTheTeam from '../joinTheTeam';
 import heroBackground from '../../../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../../../public/images/projects/hero-tagline.png';
 import lampImage from '../../../../public/images/Services-icon-project.png';
+import type { Layout } from '../../../types/persistentLayout';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -24,7 +25,7 @@ const JOIN_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const ProjectsLayout: React.FC = (page) => {
+const ProjectsLayout: Layout = (page) => {
   return (
     <div>
       <Hero

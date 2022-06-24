@@ -22,7 +22,7 @@ const JumpToContent: React.FC = () => {
   );
 };
 
-const PageWrapper: React.FC = ({ children }) => {
+const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
@@ -69,7 +69,7 @@ export const MainWrapper: React.FC<
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
-        {showNewsletter && <NewsletterPopup />}
+        <NewsletterPopup />
       </main>
       <ToastContainer position="bottom-right" />
     </ErrorBoundary>

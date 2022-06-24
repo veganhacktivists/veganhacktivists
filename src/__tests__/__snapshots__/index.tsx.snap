@@ -388,7 +388,7 @@ exports[`Application renders correctly 1`] = `
   >
     <div
       class="rounded-full overflow-visible absolute transform pointer-events-none -translate-x-1/4 translate-y-2/4 lg:translate-y-3/4"
-      style="color: rgb(180, 180, 180); left: 0px; bottom: 0px; width: 60vw; height: 60vw; border: 20px solid #b4b4b4; opacity: 0.6;"
+      style="color: rgb(180, 180, 180); left: 0px; bottom: 0px; width: 50vw; height: 50vw; border: 20px solid #b4b4b4; opacity: 0.1;"
     />
     <div
       class="rounded-full overflow-visible absolute transform pointer-events-none translate-x-1/4 -translate-y-2/4 lg:-translate-y-3/4"
