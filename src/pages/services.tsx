@@ -163,7 +163,7 @@ const Services: React.FC = () => (
         selective with who we can help with our limited resources. Ask us either
         way!
       </FirstSubSection>
-      <div className="flex flex-col md:space-y-20 items-center mx-auto text-2xl mb-20">
+      <div className="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20">
         {SERVICE_BLOCKS.map((service, index) => (
           <Service
             key={service.title}
@@ -172,7 +172,7 @@ const Services: React.FC = () => (
           />
         ))}
       </div>
-      <div className="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full mx-auto mb-20 text-2xl gap-y-4 xl:w-3/5">
         <CustomImage
           src={PixelBulb}
           alt=""
@@ -181,7 +181,7 @@ const Services: React.FC = () => (
           width={PixelBulb.width / 3}
         />
 
-        <div className="text-center text-grey-darker px-3 md:w-2/3">
+        <div className="px-3 text-center text-grey-darker md:w-2/3">
           We do on ocassion offer paid services for activists and/or
           organizations that need dedicated or priority speed support. If you
           fit that criteria, please contact us below. Our pricing is based on
@@ -199,8 +199,8 @@ const Services: React.FC = () => (
       ]}
       className="hidden md:block"
     />
-    <div className="bg-grey-background px-10 md:px-0 pt-10">
-      <div className="text-xl md:w-1/2 mx-auto text-grey-dark py-5">
+    <div className="px-10 pt-10 bg-grey-background md:px-0">
+      <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
         If you&apos;d like to talk about any of these services, please use our
         contact form to get in touch! We do our best to respond to every email
         within 48 hours.
