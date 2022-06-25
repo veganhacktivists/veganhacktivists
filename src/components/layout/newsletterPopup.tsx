@@ -4,7 +4,7 @@ import Newsletter from './newsletter';
 import { useCookies } from 'react-cookie';
 
 const NewsletterPopup: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [cookies, setCookies] = useCookies(['newsletter']);
   const userHasSignedUp = cookies['newsletter'] !== undefined;
 
