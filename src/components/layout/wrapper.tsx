@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import ErrorPage from '../../pages/_error';
@@ -6,6 +6,8 @@ import CookiesCTA from '../cookiesCTA';
 import NewsletterPopup from './newsletterPopup';
 
 import 'react-toastify/dist/ReactToastify.css';
+import useErrorStore from '../../lib/stores/errorStore';
+import { useRouter } from 'next/router';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -31,25 +33,15 @@ const PageWrapper: React.FC = ({ children }) => {
   );
 };
 
-interface MainWrapperProps {
-  pathname: string;
-}
+export const MainWrapper: React.FC = ({ children }) => {
+  const error = useErrorStore((state) => state.error);
+  const { asPath } = useRouter();
 
-export const MainWrapper: React.FC<
-  React.PropsWithChildren<MainWrapperProps>
-> = ({ children, pathname }) => {
-  // TODO: probably better to check the store, showing the popup on the bug submit form is ugly
-  const [hasError, setHasError] = useState(false);
-
-  const showNewsletter =
-    !hasError || pathname === '/docs' || pathname.startsWith('/docs/');
+  const hideNewsletter =
+    error || asPath === '/docs' || asPath.startsWith('/docs/');
 
   return (
     <ErrorBoundary
-      onError={() => {
-        setHasError(true);
-      }}
-      onReset={() => setHasError(false)}
       fallbackRender={(props) => {
         return <ErrorPage {...props} />;
       }}
@@ -57,7 +49,7 @@ export const MainWrapper: React.FC<
       <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
         {children}
         <CookiesCTA />
-        {showNewsletter && <NewsletterPopup />}
+        {hideNewsletter || <NewsletterPopup />}
       </main>
       <ToastContainer position="bottom-right" />
     </ErrorBoundary>
