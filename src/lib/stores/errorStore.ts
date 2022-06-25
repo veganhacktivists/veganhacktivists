@@ -2,8 +2,7 @@ import create from 'zustand';
 
 export interface ErrorStoreProps {
   pageThatErrored?: string;
-  statusCode?: number;
-  error?: Error;
+  error?: Error & { statusCode?: number };
 }
 
 interface ErrorStoreMethods {
@@ -15,33 +14,30 @@ interface ErrorStoreMethods {
 const useErrorStore = create<ErrorStoreProps & ErrorStoreMethods>(
   (set, get) => ({
     pageThatErrored: undefined,
-    statusCode: undefined,
 
-    setErrorData: ({ pageThatErrored, statusCode, error }) =>
+    setErrorData: ({ pageThatErrored, error }) =>
       set(() => ({
         pageThatErrored,
-        statusCode,
         error,
       })),
 
     clearErrorData: () =>
       set(() => ({
         pageThatErrored: undefined,
-        statusCode: undefined,
         error: undefined,
       })),
     generateErrorMessage: (context) => {
-      const { pageThatErrored, statusCode, error } = context || get();
+      const { pageThatErrored, error } = context || get();
 
-      const thenHappened = error
-        ? 'a client error happened'
-        : `I found a ${statusCode} error`;
+      const thenHappened = error?.statusCode
+        ? `I found a ${error?.statusCode} error`
+        : 'a client error happened';
 
       const defaultErrorMessage = pageThatErrored
         ? `[Please tell us what you were doing prior to the error occurring...]
 
 ...then ${thenHappened} at ${pageThatErrored}${
-            error ? `: ${error.name}. ${error.message}` : ''
+            error?.name ? `: ${error.name}. ${error.message}` : ''
           }.
 
 Thanks!`
