@@ -19,8 +19,8 @@ import { StatusCodes } from 'http-status-codes';
 import type { FallbackProps } from 'react-error-boundary';
 import { useEffect } from 'react';
 
-export interface ErrorProps extends FallbackProps {
-  error: FallbackProps['error'] & {
+export interface ErrorProps extends Omit<FallbackProps, 'error'> {
+  error?: FallbackProps['error'] & {
     statusCode?: number;
   };
 }
@@ -44,7 +44,7 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
   const contactPageError: string | boolean = router.asPath === '/contact';
 
   const message =
-    error.statusCode === StatusCodes.NOT_FOUND ? 'Page not found.' : 'Whoops!';
+    error?.statusCode === StatusCodes.NOT_FOUND ? 'Page not found.' : 'Whoops!';
 
   return (
     <>
