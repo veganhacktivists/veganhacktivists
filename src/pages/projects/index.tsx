@@ -1,6 +1,11 @@
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 
-import { DarkButton, WhiteButton } from '../../components/decoration/buttons';
+import {
+  DarkButton,
+  InstagramButton,
+  ShareButton,
+  WhiteButton,
+} from '../../components/decoration/buttons';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import type { IProject } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -49,6 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   const date = new Date(dateStr);
   const imageSize = 280;
+
   return (
     <div className="flex flex-col justify-between sm:flex-row">
       {image && (
@@ -69,17 +75,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {isRetired ? (
             <DarkButton href="/projects/retired">Retired projects</DarkButton>
           ) : (
-            <DarkButton href={url} capitalize={false}>
-              {urlName ||
-                firstLetterUppercase(
-                  toBaseUrl(
-                    url
-                      .replace(/^https?:\/\//, '')
-                      .replace(/^w{3}/, '')
-                      .replace(/\/$/, '')
-                  )
-                )}
-            </DarkButton>
+            <div className="flex flex-col md:flex-row gap-3">
+              <DarkButton href={url} capitalize={false}>
+                {urlName ||
+                  firstLetterUppercase(
+                    toBaseUrl(
+                      url
+                        .replace(/^https?:\/\//, '')
+                        .replace(/^w{3}/, '')
+                        .replace(/\/$/, '')
+                    )
+                  )}
+              </DarkButton>
+              <ShareButton
+                href={url}
+                shareTitle={name}
+                shareText="Take a look at this awesome project!"
+              />
+            </div>
           )}
 
           <span className="font-bold sm:pl-5">

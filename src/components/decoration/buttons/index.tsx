@@ -13,8 +13,12 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
-} from 'react';
+ MouseEvent } from 'react';
 import { FillBackground } from './utils';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 export interface ButtonProps
   extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
@@ -240,6 +244,56 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   );
 };
 
+const ShareButton: React.FC<
+  ButtonProps & { href: string; shareTitle: string; shareText?: string }
+> = ({ href, shareTitle, shareText }) => {
+  const shareNatively = async () => {
+    navigator.share({ title: shareTitle, text: shareText, url: href });
+  };
+
+  const copyOnClipBoard = async () => {
+    navigator.clipboard.writeText(href);
+  };
+
+  return (
+    <DarkButton
+      href={href}
+      onClick={async (event: MouseEvent<Element>) => {
+        event.stopPropagation();
+        event.preventDefault();
+
+        // TODO: use a broader search to determine whether the device can share natively and if it is a mobile device.
+        const useNativeShare =
+          navigator &&
+          navigator['share'] &&
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          );
+
+        if (useNativeShare) {
+          await toast.promise(shareNatively, {
+            error:
+              'Something went wrong while sharing your content! Please try again later',
+          });
+        } else {
+          // TODO: set custom dialog when using desktop browser and when the
+          await toast.promise(copyOnClipBoard, {
+            success: `url: ${href} copied on clipboard!`,
+            error:
+              'Something went wrong while sharing your content! Please try again later',
+          });
+        }
+      }}
+      linkProps={{ scroll: false }}
+    >
+      <div className="flex justify-center items-center">
+        <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
+        Share
+      </div>
+    </DarkButton>
+  );
+};
+
 const WhiteButton: React.FC<ButtonProps> = ({
   children,
   active,
@@ -292,6 +346,7 @@ export {
   PatreonButton,
   InstagramButton,
   YoutubeButton,
+  ShareButton,
   LightButton,
   DarkButton,
   WhiteButton,
