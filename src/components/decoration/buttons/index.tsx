@@ -13,12 +13,12 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
- MouseEvent } from 'react';
+  MouseEvent,
+} from 'react';
 import { FillBackground } from './utils';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
-import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
-import useWindowSize from '../../../hooks/useWindowSize';
+import useDeviceDetect from '../../../hooks/useDeviceDetect';
 
 export interface ButtonProps
   extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
@@ -247,6 +247,8 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const ShareButton: React.FC<
   ButtonProps & { href: string; shareTitle: string; shareText?: string }
 > = ({ href, shareTitle, shareText }) => {
+  const deviceDetect = useDeviceDetect();
+
   const shareNatively = async () => {
     navigator.share({ title: shareTitle, text: shareText, url: href });
   };
@@ -262,15 +264,7 @@ const ShareButton: React.FC<
         event.stopPropagation();
         event.preventDefault();
 
-        // TODO: use a broader search to determine whether the device can share natively and if it is a mobile device.
-        const useNativeShare =
-          navigator &&
-          navigator['share'] &&
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent
-          );
-
-        if (useNativeShare) {
+        if (deviceDetect.isMobile()) {
           await toast.promise(shareNatively, {
             error:
               'Something went wrong while sharing your content! Please try again later',
