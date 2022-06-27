@@ -25,7 +25,7 @@ const Social: React.FC = () => {
       <div className="flex gap-x-2 pt-5">
         <InstagramButton href="https://www.instagram.com/veganhacktivists/" />
         <PatreonButton href="https://www.patreon.com/veganhacktivists" />
-        <YoutubeButton href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg" />
+        <YoutubeButton href="https://www.youtube.com/c/VeganHacktivists" />
       </div>
       <div className="pt-10 text-center">
         <ExternalLinkButton href="https://www.patreon.com/veganhacktivists">

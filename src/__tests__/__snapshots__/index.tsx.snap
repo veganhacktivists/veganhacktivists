@@ -434,13 +434,13 @@ exports[`Application renders correctly 1`] = `
         class="w-fit mx-auto"
       >
         <a
-          href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+          href="https://www.youtube.com/c/VeganHacktivists"
           rel="noreferrer"
           target="_blank"
         >
           <div
             class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
-            href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+            href="https://www.youtube.com/c/VeganHacktivists"
             style="background-size: 250% 100%; background-position: right;"
           >
             Visit our channel

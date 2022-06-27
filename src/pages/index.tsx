@@ -165,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <div className="w-fit mx-auto">
             <LightButton
               className=""
-              href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg"
+              href="https://www.youtube.com/c/VeganHacktivists"
             >
               Visit our channel
             </LightButton>
