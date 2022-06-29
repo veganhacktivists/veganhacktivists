@@ -250,11 +250,11 @@ const ShareButton: React.FC<
   const deviceDetect = useDeviceDetect();
 
   const shareNatively = async () => {
-    navigator.share({ title: shareTitle, text: shareText, url: href });
+    await navigator.share({ title: shareTitle, text: shareText, url: href });
   };
 
   const copyOnClipBoard = async () => {
-    navigator.clipboard.writeText(href);
+    await navigator.clipboard.writeText(href);
   };
 
   return (
@@ -264,7 +264,7 @@ const ShareButton: React.FC<
         event.stopPropagation();
         event.preventDefault();
 
-        if (deviceDetect.isMobile()) {
+        if (navigator && navigator['share'] && deviceDetect.isMobile()) {
           await toast.promise(shareNatively, {
             error:
               'Something went wrong while sharing your content! Please try again later',
