@@ -229,15 +229,13 @@ const Projects: PageWithLayout<ProjectsProps> = ({
           </div>
         )}
       </div>
-      {process.env.NODE_ENV !== 'test' && (
-        <ShareDialog
-          open={shareDialogOpen}
-          shareInfo={shareInfo}
-          onClose={() => {
-            setShareDialogOpen(false);
-          }}
-        />
-      )}
+      <ShareDialog
+        open={shareDialogOpen}
+        shareInfo={shareInfo}
+        onClose={() => {
+          setShareDialogOpen(false);
+        }}
+      />
     </>
   );
 };
