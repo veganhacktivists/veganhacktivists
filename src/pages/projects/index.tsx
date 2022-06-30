@@ -18,6 +18,7 @@ import { NextSeo } from 'next-seo';
 import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
 import YearSelector from '../../components/layout/projects/yearSelector';
+import ShareDialog from '../../components/layout/shareDialog';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
@@ -35,9 +36,17 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface ProjectCardProps {
   project: IProject;
+  openAndInitiateShareDialog: (
+    url: string,
+    title: string,
+    description?: string
+  ) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  openAndInitiateShareDialog,
+}) => {
   const {
     name,
     description,
@@ -87,6 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   )}
               </DarkButton>
               <ShareButton
+                openAndInitiateShareDialog={openAndInitiateShareDialog}
                 href={url}
                 shareTitle={name}
                 shareText="Take a look at this awesome project!"
@@ -141,6 +151,24 @@ const Projects: PageWithLayout<ProjectsProps> = ({
   projectYears,
 }) => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [shareDialogOpen, setShareDialogOpen] = useState<boolean>(false);
+  const [shareInfo, setShareInfo] = useState<{
+    url: string;
+    title: string;
+    description?: string;
+  }>({
+    url: 'https://veganhacktivists.org',
+    title: 'Vegan Hacktivists',
+  });
+
+  const openAndInitiateShareDialog = (
+    url: string,
+    title: string,
+    description?: string
+  ) => {
+    setShareInfo({ url, title, description });
+    setShareDialogOpen(true);
+  };
 
   const projectsForSelectedYear = useMemo(() => {
     if (selectedYear === null) {
@@ -183,7 +211,11 @@ const Projects: PageWithLayout<ProjectsProps> = ({
             key={project.fields.name}
             className="flex flex-col justify-between mt-10 sm:flex-row first:mt-0"
           >
-            <ProjectCard key={project.fields.name} project={project} />
+            <ProjectCard
+              key={project.fields.name}
+              project={project}
+              openAndInitiateShareDialog={openAndInitiateShareDialog}
+            />
           </div>
         ))}
         {pagedProjects.length < projectsForSelectedYear.length && (
@@ -197,6 +229,15 @@ const Projects: PageWithLayout<ProjectsProps> = ({
           </div>
         )}
       </div>
+      {process.env.NODE_ENV !== 'test' && (
+        <ShareDialog
+          open={shareDialogOpen}
+          shareInfo={shareInfo}
+          onClose={() => {
+            setShareDialogOpen(false);
+          }}
+        />
+      )}
     </>
   );
 };

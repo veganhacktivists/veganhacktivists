@@ -245,16 +245,25 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 };
 
 const ShareButton: React.FC<
-  ButtonProps & { href: string; shareTitle: string; shareText?: string }
-> = ({ href, shareTitle, shareText }) => {
+  ButtonProps & {
+    openAndInitiateShareDialog: (
+      url: string,
+      title: string,
+      description?: string
+    ) => void;
+    href: string;
+    shareTitle: string;
+    shareText?: string;
+  }
+> = ({ openAndInitiateShareDialog, href, shareTitle, shareText }) => {
   const deviceDetect = useDeviceDetect();
 
   const shareNatively = async () => {
     await navigator.share({ title: shareTitle, text: shareText, url: href });
   };
 
-  const copyOnClipBoard = async () => {
-    await navigator.clipboard.writeText(href);
+  const shareWithDialog = () => {
+    openAndInitiateShareDialog(href, shareTitle, shareText);
   };
 
   return (
@@ -270,12 +279,7 @@ const ShareButton: React.FC<
               'Something went wrong while sharing your content! Please try again later',
           });
         } else {
-          // TODO: set custom dialog when using desktop browser and when the
-          await toast.promise(copyOnClipBoard, {
-            success: `url: ${href} copied on clipboard!`,
-            error:
-              'Something went wrong while sharing your content! Please try again later',
-          });
+          await shareWithDialog();
         }
       }}
       linkProps={{ scroll: false }}

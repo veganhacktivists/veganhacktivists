@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import useReduceMotion from '../../hooks/useReduceMotion';
 
-try {
-  ReactModal.setAppElement('#main');
-} catch {}
+if (process.env.NODE_ENV !== 'test') {
+  try {
+    ReactModal.setAppElement('#main');
+  } catch {}
+}
 
 interface ModalProps extends React.PropsWithChildren {
   isOpen: boolean;

@@ -118,7 +118,7 @@ exports[`should render correctly 1`] = `
       </h1>
     </div>
     <div
-      class="flex flex-col md:space-y-20 items-center mx-auto text-2xl mb-20"
+      class="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20"
     >
       <div>
         <div
@@ -464,7 +464,7 @@ exports[`should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="mb-20 flex flex-col mx-auto gap-y-4 text-2xl w-full xl:w-3/5 items-center justify-center"
+      class="flex flex-col items-center justify-center w-full mx-auto mb-20 text-2xl gap-y-4 xl:w-3/5"
     >
       <span
         style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 166.66666666666666px; height: 166.66666666666666px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -479,7 +479,7 @@ exports[`should render correctly 1`] = `
         />
       </span>
       <div
-        class="text-center text-grey-darker px-3 md:w-2/3"
+        class="px-3 text-center text-grey-darker md:w-2/3"
       >
         We do on ocassion offer paid services for activists and/or organizations that need dedicated or priority speed support. If you fit that criteria, please contact us below. Our pricing is based on your budget and is discounted for non-profits.
       </div>
@@ -623,10 +623,10 @@ exports[`should render correctly 1`] = `
     />
   </div>
   <div
-    class="bg-grey-background px-10 md:px-0 pt-10"
+    class="px-10 pt-10 bg-grey-background md:px-0"
   >
     <div
-      class="text-xl md:w-1/2 mx-auto text-grey-dark py-5"
+      class="py-5 mx-auto text-xl md:w-1/2 text-grey-dark"
     >
       If you'd like to talk about any of these services, please use our contact form to get in touch! We do our best to respond to every email within 48 hours.
     </div>
