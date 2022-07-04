@@ -63,13 +63,6 @@ const RetiredProject: React.FC<
               </GreyButton>
             )}
           </div>
-          <GreyButton
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            View Screenshots
-          </GreyButton>
         </div>
       </div>
       <Modal
