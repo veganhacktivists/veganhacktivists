@@ -65,24 +65,6 @@ const RetiredProject: React.FC<
           </div>
         </div>
       </div>
-      <Modal
-        className=""
-        modalClassName="md:w-[33vw]"
-        isOpen={openModal}
-        onClose={() => {
-          setOpenModal(false);
-        }}
-      >
-        <div className="bg-white max-h-screen overflow-auto">
-          <Carousel
-            images={retiredInfo.fields.screenshots}
-            selectedItemIndex={carouselIndex}
-            onChangeItem={setCarouselIndex}
-            autoFocus
-            dynamicHeight
-          />
-        </div>
-      </Modal>
     </>
   );
 };
