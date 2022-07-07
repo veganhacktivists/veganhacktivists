@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import type {
   IProjectFields,
   IRetiredProjectInfo,
@@ -6,9 +6,7 @@ import type {
 import { GreyButton } from '../../../decoration/buttons';
 import GreyBox from '../../../decoration/greyBox';
 import RichText from '../../../decoration/richText';
-import Carousel from '../../carousel';
 import ContentfulImage from '../../contentfulImage';
-import Modal from '../../modal';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   month: 'short',
@@ -28,19 +26,16 @@ const RetiredProject: React.FC<
     [date]
   );
 
-  const [openModal, setOpenModal] = useState(false);
-  const [carouselIndex, setCarouselIndex] = useState(0);
-
   return (
     <>
-      <div className="px-10 md:px-20 py-10 flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col gap-10 px-10 py-10 md:px-20 lg:flex-row">
         <div>
           <div className="max-h-80 aspect-square" style={{ width: 280 }}>
             <ContentfulImage image={image} alt={`${name} logo`} />
           </div>
         </div>
         <div className="flex flex-col gap-3 text-left">
-          <div className="font-bold text-3xl">{name}</div>
+          <div className="text-3xl font-bold">{name}</div>
           <div className="text-xl">
             <RichText document={description} />
           </div>
@@ -48,7 +43,7 @@ const RetiredProject: React.FC<
         <div className="flex flex-col gap-3">
           <GreyBox title="Release date">{createdDate}</GreyBox>
           <GreyBox title="Retired date">{retiredDate}</GreyBox>
-          <div className="flex flex-col md:flex-row gap-3">
+          <div className="flex flex-col gap-3 md:flex-row">
             {retiredInfo.fields.archiveUrl && (
               <GreyButton
                 className="md:w-fit"
