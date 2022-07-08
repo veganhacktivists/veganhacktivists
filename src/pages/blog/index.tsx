@@ -23,6 +23,7 @@ import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
+import { useRouter } from 'next/router';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -60,6 +61,22 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hash, setHash] = useHash({ shallow: false });
+  const router = useRouter();
+  const { page, search } = router.query;
+
+  useEffect(() => {
+    if (page !== undefined) {
+      const newPage = Number(page);
+      if (newPage !== currentPage) {
+        setPage(newPage);
+      }
+    }
+    if (search !== undefined && typeof search === 'string') {
+      if (search !== searchQuery) {
+        setSearchQuery(search);
+      }
+    }
+  }, [page, search]);
 
   const [tagQuery, setTagQuery] = useState<string | null | undefined>(
     hash || undefined
@@ -94,6 +111,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     endIndex,
     setPreviousPage,
     setNextPage,
+    setPage,
     currentPage,
     previousEnabled,
     nextEnabled,
