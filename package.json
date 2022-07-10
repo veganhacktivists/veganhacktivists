@@ -36,7 +36,7 @@
     "ky": "^0.30.0",
     "ky-universal": "^0.10.1",
     "mailgun.js": "^7.0.2",
-    "next": "12.1.6",
+    "next": "12.2.2",
     "next-auth": "^4.5.0",
     "next-pwa": "^5.5.4",
     "next-seo": "^5.4.0",

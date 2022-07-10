@@ -21,7 +21,7 @@ FROM node:${NODE_VERSION} AS deps
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile --ignore-optional --ignore-scripts
 
 # Rebuild the source code only when needed
 FROM node:${NODE_VERSION} AS builder
@@ -55,6 +55,9 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN apk add --no-cache tini
 
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
 ARG CF_SPACE_ID
 ARG CF_DELIVERY_ACCESS_TOKEN
 ARG CF_PREVIEW_ACCESS_TOKEN
@@ -67,18 +70,19 @@ ARG NEXTAUTH_SECRET
 ARG EMAIL_SERVER_URL
 ARG DATABASE_URL
 
-RUN deluser --remove-home node && addgroup -S node -g 10000 && adduser -S -G node -u 10001 node
-
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=node:node /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-USER node
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
 
 ENV PORT=${PORT}
 EXPOSE ${PORT}
 
 ENTRYPOINT ["tini", "--"]
-CMD ["node_modules/.bin/next", "start"]
+CMD ["node", "server.js"]
