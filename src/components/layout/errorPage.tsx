@@ -48,7 +48,7 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
 
   return (
     <>
-      <NextSeo noindex title="Page Not Found" />
+      <NextSeo noindex title={message} />
       <article className="min-h-[40rem] flex flex-col justify-center items-center p-4">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col justify-start gap-12 md:flex-row">

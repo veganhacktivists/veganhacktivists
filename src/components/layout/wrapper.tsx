@@ -43,21 +43,21 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
     error || asPath === '/docs' || asPath.startsWith('/docs/');
 
   return (
-    <ErrorBoundary
-      fallbackRender={(props) => {
-        return <ErrorPage {...props} />;
-      }}
-    >
-      {/* TODO: for some reason multiple children give a time error on this main tag */}
-      <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
-        <>
+    <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
+      <ErrorBoundary
+        fallbackRender={(props) => {
+          return <ErrorPage {...props} />;
+        }}
+      >
+        {children}
+        {/* <>
           {children}
           <CookiesCTA />
           {hideNewsletter || <NewsletterPopup />}
-        </>
-      </main>
-      <ToastContainer position="bottom-right" />
-    </ErrorBoundary>
+          <ToastContainer position="bottom-right" />
+        </> */}
+      </ErrorBoundary>
+    </main>
   );
 };
 

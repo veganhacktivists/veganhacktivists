@@ -28,7 +28,6 @@ const useErrorStore = create<ErrorStoreProps & ErrorStoreMethods>(
       })),
     generateErrorMessage: (context) => {
       const { pageThatErrored, error } = context || get();
-
       const thenHappened = error?.statusCode
         ? `I found a ${error?.statusCode} error`
         : 'a client error happened';

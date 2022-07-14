@@ -1,7 +1,9 @@
 .next
-.git
 .gitignore
-Dockerfile
-docker-compose.yml
-node_modules/
-nginx/
+.next
+.git
+*Dockerfile*
+*docker-compose*
+node_modules
+npm-debug.log
+README.md

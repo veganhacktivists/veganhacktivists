@@ -24,6 +24,7 @@ interface ContactUsSubmission {
 
 const ContactUsForm: React.FC = () => {
   const { pageThatErrored, clearErrorData } = useErrorStore();
+
   const {
     control,
     register,
@@ -65,7 +66,7 @@ const ContactUsForm: React.FC = () => {
   }, []);
 
   return (
-    <div className="md:w-2/3 mx-auto pt-5" id="contact-us">
+    <div className="pt-5 mx-auto md:w-2/3" id="contact-us">
       <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <TextInput
@@ -128,7 +129,7 @@ const ContactUsForm: React.FC = () => {
           <DarkButton
             type="submit"
             disabled={isSubmitting || isSubmitSuccessful}
-            className="w-52 px-10"
+            className="px-10 w-52"
           >
             {isSubmitting ? <Spinner /> : 'Submit'}
           </DarkButton>
