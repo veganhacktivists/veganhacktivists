@@ -44,79 +44,79 @@ interface YearInReviewProps {
   featuredProjects: FeaturedProjectsProps['projects'];
 }
 
-const getFeaturedBlogPosts = async () => {
-  const memberSlugs = [
-    'gerard-oneill',
-    'kate-rodman',
-    'joaquin-trinanes',
-    'suan-chin',
-    'david-van-beveren',
-    'stephan-de-vries',
-  ];
+export const getStaticProps: GetStaticProps = async () => {
+  const getFeaturedBlogPosts = async () => {
+    const memberSlugs = [
+      'gerard-oneill',
+      'kate-rodman',
+      'joaquin-trinanes',
+      'suan-chin',
+      'david-van-beveren',
+      'stephan-de-vries',
+    ];
 
-  const [unorderedMembers, [meetTheTeamTag]] = await Promise.all([
-    getContents<ITeamMemberFields>({
-      contentType: 'teamMember',
+    const [unorderedMembers, [meetTheTeamTag]] = await Promise.all([
+      getContents<ITeamMemberFields>({
+        contentType: 'teamMember',
+        query: {
+          filters: {
+            in: {
+              slug: memberSlugs,
+            },
+          },
+        },
+      }),
+      getContents<ITagFields>({
+        contentType: 'tag',
+        query: {
+          slug: 'meet-the-team',
+        },
+      }),
+    ]);
+
+    const members = sortByArray(
+      unorderedMembers,
+      memberSlugs,
+      (member) => member.fields.slug
+    );
+
+    const meetTheMembers = await getContents<IBlogEntryFields>({
+      contentType: 'blogEntry',
+      query: {
+        'tags.sys.id': meetTheTeamTag.sys.id,
+      },
+      other: { select: ['fields.slug', 'fields.title'] },
+    });
+
+    return members.map((member) => ({
+      member,
+      blogEntry: meetTheMembers.find((blogEntry) =>
+        blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
+      ),
+    }));
+  };
+
+  const getFeaturedProjects = async () => {
+    const projects = await getContents<IProjectFields>({
+      contentType: 'project',
       query: {
         filters: {
           in: {
-            slug: memberSlugs,
+            name: Object.keys(projectDescriptions),
           },
         },
       },
-    }),
-    getContents<ITagFields>({
-      contentType: 'tag',
-      query: {
-        slug: 'meet-the-team',
-      },
-    }),
-  ]);
+    });
 
-  const members = sortByArray(
-    unorderedMembers,
-    memberSlugs,
-    (member) => member.fields.slug
-  );
+    const projectsSorted = sortByArray(
+      projects,
+      Object.keys(projectDescriptions),
+      (project) => project.fields.name
+    );
 
-  const meetTheMembers = await getContents<IBlogEntryFields>({
-    contentType: 'blogEntry',
-    query: {
-      'tags.sys.id': meetTheTeamTag.sys.id,
-    },
-    other: { select: ['fields.slug', 'fields.title'] },
-  });
+    return projectsSorted.map((project) => project.fields);
+  };
 
-  return members.map((member) => ({
-    member,
-    blogEntry: meetTheMembers.find((blogEntry) =>
-      blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
-    ),
-  }));
-};
-
-export const getFeaturedProjects = async () => {
-  const projects = await getContents<IProjectFields>({
-    contentType: 'project',
-    query: {
-      filters: {
-        in: {
-          name: Object.keys(projectDescriptions),
-        },
-      },
-    },
-  });
-
-  const projectsSorted = sortByArray(
-    projects,
-    Object.keys(projectDescriptions),
-    (project) => project.fields.name
-  );
-
-  return projectsSorted.map((project) => project.fields);
-};
-
-export const getStaticProps: GetStaticProps = async () => {
   const [featuredBlogPosts, featuredProjects] = await Promise.all([
     getFeaturedBlogPosts(),
     getFeaturedProjects(),
