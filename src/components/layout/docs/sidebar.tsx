@@ -90,7 +90,7 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <div
-      className="pl-5 border-l-4 my-2"
+      className="pl-5 my-2 border-l-4"
       style={{ borderColor: isSelected ? color : lightGrey }}
       ref={sectionRef}
     >
@@ -101,12 +101,12 @@ const Section: React.FC<SectionProps> = ({
         }}
       >
         <a>
-          <div className="cursor-pointer py-1 text-xl font-bold">{title}</div>
+          <div className="py-1 text-xl font-bold cursor-pointer">{title}</div>
         </a>
       </Link>
 
       {subsections && (
-        <ul className="mx-4 px-1 list-outside">
+        <ul className="px-1 mx-4 list-outside">
           {subsections.map((doc) => (
             <Documentation
               key={doc.fields.slug}
@@ -141,12 +141,12 @@ const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
     if (!isActive) return;
 
     setOpen(isActive);
-  }, [selectedCategory, firstRender]);
+  }, [selectedCategory, firstRender, isActive]);
 
   return (
     <details className="pl-5" open={open}>
       <summary
-        className="cursor-pointer box-border px-2 py-1 font-mono text-2xl font-bold text-white"
+        className="box-border px-2 py-1 font-mono text-2xl font-bold text-white cursor-pointer"
         style={{
           backgroundColor: color || lightGrey,
         }}

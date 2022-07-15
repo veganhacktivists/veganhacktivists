@@ -29,6 +29,8 @@ interface BlogProps {
   tags: ITag[];
 }
 
+const BLOG_FILTER_OPTIONS = { keys: ['fields.title'] };
+
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await getBlogEntries();
   const tags = await getContents<ITagFields>({ contentType: 'tag' });
@@ -74,17 +76,15 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
 
   const [firstBlog, ...otherBlogs] = blogs;
 
-  const filterKeys = ['fields.title'];
-
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
-    options: { keys: filterKeys },
+    options: BLOG_FILTER_OPTIONS,
     term: searchQuery,
   }).filter((entry) => filterByTag(entry, tagQuery));
 
   const filteredEntries = useFuse({
     data: otherBlogs,
-    options: { keys: filterKeys },
+    options: BLOG_FILTER_OPTIONS,
     term: searchQuery,
     sort: true,
   }).filter((entry) => filterByTag(entry, tagQuery));
@@ -146,7 +146,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         {!filteredFirstBlog.length && !filteredEntries.length ? (
           <div className="mx-auto text-xl">No entries match your query</div>
         ) : (
-          <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 px-10 xl:px-48 auto-rows-min">
+          <div className="grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min">
             {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
               <SubtleBorder
                 key={filteredFirstBlog[0].fields.slug}
@@ -166,19 +166,19 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           </div>
         )}
 
-        <div className="flex flex-row mx-auto gap-10 justify-center p-16">
+        <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
           <DarkButton
             onClick={() => {
               setPreviousPage();
               scrollUp();
             }}
-            className="font-mono font-bold uppercase flex"
+            className="flex font-mono font-bold uppercase"
             disabled={!previousEnabled}
           >
             <div>
               <FontAwesomeIcon icon={leftArrow} size="xs" />
             </div>
-            <span className="pl-3 hidden md:block">Previous</span>
+            <span className="hidden pl-3 md:block">Previous</span>
           </DarkButton>
           <DarkButton
             onClick={() => {
@@ -189,7 +189,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             disabled={!nextEnabled}
           >
             <div className="flex">
-              <span className="pr-3 hidden md:block">Next</span>
+              <span className="hidden pr-3 md:block">Next</span>
               <div>
                 <FontAwesomeIcon icon={rightArrow} size="xs" />
               </div>

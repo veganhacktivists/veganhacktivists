@@ -128,14 +128,13 @@ interface ContentProps {
 }
 
 const Content: React.FC<ContentProps> = ({ section, category }) => {
-  const { subsections, content, slug } = section.fields;
+  const { subsections, content, slug } = section?.fields || {};
 
   const updatedAt = useMemo(() => {
     const categoryDate = new Date(category.sys.updatedAt);
     const sectionDate = new Date(section.sys.updatedAt);
     const docDates =
-      section.fields.subsections?.map((doc) => new Date(doc.sys.updatedAt)) ||
-      [];
+      subsections?.map((doc) => new Date(doc.sys.updatedAt)) || [];
 
     const mostRecentDate = [categoryDate, sectionDate, ...docDates].reduce(
       (date, mostRecent) => (date > mostRecent ? date : mostRecent),
@@ -143,7 +142,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
     );
 
     return mostRecentDate;
-  }, [category.fields.slug]);
+  }, [category.sys.updatedAt, section.sys.updatedAt, subsections]);
 
   const sectionIndex = category.fields.sections.findIndex(
     (section) => section.fields.slug === slug
@@ -158,7 +157,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
 
   return (
     <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
-      <div className="mb-5 flex flex-row justify-between">
+      <div className="flex flex-row justify-between mb-5">
         <div id={slug}>
           <h2
             className="font-mono text-xl font-bold"
@@ -168,7 +167,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           </h2>
           <h3 className="text-3xl font-bold">{section.fields.title}</h3>
         </div>
-        <div className="text-normal text-right md:text-left">
+        <div className="text-right text-normal md:text-left">
           <span className="font-bold">Last updated:</span>{' '}
           <span className="block md:inline">
             {new Intl.DateTimeFormat('en', {
@@ -179,7 +178,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           </span>
           <span className="hidden md:inline"> | </span>
           <Link href="/contact">
-            <a className="underline text-green opacity-100 hover:opacity-70">
+            <a className="underline opacity-100 text-green hover:opacity-70">
               Suggest Updates
             </a>
           </Link>
@@ -192,11 +191,11 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       )}
       {subsections?.map((doc) => (
         <Fragment key={doc.fields.slug}>
-          <hr className="text-grey-light first-of-type:hidden mt-10" />
+          <hr className="mt-10 text-grey-light first-of-type:hidden" />
           <SubSection key={doc.fields.slug} {...doc.fields} />
         </Fragment>
       ))}
-      <div className="flex space-x-4 justify-center items-center mt-10">
+      <div className="flex items-center justify-center mt-10 space-x-4">
         <p className="hidden lg:block">{prev && prev.fields.title}</p>
         <DarkButton
           disabled={prev === undefined}
@@ -256,7 +255,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
         }}
       />
       <div key={slug} id={slug} ref={ref}>
-        <h2 className="text-2xl font-bold pt-10">{title}</h2>
+        <h2 className="pt-10 text-2xl font-bold">{title}</h2>
         <RichText document={content} />
       </div>
     </>
@@ -272,7 +271,14 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
     currentDocSlug && setCurrentDocSlug(currentDocSlug);
     category?.fields.slug && setSelectedCategorySlug(category.fields.slug);
     section?.fields.slug && setSelectedSectionSlug(section.fields.slug);
-  }, [currentDocSlug, category?.fields.slug, section?.fields.slug]);
+  }, [
+    currentDocSlug,
+    category?.fields?.slug,
+    section?.fields?.slug,
+    setCurrentDocSlug,
+    setSelectedCategorySlug,
+    setSelectedSectionSlug,
+  ]);
 
   return (
     <>

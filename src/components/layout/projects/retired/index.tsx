@@ -23,7 +23,7 @@ const RetiredProject: React.FC<
 
   const retiredDate = useMemo(
     () => dateFormatter.format(new Date(retiredInfo.fields.retireDate)),
-    [date]
+    [retiredInfo.fields.retireDate]
   );
 
   return (

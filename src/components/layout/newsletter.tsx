@@ -28,33 +28,36 @@ const Newsletter: React.FC<NewsletterProps> = ({
     formState: { isSubmitting, errors },
   } = useForm<NewsletterRequestProps>();
 
-  const onSubmit = useCallback(async (props: NewsletterRequestProps) => {
-    const submit = async () => {
-      try {
-        await ky.post('/api/subscribe-to-newsletter', {
-          json: props,
-        });
-        onChange?.(true);
-      } catch (e) {
-        onChange?.(false);
-        throw e;
-      }
-    };
+  const onSubmit = useCallback(
+    async (props: NewsletterRequestProps) => {
+      const submit = async () => {
+        try {
+          await ky.post('/api/subscribe-to-newsletter', {
+            json: props,
+          });
+          onChange?.(true);
+        } catch (e) {
+          onChange?.(false);
+          throw e;
+        }
+      };
 
-    await toast
-      .promise(submit, {
-        pending: 'Submitting...',
-        error:
-          'An error has ocurred. Please check that your email is correct and try again',
-        success: 'Welcome to the newsletter!',
-      })
-      .catch(() => {
-        //ignore
-      });
-  }, []);
+      await toast
+        .promise(submit, {
+          pending: 'Submitting...',
+          error:
+            'An error has ocurred. Please check that your email is correct and try again',
+          success: 'Welcome to the newsletter!',
+        })
+        .catch(() => {
+          //ignore
+        });
+    },
+    [onChange]
+  );
 
   return (
-    <div className="p-8 bg-grey-background text-grey w-full mx-auto">
+    <div className="w-full p-8 mx-auto bg-grey-background text-grey">
       <div className="flex justify-center">
         <CustomImage
           src={pixelEnvelope.src}
@@ -63,11 +66,11 @@ const Newsletter: React.FC<NewsletterProps> = ({
           alt="Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
         />
       </div>
-      <h1 className="text-center mb-8">
-        <span className="font-italic text-3xl">Our</span>{' '}
-        <span className="font-bold text-4xl">NEWSLETTER</span>
+      <h1 className="mb-8 text-center">
+        <span className="text-3xl font-italic">Our</span>{' '}
+        <span className="text-4xl font-bold">NEWSLETTER</span>
       </h1>
-      <div className="mx-auto text-center text-2xl mb-8">
+      <div className="mx-auto mb-8 text-2xl text-center">
         Join our newsletter now and never miss an update! <br />
         Sign up now to receive...
       </div>
@@ -80,7 +83,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
             'And Much More!',
           ].map((bulletText, i) => (
             <li
-              className="before:bg-green before:inline-block before:w-2 before:h-2 flex flex-row gap-x-2 items-baseline p-1 w-fit text-left"
+              className="flex flex-row items-baseline p-1 text-left before:bg-green before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
               key={i}
             >
               {bulletText}
@@ -90,7 +93,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
       </div>
 
       <form className="text-2xl" onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col space-x-2 justify-center items-center gap-y-8">
+        <div className="flex flex-col items-center justify-center space-x-2 gap-y-8">
           <div className="w-2/3 xl:w-1/2">
             <TextInput
               {...register('email', {
@@ -108,8 +111,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
               <></>
             </TextInput>
           </div>
-          <div className="flex flex-col md:flex-row align-baseline gap-x-10 gap-y-2 justify-center">
-            <DarkButton className="w-full md:w-auto mx-auto" type="submit">
+          <div className="flex flex-col justify-center align-baseline md:flex-row gap-x-10 gap-y-2">
+            <DarkButton className="w-full mx-auto md:w-auto" type="submit">
               {isSubmitting ? <Spinner /> : 'Sign up!'}
             </DarkButton>
             {showCancelButton && (

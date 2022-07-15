@@ -42,28 +42,31 @@ const ContactUsForm: React.FC = () => {
   // the form is clear on return visits.
   useEffect(() => {
     return () => clearErrorData();
-  }, []);
+  }, [clearErrorData]);
 
-  const onSubmit = useCallback(async (values: ContactUsSubmission) => {
-    const submit = async () =>
-      ky.post('/api/contact-us', {
-        json: values,
-      });
+  const onSubmit = useCallback(
+    async (values: ContactUsSubmission) => {
+      const submit = async () =>
+        ky.post('/api/contact-us', {
+          json: values,
+        });
 
-    await toast
-      .promise(submit, {
-        pending: 'Submitting...',
-        error:
-          'Something went wrong processing your submission! Please try again later',
-        success: 'Your request was sent successfully!',
-      })
-      .then(() => {
-        reset();
-        setTimeout(() => {
-          reload();
-        }, 5000);
-      });
-  }, []);
+      await toast
+        .promise(submit, {
+          pending: 'Submitting...',
+          error:
+            'Something went wrong processing your submission! Please try again later',
+          success: 'Your request was sent successfully!',
+        })
+        .then(() => {
+          reset();
+          setTimeout(() => {
+            reload();
+          }, 5000);
+        });
+    },
+    [reload, reset]
+  );
 
   return (
     <div className="pt-5 mx-auto md:w-2/3" id="contact-us">

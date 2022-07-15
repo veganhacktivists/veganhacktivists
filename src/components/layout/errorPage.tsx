@@ -32,7 +32,7 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
     return () => {
       resetErrorBoundary?.();
     };
-  }, []);
+  }, [resetErrorBoundary]);
 
   const { setErrorData, generateErrorMessage } = useErrorStore();
 

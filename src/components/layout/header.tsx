@@ -15,7 +15,7 @@ const LeftSide: React.FC = () => {
   const isRootPage = pathname === '/';
 
   return (
-    <div className="bg-black p-5 pr-5 md:pr-10 md:pl-10 xl:w-max align-middle flex items-center flex-shrink">
+    <div className="flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max">
       {/* root */}
       <Link href="/">
         <a className={classNames({ hidden: !isRootPage })}>
@@ -93,18 +93,18 @@ const NavbarItems: React.FC = () => {
       ))}
       <NavBarItem
         href={'/join'}
-        className="bg-gray hover:bg-gray-dark font-bold"
+        className="font-bold bg-gray hover:bg-gray-dark"
       >
         Join
       </NavBarItem>
       <NavBarItem
         href={'/support'}
-        className="bg-pink hover:bg-pink-dark font-bold"
+        className="font-bold bg-pink hover:bg-pink-dark"
       >
         Support
       </NavBarItem>
       <a
-        className="p-5 py-6 transition duration-500 text-center hover:bg-gray-dark"
+        className="p-5 py-6 text-center transition duration-500 hover:bg-gray-dark"
         href="https://www.instagram.com/veganhacktivists/"
         target="_blank"
         rel="noreferrer"
@@ -131,13 +131,13 @@ const RightSide: React.FC = () => {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange);
     };
-  }, []);
+  }, [router.events]);
 
   const buttonMenuId = 'menu-button';
 
   return (
     <>
-      <div className="block xl:hidden text-white text-right p-5 bg-black flex-1 cursor-pointer">
+      <div className="flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden">
         <input
           type="checkbox"
           hidden
@@ -155,14 +155,14 @@ const RightSide: React.FC = () => {
         </label>
         <div
           id="mobile-menu"
-          className="font-mono text-2xl m-auto text-white h-full ml-auto align-middle uppercase font-semibold z-20 flex-grow items-stretch w-64 max-w-min flex-col hidden peer-checked:flex"
+          className="z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex"
         >
-          <div className="bg-black absolute flex flex-col left-10 right-10 z-30">
+          <div className="absolute z-30 flex flex-col bg-black left-10 right-10">
             <NavbarItems />
           </div>
         </div>
       </div>
-      <div className="font-mono text-2xl pr-28 text-right bg-black text-white flex-1 h-full ml-auto justify-end align-middle uppercase font-semibold hidden xl:flex flex-nowrap">
+      <div className="justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap">
         <NavbarItems />
       </div>
     </>
@@ -171,7 +171,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="flex z-20 w-full">
+    <nav className="z-20 flex w-full">
       <LeftSide />
       <RightSide />
     </nav>

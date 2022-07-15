@@ -28,7 +28,7 @@ export const useHash: (
       router.events.off('hashChangeComplete', onHashChange);
       window.removeEventListener('hashchange', onHashChange);
     };
-  }, []);
+  }, [onHashChange, router.events]);
 
   const _setHash = useCallback(
     (newHash?: string | null) => {

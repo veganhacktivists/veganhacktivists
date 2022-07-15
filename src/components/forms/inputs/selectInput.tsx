@@ -35,7 +35,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   useEffect(() => {
     props.onChange(value);
-  }, [value]);
+  }, [props, value]);
 
   const height = '44px';
 

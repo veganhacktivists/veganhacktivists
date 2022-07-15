@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const date = new Date(dateStr);
   const imageSize = 280;
   return (
-    <div className="flex flex-col sm:flex-row justify-between">
+    <div className="flex flex-col justify-between sm:flex-row">
       {image && (
         <div className="flex-shrink">
           <ContentfulImage
@@ -62,10 +62,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           />
         </div>
       )}
-      <div className="sm:pl-10 col-span-2 text-left">
-        <h1 className="text-4xl font-bold mb-5">{name}</h1>
+      <div className="col-span-2 text-left sm:pl-10">
+        <h1 className="mb-5 text-4xl font-bold">{name}</h1>
         <div className="text-xl">{documentToReactComponents(description)}</div>
-        <div className="mt-10 flex flex-wrap items-center">
+        <div className="flex flex-wrap items-center mt-10">
           {isRetired ? (
             <DarkButton href="/projects/retired">Retired projects</DarkButton>
           ) : (
@@ -144,11 +144,11 @@ const Projects: PageWithLayout<ProjectsProps> = ({
 
   useEffect(() => {
     reset();
-  }, [selectedYear]);
+  }, [reset, selectedYear]);
 
   const pagedProjects = useMemo(
     () => projectsForSelectedYear.slice(0, pageSize * pageNumber),
-    [projectsForSelectedYear, pageSize * pageNumber]
+    [pageNumber, pageSize, projectsForSelectedYear]
   );
 
   return (
@@ -169,7 +169,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
         {pagedProjects.map((project) => (
           <div
             key={project.fields.name}
-            className="flex flex-col sm:flex-row justify-between mt-10 first:mt-0"
+            className="flex flex-col justify-between mt-10 sm:flex-row first:mt-0"
           >
             <ProjectCard key={project.fields.name} project={project} />
           </div>
@@ -177,7 +177,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
         {pagedProjects.length < projectsForSelectedYear.length && (
           <div className="mt-16">
             <WhiteButton
-              className="font-mono content-center text-2xl"
+              className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
             >
               Load more

@@ -35,9 +35,9 @@ const FormSection: React.FC<FormSectionProps> = ({
         'bg-grey text-grey-lighter': dark,
       })}
     >
-      <div className="max-w-screen-lg mx-auto p-10 pt-5">
+      <div className="max-w-screen-lg p-10 pt-5 mx-auto">
         <div>
-          <h4 className="text-5xl capitalize font-bold font-mono pb-10 pt-10">
+          <h4 className="pt-10 pb-10 font-mono text-5xl font-bold capitalize">
             Section {section} - {sectionName}
           </h4>
         </div>
@@ -81,16 +81,16 @@ const GrantsApplication: React.FC = () => {
           }, 5000);
         });
     },
-    []
+    [reload, reset]
   );
 
   return (
-    <div className="bg-gray-background pt-10 pb-1">
+    <div className="pt-10 pb-1 bg-gray-background">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mx-auto text-center mb-24"
+        className="mx-auto mb-24 text-center"
       >
-        <h3 className="text-4xl font-mono font-semibold mb-10 mt-5">
+        <h3 className="mt-5 mb-10 font-mono text-4xl font-semibold">
           Application Form
         </h3>
         <FormSection section="A" sectionName="About you">
@@ -344,7 +344,7 @@ const GrantsApplication: React.FC = () => {
         <DarkButton
           type="submit"
           disabled={isSubmitting || isSubmitSuccessful}
-          className="font-mono uppercase w-64 mt-10"
+          className="w-64 mt-10 font-mono uppercase"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}
         </DarkButton>

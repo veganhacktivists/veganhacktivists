@@ -39,7 +39,7 @@ const Docs: React.FC<DocsProps> = ({ firstCategorySlug, firstSectionSlug }) => {
       pathname: '/docs/[category]/[section]',
       query: { category: firstCategorySlug, section: firstSectionSlug },
     });
-  }, []);
+  }, [firstCategorySlug, firstSectionSlug, router]);
 
   return null;
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Modal from './modal';
 import Newsletter from './newsletter';
 import { useCookies } from 'react-cookie';
@@ -9,32 +9,31 @@ const NewsletterPopup: React.FC = () => {
   const userHasSignedUp = cookies['newsletter'] !== undefined;
 
   useEffect(() => {
-    let timeoutHandle: NodeJS.Timeout;
-    if (!userHasSignedUp) {
-      timeoutHandle = setTimeout(() => {
-        setIsOpen(true);
-      }, 60 * 1000);
-    }
+    if (userHasSignedUp) return;
+    const timeoutHandle = setTimeout(() => {
+      setIsOpen(true);
+    }, 60 * 1000);
 
     return () => {
-      if (timeoutHandle) {
-        clearTimeout(timeoutHandle);
-      }
+      clearTimeout(timeoutHandle);
     };
-  }, []);
+  }, [userHasSignedUp]);
+
+  const onChange = useCallback(
+    (signedUp: boolean) => {
+      setIsOpen(false);
+      setCookies('newsletter', signedUp, {
+        path: '/',
+        sameSite: 'strict',
+        maxAge: signedUp ? 60 * 60 * 24 * 360 * 10 : 60 * 60 * 24 * 14, // 10 years or 2 weeks
+      });
+    },
+    [setCookies]
+  );
 
   if (userHasSignedUp) {
     return null;
   }
-
-  const onChange = (signedUp: boolean) => {
-    setIsOpen(false);
-    setCookies('newsletter', signedUp, {
-      path: '/',
-      sameSite: 'strict',
-      maxAge: signedUp ? 60 * 60 * 24 * 360 * 10 : 60 * 60 * 24 * 14, // 10 years or 2 weeks
-    });
-  };
 
   return (
     <Modal

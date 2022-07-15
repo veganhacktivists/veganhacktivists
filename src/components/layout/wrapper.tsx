@@ -49,13 +49,12 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
           return <ErrorPage {...props} />;
         }}
       >
-        {children}
-        {/* <>
+        <>
           {children}
           <CookiesCTA />
           {hideNewsletter || <NewsletterPopup />}
           <ToastContainer position="bottom-right" />
-        </> */}
+        </>
       </ErrorBoundary>
     </main>
   );

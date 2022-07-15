@@ -26,6 +26,18 @@ interface SearchResultsProps
   setSearchTerm: (searchTerm: string) => void;
 }
 
+const FUSE_OPTIONS = {
+  keys: [
+    'category.name',
+    'section.fields.title',
+    'subsection.fields.title',
+    'text',
+  ],
+  threshold: 0,
+  ignoreLocation: true,
+  isCaseSensitive: false,
+};
+
 const SearchResults: React.FC<SearchResultsProps> = ({
   searchItems,
   searchTerm,
@@ -35,17 +47,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   const res = useFuse<SearchItem>({
     data: searchItems,
     term: searchTerm,
-    options: {
-      keys: [
-        'category.name',
-        'section.fields.title',
-        'subsection.fields.title',
-        'text',
-      ],
-      threshold: 0,
-      ignoreLocation: true,
-      isCaseSensitive: false,
-    },
+    options: FUSE_OPTIONS,
   });
 
   return (
