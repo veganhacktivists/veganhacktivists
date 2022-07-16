@@ -41,3 +41,12 @@ yarn-error.log*
 # PWA build-time generated files
 **/public/workbox-*.js
 **/public/sw.js
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
