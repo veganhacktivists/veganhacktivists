@@ -9,19 +9,15 @@ RUN npm install --location=global pnpm@${PNPM_VERSION}
 RUN pnpm config set store-dir ./.pnpm-store
 
 # Install dependencies only when needed
-FROM base AS deps
+FROM base AS builder
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 # RUN apk add --no-cache libc6-compat
+ENV CI=1
 
 COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
-# Rebuild the source code only when needed
-FROM base AS builder
-ENV CI=1
-
-COPY package.json pnpm-lock.yaml ./
-COPY --from=deps /app/.pnpm-store ./.pnpm-store
+COPY package.json ./
 RUN pnpm install --offline --no-optional --no-verify-store-integrity
 
 COPY . .
@@ -46,11 +42,8 @@ RUN apk add --no-cache tini
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
-ARG PORT=80
 ENV NODE_ENV=production
 
-ENV PORT=${PORT}
 EXPOSE ${PORT}
 
 COPY --from=builder /app/next.config.js ./
