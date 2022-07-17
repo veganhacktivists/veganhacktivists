@@ -61,12 +61,14 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hash, setHash] = useHash({ shallow: false });
-  const router = useRouter();
-  const { page, search } = router.query;
+  const { query, isReady } = useRouter();
+  const { page, search } = query;
 
   useEffect(() => {
     if (page !== undefined) {
-      const newPage = Number(page);
+      let newPage = Number(page);
+      newPage -= 1;
+      newPage = newPage >= 0 ? newPage : 0;
       if (newPage !== currentPage) {
         setPage(newPage);
       }
@@ -76,11 +78,71 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         setSearchQuery(search);
       }
     }
-  }, [page, search]);
+  }, [isReady]);
 
   const [tagQuery, setTagQuery] = useState<string | null | undefined>(
     hash || undefined
   );
+
+  const increasePageNumber = () => {
+    if (currentPage + 1 === totalPages) {
+      return;
+    }
+    const newPageQuery: number = currentPage + 2;
+    changeHistoryParam('page', newPageQuery.toString());
+  };
+
+  const updateSearchParam = () => {
+    changeHistoryParam('search', searchQuery);
+  };
+
+  const decreasePageNumber = () => {
+    if (currentPage === 0) {
+      return;
+    }
+    changeHistoryParam('page', currentPage.toString());
+  };
+
+  /*
+   * Replaces the given GET Parameter without reloading to page by using the history API
+   */
+  const changeHistoryParam = (key: string, value: string) => {
+    const url = window.location.toString();
+    const urlParts = url.split('?');
+    const base = urlParts[0];
+    let params: string[] = [];
+    if (urlParts[1] !== undefined) {
+      params = urlParts[1].split('&');
+    }
+    const paramList = [];
+    let found = false;
+    for (const param of params) {
+      const keyValue = param.split('=');
+      const newParam: { key: string; value: string } = {
+        key: keyValue[0],
+        value: keyValue[1],
+      };
+      if (keyValue[0] === key) {
+        newParam.value = value;
+        found = true;
+      }
+      paramList.push(newParam);
+    }
+    if (!found) {
+      const newParam = { key: key, value: value };
+      paramList.push(newParam);
+    }
+    let newUrl = base + '?';
+    let firstParam = true;
+    for (const param of paramList) {
+      if (!firstParam) {
+        newUrl += '&';
+      }
+      newUrl += param.key + '=' + param.value;
+      firstParam = false;
+    }
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  };
 
   const handleTagQuery = (tag?: string | null) => {
     setTagQuery(tag);
@@ -112,6 +174,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     setPreviousPage,
     setNextPage,
     setPage,
+    totalPages,
     currentPage,
     previousEnabled,
     nextEnabled,
@@ -145,6 +208,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       <BlogsHeader
         tags={tags}
         currentTag={tagQuery}
+        onLeaveInput={updateSearchParam}
         onSearchChange={setSearchQuery}
         onTagChange={handleTagQuery}
         query={searchQuery}
@@ -187,6 +251,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
           <DarkButton
             onClick={() => {
+              decreasePageNumber();
               setPreviousPage();
               scrollUp();
             }}
@@ -200,6 +265,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           </DarkButton>
           <DarkButton
             onClick={() => {
+              increasePageNumber();
               setNextPage();
               scrollUp();
             }}
