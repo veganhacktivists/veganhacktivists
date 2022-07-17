@@ -128,23 +128,18 @@ const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
   const lightGrey = getThemeColor('grey-light');
   const selectedCategory = useDocsStore((state) => state.selectedCategory);
 
-  const isActive = slug === selectedCategory;
+  const detailsRef = useRef<HTMLDetailsElement>(null);
 
-  const [open, setOpen] = useState(false);
-  const [firstRender, setFirstRender] = useState(true);
   useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
-      return;
-    }
+    const isActive = slug === selectedCategory;
+    if (!isActive || !detailsRef.current) return;
 
-    if (!isActive) return;
-
-    setOpen(isActive);
-  }, [selectedCategory, firstRender, isActive]);
+    const details = detailsRef.current;
+    details.open = true;
+  }, [selectedCategory, slug]);
 
   return (
-    <details className="pl-5" open={open}>
+    <details className="pl-5" ref={detailsRef}>
       <summary
         className="box-border px-2 py-1 font-mono text-2xl font-bold text-white cursor-pointer"
         style={{
