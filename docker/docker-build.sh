@@ -4,6 +4,7 @@ set -e
 cd $(dirname $0)
 
 docker build -t veganhacktivists \
+    --build-arg CACHE_BUSTER=$(date +%s) \
     --build-arg CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN \
     --build-arg CF_ENVIRONMENT=$CF_ENVIRONMENT \
     --build-arg CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN \
@@ -15,9 +16,10 @@ docker build -t veganhacktivists \
     --build-arg NEXTAUTH_SECRET=$NEXTAUTH_SECRET \
     --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN \
     --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID \
+    --build-arg PORT=3000 \
     --network="host" \
     -f ./Dockerfile \
     "$@" \
 .. \
 && \
-docker run --rm -p 3000:3000 --env-file ../.env --env NEXTAUTH_URL=localhost:3000 --name=veganhacktivists veganhacktivists
+docker run --rm -p 3000:3000 --env-file ../.env --name=veganhacktivists veganhacktivists

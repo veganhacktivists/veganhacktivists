@@ -34,7 +34,6 @@ const handler: NextApiHandler = async (req, res) => {
       }),
     });
   } catch (e: unknown) {
-    debugger;
     return res.status((e as Response).status).json({});
   }
 

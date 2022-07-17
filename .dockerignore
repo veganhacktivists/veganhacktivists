@@ -3,6 +3,7 @@
 .next
 .git
 .husky
+.env*
 docker
 *Dockerfile*
 *docker-compose*
