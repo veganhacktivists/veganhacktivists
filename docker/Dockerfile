@@ -33,7 +33,8 @@ ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
 ARG DATABASE_URL
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --no-optional
+COPY --from=deps /app/.pnpm-store ./.pnpm-store
+RUN pnpm install --offline --no-optional
 
 COPY . .
 
