@@ -2,19 +2,6 @@ ARG NODE_VERSION=16.15-alpine
 
 ARG PORT=80
 
-ARG CF_SPACE_ID
-ARG CF_DELIVERY_ACCESS_TOKEN
-ARG CF_PREVIEW_ACCESS_TOKEN
-ARG CF_ENVIRONMENT
-ARG PATREON_ACCESS_TOKEN
-ARG PATREON_CAMPAIGN_ID
-ARG MAILCHIMP_AUDIENCE_ID
-ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
-ARG NEXTAUTH_SECRET
-ARG EMAIL_SERVER_URL
-ARG DATABASE_URL
-
-
 FROM node:${NODE_VERSION} AS base
 WORKDIR /app
 
@@ -45,21 +32,14 @@ ARG PATREON_CAMPAIGN_ID
 ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
 ARG DATABASE_URL
 
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --no-optional
+
 COPY . .
-COPY --from=deps /app/.pnpm-store ./.pnpm-store
-RUN pnpm install --offline
+
 RUN pnpm prisma generate
 RUN pnpm prisma migrate deploy
 RUN pnpm build
-
-FROM base as prod_deps
-COPY --from=deps /app/.pnpm-store ./.pnpm-store
-COPY pnpm-lock.yaml ./pnpm-lock.yaml
-COPY package.json ./package.json
-COPY prisma/schema.prisma ./prisma/schema.prisma
-
-RUN pnpm install --offline -P
-RUN pnpm dlx prisma generate
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -72,30 +52,14 @@ RUN apk add --no-cache tini
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-ARG CF_SPACE_ID
-ARG CF_DELIVERY_ACCESS_TOKEN
-ARG CF_PREVIEW_ACCESS_TOKEN
-ARG CF_ENVIRONMENT
-ARG PATREON_ACCESS_TOKEN
-ARG PATREON_CAMPAIGN_ID
-ARG MAILCHIMP_AUDIENCE_ID
-ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
-ARG NEXTAUTH_SECRET
-ARG EMAIL_SERVER_URL
-ARG DATABASE_URL
-
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/.next ./.next
-RUN chown -R nextjs:nodejs ./.next
-
-COPY --from=prod_deps /app/node_modules ./node_modules
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
@@ -103,4 +67,4 @@ ENV PORT=${PORT}
 EXPOSE ${PORT}
 
 ENTRYPOINT ["tini", "--"]
-CMD ["pnpm", "start"]
+CMD ["node", "server.js"]

@@ -17,8 +17,7 @@ docker build -t veganhacktivists \
     --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID \
     --network="host" \
     -f ./Dockerfile \
-    --progress=plain \
     "$@" \
-..
-
+.. \
+&& \
 docker run --rm -p 3000:3000 --env-file ../.env --env NEXTAUTH_URL=localhost:3000 --name=veganhacktivists veganhacktivists

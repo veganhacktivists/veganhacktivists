@@ -2,7 +2,9 @@
 const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
+/** @type Next.{NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
