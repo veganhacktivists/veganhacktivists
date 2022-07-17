@@ -13,7 +13,6 @@ const handler: NextApiHandler = async (_req, res) => {
       .status(HttpCodes.INTERNAL_SERVER_ERROR)
       .json({ error: e.message || e });
   }
-  console.info('Health check OK');
   return res.status(HttpCodes.OK).end();
 };
 
