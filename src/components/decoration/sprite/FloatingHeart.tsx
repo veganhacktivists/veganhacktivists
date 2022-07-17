@@ -5,13 +5,13 @@ import mdHeart from '../../../../public/images/VH_Pixel_Heart_Medium.png';
 import lgHeart from '../../../../public/images/VH_Pixel_Heart_Large.png';
 import CustomImage from '../customImage';
 import cssAnimations from './animations.module.css';
-import type { SpringValue } from '@react-spring/core';
+import type { SpringValue } from '@react-spring/web';
 
 interface FloatingHeartProps {
   float?: boolean;
   size: 'sm' | 'md' | 'lg';
   delay?: number;
-  position: SpringValue<string>;
+  position: SpringValue;
 }
 
 const FloatingHeart: React.FC<FloatingHeartProps> = ({

@@ -4,6 +4,7 @@ specifiers:
   '@axe-core/react': ^4.4.3
   '@contentful/rich-text-plain-text-renderer': ^15.12.1
   '@contentful/rich-text-react-renderer': ^15.12.1
+  '@contentful/rich-text-types': ^15.12.1
   '@faker-js/faker': ^7.2.0
   '@fortawesome/fontawesome-svg-core': ^6.1.1
   '@fortawesome/free-brands-svg-icons': ^6.1.1
@@ -123,11 +124,12 @@ dependencies:
   zustand: 4.0.0-rc.1_react@18.2.0
 
 optionalDependencies:
-  contentful-management: 10.6.3
+  contentful-management: 10.8.0
   contentful-typescript-codegen: 3.2.3_prettier@2.7.1
 
 devDependencies:
   '@axe-core/react': 4.4.3
+  '@contentful/rich-text-types': 15.12.1
   '@faker-js/faker': 7.2.0
   '@testing-library/dom': 8.13.0
   '@testing-library/jest-dom': 5.16.4
@@ -1450,7 +1452,6 @@ packages:
   /@contentful/rich-text-types/15.12.1:
     resolution: {integrity: sha512-WQJic0fnAbTa8xzO3Z+aVqDmA5+JMNQlATQMVJ40GoOrnM8YoJZsKGf6xX/O6Y6Eq10T1LrpxIOslODFI9qFgg==}
     engines: {node: '>=6.0.0'}
-    dev: false
 
   /@cspotcode/source-map-support/0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -3405,8 +3406,8 @@ packages:
     resolution: {integrity: sha512-2/uRVMdRypf5z/TW/ncD/66l75P5hH2vM/GR8Jf8HLc2xnfJtmina6F6du8+v4Z2vTrMo7jC+W1tmEEuuELgkQ==}
     dev: false
 
-  /contentful-management/10.6.3:
-    resolution: {integrity: sha512-1tzQM1VeJi1KGiaE7vWhIla79XwlwIrmPd6+BUw2LG/0ar6azeU1uvO6oQxH4azVN3D5k2XmshRE2OvRIJJ6Xw==}
+  /contentful-management/10.8.0:
+    resolution: {integrity: sha512-K+q9tbw8SULf5fg+tfLxE4WhHO+1iXyxjdGfy+hv9m1pwJFLhvBmudHOAA1jX1RnqayDUuRqjs/4otVb9cs/KA==}
     engines: {node: '>=14'}
     requiresBuild: true
     dependencies:

@@ -1,36 +1,22 @@
 version: "3"
 services:
-  vh-site:
-    image: registry.digitalocean.com/veganhacktivists/vh-site
-    restart: always
-    labels:
-      # Enable Traefik for this specific "backend" service
-      - traefik.enable=true
-      # Define the port inside of the Docker service to use
-      - traefik.http.services.app.loadbalancer.server.port=80
-      # Make Traefik use this domain in HTTP
-      - traefik.http.routers.app-http.entrypoints=http
-      - traefik.http.routers.app-http.rule=Host(`news.veganhacktivists.org`)
-      # Use the traefik-public network (declared below)
-      - traefik.docker.network=traefik-public
-      # Make Traefik use this domain in HTTPS
-      - traefik.http.routers.app-https.entrypoints=https
-      - traefik.http.routers.app-https.rule=Host(`news.veganhacktivists.org`)
-      - traefik.http.routers.app-https.tls=true
-      # Use the "le" (Let's Encrypt) resolver
-      - traefik.http.routers.app-https.tls.certresolver=le
-      # https-redirect middleware to redirect HTTP to HTTPS
-      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
-      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
-      # Middleware to redirect HTTP to HTTPS
-      - traefik.http.routers.app-http.middlewares=https-redirect
-      - traefik.http.routers.app-https.middlewares=admin-auth
-    networks:
-      # Use the public network created to be shared between Traefik and
-      # any other service that needs to be publicly available with HTTPS
-      - traefik-public
-
-networks:
-  traefik-public:
-    external: true
-
+  veganhacktivists:
+    depends_on:
+      - db
+    build:
+      context: .
+      args:
+        - CF_SPACE_ID=$CF_SPACE_ID
+        - CF_DELIVERY_ACCESS_TOKEN=$CF_DELIVERY_ACCESS_TOKEN
+        - CF_PREVIEW_ACCESS_TOKEN=$CF_PREVIEW_ACCESS_TOKEN
+        - CF_ENVIRONMENT=$CF_ENVIRONMENT
+    environment:
+      - DATABASE_URL=postgresql://vegan_hacktivists:localpass@db:5432/vegan_hacktivists?schema=public
+    ports:
+      - 3000:3000
+  db:
+    from: postgres:14
+    environment:
+      POSTGRES_USER: vegan_hacktivists
+      POSTGRES_PASSWORD: localpass
+      POSTGRES_DB: vegan_hacktivists

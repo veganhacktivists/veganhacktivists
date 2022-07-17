@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import tailwindConfig from '../../tailwind.config';
+// @ts-expect-error
 import resolveConfig from 'tailwindcss/resolveConfig';
 import { useMemo } from 'react';
+// @ts-expect-error
 import type { TailwindConfig } from 'tailwindcss/tailwind-config';
 
 const fullConfig = resolveConfig(tailwindConfig as unknown as TailwindConfig);

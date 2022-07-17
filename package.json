@@ -6,8 +6,8 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "scripts": {
-    "prepare": "husky install",
-    "preinstall": "pnpm dlx only-allow pnpm",
+    "postinstall": "test -f ./scripts/postinstall.sh && ./scripts/postinstall.sh || true",
+    "preinstall": "npx only-allow pnpm",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@axe-core/react": "^4.4.3",
+    "@contentful/rich-text-types": "^15.12.1",
     "@faker-js/faker": "^7.2.0",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",

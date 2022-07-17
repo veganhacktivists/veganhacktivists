@@ -2,6 +2,8 @@
 .gitignore
 .next
 .git
+.husky
+docker
 *Dockerfile*
 *docker-compose*
 node_modules
