@@ -120,5 +120,8 @@
   "optionalDependencies": {
     "contentful-management": "^10.6.3",
     "contentful-typescript-codegen": "^3.2.2"
+  },
+  "engines": {
+    "pnpm": ">=7.0.0"
   }
 }

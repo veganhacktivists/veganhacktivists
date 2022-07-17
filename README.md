@@ -25,22 +25,18 @@ Because this team is so new we still have to document all of this somewhere, so 
 
 ## Getting Started
 
+We use `pnpm` as a package manager. Install it whatever way fits you best https://pnpm.io/installation. Note that you need **at least version `>=7.0.0`**.
+
 Install the dependencies:
 
 ```bash
-yarn install
-```
-
-Install the hooks:
-
-```bash
-yarn husky install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
