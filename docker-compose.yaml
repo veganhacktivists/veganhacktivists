@@ -15,7 +15,10 @@ services:
     ports:
       - 3000:3000
   db:
-    from: postgres:14
+    image: postgres:14
+    restart: always
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_USER: vegan_hacktivists
       POSTGRES_PASSWORD: localpass
