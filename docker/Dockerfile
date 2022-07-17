@@ -22,7 +22,7 @@ ENV CI=1
 
 COPY package.json pnpm-lock.yaml ./
 COPY --from=deps /app/.pnpm-store ./.pnpm-store
-RUN pnpm install --offline --no-optional
+RUN pnpm install --offline --no-optional --no-verify-store-integrity
 
 COPY . .
 
