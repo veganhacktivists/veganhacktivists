@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import tailwindConfig from '../../../tailwind.config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 const fullConfig = resolveConfig(tailwindConfig as any);
