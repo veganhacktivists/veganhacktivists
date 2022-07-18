@@ -1,2 +1,4 @@
 tailwind.config.js
 src/types/generated/*
+node_modules
+.next

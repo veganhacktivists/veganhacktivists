@@ -1,19 +1,20 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json'],
+  },
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
   ],
+  ignorePatterns: ['.eslintrc.js'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
-    'react/button-has-type': ['warn'],
+    'prettier/prettier': ['error'],
+    'react/button-has-type': ['error'],
     'no-console': ['warn'],
     'react/self-closing-comp': ['warn'],
     'react/function-component-definition': [
@@ -48,6 +49,14 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
     '@typescript-eslint/array-type': ['warn', { default: 'array' }],
     '@typescript-eslint/no-empty-function': ['warn'],
+
+    // typescript typechecking
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
 
     // misc
     'no-console': ['warn'],
