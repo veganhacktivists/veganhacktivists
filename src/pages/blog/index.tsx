@@ -11,7 +11,7 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import { NextSeo } from 'next-seo';
@@ -24,6 +24,7 @@ import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
 import { useRouter } from 'next/router';
+import useOnce from '../../hooks/useOnce';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -61,88 +62,8 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hash, setHash] = useHash({ shallow: false });
-  const { query, isReady } = useRouter();
-  const { page, search } = query;
-
-  useEffect(() => {
-    if (page !== undefined) {
-      let newPage = Number(page);
-      newPage -= 1;
-      newPage = newPage >= 0 ? newPage : 0;
-      if (newPage !== currentPage) {
-        setPage(newPage);
-      }
-    }
-    if (search !== undefined && typeof search === 'string') {
-      if (search !== searchQuery) {
-        setSearchQuery(search);
-      }
-    }
-  }, [isReady]);
-
-  const [tagQuery, setTagQuery] = useState<string | null | undefined>(
-    hash || undefined
-  );
-
-  const increasePageNumber = () => {
-    if (currentPage + 1 === totalPages) {
-      return;
-    }
-    const newPageQuery: number = currentPage + 2;
-    changeHistoryParam('page', newPageQuery.toString());
-  };
-
-  const updateSearchParam = () => {
-    changeHistoryParam('search', searchQuery);
-  };
-
-  const decreasePageNumber = () => {
-    if (currentPage === 0) {
-      return;
-    }
-    changeHistoryParam('page', currentPage.toString());
-  };
-
-  /*
-   * Replaces the given GET Parameter without reloading to page by using the history API
-   */
-  const changeHistoryParam = (key: string, value: string) => {
-    const url = window.location.toString();
-    const urlParts = url.split('?');
-    const base = urlParts[0];
-    let params: string[] = [];
-    if (urlParts[1] !== undefined) {
-      params = urlParts[1].split('&');
-    }
-    const paramList = [];
-    let found = false;
-    for (const param of params) {
-      const keyValue = param.split('=');
-      const newParam: { key: string; value: string } = {
-        key: keyValue[0],
-        value: keyValue[1],
-      };
-      if (keyValue[0] === key) {
-        newParam.value = value;
-        found = true;
-      }
-      paramList.push(newParam);
-    }
-    if (!found) {
-      const newParam = { key: key, value: value };
-      paramList.push(newParam);
-    }
-    let newUrl = base + '?';
-    let firstParam = true;
-    for (const param of paramList) {
-      if (!firstParam) {
-        newUrl += '&';
-      }
-      newUrl += param.key + '=' + param.value;
-      firstParam = false;
-    }
-    window.history.pushState({ path: newUrl }, '', newUrl);
-  };
+  const router = useRouter();
+  const { page, search } = router.query;
 
   const handleTagQuery = (tag?: string | null) => {
     setTagQuery(tag);
@@ -154,7 +75,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   }, [hash]);
 
   const [firstBlog, ...otherBlogs] = blogs;
-
+  const [tagQuery, setTagQuery] = useState<string | null | undefined>(
+    hash || undefined
+  );
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
     options: BLOG_FILTER_OPTIONS,
@@ -182,6 +105,80 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     totalItems: filteredEntries.length,
     initialPageSize: 9,
   });
+
+  useOnce(
+    () => {
+      if (page !== undefined) {
+        let newPage = Number(page);
+        newPage -= 1;
+        newPage = newPage >= 0 ? newPage : 0;
+        if (newPage !== currentPage) {
+          setPage(newPage);
+        }
+      }
+      if (search !== undefined && typeof search === 'string') {
+        if (search !== searchQuery) {
+          setSearchQuery(search);
+        }
+      }
+    },
+    { enabled: router.isReady }
+  );
+
+  const increasePageNumber = () => {
+    if (currentPage + 1 === totalPages) {
+      return;
+    }
+    const newPageQuery: number = currentPage + 2;
+    router
+      .push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            page: newPageQuery.toString(),
+          },
+        },
+        undefined,
+        { shallow: true }
+      )
+      .then();
+  };
+
+  const updateSearchParam = () => {
+    router
+      .push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            search: searchQuery,
+          },
+        },
+        undefined,
+        { shallow: true }
+      )
+      .then();
+  };
+
+  const decreasePageNumber = () => {
+    if (currentPage === 0) {
+      return;
+    }
+    router
+      .push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            page: currentPage.toString(),
+          },
+        },
+        undefined,
+        { shallow: true }
+      )
+      .then();
+  };
 
   const blogContainer = useRef<HTMLDivElement>(null);
 
