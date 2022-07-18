@@ -130,7 +130,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       return;
     }
     const newPageQuery: number = currentPage + 2;
-    router.push(
+    void router.push(
       {
         pathname: router.pathname,
         query: {
@@ -144,7 +144,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   };
 
   const updateSearchParam = () => {
-    router.replace(
+    void router.replace(
       {
         pathname: router.pathname,
         query: {
@@ -161,7 +161,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     if (currentPage === 0) {
       return;
     }
-    router.push(
+    void router.push(
       {
         pathname: router.pathname,
         query: {

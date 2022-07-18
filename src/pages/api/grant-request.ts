@@ -38,14 +38,14 @@ const handler: NextApiHandler = async (req, res) => {
       .json(errorBody(HttpCodes.NOT_IMPLEMENTED));
   }
 
-  const { name, email }: GrantsForm = req.body;
+  const { name, email } = req.body as GrantsForm;
 
   try {
     await sendMail({
       to: OUR_EMAIL,
       from: email,
       subject: `Grant request from ${name}`,
-      html: createFormattedMessage(req.body),
+      html: createFormattedMessage(req.body as Record<string, string>),
     });
   } catch (e: unknown) {
     return res.status((e as Response).status).json({});

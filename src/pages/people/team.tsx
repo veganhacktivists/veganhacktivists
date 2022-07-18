@@ -56,9 +56,9 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
 
   return (
     <div className="w-64">
-      <div className="bg-grey w-100 h-64 flex justify-end mb-2 group">
+      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
-          <div className="relative filter grayscale group-hover:grayscale-0 w-full">
+          <div className="relative w-full filter grayscale group-hover:grayscale-0">
             <ContentfulImage
               downloadWidth={500}
               image={image}
@@ -190,7 +190,7 @@ const useFilteredMembers = (
     const paged = filteredByTeam.slice(0, pageSize * pageNumber);
 
     return {
-      members: paged as ITeamMember[],
+      members: paged,
       totalMembers: filteredByTeam.length,
     };
   }, [allMembers, selectedTeam, pageSize, pageNumber]);
@@ -254,7 +254,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         {members.length < totalMembers && (
           <div className="mt-10">
             <WhiteButton
-              className="font-mono content-center text-2xl"
+              className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
             >
               Load more
@@ -263,7 +263,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         )}
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="bg-gray-background pb-10 pt-16 px-10">
+      <div className="px-10 pt-16 pb-10 bg-gray-background">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}

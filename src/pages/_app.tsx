@@ -2,9 +2,9 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import { CookiesProvider } from 'react-cookie';
-import Header from '../components/layout/header';
-import Footer from '../components/layout/footer';
-import PageWrapper, { MainWrapper } from '../components/layout/wrapper';
+import Header from 'components/layout/header';
+import Footer from 'components/layout/footer';
+import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 
@@ -15,11 +15,16 @@ import type { DefaultSeoProps } from 'next-seo';
 import { DefaultSeo } from 'next-seo';
 import type { NextRouter } from 'next/router';
 import useOnce from '../hooks/useOnce';
+import type ReactAxe from '@axe-core/react';
+import type { ReactDOM } from 'react';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
-  const ReactDOM = require('react-dom');
-  const axe = require('@axe-core/react');
-  axe(React, ReactDOM, 1000);
+  const ReactDOM = require('react-dom') as ReactDOM;
+  const axe = require('@axe-core/react') as typeof ReactAxe;
+  axe(React, ReactDOM, 1000).catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error('Error loading @axe-core/react', error);
+  });
 }
 
 type NextPageWithLayout = NextPage & {

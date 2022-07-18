@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { getSession, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { DarkButton } from '../../components/decoration/buttons';
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
@@ -18,17 +18,17 @@ const SignOut: NextPage = () => {
   const session = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
+  const handleSignOut = useCallback(async () => {
+    setIsLoading(true);
+    const { url } = await signOut({ redirect: false });
+    void router.push(url);
+  }, [router]);
+
   return (
-    <div className="bg-grey-background p-10">
+    <div className="p-10 bg-grey-background">
       {session.status === 'authenticated' && (
-        <DarkButton
-          disabled={isLoading}
-          onClick={async () => {
-            setIsLoading(true);
-            const { url } = await signOut({ redirect: false });
-            router.push(url);
-          }}
-        >
+        <DarkButton disabled={isLoading} onClick={handleSignOut}>
           Sign out!
         </DarkButton>
       )}

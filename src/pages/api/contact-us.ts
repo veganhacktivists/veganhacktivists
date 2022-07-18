@@ -19,7 +19,7 @@ const handler: NextApiHandler = async (req, res) => {
       .json(errorBody(HttpCodes.NOT_IMPLEMENTED));
   }
 
-  const { name, email, service, message }: ContactUsSubmission = req.body;
+  const { name, email, service, message } = req.body as ContactUsSubmission;
 
   try {
     await sendMail({

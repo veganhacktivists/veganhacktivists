@@ -1,8 +1,14 @@
 import type { NextApiHandler } from 'next';
 import type { IDocsCategoryFields } from '../../../types/generated/contentful';
 
-const handler: NextApiHandler<IDocsCategoryFields> = async (req, res) => {
-  const { category, section, subsection } = req.query;
+interface DocsQuery {
+  category: string;
+  section?: string;
+  subsection?: string;
+}
+
+const handler: NextApiHandler<IDocsCategoryFields> = (req, res) => {
+  const { category, section, subsection } = req.query as unknown as DocsQuery;
 
   res.setPreviewData({});
 

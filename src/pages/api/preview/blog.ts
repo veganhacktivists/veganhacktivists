@@ -1,8 +1,8 @@
 import type { NextApiHandler } from 'next';
 import type { IBlogEntryFields } from '../../../types/generated/contentful';
 
-const handler: NextApiHandler<IBlogEntryFields> = async (req, res) => {
-  const { slug } = req.query;
+const handler: NextApiHandler<IBlogEntryFields> = (req, res) => {
+  const slug = req.query.slug as string;
 
   res.setPreviewData({});
 

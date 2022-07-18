@@ -6,7 +6,11 @@ import SubtleBorder from './decoration/subtleBorder';
 const CONSENT_COOKIE_NAME = 'vh_analytics';
 
 const CookiesCTA: React.FC = () => {
-  const [cookies, setCookies] = useCookies([CONSENT_COOKIE_NAME]);
+  const [cookies, setCookies] = useCookies<
+    typeof CONSENT_COOKIE_NAME,
+    { [CONSENT_COOKIE_NAME]: string }
+  >([CONSENT_COOKIE_NAME]);
+
   const [cookie, setCookie] = useState<boolean | null>(null);
   const [show, setShow] = useState<boolean>(false);
 

@@ -76,7 +76,7 @@ interface DocsProps {
 const Docs: React.FC<DocsProps> = ({ categorySlug, firstSectionSlug }) => {
   const router = useRouter();
   useEffect(() => {
-    router.push({
+    void router.push({
       pathname: '/docs/[category]/[section]',
       query: { category: categorySlug, section: firstSectionSlug },
     });
