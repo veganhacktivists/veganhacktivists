@@ -338,6 +338,7 @@ export {
   SubmitButton,
   PatreonButton,
   InstagramButton,
+  IconButton,
   YoutubeButton,
   ShareButton,
   LightButton,

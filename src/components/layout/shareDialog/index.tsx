@@ -6,6 +6,7 @@ import {
   CopyButton,
   EmailButton,
   FacebookButton,
+  LinkedinButton,
   RedditButton,
   TelegramButton,
   TwitterButton,
@@ -61,21 +62,22 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
             Share project: {shareInfo.title}
           </span>
         </h1>
-        <div className="mx-auto text-center">
+        <div className="flex flex-row mx-auto justify-center">
           <EmailButton onClick={onClose} shareInfo={shareInfo} />
           <FacebookButton onClick={onClose} shareInfo={shareInfo} />
           <TwitterButton onClick={onClose} shareInfo={shareInfo} />
+          <LinkedinButton onClick={onClose} shareInfo={shareInfo} />
+        </div>
+        <div className="flex flex-row mx-auto justify-center">
+          <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
+          <TelegramButton onClick={onClose} shareInfo={shareInfo} />
+          <RedditButton onClick={onClose} shareInfo={shareInfo} />
           <CopyButton
             onClick={onClose}
             shareInfo={shareInfo}
             isClicked={copyButtonClicked}
             setClicked={setCopyButtonClicked}
           />
-        </div>
-        <div className="mx-auto text-center">
-          <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
-          <TelegramButton onClick={onClose} shareInfo={shareInfo} />
-          <RedditButton onClick={onClose} shareInfo={shareInfo} />
         </div>
       </div>
     </Modal>

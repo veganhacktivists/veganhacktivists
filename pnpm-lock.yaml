@@ -69,7 +69,6 @@ specifiers:
   react-modal: ^3.15.1
   react-qr-code: ^2.0.7
   react-select: ^5.3.2
-  react-share: ^4.4.0
   react-syntax-highlighter: ^15.5.0
   react-toastify: ^9.0.4
   react-use-pagination: ^2.0.1
@@ -118,7 +117,6 @@ dependencies:
   react-modal: 3.15.1_biqbaboplfbrettd7655fr4n2y
   react-qr-code: 2.0.7_react@18.2.0
   react-select: 5.3.2_sukxovx4mwg6d6626r5e3rv5k4
-  react-share: 4.4.0_react@18.2.0
   react-syntax-highlighter: 15.5.0_react@18.2.0
   react-toastify: 9.0.4_biqbaboplfbrettd7655fr4n2y
   react-use-pagination: 2.0.1_react@18.2.0
@@ -3786,6 +3784,7 @@ packages:
         optional: true
     dependencies:
       ms: 2.0.0
+    dev: true
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -5858,14 +5857,6 @@ packages:
       graceful-fs: 4.2.10
     dev: false
 
-  /jsonp/0.2.1:
-    resolution: {integrity: sha512-pfog5gdDxPdV4eP7Kg87M8/bHgshlZ5pybl+yKxAnCZ5O7lCIn7Ixydj03wOlnDQesky2BPyA91SQ+5Y/mNwzw==}
-    dependencies:
-      debug: 2.6.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /jsonpointer/5.0.0:
     resolution: {integrity: sha512-PNYZIdMjVIvVgDSYKTT63Y+KZ6IZvGRNNWcxwD+GNnUz1MKPfv30J8ueCjdwcN0nDx2SlshgyB7Oy0epAzVRRg==}
     engines: {node: '>=0.10.0'}
@@ -6230,6 +6221,7 @@ packages:
 
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -7117,19 +7109,6 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/react'
-    dev: false
-
-  /react-share/4.4.0_react@18.2.0:
-    resolution: {integrity: sha512-POe8Ge/JT9Ew9iyW7CiYsCCWCb8uMJWqFl9S7W0fJ/oH5gBJNzukH0bL5vSr17KKG5h15d3GfKaoviI22BKeYA==}
-    engines: {node: '>=6.9.0', npm: '>=5.0.0'}
-    peerDependencies:
-      react: ^16.3.0 || ^17
-    dependencies:
-      classnames: 2.3.1
-      jsonp: 0.2.1
-      react: 18.2.0
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /react-syntax-highlighter/15.5.0_react@18.2.0:
