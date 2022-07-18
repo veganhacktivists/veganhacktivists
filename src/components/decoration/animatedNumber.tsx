@@ -1,4 +1,4 @@
-import { useSpring, animated  } from '@react-spring/web';
+import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { Waypoint } from 'react-waypoint';

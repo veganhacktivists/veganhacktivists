@@ -66,10 +66,11 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
       <NextSeo title="Retired Projects" />
       <FirstSubSection header="Retired projects">
         <div>
-        Unfortunately no matter how fun or interesting the idea is, not every 
-        project creates impact the way we&apos;d like — or address the problems it 
-        aimed to solve. While not every project succeeds, each project has helped 
-        us learn and grow as both a community and as individuals.{' '}
+          Unfortunately no matter how fun or interesting the idea is, not every
+          project creates impact the way we&apos;d like — or address the
+          problems it aimed to solve. While not every project succeeds, each
+          project has helped us learn and grow as both a community and as
+          individuals.{' '}
           <CustomLink href="/projects">
             See our maintained projects here
           </CustomLink>
@@ -81,7 +82,7 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
         selectedYear={selectedYear}
         onChange={setSelectedYear}
       />
-      <div className="md:w-3/4 4xl:w-1/2 mx-auto">
+      <div className="mx-auto md:w-3/4 4xl:w-1/2">
         {projectsForSelectedYear.map((project) => (
           <RetiredProject key={project.name} {...project} />
         ))}

@@ -66,7 +66,12 @@ const BaseButton: React.FC<ButtonProps> = ({
           </a>
         </Link>
       ) : (
-        <button {...props} className={classes} aria-label={ariaLabel}>
+        <button
+          type="button"
+          {...props}
+          className={classes}
+          aria-label={ariaLabel}
+        >
           {children}
         </button>
       )}
@@ -174,7 +179,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <FillBackground base="magenta" fill="pink-dark" disabled={props.disabled}>
       <BaseButton {...props}>
-        <div className="border-l-8 border-pink-dark py-2">{children}</div>
+        <div className="py-2 border-l-8 border-pink-dark">{children}</div>
       </BaseButton>
     </FillBackground>
   );
@@ -194,7 +199,7 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
         className
       )}
     >
-      <div className="h-8 w-8 flex justify-center items-center">
+      <div className="flex items-center justify-center w-8 h-8">
         <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
       </div>
     </IconButton>
@@ -211,7 +216,7 @@ const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
         className
       )}
     >
-      <div className="h-8 w-8 flex justify-center items-center">
+      <div className="flex items-center justify-center w-8 h-8">
         <FontAwesomeIcon size="2x" fixedWidth icon={faYoutube} />
       </div>
     </IconButton>
@@ -228,7 +233,7 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
         className
       )}
     >
-      <div className="h-8 w-8 flex justify-center items-center">
+      <div className="flex items-center justify-center w-8 h-8">
         <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
       </div>
     </IconButton>

@@ -3,9 +3,14 @@
 .next
 .git
 .husky
+.env*
 docker
 *Dockerfile*
 *docker-compose*
 node_modules
-npm-debug.log
+*-debug.log
+*-error.log
 README.md
+LICENSE
+getContentfulEnvironment.js
+

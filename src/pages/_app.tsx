@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { AppProps } from 'next/app';
 import { CookiesProvider } from 'react-cookie';
 import Header from '../components/layout/header';
@@ -14,6 +14,7 @@ import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import { DefaultSeo } from 'next-seo';
 import type { NextRouter } from 'next/router';
+import useOnce from '../hooks/useOnce';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -72,13 +73,13 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
   pageProps,
   router,
 }) => {
-  useEffect(() => {
+  useOnce(() => {
     if (process.env.NODE_ENV === 'production') {
       TagManager.initialize({
         gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID || '',
       });
     }
-  }, []);
+  });
 
   const getLayout = Component.getLayout || ((page) => page);
 

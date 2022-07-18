@@ -48,7 +48,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Websites',
     content:
-      'If you\'re a small vegan activist, organization, or business with little to no funding, you\'re the ones we want to help succeed the most! In many cases we support folks that either can\'t pay for website design, development or have little knowledge or time to build it themselves.',
+      "If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.",
     icon: webIcon,
     iconBgColor: 'magenta',
     iconAccentColor: 'red',
@@ -72,20 +72,21 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Projects',
     content:
-      'Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we\'ll help get you the resources you need to get your idea off the ground, or if we really love the idea, we\'ll help build it for you, free!',
+      "Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!",
     icon: projectIcon,
     iconBgColor: 'green',
     iconAccentColor: 'green-dark',
     button: {
-      text: 'Let\'s chat about your idea!',
+      text: "Let's chat about your idea!",
       href: '#contact-us',
     },
   },
   {
     title: 'Funding',
     content:
-      'We\'re very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we\'re looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.',
+      "We're very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.",
     icon: fundingIcon,
+
     iconBgColor: 'yellow',
     iconAccentColor: 'yellow-dark',
     button: {
@@ -96,7 +97,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Advice',
     content:
-      'We have several advisors with a wide range of experience that can help! We\'ll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! ',
+      "We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! ",
     icon: adviceIcon,
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',
