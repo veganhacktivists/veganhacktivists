@@ -3,27 +3,31 @@ import Modal from '../modal';
 import CustomImage from '../../decoration/customImage';
 import { pixelStar } from '../../../images/separators';
 import {
-  TelegramButton,
+  CopyButton,
   EmailButton,
   FacebookButton,
   RedditButton,
+  TelegramButton,
   TwitterButton,
   WhatsappButton,
-  CopyButton,
 } from './shareButtons';
+import type ShareInfo from './shareInfo';
 
-interface ShareInfo {
-  url: string;
-  title: string;
-  description?: string;
-}
-
+/**
+ * Proptypes of `ShareDialog`.
+ */
 interface ShareDialogProps {
+  /** Whether the dialog is open or not. */
   open: boolean;
+  /** Information to share through the dialog. */
   shareInfo: ShareInfo;
+  /** Callback executed when the dialog is closed. */
   onClose: () => void;
 }
 
+/**
+ * Share dialog containing
+ */
 const ShareDialog: React.FC<ShareDialogProps> = ({
   open,
   shareInfo,
@@ -58,18 +62,20 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
           </span>
         </h1>
         <div className="mx-auto text-center">
-          <EmailButton onClick={onClose} {...shareInfo} />
-          <FacebookButton onClick={onClose} {...shareInfo} />
-          <TwitterButton onClick={onClose} {...shareInfo} />
+          <EmailButton onClick={onClose} shareInfo={shareInfo} />
+          <FacebookButton onClick={onClose} shareInfo={shareInfo} />
+          <TwitterButton onClick={onClose} shareInfo={shareInfo} />
           <CopyButton
             onClick={onClose}
-            {...shareInfo}
+            shareInfo={shareInfo}
             isClicked={copyButtonClicked}
             setClicked={setCopyButtonClicked}
           />
-          <WhatsappButton onClick={onClose} {...shareInfo} />
-          <TelegramButton onClick={onClose} {...shareInfo} />
-          <RedditButton onClick={onClose} {...shareInfo} />
+        </div>
+        <div className="mx-auto text-center">
+          <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
+          <TelegramButton onClick={onClose} shareInfo={shareInfo} />
+          <RedditButton onClick={onClose} shareInfo={shareInfo} />
         </div>
       </div>
     </Modal>

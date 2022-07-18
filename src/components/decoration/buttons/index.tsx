@@ -19,6 +19,7 @@ import { FillBackground } from './utils';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
+import type ShareInfo from '../../layout/shareDialog/shareInfo';
 
 export interface ButtonProps
   extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
@@ -246,29 +247,23 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 
 const ShareButton: React.FC<
   ButtonProps & {
-    openAndInitiateShareDialog: (
-      url: string,
-      title: string,
-      description?: string
-    ) => void;
-    href: string;
-    shareTitle: string;
-    shareText?: string;
+    openAndInitiateShareDialog: (shareInfo: ShareInfo) => void;
+    shareInfo: ShareInfo;
   }
-> = ({ openAndInitiateShareDialog, href, shareTitle, shareText }) => {
+> = ({ openAndInitiateShareDialog, shareInfo }) => {
   const deviceDetect = useDeviceDetect();
+  const { url, title, description } = shareInfo;
 
   const shareNatively = async () => {
-    await navigator.share({ title: shareTitle, text: shareText, url: href });
+    await navigator.share({ title, text: description, url });
   };
 
   const shareWithDialog = () => {
-    openAndInitiateShareDialog(href, shareTitle, shareText);
+    openAndInitiateShareDialog(shareInfo);
   };
 
   return (
     <DarkButton
-      href={href}
       onClick={async (event: MouseEvent<Element>) => {
         event.stopPropagation();
         event.preventDefault();

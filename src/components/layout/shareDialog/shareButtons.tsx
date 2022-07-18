@@ -17,33 +17,28 @@ import {
   faTwitter,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
+import type ShareInfo from './shareInfo';
 
-const getButtonClassName = (bgHoverColor: string) => {
-  const bgHoverAttribute = `hover:bg-[${bgHoverColor}]`;
-  return `bg-gray ${bgHoverAttribute} text-white rounded-full px-2 py-2 mx-2 my-2`;
-};
+const getButtonClassName = (bgHoverStyle: `hover:bg-[#${string}]`) =>
+  `bg-gray ${bgHoverStyle} text-white rounded-full px-2 py-2 mx-2 my-2`;
 
 const ICON_CONTAINER_CLASSNAME = 'h-8 w-8 flex justify-center items-center';
 
 interface ShareButtonProps {
   onClick: () => void;
-  url: string;
-  title: string;
-  description?: string;
+  shareInfo: ShareInfo;
 }
 
-export const EmailButton: React.FC<ShareButtonProps> = ({
-  url,
-  description,
-  title,
-}) => {
+export const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo }) => {
+  const { url, description, title } = shareInfo;
+
   return (
     <EmailShareButton
       url={url}
       body={description}
       subject={title}
       resetButtonStyle={false}
-      className={getButtonClassName('#BB001B')}
+      className={getButtonClassName('hover:bg-[#BB001B]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faEnvelope} />
@@ -54,10 +49,10 @@ export const EmailButton: React.FC<ShareButtonProps> = ({
 
 export const FacebookButton: React.FC<ShareButtonProps> = ({
   onClick,
-  url,
-  description,
-  title,
+  shareInfo,
 }) => {
+  const { url, description, title } = shareInfo;
+
   return (
     <FacebookShareButton
       url={url}
@@ -67,7 +62,7 @@ export const FacebookButton: React.FC<ShareButtonProps> = ({
         onClick();
       }}
       resetButtonStyle={false}
-      className={getButtonClassName('#4267B2')}
+      className={getButtonClassName('hover:bg-[#4267B2]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faFacebook} />
@@ -78,10 +73,10 @@ export const FacebookButton: React.FC<ShareButtonProps> = ({
 
 export const TwitterButton: React.FC<ShareButtonProps> = ({
   onClick,
-  url,
-  description,
-  title,
+  shareInfo,
 }) => {
+  const { url, description, title } = shareInfo;
+
   return (
     <TwitterShareButton
       url={url}
@@ -91,7 +86,7 @@ export const TwitterButton: React.FC<ShareButtonProps> = ({
         onClick();
       }}
       resetButtonStyle={false}
-      className={getButtonClassName('#00acee')}
+      className={getButtonClassName('hover:bg-[#00acee]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faTwitter} />
@@ -102,10 +97,10 @@ export const TwitterButton: React.FC<ShareButtonProps> = ({
 
 export const WhatsappButton: React.FC<ShareButtonProps> = ({
   onClick,
-  url,
-  description,
-  title,
+  shareInfo,
 }) => {
+  const { url, description, title } = shareInfo;
+
   return (
     <WhatsappShareButton
       url={url}
@@ -115,7 +110,7 @@ export const WhatsappButton: React.FC<ShareButtonProps> = ({
         onClick();
       }}
       resetButtonStyle={false}
-      className={getButtonClassName('#25D366')}
+      className={getButtonClassName('hover:bg-[#25D366]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faWhatsapp} />
@@ -126,10 +121,10 @@ export const WhatsappButton: React.FC<ShareButtonProps> = ({
 
 export const TelegramButton: React.FC<ShareButtonProps> = ({
   onClick,
-  url,
-  description,
-  title,
+  shareInfo,
 }) => {
+  const { url, description, title } = shareInfo;
+
   return (
     <TelegramShareButton
       url={url}
@@ -138,7 +133,7 @@ export const TelegramButton: React.FC<ShareButtonProps> = ({
         onClick();
       }}
       resetButtonStyle={false}
-      className={getButtonClassName('#0088cc')}
+      className={getButtonClassName('hover:bg-[#0088cc]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faTelegram} />
@@ -149,7 +144,9 @@ export const TelegramButton: React.FC<ShareButtonProps> = ({
 
 export const CopyButton: React.FC<
   ShareButtonProps & { isClicked: boolean; setClicked: (stat: boolean) => void }
-> = ({ onClick, url, isClicked, setClicked }) => {
+> = ({ onClick, shareInfo, isClicked, setClicked }) => {
+  const { url } = shareInfo;
+
   return (
     <button
       onClick={async () => {
@@ -169,7 +166,7 @@ export const CopyButton: React.FC<
       className={
         isClicked
           ? 'bg-green text-white rounded-full px-2 py-2 mx-2 my-2'
-          : getButtonClassName('#BB001B')
+          : getButtonClassName('hover:bg-[#BB001B]')
       }
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
@@ -185,9 +182,10 @@ export const CopyButton: React.FC<
 
 export const RedditButton: React.FC<ShareButtonProps> = ({
   onClick,
-  url,
-  title,
+  shareInfo,
 }) => {
+  const { url, title } = shareInfo;
+
   return (
     <RedditShareButton
       url={url}
@@ -196,7 +194,7 @@ export const RedditButton: React.FC<ShareButtonProps> = ({
         onClick();
       }}
       resetButtonStyle={false}
-      className={getButtonClassName('#FF4500')}
+      className={getButtonClassName('hover:bg-[#FF4500]')}
     >
       <div className={ICON_CONTAINER_CLASSNAME}>
         <FontAwesomeIcon size="2x" fixedWidth icon={faReddit} />

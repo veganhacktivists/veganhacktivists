@@ -19,6 +19,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
 import YearSelector from '../../components/layout/projects/yearSelector';
 import ShareDialog from '../../components/layout/shareDialog';
+import type ShareInfo from '../../components/layout/shareDialog/shareInfo';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
@@ -36,16 +37,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface ProjectCardProps {
   project: IProject;
-  openAndInitiateShareDialog: (
-    url: string,
-    title: string,
-    description?: string
-  ) => void;
+  openShareDialog: (shareInfo: ShareInfo) => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
-  openAndInitiateShareDialog,
+  openShareDialog,
 }) => {
   const {
     name,
@@ -96,10 +93,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   )}
               </DarkButton>
               <ShareButton
-                openAndInitiateShareDialog={openAndInitiateShareDialog}
-                href={url}
-                shareTitle={name}
-                shareText="Take a look at this awesome project!"
+                openAndInitiateShareDialog={openShareDialog}
+                shareInfo={{
+                  url,
+                  title: name,
+                  description: 'Take a look at this awesome project!',
+                }}
               />
             </div>
           )}
@@ -161,12 +160,8 @@ const Projects: PageWithLayout<ProjectsProps> = ({
     title: 'Vegan Hacktivists',
   });
 
-  const openAndInitiateShareDialog = (
-    url: string,
-    title: string,
-    description?: string
-  ) => {
-    setShareInfo({ url, title, description });
+  const openShareDialog = (shareInfo: ShareInfo) => {
+    setShareInfo(shareInfo);
     setShareDialogOpen(true);
   };
 
@@ -214,7 +209,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
             <ProjectCard
               key={project.fields.name}
               project={project}
-              openAndInitiateShareDialog={openAndInitiateShareDialog}
+              openShareDialog={openShareDialog}
             />
           </div>
         ))}
