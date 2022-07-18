@@ -11,6 +11,11 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' && {
+      exclude: ['error'],
+    },
+  },
   async redirects() {
     return [
       {
