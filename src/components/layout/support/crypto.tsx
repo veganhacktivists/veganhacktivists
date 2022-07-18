@@ -37,7 +37,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
 
   return (
     <>
-      <div className="flex flex-col md:flex-row min-w-0">
+      <div className="flex flex-col min-w-0 md:flex-row">
         <div style={{ backgroundColor: color }} className="py-1 my-auto">
           <FontAwesomeIcon
             icon={icon}
@@ -47,12 +47,12 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
           />
         </div>
         <div className="flex flex-row w-full">
-          <div className="flex flex-row min-w-0 w-full px-2 py-2 text-xl bg-grey-over-background text-grey focus:ring-1 focus:ring-grey justify-between">
-            <div className="pr-10 my-auto -mr-10 overflow-hidden text-ellipsis whitespace-nowrap font-mono md:text-2xl">
+          <div className="flex flex-row justify-between w-full min-w-0 px-2 py-2 text-xl bg-grey-over-background text-grey focus:ring-1 focus:ring-grey">
+            <div className="pr-10 my-auto -mr-10 overflow-hidden font-mono text-ellipsis whitespace-nowrap md:text-2xl">
               {code}
             </div>
             <div
-              className="w-5 h-5 mx-2 my-auto aspect-square cursor-pointer"
+              className="w-5 h-5 mx-2 my-auto cursor-pointer aspect-square"
               onClick={() => {
                 setModalOpen(true);
               }}
@@ -61,8 +61,9 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
             </div>
           </div>
           <button
+            type="button"
             onClick={onCopy}
-            className="whitespace-nowrap flex flex-row justify-center px-4 py-2 text-2xl text-white cursor-pointer w-min bg-green gap-x-2"
+            className="flex flex-row justify-center px-4 py-2 text-2xl text-white cursor-pointer whitespace-nowrap w-min bg-green gap-x-2"
           >
             Copy
           </button>
@@ -75,21 +76,21 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
         }}
       >
         <div className="bg-white">
-          <div className="mx-auto ms:w-full md:w-full text-center">
+          <div className="mx-auto text-center ms:w-full md:w-full">
             <div style={{ backgroundColor: color }} className="w-full">
-              <div className="text-white font-bold font-mono text-4xl py-10">
+              <div className="py-10 font-mono text-4xl font-bold text-white">
                 <div>Donate {currencyName}</div>
                 <div className="mt-5">
                   <FontAwesomeIcon icon={icon} fixedWidth size="2x" />
                 </div>
               </div>
             </div>
-            <div className="mx-auto w-fit py-10">
+            <div className="py-10 mx-auto w-fit">
               <div className="mx-auto w-fit">
                 <QRCode value={code} level={QR_LEVEL} />
               </div>
-              <div className="flex flex-row justify-center gap-3 mt-5 min-w-0 w-screen md:w-auto px-2">
-                <div className="text-ellipsis overflow-hidden whitespace-nowrap font-mono text-lg md:text-xl">
+              <div className="flex flex-row justify-center w-screen min-w-0 gap-3 px-2 mt-5 md:w-auto">
+                <div className="overflow-hidden font-mono text-lg text-ellipsis whitespace-nowrap md:text-xl">
                   {code}
                 </div>
                 <div className="cursor-pointer" onClick={onCopy}>
@@ -114,7 +115,7 @@ const Crypto: React.FC = () => {
         Click the QR code to view it enlarged, or copy the code to your
         clipboard.
       </div>
-      <div className="grid gap-y-5 mx-auto md:px-10 lg:w-3/4 pb-2">
+      <div className="grid pb-2 mx-auto gap-y-5 md:px-10 lg:w-3/4">
         <CryptoWallet
           color={getThemeColor('yellow')}
           code="14qFZxHb3C8UuijTLJYccZVQzgVbQrQh1f"

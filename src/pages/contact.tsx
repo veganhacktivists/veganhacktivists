@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
         ]}
         className="hidden md:block"
       />
-      <div className="bg-grey-background px-5">
+      <div className="px-5 bg-grey-background">
         <div className="pt-10">
           <CustomImage
             src={pixelHeart}
