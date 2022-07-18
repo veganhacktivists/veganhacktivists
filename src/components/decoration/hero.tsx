@@ -68,8 +68,7 @@ const Hero: React.FC<HeroProps> = ({
     <div className={containerClasses} ref={ref}>
       <CustomImage
         alt=""
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        src={imageBackground as any}
+        src={imageBackground}
         layout="fill"
         objectFit="cover"
         objectPosition={main ? 'top' : 'center'}

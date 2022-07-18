@@ -11,7 +11,7 @@ interface FloatingHeartProps {
   float?: boolean;
   size: 'sm' | 'md' | 'lg';
   delay?: number;
-  position: SpringValue;
+  position: SpringValue<string>;
 }
 
 const FloatingHeart: React.FC<FloatingHeartProps> = ({
@@ -48,7 +48,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
     >
       <div
         className={classNames('relative', floating ? cssAnimations.heart : '')}
-        style={{ animationDelay: delay + 'ms' }}
+        style={{ animationDelay: `${delay}ms` }}
         onAnimationEnd={() => {
           setFloating(false);
         }}

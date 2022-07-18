@@ -36,8 +36,7 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
           ? downloadWidth
           : ({ src, quality = 75 }) => `${src}?w=${downloadWidth}&q=${quality}`
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      src={('https:' + url) as any}
+      src={`https:${url}`}
       alt={alt}
       {...sizeProps}
       {...props}

@@ -24,7 +24,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
   currencyName,
 }) => {
   const onCopy = useCallback(() => {
-    toast.promise(navigator.clipboard.writeText(code), {
+    void toast.promise(navigator.clipboard.writeText(code), {
       success: 'Code succesfully copied!',
       error:
         'Something went wrong copying the code, please select and copy it manually',

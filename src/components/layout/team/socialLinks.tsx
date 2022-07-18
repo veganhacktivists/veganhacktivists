@@ -19,6 +19,7 @@ import classNames from 'classnames';
 import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
 
 import CustomImage from '../../decoration/customImage';
+import type { StaticImageData } from 'next/image';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<
   keyof ISocialLinksFields,
@@ -30,7 +31,7 @@ const SOCIAL_LINK_KEY_TO_ICON: Record<
   github: githubIcon,
   website: websiteIcon,
   linkedIn: linkedInIcon,
-  activistHub: ahIcon,
+  activistHub: ahIcon as FontAwesomeIconProps['icon'],
   youtube: youtubeIcon,
   email: faEnvelope,
 };
@@ -74,7 +75,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
           >
             {key === 'activistHub' ? (
               <CustomImage
-                src={ahIcon}
+                src={ahIcon as StaticImageData}
                 alt=""
                 layout="fixed"
                 width={30}
