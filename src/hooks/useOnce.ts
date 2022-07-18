@@ -1,14 +1,22 @@
 import { useEffect, useRef } from 'react';
 
-const useOnce = (callback: () => void) => {
+interface UseOnceOptions {
+  enabled?: boolean;
+}
+
+const useOnce: (callback: () => void, options?: UseOnceOptions) => void = (
+  callback,
+  options = {}
+) => {
+  const { enabled = true } = options;
   const isFirstRenderRef = useRef(true);
 
   useEffect(() => {
-    if (!isFirstRenderRef.current) return;
+    if (!enabled || !isFirstRenderRef.current) return;
 
     isFirstRenderRef.current = false;
     callback();
-  }, [callback]);
+  }, [callback, enabled]);
 };
 
 export default useOnce;

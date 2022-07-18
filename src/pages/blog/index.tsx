@@ -11,7 +11,7 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import { NextSeo } from 'next-seo';
@@ -23,6 +23,8 @@ import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
+import { useRouter } from 'next/router';
+import useOnce from '../../hooks/useOnce';
 
 interface BlogProps {
   blogs: IBlogEntry[];
@@ -60,10 +62,8 @@ const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
 const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hash, setHash] = useHash({ shallow: false });
-
-  const [tagQuery, setTagQuery] = useState<string | null | undefined>(
-    hash || undefined
-  );
+  const router = useRouter();
+  const { page, search } = router.query;
 
   const handleTagQuery = (tag?: string | null) => {
     setTagQuery(tag);
@@ -75,7 +75,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   }, [hash]);
 
   const [firstBlog, ...otherBlogs] = blogs;
-
+  const [tagQuery, setTagQuery] = useState<string | null | undefined>(
+    hash || undefined
+  );
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
     options: BLOG_FILTER_OPTIONS,
@@ -94,6 +96,8 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     endIndex,
     setPreviousPage,
     setNextPage,
+    setPage,
+    totalPages,
     currentPage,
     previousEnabled,
     nextEnabled,
@@ -101,6 +105,74 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     totalItems: filteredEntries.length,
     initialPageSize: 9,
   });
+
+  useOnce(
+    () => {
+      if (page !== undefined) {
+        let newPage = Number(page);
+        newPage -= 1;
+        newPage = newPage >= 0 ? newPage : 0;
+        if (newPage !== currentPage) {
+          setPage(newPage);
+        }
+      }
+      if (search !== undefined && typeof search === 'string') {
+        if (search !== searchQuery) {
+          setSearchQuery(search);
+        }
+      }
+    },
+    { enabled: router.isReady }
+  );
+
+  const increasePageNumber = () => {
+    if (currentPage + 1 === totalPages) {
+      return;
+    }
+    const newPageQuery: number = currentPage + 2;
+    router.push(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          page: newPageQuery.toString(),
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
+  const updateSearchParam = () => {
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          search: searchQuery,
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
+  const decreasePageNumber = () => {
+    if (currentPage === 0) {
+      return;
+    }
+    router.push(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          page: currentPage.toString(),
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
 
   const blogContainer = useRef<HTMLDivElement>(null);
 
@@ -127,6 +199,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       <BlogsHeader
         tags={tags}
         currentTag={tagQuery}
+        onLeaveInput={updateSearchParam}
         onSearchChange={setSearchQuery}
         onTagChange={handleTagQuery}
         query={searchQuery}
@@ -169,6 +242,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
           <DarkButton
             onClick={() => {
+              decreasePageNumber();
               setPreviousPage();
               scrollUp();
             }}
@@ -182,6 +256,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           </DarkButton>
           <DarkButton
             onClick={() => {
+              increasePageNumber();
               setNextPage();
               scrollUp();
             }}

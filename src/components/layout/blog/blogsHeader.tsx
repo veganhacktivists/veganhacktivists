@@ -13,6 +13,7 @@ interface HeaderProps {
   query: string;
   tags: ITag[];
   onSearchChange: (query: string) => void;
+  onLeaveInput: () => void;
   onTagChange: (tag?: ITagFields['name'] | null) => void;
   currentTag?: string | null;
 }
@@ -21,6 +22,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
   query,
   tags,
   onSearchChange,
+  onLeaveInput,
   onTagChange,
   currentTag,
 }) => {
@@ -68,6 +70,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
               name="query"
               id="blogQuery"
               value={query}
+              onBlur={onLeaveInput}
               onChange={(e) => {
                 onSearchChange(e.target.value);
               }}
