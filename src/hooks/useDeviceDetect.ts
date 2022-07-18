@@ -17,7 +17,7 @@ interface DeviceDetect {
 }
 
 /**
- * Function to return the queries
+ * Function returning a series of functions to query the type of device of the user.
  * @param userAgent {string} The user-agent header sent by the user's browser to the server.
  *
  * @return {DeviceDetect} Object containing the functions to query which kind of device the user is utilizing.

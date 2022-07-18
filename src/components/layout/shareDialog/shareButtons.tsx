@@ -17,9 +17,21 @@ import { IconButton } from '../../decoration/buttons';
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
 import type { LinkProps } from 'next/link';
 
-const getButtonClassName = (bgHoverStyle?: string) =>
+/**
+ * Function to get a share button style.
+ * @param bgHoverStyle {string?} Optional string to set the color of the background of the button on hover.
+ *
+ * @return {string} The style to apply to the share button.
+ */
+const getShareButtonStyle = (bgHoverStyle?: string) =>
   `bg-gray ${bgHoverStyle} text-white rounded-full px-2 py-2 mx-2 my-2`;
 
+/**
+ * Function to get the query parameters of a request encoded as a URI string.
+ * @param parameters {Object} Object in which each property is the name of a parameter with the respective value.
+ *
+ * @return {string} The query parameters of the URI request.
+ */
 const getEncodedQueryParameters = (parameters: {
   [key: string]: string | null | undefined;
 }) => {
@@ -33,19 +45,35 @@ const getEncodedQueryParameters = (parameters: {
   return encodedParameters.length ? `?${encodedParameters.join('&')}` : '';
 };
 
+/**
+ * Proptypes of the share buttons.
+ */
 interface ShareButtonProps {
+  /** Callback executed when the button is clicked. */
   onClick: () => void;
+  /** Information to share. */
   shareInfo: ShareInfo;
 }
 
+/**
+ * Proptypes of a `BaseShareButton`.
+ */
 interface BaseShareButtonProps extends ButtonHTMLAttributes<unknown> {
+  /** Callback executed when the button is clicked. */
   onClick: () => void;
+  /** URI containing the information to share and the website where it will be shared. */
   href?: LinkProps['href'];
+  /** Optional string to set the color of the background of the button on hover */
   bgHoverStyle?: `hover:bg-[#${string}]`;
+  /** Optional style of the button. */
   className?: string;
+  /** Font Awesome icon to show inside the button. */
   faIcon: IconDefinition;
 }
 
+/**
+ * Component of a base share button
+ */
 const BaseShareButton: React.FC<BaseShareButtonProps> = ({
   href,
   bgHoverStyle,
@@ -56,7 +84,7 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
 }) => {
   return (
     <IconButton
-      className={className ? className : getButtonClassName(bgHoverStyle)}
+      className={className ? className : getShareButtonStyle(bgHoverStyle)}
       href={href}
       onClick={onClick}
       {...props}
@@ -68,6 +96,9 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
   );
 };
 
+/**
+ * Button to share content through Email.
+ */
 const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo, onClick }) => {
   const { url, description, title } = shareInfo;
 
@@ -86,6 +117,9 @@ const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo, onClick }) => {
   );
 };
 
+/**
+ * Button to share content through Facebook.
+ */
 const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url } = shareInfo;
 
@@ -104,6 +138,9 @@ const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   );
 };
 
+/**
+ * Button to share content through Twitter.
+ */
 const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, description, title } = shareInfo;
 
@@ -125,6 +162,9 @@ const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   );
 };
 
+/**
+ * Button to share content through WhatsApp.
+ */
 const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const deviceDetect = useDeviceDetect();
   const { url, description, title } = shareInfo;
@@ -146,6 +186,9 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   );
 };
 
+/**
+ * Button to share content through Telegram.
+ */
 const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, description, title } = shareInfo;
 
@@ -165,6 +208,9 @@ const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   );
 };
 
+/**
+ * Button to copy an URL to the clipboard.
+ */
 const CopyButton: React.FC<
   ShareButtonProps & { isClicked: boolean; setClicked: (stat: boolean) => void }
 > = ({ onClick, shareInfo, isClicked, setClicked }) => {
@@ -189,7 +235,7 @@ const CopyButton: React.FC<
       className={
         isClicked
           ? 'bg-green text-white rounded-full px-2 py-2 mx-2 my-2'
-          : getButtonClassName('hover:bg-[#BB001B]')
+          : getShareButtonStyle('hover:bg-[#BB001B]')
       }
       aria-label="Copy the project url on clipboard"
       faIcon={isClicked ? faCheck : faCopy}
@@ -197,6 +243,9 @@ const CopyButton: React.FC<
   );
 };
 
+/**
+ * Button to share content through Reddit.
+ */
 const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, title } = shareInfo;
 
@@ -216,6 +265,9 @@ const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   );
 };
 
+/**
+ * Button to share content through LinkedIn.
+ */
 const LinkedinButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url } = shareInfo;
 

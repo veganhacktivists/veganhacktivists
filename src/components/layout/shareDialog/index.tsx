@@ -27,7 +27,7 @@ interface ShareDialogProps {
 }
 
 /**
- * Share dialog containing
+ * Component of a share dialog.
  */
 const ShareDialog: React.FC<ShareDialogProps> = ({
   open,
