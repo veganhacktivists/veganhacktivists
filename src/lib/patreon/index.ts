@@ -34,7 +34,7 @@ export const getPatrons: () => Promise<string[]> = async () => {
       },
     });
 
-    const data = (await response.json()) as unknown as PatreonResponse;
+    const data = await response.json<PatreonResponse>();
 
     pages.push(data);
     if (!data.links?.next) {
