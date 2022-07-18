@@ -130,54 +130,48 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       return;
     }
     const newPageQuery: number = currentPage + 2;
-    router
-      .push(
-        {
-          pathname: router.pathname,
-          query: {
-            ...router.query,
-            page: newPageQuery.toString(),
-          },
+    router.push(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          page: newPageQuery.toString(),
         },
-        undefined,
-        { shallow: true }
-      )
-      .then();
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const updateSearchParam = () => {
-    router
-      .push(
-        {
-          pathname: router.pathname,
-          query: {
-            ...router.query,
-            search: searchQuery,
-          },
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          search: searchQuery,
         },
-        undefined,
-        { shallow: true }
-      )
-      .then();
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const decreasePageNumber = () => {
     if (currentPage === 0) {
       return;
     }
-    router
-      .push(
-        {
-          pathname: router.pathname,
-          query: {
-            ...router.query,
-            page: currentPage.toString(),
-          },
+    router.push(
+      {
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          page: currentPage.toString(),
         },
-        undefined,
-        { shallow: true }
-      )
-      .then();
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const blogContainer = useRef<HTMLDivElement>(null);
