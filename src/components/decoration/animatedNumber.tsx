@@ -26,7 +26,8 @@ const AnimatedNumber: React.FC<{
     const sizeClasses = Array.from(className.matchAll(sizeRegex)).map(
       ([result]) => result
     );
-    const classesWithoutSize = className.replaceAll(sizeRegex, '');
+
+    const classesWithoutSize = className.replace(sizeRegex, '');
     return [sizeClasses, classesWithoutSize];
   }, [className]);
 
