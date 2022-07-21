@@ -13,7 +13,6 @@ import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
-  MouseEvent,
 } from 'react';
 import { FillBackground } from './utils';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
@@ -251,7 +250,7 @@ const ShareButton: React.FC<
     shareInfo: ShareInfo;
   }
 > = ({ openAndInitiateShareDialog, shareInfo }) => {
-  const deviceDetect = useDeviceDetect();
+  const { isMobile, isReady } = useDeviceDetect();
   const { url, title, description } = shareInfo;
 
   const shareNatively = async () => {
@@ -264,22 +263,20 @@ const ShareButton: React.FC<
 
   return (
     <DarkButton
-      onClick={async (event: MouseEvent<Element>) => {
-        event.stopPropagation();
-        event.preventDefault();
-
-        if (navigator && navigator['share'] && deviceDetect.isMobile()) {
-          await toast.promise(shareNatively, {
+      disabled={!isReady}
+      onClick={() => {
+        if (navigator && navigator['share'] && isMobile) {
+          toast.promise(shareNatively, {
             error:
               'Something went wrong while sharing your content! Please try again later',
           });
         } else {
-          await shareWithDialog();
+          shareWithDialog();
         }
       }}
       linkProps={{ scroll: false }}
     >
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
         Share
       </div>

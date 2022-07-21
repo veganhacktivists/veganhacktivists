@@ -89,7 +89,7 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
       onClick={onClick}
       {...props}
     >
-      <div className="h-8 w-8 flex justify-center items-center">
+      <div className="flex items-center justify-center w-8 h-8">
         <FontAwesomeIcon size="2x" fixedWidth icon={faIcon} />
       </div>
     </IconButton>
@@ -166,14 +166,18 @@ const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
  * Button to share content through WhatsApp.
  */
 const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
-  const deviceDetect = useDeviceDetect();
+  const { isMobile, isReady } = useDeviceDetect();
   const { url, description, title } = shareInfo;
 
   const href = `https://${
-    deviceDetect.isMobile() ? 'api' : 'web'
+    isMobile ? 'api' : 'web'
   }.whatsapp.com/send${getEncodedQueryParameters({
     text: `${description ? description : title}\n${url}`,
   })}`;
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
     <BaseShareButton

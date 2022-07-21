@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useOnce from './useOnce';
 
 /**
  * Interface expressing the queries used to check the user's device.
  */
 interface DeviceDetect {
   /** Function returning whether the device is a mobile one or not. */
-  isMobile: () => boolean;
+  isMobile: boolean;
   /** Function returning whether the device is a desktop pc or not. */
-  isDesktop: () => boolean;
+  isDesktop: boolean;
   /** Function returning whether the device is an Android smartphone or not. */
-  isAndroid: () => boolean;
+  isAndroid: boolean;
   /** Function returning whether the device is an IOS one or not. */
-  isIos: () => boolean;
+  isIos: boolean;
   /** Function returning whether the device is a server or not. */
-  isSsr: () => boolean;
+  isSsr: boolean;
+  isReady: boolean;
 }
 
 /**
@@ -23,21 +25,17 @@ interface DeviceDetect {
  * @return {DeviceDetect} Object containing the functions to query which kind of device the user is utilizing.
  */
 const getDeviceQueries = (userAgent: NavigatorID['userAgent']) => {
-  const mobileOsRegExp = new RegExp(
-    'BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|' +
-      'Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune',
-    'i'
-  );
-
-  const isAndroid = () => !!userAgent.match(/Android/i);
-  const isIos = () => !!userAgent.match(/iP(hone|od|ad)/i);
-  const isSsr = () => !!userAgent.match(/SSR/i);
-  const isMobile = () =>
-    !!userAgent.match(/Mobile/i) ||
-    isAndroid() ||
-    isIos() ||
-    !!userAgent.match(mobileOsRegExp);
-  const isDesktop = () => !isMobile() && !isSsr();
+  const mobileOsRegExp =
+    /BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/i;
+  const isAndroid = /Android/i.test(userAgent);
+  const isIos = /iP(hone|od|ad)/i.test(userAgent);
+  const isSsr = /SSR/i.test(userAgent);
+  const isMobile =
+    /Mobile/i.test(userAgent) ||
+    isAndroid ||
+    isIos ||
+    mobileOsRegExp.test(userAgent);
+  const isDesktop = !isMobile && !isSsr;
 
   return {
     isMobile,
@@ -50,21 +48,22 @@ const getDeviceQueries = (userAgent: NavigatorID['userAgent']) => {
 
 /**
  * Hook that returns a series of function to query the kind of device of the user.
- * @return {DeviceDetect} Object containing the functions to query which kind of device the user is utilizing.
+ * @return Object containing the functions to query which kind of device the user is utilizing.
  */
 const useDeviceDetect: () => DeviceDetect = () => {
   const [deviceDetect, setDeviceDetect] = useState<DeviceDetect>({
-    isMobile: () => false,
-    isDesktop: () => false,
-    isAndroid: () => false,
-    isIos: () => false,
-    isSsr: () => false,
+    isMobile: false,
+    isDesktop: false,
+    isAndroid: false,
+    isIos: false,
+    isSsr: false,
+    isReady: false,
   });
 
-  useEffect(() => {
+  useOnce(() => {
     const userAgent = navigator === undefined ? 'SSR' : navigator.userAgent;
-    setDeviceDetect(getDeviceQueries(userAgent));
-  }, []);
+    setDeviceDetect({ ...getDeviceQueries(userAgent), isReady: true });
+  });
 
   return deviceDetect;
 };
