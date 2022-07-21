@@ -37,10 +37,18 @@ const baseButtonClasses = classNames(
 );
 
 const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
-  const baseUrl = typeof href === 'string' ? href : href?.pathname;
+  if (!href) return false;
+  if (typeof href === 'string') {
+    return href.startsWith('http:') || href.startsWith('https:');
+  }
+
+  const { protocol, pathname, hostname } = href;
 
   return (
-    baseUrl?.startsWith('http://') || baseUrl?.startsWith('https://') || false
+    protocol?.startsWith('mailto') ||
+    [protocol, pathname, hostname].some(
+      (x) => x?.startsWith('http') || x?.startsWith('https')
+    )
   );
 };
 
@@ -189,8 +197,8 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return <BaseButton {...props}>{children}</BaseButton>;
+const IconButton: React.FC<ButtonProps> = (props) => {
+  return <BaseButton {...props} />;
 };
 
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
@@ -246,7 +254,7 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 
 const ShareButton: React.FC<
   ButtonProps & {
-    openAndInitiateShareDialog: (shareInfo: ShareInfo) => void;
+    openAndInitiateShareDialog: () => void;
     shareInfo: ShareInfo;
   }
 > = ({ openAndInitiateShareDialog, shareInfo }) => {
@@ -258,7 +266,7 @@ const ShareButton: React.FC<
   };
 
   const shareWithDialog = () => {
-    openAndInitiateShareDialog(shareInfo);
+    openAndInitiateShareDialog();
   };
 
   return (
