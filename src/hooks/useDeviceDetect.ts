@@ -24,25 +24,33 @@ interface DeviceDetect {
  *
  * @return {DeviceDetect} Object containing the functions to query which kind of device the user is utilizing.
  */
-const getDeviceQueries = (userAgent: NavigatorID['userAgent']) => {
+const getDeviceQueries = (userAgent?: NavigatorID['userAgent']) => {
+  if (userAgent === undefined) {
+    return {
+      isMobile: false,
+      isDesktop: false,
+      isAndroid: false,
+      isIos: false,
+      isSsr: true,
+    };
+  }
   const mobileOsRegExp =
     /BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/i;
   const isAndroid = /Android/i.test(userAgent);
   const isIos = /iP(hone|od|ad)/i.test(userAgent);
-  const isSsr = /SSR/i.test(userAgent);
   const isMobile =
     /Mobile/i.test(userAgent) ||
     isAndroid ||
     isIos ||
     mobileOsRegExp.test(userAgent);
-  const isDesktop = !isMobile && !isSsr;
+  const isDesktop = !isMobile;
 
   return {
     isMobile,
     isDesktop,
     isAndroid,
     isIos,
-    isSsr,
+    isSsr: false,
   };
 };
 
@@ -56,12 +64,12 @@ const useDeviceDetect: () => DeviceDetect = () => {
     isDesktop: false,
     isAndroid: false,
     isIos: false,
-    isSsr: false,
+    isSsr: typeof window === 'undefined',
     isReady: false,
   });
 
   useOnce(() => {
-    const userAgent = navigator === undefined ? 'SSR' : navigator.userAgent;
+    const userAgent = navigator?.userAgent;
     setDeviceDetect({ ...getDeviceQueries(userAgent), isReady: true });
   });
 

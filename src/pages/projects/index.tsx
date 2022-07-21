@@ -80,7 +80,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {isRetired ? (
             <DarkButton href="/projects/retired">Retired projects</DarkButton>
           ) : (
-            <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex flex-col gap-3 md:flex-row">
               <DarkButton href={url} capitalize={false}>
                 {urlName ||
                   firstLetterUppercase(
