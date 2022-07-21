@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import useReduceMotion from '../../hooks/useReduceMotion';
 
@@ -35,6 +35,12 @@ const Modal: React.FC<ModalProps> = ({
     INITIAL_OVERLAY_CLASS
   );
 
+  const closeModal = useCallback(() => {
+    setTransitionClasses(INITIAL_CONTENT_CLASS);
+    setOverlayTransitionClasses(INITIAL_OVERLAY_CLASS);
+    onClose?.();
+  }, [onClose]);
+
   useEffect(() => {
     setTransitionClasses(isOpen ? '-translate-y-1/2' : INITIAL_CONTENT_CLASS);
     setOverlayTransitionClasses(
@@ -57,20 +63,14 @@ const Modal: React.FC<ModalProps> = ({
         'bg-black inset-0 fixed transition-all motion-reduce:transition-none duration-700 z-[9998]',
         overlayTransitionClasses
       )}
-      onRequestClose={() => {
-        setTransitionClasses(INITIAL_CONTENT_CLASS);
-        setOverlayTransitionClasses(INITIAL_OVERLAY_CLASS);
-        onClose?.();
-      }}
+      onRequestClose={closeModal}
       closeTimeoutMS={reduceMotion ? 0 : 700}
       shouldCloseOnEsc
       shouldCloseOnOverlayClick
     >
       <div className={className}>
         <div
-          onClick={() => {
-            onClose?.();
-          }}
+          onClick={closeModal}
           className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
         >
           &#10005;
