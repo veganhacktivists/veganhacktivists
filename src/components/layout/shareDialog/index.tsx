@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Modal from '../modal';
 import CustomImage from '../../decoration/customImage';
 import { pixelStar } from '../../../images/separators';
@@ -34,13 +34,6 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
   shareInfo,
   onClose,
 }) => {
-  const [copyButtonClicked, setCopyButtonClicked] = useState<boolean>(false);
-  useEffect(() => {
-    if (open) {
-      setCopyButtonClicked(false);
-    }
-  }, [open]);
-
   return (
     <Modal
       isOpen={open}
@@ -48,7 +41,7 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
         onClose();
       }}
     >
-      <div className="p-8 bg-grey-background text-grey w-full mx-auto">
+      <div className="w-full p-8 mx-auto bg-grey-background text-grey">
         <div className="flex justify-center">
           <CustomImage
             src={pixelStar.src}
@@ -57,27 +50,20 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
             alt="Pixel art of a star emerging from leaves"
           />
         </div>
-        <h1 className="text-center mb-8">
-          <span className="font-bold text-4xl">
+        <h1 className="mb-8 text-center">
+          <span className="text-4xl font-bold">
             Share project: {shareInfo.title}
           </span>
         </h1>
-        <div className="flex flex-row mx-auto justify-center">
+        <div className="flex flex-row justify-center mx-auto">
           <EmailButton onClick={onClose} shareInfo={shareInfo} />
           <FacebookButton onClick={onClose} shareInfo={shareInfo} />
           <TwitterButton onClick={onClose} shareInfo={shareInfo} />
           <LinkedinButton onClick={onClose} shareInfo={shareInfo} />
-        </div>
-        <div className="flex flex-row mx-auto justify-center">
           <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
           <TelegramButton onClick={onClose} shareInfo={shareInfo} />
           <RedditButton onClick={onClose} shareInfo={shareInfo} />
-          <CopyButton
-            onClick={onClose}
-            shareInfo={shareInfo}
-            isClicked={copyButtonClicked}
-            setClicked={setCopyButtonClicked}
-          />
+          <CopyButton onClick={onClose} shareInfo={shareInfo} />
         </div>
       </div>
     </Modal>
