@@ -1,3 +1,5 @@
+import type { Asset } from 'contentful';
+
 /**
  * The information to share through the dialog.
  */
@@ -8,4 +10,5 @@ export default interface ShareInfo {
   title: string;
   /** Non mandatory description of the information to share. */
   description?: string;
+  image: Asset;
 }

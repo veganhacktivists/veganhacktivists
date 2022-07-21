@@ -68,7 +68,7 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
     <IconButton
       className={classNames(
         className,
-        'bg-gray text-white rounded-full p-2 m-2 w-min'
+        'bg-gray text-white rounded-full p-2.5 m-1 w-min aspect-square'
       )}
       href={href}
       onClick={onClick}
@@ -85,7 +85,7 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
         return props?.onPointerLeave?.(e);
       }}
     >
-      <div className="flex items-center justify-center mx-auto w-9 aspect-square">
+      <div className="flex items-center justify-center mx-auto w-fit aspect-square">
         <FontAwesomeIcon size="2x" fixedWidth icon={faIcon} />
       </div>
     </IconButton>

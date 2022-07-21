@@ -58,8 +58,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       url,
       title: name,
       description: 'Take a look at this awesome project!',
+      image,
     }),
-    [name, url]
+    [image, name, url]
   );
 
   const openDialog = useCallback(() => {
