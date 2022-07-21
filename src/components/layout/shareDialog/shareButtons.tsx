@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
 import type { ButtonHTMLAttributes } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,8 @@ import {
 import type ShareInfo from './shareInfo';
 import { IconButton } from '../../decoration/buttons';
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
-import type { LinkProps } from 'next/link';
+import classNames from 'classnames';
+import type { UrlObject } from 'url';
 
 /**
  * Function to get a share button style.
@@ -23,27 +25,6 @@ import type { LinkProps } from 'next/link';
  *
  * @return {string} The style to apply to the share button.
  */
-const getShareButtonStyle = (bgHoverStyle?: string) =>
-  `bg-gray ${bgHoverStyle} text-white rounded-full px-2 py-2 mx-2 my-2`;
-
-/**
- * Function to get the query parameters of a request encoded as a URI string.
- * @param parameters {Object} Object in which each property is the name of a parameter with the respective value.
- *
- * @return {string} The query parameters of the URI request.
- */
-const getEncodedQueryParameters = (parameters: {
-  [key: string]: string | null | undefined;
-}) => {
-  const filteredParameters = Object.entries(parameters).filter(
-    ([, v]) => v !== undefined && v !== null
-  );
-  const encodedParameters = filteredParameters.map(
-    ([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v as string)}`
-  );
-
-  return encodedParameters.length ? `?${encodedParameters.join('&')}` : '';
-};
 
 /**
  * Proptypes of the share buttons.
@@ -62,9 +43,9 @@ interface BaseShareButtonProps extends ButtonHTMLAttributes<unknown> {
   /** Callback executed when the button is clicked. */
   onClick: () => void;
   /** URI containing the information to share and the website where it will be shared. */
-  href?: LinkProps['href'];
+  href?: UrlObject; // LinkProps['href'];
   /** Optional string to set the color of the background of the button on hover */
-  bgHoverStyle?: `hover:bg-[#${string}]`;
+  bgHoverColor?: string;
   /** Optional style of the button. */
   className?: string;
   /** Font Awesome icon to show inside the button. */
@@ -76,20 +57,35 @@ interface BaseShareButtonProps extends ButtonHTMLAttributes<unknown> {
  */
 const BaseShareButton: React.FC<BaseShareButtonProps> = ({
   href,
-  bgHoverStyle,
+  bgHoverColor,
   faIcon,
   onClick,
   className,
   ...props
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <IconButton
-      className={className ? className : getShareButtonStyle(bgHoverStyle)}
+      className={classNames(
+        className,
+        'bg-gray text-white rounded-full p-2 m-2 w-min'
+      )}
       href={href}
       onClick={onClick}
+      style={{
+        backgroundColor: isHovered ? bgHoverColor : undefined,
+      }}
       {...props}
+      onPointerEnter={(e) => {
+        setIsHovered(true);
+        return props?.onPointerEnter?.(e);
+      }}
+      onPointerLeave={(e) => {
+        setIsHovered(false);
+        return props?.onPointerLeave?.(e);
+      }}
     >
-      <div className="flex items-center justify-center w-8 h-8">
+      <div className="flex items-center justify-center mx-auto w-9 aspect-square">
         <FontAwesomeIcon size="2x" fixedWidth icon={faIcon} />
       </div>
     </IconButton>
@@ -102,17 +98,18 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
 const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo, onClick }) => {
   const { url, description, title } = shareInfo;
 
-  const href = `mailto:${getEncodedQueryParameters({
-    subject: title,
-    body: description ? `${description}\n${url}` : url,
-  })}`;
+  const href = `mailto:?subject=${title}&body=${
+    description ? `${description}${encodeURIComponent('\n')}${url}` : url
+  }`;
   return (
     <BaseShareButton
       aria-label="Share the project via Email"
-      href={href}
-      onClick={onClick}
+      onClick={() => {
+        window.open(href, '_blank');
+        onClick();
+      }}
       faIcon={faEnvelope}
-      bgHoverStyle="hover:bg-[#BB001B]"
+      bgHoverColor="#BB001B"
     />
   );
 };
@@ -123,17 +120,17 @@ const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo, onClick }) => {
 const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url } = shareInfo;
 
-  const href = `https://www.facebook.com/sharer/sharer.php${getEncodedQueryParameters(
-    { u: url }
-  )}`;
-
   return (
     <BaseShareButton
       aria-label="Share the project on Facebook"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: 'facebook.com/sharer/sharer.php',
+        query: { u: url },
+      }}
       onClick={onClick}
       faIcon={faFacebook}
-      bgHoverStyle="hover:bg-[#4267B2]"
+      bgHoverColor="#4267B2"
     />
   );
 };
@@ -144,20 +141,22 @@ const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, description, title } = shareInfo;
 
-  const href = `https://twitter.com/share${getEncodedQueryParameters({
-    url,
-    text: description,
-    via: 'VHacktivists',
-    hashtags: title.replace(/\s/g, ''),
-  })}`;
-
   return (
     <BaseShareButton
       aria-label="Share the project on Twitter"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: 'twitter.com/share',
+        query: {
+          url,
+          text: description,
+          via: 'VHacktivists',
+          hashtags: title.replace(/\s/g, ''),
+        },
+      }}
       onClick={onClick}
       faIcon={faTwitter}
-      bgHoverStyle="hover:bg-[#00acee]"
+      bgHoverColor="#00acee"
     />
   );
 };
@@ -169,12 +168,6 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { isMobile, isReady } = useDeviceDetect();
   const { url, description, title } = shareInfo;
 
-  const href = `https://${
-    isMobile ? 'api' : 'web'
-  }.whatsapp.com/send${getEncodedQueryParameters({
-    text: `${description ? description : title}\n${url}`,
-  })}`;
-
   if (!isReady) {
     return null;
   }
@@ -182,10 +175,14 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   return (
     <BaseShareButton
       aria-label="Share the project on WhatsApp"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: `${isMobile ? 'api' : 'web'}.whatsapp.com/send`,
+        query: { text: `${description ? description : title}\n${url}` },
+      }}
       onClick={onClick}
       faIcon={faWhatsapp}
-      bgHoverStyle="hover:bg-[#25D366]"
+      bgHoverColor="#25D366"
     />
   );
 };
@@ -196,18 +193,20 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, description, title } = shareInfo;
 
-  const href = `https://telegram.me/share/url${getEncodedQueryParameters({
-    url,
-    text: description ? description : title,
-  })}`;
-
   return (
     <BaseShareButton
       aria-label="Share the project on Telegram"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: 'telegram.me/share/url',
+        query: {
+          url,
+          text: description ? description : title,
+        },
+      }}
       onClick={onClick}
       faIcon={faTelegram}
-      bgHoverStyle="hover:bg-[#0088cc]"
+      bgHoverColor="#0088cc"
     />
   );
 };
@@ -215,34 +214,33 @@ const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 /**
  * Button to copy an URL to the clipboard.
  */
-const CopyButton: React.FC<
-  ShareButtonProps & { isClicked: boolean; setClicked: (stat: boolean) => void }
-> = ({ onClick, shareInfo, isClicked, setClicked }) => {
-  const { url } = shareInfo;
+const CopyButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
+  const { url, title } = shareInfo;
+
+  const [isSuccess, setIsSuccess] = useState(false);
 
   return (
     <BaseShareButton
       onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(url);
-          setClicked(true);
-          toast.success(`url ${url} copied on clipboard.`);
-          setTimeout(() => {
-            onClick();
-          }, 1000);
-        } catch (err) {
-          toast.error(
-            'Something went wrong while copying your content! Please try again later'
-          );
-        }
+        toast
+          .promise(navigator.clipboard.writeText(url), {
+            success: `${title}'${
+              title.endsWith('s') ? '' : 's'
+            } URL copied to clipboard.`,
+            error:
+              'Something went wrong while copying your content! Please try again later',
+          })
+          .then(() => {
+            setIsSuccess(true);
+            setTimeout(() => {
+              onClick();
+            }, 1000);
+          });
       }}
-      className={
-        isClicked
-          ? 'bg-green text-white rounded-full px-2 py-2 mx-2 my-2'
-          : getShareButtonStyle('hover:bg-[#BB001B]')
-      }
+      className={classNames(isSuccess && 'bg-green')}
+      bgHoverColor={isSuccess ? undefined : '#BB001B'}
       aria-label="Copy the project url on clipboard"
-      faIcon={isClicked ? faCheck : faCopy}
+      faIcon={isSuccess ? faCheck : faCopy}
     />
   );
 };
@@ -253,18 +251,20 @@ const CopyButton: React.FC<
 const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url, title } = shareInfo;
 
-  const href = `https://www.reddit.com/submit${getEncodedQueryParameters({
-    url,
-    title,
-  })}`;
-
   return (
     <BaseShareButton
       aria-label="Share the project on Reddit"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: 'reddit.com/submit',
+        query: {
+          url,
+          title,
+        },
+      }}
       onClick={onClick}
       faIcon={faReddit}
-      bgHoverStyle="hover:bg-[#FF4500]"
+      bgHoverColor="#FF4500"
     />
   );
 };
@@ -275,18 +275,20 @@ const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 const LinkedinButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
   const { url } = shareInfo;
 
-  const href = `https://linkedin.com/shareArticle${getEncodedQueryParameters({
-    url,
-    mini: 'true',
-  })}`;
-
   return (
     <BaseShareButton
       aria-label="Share the project on LinkedIn"
-      href={href}
+      href={{
+        protocol: 'https',
+        pathname: 'linkedin.com/shareArticle',
+        query: {
+          url,
+          // mini: true,
+        },
+      }}
       onClick={onClick}
       faIcon={faLinkedin}
-      bgHoverStyle="hover:bg-[#0A66C2]"
+      bgHoverColor="#0A66C2"
     />
   );
 };

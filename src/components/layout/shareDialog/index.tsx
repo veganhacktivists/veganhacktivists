@@ -55,7 +55,7 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
             Share project: {shareInfo.title}
           </span>
         </h1>
-        <div className="flex flex-row justify-center mx-auto">
+        <div className="grid grid-cols-4 mx-auto align-middle place-items-center auto-cols-min">
           <EmailButton onClick={onClose} shareInfo={shareInfo} />
           <FacebookButton onClick={onClose} shareInfo={shareInfo} />
           <TwitterButton onClick={onClose} shareInfo={shareInfo} />
