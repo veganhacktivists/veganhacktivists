@@ -1,6 +1,8 @@
 import React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import Projects from '../../pages/projects';
+import '../../__mocks__/matchMediaMock';
+import MainElementMock from '../../__mocks__/mainElementMock';
 
 const projects = [
   {
@@ -27,7 +29,10 @@ const projectYears = [2021, 2020, 2019, 2018];
 
 it('should render correctly', () => {
   const { asFragment } = render(
-    <Projects projects={projects as any} projectYears={projectYears} />
+    <>
+      <MainElementMock />
+      <Projects projects={projects as any} projectYears={projectYears} />
+    </>
   );
   expect(asFragment()).toMatchSnapshot();
 });
@@ -54,7 +59,10 @@ const expectedProjectsPerYear = [
 expectedProjectsPerYear.forEach(({ year, projects: expected }) => {
   it.only(`should show only projects made in ${year}`, async () => {
     const { findByText } = render(
-      <Projects projects={projects as any} projectYears={projectYears} />
+      <>
+        <MainElementMock />
+        <Projects projects={projects as any} projectYears={projectYears} />
+      </>
     );
 
     await act(async () => {

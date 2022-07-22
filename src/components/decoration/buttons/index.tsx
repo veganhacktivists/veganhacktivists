@@ -15,6 +15,10 @@ import type {
   AnchorHTMLAttributes,
 } from 'react';
 import { FillBackground } from './utils';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import useDeviceDetect from '../../../hooks/useDeviceDetect';
+import type ShareInfo from '../../layout/shareDialog/shareInfo';
 
 export interface ButtonProps
   extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
@@ -33,10 +37,18 @@ const baseButtonClasses = classNames(
 );
 
 const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
-  const baseUrl = typeof href === 'string' ? href : href?.pathname;
+  if (!href) return false;
+  if (typeof href === 'string') {
+    return href.startsWith('http:') || href.startsWith('https:');
+  }
+
+  const { protocol, pathname, hostname } = href;
 
   return (
-    baseUrl?.startsWith('http://') || baseUrl?.startsWith('https://') || false
+    protocol?.startsWith('mailto') ||
+    [protocol, pathname, hostname].some(
+      (x) => x?.startsWith('http') || x?.startsWith('https')
+    )
   );
 };
 
@@ -185,8 +197,8 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const IconButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return <BaseButton {...props}>{children}</BaseButton>;
+const IconButton: React.FC<ButtonProps> = (props) => {
+  return <BaseButton {...props} />;
 };
 
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
@@ -237,6 +249,46 @@ const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
         <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
       </div>
     </IconButton>
+  );
+};
+
+const ShareButton: React.FC<
+  ButtonProps & {
+    openAndInitiateShareDialog: () => void;
+    shareInfo: ShareInfo;
+  }
+> = ({ openAndInitiateShareDialog, shareInfo }) => {
+  const { isMobile, isReady } = useDeviceDetect();
+  const { url, title, description } = shareInfo;
+
+  const shareNatively = async () => {
+    await navigator.share({ title, text: description, url });
+  };
+
+  const shareWithDialog = () => {
+    openAndInitiateShareDialog();
+  };
+
+  return (
+    <DarkButton
+      disabled={!isReady}
+      onClick={() => {
+        if (navigator && navigator['share'] && isMobile) {
+          toast.promise(shareNatively, {
+            error:
+              'Something went wrong while sharing your content! Please try again later',
+          });
+        } else {
+          shareWithDialog();
+        }
+      }}
+      linkProps={{ scroll: false }}
+    >
+      <div className="flex items-center gap-2 justify-center">
+        <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
+        <div>Share</div>
+      </div>
+    </DarkButton>
   );
 };
 
@@ -291,7 +343,9 @@ export {
   SubmitButton,
   PatreonButton,
   InstagramButton,
+  IconButton,
   YoutubeButton,
+  ShareButton,
   LightButton,
   DarkButton,
   WhiteButton,
