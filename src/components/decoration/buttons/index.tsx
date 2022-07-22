@@ -284,9 +284,9 @@ const ShareButton: React.FC<
       }}
       linkProps={{ scroll: false }}
     >
-      <div className="flex items-center justify-center">
+      <div className="flex items-center gap-2 justify-center">
         <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
-        Share
+        <div>Share</div>
       </div>
     </DarkButton>
   );
