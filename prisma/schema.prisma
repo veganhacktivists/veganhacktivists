@@ -56,3 +56,23 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Request {
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  organization   String?
+  website        String
+  calendlyUrl    String?
+  title          String
+  category       String
+  priority       Int
+  roleTitle      String
+  requiredSkills String[]
+  free           Boolean
+  budget         Float
+  description    String   @db.Text
+  dueDate        DateTime
+  estimatedTime  Int
+}
