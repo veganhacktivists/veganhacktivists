@@ -14,6 +14,7 @@ docker build -t veganhacktivists \
     --build-arg GOOGLE_TAG_MANAGER_CONTAINER_ID=$GOOGLE_TAG_MANAGER_CONTAINER_ID \
     --build-arg MAILCHIMP_AUDIENCE_ID=$MAILCHIMP_AUDIENCE_ID \
     --build-arg NEXTAUTH_SECRET=$NEXTAUTH_SECRET \
+    --build-arg NODE_VERSION=$(cat ../.nvmrc | tr -cd "[:digit:].") \
     --build-arg PATREON_ACCESS_TOKEN=$PATREON_ACCESS_TOKEN \
     --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID \
     --build-arg PORT=3000 \
