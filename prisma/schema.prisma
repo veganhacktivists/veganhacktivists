@@ -38,15 +38,17 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id                     String                  @id @default(cuid())
+  name                   String?
+  email                  String?                 @unique
+  emailVerified          DateTime?
+  image                  String?
+  accounts               Account[]
+  sessions               Session[]
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  playgroudRequests      PlaygroundRequest[]
+  playgroundApplications PlaygroundApplication[]
 }
 
 model VerificationToken {
@@ -57,22 +59,50 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Request {
-  id             String   @id @default(cuid())
-  name           String
-  email          String
-  phone          String?
-  organization   String?
-  website        String
-  calendlyUrl    String?
-  title          String
-  category       String
-  priority       Int
-  roleTitle      String
-  requiredSkills String[]
-  free           Boolean
-  budget         Float
-  description    String   @db.Text
-  dueDate        DateTime
-  estimatedTime  Int
+enum Priority {
+  Low
+  Medium
+  High
+  Urgent
+}
+
+model PlaygroundApplication {
+  id                  String             @id @default(cuid())
+  applicant           User               @relation(fields: [applicantId], references: [id])
+  applicantId         String
+  name                String
+  portfolioLink       String?
+  twitterUrl          String?
+  instagramUrl        String?
+  linkedinUrl         String?
+  hasAppliedInThePast Boolean
+  isVegan             Boolean
+  calendlyUrl         String?
+  moreInfo            String?
+  Request             PlaygroundRequest? @relation(fields: [requestId], references: [id])
+  requestId           String?
+}
+
+model PlaygroundRequest {
+  id                String                  @id @default(cuid())
+  applications      PlaygroundApplication[]
+  phone             String?
+  organization      String?
+  website           String
+  calendlyUrl       String?
+  title             String
+  category          String
+  priority          Priority
+  roleTitle         String
+  requiredSkills    String[]                @default([])
+  free              Boolean
+  budget            Decimal                 @db.Money
+  description       String                  @db.Text
+  dueDate           DateTime                @db.Date
+  estimatedTimeDays Int
+  requester         User                    @relation(fields: [requesterId], references: [id])
+  requesterId       String
+  isApproved        Boolean                 @default(false)
+  createdAt         DateTime                @default(now())
+  updatedAt         DateTime                @updatedAt
 }
