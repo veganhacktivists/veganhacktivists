@@ -92,5 +92,11 @@ module.exports = {
     ],
     'import/first': ['warn'],
     'import/newline-after-import': ['warn', { count: 1 }],
+    'import/no-useless-path-segments': [
+      'error',
+      {
+        noUselessIndex: true,
+      },
+    ],
   },
 };

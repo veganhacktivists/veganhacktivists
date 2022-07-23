@@ -10,7 +10,7 @@ import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { SectionHeader } from '../components/decoration/textBlocks';
 import YoutubeVideo from '../components/decoration/youtubeVideo';
-import { GrantsCallToAction } from '../components/layout/grants/index';
+import { GrantsCallToAction } from '../components/layout/grants';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 import JoinTheTeam from '../components/layout/joinTheTeam';
