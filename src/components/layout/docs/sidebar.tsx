@@ -47,10 +47,10 @@ const Documentation: React.FC<DocumentationProps> = ({
                 document.getElementById(slug)?.scrollIntoView();
               });
             }}
-            onMouseEnter={() => {
+            onPointerEnter={() => {
               setHover(true);
             }}
-            onMouseLeave={() => {
+            onPointerLeave={() => {
               setHover(false);
             }}
             className={classNames('cursor-pointer py-1', {

@@ -1,6 +1,10 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { DarkButton, WhiteButton } from '../../components/decoration/buttons';
+import {
+  DarkButton,
+  ShareButton,
+  WhiteButton,
+} from '../../components/decoration/buttons';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import type { IProject } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
@@ -14,6 +18,7 @@ import { NextSeo } from 'next-seo';
 import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
 import YearSelector from '../../components/layout/projects/yearSelector';
+import ShareDialog from '../../components/layout/shareDialog';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
@@ -33,89 +38,124 @@ interface ProjectCardProps {
   project: IProject;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const {
-    name,
-    description,
-    url,
-    urlName,
-    date: dateStr,
-    image,
-    team,
-    retiredInfo,
-  } = project.fields;
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project: {
+    fields: {
+      name,
+      description,
+      url,
+      urlName,
+      date: dateStr,
+      image,
+      team,
+      retiredInfo,
+    },
+  },
+}) => {
+  const [shareDialogOpen, setShareDialogOpen] = useState<boolean>(false);
+  const shareInfo = useMemo(
+    () => ({
+      url,
+      title: name,
+      description: 'Take a look at this awesome project!',
+      image,
+    }),
+    [image, name, url]
+  );
+
+  const openDialog = useCallback(() => {
+    setShareDialogOpen(true);
+  }, []);
 
   const isRetired = !!retiredInfo;
 
   const date = new Date(dateStr);
   const imageSize = 280;
-  return (
-    <div className="flex flex-col justify-between sm:flex-row">
-      {image && (
-        <div className="flex-shrink">
-          <ContentfulImage
-            image={image}
-            alt={name}
-            layout="fixed"
-            height={imageSize}
-            width={imageSize}
-          />
-        </div>
-      )}
-      <div className="col-span-2 text-left sm:pl-10">
-        <h1 className="mb-5 text-4xl font-bold">{name}</h1>
-        <div className="text-xl">{documentToReactComponents(description)}</div>
-        <div className="flex flex-wrap items-center mt-10">
-          {isRetired ? (
-            <DarkButton href="/projects/retired">Retired projects</DarkButton>
-          ) : (
-            <DarkButton href={url} capitalize={false}>
-              {urlName ||
-                firstLetterUppercase(
-                  toBaseUrl(
-                    url
-                      .replace(/^https?:\/\//, '')
-                      .replace(/^w{3}/, '')
-                      .replace(/\/$/, '')
-                  )
-                )}
-            </DarkButton>
-          )}
 
-          <span className="font-bold sm:pl-5">
-            <span className="text-grey">
-              {isRetired
-                ? 'This project has been retired'
-                : new Intl.DateTimeFormat('en', {
-                    month: 'short',
-                    year: 'numeric',
-                  }).format(date)}
-              {}
-            </span>
-            {team && (
-              <>
-                {' '}
-                -{' '}
-                <Link
-                  href={{
-                    pathname: '/people/team',
-                    hash: team.fields.isInactive ? null : team.fields.slug,
-                  }}
-                  scroll={true}
-                >
-                  <a>
-                    {team.fields.icon}{' '}
-                    <span style={{ color: team.fields.color }}>
-                      {team.fields.name}
-                    </span>
-                  </a>
-                </Link>
-              </>
+  return (
+    <>
+      <div className="flex flex-col justify-between sm:flex-row">
+        {image && (
+          <div className="flex-shrink">
+            <ContentfulImage
+              image={image}
+              alt={name}
+              layout="fixed"
+              height={imageSize}
+              width={imageSize}
+            />
+          </div>
+        )}
+        <div className="col-span-2 text-left sm:pl-10">
+          <h1 className="mb-5 text-4xl font-bold">{name}</h1>
+          <div className="text-xl">
+            {documentToReactComponents(description)}
+          </div>
+          <div className="flex flex-wrap items-center mt-10">
+            {isRetired ? (
+              <DarkButton href="/projects/retired">Retired projects</DarkButton>
+            ) : (
+              <div className="flex flex-col gap-3 md:flex-row">
+                <DarkButton href={url} capitalize={false}>
+                  {urlName ||
+                    firstLetterUppercase(
+                      toBaseUrl(
+                        url
+                          .replace(/^https?:\/\//, '')
+                          .replace(/^w{3}/, '')
+                          .replace(/\/$/, '')
+                      )
+                    )}
+                </DarkButton>
+                <ShareButton
+                  shareInfo={shareInfo}
+                  openAndInitiateShareDialog={openDialog}
+                />
+              </div>
             )}
-          </span>
+
+            <span className="font-bold sm:pl-5">
+              <span className="text-grey">
+                {isRetired
+                  ? 'This project has been retired'
+                  : new Intl.DateTimeFormat('en', {
+                      month: 'short',
+                      year: 'numeric',
+                    }).format(date)}
+                {}
+              </span>
+              {team && (
+                <>
+                  {' '}
+                  -{' '}
+                  <Link
+                    href={{
+                      pathname: '/people/team',
+                      hash: team.fields.isInactive ? null : team.fields.slug,
+                    }}
+                    scroll={true}
+                  >
+                    <a>
+                      {team.fields.icon}{' '}
+                      <span style={{ color: team.fields.color }}>
+                        {team.fields.name}
+                      </span>
+                    </a>
+                  </Link>
+                </>
+              )}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+      <ShareDialog
+        open={shareDialogOpen}
+        shareInfo={shareInfo}
+        onClose={() => {
+          setShareDialogOpen(false);
+        }}
+      />
+    </>
   );
 };
 
