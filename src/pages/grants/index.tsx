@@ -1,5 +1,8 @@
+import { NextSeo } from 'next-seo';
+
 import SquareField from '../../components/decoration/squares';
 import Sprite, { pig, chicks } from '../../components/decoration/sprite';
+
 import {
   GrantsHero,
   GrantsHeading,
@@ -7,9 +10,8 @@ import {
   GrantsPerks,
   GrantsPollinationProject,
   GrantsApplication,
-} from '../../components/layout/grants/index';
-import JoinTheTeam from '../../components/layout/joinTheTeam';
-import { NextSeo } from 'next-seo';
+} from 'components/layout/grants/index';
+import JoinTheTeam from 'components/layout/joinTheTeam';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -50,8 +52,8 @@ const Grants: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="p-12 bg-yellow pb-20">
-        <p className="text-2xl max-w-screen-md font-mono text-center mx-auto">
+      <div className="p-12 pb-20 bg-yellow">
+        <p className="max-w-screen-md mx-auto font-mono text-2xl text-center">
           We&apos;re very happy to be able to offer up to{' '}
           <b>$1000 USD in seed funding grants</b> for oustanding, and effective,
           animal rights activism! Specifically we&apos;re looking for individual

@@ -1,6 +1,7 @@
+import { NextSeo } from 'next-seo';
+
 import SquareField from '../components/decoration/squares';
 import CustomImage from '../components/decoration/customImage';
-import { NextSeo } from 'next-seo';
 import Newsletter from '../components/layout/newsletter';
 import { pixelHeart } from '../images/separators';
 

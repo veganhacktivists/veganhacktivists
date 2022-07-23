@@ -1,10 +1,12 @@
-import type { GetServerSideProps, NextPage } from 'next';
-import type { SignInResponse } from 'next-auth/react';
 import { getSession } from 'next-auth/react';
 import { getProviders, signIn } from 'next-auth/react';
-import { useState } from 'react';
-import { DarkButton } from '../../components/decoration/buttons';
+import { useCallback, useState } from 'react';
+
 import TextInput from '../../components/forms/inputs/textInput';
+import { DarkButton } from '../../components/decoration/buttons';
+
+import type { GetServerSideProps, NextPage } from 'next';
+import type { SignInResponse } from 'next-auth/react';
 
 interface SignInProps {
   providers: Awaited<ReturnType<typeof getProviders>>;
@@ -31,6 +33,16 @@ const SignIn: NextPage<SignInProps> = ({ providers }) => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleSignIn = useCallback(async () => {
+    setIsLoading(true);
+    const { ok } = (await signIn<'email'>('email', {
+      email,
+    })) as SignInResponse;
+    if (!ok) {
+      setIsLoading(false);
+    }
+  }, [email]);
+
   if (!providers?.email) return null;
 
   return (
@@ -47,18 +59,7 @@ const SignIn: NextPage<SignInProps> = ({ providers }) => {
             }}
           />
         </div>
-        <DarkButton
-          disabled={isLoading}
-          onClick={async () => {
-            setIsLoading(true);
-            const { ok } = (await signIn<'email'>('email', {
-              email,
-            })) as SignInResponse;
-            if (!ok) {
-              setIsLoading(false);
-            }
-          }}
-        >
+        <DarkButton disabled={isLoading} onClick={handleSignIn}>
           Sign in!
         </DarkButton>
       </div>

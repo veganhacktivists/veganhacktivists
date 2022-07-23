@@ -4,6 +4,7 @@ import contentImage from '../../../../public/images/grants/content.jpg';
 import designerImage from '../../../../public/images/grants/designer.jpg';
 import CustomImage from '../../decoration/customImage';
 import { pixelHeart } from '../../../images/separators';
+
 import type { StaticImageData } from 'next/image';
 
 type PerkProps = React.PropsWithChildren<{

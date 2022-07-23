@@ -1,13 +1,14 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+
+import useErrorStore from '../../lib/stores/errorStore';
 import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
-import NewsletterPopup from './newsletterPopup';
 
-import 'react-toastify/dist/ReactToastify.css';
-import useErrorStore from '../../lib/stores/errorStore';
-import { useRouter } from 'next/router';
+import NewsletterPopup from './newsletterPopup';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {

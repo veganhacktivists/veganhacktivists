@@ -1,14 +1,16 @@
-import { faEthereum } from '@fortawesome/free-brands-svg-icons';
-import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faBitcoinSign } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback, useState } from 'react';
 import QRCode from 'react-qr-code';
 import { toast } from 'react-toastify';
-import getThemeColor from '../../../lib/helpers/theme';
-import Modal from '../modal';
+import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+
 import CustomLink from '../../decoration/link';
+import Modal from '../modal';
+import getThemeColor from '../../../lib/helpers/theme';
+
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 interface CryptoWalletProps {
   code: string;
@@ -24,7 +26,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
   currencyName,
 }) => {
   const onCopy = useCallback(() => {
-    toast.promise(navigator.clipboard.writeText(code), {
+    void toast.promise(navigator.clipboard.writeText(code), {
       success: 'Code succesfully copied!',
       error:
         'Something went wrong copying the code, please select and copy it manually',

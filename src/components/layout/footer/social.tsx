@@ -1,11 +1,11 @@
+import Link from 'next/link';
+
 import {
   ExternalLinkButton,
   InstagramButton,
   PatreonButton,
   YoutubeButton,
 } from '../../decoration/buttons';
-
-import Link from 'next/link';
 
 const Social: React.FC = () => {
   return (

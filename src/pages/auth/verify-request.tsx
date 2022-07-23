@@ -1,6 +1,8 @@
-import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+
 import { DarkButton } from '../../components/decoration/buttons';
+
+import type { NextPage } from 'next';
 
 const VerifyRequest: NextPage = () => {
   const { back } = useRouter();

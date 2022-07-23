@@ -1,8 +1,8 @@
 import React from 'react';
-
-import type { LinkProps as NextLinkProps } from 'next/link';
 import Link from 'next/link';
 import classNames from 'classnames';
+
+import type { LinkProps as NextLinkProps } from 'next/link';
 
 const linkClassNames = 'text-magenta hover:underline active:text-magenta-light';
 

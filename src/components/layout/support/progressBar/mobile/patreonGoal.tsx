@@ -1,5 +1,7 @@
 import React from 'react';
+
 import getThemeColor from '../../../../../lib/helpers/theme';
+
 import type { PatreonGoalProps } from '../patreonGoal';
 
 const PatreonGoal: React.FC<PatreonGoalProps> = ({
@@ -9,7 +11,7 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
   totalAmount,
   children,
 }) => {
-  const percentage = ((goalAmount - previousAmount) / totalAmount) * 100 + '%';
+  const percentage = `${((goalAmount - previousAmount) / totalAmount) * 100}%`;
 
   return (
     <div
@@ -18,12 +20,12 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
     >
       <div>
         <h1
-          className="font-mono text-4xl md:text-5xl mb-2"
+          className="mb-2 font-mono text-4xl md:text-5xl"
           style={{ color: getThemeColor(goalColor) }}
         >
           &#36;{goalAmount.toLocaleString('en-US')}
         </h1>
-        <p className="text-lg text-white mb-2">{children}</p>
+        <p className="mb-2 text-lg text-white">{children}</p>
       </div>
       <div className="w-full h-full absolute top-[-3px] right-[-15vw] border-white border-t-[3px]" />
     </div>

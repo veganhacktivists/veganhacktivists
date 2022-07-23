@@ -1,13 +1,14 @@
-import { SectionHeader } from '../../../decoration/textBlocks';
-import SectionContainer from '../sectionContainer';
-
-import brandGuideImage from '../../../../../public/images/yearInReview/2021/VH_BrandGuide.jpg';
-import CustomImage from '../../../decoration/customImage';
 import React from 'react';
 import Link from 'next/link';
-import type { BlogPostItem } from './featuredBlogPosts';
+
+import { SectionHeader } from '../../../decoration/textBlocks';
+import SectionContainer from '../sectionContainer';
+import brandGuideImage from '../../../../../public/images/yearInReview/2021/VH_BrandGuide.jpg';
+import CustomImage from '../../../decoration/customImage';
 import { LightButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
+
+import type { BlogPostItem } from './featuredBlogPosts';
 
 interface RebrandProps {
   kate: BlogPostItem;

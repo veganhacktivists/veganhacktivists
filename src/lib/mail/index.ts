@@ -1,6 +1,8 @@
 import Mailgun from 'mailgun.js';
-import { firstLetterUppercase } from '../helpers/strings';
 import formData from 'form-data';
+
+import { firstLetterUppercase } from '../helpers/strings';
+
 import type { MessagesSendResult } from 'mailgun.js/interfaces/Messages';
 
 const DOMAIN = 'veganhacktivists.org';

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+
 import getThemeColor from '../../lib/helpers/theme';
 
 interface CircleProps {

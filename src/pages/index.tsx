@@ -1,5 +1,5 @@
-import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
+
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
@@ -10,12 +10,14 @@ import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { SectionHeader } from '../components/decoration/textBlocks';
 import YoutubeVideo from '../components/decoration/youtubeVideo';
-import { GrantsCallToAction } from '../components/layout/grants/index';
+import { GrantsCallToAction } from '../components/layout/grants';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
 import JoinTheTeam from '../components/layout/joinTheTeam';
 import { pixelHeart } from '../images/separators';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
+
+import type { GetStaticProps } from 'next';
 import type { IBlogEntry, IProject } from '../types/generated/contentful';
 
 const HERO_DECORATION_SQUARES = [
@@ -78,7 +80,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           container: 'bg-center',
         }}
       >
-        <div className="relative text-white mx-auto md:w-1/2 text-2xl">
+        <div className="relative mx-auto text-2xl text-white md:w-1/2">
           Building for the animal protection movement since 2019.
         </div>
         <div className="relative mx-auto mt-10">
@@ -89,7 +91,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="content-center mx-auto my-24 md:w-1/2 text-2xl px-5">
+      <div className="content-center px-5 mx-auto my-24 text-2xl md:w-1/2">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -97,8 +99,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           alt="Compassion, Creativity, Code"
         />
         <p className="mb-16 text-grey-dark">
-          <span className="font-italic font-semibold text-3xl">We are </span>
-          <span className="text-5xl font-mono font-semibold">
+          <span className="text-3xl font-semibold font-italic">We are </span>
+          <span className="font-mono text-5xl font-semibold">
             VEGAN HACKTIVISTS
           </span>
         </p>
@@ -114,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           way of doing our part for activism. If you believe in the work we do
           and want to support us, please consider a small donation via our{' '}
           <a
-            className="text-pink font-semibold"
+            className="font-semibold text-pink"
             href="https://www.patreon.com/veganhacktivists"
             target="_blank"
             rel="noreferrer"
@@ -138,7 +140,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         ]}
         className="hidden md:block"
       />
-      <div className="bg-gray text-white text-2xl w-full relative overflow-hidden">
+      <div className="relative w-full overflow-hidden text-2xl text-white bg-gray">
         <Circle
           xAlign="left"
           yAlign="bottom"
@@ -153,7 +155,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           radius={50}
           opacity={0.6}
         />
-        <div className="md:w-1/2 px-2 py-20 mx-auto flex flex-col gap-y-8 relative">
+        <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
           <SectionHeader
             className="mb-2"
             header={['Watch our', 'intro video']}
@@ -162,7 +164,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             <YoutubeVideo id="jaW8n1pd97U" />
           </div>
           <div>Watch our other videos by clicking the button below!</div>
-          <div className="w-fit mx-auto">
+          <div className="mx-auto w-fit">
             <LightButton
               className=""
               href="https://www.youtube.com/c/VeganHacktivists"
@@ -177,24 +179,24 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         className="hidden md:block"
       />
       <div className="bg-grey-background">
-        <div className="content-center mx-auto md:w-1/2 text-2xl pt-16 px-5">
-          <p className="text-grey-dark pb-5">
-            <span className="font-italic font-semibold text-3xl">
+        <div className="content-center px-5 pt-16 mx-auto text-2xl md:w-1/2">
+          <p className="pb-5 text-grey-dark">
+            <span className="text-3xl font-semibold font-italic">
               Featured{' '}
             </span>
-            <b className="text-5xl font-mono">PROJECTS</b>
+            <b className="font-mono text-5xl">PROJECTS</b>
           </p>
           <p>
             Every project we release is <b>100% free for everyone</b>, we
             don&apos;t do premium versions, advertisments, or sell user data
             what-so-ever.
           </p>
-          <div className="grid lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4 grid-cols-1 gap-4 pt-16">
+          <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
             {featuredProjects.map((project) => (
               <FeaturedProject key={project.sys.id} {...project.fields} />
             ))}
           </div>
-          <div className="relative mx-auto mt-10 md:w-1/3 pb-16">
+          <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
             <DarkButton href="/projects" className="font-mono">
               See All Projects
             </DarkButton>

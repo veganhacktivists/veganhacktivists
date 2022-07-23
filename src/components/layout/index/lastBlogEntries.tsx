@@ -1,8 +1,10 @@
-import { LightButton } from '../../decoration/buttons';
 import React from 'react';
-import type { IBlogEntry } from '../../../types/generated/contentful';
+
+import { LightButton } from '../../decoration/buttons';
 import BlogEntrySummary from '../blog/blogEntrySummary';
 import SubtleBorder from '../../decoration/subtleBorder';
+
+import type { IBlogEntry } from '../../../types/generated/contentful';
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
   return (

@@ -1,13 +1,14 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import Circle from '../../decoration/circle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 
+import Circle from '../../decoration/circle';
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
+
 import type { ITag, ITagFields } from '../../../types/generated/contentful';
-import classNames from 'classnames';
 
 interface HeaderProps {
   query: string;

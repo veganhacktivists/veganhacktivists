@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import type { IBlogEntryFields } from '../../../types/generated/contentful';
 
 interface TopPostsProps {

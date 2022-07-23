@@ -1,9 +1,11 @@
 import { animated, useSpring, config } from '@react-spring/web';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
+
 import useReduceMotion from '../../../../../hooks/useReduceMotion';
 import CustomImage from '../../../../decoration/customImage';
 import { chicken } from '../../../../decoration/sprite';
+
 import type { AnimatedBarProps } from '../animatedBar';
 
 const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
@@ -22,20 +24,20 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
       <div className="flex flex-col-reverse absolute h-full w-[15vw]">
         <animated.div
           style={{
-            height: currentAmount.to((num) => (num / goal) * 100 + '%'),
+            height: currentAmount.to((num) => `${(num / goal) * 100}%`),
           }}
           className="relative bg-green border-green border-t-[3px]"
         >
           <div className="flex flex-col space-y-2 text-right items-end h-40 w-36 absolute top-[-3px] -right-36 z-30 border-green border-t-[3px] pl-4 bg-grey-darker">
             <div className="flex flex-row">
-              <h1 className="text-4xl font-mono text-green">&#36;</h1>
-              <animated.h1 className="text-4xl font-mono text-green">
+              <h1 className="font-mono text-4xl text-green">&#36;</h1>
+              <animated.h1 className="font-mono text-4xl text-green">
                 {currentAmount.to((num) => {
                   return Math.floor(num).toLocaleString('en-US');
                 })}
               </animated.h1>
             </div>
-            <p className="text-left w-full text-lg md:text-xl text-white">
+            <p className="w-full text-lg text-left text-white md:text-xl">
               Current monthly Patreon donations
             </p>
           </div>

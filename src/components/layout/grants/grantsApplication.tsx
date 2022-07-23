@@ -1,20 +1,21 @@
-import React, { useCallback } from 'react';
+import classNames from 'classnames';
+import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import type { GrantsForm } from '../../../pages/api/grant-request';
+import React, { useCallback } from 'react';
+import { useRouter } from 'next/router';
+import ky from 'ky-universal';
+
 import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
-import { toast } from 'react-toastify';
 import Spinner from '../../decoration/spinner';
-
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
-import classNames from 'classnames';
 import SquareField from '../../decoration/squares';
-import { useRouter } from 'next/router';
-import ky from 'ky-universal';
+
+import type { GrantsForm } from '../../../pages/api/grant-request';
 
 interface FormSectionProps extends React.PropsWithChildren {
   section: string;

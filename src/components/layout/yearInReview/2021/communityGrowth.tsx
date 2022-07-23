@@ -1,11 +1,12 @@
-import { SectionHeader } from '../../../decoration/textBlocks';
+import React from 'react';
 
+import { SectionHeader } from '../../../decoration/textBlocks';
 import docImage from '../../../../../public/images/yearInReview/2021/comm_docs.png';
 import safetyImage from '../../../../../public/images/yearInReview/2021/comm_safety.png';
 import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.png';
 import CustomImage from '../../../decoration/customImage';
-import React from 'react';
 import SectionContainer from '../sectionContainer';
+
 import type { StaticImageData } from 'next/image';
 
 const growthPoints: {

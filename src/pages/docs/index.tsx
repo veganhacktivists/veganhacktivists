@@ -1,7 +1,9 @@
-import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
 import { getContents } from '../../lib/cms';
+
+import type { GetStaticProps } from 'next';
 import type {
   IDocsCategoryFields,
   IDocsSectionFields,
@@ -35,7 +37,7 @@ interface DocsProps {
 const Docs: React.FC<DocsProps> = ({ firstCategorySlug, firstSectionSlug }) => {
   const router = useRouter();
   useEffect(() => {
-    router.push({
+    void router.push({
       pathname: '/docs/[category]/[section]',
       query: { category: firstCategorySlug, section: firstSectionSlug },
     });

@@ -1,9 +1,8 @@
-import React from 'react';
-import Hero from '../../components/decoration/hero';
-
 import { NextSeo } from 'next-seo';
-import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
+import React from 'react';
 
+import Hero from '../../components/decoration/hero';
+import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
 import FeedbackAndTesting from '../../components/layout/yearInReview/2021/feedbackAndTesting';
 import CommunityGrowth from '../../components/layout/yearInReview/2021/communityGrowth';
 import AnimatedVideos from '../../components/layout/yearInReview/2021/animatedVideos';
@@ -14,21 +13,9 @@ import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.j
 import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
 import MinorChangesBigImpact from '../../components/layout/yearInReview/2021/minorChangesBigImpact';
 import DesignsForVeganOrgs from '../../components/layout/yearInReview/2021/designsForVeganOrgs';
-import type {
-  BlogPostItem,
-  FeaturedBlogPostsProps,
-} from '../../components/layout/yearInReview/2021/featuredBlogPosts';
 import FeaturedBlogPosts from '../../components/layout/yearInReview/2021/featuredBlogPosts';
-import type {
-  IBlogEntryFields,
-  IProjectFields,
-  ITagFields,
-  ITeamMemberFields,
-} from '../../types/generated/contentful';
-import type { GetStaticProps } from 'next';
 import { getContents } from '../../lib/cms';
 import { sortByArray } from '../../lib/helpers/array';
-import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2021/featuredProjects';
 import { projectDescriptions } from '../../components/layout/yearInReview/2021/featuredProjects';
 import FeaturedProjects from '../../components/layout/yearInReview/2021/featuredProjects';
 import Rebrand from '../../components/layout/yearInReview/2021/rebrand';
@@ -38,6 +25,19 @@ import AdvisoryService from '../../components/layout/yearInReview/2021/advisoryS
 import ByTheNumbers from '../../components/layout/yearInReview/2021/byTheNumbers';
 import Playground from '../../components/layout/yearInReview/2021/playground';
 import MovingForward from '../../components/layout/yearInReview/2021/movingForward';
+
+import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2021/featuredProjects';
+import type { GetStaticProps } from 'next';
+import type {
+  IBlogEntryFields,
+  IProjectFields,
+  ITagFields,
+  ITeamMemberFields,
+} from '../../types/generated/contentful';
+import type {
+  BlogPostItem,
+  FeaturedBlogPostsProps,
+} from '../../components/layout/yearInReview/2021/featuredBlogPosts';
 
 interface YearInReviewProps {
   featuredBlogPosts: FeaturedBlogPostsProps['featuredBlogPosts'];

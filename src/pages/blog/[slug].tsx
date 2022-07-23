@@ -1,6 +1,7 @@
-import type { GetStaticPaths, GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
+import React from 'react';
+
 import { getContents } from '../../lib/cms';
-import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
 import {
   getAllBlogSlugs,
   getBlogEntries,
@@ -8,15 +9,16 @@ import {
 } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import SquareField from '../../components/decoration/squares';
-import React from 'react';
 import Circle from '../../components/decoration/circle';
 import BlogContentContainer, {
   Sidebar,
 } from '../../components/layout/blog/blogPageLayout';
 import SubtleBorder from '../../components/decoration/subtleBorder';
-import { NextSeo } from 'next-seo';
 import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
+
+import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
+import type { GetStaticPaths, GetStaticProps } from 'next';
 
 interface BlogEntryProps {
   blog: IBlogEntry;

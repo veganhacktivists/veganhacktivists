@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useCookies } from 'react-cookie';
+
 import Modal from './modal';
 import Newsletter from './newsletter';
-import { useCookies } from 'react-cookie';
 
 const NewsletterPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import getThemeColor from '../../../lib/helpers/theme';
 
 interface HighlightBlockProps extends React.PropsWithChildren {

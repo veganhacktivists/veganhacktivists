@@ -2,11 +2,14 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React from 'react';
-import getThemeColor from '../../../lib/helpers/theme';
-import ContentfulImage from '../contentfulImage';
-import type { Asset } from 'contentful';
+
 import CustomImage from '../../decoration/customImage';
+import ContentfulImage from '../contentfulImage';
+import getThemeColor from '../../../lib/helpers/theme';
+
+import type { Asset } from 'contentful';
 import type { StaticImageData } from 'next/image';
+
 export interface ContentButtonProps {
   content: { title: string; image: Asset | StaticImageData };
   setContent: () => void;

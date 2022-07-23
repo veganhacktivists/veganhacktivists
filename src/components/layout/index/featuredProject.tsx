@@ -1,5 +1,6 @@
-import type { IProjectFields } from '../../../types/generated/contentful';
 import ContentfulImage from '../contentfulImage';
+
+import type { IProjectFields } from '../../../types/generated/contentful';
 
 const FeaturedProject: React.FC<IProjectFields> = ({ url, image }) => {
   return (

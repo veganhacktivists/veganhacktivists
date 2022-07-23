@@ -1,9 +1,11 @@
-import classNames from 'classnames';
-import type { ImageProps, StaticImageData } from 'next/image';
 import React, { useCallback, useRef } from 'react';
+import classNames from 'classnames';
+
 import Circle from './circle';
 import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
+
+import type { ImageProps, StaticImageData } from 'next/image';
 
 interface HeroClassNames {
   container?: string;
@@ -68,8 +70,7 @@ const Hero: React.FC<HeroProps> = ({
     <div className={containerClasses} ref={ref}>
       <CustomImage
         alt=""
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        src={imageBackground as any}
+        src={imageBackground}
         layout="fill"
         objectFit="cover"
         objectPosition={main ? 'top' : 'center'}

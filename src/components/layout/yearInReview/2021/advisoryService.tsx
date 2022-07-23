@@ -1,8 +1,8 @@
+import React from 'react';
+
 import CustomImage from '../../../decoration/customImage';
 import SectionContainer from '../sectionContainer';
-
 import advisorService from '../../../../../public/images/yearInReview/2021/advisory.png';
-import React from 'react';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import { DarkButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';

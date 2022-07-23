@@ -1,8 +1,9 @@
 import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import prisma from '../../../lib/db/prisma';
+
 import { OUR_EMAIL } from '../../../lib/mail';
+import prisma from '../../../lib/db/prisma';
 
 export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,

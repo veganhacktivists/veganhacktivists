@@ -1,7 +1,6 @@
 import { LightButton } from '../../../decoration/buttons';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
-
 import SquareField from '../../../decoration/squares';
 import { pixelPig } from '../../../../images/separators';
 

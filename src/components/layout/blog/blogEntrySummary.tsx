@@ -1,11 +1,13 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { IBlogEntry } from '../../../types/generated/contentful';
-import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
-
-import { DarkButton } from '../../../components/decoration/buttons';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import React from 'react';
+
+import ContentfulImage from '../contentfulImage';
+
+import { DarkButton } from 'components/decoration/buttons';
+
+import type { IBlogEntry } from 'types/generated/contentful';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;
@@ -50,7 +52,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         )}
       </div>
       <div className="flex flex-col">
-        <div className="my-auto p-5">
+        <div className="p-5 my-auto">
           <div
             className={classNames('text-xl font-mono font-bold', {
               'mb-3': !heading,
@@ -64,7 +66,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </div>
           <LinkToBlog>
             <b
-              className="text-2xl font-mono font-semibold md:line-clamp-2"
+              className="font-mono text-2xl font-semibold md:line-clamp-2"
               title={title}
             >
               {title}

@@ -8,16 +8,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import type { LinkProps } from 'next/link';
+
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+
+import useDeviceDetect from '../../../hooks/useDeviceDetect';
+
+import { FillBackground } from './utils';
+
 import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
 } from 'react';
-import { FillBackground } from './utils';
-import { faShare } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
-import useDeviceDetect from '../../../hooks/useDeviceDetect';
+import type { LinkProps } from 'next/link';
 import type ShareInfo from '../../layout/shareDialog/shareInfo';
 
 export interface ButtonProps
@@ -274,7 +278,7 @@ const ShareButton: React.FC<
       disabled={!isReady}
       onClick={() => {
         if (navigator && navigator['share'] && isMobile) {
-          toast.promise(shareNatively, {
+          void toast.promise(shareNatively, {
             error:
               'Something went wrong while sharing your content! Please try again later',
           });
@@ -284,7 +288,7 @@ const ShareButton: React.FC<
       }}
       linkProps={{ scroll: false }}
     >
-      <div className="flex items-center gap-2 justify-center">
+      <div className="flex items-center justify-center gap-2">
         <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
         <div>Share</div>
       </div>

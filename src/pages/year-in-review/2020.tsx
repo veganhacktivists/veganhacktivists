@@ -1,15 +1,15 @@
+import { NextSeo } from 'next-seo';
 import React from 'react';
+
 import Hero from '../../components/decoration/hero';
 import heroBackground from '../../../public/images/yearInReview/2020/VH-Hero-review.jpg';
 import heroTagline from '../../../public/images/yearInReview/2020/VH-Hero-text-review.png';
 import SquareField from '../../components/decoration/squares';
-
 import Strawberry from '../../../public/images/yearInReview/2020/icon-strawberry-outline.png';
 import Blueberry from '../../../public/images/yearInReview/2020/icon-blueberry-outline.png';
 import petaLogo from '../../../public/images/yearInReview/2020/peta.webp';
 import beyondLogo from '../../../public/images/yearInReview/2020/beyondanimal.webp';
 import counterglowLogo from '../../../public/images/yearInReview/2020/counterglow.webp';
-
 import {
   FirstSubSection,
   SubSection,
@@ -20,16 +20,8 @@ import { Organizations } from '../../components/layout/yearInReview/organization
 import { DarkButton } from '../../components/decoration/buttons';
 import Sprite, { cow } from '../../components/decoration/sprite';
 import TopPosts from '../../components/layout/yearInReview/topPosts';
-import type { GetStaticProps } from 'next';
-import type {
-  IBlogEntry,
-  IBlogEntryFields,
-  IProject,
-  IProjectFields,
-} from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
 import CustomImage from '../../components/decoration/customImage';
-import { NextSeo } from 'next-seo';
 import YearInReviewHeader from '../../components/layout/yearInReview/layout';
 import CustomLink from '../../components/decoration/link';
 import AnimatedNumber from '../../components/decoration/animatedNumber';
@@ -40,6 +32,14 @@ import {
   pixelPig,
   pixelStar,
 } from '../../images/separators';
+
+import type {
+  IBlogEntry,
+  IBlogEntryFields,
+  IProject,
+  IProjectFields,
+} from '../../types/generated/contentful';
+import type { GetStaticProps } from 'next';
 
 const STRATEGY_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },

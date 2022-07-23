@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NavButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
 import { FirstSubSection } from '../../decoration/textBlocks';

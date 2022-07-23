@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
-import Link from 'next/link';
 import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
@@ -8,6 +8,7 @@ import {
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
 import { pixelPig } from '../../images/separators';
+
 import type PageWithLayout from '../../types/persistentLayout';
 
 const OurStory: PageWithLayout = () => {

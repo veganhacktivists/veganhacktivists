@@ -6,6 +6,7 @@ import SquareField from '../../decoration/squares';
 import { SectionHeader } from '../../decoration/textBlocks';
 import ContentfulImage from '../contentfulImage';
 import Modal from '../modal';
+
 import {
   CopyButton,
   EmailButton,

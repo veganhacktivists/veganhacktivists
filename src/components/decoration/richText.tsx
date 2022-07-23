@@ -1,21 +1,25 @@
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import Link from 'next/link';
+import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
+import YoutubeVideo from './youtubeVideo';
+
+import ContentfulImage from 'components/layout/contentfulImage';
+
+import type {
+  CONTENT_TYPE,
+  ICodeBlock,
+  IYoutubeVideo,
+} from 'types/generated/contentful';
+import type { Document, Hyperlink } from '@contentful/rich-text-types';
 import type {
   NodeRenderer,
   Options,
 } from '@contentful/rich-text-react-renderer';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { Document } from '@contentful/rich-text-types';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import Link from 'next/link';
-import React from 'react';
-import type {
-  CONTENT_TYPE,
-  ICodeBlockFields,
-  IYoutubeVideoFields,
-} from '../../types/generated/contentful';
-import ContentfulImage from '../layout/contentfulImage';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import YoutubeVideo from './youtubeVideo';
+import type { Asset, Entry } from 'contentful';
 
 interface RichTextProps {
   document: Document;
@@ -24,10 +28,10 @@ interface RichTextProps {
 
 const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
   codeBlock: (node) => {
-    const { language, content }: ICodeBlockFields = node.data.target.fields;
+    const { language, content } = (node.data.target as ICodeBlock).fields;
 
     return (
-      <div className="w-min border-2 border-grey-lighter">
+      <div className="border-2 w-min border-grey-lighter">
         <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
@@ -35,10 +39,10 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
     );
   },
   youtubeVideo: (node) => {
-    const { id }: IYoutubeVideoFields = node.data.target.fields;
+    const { id } = (node.data.target as IYoutubeVideo).fields;
 
     return (
-      <div className="my-10 w-full md:w-4/5 mx-auto">
+      <div className="w-full mx-auto my-10 md:w-4/5">
         <YoutubeVideo id={id} />
       </div>
     );
@@ -48,48 +52,49 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
 const defaultRichTextOptions: Options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
-      const contentType: CONTENT_TYPE = node.data.target.sys.contentType.sys.id;
+      const contentType = (node.data.target as Entry<unknown>).sys.contentType
+        .sys.id as CONTENT_TYPE;
       return <>{embeddedAssetRenderer?.[contentType]?.(node, children)}</>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const imageData = node.data.target;
+      const imageData = node.data.target as Asset;
       const { title, description } = imageData?.fields;
       return (
         <div>
           <ContentfulImage image={imageData} alt={title} />
           {description && (
-            <div className="italic text-base text-gray-dark">{description}</div>
+            <div className="text-base italic text-gray-dark">{description}</div>
           )}
         </div>
       );
     },
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="font-bold text-3xl pt-10">{children}</h1>
+      <h1 className="pt-10 text-3xl font-bold">{children}</h1>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="font-bold text-2xl pt-7">{children}</h2>
+      <h2 className="text-2xl font-bold pt-7">{children}</h2>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h3 className="font-bold text-xl pt-5">{children}</h3>
+      <h3 className="pt-5 text-xl font-bold">{children}</h3>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5 mt-5">{children}</ul>
+      <ul className="mt-5 ml-5 list-disc">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className="list-disc ml-5 mt-5">{children}</ul>
+      <ul className="mt-5 ml-5 list-disc">{children}</ul>
     ),
     [BLOCKS.LIST_ITEM]: (node, children) => (
       <li className="mt-2">{children}</li>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <div className="border-l-4 border-l-grey-light mt-5 px-3 max-w-fit">
+      <div className="px-3 mt-5 border-l-4 border-l-grey-light max-w-fit">
         {children}
       </div>
     ),
     [BLOCKS.HR]: () => <hr className="mt-5" />,
     [INLINES.HYPERLINK]: (node, children) => (
-      <Link href={node.data.uri}>
-        <a className="underline font-semibold hover:text-grey visited:text-grey">
+      <Link href={(node as Hyperlink).data.uri}>
+        <a className="font-semibold underline hover:text-grey visited:text-grey">
           {children}
         </a>
       </Link>

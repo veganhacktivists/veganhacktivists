@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+
 import getThemeColor from '../../../lib/helpers/theme';
 import Circle from '../../decoration/circle';
 

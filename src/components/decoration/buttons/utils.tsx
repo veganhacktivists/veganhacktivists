@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
+
 import getThemeColor from '../../../lib/helpers/theme';
+
+import type { HTMLAttributes } from 'react';
 
 interface FillBackgroundProps extends React.PropsWithChildren {
   base: string;
@@ -29,7 +32,7 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
 }) => {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) return;
-    const props = child.props;
+    const props = child.props as HTMLAttributes<unknown>;
     return React.cloneElement(child, {
       className: classNames(
         props.className,

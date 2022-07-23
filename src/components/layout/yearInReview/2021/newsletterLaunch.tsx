@@ -1,10 +1,10 @@
+import React from 'react';
+
 import { DarkButton } from '../../../decoration/buttons';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
-import React from 'react';
 import SquareField from '../../../decoration/squares';
-
 import newsletter from '../../../../../public/images/yearInReview/2021/newsletter.png';
 
 const NewsletterLaunch: React.FC = () => {

@@ -1,9 +1,11 @@
 import ky from 'ky-universal';
-import type { IMultipleValuesFields } from '../../types/generated/contentful';
+
 import { getContents } from '../cms';
 
-const accessToken = process.env.PATREON_ACCESS_TOKEN;
-const campaignId = process.env.PATREON_CAMPAIGN_ID;
+import type { IMultipleValuesFields } from '../../types/generated/contentful';
+
+const accessToken = process.env.PATREON_ACCESS_TOKEN || '';
+const campaignId = process.env.PATREON_CAMPAIGN_ID || '';
 
 interface PatreonResponse {
   links?: {
@@ -34,7 +36,7 @@ export const getPatrons: () => Promise<string[]> = async () => {
       },
     });
 
-    const data = (await response.json()) as unknown as PatreonResponse;
+    const data = await response.json<PatreonResponse>();
 
     pages.push(data);
     if (!data.links?.next) {
@@ -55,20 +57,33 @@ export const getPatrons: () => Promise<string[]> = async () => {
   return Array.from(new Set(patrons));
 };
 
-export const getPledgeSum: (
+interface Campaign {
+  data: {
+    attributes: {
+      pledge_sum_currency: 'EUR' | 'USD';
+      /** euros */
+      pledge_sum: number;
+      /** dollars */
+      campaign_pledge_sum: number;
+    };
+  }[];
+  // included: {}[];
+}
+
+export const getPatreonFundig: (
   currency: 'USD' | 'EUR'
 ) => Promise<number> = async (currency: 'USD' | 'EUR') => {
   const campaignUrl =
     'https://www.patreon.com/api/oauth2/api/current_user/campaigns';
 
-  const response = (await ky
+  const response = await ky
     .get(campaignUrl, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .json()) as Record<string, any>;
+    .json<Campaign>();
 
   return (
     (currency === 'USD'

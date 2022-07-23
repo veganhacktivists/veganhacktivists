@@ -1,9 +1,9 @@
 import { toast } from 'react-toastify';
-import type { ButtonHTMLAttributes } from 'react';
+
 import { useState } from 'react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 import { faCheck, faCopy, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -13,10 +13,17 @@ import {
   faTwitter,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
-import type ShareInfo from './shareInfo';
-import { IconButton } from '../../decoration/buttons';
-import useDeviceDetect from '../../../hooks/useDeviceDetect';
+
 import classNames from 'classnames';
+
+import { IconButton } from '../../decoration/buttons';
+
+import useDeviceDetect from '../../../hooks/useDeviceDetect';
+
+import type ShareInfo from './shareInfo';
+
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import type { ButtonHTMLAttributes } from 'react';
 import type { UrlObject } from 'url';
 
 /**
@@ -221,8 +228,8 @@ const CopyButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      onClick={async () => {
-        toast
+      onClick={() => {
+        void toast
           .promise(navigator.clipboard.writeText(url), {
             success: `${title}'${
               title.endsWith('s') ? '' : 's'

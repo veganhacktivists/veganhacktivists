@@ -1,9 +1,9 @@
 import React from 'react';
+
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import YoutubeVideo from '../../../decoration/youtubeVideo';
-
 import SectionContainer from '../sectionContainer';
 
 const AnimatedVideos: React.FC = () => {

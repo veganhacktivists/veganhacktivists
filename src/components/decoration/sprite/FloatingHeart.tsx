@@ -1,17 +1,20 @@
-import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
+
 import smHeart from '../../../../public/images/VH_Pixel_Heart_Small.png';
 import mdHeart from '../../../../public/images/VH_Pixel_Heart_Medium.png';
 import lgHeart from '../../../../public/images/VH_Pixel_Heart_Large.png';
 import CustomImage from '../customImage';
+
 import cssAnimations from './animations.module.css';
+
 import type { SpringValue } from '@react-spring/web';
 
 interface FloatingHeartProps {
   float?: boolean;
   size: 'sm' | 'md' | 'lg';
   delay?: number;
-  position: SpringValue;
+  position: SpringValue<string>;
 }
 
 const FloatingHeart: React.FC<FloatingHeartProps> = ({
@@ -48,7 +51,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
     >
       <div
         className={classNames('relative', floating ? cssAnimations.heart : '')}
-        style={{ animationDelay: delay + 'ms' }}
+        style={{ animationDelay: `${delay}ms` }}
         onAnimationEnd={() => {
           setFloating(false);
         }}

@@ -1,6 +1,7 @@
+import { createClient } from 'contentful';
+
 import type { CONTENT_TYPE } from '../../types/generated/contentful';
 import type { Entry } from 'contentful';
-import { createClient } from 'contentful';
 
 const client = createClient({
   space: process.env.CF_SPACE_ID || '',
@@ -97,14 +98,14 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
 
   const entries = entry.fields
     ? Object.entries(entry.fields)
-        .map(([key, value]) => {
+        .map(([key, value]: [string, Entry<unknown>]) => {
           let filteredValue;
           if (Array.isArray(value)) {
             if (typeof value[0] !== 'object' || !Array.isArray(value)) {
               filteredValue = value;
             } else {
               filteredValue = value
-                .filter((child) => !!child.fields)
+                .filter((child) => !!(child as Entry<unknown>).fields)
                 .map(removeEntriesWithoutFields);
             }
           } else if (typeof value === 'object') {
@@ -119,7 +120,7 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
         .filter(([, value]) => !!value)
     : [];
 
-  const filteredFields = Object.fromEntries(entries);
+  const filteredFields = Object.fromEntries(entries) as Record<string, unknown>;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return { ...entry, fields: filteredFields } as Entry<any>;

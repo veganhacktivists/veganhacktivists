@@ -1,13 +1,15 @@
-import Link from 'next/link';
 import React from 'react';
-import type {
-  IBlogEntry,
-  ITeamMember,
-} from '../../../../types/generated/contentful';
+import Link from 'next/link';
+
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import ContentfulImage from '../../contentfulImage';
 import SectionContainer from '../sectionContainer';
+
+import type {
+  IBlogEntry,
+  ITeamMember,
+} from '../../../../types/generated/contentful';
 
 export interface BlogPostItem {
   member: ITeamMember;

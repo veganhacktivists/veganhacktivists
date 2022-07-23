@@ -1,5 +1,6 @@
-import type { Entry } from 'contentful';
 import client, { getContents, previewClient } from '.';
+
+import type { Entry } from 'contentful';
 import type {
   IBlogEntry,
   IBlogEntryFields,

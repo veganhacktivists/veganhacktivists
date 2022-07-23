@@ -1,6 +1,7 @@
+import CustomImage from '../decoration/customImage';
+
 import type { Asset } from 'contentful';
 import type { ImageProps } from 'next/image';
-import CustomImage from '../decoration/customImage';
 
 interface ContentfulImageProps
   extends Partial<Omit<ImageProps, 'src' | 'alt'>> {
@@ -28,7 +29,7 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
     props.layout !== 'fill' || !props.layout ? { width, height } : {};
 
   return (
-    <CustomImage src={'https:' + url} alt={alt} {...sizeProps} {...props} />
+    <CustomImage src={`https:${url}`} alt={alt} {...sizeProps} {...props} />
   );
 };
 
