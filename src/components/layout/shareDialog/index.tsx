@@ -70,6 +70,7 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
           <div className="flex flex-col justify-center gap-5 mx-auto mb-10 md:flex-row">
             <div className="w-1/2 mx-auto md:w-1/3">
               <ContentfulImage
+                priority
                 image={shareInfo.image}
                 alt={`${shareInfo.title} logo`}
               />
