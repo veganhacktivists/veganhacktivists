@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// @ts-expect-error For some reason this module is not detected, awaiting fix!
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 import tailwindConfig from '../../../tailwind.config';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import type { Config as TailwindConfig } from 'tailwindcss';
 
 const fullConfig = (
