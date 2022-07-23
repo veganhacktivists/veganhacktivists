@@ -1,11 +1,14 @@
+import React from 'react';
+
 import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
 import SquareField from '../decoration/squares';
 import heroBackground from '../../../public/images/VH-pigs-hero.jpg';
 import heroTagline from '../../../public/images/about/hero-tagline.png';
-import React from 'react';
-import { GrantsCallToAction } from './grants';
 import Sprite, { goat } from '../decoration/sprite';
+
+import { GrantsCallToAction } from './grants';
+
 import type { Layout } from '../../types/persistentLayout';
 
 const AboutButtons: React.FC = () => {

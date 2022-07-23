@@ -1,16 +1,14 @@
 import React from 'react';
+import { NextSeo } from 'next-seo';
 
 import Hero from '../components/decoration/hero';
 import InfoBox from '../components/infoBox';
 import SquareField from '../components/decoration/squares';
 import Sprite, { pig } from '../components/decoration/sprite';
 import ContactUsForm from '../components/forms/contactUs';
-
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import { DarkButton } from '../components/decoration/buttons';
-
 import CustomImage from '../components/decoration/customImage';
-
 import heroBackground from '../../public/images/services/VH-chick-hero.jpg';
 import heroTagline from '../../public/images/services/VH-services-hero-text.png';
 import adviceIcon from '../../public/images/services/Services-icon-advice.png';
@@ -19,7 +17,7 @@ import projectIcon from '../../public/images/services/Services-icon-project.png'
 import webIcon from '../../public/images/services/Services-icon-web.png';
 import designIcon from '../../public/images/services/Services-icon-design.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
-import { NextSeo } from 'next-seo';
+
 import type { StaticImageData } from 'next/image';
 
 const HERO_DECORATION_SQUARES = [

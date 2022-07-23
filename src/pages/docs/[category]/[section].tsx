@@ -1,23 +1,25 @@
-import type { GetStaticPaths, GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
-import React, { Fragment, useEffect, useMemo, useRef } from 'react';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import { Waypoint } from 'react-waypoint';
+import React, { Fragment, useEffect, useMemo, useRef } from 'react';
+import { NextSeo } from 'next-seo';
+
 import Sidebar from '../../../components/layout/docs/sidebar';
 import { getContents } from '../../../lib/cms';
+import useDocsStore from '../../../lib/stores/docsStore';
+import { useHash } from '../../../hooks/useHash';
+import { DarkButton } from '../../../components/decoration/buttons';
+import RichText from '../../../components/decoration/richText';
+import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
+
 import type {
   IDocsCategory,
   IDocsCategoryFields,
   IDocsSection,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
-import Link from 'next/link';
-import useDocsStore from '../../../lib/stores/docsStore';
-import { useHash } from '../../../hooks/useHash';
-import { DarkButton } from '../../../components/decoration/buttons';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import RichText from '../../../components/decoration/richText';
-import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
+import type { GetStaticPaths, GetStaticProps } from 'next';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getContents<IDocsCategoryFields>({

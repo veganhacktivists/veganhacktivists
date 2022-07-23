@@ -1,20 +1,15 @@
-import type { GetStaticProps } from 'next';
-import type {
-  IBlogEntry,
-  ITag,
-  ITagFields,
-} from '../../types/generated/contentful';
-import { usePagination } from 'react-use-pagination';
-
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import React, { useEffect, useRef, useState } from 'react';
+import { usePagination } from 'react-use-pagination';
+
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
-import { NextSeo } from 'next-seo';
 import { DarkButton } from '../../components/decoration/buttons';
 import { getBlogEntries } from '../../lib/cms/helpers';
 import SquareField from '../../components/decoration/squares';
@@ -23,8 +18,14 @@ import Newsletter from '../../components/layout/newsletter';
 import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
-import { useRouter } from 'next/router';
 import useOnce from '../../hooks/useOnce';
+
+import type {
+  IBlogEntry,
+  ITag,
+  ITagFields,
+} from '../../types/generated/contentful';
+import type { GetStaticProps } from 'next';
 
 interface BlogProps {
   blogs: IBlogEntry[];

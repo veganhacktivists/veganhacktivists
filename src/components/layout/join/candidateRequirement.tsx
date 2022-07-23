@@ -1,7 +1,9 @@
-import type { StaticImageData } from 'next/image';
 import React from 'react';
+
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
+
+import type { StaticImageData } from 'next/image';
 
 export interface CandidateRequirementProps {
   image: StaticImageData;

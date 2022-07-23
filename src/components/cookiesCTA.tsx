@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+
 import { DarkButton } from './decoration/buttons';
 import SubtleBorder from './decoration/subtleBorder';
 

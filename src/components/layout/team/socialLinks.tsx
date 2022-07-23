@@ -11,14 +11,13 @@ import {
   faGlobe as websiteIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
+
+import CustomImage from '../../decoration/customImage';
+import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
 
 import type { ISocialLinksFields } from '../../../types/generated/contentful';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
-
-import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
-
-import CustomImage from '../../decoration/customImage';
 import type { StaticImageData } from 'next/image';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<

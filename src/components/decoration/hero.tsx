@@ -1,9 +1,11 @@
-import classNames from 'classnames';
-import type { ImageProps, StaticImageData } from 'next/image';
 import React, { useCallback, useRef } from 'react';
+import classNames from 'classnames';
+
 import Circle from './circle';
 import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
+
+import type { ImageProps, StaticImageData } from 'next/image';
 
 interface HeroClassNames {
   container?: string;

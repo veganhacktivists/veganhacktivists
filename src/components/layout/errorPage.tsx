@@ -1,13 +1,13 @@
-import type { NextPage } from 'next';
-import { NextSeo } from 'next-seo';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import { StatusCodes } from 'http-status-codes';
+import { useEffect } from 'react';
 
 import CustomImage from '../decoration/customImage';
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
-
 import errorTypeImage from '../../../public/images/VH-error-type.png';
-import Link from 'next/link';
 import {
   avocado,
   mango,
@@ -15,9 +15,9 @@ import {
   sweetPotato,
   watermelon,
 } from '../../images/teams';
-import { StatusCodes } from 'http-status-codes';
+
 import type { FallbackProps } from 'react-error-boundary';
-import { useEffect } from 'react';
+import type { NextPage } from 'next';
 
 export interface ErrorProps extends Omit<FallbackProps, 'error'> {
   error?: FallbackProps['error'] & {

@@ -1,8 +1,10 @@
-import type { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
 import { getContents } from '../../../lib/cms';
 import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
+
+import type { GetStaticPaths, GetStaticProps } from 'next';
 import type {
   IDocsCategory,
   IDocsCategoryFields,

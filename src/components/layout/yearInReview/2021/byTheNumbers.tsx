@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
+
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';

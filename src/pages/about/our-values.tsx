@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+
 import PixelChicken from '../../../public/images/VH_PixelChicken.png';
 import CustomImage from '../../components/decoration/customImage';
 import {
@@ -5,8 +7,8 @@ import {
   SubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
+
 import type PageWithLayout from '../../types/persistentLayout';
-import { NextSeo } from 'next-seo';
 
 const OurValues: PageWithLayout = () => {
   return (

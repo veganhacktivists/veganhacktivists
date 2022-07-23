@@ -1,8 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiHandler } from 'next';
-import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import HttpCodes from 'http-status-codes';
+
+import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
+
+import type { NextApiHandler } from 'next';
 
 export interface GrantsForm {
   // Section A - About you

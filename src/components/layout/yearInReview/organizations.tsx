@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import { DarkButton } from '../../decoration/buttons';
 import { FirstSubSection } from '../../decoration/textBlocks';
-import { ContentButton } from './contentButton';
-
 import saveMovementImage from '../../../../public/images/yearInReview/2020/savemovement.webp';
 import animalRebellionImage from '../../../../public/images/yearInReview/2020/animalrebellion.webp';
 import lebaneseVegansImage from '../../../../public/images/yearInReview/2020/lebanesevegans.webp';
 import theExcelsior4Image from '../../../../public/images/yearInReview/2020/theexcelsior4.webp';
+
+import { ContentButton } from './contentButton';
 
 const ORGANIZATIONS = {
   savemovement: {

@@ -1,18 +1,18 @@
-import type { GetStaticProps } from 'next';
+import React from 'react';
+import { NextSeo } from 'next-seo';
 
 import SquareField from '../../components/decoration/squares';
-
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
-import type { ITeamMember } from '../../types/generated/contentful';
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
-import React from 'react';
 import SocialLinks from '../../components/layout/team/socialLinks';
-import { NextSeo } from 'next-seo';
 import { pixelHeart } from '../../images/separators';
+
+import type PageWithLayout from '../../types/persistentLayout';
+import type { ITeamMember } from '../../types/generated/contentful';
+import type { GetStaticProps } from 'next';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },

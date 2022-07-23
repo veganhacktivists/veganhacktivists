@@ -1,7 +1,6 @@
-import type { GetStaticProps } from 'next';
+import React from 'react';
 import { NextSeo } from 'next-seo';
 
-import React from 'react';
 import HeartLogo from '../../public/images/support/heart-icon.png';
 import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
@@ -21,6 +20,8 @@ import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
+
+import type { GetStaticProps } from 'next';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },

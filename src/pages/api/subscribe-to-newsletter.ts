@@ -1,7 +1,9 @@
-import type { NextApiHandler } from 'next';
 import HttpCodes from 'http-status-codes';
+
 import { subscribeToNewsletter } from '../../lib/mailchimp';
 import { errorBody } from '../../lib/helpers/api';
+
+import type { NextApiHandler } from 'next';
 import type { MemberErrorResponse } from '@mailchimp/mailchimp_marketing';
 
 interface NewsletterSubscriptionQuery {

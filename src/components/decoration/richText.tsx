@@ -1,21 +1,24 @@
-import type {
-  NodeRenderer,
-  Options,
-} from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { Document, Hyperlink } from '@contentful/rich-text-types';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import Link from 'next/link';
 import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
+import YoutubeVideo from './youtubeVideo';
+
+import ContentfulImage from 'components/layout/contentfulImage';
+
 import type {
   CONTENT_TYPE,
   ICodeBlock,
   IYoutubeVideo,
 } from 'types/generated/contentful';
-import ContentfulImage from 'components/layout/contentfulImage';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import YoutubeVideo from './youtubeVideo';
+import type { Document, Hyperlink } from '@contentful/rich-text-types';
+import type {
+  NodeRenderer,
+  Options,
+} from '@contentful/rich-text-react-renderer';
 import type { Asset, Entry } from 'contentful';
 
 interface RichTextProps {

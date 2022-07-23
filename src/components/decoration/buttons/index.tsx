@@ -8,13 +8,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import { FillBackground } from './utils';
+
 import type { LinkProps } from 'next/link';
 import type {
   MouseEventHandler,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
 } from 'react';
-import { FillBackground } from './utils';
 
 export interface ButtonProps
   extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {

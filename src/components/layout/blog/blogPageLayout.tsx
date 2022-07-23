@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import React from 'react';
-import type { IBlogEntry } from '../../../types/generated/contentful';
-import { DarkButton } from '../../decoration/buttons';
 
+import { DarkButton } from '../../decoration/buttons';
 import ContentfulImage from '../contentfulImage';
+
+import type { IBlogEntry } from '../../../types/generated/contentful';
 
 const BlogContentContainer: React.FC<React.PropsWithChildren> = ({
   children,

@@ -2,6 +2,7 @@ import { LightButton } from '../../decoration/buttons';
 import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
 import CustomImage from '../../decoration/customImage';
+
 import type { StaticImageData } from 'next/image';
 
 interface INumberIcons {

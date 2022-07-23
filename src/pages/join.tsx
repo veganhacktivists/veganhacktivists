@@ -1,8 +1,8 @@
+import { NextSeo } from 'next-seo';
 import React from 'react';
+
 import Hero from '../components/decoration/hero';
-import type { CandidateRequirementProps } from '../components/layout/join/candidateRequirement';
 import CandidateRequirement from '../components/layout/join/candidateRequirement';
-import type { JobRoleProps } from '../components/layout/join/jobRole';
 import JobRole from '../components/layout/join/jobRole';
 import heroBackground from '../../public/images/joinUs/VH-chicken2-hero.jpg';
 import heroTagline from '../../public/images/joinUs/VH-join-hero-text.png';
@@ -24,8 +24,10 @@ import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import CustomImage from '../components/decoration/customImage';
-import { NextSeo } from 'next-seo';
 import { pixelFlower } from '../images/separators';
+
+import type { JobRoleProps } from '../components/layout/join/jobRole';
+import type { CandidateRequirementProps } from '../components/layout/join/candidateRequirement';
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Sprite, { chicken } from '../../../decoration/sprite';
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';

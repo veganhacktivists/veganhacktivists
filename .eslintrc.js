@@ -4,13 +4,23 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
-  plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
   ],
+  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
+  },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     'prettier/prettier': ['error'],
@@ -61,7 +71,26 @@ module.exports = {
     // misc
     'no-console': ['warn'],
     'prefer-arrow-callback': ['warn'],
-    // quotes: ['warn', 'single'],
     quotes: ['error', 'single', { avoidEscape: true }],
+
+    // import related
+    'import/order': [
+      'warn',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'parent',
+          'sibling',
+          'index',
+          'internal',
+          'object',
+          'type',
+        ],
+        'newlines-between': 'always-and-inside-groups',
+      },
+    ],
+    'import/first': ['warn'],
+    'import/newline-after-import': ['warn', { count: 1 }],
   },
 };

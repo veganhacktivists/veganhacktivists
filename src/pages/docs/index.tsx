@@ -1,7 +1,9 @@
-import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
 import { getContents } from '../../lib/cms';
+
+import type { GetStaticProps } from 'next';
 import type {
   IDocsCategoryFields,
   IDocsSectionFields,

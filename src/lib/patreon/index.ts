@@ -1,6 +1,8 @@
 import ky from 'ky-universal';
-import type { IMultipleValuesFields } from '../../types/generated/contentful';
+
 import { getContents } from '../cms';
+
+import type { IMultipleValuesFields } from '../../types/generated/contentful';
 
 const accessToken = process.env.PATREON_ACCESS_TOKEN || '';
 const campaignId = process.env.PATREON_CAMPAIGN_ID || '';

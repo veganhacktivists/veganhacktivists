@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 import React, { Fragment } from 'react';
+
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 type textSize =
   | 'xs'

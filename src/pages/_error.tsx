@@ -1,7 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
-import type { NextPageContext } from 'next';
 
 import ErrorPage from '../components/layout/errorPage';
+
+import type { NextPageContext } from 'next';
 
 export const getInitialProps = ({ res, err }: NextPageContext) => {
   const statusCode =

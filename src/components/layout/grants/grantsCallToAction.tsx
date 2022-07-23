@@ -1,11 +1,13 @@
+import React from 'react';
+
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
 import { DarkButton } from '../../decoration/buttons';
-import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 import { pixelFlower } from '../../../images/separators';
+
 import type { StaticImageData } from 'next/image';
 
 interface InfoProps extends React.PropsWithChildren {

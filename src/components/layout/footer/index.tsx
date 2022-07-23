@@ -1,9 +1,10 @@
 import Circle from '../../decoration/circle';
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
-import Links from './links';
-import Social from './social';
 import SquareField from '../../decoration/squares';
 import CustomImage from '../../decoration/customImage';
+
+import Social from './social';
+import Links from './links';
 
 const FOOTER_TOP_DECORATION_SQUARES = [
   { color: 'gray-dark', size: 16, left: 0, bottom: 0 },

@@ -1,17 +1,20 @@
-import { NextSeo } from 'next-seo';
 import React, { useMemo, useState } from 'react';
+import { NextSeo } from 'next-seo';
+
 import RetiredProject from '../../../components/layout/projects/retired';
-import type {
-  IProjectFields,
-  IRetiredProjectInfo,
-} from '../../../types/generated/contentful';
-import type { GetStaticProps } from 'next';
 import { getContents } from '../../../lib/cms';
-import type PageWithLayout from '../../../types/persistentLayout';
 import ProjectsLayout from '../../../components/layout/projects/layout';
 import YearSelector from '../../../components/layout/projects/yearSelector';
 import { FirstSubSection } from '../../../components/decoration/textBlocks';
 import CustomLink from '../../../components/decoration/link';
+
+import type PageWithLayout from '../../../types/persistentLayout';
+import type { GetStaticProps } from 'next';
+import type {
+  IProjectFields,
+  IRetiredProjectInfo,
+} from '../../../types/generated/contentful';
+
 interface RetiredProjectsProps {
   projects: (IProjectFields & { retiredInfo: IRetiredProjectInfo })[];
   projectYears: number[];

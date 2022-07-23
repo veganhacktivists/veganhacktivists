@@ -1,14 +1,17 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import getThemeColor from '../../../lib/helpers/theme';
+
 import useDocsStore from '../../../lib/stores/docsStore';
+import getThemeColor from '../../../lib/helpers/theme';
+
+import SearchBar from './searchBar';
+
 import type {
   IDocsCategoryFields,
   IDocsSectionFields,
   IDocumentationFields,
 } from '../../../types/generated/contentful';
-import SearchBar from './searchBar';
 
 interface DocumentationProps extends IDocumentationFields {
   color: string;

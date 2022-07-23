@@ -1,11 +1,13 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { IBlogEntry } from 'types/generated/contentful';
-import ContentfulImage from '../contentfulImage';
 import classNames from 'classnames';
-
-import { DarkButton } from 'components/decoration/buttons';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import React from 'react';
+
+import ContentfulImage from '../contentfulImage';
+
+import { DarkButton } from 'components/decoration/buttons';
+
+import type { IBlogEntry } from 'types/generated/contentful';
 
 interface BlogEntrySummaryProps {
   blog: IBlogEntry;

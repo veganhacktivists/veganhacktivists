@@ -2,7 +2,6 @@ import CustomImage from '../../../decoration/customImage';
 import CustomLink from '../../../decoration/link';
 import { SubSection } from '../../../decoration/textBlocks';
 import { HighlightBlock } from '../highlightBlock';
-
 import avocadoIcon from '../../../../../public/images/people/teamIcons/icon-avo.png';
 import peachIcon from '../../../../../public/images/people/teamIcons/icon-peach.png';
 import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.png';

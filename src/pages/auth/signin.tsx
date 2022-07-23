@@ -1,10 +1,12 @@
-import type { GetServerSideProps, NextPage } from 'next';
-import type { SignInResponse } from 'next-auth/react';
 import { getSession } from 'next-auth/react';
 import { getProviders, signIn } from 'next-auth/react';
 import { useCallback, useState } from 'react';
-import { DarkButton } from '../../components/decoration/buttons';
+
 import TextInput from '../../components/forms/inputs/textInput';
+import { DarkButton } from '../../components/decoration/buttons';
+
+import type { GetServerSideProps, NextPage } from 'next';
+import type { SignInResponse } from 'next-auth/react';
 
 interface SignInProps {
   providers: Awaited<ReturnType<typeof getProviders>>;

@@ -1,11 +1,14 @@
+import React from 'react';
+
 import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
 import SquareField from '../decoration/squares';
 import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.jpg';
 import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
-import React from 'react';
 import Sprite, { duck } from '../decoration/sprite';
+
 import JoinTheTeam from './joinTheTeam';
+
 import type { Layout } from '../../types/persistentLayout';
 
 export enum Site {

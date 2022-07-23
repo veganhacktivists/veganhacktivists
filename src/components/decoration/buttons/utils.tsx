@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import type { HTMLAttributes } from 'react';
 import React from 'react';
+
 import getThemeColor from '../../../lib/helpers/theme';
+
+import type { HTMLAttributes } from 'react';
 
 interface FillBackgroundProps extends React.PropsWithChildren {
   base: string;

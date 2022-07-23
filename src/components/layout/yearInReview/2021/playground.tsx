@@ -3,7 +3,6 @@ import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
 import { DarkButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
-
 import discord from '../../../../../public/images/yearInReview/2021/discord.png';
 
 const Playground: React.FC = () => {

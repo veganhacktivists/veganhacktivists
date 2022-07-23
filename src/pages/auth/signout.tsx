@@ -1,8 +1,10 @@
-import type { GetServerSideProps, NextPage } from 'next';
 import { getSession, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+
 import { DarkButton } from '../../components/decoration/buttons';
+
+import type { GetServerSideProps, NextPage } from 'next';
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const session = await getSession({ req });

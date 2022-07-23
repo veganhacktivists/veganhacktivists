@@ -4,10 +4,10 @@ import Sprite, { chicken } from '../../decoration/sprite';
 import SquareField from '../../decoration/squares';
 import InfoBox from '../../infoBox';
 import JoinTheTeam from '../joinTheTeam';
-
 import heroBackground from '../../../../public/images/VH-Hero-lamb.jpg';
 import heroTagline from '../../../../public/images/projects/hero-tagline.png';
 import lampImage from '../../../../public/images/Services-icon-project.png';
+
 import type { Layout } from '../../../types/persistentLayout';
 
 const HERO_DECORATION_SQUARES = [

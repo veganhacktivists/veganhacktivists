@@ -1,22 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
-import type { AppProps } from 'next/app';
 import { CookiesProvider } from 'react-cookie';
+import TagManager from 'react-gtm-module';
+import { SessionProvider } from 'next-auth/react';
+import { DefaultSeo } from 'next-seo';
+
+import useOnce from '../hooks/useOnce';
+
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
-import TagManager from 'react-gtm-module';
-import { SessionProvider } from 'next-auth/react';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
-import { DefaultSeo } from 'next-seo';
 import type { NextRouter } from 'next/router';
-import useOnce from '../hooks/useOnce';
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
+import type { AppProps } from 'next/app';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom') as ReactDOM;

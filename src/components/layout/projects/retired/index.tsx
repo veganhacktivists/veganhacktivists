@@ -1,12 +1,14 @@
 import { useMemo } from 'react';
-import type {
-  IProjectFields,
-  IRetiredProjectInfo,
-} from '../../../../types/generated/contentful';
+
 import { GreyButton } from '../../../decoration/buttons';
 import GreyBox from '../../../decoration/greyBox';
 import RichText from '../../../decoration/richText';
 import ContentfulImage from '../../contentfulImage';
+
+import type {
+  IProjectFields,
+  IRetiredProjectInfo,
+} from '../../../../types/generated/contentful';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   month: 'short',

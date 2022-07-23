@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import type { IProjectFields } from '../../../types/generated/contentful';
+
 import { DarkButton } from '../../decoration/buttons';
+
 import { ContentButton } from './contentButton';
+
+import type { IProjectFields } from '../../../types/generated/contentful';
 
 export interface HighlightedProject extends IProjectFields {
   customDescription: React.ReactNode;

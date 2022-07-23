@@ -1,22 +1,23 @@
+import { NextSeo } from 'next-seo';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import React from 'react';
+
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import SquareField from '../../components/decoration/squares';
-import type { GetStaticProps } from 'next';
-import React from 'react';
 import { getContents } from '../../lib/cms';
+import ContentfulImage from '../../components/layout/contentfulImage';
+import { DarkButton } from '../../components/decoration/buttons';
+import { firstLetterUppercase } from '../../lib/helpers/strings';
+import CustomImage from '../../components/decoration/customImage';
+import { pixelHeart } from '../../images/separators';
+
+import type PageWithLayout from '../../types/persistentLayout';
 import type {
   ITeamFields,
   ITeamMember,
 } from '../../types/generated/contentful';
-import ContentfulImage from '../../components/layout/contentfulImage';
-import { DarkButton } from '../../components/decoration/buttons';
-
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { firstLetterUppercase } from '../../lib/helpers/strings';
-import type PageWithLayout from '../../types/persistentLayout';
-import CustomImage from '../../components/decoration/customImage';
-import { NextSeo } from 'next-seo';
-import { pixelHeart } from '../../images/separators';
+import type { GetStaticProps } from 'next';
 
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },

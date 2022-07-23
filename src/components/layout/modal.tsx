@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
+
 import useReduceMotion from '../../hooks/useReduceMotion';
 
 try {

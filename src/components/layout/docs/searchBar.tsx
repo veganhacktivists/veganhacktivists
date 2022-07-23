@@ -1,12 +1,15 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo, useState } from 'react';
-import type { IDocsCategoryFields } from '../../../types/generated/contentful';
-import { FillBackground } from '../../decoration/buttons/utils';
-import TextInput from '../../forms/inputs/textInput';
-import type { SearchItem } from './searchResults';
-import SearchResults from './searchResults';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
+import TextInput from '../../forms/inputs/textInput';
+import { FillBackground } from '../../decoration/buttons/utils';
+
+import SearchResults from './searchResults';
+
+import type { IDocsCategoryFields } from '../../../types/generated/contentful';
+import type { SearchItem } from './searchResults';
 
 interface SearchBarProps {
   categories: IDocsCategoryFields[];

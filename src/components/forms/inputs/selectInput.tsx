@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import getThemeColor from '../../../lib/helpers/theme';
-import type { StylesConfig } from 'react-select';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
-import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
 import React from 'react';
+
+import getThemeColor from '../../../lib/helpers/theme';
+
+import type { StylesConfig } from 'react-select';
+import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
 import type StateManagedSelect from 'react-select';
 
 interface OptionType {

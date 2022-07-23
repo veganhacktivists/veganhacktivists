@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
-import type { NextApiHandler } from 'next';
 import HttpCodes from 'http-status-codes';
+
 import prisma from '../../lib/db/prisma';
+
+import type { NextApiHandler } from 'next';
 
 const handler: NextApiHandler = async (_req, res) => {
   try {

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import getThemeColor from '../../../../../lib/helpers/theme';
+
 import type { PatreonGoalProps } from '../patreonGoal';
 
 const PatreonGoal: React.FC<PatreonGoalProps> = ({

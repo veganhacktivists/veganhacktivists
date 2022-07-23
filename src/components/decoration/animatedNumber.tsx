@@ -2,6 +2,7 @@ import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { Waypoint } from 'react-waypoint';
+
 import useReduceMotion from '../../hooks/useReduceMotion';
 
 const sizeRegex = /([a-z]{1,3}:)?text-[0-9][^\s]+/g;

@@ -1,9 +1,11 @@
 import React from 'react';
-import type { IProjectFields } from '../../../../types/generated/contentful';
+
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import { HighlightedProjects } from '../highlightedProjects';
 import SectionContainer from '../sectionContainer';
+
+import type { IProjectFields } from '../../../../types/generated/contentful';
 
 const formatNumber: (x: number) => string = (x) => {
   return new Intl.NumberFormat('en-US').format(x);

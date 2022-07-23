@@ -1,9 +1,12 @@
 import React from 'react';
-import type { ProgressBarProps } from '..';
+
 import SquareField from '../../../../decoration/squares';
+
 import AnimatedBar from './animatedBar';
 import PatreonGoal from './patreonGoal';
 import TickMarks from './tickMarks';
+
+import type { ProgressBarProps } from '..';
 
 const MobileProgressBar: React.FC<ProgressBarProps> = ({
   currentAmount,

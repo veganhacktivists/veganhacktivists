@@ -3,11 +3,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import logoBig from '../../../public/images/VH-logo-web-white.png';
-import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 import CustomImage from '../decoration/customImage';
+import logoOneLine from '../../../public/images/VH-logo-white-text.png';
+import logoBig from '../../../public/images/VH-logo-web-white.png';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;

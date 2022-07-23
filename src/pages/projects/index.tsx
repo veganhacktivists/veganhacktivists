@@ -1,19 +1,20 @@
+import { NextSeo } from 'next-seo';
+import Link from 'next/link';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 
 import { DarkButton, WhiteButton } from '../../components/decoration/buttons';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
-import type { IProject } from '../../types/generated/contentful';
-import type { GetStaticProps } from 'next';
 import { getProjects } from '../../lib/cms/helpers';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import Link from 'next/link';
 import useViewMore from '../../hooks/useViewMore';
 import { firstLetterUppercase, toBaseUrl } from '../../lib/helpers/strings';
-import { NextSeo } from 'next-seo';
-import type PageWithLayout from '../../types/persistentLayout';
 import ProjectsLayout from '../../components/layout/projects/layout';
 import YearSelector from '../../components/layout/projects/yearSelector';
+
+import type PageWithLayout from '../../types/persistentLayout';
+import type { GetStaticProps } from 'next';
+import type { IProject } from '../../types/generated/contentful';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();

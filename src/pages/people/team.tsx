@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+
+import { NextSeo } from 'next-seo';
+import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
 
-import type { GetStaticProps } from 'next';
-import type { ITeam } from '../../types/generated/contentful';
-import type { ITeamMember } from '../../types/generated/contentful';
-import type { ITeamFields } from '../../types/generated/contentful';
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { WhiteButton } from '../../components/decoration/buttons';
@@ -15,12 +14,15 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
-import Link from 'next/link';
-import type PageWithLayout from '../../types/persistentLayout';
 import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
-import { NextSeo } from 'next-seo';
 import { pixelHeart } from '../../images/separators';
+
+import type PageWithLayout from '../../types/persistentLayout';
+import type { ITeamFields } from '../../types/generated/contentful';
+import type { ITeamMember } from '../../types/generated/contentful';
+import type { ITeam } from '../../types/generated/contentful';
+import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();

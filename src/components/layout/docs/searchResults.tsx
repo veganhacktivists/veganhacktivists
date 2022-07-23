@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import type { DetailedHTMLProps } from 'react';
 import React from 'react';
 import Highlighter from 'react-highlight-words';
+
 import useFuse from '../../../hooks/useFuse';
+
+import type { DetailedHTMLProps } from 'react';
 import type {
   IDocsCategoryFields,
   IDocsSection,

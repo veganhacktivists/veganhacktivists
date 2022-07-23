@@ -1,5 +1,7 @@
 import React from 'react';
+
 import SquareField from '../../../decoration/squares';
+
 import AnimatedBar from './animatedBar';
 import MobileProgressBar from './mobile';
 import PatreonGoal from './patreonGoal';

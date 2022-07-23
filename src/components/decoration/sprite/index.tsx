@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 
 import chicken from '../../../../public/images/animated/sprite_chicken.gif';
 import pig from '../../../../public/images/animated/sprite_pig.gif';
@@ -13,9 +14,10 @@ import fishb from '../../../../public/images/animated/sprite_fish_blue.gif';
 import useWindowSize from '../../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
 import CustomImage from '../customImage';
-import classNames from 'classnames';
-import cssAnimations from './animations.module.css';
+
 import FloatingHeart from './FloatingHeart';
+import cssAnimations from './animations.module.css';
+
 import type { StaticImageData } from 'next/image';
 
 interface SpriteProps {

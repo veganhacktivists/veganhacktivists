@@ -1,7 +1,9 @@
-import type { NextApiHandler } from 'next';
-import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import HttpCodes from 'http-status-codes';
+
+import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
+
+import type { NextApiHandler } from 'next';
 
 export type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
 
