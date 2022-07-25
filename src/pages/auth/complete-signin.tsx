@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
-import ky from 'ky-universal';
 import { useSession } from 'next-auth/react';
 import Joi from 'joi';
+import axios from 'axios';
 
 import { joiResolver } from '@hookform/resolvers/joi';
 
@@ -35,9 +35,8 @@ const CompleteSignin: React.FC = ({}) => {
 
   const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
     ({ userId, ...values }) => {
-      void ky.patch(`/api/users/${userId}`, {
-        credentials: 'include',
-        json: values,
+      void axios.patch(`/api/users/${userId}`, values, {
+        withCredentials: true,
       });
     },
     []

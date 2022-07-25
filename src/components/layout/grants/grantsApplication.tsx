@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
-import ky from 'ky-universal';
+import axios from 'axios';
 
 import { DarkButton } from '../../decoration/buttons';
 import Checkbox from '../../forms/inputs/checkbox';
@@ -64,7 +64,7 @@ const GrantsApplication: React.FC = () => {
 
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
-      const submit = async () => ky.post('/api/grant-request', { json: data });
+      const submit = async () => axios.post('/api/grant-request', data);
 
       await toast
         .promise(submit, {

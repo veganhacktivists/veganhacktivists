@@ -27,15 +27,15 @@ const authOptions: NextAuthOptions = {
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    // signIn: (props) => {
-    //   // if (verificationRequest) {
-    //   //   return true;
-    //   // }
-    //   // // Profile not completed, redirect
-    //   // if (!user?.name) return '/auth/complete-signin';
-    //   // // Everything is good, continue
-    //   return true;
-    // },
+    signIn: ({ user, email: { verificationRequest = false } }) => {
+      if (verificationRequest) {
+        return true;
+      }
+      // Profile not completed, redirect
+      if (!user?.name) return '/auth/complete-signin';
+      // Everything is good, continue
+      return true;
+    },
     session: ({ session, token }) => {
       if (session?.user && token.sub) {
         session.user.id = token.sub;

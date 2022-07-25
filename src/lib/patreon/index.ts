@@ -1,4 +1,4 @@
-import ky from 'ky-universal';
+import axios from 'axios';
 
 import { getContents } from '../cms';
 
@@ -30,13 +30,11 @@ export const getPatrons: () => Promise<string[]> = async () => {
   const patrons = cmsPatrons[0].fields.values;
 
   while (hasNextPage) {
-    const response = await ky.get(currUrl, {
+    const { data } = await axios.get<PatreonResponse>(currUrl, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    const data = await response.json<PatreonResponse>();
 
     pages.push(data);
     if (!data.links?.next) {
@@ -76,18 +74,17 @@ export const getPatreonFundig: (
   const campaignUrl =
     'https://www.patreon.com/api/oauth2/api/current_user/campaigns';
 
-  const response = await ky
-    .get(campaignUrl, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .json<Campaign>();
+  const {
+    data: { data },
+  } = await axios.get<Campaign>(campaignUrl, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 
   return (
     (currency === 'USD'
-      ? response.data[0].attributes.campaign_pledge_sum
-      : response.data[0].attributes.pledge_sum) / 100
+      ? data[0].attributes.campaign_pledge_sum
+      : data[0].attributes.pledge_sum) / 100
   );
 };

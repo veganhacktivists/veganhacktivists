@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import ky from 'ky-universal';
+import axios from 'axios';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -33,9 +33,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
     async (props: NewsletterRequestProps) => {
       const submit = async () => {
         try {
-          await ky.post('/api/subscribe-to-newsletter', {
-            json: props,
-          });
+          await axios.post('/api/subscribe-to-newsletter', props);
           onChange?.(true);
         } catch (e) {
           onChange?.(false);

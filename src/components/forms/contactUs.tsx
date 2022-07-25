@@ -1,4 +1,4 @@
-import ky from 'ky-universal';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
@@ -47,10 +47,7 @@ const ContactUsForm: React.FC = () => {
 
   const onSubmit = useCallback(
     async (values: ContactUsSubmission) => {
-      const submit = async () =>
-        ky.post('/api/contact-us', {
-          json: values,
-        });
+      const submit = async () => axios.post('/api/contact-us', values);
 
       await toast
         .promise(submit, {

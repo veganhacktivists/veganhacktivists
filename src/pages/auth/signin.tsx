@@ -1,17 +1,13 @@
-import { getProviders, signIn } from 'next-auth/react';
+import { getProviders, signIn, useSession } from 'next-auth/react';
 import { useCallback, useState } from 'react';
-
 import { useForm } from 'react-hook-form';
-
 import Joi from 'joi';
-
 import { joiResolver } from '@hookform/resolvers/joi';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
 
 import useOnce from 'hooks/useOnce';
-
 import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';
@@ -33,6 +29,7 @@ const resolver = joiResolver(signInSchema);
 
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { status } = useSession();
 
   const [providers, setProviders] =
     useState<Awaited<ReturnType<typeof getProviders>>>(null);
@@ -66,8 +63,12 @@ const SignIn: NextPage = () => {
     []
   );
 
-  if (isLoading) {
+  if (isLoading || status === 'loading') {
     return <Spinner />;
+  }
+
+  if (status === 'authenticated') {
+    return <div>You are already logged in?</div>;
   }
 
   if (!providers?.email) return null;
@@ -75,9 +76,6 @@ const SignIn: NextPage = () => {
   return (
     <div className="p-10 bg-grey-background">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* <div className="w-1/2 mx-auto">
-          <TextInput {...register('name')}>Name</TextInput>
-        </div> */}
         <div className="w-1/2 mx-auto">
           <TextInput {...register('email')} type="email">
             Email
