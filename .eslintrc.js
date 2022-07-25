@@ -67,6 +67,8 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
+    '@typescript-eslint/no-unsafe-assignment': ['off'],
+    '@typescript-eslint/no-unsafe-call': ['off'],
 
     // misc
     'no-console': ['warn'],

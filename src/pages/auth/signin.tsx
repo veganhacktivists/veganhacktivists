@@ -3,6 +3,10 @@ import { useCallback, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
+import Joi from 'joi';
+
+import { joiResolver } from '@hookform/resolvers/joi';
+
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
 
@@ -15,7 +19,17 @@ import type { SignInResponse } from 'next-auth/react';
 
 interface SignInForm {
   email: string;
+  // name: string;
 }
+
+const signInSchema = Joi.object<SignInForm>({
+  email: Joi.string()
+    .email({ tlds: { allow: false } })
+    .required(),
+  // name: Joi.string().required(),
+}).required();
+
+const resolver = joiResolver(signInSchema);
 
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +37,7 @@ const SignIn: NextPage = () => {
   const [providers, setProviders] =
     useState<Awaited<ReturnType<typeof getProviders>>>(null);
 
-  const { handleSubmit, register } = useForm<SignInForm>({});
+  const { handleSubmit, register } = useForm<SignInForm>({ resolver });
 
   useOnce(() => {
     getProviders()
@@ -36,10 +50,14 @@ const SignIn: NextPage = () => {
   });
 
   const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
-    async ({ email }) => {
+    async ({
+      email,
+      // name
+    }) => {
       setIsLoading(true);
       const { ok } = (await signIn<'email'>('email', {
         email,
+        // name,
       })) as SignInResponse;
       if (!ok) {
         setIsLoading(false);
@@ -56,9 +74,14 @@ const SignIn: NextPage = () => {
 
   return (
     <div className="p-10 bg-grey-background">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* <div className="w-1/2 mx-auto">
+          <TextInput {...register('name')}>Name</TextInput>
+        </div> */}
         <div className="w-1/2 mx-auto">
-          <TextInput {...register('email', { required: true })} type="email" />
+          <TextInput {...register('email')} type="email">
+            Email
+          </TextInput>
         </div>
         <DarkButton type="submit" disabled={isLoading}>
           Sign in!
