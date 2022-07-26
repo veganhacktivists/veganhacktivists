@@ -17,7 +17,6 @@ import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
-import type { NextRouter } from 'next/router';
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
 import type { AppProps } from 'next/app';
@@ -32,14 +31,14 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
 }
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: (page: React.ReactElement) => React.ReactNode;
+  Layout?: React.FC<React.PropsWithChildren>;
 };
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
@@ -59,15 +58,16 @@ const AppWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
 };
 
 // override the per-page layout here
-const getDefaultLayout: (
-  page: React.ReactNode,
-  options: NextRouter
-) => React.ReactNode = (page, { pathname }) => {
+const DefaultLayout: React.FC<
+  React.PropsWithChildren<{
+    pathname: string;
+  }>
+> = ({ pathname, children }) => {
   if (pathname === '/docs' || pathname.startsWith('/docs/')) {
     return (
       <>
         <Header />
-        <MainWrapper>{page}</MainWrapper>
+        <MainWrapper>{children}</MainWrapper>
       </>
     );
   }
@@ -75,7 +75,7 @@ const getDefaultLayout: (
   return (
     <>
       <Header />
-      <MainWrapper>{page}</MainWrapper>
+      <MainWrapper>{children}</MainWrapper>
       <Footer />
     </>
   );
@@ -94,12 +94,22 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
     }
   });
 
-  const getLayout = Component.getLayout || ((page) => page);
+  const Layout: React.FC<React.PropsWithChildren> = ({ children }) => (
+    <DefaultLayout pathname={router.pathname}>
+      {Component.Layout ? (
+        <Component.Layout>{children}</Component.Layout>
+      ) : (
+        <>{children}</>
+      )}
+    </DefaultLayout>
+  );
 
   return (
     <AppWrapper>
       <PageWrapper>
-        {getDefaultLayout(getLayout(<Component {...pageProps} />), router)}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </PageWrapper>
     </AppWrapper>
   );

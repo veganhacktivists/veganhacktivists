@@ -30,7 +30,7 @@ export interface SocialLink {
 
 const PeopleButtons: React.FC = () => {
   return (
-    <div className="mb-5 mt-10 flex justify-center flex-wrap">
+    <div className="flex flex-wrap justify-center mt-10 mb-5">
       <NavButton href="/people/team">OUR TEAM</NavButton>
       <NavButton href="/people/advisors">OUR ADVISORS</NavButton>
       <NavButton href="/people/partners">OUR PARTNERS</NavButton>
@@ -69,12 +69,12 @@ const PeopleHero: React.FC = () => {
   );
 };
 
-const PeopleLayout: Layout = (page) => {
+const PeopleLayout: Layout = ({ children }) => {
   return (
     <>
       <PeopleHero />
       <PeopleButtons />
-      {page}
+      {children}
       <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
       <SquareField
         squares={[

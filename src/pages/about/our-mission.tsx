@@ -20,7 +20,7 @@ const OurMission: PageWithLayout = () => {
         animal protection movement has five fundamental areas it can improve on
         that we aim to solve through the work that we do.
       </FirstSubSection>
-      <div className="m-10 pb-10">
+      <div className="pb-10 m-10">
         <div className="pb-5">
           <CustomImage
             src={PixelCow.src}
@@ -71,6 +71,6 @@ const OurMission: PageWithLayout = () => {
   );
 };
 
-OurMission.getLayout = AboutLayout;
+OurMission.Layout = AboutLayout;
 
 export default OurMission;

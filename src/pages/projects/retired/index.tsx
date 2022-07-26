@@ -94,6 +94,6 @@ const RetiredProjects: PageWithLayout<RetiredProjectsProps> = ({
   );
 };
 
-RetiredProjects.getLayout = ProjectsLayout;
+RetiredProjects.Layout = ProjectsLayout;
 
 export default RetiredProjects;

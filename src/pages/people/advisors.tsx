@@ -39,11 +39,11 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   const { name, image, socialLinks, position } = advisor.fields;
   return (
     <div className="w-64">
-      <div className="bg-grey flex justify-end mb-2">
+      <div className="flex justify-end mb-2 bg-grey">
         {image && <ContentfulImage image={image} alt={name} />}
         <div className={'absolute w-8 h-8'} />
       </div>
-      <div className="text-left w-5/6 mx-auto my-0">
+      <div className="w-5/6 mx-auto my-0 text-left">
         <div className="text-2xl font-bold">{name}</div>
         <div className="font-italic">{position}</div>
         {socialLinks && (
@@ -71,17 +71,17 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
         that support us! Advisors lend thier experience by providing valuable
         personal feedback for our projects and organization.
       </FirstSubSection>
-      <div className="my-10 lg:w-2/3 mx-auto">
-        <div className="grid md:grid-cols-3 justify-center ">
+      <div className="mx-auto my-10 lg:w-2/3">
+        <div className="grid justify-center md:grid-cols-3 ">
           {advisors.map((advisor) => (
-            <div className="my-5 mx-auto" key={advisor.sys.id}>
+            <div className="mx-auto my-5" key={advisor.sys.id}>
               <AdvisorCard advisor={advisor} />
             </div>
           ))}
         </div>
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-16">
+      <div className="pt-16 pb-10 bg-grey-light">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -100,6 +100,6 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
   );
 };
 
-Advisors.getLayout = PeopleLayout;
+Advisors.Layout = PeopleLayout;
 
 export default Advisors;

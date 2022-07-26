@@ -1,11 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 import Joi from 'joi';
-
 import { joiResolver } from '@hookform/resolvers/joi';
-
-import { getToken } from 'next-auth/jwt';
-
 import { useRouter } from 'next/router';
 
 import TextInput from 'components/forms/inputs/textInput';

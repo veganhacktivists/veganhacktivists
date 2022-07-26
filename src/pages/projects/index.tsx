@@ -230,6 +230,6 @@ const Projects: PageWithLayout<ProjectsProps> = ({
   );
 };
 
-Projects.getLayout = ProjectsLayout;
+Projects.Layout = ProjectsLayout;
 
 export default Projects;

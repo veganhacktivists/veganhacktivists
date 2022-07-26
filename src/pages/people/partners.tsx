@@ -47,26 +47,26 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
   const domain = website?.match(domainRegEx)?.groups?.domain;
 
   return (
-    <div className="flex flex-col lg:flex-row mx-auto mb-10 justify-between">
+    <div className="flex flex-col justify-between mx-auto mb-10 lg:flex-row">
       <div className="">
         {image && (
-          <div className="w-full sm:w-72 xl:w-96 mx-auto aspect-square">
+          <div className="w-full mx-auto sm:w-72 xl:w-96 aspect-square">
             <ContentfulImage image={image} alt="" layout="responsive" />
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-around bg-gray-background px-10 py-10 w-full">
+      <div className="flex flex-col justify-around w-full px-10 py-10 bg-gray-background">
         <div className="mb-2 text-center lg:text-left">
           <span className="text-2xl font-bold">{name}</span>{' '}
-          <span className="ml-2 font-bold text-m uppercase text-grey block md:inline">
+          <span className="block ml-2 font-bold uppercase text-m text-grey md:inline">
             {position}
           </span>
         </div>
-        <div className="text-center lg:text-left text-xl mb-5">
+        <div className="mb-5 text-xl text-center lg:text-left">
           {description && documentToReactComponents(description)}
         </div>
         <DarkButton
-          className="max-w-md overflow-ellipsis overflow-hidden whitespace-nowrap font-mono mx-auto xl:ml-0"
+          className="max-w-md mx-auto overflow-hidden font-mono overflow-ellipsis whitespace-nowrap xl:ml-0"
           href={website}
           capitalize={false}
         >
@@ -104,7 +104,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
         <PartnerList partners={partners} />
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="bg-grey-light pb-10 pt-16 px-10">
+      <div className="px-10 pt-16 pb-10 bg-grey-light">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -123,6 +123,6 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
   );
 };
 
-Partners.getLayout = PeopleLayout;
+Partners.Layout = PeopleLayout;
 
 export default Partners;

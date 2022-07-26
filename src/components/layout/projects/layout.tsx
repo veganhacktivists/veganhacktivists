@@ -25,7 +25,7 @@ const JOIN_DECORATION_SQUARES = [
   { color: 'gray-lighter', size: 16, right: 0, bottom: 0 },
 ];
 
-const ProjectsLayout: Layout = (page) => {
+const ProjectsLayout: Layout = ({ children }) => {
   return (
     <div>
       <Hero
@@ -43,12 +43,12 @@ const ProjectsLayout: Layout = (page) => {
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      {page}
+      {children}
       <SquareField
         squares={JOIN_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="bg-gray-background py-16 md:py-24 flex flex-row justify-center">
+      <div className="flex flex-row justify-center py-16 bg-gray-background md:py-24">
         <InfoBox
           title="Have an idea for a project?"
           icon={lampImage}
@@ -62,7 +62,7 @@ const ProjectsLayout: Layout = (page) => {
             suggestions every month, we do consider every single one. If you
             rather build it yourself and want advice, no problem - get in touch!
           </p>
-          <div className="md:flex md:justify-start font-semibold">
+          <div className="font-semibold md:flex md:justify-start">
             <LightButton href={{ pathname: '/services', hash: 'contact-us' }}>
               Suggest a project idea
             </LightButton>

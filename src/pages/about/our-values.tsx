@@ -20,7 +20,7 @@ const OurValues: PageWithLayout = () => {
         everyone, we build an environment in which all of us can be the best
         version of ourselves when fighting for the animals.
       </FirstSubSection>
-      <div className="m-10 pb-10">
+      <div className="pb-10 m-10">
         <div className="pb-5">
           <CustomImage
             src={PixelChicken.src}
@@ -70,6 +70,6 @@ const OurValues: PageWithLayout = () => {
   );
 };
 
-OurValues.getLayout = AboutLayout;
+OurValues.Layout = AboutLayout;
 
 export default OurValues;

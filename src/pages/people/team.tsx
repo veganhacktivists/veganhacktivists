@@ -284,6 +284,6 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
   );
 };
 
-Team.getLayout = PeopleLayout;
+Team.Layout = PeopleLayout;
 
 export default Team;

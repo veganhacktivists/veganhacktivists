@@ -13,7 +13,7 @@ import type { Layout } from '../../types/persistentLayout';
 
 const AboutButtons: React.FC = () => {
   return (
-    <div className="mb-5 mt-10 flex justify-center flex-wrap">
+    <div className="flex flex-wrap justify-center mt-10 mb-5">
       <NavButton href="/about/our-mission">OUR MISSION</NavButton>
       <NavButton href="/about/our-story">OUR STORY</NavButton>
       <NavButton href="/about/our-values">OUR VALUES</NavButton>
@@ -53,12 +53,12 @@ const AboutHero: React.FC = () => {
   );
 };
 
-const AboutLayout: Layout = (page) => {
+const AboutLayout: Layout = ({ children }) => {
   return (
     <>
       <AboutHero />
       <AboutButtons />
-      {page}
+      {children}
       <SquareField
         squares={[
           { color: 'white', size: 16, top: 0 },

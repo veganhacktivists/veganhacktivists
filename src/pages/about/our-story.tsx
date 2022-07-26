@@ -21,7 +21,7 @@ const OurStory: PageWithLayout = () => {
         project, VeganActivism.org, we were overwhelmed by the response of
         people wanting to help us build more projects for the movement!
       </FirstSubSection>
-      <div className="m-10 pb-10">
+      <div className="pb-10 m-10">
         <div className="pb-5">
           <CustomImage
             src={pixelPig}
@@ -79,6 +79,6 @@ const OurStory: PageWithLayout = () => {
   );
 };
 
-OurStory.getLayout = AboutLayout;
+OurStory.Layout = AboutLayout;
 
 export default OurStory;
