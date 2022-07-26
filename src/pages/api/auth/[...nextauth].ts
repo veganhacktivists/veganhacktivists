@@ -2,8 +2,8 @@ import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-import { OUR_EMAIL } from '../../../lib/mail';
-import prisma from '../../../lib/db/prisma';
+import { OUR_EMAIL } from 'lib/mail';
+import prisma from 'lib/db/prisma';
 
 import type { NextAuthOptions } from 'next-auth';
 
@@ -27,19 +27,27 @@ const authOptions: NextAuthOptions = {
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    signIn: ({ user, email: { verificationRequest = false } }) => {
+    signIn: ({ email: { verificationRequest = false } }) => {
       if (verificationRequest) {
         return true;
       }
-      // Profile not completed, redirect
-      if (!user?.name) return '/auth/complete-signin';
+      // // Profile not completed, redirect
+      // if (!user?.name) return '/auth/complete-signin';
       // Everything is good, continue
       return true;
     },
-    session: ({ session, token }) => {
-      if (session?.user && token.sub) {
-        session.user.id = token.sub;
+    session: async ({ session, token }) => {
+      // TODO: maybe don't use JWT. Or add conditionals to avoid doing this DB access
+      const user = await prisma.user.findUniqueOrThrow({
+        where: { id: token.sub },
+      });
+      if (session?.user) {
+        if (token.sub) {
+          session.user.id = token.sub;
+        }
+        session.user.name = user.name;
       }
+
       delete session.user?.image;
       return session;
     },

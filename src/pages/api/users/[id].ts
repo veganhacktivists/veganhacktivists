@@ -10,7 +10,7 @@ import type { NextApiHandler } from 'next';
 
 const secret = process.env.NEXTAUTH_SECRET;
 
-type UserUpdateParams = Pick<User, 'id' | 'name'>;
+export type UserUpdateParams = Pick<User, 'id' | 'name'>;
 
 const userIdSchema = Joi.object<Pick<UserUpdateParams, 'id'>>({
   id: Joi.string().required(),
@@ -38,7 +38,7 @@ const handler: NextApiHandler<User> = validate(
         }
 
         const user = await updateUser(userId, req.body as UserUpdateParams);
-
+        token.name = user.name;
         return res.status(200).json(user);
       default:
         return res.status(HttpCodes.METHOD_NOT_ALLOWED).json({});

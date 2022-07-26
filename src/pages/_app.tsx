@@ -5,6 +5,8 @@ import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import useOnce from '../hooks/useOnce';
 
 import Header from 'components/layout/header';
@@ -37,18 +39,22 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const queryClient = new QueryClient();
+
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
 };
 
 const AppWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <SessionProvider>
-      <CookiesProvider>
-        <DefaultSeo {...SEO} />
-        {children}
-      </CookiesProvider>
-    </SessionProvider>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider>
+        <CookiesProvider>
+          <DefaultSeo {...SEO} />
+          {children}
+        </CookiesProvider>
+      </SessionProvider>
+    </QueryClientProvider>
   );
 };
 
