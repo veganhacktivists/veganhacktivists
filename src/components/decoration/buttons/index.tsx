@@ -342,6 +342,27 @@ const NavButton: React.FC<ButtonProps & { href: string }> = ({
   );
 };
 
+const OutlineButton: React.FC<ButtonProps> = ({
+  className,
+  active = false,
+  ...props
+}) => {
+  return (
+    <BaseButton
+      {...props}
+      className={classNames(
+        baseButtonClasses,
+        className,
+        'border-grey-dark border-l border focus:ring-0 bg-none',
+        {
+          'text-grey-dark': !active,
+          'text-white bg-grey-dark': active,
+        }
+      )}
+    />
+  );
+};
+
 export {
   ExternalLinkButton,
   SubmitButton,
@@ -356,4 +377,5 @@ export {
   GreenButton,
   NavButton,
   GreyButton,
+  OutlineButton,
 };
