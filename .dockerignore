@@ -13,4 +13,4 @@ node_modules
 README.md
 LICENSE
 getContentfulEnvironment.js
-
+prisma/seed.ts
