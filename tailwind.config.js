@@ -61,6 +61,9 @@ colors.gray = colors.grey;
 colors.pink = colors.magenta;
 colors.fuchsia = colors.magenta;
 
+/**
+ * @type import("tailwindcss").Config
+ */
 module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx}',

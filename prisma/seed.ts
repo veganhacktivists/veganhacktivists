@@ -1,5 +1,9 @@
 /* eslint-disable no-console */
-import { Priority, PrismaClient } from '@prisma/client';
+import {
+  PlaygroundRequestCategory,
+  Priority,
+  PrismaClient,
+} from '@prisma/client';
 
 import { faker } from '@faker-js/faker';
 
@@ -33,9 +37,11 @@ const seedRequests = async (n: number = NUMBER) => {
               precision: faker.helpers.arrayElement([0.01, 0.1]),
             })
           : faker.datatype.number({ min: 10, max: 10000 }),
-        category: faker.hacker.noun(),
+        category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
-        description: faker.hacker.phrase() + faker.lorem.paragraph(),
+        description:
+          faker.hacker.phrase() +
+          faker.lorem.paragraphs(faker.datatype.number(5)),
         dueDate: faker.date.future(),
         free: faker.datatype.boolean(),
         priority: faker.helpers.objectValue(Priority),
@@ -49,6 +55,7 @@ const seedRequests = async (n: number = NUMBER) => {
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
         organization: faker.company.companyName(),
+        createdAt: faker.date.recent(14),
       };
     });
   const { count } = await prisma.playgroundRequest.createMany({

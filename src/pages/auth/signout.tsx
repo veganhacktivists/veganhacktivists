@@ -1,8 +1,10 @@
-import { getSession, signOut, useSession } from 'next-auth/react';
+import { getSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 
 import { DarkButton } from '../../components/decoration/buttons';
+
+import { useSessionQuery } from 'lib/client/api/hooks/session';
 
 import type { GetServerSideProps, NextPage } from 'next';
 
@@ -17,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 };
 
 const SignOut: NextPage = () => {
-  const session = useSession();
+  const { data: session, isFetched } = useSessionQuery();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -29,7 +31,7 @@ const SignOut: NextPage = () => {
 
   return (
     <div className="p-10 bg-grey-background">
-      {session.status === 'authenticated' && (
+      {isFetched && !!session && (
         <DarkButton disabled={isLoading} onClick={handleSignOut}>
           Sign out!
         </DarkButton>

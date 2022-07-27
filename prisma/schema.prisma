@@ -83,26 +83,34 @@ model PlaygroundApplication {
   requestId           String?
 }
 
+enum PlaygroundRequestCategory {
+  Design
+  Website
+  Marketing
+  VideoProduction
+  SocialMedia
+}
+
 model PlaygroundRequest {
-  id                String                  @id @default(cuid())
+  id                String                    @id @default(cuid())
   applications      PlaygroundApplication[]
   phone             String?
   organization      String?
   website           String
   calendlyUrl       String?
   title             String
-  category          String
+  category          PlaygroundRequestCategory
   priority          Priority
   roleTitle         String
-  requiredSkills    String[]                @default([])
+  requiredSkills    String[]                  @default([])
   free              Boolean
-  budget            Decimal                 @db.Money
-  description       String                  @db.Text
-  dueDate           DateTime                @db.Date
+  budget            Decimal                   @db.Money
+  description       String                    @db.Text
+  dueDate           DateTime                  @db.Date
   estimatedTimeDays Int
-  requester         User                    @relation(fields: [requesterId], references: [id])
+  requester         User                      @relation(fields: [requesterId], references: [id])
   requesterId       String
-  isApproved        Boolean                 @default(false)
-  createdAt         DateTime                @default(now())
-  updatedAt         DateTime                @updatedAt
+  isApproved        Boolean                   @default(false)
+  createdAt         DateTime                  @default(now())
+  updatedAt         DateTime                  @updatedAt
 }

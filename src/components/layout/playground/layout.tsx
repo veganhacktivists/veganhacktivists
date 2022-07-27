@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 
 import { NextSeo } from 'next-seo';
 
-import heroImage from '../../../../public/images/playground/hero.jpeg';
+// TODO: get the image without the circles
+import heroImage from '../../../../public/images/playground/hero.jpg';
 
 import Hero from 'components/decoration/hero';
 
