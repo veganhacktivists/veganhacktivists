@@ -16,16 +16,50 @@ Because this team is so new we still have to document all of this somewhere, so 
   - [Introduction](#introduction)
   - [Table of contents](#table-of-contents)
   - [Getting Started](#getting-started)
+    - [Setting up env vars](#setting-up-env-vars)
+    - [Setting up the database](#setting-up-the-database)
+    - [Installing the dependencies](#installing-the-dependencies)
+    - [Migrate and seed the database](#migrate-and-seed-the-database)
     - [Coding conventions and guidelines](#coding-conventions-and-guidelines)
     - [Configuring your editor](#configuring-your-editor)
   - [Grab a card](#grab-a-card)
   - [Frequently Asked Questions](#frequently-asked-questions)
-    - [How should URLs be formatted?](#how-should-urls-be-formatted)
   - [Resources](#resources)
 
 ## Getting Started
 
-We use `pnpm` as a package manager. Install it whatever way fits you best https://pnpm.io/installation. Note that you need **at least version `>=7.0.0`**.
+### Setting up env vars
+
+There's a sample `.env.example` file with the values that need to be defined and some sensible defaults.
+
+```bash
+cp .env.example .env # .env.local works too!
+```
+
+To get the basic functionality to work you'll need at least:
+
+- CF_SPACE_ID
+- CF_DELIVERY_ACCESS_TOKEN
+
+Ask your team lead for any key you might need!
+
+### Setting up the database
+
+A `docker-compose.yml` file is included in the project. It requires a the database environment variables to be set up (see [Setting up env vars](#setting-up-env-vars)).
+
+```bash
+docker compose up -d db
+```
+
+This command will create a database container listening on the port 5432 of your machine. To stop it, run:
+
+```bash
+docker compose down
+```
+
+### Installing the dependencies
+
+We use `pnpm` as a package manager. Install it whatever way fits you best https://pnpm.io/installation. Note that **you need at least version `>=7.0.0`**.
 
 Install the dependencies:
 
@@ -41,9 +75,25 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+### Migrate and seed the database
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Your database will be empty by default. We use [prisma](https://prisma.io) as an ORM.
+
+Prisma will be installed along with the other dependencies if you followed the steps in [Installing the dependencies](#installing-the-dependencies).
+
+There are three key concepts at play here: `generate`, `migrate` and `seed`.
+
+- Running `pnpm prisma generate` will create the client that connects to the database, as well as the types to access them safely from the code. For example, given a `User` model, it will allow this:
+
+  ```ts
+  import type { User } from "@prisma/client";
+  import prisma from "lib/db/prisma";
+  const users = prisma.findMany(); // users is of User[] type!
+  ```
+
+- `pnpm prisma migrate dev` will apply all pending migrations to the database. If there are changes to the schema, it will also create a migration with those new changes. In production, migrations are applied during the build phase of the project. If you want to prototype database schemas it is recommended to use `pnpm prisma db push` instead, as it will avoid creating unnecessary migrations.
+
+- `pnpm prisma db seed` will run the `prisma/seed.ts` script. It's purpose is to populate the database with sample data to improve the development experience.
 
 ### Coding conventions and guidelines
 
@@ -71,9 +121,8 @@ Feel free to ask other team members to review Pull Requests.
 
 ## Frequently Asked Questions
 
-### How should URLs be formatted?
-
-URLs should use dashes (`-`) instead of underscores (`_`), so `/this-is/my/page` instead of `/this_is/my/page`?
+- ### How should URLs be formatted?
+  URLs should use dashes (`-`) instead of underscores (`_`), so `/this-is/my/page` should be used instead of `/this_is/my/page`.
 
 ## Resources
 
