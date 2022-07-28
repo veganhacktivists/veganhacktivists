@@ -20,30 +20,6 @@ interface PlaygroundRequestCardProps {
   request: Awaited<ReturnType<typeof getPlaygroundRequests>>[0];
 }
 
-const Li: React.FC<HTMLAttributes<HTMLLIElement>> = ({
-  children,
-  className,
-  ...props
-}) => (
-  <li
-    {...props}
-    className={classNames(
-      'flex flex-row gap-2 justify-start items-center',
-      className
-    )}
-  >
-    <span className="w-1.5 my-auto bg-red aspect-square" />
-    <span className="my-auto h-min">{children}</span>
-  </li>
-);
-
-const PRIORITY_CLASSES: Record<Priority, string> = {
-  Low: 'bg-green',
-  Medium: 'bg-yellow-orange',
-  High: 'bg-orange',
-  Urgent: 'bg-red',
-};
-
 const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
   Design: getThemeColor('magenta'),
   Website: getThemeColor('blue'),
@@ -55,6 +31,31 @@ const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
 const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> = {
   SocialMedia: 'Social Media',
   VideoProduction: 'Video Production',
+};
+
+const Li: React.FC<
+  HTMLAttributes<HTMLLIElement> & { category: PlaygroundRequestCategory }
+> = ({ children, className, category, ...props }) => (
+  <li
+    {...props}
+    className={classNames(
+      'flex flex-row gap-2 justify-start items-center',
+      className
+    )}
+  >
+    <span
+      style={{ backgroundColor: CATEGORY_COLORS[category] }}
+      className="w-1.5 h-1.5 my-auto aspect-square"
+    />
+    <span className="my-auto truncate h-min">{children}</span>
+  </li>
+);
+
+const PRIORITY_CLASSES: Record<Priority, string> = {
+  Low: 'bg-green',
+  Medium: 'bg-yellow-orange',
+  High: 'bg-orange',
+  Urgent: 'bg-red',
 };
 
 export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
@@ -121,12 +122,14 @@ export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
       </div>
 
       <div className="line-clamp-5">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-2">
-        <Li className="truncate" title={requester.name || undefined}>
-          <span className="font-bold">{requester.name}</span>{' '}
-          {!!organization && <>({organization})</>}
+      <ul className="grid content-end flex-grow grid-cols-2 gap-x-1">
+        <Li category={category} title={requester.name || undefined}>
+          <span>
+            <span className="font-bold">{requester.name}</span>{' '}
+            {!!organization && <>({organization})</>}
+          </span>
         </Li>
-        <Li>
+        <Li category={category}>
           <span className="font-bold">Priority:</span>{' '}
           <span
             className={classNames(
@@ -137,7 +140,7 @@ export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
             {priority}
           </span>
         </Li>
-        <Li className="col-span-full">
+        <Li category={category} className="col-span-full">
           <span className="font-bold">
             {free ? 'Volunteer role' : 'Paid role'}
           </span>
