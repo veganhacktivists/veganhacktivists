@@ -11,15 +11,13 @@ interface Context {
   previousSession: Session | null;
 }
 
-interface UseUpdateUserProps {
-  mutationOptions?: UseMutationOptions<
+export const useUpdateUser = (
+  mutationOptions: UseMutationOptions<
     InferMutationOutput<'users.updateMe'>,
     unknown,
     InferMutationInput<'users.updateMe'>
-  >;
-}
-
-export const useUpdateUser = ({ mutationOptions }: UseUpdateUserProps) => {
+  >
+) => {
   const queryClient = useQueryClient();
 
   return trpc.useMutation(['users.updateMe'], {

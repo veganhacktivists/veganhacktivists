@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 
@@ -8,13 +7,11 @@ import TextInput from 'components/forms/inputs/textInput';
 import { DarkButton } from 'components/decoration/buttons';
 import { useUpdateUser } from 'lib/client/api/hooks/users';
 import { useSessionQuery } from 'lib/client/api/hooks/session';
+import { updateUserSchema } from 'lib/services/users';
 
-const schema = z.object({
-  name: z.string().min(1),
-  userId: z.string(),
-});
+import type { z } from 'zod';
 
-const resolver = zodResolver(schema);
+const resolver = zodResolver(updateUserSchema);
 
 const CompleteSignin: React.FC = ({}) => {
   const { data: session, isFetched } = useSessionQuery();
@@ -25,7 +22,7 @@ const CompleteSignin: React.FC = ({}) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof schema>>({
+  } = useForm<z.infer<typeof updateUserSchema>>({
     resolver,
   });
 
@@ -37,10 +34,9 @@ const CompleteSignin: React.FC = ({}) => {
     onSuccess: onUserUpdate,
   });
 
-  const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
-    ({ userId, ...values }) => updateUser({ id: userId, ...values }),
-    [updateUser]
-  );
+  const onSubmit = useCallback<
+    (values: z.infer<typeof updateUserSchema>) => void
+  >((values) => updateUser(values), [updateUser]);
 
   if (!user?.id) return null;
 
@@ -53,7 +49,6 @@ const CompleteSignin: React.FC = ({}) => {
         onSubmit={handleSubmit(onSubmit)}
         className="w-1/2 mx-auto space-y-4"
       >
-        <input {...register('userId', { value: user.id })} type="hidden" />
         <TextInput {...register('name')} error={errors.name?.message}>
           Name
         </TextInput>
