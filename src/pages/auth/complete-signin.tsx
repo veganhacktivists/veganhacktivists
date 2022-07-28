@@ -17,7 +17,6 @@ import type { InferMutationInput } from 'types/trpcHelper';
 const resolver = zodResolver(updateUserSchema);
 
 const CompleteSignin: React.FC = ({}) => {
-  // eslint-disable-next-line no-restricted-syntax
   const { data: session, status } = useSession();
   const router = useRouter();
   const user = status === 'authenticated' ? session?.user : null;

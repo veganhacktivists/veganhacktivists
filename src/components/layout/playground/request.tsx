@@ -60,6 +60,7 @@ const PRIORITY_CLASSES: Record<Priority, string> = {
 
 export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
   request: {
+    id,
     title,
     priority,
     description,
@@ -67,7 +68,7 @@ export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
     createdAt,
     category,
     organization,
-    free,
+    isFree,
   },
 }) => {
   const timeSinceCreated = useMemo(() => {
@@ -142,11 +143,19 @@ export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
         </Li>
         <Li category={category} className="col-span-full">
           <span className="font-bold">
-            {free ? 'Volunteer role' : 'Paid role'}
+            {isFree ? 'Volunteer' : 'Paid'} role
           </span>
         </Li>
       </ul>
-      <DarkButton className="text-md">Read more/apply to help</DarkButton>
+      <DarkButton
+        href={{
+          pathname: '/playground/request/[id]',
+          query: { id },
+        }}
+        className="text-center text-md"
+      >
+        Read more/apply to help
+      </DarkButton>
     </div>
   );
 };

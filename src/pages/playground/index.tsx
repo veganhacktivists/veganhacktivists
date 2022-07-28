@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-import PlaygroundLayout from 'components/layout/playground/layout';
+import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 
@@ -11,9 +11,7 @@ import { trpc } from 'lib/client/trpc';
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
-  const { data: requests, isFetched } = trpc.useQuery([
-    'playground.getPlaygroundRequests',
-  ]);
+  const { data: requests, isFetched } = trpc.useQuery(['playground.requests']);
   return (
     <>
       <NextSeo title="Requests" />
@@ -36,5 +34,5 @@ const Playground: PageWithLayout = ({}) => {
   );
 };
 
-Playground.Layout = PlaygroundLayout;
+Playground.Layout = PlaygroundLandingLayout;
 export default Playground;

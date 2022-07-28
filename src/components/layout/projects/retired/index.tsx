@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { GreyButton } from '../../../decoration/buttons';
-import GreyBox from '../../../decoration/greyBox';
+import { GreyBox } from '../../../decoration/greyBoxes';
 import RichText from '../../../decoration/richText';
 import ContentfulImage from '../../contentfulImage';
 

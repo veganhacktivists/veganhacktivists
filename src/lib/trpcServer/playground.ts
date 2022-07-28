@@ -1,13 +1,49 @@
-import createRouter from './context';
+import { TRPCError } from '@trpc/server';
 
-import { getPlaygroundRequests } from 'lib/services/playground';
-import { getPlaygroundRequestsSchema } from 'lib/services/playground/schemas';
+import createRouter, { createProtectedRouter } from './context';
 
-const playgroundRouter = createRouter().query('getPlaygroundRequests', {
-  input: getPlaygroundRequestsSchema,
-  resolve: async ({ input }) => {
-    return await getPlaygroundRequests(input);
+import {
+  applyToHelp,
+  getPlaygroundRequests,
+  getRequestById,
+} from 'lib/services/playground';
+import {
+  applyToRequestSchema,
+  getPlaygroundRequestsSchema,
+  getRequestByIdSchema,
+} from 'lib/services/playground/schemas';
+
+const protectedPlaygroundRouter = createProtectedRouter().mutation('apply', {
+  input: applyToRequestSchema,
+  resolve: async ({ input, ctx: { user } }) => {
+    const newApplication = await applyToHelp({
+      ...input,
+      requesterId: user.id,
+    });
+    return newApplication;
   },
 });
 
-export default playgroundRouter;
+const playgroundRouter = createRouter()
+  .query('requests', {
+    input: getPlaygroundRequestsSchema,
+    resolve: async ({ input }) => {
+      return await getPlaygroundRequests(input);
+    },
+  })
+  .query('request', {
+    input: getRequestByIdSchema,
+    resolve: async ({ input, ctx: { user } }) => {
+      const userId = user?.id;
+      try {
+        const request = await getRequestById(input, userId);
+        return request;
+      } catch {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+        });
+      }
+    },
+  });
+
+export default playgroundRouter.merge(protectedPlaygroundRouter);

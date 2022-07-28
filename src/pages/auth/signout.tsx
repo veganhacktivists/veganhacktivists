@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 };
 
 const SignOut: NextPage = () => {
-  // eslint-disable-next-line no-restricted-syntax
   const { status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();

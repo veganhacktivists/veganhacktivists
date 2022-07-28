@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-import PlaygroundLayout from 'components/layout/playground/layout';
+import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import type PageWithLayout from 'types/persistentLayout';
 
@@ -13,6 +13,6 @@ const SubmitRequest: PageWithLayout = ({}) => {
   );
 };
 
-SubmitRequest.Layout = PlaygroundLayout;
+SubmitRequest.Layout = PlaygroundLandingLayout;
 
 export default SubmitRequest;

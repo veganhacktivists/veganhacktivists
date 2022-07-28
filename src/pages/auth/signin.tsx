@@ -27,10 +27,7 @@ const resolver = zodResolver(signInSchema);
 
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const {
-    status,
-    // eslint-disable-next-line no-restricted-syntax
-  } = useSession();
+  const { status } = useSession();
 
   const [providers, setProviders] =
     useState<Awaited<ReturnType<typeof getProviders>>>(null);
