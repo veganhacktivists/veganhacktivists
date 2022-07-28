@@ -31,7 +31,7 @@ CREATE TABLE "PlaygroundRequest" (
     "priority" "Priority" NOT NULL,
     "roleTitle" TEXT NOT NULL,
     "requiredSkills" TEXT[] DEFAULT ARRAY[]::TEXT[],
-    "free" BOOLEAN NOT NULL,
+    "isFree" BOOLEAN NOT NULL,
     "budget" MONEY NOT NULL,
     "description" TEXT NOT NULL,
     "dueDate" DATE NOT NULL,

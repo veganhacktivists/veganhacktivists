@@ -43,7 +43,7 @@ const seedRequests = async (n: number = NUMBER) => {
           faker.hacker.phrase() +
           faker.lorem.paragraphs(faker.datatype.number(5)),
         dueDate: faker.date.future(),
-        free: faker.datatype.boolean(),
+        isFree: faker.datatype.boolean(),
         priority: faker.helpers.objectValue(Priority),
         roleTitle: faker.hacker.noun(),
         requiredSkills: faker.helpers.uniqueArray(

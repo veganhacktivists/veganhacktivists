@@ -103,7 +103,7 @@ model PlaygroundRequest {
   priority          Priority
   roleTitle         String
   requiredSkills    String[]                  @default([])
-  free              Boolean
+  isFree            Boolean
   budget            Decimal                   @db.Money
   description       String                    @db.Text
   dueDate           DateTime                  @db.Date
