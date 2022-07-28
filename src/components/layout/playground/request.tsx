@@ -11,14 +11,13 @@ import { DarkButton } from 'components/decoration/buttons';
 
 import getThemeColor from 'lib/helpers/theme';
 
-import type { PlaygroundRequestCategory, Priority } from '@prisma/client';
+import type { getPlaygroundRequests } from 'lib/services/playground';
 
+import type { PlaygroundRequestCategory, Priority } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
-import type { PlaygroundRequestType } from 'lib/client/api/hooks/playgroundRequests';
-
 interface PlaygroundRequestCardProps {
-  request: PlaygroundRequestType;
+  request: Awaited<ReturnType<typeof getPlaygroundRequests>>[0];
 }
 
 const Li: React.FC<HTMLAttributes<HTMLLIElement>> = ({
@@ -72,7 +71,12 @@ export const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
 }) => {
   const timeSinceCreated = useMemo(() => {
     const timeDiff = DateTime.now()
-      .diff(DateTime.fromISO(createdAt), ['years', 'months', 'weeks', 'days'])
+      .diff(DateTime.fromJSDate(createdAt), [
+        'years',
+        'months',
+        'weeks',
+        'days',
+      ])
       .normalize()
       .toObject();
 

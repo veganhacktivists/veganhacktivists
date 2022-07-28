@@ -1,15 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient, useMutation } from 'react-query';
 
 import apiClient from '..';
 
+import type { UseMutationResult, UseMutationOptions } from 'react-query';
+
 import type { Session } from 'next-auth';
-
 import type { UserUpdateParams } from 'pages/api/users/[id]';
-import type {
-  UseMutationResult,
-  UseMutationOptions,
-} from '@tanstack/react-query';
-
 import type { User } from '@prisma/client';
 
 interface Context {

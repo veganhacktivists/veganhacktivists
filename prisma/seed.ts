@@ -56,6 +56,7 @@ const seedRequests = async (n: number = NUMBER) => {
         phone: faker.phone.number(),
         organization: faker.company.companyName(),
         createdAt: faker.date.recent(14),
+        isApproved: faker.datatype.boolean(),
       };
     });
   const { count } = await prisma.playgroundRequest.createMany({

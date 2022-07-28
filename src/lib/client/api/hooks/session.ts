@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 
 import { getSession } from 'next-auth/react';
 
-import type { UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
+import type { UseQueryOptions, UseQueryResult } from 'react-query';
 
 import type { Session } from 'next-auth';
 

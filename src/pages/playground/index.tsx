@@ -4,14 +4,16 @@ import PlaygroundLayout from 'components/layout/playground/layout';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 
-import { usePlaygroundRequests } from 'lib/client/api/hooks/playgroundRequests';
-
 import { PlaygroundRequestCard } from 'components/layout/playground/request';
+
+import { trpc } from 'lib/client/trpc';
 
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
-  const { data: requests, isFetched } = usePlaygroundRequests();
+  const { data: requests, isFetched } = trpc.useQuery([
+    'getPlaygroundRequests',
+  ]);
   return (
     <>
       <NextSeo title="Requests" />
