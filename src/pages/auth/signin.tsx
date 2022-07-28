@@ -1,8 +1,8 @@
 import { getProviders, signIn } from 'next-auth/react';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Joi from 'joi';
-import { joiResolver } from '@hookform/resolvers/joi';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
@@ -20,14 +20,12 @@ interface SignInForm {
   // name: string;
 }
 
-const signInSchema = Joi.object<SignInForm>({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .required(),
+const signInSchema = z.object({
+  email: z.string().email(),
   // name: Joi.string().required(),
-}).required();
+});
 
-const resolver = joiResolver(signInSchema);
+const resolver = zodResolver(signInSchema);
 
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
-import Joi from 'joi';
-import { joiResolver } from '@hookform/resolvers/joi';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 
 import TextInput from 'components/forms/inputs/textInput';
@@ -9,17 +9,12 @@ import { DarkButton } from 'components/decoration/buttons';
 import { useUpdateUser } from 'lib/client/api/hooks/users';
 import { useSessionQuery } from 'lib/client/api/hooks/session';
 
-interface ExtraInfoParams {
-  userId: string;
-  name: string;
-}
+const schema = z.object({
+  name: z.string().min(1),
+  userId: z.string(),
+});
 
-const schema = Joi.object<ExtraInfoParams>({
-  name: Joi.string().required(),
-  userId: Joi.string().required(),
-}).required();
-
-const resolver = joiResolver(schema);
+const resolver = zodResolver(schema);
 
 const CompleteSignin: React.FC = ({}) => {
   const { data: session, isFetched } = useSessionQuery();
@@ -30,7 +25,7 @@ const CompleteSignin: React.FC = ({}) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ExtraInfoParams>({
+  } = useForm<z.infer<typeof schema>>({
     resolver,
   });
 

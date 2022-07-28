@@ -1,24 +1,19 @@
-import * as trpc from '@trpc/server';
 import * as trpcNext from '@trpc/server/adapters/next';
+
 import superjson from 'superjson';
 
-import {
-  getPlaygroundRequests,
-  getPlaygroundRequestsSchema,
-} from 'lib/services/playground';
+import playgroundRouter from 'lib/trpcServer/playground';
+import usersRouter from 'lib/trpcServer/users';
+import createRouter, { createContext } from 'lib/trpcServer/context';
 
-export const appRouter = trpc
-  .router()
+export const appRouter = createRouter()
   .transformer(superjson)
-  .query('getPlaygroundRequests', {
-    input: getPlaygroundRequestsSchema,
-    resolve: async ({ input }) => {
-      return await getPlaygroundRequests(input);
-    },
-  });
+  .merge('playground.', playgroundRouter)
+  .merge('users.', usersRouter);
+
 export type AppRouter = typeof appRouter;
 
 export default trpcNext.createNextApiHandler({
   router: appRouter,
-  createContext: () => null,
+  createContext,
 });
