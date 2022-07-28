@@ -2,7 +2,8 @@ import { TRPCError } from '@trpc/server';
 
 import createRouter from './context';
 
-import { updateUser, updateUserSchema } from 'lib/services/users';
+import { updateUser } from 'lib/services/users';
+import { updateUserSchema } from 'lib/services/users/schemas';
 
 const usersRouter = createRouter().mutation('updateMe', {
   input: updateUserSchema,

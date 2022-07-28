@@ -3,26 +3,30 @@ import { useCallback } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 
+import { useSession } from 'next-auth/react';
+
 import TextInput from 'components/forms/inputs/textInput';
 import { DarkButton } from 'components/decoration/buttons';
 import { useUpdateUser } from 'lib/client/api/hooks/users';
-import { useSessionQuery } from 'lib/client/api/hooks/session';
-import { updateUserSchema } from 'lib/services/users';
+
+import { updateUserSchema } from 'lib/services/users/schemas';
 
 import type { z } from 'zod';
+import type { InferMutationInput } from 'types/trpcHelper';
 
 const resolver = zodResolver(updateUserSchema);
 
 const CompleteSignin: React.FC = ({}) => {
-  const { data: session, isFetched } = useSessionQuery();
+  // eslint-disable-next-line no-restricted-syntax
+  const { data: session, status } = useSession();
   const router = useRouter();
-  const user = isFetched ? session?.user : null;
+  const user = status === 'authenticated' ? session?.user : null;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof updateUserSchema>>({
+  } = useForm<InferMutationInput<'users.updateMe'>>({
     resolver,
   });
 

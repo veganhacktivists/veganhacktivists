@@ -1,9 +1,7 @@
 import createRouter from './context';
 
-import {
-  getPlaygroundRequests,
-  getPlaygroundRequestsSchema,
-} from 'lib/services/playground';
+import { getPlaygroundRequests } from 'lib/services/playground';
+import { getPlaygroundRequestsSchema } from 'lib/services/playground/schemas';
 
 const playgroundRouter = createRouter().query('getPlaygroundRequests', {
   input: getPlaygroundRequestsSchema,

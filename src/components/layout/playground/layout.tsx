@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
 // TODO: get the image without the circles
+import { useSession } from 'next-auth/react';
+
 import heroImage from '../../../../public/images/playground/hero.jpg';
 
 import Hero from 'components/decoration/hero';
 
 import { OutlineButton } from 'components/decoration/buttons';
-
-import { useSessionQuery } from 'lib/client/api/hooks/session';
 
 import type { Layout } from 'types/persistentLayout';
 
@@ -17,7 +17,8 @@ const PlaygroundLayout: Layout = ({ children }) => {
   const router = useRouter();
   const showRequests = router.pathname === '/playground';
 
-  const { data: session, isFetched } = useSessionQuery();
+  // eslint-disable-next-line no-restricted-syntax
+  const { data: session, status } = useSession();
 
   // TODO: put the real tagline here, stop messing up the padding
   return (
@@ -47,7 +48,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
           </div>
         </Hero>
       </div>
-      {isFetched && session?.user && (
+      {status === 'authenticated' && session?.user && (
         <div>
           Logged in as {session.user.name} ({session.user.email})
         </div>

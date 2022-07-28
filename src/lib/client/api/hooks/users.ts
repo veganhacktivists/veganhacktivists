@@ -1,10 +1,9 @@
-import { useQueryClient } from 'react-query';
-
 import { trpc } from 'lib/client/trpc';
+
+import type { UseTRPCMutationOptions } from '@trpc/react';
 
 import type { InferMutationInput, InferMutationOutput } from 'types/trpcHelper';
 
-import type { UseMutationOptions } from 'react-query';
 import type { Session } from 'next-auth';
 
 interface Context {
@@ -12,14 +11,13 @@ interface Context {
 }
 
 export const useUpdateUser = (
-  mutationOptions: UseMutationOptions<
-    InferMutationOutput<'users.updateMe'>,
+  mutationOptions: UseTRPCMutationOptions<
+    InferMutationInput<'users.updateMe'>,
     unknown,
-    InferMutationInput<'users.updateMe'>
+    InferMutationOutput<'users.updateMe'>
   >
 ) => {
-  const queryClient = useQueryClient();
-
+  const { queryClient } = trpc.useContext();
   return trpc.useMutation(['users.updateMe'], {
     ...mutationOptions,
     onMutate: async (user) => {

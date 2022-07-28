@@ -1,4 +1,4 @@
-import { getProviders, signIn } from 'next-auth/react';
+import { getProviders, signIn, useSession } from 'next-auth/react';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -9,8 +9,6 @@ import { DarkButton } from '../../components/decoration/buttons';
 
 import useOnce from 'hooks/useOnce';
 import Spinner from 'components/decoration/spinner';
-
-import { useSessionQuery } from 'lib/client/api/hooks/session';
 
 import type { NextPage } from 'next';
 import type { SignInResponse } from 'next-auth/react';
@@ -30,10 +28,9 @@ const resolver = zodResolver(signInSchema);
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const {
-    data: session,
-    isLoading: isSessionLoading,
-    isFetched: isSessioNFetched,
-  } = useSessionQuery();
+    status,
+    // eslint-disable-next-line no-restricted-syntax
+  } = useSession();
 
   const [providers, setProviders] =
     useState<Awaited<ReturnType<typeof getProviders>>>(null);
@@ -67,11 +64,11 @@ const SignIn: NextPage = () => {
     []
   );
 
-  if (isLoading || isSessionLoading) {
+  if (isLoading || status === 'loading') {
     return <Spinner />;
   }
 
-  if (isSessioNFetched && !!session) {
+  if (status === 'authenticated') {
     return <div>You are already logged in?</div>;
   }
 
