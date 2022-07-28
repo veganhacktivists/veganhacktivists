@@ -30,8 +30,9 @@ const CompleteSignin: React.FC = ({}) => {
     resolver,
   });
 
-  const onUserUpdate = useCallback(() => {
-    void router.push('/playground');
+  const onUserUpdate = useCallback(async () => {
+    await router.push('/playground');
+    router.reload();
   }, [router]);
 
   const { mutate: updateUser, isLoading } = useUpdateUser({

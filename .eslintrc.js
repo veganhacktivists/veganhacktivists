@@ -24,14 +24,6 @@ module.exports = {
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     'prettier/prettier': ['error'],
-    'no-restricted-syntax': [
-      'error',
-      {
-        selector: "CallExpression[callee.name='useSession']",
-        message:
-          'Use useSessionQuery instead, as it is correctly invalidated and refetched when upstream changes occur',
-      },
-    ],
     'react/button-has-type': ['error'],
     'no-console': ['warn'],
     'react/self-closing-comp': ['warn'],
