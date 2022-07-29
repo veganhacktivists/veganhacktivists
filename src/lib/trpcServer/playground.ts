@@ -18,7 +18,7 @@ const protectedPlaygroundRouter = createProtectedRouter().mutation('apply', {
   resolve: async ({ input, ctx: { user } }) => {
     const newApplication = await applyToHelp({
       ...input,
-      requesterId: user.id,
+      applicantId: user.id,
     });
     return newApplication;
   },

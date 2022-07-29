@@ -70,19 +70,19 @@ export const getRequestById = async (
 };
 
 export const applyToHelp = async (
-  params: z.infer<typeof applyToRequestSchema> & { requesterId: string }
+  params: z.infer<typeof applyToRequestSchema> & { applicantId: string }
 ) => {
   try {
     const [newRequest] = await prisma.$transaction([
       prisma.playgroundApplication.create({
         data: {
           ...params,
-          applicantId: params.requesterId,
+          applicantId: params.applicantId,
         },
       }),
       prisma.user.update({
         where: {
-          id: params.requesterId,
+          id: params.applicantId,
         },
         data: {
           name: params.name,

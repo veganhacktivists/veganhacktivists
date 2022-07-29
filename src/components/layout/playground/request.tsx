@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -8,16 +8,16 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames';
 
 import { Controller, useForm } from 'react-hook-form';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-
 import { useSession } from 'next-auth/react';
+
+import SignInPrompt from './siginInPrompt';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
 
 import { DarkButton } from 'components/decoration/buttons';
 
-import { applyToRequestSchema } from 'lib/services/playground/schemas';
+import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
 
 import useOnce from 'hooks/useOnce';
 
@@ -33,7 +33,7 @@ import SubtleBorder from 'components/decoration/subtleBorder';
 
 import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
 
-import type { UseFormRegister } from 'react-hook-form';
+import type { z } from 'zod';
 
 import type { InferMutationInput, InferQueryOutput } from 'types/trpcHelper';
 
@@ -130,6 +130,8 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
+type FormInput = z.infer<typeof applyToRequestSchemaClient>;
+
 const MainForm: React.FC<RequestProps> = ({ request }) => {
   const { data: session, status: sessionStatus } = useSession();
   const storedForm = usePlaygroundApplyStore((state) =>
@@ -141,6 +143,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const clearFormData = usePlaygroundApplyStore((state) =>
     state.resetForm(request.id)
   );
+
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const onModalClose = useCallback(() => {
+    setIsSignInModalOpen(false);
+  }, []);
 
   const {
     handleSubmit,
@@ -156,19 +163,17 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       hasAppliedInThePast: request.userAlreadyApplied,
       requestId: request.id,
     },
-    resolver: zodResolver(applyToRequestSchema),
+    resolver: zodResolver(applyToRequestSchemaClient),
   });
 
   const onChangeValue = useCallback(
-    (name: keyof InferMutationInput<'playground.apply'>) => (value: unknown) => {
+    (name: keyof FormInput) => (value: unknown) => {
       setFormData({ [name]: value });
     },
     [setFormData]
   );
 
-  const myRegister = useCallback<
-    UseFormRegister<InferMutationInput<'playground.apply'>>
-  >(
+  const myRegister = useCallback<typeof register>(
     (name, options) => {
       return register(name, {
         ...options,
@@ -184,15 +189,19 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
   useOnce(
     () => {
-      const name = session?.user?.name;
+      if (!session?.user) return;
+      const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
+      }
+      if (email && !watch('providedEmail')) {
+        setValue('providedEmail', email);
       }
     },
     { enabled: sessionStatus === 'authenticated' }
   );
 
-  const { mutate } = trpc.useMutation(['playground.apply'], {
+  const { mutate, isLoading } = trpc.useMutation(['playground.apply'], {
     onSuccess: () => {
       clearFormData();
       reset();
@@ -200,149 +209,173 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   });
   const onSubmit = useCallback(
     (values: InferMutationInput<'playground.apply'>) => {
-      mutate(values);
+      if (sessionStatus === 'authenticated') {
+        mutate(values);
+        return;
+      }
+
+      setIsSignInModalOpen(true);
     },
-    [mutate]
+    [mutate, sessionStatus]
   );
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col flex-grow gap-5 px-10 text-left"
-    >
-      <div className="text-2xl font-medium font-italic">
-        Would you like to apply to help with this issue?
-      </div>
-      <TextInput
-        error={errors.name?.message}
-        {...myRegister('name')}
-        placeholder="Your name"
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col flex-grow gap-5 px-10 text-left"
       >
-        Name
-      </TextInput>
-      <div className="flex flex-row gap-5">
+        <div className="text-2xl font-medium font-italic">
+          Would you like to apply to help with this issue?
+        </div>
         <TextInput
-          error={errors.email?.message}
-          {...myRegister('email')}
-          className="w-full"
-          placeholder="name@example.com"
+          error={errors.name?.message}
+          {...myRegister('name')}
+          placeholder="Your name"
         >
-          Email
+          Name
         </TextInput>
-        <TextInput
-          className="w-full"
-          error={errors.portfolioLink?.message}
-          {...myRegister('portfolioLink')}
-          placeholder="yourportfolio.com"
-        >
-          Portfolio link
-        </TextInput>
-      </div>
-      <div className="flex flex-row gap-5">
-        <TextInput
-          error={errors.twitter?.message}
-          {...myRegister('twitter')}
-          placeholder="@yourhandle"
-          className="w-full"
-        >
-          Twitter
-        </TextInput>
-        <TextInput
-          className="w-full"
-          error={errors.instagram?.message}
-          {...myRegister('instagram')}
-          placeholder="@yourhandle"
-        >
-          Instagram
-        </TextInput>
-        <TextInput
-          className="w-full"
-          error={errors.linkedin?.message}
-          {...myRegister('linkedin')}
-          placeholder="LinkedIn username"
-        >
-          LinkedIn
-        </TextInput>
-      </div>
-      <div className="flex flex-row justify-start gap-5">
-        <div>Have you applied for a Playground role in the past?</div>
-        <Controller
-          control={control}
-          name="hasAppliedInThePast"
-          render={({ field: { value, onChange } }) => (
-            <>
-              <RadioButton
-                onChange={() => {
-                  setFormData({ hasAppliedInThePast: true });
-                  onChange(true);
-                }}
-                checked={value === true}
-                label="Yes"
-              />
-              <RadioButton
-                onChange={() => {
-                  setFormData({ hasAppliedInThePast: false });
+        <div className="flex flex-row gap-5">
+          <TextInput
+            error={errors.providedEmail?.message}
+            {...myRegister('providedEmail')}
+            className="w-full"
+            placeholder="name@example.com"
+          >
+            Email
+          </TextInput>
+          <TextInput
+            className="w-full"
+            error={errors.portfolioLink?.message}
+            {...myRegister('portfolioLink')}
+            placeholder="yourportfolio.com"
+          >
+            Portfolio link
+          </TextInput>
+        </div>
+        <div className="flex flex-row gap-5">
+          <TextInput
+            error={errors.twitterUrl?.message}
+            {...myRegister('twitterUrl')}
+            placeholder="@yourhandle"
+            className="w-full"
+          >
+            Twitter
+          </TextInput>
+          <TextInput
+            className="w-full"
+            error={errors.instagramUrl?.message}
+            {...myRegister('instagramUrl')}
+            placeholder="@yourhandle"
+          >
+            Instagram
+          </TextInput>
+          <TextInput
+            className="w-full"
+            error={errors.linkedinUrl?.message}
+            {...myRegister('linkedinUrl')}
+            placeholder="LinkedIn username"
+          >
+            LinkedIn
+          </TextInput>
+        </div>
+        <div className="flex flex-row justify-start gap-5">
+          <div>Have you applied for a Playground role in the past?</div>
+          <Controller
+            control={control}
+            name="hasAppliedInThePast"
+            render={({ field: { value, onChange } }) => (
+              <>
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ hasAppliedInThePast: true });
+                    onChange(true);
+                  }}
+                  checked={value === true}
+                  label="Yes"
+                />
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ hasAppliedInThePast: false });
 
-                  onChange(false);
-                }}
-                checked={value === false}
-                label="No"
-              />
-            </>
-          )}
-        />
-      </div>
-      <div className="flex flex-row justify-start gap-5">
-        <div>Are you vegan?</div>
-        <Controller
-          control={control}
-          name="isVegan"
-          render={({ field: { value, onChange } }) => (
-            <>
-              <RadioButton
-                onChange={() => {
-                  setFormData({ isVegan: true });
+                    onChange(false);
+                  }}
+                  checked={value === false}
+                  label="No"
+                />
+              </>
+            )}
+          />
+        </div>
+        <div className="flex flex-row justify-start gap-5">
+          <div>Are you vegan?</div>
+          <Controller
+            control={control}
+            name="isVegan"
+            render={({ field: { value, onChange } }) => (
+              <>
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ isVegan: true });
 
-                  onChange(true);
-                }}
-                checked={value === true}
-                label="Yes"
-              />
-              <RadioButton
-                onChange={() => {
-                  setFormData({ isVegan: true });
-                  onChange(false);
-                }}
-                checked={value === false}
-                label="No"
-              />
-            </>
-          )}
-        />
-      </div>
-      <TextInput
-        error={errors.calendlyUrl?.message}
-        {...myRegister('calendlyUrl')}
-        placeholder="calendly.com/yourname"
-      >
-        Link to your Calendly, if you have one
-      </TextInput>
-      <TextInput
-        {...myRegister('moreInfo')}
-        placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
-      >
-        Is there anything else you&apos;d like to add?
-      </TextInput>
-      <Checkbox {...myRegister('commitToHelping')}>
-        I understand that by applying to help that I will in a timely manner
-        reasonably commit to helping this organization or person for the
-        animals.
-      </Checkbox>
-      <Checkbox {...myRegister('agreeToTerms')}>
-        I agree to the VH: Playground terms and conditions.
-      </Checkbox>
-      <DarkButton type="submit">Apply</DarkButton>
-    </form>
+                    onChange(true);
+                  }}
+                  checked={value === true}
+                  label="Yes"
+                />
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ isVegan: true });
+                    onChange(false);
+                  }}
+                  checked={value === false}
+                  label="No"
+                />
+              </>
+            )}
+          />
+        </div>
+        <TextInput
+          error={errors.calendlyUrl?.message}
+          {...myRegister('calendlyUrl')}
+          placeholder="calendly.com/yourname"
+        >
+          Link to your Calendly, if you have one
+        </TextInput>
+        <TextInput
+          {...myRegister('moreInfo')}
+          placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
+        >
+          Is there anything else you&apos;d like to add?
+        </TextInput>
+        <Checkbox
+          {...myRegister('commitToHelping')}
+          onChange={(e) => {
+            setValue('commitToHelping', e.currentTarget.checked);
+          }}
+        >
+          I understand that by applying to help that I will in a timely manner
+          reasonably commit to helping this organization or person for the
+          animals.
+        </Checkbox>
+        <Checkbox
+          {...myRegister('agreeToTerms')}
+          onChange={(e) => {
+            setValue('agreeToTerms', e.currentTarget.checked);
+          }}
+        >
+          I agree to the VH: Playground terms and conditions.
+        </Checkbox>
+        <DarkButton disabled={isLoading} type="submit">
+          Apply
+        </DarkButton>
+      </form>
+      <SignInPrompt
+        isOpen={isSignInModalOpen}
+        onClose={onModalClose}
+        email={watch('providedEmail')}
+      />
+    </>
   );
 };
 

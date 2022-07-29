@@ -21,7 +21,7 @@ export const nextAuthOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    newUser: '/auth/complete-signin',
+    // newUser: '/auth/complete-signin',
     signIn: '/auth/signin',
     signOut: '/auth/signout',
     verifyRequest: '/auth/verify-request',
@@ -46,6 +46,7 @@ export const nextAuthOptions: NextAuthOptions = {
           session.user.id = token.sub;
         }
         session.user.name = user.name;
+        session.user.email = user.email;
       }
 
       delete session.user?.image;

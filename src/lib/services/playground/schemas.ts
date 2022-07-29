@@ -33,7 +33,7 @@ export const getPlaygroundRequestsSchema = paginationSchema
 const urlValidator = () =>
   z.preprocess((val) => {
     const toStr = String(val);
-    if (toStr.startsWith('http"//') || toStr.startsWith('https://')) {
+    if (toStr.startsWith('http://') || toStr.startsWith('https://')) {
       return toStr;
     }
     return `http://${toStr}`;
@@ -42,17 +42,29 @@ const urlValidator = () =>
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
   name: z.string().min(1),
-  email: z.string().email(),
+  providedEmail: z.string().email(),
   portfolioLink: urlValidator().optional(),
-  twitter: z.string().optional(),
-  instagram: z.string().optional(),
-  linkedin: z.string().optional(),
+  twitterUrl: z.string().optional(),
+  instagramUrl: z.string().optional(),
+  linkedinUrl: z.string().optional(),
   hasAppliedInThePast: z.boolean(),
   isVegan: z.boolean(),
   calendlyUrl: urlValidator().optional(),
   moreInfo: z.string().optional(),
-
-  // check those parameters are set, and delete them from the request aferwards
-  commitToHelping: z.literal(true).transform(() => undefined),
-  agreeToTerms: z.literal(true).transform(() => undefined),
+  commitToHelping: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
+  agreeToTerms: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
 });
+
+export const applyToRequestSchemaClient = applyToRequestSchema.merge(
+  z.object({
+    // check those parameters are set, and delete them from the request aferwards
+    commitToHelping: z.boolean().refine((x) => !!x),
+    agreeToTerms: z.boolean().refine((x) => !!x),
+  })
+);

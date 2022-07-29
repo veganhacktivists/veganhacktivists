@@ -67,8 +67,9 @@ enum Priority {
 }
 
 model PlaygroundApplication {
-  id                  String             @id @default(cuid())
-  applicant           User               @relation(fields: [applicantId], references: [id])
+  id                  String            @id @default(cuid())
+  providedEmail       String
+  applicant           User              @relation(fields: [applicantId], references: [id])
   applicantId         String
   name                String
   portfolioLink       String?
@@ -79,10 +80,10 @@ model PlaygroundApplication {
   isVegan             Boolean
   calendlyUrl         String?
   moreInfo            String?
-  Request             PlaygroundRequest? @relation(fields: [requestId], references: [id])
-  requestId           String?
+  Request             PlaygroundRequest @relation(fields: [requestId], references: [id])
+  requestId           String
 
-  @@unique([id, applicantId])
+  @@unique([requestId, applicantId])
 }
 
 enum PlaygroundRequestCategory {

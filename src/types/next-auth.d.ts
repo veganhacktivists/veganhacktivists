@@ -5,7 +5,7 @@ interface UserCustomFields {
 }
 
 declare module 'next-auth' {
-  interface Session {
+  interface Session extends DefaultSession {
     user?: DefaultSession['user'] & UserCustomFields;
   }
 }
