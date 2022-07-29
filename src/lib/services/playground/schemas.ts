@@ -30,17 +30,26 @@ export const getPlaygroundRequestsSchema = paginationSchema
   )
   .optional();
 
+const urlValidator = () =>
+  z.preprocess((val) => {
+    const toStr = String(val);
+    if (toStr.startsWith('http"//') || toStr.startsWith('https://')) {
+      return toStr;
+    }
+    return `http://${toStr}`;
+  }, z.string().url().optional());
+
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
-  name: z.string().min(1), // TODO: autifill from session! But in the form, it should still appear here
+  name: z.string().min(1),
   email: z.string().email(),
-  portfolioLink: z.string().url().optional(),
+  portfolioLink: urlValidator().optional(),
   twitter: z.string().optional(),
   instagram: z.string().optional(),
   linkedin: z.string().optional(),
   hasAppliedInThePast: z.boolean(),
   isVegan: z.boolean(),
-  calendlyUrl: z.string().url().optional(),
+  calendlyUrl: urlValidator().optional(),
   moreInfo: z.string().optional(),
 
   // check those parameters are set, and delete them from the request aferwards

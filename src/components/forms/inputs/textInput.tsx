@@ -21,7 +21,8 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             inputClassNames,
             'w-full',
             {
-              'ring-2 ring-red': error,
+              'ring-2 ring-red focus:ring-red focus:ring-2 focus-visible:outline-none focus-visible:ring-[3px]':
+                error,
             }
             // className
           )}

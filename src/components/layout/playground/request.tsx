@@ -7,7 +7,7 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 import classNames from 'classnames';
 
-import { Controller, useForm, useWatch } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -28,6 +28,12 @@ import { trpc } from 'lib/client/trpc';
 import RadioButton from 'components/forms/inputs/radioButton';
 
 import Checkbox from 'components/forms/inputs/checkbox';
+
+import SubtleBorder from 'components/decoration/subtleBorder';
+
+import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
+
+import type { UseFormRegister } from 'react-hook-form';
 
 import type { InferMutationInput, InferQueryOutput } from 'types/trpcHelper';
 
@@ -58,7 +64,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   }, [request]);
 
   return (
-    <div className="px-10 md:px-40">
+    <div className="px-10 mb-5 md:px-40">
       <div
         className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
           'border-pink text-pink': request.isFree,
@@ -80,14 +86,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             <div>{request.requiredSkills.join(', ')}</div>
           </Field>
         </div>
-        <div className="flex flex-col gap-1 p-2 min-w-fit bg-grey-background h-fit">
+        <SubtleBorder className="flex flex-col gap-1 p-2 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
           <Field title="Priority">{request.priority}</Field>
           <Field title="Due date">{createdAtFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
-        </div>
+        </SubtleBorder>
       </div>
       <div className="text-left font-italic text-grey-light">
         <FontAwesomeIcon icon={faClock} /> Posted {timeSinceCreated} ago
@@ -126,46 +132,78 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
 
 const MainForm: React.FC<RequestProps> = ({ request }) => {
   const { data: session, status: sessionStatus } = useSession();
+  const storedForm = usePlaygroundApplyStore((state) =>
+    state.getForm(request.id)
+  );
+  const setFormData = usePlaygroundApplyStore((state) =>
+    state.setForm(request.id)
+  );
+  const clearFormData = usePlaygroundApplyStore((state) =>
+    state.resetForm(request.id)
+  );
 
   const {
     handleSubmit,
     setValue,
     register,
     formState: { errors },
+    reset,
     control,
+    watch,
   } = useForm<InferMutationInput<'playground.apply'>>({
     defaultValues: {
+      ...storedForm,
+      hasAppliedInThePast: request.userAlreadyApplied,
       requestId: request.id,
     },
     resolver: zodResolver(applyToRequestSchema),
   });
 
+  const onChangeValue = useCallback(
+    (name: keyof InferMutationInput<'playground.apply'>) => (value: unknown) => {
+      setFormData({ [name]: value });
+    },
+    [setFormData]
+  );
+
+  const myRegister = useCallback<
+    UseFormRegister<InferMutationInput<'playground.apply'>>
+  >(
+    (name, options) => {
+      return register(name, {
+        ...options,
+        onChange: (value) => {
+          options?.onChange?.(value);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          onChangeValue(name)(value.currentTarget.value);
+        },
+      });
+    },
+    [onChangeValue, register]
+  );
+
   useOnce(
     () => {
       const name = session?.user?.name;
-      if (name) {
+      if (name && !watch('name')) {
         setValue('name', name);
       }
     },
     { enabled: sessionStatus === 'authenticated' }
   );
 
-  const { mutate } = trpc.useMutation(['playground.apply']);
+  const { mutate } = trpc.useMutation(['playground.apply'], {
+    onSuccess: () => {
+      clearFormData();
+      reset();
+    },
+  });
   const onSubmit = useCallback(
     (values: InferMutationInput<'playground.apply'>) => {
       mutate(values);
     },
     [mutate]
   );
-
-  const hasAppliedInThePast = useWatch({
-    control,
-    name: 'hasAppliedInThePast',
-  });
-  const isVegan = useWatch({
-    control,
-    name: 'isVegan',
-  });
 
   return (
     <form
@@ -177,7 +215,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       </div>
       <TextInput
         error={errors.name?.message}
-        {...register('name')}
+        {...myRegister('name')}
         placeholder="Your name"
       >
         Name
@@ -185,7 +223,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <div className="flex flex-row gap-5">
         <TextInput
           error={errors.email?.message}
-          {...register('email')}
+          {...myRegister('email')}
           className="w-full"
           placeholder="name@example.com"
         >
@@ -194,7 +232,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         <TextInput
           className="w-full"
           error={errors.portfolioLink?.message}
-          {...register('portfolioLink')}
+          {...myRegister('portfolioLink')}
           placeholder="yourportfolio.com"
         >
           Portfolio link
@@ -202,8 +240,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       </div>
       <div className="flex flex-row gap-5">
         <TextInput
-          error={errors.email?.message}
-          {...register('twitter')}
+          error={errors.twitter?.message}
+          {...myRegister('twitter')}
           placeholder="@yourhandle"
           className="w-full"
         >
@@ -211,16 +249,16 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <TextInput
           className="w-full"
-          error={errors.portfolioLink?.message}
-          {...register('instagram')}
+          error={errors.instagram?.message}
+          {...myRegister('instagram')}
           placeholder="@yourhandle"
         >
           Instagram
         </TextInput>
         <TextInput
           className="w-full"
-          error={errors.portfolioLink?.message}
-          {...register('linkedin')}
+          error={errors.linkedin?.message}
+          {...myRegister('linkedin')}
           placeholder="LinkedIn username"
         >
           LinkedIn
@@ -235,6 +273,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             <>
               <RadioButton
                 onChange={() => {
+                  setFormData({ hasAppliedInThePast: true });
                   onChange(true);
                 }}
                 checked={value === true}
@@ -242,6 +281,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
               />
               <RadioButton
                 onChange={() => {
+                  setFormData({ hasAppliedInThePast: false });
+
                   onChange(false);
                 }}
                 checked={value === false}
@@ -259,16 +300,17 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           render={({ field: { value, onChange } }) => (
             <>
               <RadioButton
-                {...register('isVegan')}
                 onChange={() => {
+                  setFormData({ isVegan: true });
+
                   onChange(true);
                 }}
                 checked={value === true}
                 label="Yes"
               />
               <RadioButton
-                {...register('isVegan')}
                 onChange={() => {
+                  setFormData({ isVegan: true });
                   onChange(false);
                 }}
                 checked={value === false}
@@ -280,23 +322,23 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       </div>
       <TextInput
         error={errors.calendlyUrl?.message}
-        {...register('calendlyUrl')}
+        {...myRegister('calendlyUrl')}
         placeholder="calendly.com/yourname"
       >
         Link to your Calendly, if you have one
       </TextInput>
       <TextInput
-        {...register('moreInfo')}
+        {...myRegister('moreInfo')}
         placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
       >
         Is there anything else you&apos;d like to add?
       </TextInput>
-      <Checkbox {...register('commitToHelping')}>
+      <Checkbox {...myRegister('commitToHelping')}>
         I understand that by applying to help that I will in a timely manner
         reasonably commit to helping this organization or person for the
         animals.
       </Checkbox>
-      <Checkbox {...register('agreeToTerms')}>
+      <Checkbox {...myRegister('agreeToTerms')}>
         I agree to the VH: Playground terms and conditions.
       </Checkbox>
       <DarkButton type="submit">Apply</DarkButton>

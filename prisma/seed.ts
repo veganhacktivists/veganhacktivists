@@ -39,9 +39,9 @@ const seedRequests = async (n: number = NUMBER) => {
           : faker.datatype.number({ min: 10, max: 10000 }),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
-        description:
-          faker.hacker.phrase() +
-          faker.lorem.paragraphs(faker.datatype.number(5)),
+        description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(
+          faker.datatype.number(5)
+        )}`,
         dueDate: faker.date.future(),
         isFree: faker.datatype.boolean(),
         priority: faker.helpers.objectValue(Priority),

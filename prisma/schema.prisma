@@ -81,6 +81,8 @@ model PlaygroundApplication {
   moreInfo            String?
   Request             PlaygroundRequest? @relation(fields: [requestId], references: [id])
   requestId           String?
+
+  @@unique([id, applicantId])
 }
 
 enum PlaygroundRequestCategory {

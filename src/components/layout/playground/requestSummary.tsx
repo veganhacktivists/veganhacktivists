@@ -135,7 +135,7 @@ const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
         }}
         className="text-center text-md"
       >
-        Read more/apply to help
+        Read more / apply to help
       </DarkButton>
     </div>
   );

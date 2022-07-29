@@ -59,6 +59,12 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
     '@typescript-eslint/array-type': ['warn', { default: 'array' }],
     '@typescript-eslint/no-empty-function': ['warn'],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        varsIgnorePattern: '^_',
+      },
+    ],
 
     // typescript typechecking
     '@typescript-eslint/no-misused-promises': [

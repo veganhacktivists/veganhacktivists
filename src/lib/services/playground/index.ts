@@ -1,3 +1,7 @@
+import { TRPCError } from '@trpc/server';
+
+import { Prisma } from '@prisma/client';
+
 import prisma from 'lib/db/prisma';
 
 import type { User } from '@prisma/client';
@@ -68,11 +72,37 @@ export const getRequestById = async (
 export const applyToHelp = async (
   params: z.infer<typeof applyToRequestSchema> & { requesterId: string }
 ) => {
-  const newRequest = await prisma.playgroundApplication.create({
-    data: {
-      ...params,
-      applicantId: params.requesterId,
-    },
-  });
-  return newRequest;
+  try {
+    const [newRequest] = await prisma.$transaction([
+      prisma.playgroundApplication.create({
+        data: {
+          ...params,
+          applicantId: params.requesterId,
+        },
+      }),
+      prisma.user.update({
+        where: {
+          id: params.requesterId,
+        },
+        data: {
+          name: params.name,
+        },
+      }),
+    ]);
+
+    return newRequest;
+  } catch (e) {
+    if (
+      e instanceof Prisma.PrismaClientKnownRequestError &&
+      e.code === 'P2002'
+    ) {
+      // Thanks, I hate this https://www.prisma.io/docs/reference/api-reference/error-reference#p2002
+      throw new TRPCError({
+        code: 'CONFLICT',
+        message: 'You have already applied to this request',
+        cause: e,
+      });
+    }
+    throw e;
+  }
 };

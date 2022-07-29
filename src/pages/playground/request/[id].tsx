@@ -1,32 +1,15 @@
 import { useRouter } from 'next/router';
-
 import { z } from 'zod';
-
-import React, { useMemo, useState } from 'react';
-
+import React from 'react';
 import { toast } from 'react-toastify';
-
 import Link from 'next/link';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
-
-import classNames from 'classnames';
-
-import { DateTime, Duration } from 'luxon';
 
 import PlaygroundLayout from 'components/layout/playground/layout';
-
 import useOnce from 'hooks/useOnce';
-
 import { trpc } from 'lib/client/trpc';
-
 import Spinner from 'components/decoration/spinner';
-
-import { DarkButton } from 'components/decoration/buttons';
-
 import {
   RequestApplyForm,
   RequestDetails,
@@ -37,13 +20,11 @@ import type PageWithLayout from 'types/persistentLayout';
 const idSchema = z.string().cuid({ message: 'The request ID is invalid' });
 
 const PlaygroundRequest: PageWithLayout = ({}) => {
-  const [id, setId] = useState<string | null>(null);
   const router = useRouter();
   useOnce(
     async () => {
       const data = idSchema.safeParse(router.query.id);
       if (data.success) {
-        setId(data.data);
         return;
       }
 
