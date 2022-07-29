@@ -15,13 +15,21 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <>
         <div>
-          <div className="flex">
-            <Label name={props.name || ''}>{children}</Label>
+          <div className="flex gap-5">
+            <div className="w-fit">
+              <Label name={props.name || ''}>{children}</Label>
+            </div>
+
+            {/* <div className="w-6 h-6 bg-red" /> */}
             <input
               ref={ref}
-              className={classNames(inputClassNames, 'w-24', {
-                'ring-2 ring-red border-0': error,
-              })}
+              className={classNames(
+                inputClassNames,
+                'block w-6 h-6 focus:!ring-0',
+                {
+                  'ring-2 ring-red border-0': error,
+                }
+              )}
               {...props}
               id={props.id || props.name}
               type="checkbox"
