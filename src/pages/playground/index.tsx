@@ -4,7 +4,7 @@ import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 
-import { PlaygroundRequestCard } from 'components/layout/playground/request';
+import PlaygroundRequestSummary from 'components/layout/playground/requestSummary';
 
 import { trpc } from 'lib/client/trpc';
 
@@ -26,7 +26,7 @@ const Playground: PageWithLayout = ({}) => {
         <div className="grid gap-8 lg:mx-12 2xl:mx-44 xl:mx-36 sm:grid-cols-2">
           {isFetched &&
             requests?.map((request) => (
-              <PlaygroundRequestCard key={request.id} request={request} />
+              <PlaygroundRequestSummary key={request.id} request={request} />
             ))}
         </div>
       </div>

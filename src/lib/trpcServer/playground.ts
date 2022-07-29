@@ -35,6 +35,7 @@ const playgroundRouter = createRouter()
     input: getRequestByIdSchema,
     resolve: async ({ input, ctx: { user } }) => {
       const userId = user?.id;
+
       try {
         const request = await getRequestById(input, userId);
         return request;

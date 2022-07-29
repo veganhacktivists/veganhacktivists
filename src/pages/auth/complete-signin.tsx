@@ -11,7 +11,6 @@ import { useUpdateUser } from 'lib/client/api/hooks/users';
 
 import { updateUserSchema } from 'lib/services/users/schemas';
 
-import type { z } from 'zod';
 import type { InferMutationInput } from 'types/trpcHelper';
 
 const resolver = zodResolver(updateUserSchema);
@@ -38,9 +37,10 @@ const CompleteSignin: React.FC = ({}) => {
     onSuccess: onUserUpdate,
   });
 
-  const onSubmit = useCallback<
-    (values: z.infer<typeof updateUserSchema>) => void
-  >((values) => updateUser(values), [updateUser]);
+  const onSubmit = useCallback(
+    (values: InferMutationInput<'users.updateMe'>) => updateUser(values),
+    [updateUser]
+  );
 
   if (!user?.id) return null;
 
