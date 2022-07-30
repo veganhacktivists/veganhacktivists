@@ -17,7 +17,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           ref={ref}
           {...props}
         />
-        {label}
+        <div className="my-auto h-min">{label}</div>
       </label>
     );
   }

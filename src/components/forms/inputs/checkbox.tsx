@@ -19,8 +19,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             <div className="w-fit">
               <Label name={props.name || ''}>{children}</Label>
             </div>
-
-            {/* <div className="w-6 h-6 bg-red" /> */}
             <input
               ref={ref}
               className={classNames(
@@ -42,4 +40,5 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     );
   }
 );
+
 export default Checkbox;

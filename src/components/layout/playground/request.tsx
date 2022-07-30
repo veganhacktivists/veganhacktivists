@@ -11,6 +11,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 
+import { toast } from 'react-toastify';
+
 import SignInPrompt from './siginInPrompt';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
@@ -32,6 +34,12 @@ import Checkbox from 'components/forms/inputs/checkbox';
 import SubtleBorder from 'components/decoration/subtleBorder';
 
 import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
+
+import Spinner from 'components/decoration/spinner';
+
+import type { AppRouter } from 'pages/api/trpc/[trpc]';
+
+import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
 
@@ -201,22 +209,34 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     { enabled: sessionStatus === 'authenticated' }
   );
 
-  const { mutate, isLoading } = trpc.useMutation(['playground.apply'], {
-    onSuccess: () => {
-      clearFormData();
-      reset();
-    },
-  });
+  const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
+    ['playground.apply'],
+    {
+      onSuccess: () => {
+        clearFormData();
+        reset();
+      },
+    }
+  );
   const onSubmit = useCallback(
     (values: InferMutationInput<'playground.apply'>) => {
-      if (sessionStatus === 'authenticated') {
-        mutate(values);
+      if (sessionStatus === 'unauthenticated') {
+        setIsSignInModalOpen(true);
+        return;
+      } else if (sessionStatus === 'loading') {
         return;
       }
-
-      setIsSignInModalOpen(true);
+      void toast.promise(mutateAsync(values), {
+        pending: 'Submitting...',
+        success: 'Your application has been submitted!',
+        error: {
+          render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
+            return data?.message;
+          },
+        },
+      });
     },
-    [mutate, sessionStatus]
+    [mutateAsync, sessionStatus]
   );
 
   return (
@@ -303,6 +323,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                   checked={value === false}
                   label="No"
                 />
+                {errors.hasAppliedInThePast?.message && (
+                  <span className="text-red">
+                    {errors.hasAppliedInThePast.message}
+                  </span>
+                )}
               </>
             )}
           />
@@ -331,6 +356,9 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                   checked={value === false}
                   label="No"
                 />
+                {errors.isVegan?.message && (
+                  <span className="text-red">{errors.isVegan.message}</span>
+                )}
               </>
             )}
           />
@@ -349,9 +377,12 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Is there anything else you&apos;d like to add?
         </TextInput>
         <Checkbox
+          error={errors.commitToHelping?.message}
           {...myRegister('commitToHelping')}
           onChange={(e) => {
-            setValue('commitToHelping', e.currentTarget.checked);
+            const checked = e.currentTarget.checked;
+            setFormData({ commitToHelping: checked });
+            setValue('commitToHelping', checked);
           }}
         >
           I understand that by applying to help that I will in a timely manner
@@ -359,15 +390,28 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           animals.
         </Checkbox>
         <Checkbox
+          error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
           onChange={(e) => {
-            setValue('agreeToTerms', e.currentTarget.checked);
+            const checked = e.currentTarget.checked;
+            setFormData({ agreeToTerms: checked });
+            setValue('agreeToTerms', checked);
           }}
         >
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
-        <DarkButton disabled={isLoading} type="submit">
-          Apply
+        <DarkButton
+          disabled={isLoading || isSuccess || request.userAlreadyApplied}
+          type="submit"
+        >
+          {isLoading ? (
+            <Spinner />
+          ) : request.userAlreadyApplied ? (
+            'You have already applied!'
+          ) : (
+            'Submit'
+          )}
+          {/* Apply */}
         </DarkButton>
       </form>
       <SignInPrompt

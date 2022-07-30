@@ -32,7 +32,11 @@ export const getPlaygroundRequestsSchema = paginationSchema
 
 const urlValidator = () =>
   z.preprocess((val) => {
+    if (!val) {
+      return val;
+    }
     const toStr = String(val);
+
     if (toStr.startsWith('http://') || toStr.startsWith('https://')) {
       return toStr;
     }
@@ -43,13 +47,13 @@ export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
   name: z.string().min(1),
   providedEmail: z.string().email(),
-  portfolioLink: urlValidator().optional(),
+  portfolioLink: z.string().optional(),
   twitterUrl: z.string().optional(),
   instagramUrl: z.string().optional(),
   linkedinUrl: z.string().optional(),
   hasAppliedInThePast: z.boolean(),
   isVegan: z.boolean(),
-  calendlyUrl: urlValidator().optional(),
+  calendlyUrl: z.string().optional(),
   moreInfo: z.string().optional(),
   commitToHelping: z
     .boolean()
@@ -64,7 +68,9 @@ export const applyToRequestSchema = z.object({
 export const applyToRequestSchemaClient = applyToRequestSchema.merge(
   z.object({
     // check those parameters are set, and delete them from the request aferwards
-    commitToHelping: z.boolean().refine((x) => !!x),
-    agreeToTerms: z.boolean().refine((x) => !!x),
+    commitToHelping: z.boolean().refine((x) => !!x, { message: 'Required' }),
+    agreeToTerms: z
+      .boolean()
+      .refine((x) => !!x, { message: 'You must agree to the terms' }),
   })
 );

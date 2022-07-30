@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -33,11 +33,13 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
     handleSubmit,
     reset,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm({
     defaultValues: { email },
     resolver,
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -45,7 +47,10 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
   }, [email, isOpen, setValue]);
 
   const onSubmit = useCallback(({ email }: z.infer<typeof signInSchema>) => {
-    void signIn<'email'>('email', { email });
+    setIsLoading(true);
+    signIn<'email'>('email', { email }).finally(() => {
+      setIsLoading(false);
+    });
   }, []);
 
   const handleClose = useCallback(() => {
@@ -65,7 +70,7 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
               type="email"
               {...register('email')}
             />
-            <DarkButton disabled={isSubmitting} type="submit">
+            <DarkButton disabled={isLoading} type="submit">
               Verify!
             </DarkButton>
           </div>

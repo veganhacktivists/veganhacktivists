@@ -39,7 +39,7 @@ export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
   userId?: User['id']
 ) => {
-  const [request, userAlreadyApplied] = await Promise.all([
+  const [request, existingUserApplication] = await Promise.all([
     prisma.playgroundRequest.findFirstOrThrow({
       where: {
         id,
@@ -54,15 +54,15 @@ export const getRequestById = async (
         },
       },
     }),
-    !!userId &&
-      prisma.playgroundApplication
-        .count({
-          where: {
-            applicantId: userId,
-          },
-        })
-        .then((count) => count > 0),
+    prisma.playgroundApplication.findFirst({
+      where: {
+        id,
+        applicantId: userId,
+      },
+    }),
   ]);
+
+  const userAlreadyApplied = !!existingUserApplication;
 
   const isRequestedByCurrentUser = request.requester.id === userId;
 
