@@ -23,4 +23,4 @@ docker build -t veganhacktivists \
     "$@" \
 .. \
 && \
-docker run --rm -p 3000:3000 --env-file ../.env --name=veganhacktivists veganhacktivists
+docker run --rm -p 3000:3000 --network host --env-file ../.env --name=veganhacktivists veganhacktivists

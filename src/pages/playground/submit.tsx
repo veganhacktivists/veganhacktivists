@@ -2,17 +2,29 @@ import { NextSeo } from 'next-seo';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
+import SubmitRequestForm from 'components/layout/playground/submitRequest';
+
 import type PageWithLayout from 'types/persistentLayout';
 
-const SubmitRequest: PageWithLayout = ({}) => {
+const Header: React.FC = () => {
+  return (
+    <div>
+      <h3>Need support? Let us know!</h3>
+      <div>Please fill in the form below.</div>
+    </div>
+  );
+};
+
+const SubmitRequestPage: PageWithLayout = ({}) => {
   return (
     <>
       <NextSeo title="Submit Your Request" />
-      <div>submit a request!</div>
+      <Header />
+      <SubmitRequestForm />
     </>
   );
 };
 
-SubmitRequest.Layout = PlaygroundLandingLayout;
+SubmitRequestPage.Layout = PlaygroundLandingLayout;
 
-export default SubmitRequest;
+export default SubmitRequestPage;

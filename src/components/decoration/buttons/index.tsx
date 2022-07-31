@@ -72,13 +72,13 @@ const BaseButton: React.FC<ButtonProps> = ({
       {props.href ? (
         <Link {...linkProps} href={props.href} passHref={isExternal}>
           <a
+            {...(props as AnchorHTMLAttributes<unknown>)}
+            className={classes}
             target={linkProps?.target || isExternal ? '_blank' : undefined}
             rel={linkProps?.rel || isExternal ? 'noreferrer' : undefined}
             aria-label={ariaLabel}
           >
-            <div className={classes} {...props}>
-              {children}
-            </div>
+            {children}
           </a>
         </Link>
       ) : (

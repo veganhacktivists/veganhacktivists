@@ -12,6 +12,7 @@ import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
   const { data: requests, isFetched } = trpc.useQuery(['playground.requests']);
+
   return (
     <>
       <NextSeo title="Requests" />

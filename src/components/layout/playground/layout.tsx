@@ -60,17 +60,13 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
             Logged in as {session.user?.name} ({session.user?.email})
           </div>
         )}
-        <div className="flex flex-col w-2/3 gap-8 mx-auto my-10 md:flex-row">
+        <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
           <OutlineButton
             capitalize={false}
             className="w-full uppercase"
             active={showRequests}
-            onClick={() => {
-              void router.replace('/playground', undefined, {
-                scroll: false,
-                // shallow: true,
-              });
-            }}
+            href="/playground"
+            linkProps={{ scroll: false }}
           >
             View requests
           </OutlineButton>
@@ -78,12 +74,8 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
             capitalize={false}
             className="w-full uppercase"
             active={!showRequests}
-            onClick={() => {
-              void router.replace('/playground/submit', '/playground', {
-                scroll: false,
-                // shallow: true,
-              });
-            }}
+            href="/playground/submit"
+            linkProps={{ scroll: false }}
           >
             Submit a request
           </OutlineButton>
