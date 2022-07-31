@@ -70,7 +70,7 @@ const BaseButton: React.FC<ButtonProps> = ({
   return (
     <>
       {props.href ? (
-        <Link {...linkProps} href={props.href} passHref={isExternal}>
+        <Link {...linkProps} href={props.href} passHref>
           <a
             {...(props as AnchorHTMLAttributes<unknown>)}
             className={classes}
