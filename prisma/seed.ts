@@ -66,6 +66,37 @@ const seedRequests = async (n: number = NUMBER) => {
   console.log('Seeded', count, 'requests');
 };
 
+const seedApplications = async (n: number = NUMBER) => {
+  const [users, requests] = await Promise.all([
+    prisma.user.findMany(),
+    prisma.playgroundRequest.findMany(),
+  ]);
+
+  const applications: Prisma.PlaygroundApplicationCreateManyInput[] =
+    requests.flatMap((request) =>
+      Array(faker.datatype.number({ min: 0, max: n }))
+        .fill(null)
+        .map(() => {
+          const user = faker.helpers.arrayElement(users);
+          return {
+            applicantId: user.id,
+            requestId: request.id,
+            hasAppliedInThePast: faker.datatype.boolean(),
+            isVegan: faker.datatype.boolean(),
+            name: user.name || faker.name.findName(),
+            providedEmail: user.email,
+            status: faker.helpers.objectValue(Status),
+          };
+        })
+    );
+
+  const { count } = await prisma.playgroundApplication.createMany({
+    data: applications,
+    skipDuplicates: true,
+  });
+  console.log('Seeded', count, 'applications');
+};
+
 const cleanup = async () => {
   await prisma.playgroundApplication.deleteMany();
   await prisma.playgroundRequest.deleteMany();
@@ -76,6 +107,7 @@ async function main() {
   await cleanup();
   await seedUsers();
   await seedRequests();
+  await seedApplications(NUMBER / 10);
 }
 
 main()
