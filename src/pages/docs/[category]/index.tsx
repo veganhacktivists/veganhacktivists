@@ -51,21 +51,9 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async ({}) => {
-  const categories = await getContents<IDocsCategoryFields>({
-    contentType: 'docsCategory',
-    other: { order: 'fields.order', include: 3 },
-  });
-
+export const getStaticPaths: GetStaticPaths = ({}) => {
   return {
-    paths: categories.flatMap((category) =>
-      category.fields.sections.map((section) => ({
-        params: {
-          category: category.fields.slug,
-          section: section.fields.slug,
-        },
-      }))
-    ),
+    paths: [],
     fallback: 'blocking',
   };
 };

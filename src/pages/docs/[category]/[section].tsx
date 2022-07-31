@@ -21,24 +21,9 @@ import type {
 } from '../../../types/generated/contentful';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getContents<IDocsCategoryFields>({
-    contentType: 'docsCategory',
-    other: { order: 'fields.order', include: 3 },
-  });
-
-  const allPaths: { category: string; section: string }[] = [];
-  categories.forEach((category) => {
-    category.fields.sections.forEach((section) => {
-      allPaths.push({
-        category: category.fields.slug,
-        section: section.fields.slug,
-      });
-    });
-  });
-
+export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths: allPaths.map((path) => ({ params: path })),
+    paths: [],
     fallback: true,
   };
 };
