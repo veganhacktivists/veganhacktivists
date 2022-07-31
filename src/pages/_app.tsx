@@ -114,9 +114,7 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
 
 export default withTRPC<AppRouter>({
   config: () => {
-    const url = `${
-      process.env.NEXTAUTH_URL || 'http://localhost:3000'
-    }/api/trpc`;
+    const url = `${process.env.NEXT_PUBLIC_URL || ''}/api/trpc`;
     return {
       url,
       transformer: superjson,
