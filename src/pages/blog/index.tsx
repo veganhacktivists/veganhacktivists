@@ -213,7 +213,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             onClick={() => {
               decreasePageParam();
               setPreviousPage();
-              scrollUp();
+              setTimeout(() => {
+                scrollUp();
+              }, 1);
             }}
             className="flex font-mono font-bold uppercase"
             disabled={!previousEnabled}
@@ -227,7 +229,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             onClick={() => {
               increasePageParam();
               setNextPage();
-              scrollUp();
+              setTimeout(() => {
+                scrollUp();
+              }, 1);
             }}
             className="font-mono font-bold uppercase"
             disabled={!nextEnabled}
