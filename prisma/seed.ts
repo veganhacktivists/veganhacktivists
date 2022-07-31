@@ -3,6 +3,7 @@ import {
   PlaygroundRequestCategory,
   Priority,
   PrismaClient,
+  Status,
 } from '@prisma/client';
 
 import { faker } from '@faker-js/faker';
@@ -56,7 +57,7 @@ const seedRequests = async (n: number = NUMBER) => {
         phone: faker.phone.number(),
         organization: faker.company.companyName(),
         createdAt: faker.date.recent(14),
-        isApproved: faker.datatype.boolean(),
+        status: faker.helpers.objectValue(Status),
       };
     });
   const { count } = await prisma.playgroundRequest.createMany({
@@ -66,6 +67,7 @@ const seedRequests = async (n: number = NUMBER) => {
 };
 
 const cleanup = async () => {
+  await prisma.playgroundApplication.deleteMany();
   await prisma.playgroundRequest.deleteMany();
   await prisma.user.deleteMany();
 };

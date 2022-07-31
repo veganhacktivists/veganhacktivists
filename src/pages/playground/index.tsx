@@ -25,6 +25,7 @@ const Playground: PageWithLayout = ({}) => {
           who need help with their work for the animals.
         </SectionHeader>
         <div className="grid gap-8 lg:mx-12 2xl:mx-44 xl:mx-36 sm:grid-cols-2">
+          {/* TODO: no available requests message */}
           {isFetched &&
             requests?.map((request) => (
               <PlaygroundRequestSummary key={request.id} request={request} />

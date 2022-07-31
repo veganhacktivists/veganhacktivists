@@ -1,6 +1,6 @@
 import { TRPCError } from '@trpc/server';
 
-import { Prisma } from '@prisma/client';
+import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
@@ -28,7 +28,7 @@ export const getPlaygroundRequests = async (
     },
     where: {
       ...params,
-      isApproved: true,
+      status: Status.Accepted,
     },
   });
 
@@ -43,7 +43,7 @@ export const getRequestById = async (
     prisma.playgroundRequest.findFirstOrThrow({
       where: {
         id,
-        isApproved: true,
+        status: Status.Accepted,
       },
       include: {
         requester: {
