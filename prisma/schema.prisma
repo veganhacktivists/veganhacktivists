@@ -40,11 +40,12 @@ model Session {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
+
+  accounts Account[]
+  sessions Session[]
 
   playgroudRequests      PlaygroundRequest[]
   playgroundApplications PlaygroundApplication[]
@@ -77,7 +78,6 @@ enum Status {
 model PlaygroundApplication {
   id                  String  @id @default(cuid())
   providedEmail       String
-  applicant           User    @relation(fields: [applicantId], references: [id])
   applicantId         String
   name                String
   portfolioLink       String?
@@ -91,7 +91,8 @@ model PlaygroundApplication {
   requestId           String
   status              Status  @default(Pending)
 
-  request PlaygroundRequest @relation(fields: [requestId], references: [id])
+  applicant User              @relation(fields: [applicantId], references: [id])
+  request   PlaygroundRequest @relation(fields: [requestId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -108,8 +109,7 @@ enum PlaygroundRequestCategory {
 }
 
 model PlaygroundRequest {
-  id                String                  @id @default(cuid())
-  applications      PlaygroundApplication[]
+  id                String   @id @default(cuid())
   phone             String?
   organization      String?
   website           String
@@ -117,17 +117,18 @@ model PlaygroundRequest {
   title             String
   priority          Priority
   roleTitle         String
-  requiredSkills    String[]                @default([])
+  requiredSkills    String[] @default([])
   isFree            Boolean
-  budget            Decimal                 @db.Money
-  description       String                  @db.Text
-  dueDate           DateTime                @db.Date
+  budget            Decimal  @db.Money
+  description       String   @db.Text
+  dueDate           DateTime @db.Date
   estimatedTimeDays Int
-  requester         User                    @relation(fields: [requesterId], references: [id])
+  requester         User     @relation(fields: [requesterId], references: [id])
   requesterId       String
-  status            Status                  @default(Pending)
+  status            Status   @default(Pending)
 
-  category PlaygroundRequestCategory
+  applications PlaygroundApplication[]
+  category     PlaygroundRequestCategory
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
