@@ -17,7 +17,9 @@ export default trpcNext.createNextApiHandler({
   router: appRouter,
   createContext,
   onError: ({ error }) => {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    if (error.code === 'INTERNAL_SERVER_ERROR') {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
   },
 });
