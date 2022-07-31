@@ -17,7 +17,7 @@ export const getPlaygroundRequestsSchema = paginationSchema
   .and(
     z
       .object({
-        free: z.boolean(),
+        isFree: z.boolean(),
         category: z.enum([
           'Design',
           'Website',
