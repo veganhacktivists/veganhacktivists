@@ -1,5 +1,4 @@
 import * as trpcNext from '@trpc/server/adapters/next';
-
 import superjson from 'superjson';
 
 import playgroundRouter from 'lib/trpcServer/playground';
@@ -17,8 +16,8 @@ export type AppRouter = typeof appRouter;
 export default trpcNext.createNextApiHandler({
   router: appRouter,
   createContext,
-  // onError: ({ error, ctx }) => {
-  //   console.error(error);
-  //   console.error(ctx?.user);
-  // },
+  onError: ({ error }) => {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  },
 });

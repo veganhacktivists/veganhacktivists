@@ -8,7 +8,6 @@ import prisma from 'lib/db/prisma';
 import type { NextAuthOptions } from 'next-auth';
 
 export const nextAuthOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt',
