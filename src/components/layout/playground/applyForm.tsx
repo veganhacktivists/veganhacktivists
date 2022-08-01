@@ -13,6 +13,10 @@ import { useSession } from 'next-auth/react';
 
 import { toast } from 'react-toastify';
 
+import { useRouter } from 'next/router';
+
+import { useRef } from 'react';
+
 import SignInPrompt from './siginInPrompt';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
@@ -156,6 +160,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const {
     handleSubmit,
@@ -195,13 +200,14 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     [onChangeValue, register]
   );
 
-  useOnce(
+  const dataFilled = useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
       }
+
       if (email && !watch('providedEmail')) {
         setValue('providedEmail', email);
       }
@@ -239,9 +245,23 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     [mutateAsync, sessionStatus]
   );
 
+  const router = useRouter();
+
+  useOnce(
+    () => {
+      if (router.query.submit !== 'true') return;
+      if (formRef.current) {
+        formRef.current.scrollIntoView();
+      }
+      void handleSubmit(onSubmit)();
+    },
+    { enabled: router.isReady && dataFilled }
+  );
+
   return (
     <>
       <form
+        ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col flex-grow gap-5 px-10 text-left"
       >
@@ -418,6 +438,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         isOpen={isSignInModalOpen}
         onClose={onModalClose}
         email={watch('providedEmail')}
+        submitOnVerify
       />
     </>
   );

@@ -15,6 +15,7 @@ interface SignInPromptProps {
   email: string;
   isOpen: boolean;
   onClose: () => void;
+  submitOnVerify?: boolean;
 }
 
 const signInSchema = z.object({
@@ -27,6 +28,7 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
   email,
   isOpen,
   onClose,
+  submitOnVerify = false,
 }) => {
   const {
     register,
@@ -46,12 +48,23 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
     setValue('email', email);
   }, [email, isOpen, setValue]);
 
-  const onSubmit = useCallback(({ email }: z.infer<typeof signInSchema>) => {
-    setIsLoading(true);
-    signIn<'email'>('email', { email }).finally(() => {
-      setIsLoading(false);
-    });
-  }, []);
+  const onSubmit = useCallback(
+    ({ email }: z.infer<typeof signInSchema>) => {
+      const callbackUrl = new URL(window.location.href);
+      if (submitOnVerify) {
+        callbackUrl.searchParams.append('submit', 'true');
+      }
+
+      setIsLoading(true);
+      signIn<'email'>('email', {
+        email,
+        callbackUrl: callbackUrl.toString(),
+      }).finally(() => {
+        setIsLoading(false);
+      });
+    },
+    [submitOnVerify]
+  );
 
   const handleClose = useCallback(() => {
     reset();

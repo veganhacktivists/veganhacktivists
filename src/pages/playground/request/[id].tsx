@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
+import { NextSeo } from 'next-seo';
+
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
 import { trpc } from 'lib/client/trpc';
@@ -13,7 +15,7 @@ import Spinner from 'components/decoration/spinner';
 import {
   RequestApplyForm,
   RequestDetails,
-} from 'components/layout/playground/request';
+} from 'components/layout/playground/applyForm';
 
 import type PageWithLayout from 'types/persistentLayout';
 
@@ -46,30 +48,33 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
   );
 
   return (
-    <div>
-      <div className="m-10 mb-5 w-fit text-grey">
-        <Link
-          href={{
-            pathname: '/playground',
-          }}
-        >
-          <a>
-            <FontAwesomeIcon icon={faArrowLeft} /> Return to requests page
-          </a>
-        </Link>
-      </div>
-      {status === 'success' && (
-        <>
-          <RequestDetails request={request} />
-          <RequestApplyForm request={request} />
-        </>
-      )}
-      {status === 'loading' && (
-        <div>
-          <Spinner />
+    <>
+      <NextSeo title={request?.title} />
+      <div>
+        <div className="m-10 mb-5 w-fit text-grey">
+          <Link
+            href={{
+              pathname: '/playground',
+            }}
+          >
+            <a>
+              <FontAwesomeIcon icon={faArrowLeft} /> Return to requests page
+            </a>
+          </Link>
         </div>
-      )}
-    </div>
+        {status === 'success' && (
+          <>
+            <RequestDetails request={request} />
+            <RequestApplyForm request={request} />
+          </>
+        )}
+        {status === 'loading' && (
+          <div>
+            <Spinner />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
