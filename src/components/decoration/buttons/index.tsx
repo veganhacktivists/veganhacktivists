@@ -64,7 +64,7 @@ const BaseButton: React.FC<ButtonProps> = ({
   'aria-label': ariaLabel,
   ...props
 }) => {
-  const classes = classNames(className, { capitalize });
+  const classes = classNames(className, 'block', { capitalize });
 
   const isExternal = isExternalLink(props.href);
   return (
@@ -191,11 +191,18 @@ const GreenButton: React.FC<ButtonProps> = ({
   );
 };
 
-const ExternalLinkButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const ExternalLinkButton: React.FC<ButtonProps> = ({
+  className,
+  children,
+  ...props
+}) => {
   return (
     <FillBackground base="magenta" fill="pink-dark" disabled={props.disabled}>
-      <BaseButton {...props}>
-        <div className="py-2 border-l-8 border-pink-dark">{children}</div>
+      <BaseButton
+        {...props}
+        className={classNames(className, 'py-2 border-l-8 border-pink-dark')}
+      >
+        {children}
       </BaseButton>
     </FillBackground>
   );
