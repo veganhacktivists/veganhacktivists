@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import Router from 'next/router';
+
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
 
@@ -49,9 +51,12 @@ const SignIn: NextPage = () => {
       email,
       // name
     }) => {
+      const callbackUrl = Router.query.callbackUrl as string;
       setIsLoading(true);
+
       const { ok } = (await signIn<'email'>('email', {
         email,
+        callbackUrl,
         // name,
       })) as SignInResponse;
       if (!ok) {

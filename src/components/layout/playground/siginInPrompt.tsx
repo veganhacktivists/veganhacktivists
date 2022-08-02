@@ -6,6 +6,8 @@ import { z } from 'zod';
 
 import { signIn } from 'next-auth/react';
 
+import Router from 'next/router';
+
 import Modal from '../modal';
 
 import TextInput from 'components/forms/inputs/textInput';
@@ -50,15 +52,19 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
 
   const onSubmit = useCallback(
     ({ email }: z.infer<typeof signInSchema>) => {
-      const callbackUrl = new URL(window.location.href);
+      setIsLoading(true);
+
+      const searchParams = new URLSearchParams();
       if (submitOnVerify) {
-        callbackUrl.searchParams.append('submit', 'true');
+        searchParams.append('submit', 'true');
       }
 
-      setIsLoading(true);
+      const pathname = Router.pathname;
+      const callbackUrl = `${pathname}?${searchParams.toString()}`;
+
       signIn<'email'>('email', {
         email,
-        callbackUrl: callbackUrl.toString(),
+        callbackUrl,
       }).finally(() => {
         setIsLoading(false);
       });
