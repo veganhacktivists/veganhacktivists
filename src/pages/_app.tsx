@@ -117,11 +117,21 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
 };
 
 export default withTRPC<AppRouter>({
-  config: () => {
+  config: ({ ctx }) => {
     const url = `${process.env.NEXT_PUBLIC_URL || ''}/api/trpc`;
     return {
       url,
       transformer: superjson,
+      headers: () => {
+        if (ctx?.req) {
+          // on ssr, forward client's headers to the server
+          return {
+            ...ctx.req.headers,
+            'x-ssr': '1',
+          };
+        }
+        return {};
+      },
     };
   },
   ssr: true,
