@@ -50,41 +50,35 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
           ]}
         />
         <div className="w-full p-8 mx-auto bg-grey-background text-grey">
-          <div className="mx-auto mb-2 w-fit">
-            <CustomImage
-              src={pixelStar.src}
-              height={pixelStar.height / 2}
-              width={pixelStar.width / 2}
-              alt="Pixel art of a star emerging from leaves"
-            />
-          </div>
-          <h1 className="mb-8 text-center">
-            <span className="text-4xl font-bold">
-              <SectionHeader
-                startWithBoldFont
-                header={['Share', 'this project']}
-              >
-                <div className="-mt-4 text-3xl">{shareInfo.title}</div>
-              </SectionHeader>
-            </span>
-          </h1>
-          <div className="flex flex-col justify-center gap-5 mx-auto mb-10 md:flex-row">
-            <div className="w-1/2 mx-auto md:w-1/3">
+          <div className="flex flex-col justify-center gap-x-10 md:flex-row pt-24 md:pt-24 md:gap-x-8">
+            <div className="mx-auto w-1/2 md:w-1/3 md:m-0">
               <ContentfulImage
                 priority
                 image={shareInfo.image}
                 alt={`${shareInfo.title} logo`}
               />
             </div>
-            <div className="grid grid-cols-4 gap-4 align-middle gap-y-8 place-items-center auto-cols-min">
-              <EmailButton onClick={onClose} shareInfo={shareInfo} />
-              <FacebookButton onClick={onClose} shareInfo={shareInfo} />
-              <TwitterButton onClick={onClose} shareInfo={shareInfo} />
-              <LinkedinButton onClick={onClose} shareInfo={shareInfo} />
-              <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
-              <TelegramButton onClick={onClose} shareInfo={shareInfo} />
-              <RedditButton onClick={onClose} shareInfo={shareInfo} />
-              <CopyButton onClick={onClose} shareInfo={shareInfo} />
+            <div className="mx-auto mt-5 flex items-center md:m-0">
+              <div>
+                <h1 className="mb-8 text-center">
+                  <span className="text-4xl font-bold">
+                    <SectionHeader
+                      startWithBoldFont
+                      header={['Share', 'this project']}
+                    />
+                  </span>
+                </h1>
+                <div className="grid grid-cols-4 gap-4 align-middle gap-y-8 place-items-center auto-cols-min">
+                  <EmailButton onClick={onClose} shareInfo={shareInfo} />
+                  <FacebookButton onClick={onClose} shareInfo={shareInfo} />
+                  <TwitterButton onClick={onClose} shareInfo={shareInfo} />
+                  <LinkedinButton onClick={onClose} shareInfo={shareInfo} />
+                  <WhatsappButton onClick={onClose} shareInfo={shareInfo} />
+                  <TelegramButton onClick={onClose} shareInfo={shareInfo} />
+                  <RedditButton onClick={onClose} shareInfo={shareInfo} />
+                  <CopyButton onClick={onClose} shareInfo={shareInfo} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
