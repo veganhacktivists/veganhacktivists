@@ -13,6 +13,8 @@ import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 
+import type { Session } from 'next-auth';
+
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { AppRouter } from './api/trpc/[trpc]';
@@ -43,9 +45,11 @@ const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
 };
 
-const AppWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
+const AppWrapper: React.FC<
+  React.PropsWithChildren<{ session: Session | null }>
+> = ({ children, session }) => {
   return (
-    <SessionProvider>
+    <SessionProvider session={session}>
       <CookiesProvider>
         <DefaultSeo {...SEO} />
         {children}
@@ -80,7 +84,7 @@ const DefaultLayout: React.FC<
 
 const MyApp: React.FC<AppPropsWithLayout> = ({
   Component,
-  pageProps,
+  pageProps: { session, ...pageProps },
   router,
 }) => {
   useOnce(() => {
@@ -102,7 +106,7 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
   );
 
   return (
-    <AppWrapper>
+    <AppWrapper session={session as Session | null}>
       <PageWrapper>
         <Layout>
           <Component {...pageProps} />

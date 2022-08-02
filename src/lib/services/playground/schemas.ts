@@ -1,3 +1,4 @@
+import { Status } from '@prisma/client';
 import { z } from 'zod';
 
 export const paginationSchema = z
@@ -63,3 +64,16 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
   })
 );
+
+export const getPendingApplicationsSchema = paginationSchema.optional();
+export const getPendingRequestsSchema = paginationSchema.optional();
+
+export const setApplicationStatusSchema = z.object({
+  id: z.string().cuid(),
+  status: z.nativeEnum(Status),
+});
+
+export const setRequestStatusSchema = z.object({
+  id: z.string().cuid(),
+  status: z.nativeEnum(Status),
+});

@@ -20,25 +20,20 @@ export const nextAuthOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    // newUser: '/auth/complete-signin',
     signIn: '/auth/signin',
     signOut: '/auth/signout',
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    signIn: ({ email: { verificationRequest = false } }) => {
-      if (verificationRequest) {
-        return true;
-      }
-      // // Profile not completed, redirect
-      // if (!user?.name) return '/auth/complete-signin';
-      // Everything is good, continue
-      return true;
-    },
     session: async ({ session, token }) => {
       // TODO: maybe don't use JWT. Or add conditionals to avoid doing this DB access
       const user = await prisma.user.findUniqueOrThrow({
         where: { id: token.sub },
+        select: {
+          isAdmin: true,
+          name: true,
+          email: true,
+        },
       });
       if (session?.user) {
         if (token.sub) {
@@ -46,10 +41,18 @@ export const nextAuthOptions: NextAuthOptions = {
         }
         session.user.name = user.name;
         session.user.email = user.email;
+        session.user.isAdmin = user.isAdmin;
       }
 
       delete session.user?.image;
       return session;
+    },
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.isAdmin = user.isAdmin;
+      }
+
+      return token;
     },
   },
 };

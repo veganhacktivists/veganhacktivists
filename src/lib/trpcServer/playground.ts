@@ -1,6 +1,9 @@
 import { TRPCError } from '@trpc/server';
 
-import createRouter, { createProtectedRouter } from './context';
+import createRouter, {
+  createAdminOnlyRouter,
+  createProtectedRouter,
+} from './context';
 
 import {
   applyToHelp,
@@ -11,7 +14,42 @@ import {
   applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
+  paginationSchema,
+  setApplicationStatusSchema,
+  setRequestStatusSchema,
 } from 'lib/services/playground/schemas';
+import {
+  getPendingApplications,
+  getPendingRequests,
+  setApplicationStatus,
+  setRequestStatus,
+} from 'lib/services/playground/admin';
+
+const adminPlaygroundRouter = createAdminOnlyRouter()
+  .query('pendingApplications', {
+    input: paginationSchema.optional(),
+    resolve: async ({ input }) => {
+      return await getPendingApplications(input);
+    },
+  })
+  .mutation('setApplicationStatus', {
+    input: setApplicationStatusSchema,
+    resolve: async ({ input }) => {
+      return await setApplicationStatus(input);
+    },
+  })
+  .query('pendingRequests', {
+    input: paginationSchema.optional(),
+    resolve: async ({ input }) => {
+      return await getPendingRequests(input);
+    },
+  })
+  .mutation('setRequestStatus', {
+    input: setRequestStatusSchema,
+    resolve: async ({ input }) => {
+      return await setRequestStatus(input);
+    },
+  });
 
 const protectedPlaygroundRouter = createProtectedRouter().mutation('apply', {
   input: applyToRequestSchema,
@@ -47,4 +85,6 @@ const playgroundRouter = createRouter()
     },
   });
 
-export default playgroundRouter.merge(protectedPlaygroundRouter);
+export default playgroundRouter
+  .merge(protectedPlaygroundRouter)
+  .merge('admin.', adminPlaygroundRouter);

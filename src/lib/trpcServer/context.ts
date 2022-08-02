@@ -24,6 +24,7 @@ export const createContext = async ({
 
 interface Meta {
   hasAuth: boolean;
+  requiresAdmin?: boolean;
 }
 
 type Context = inferAsyncReturnType<typeof createContext>;
@@ -33,6 +34,12 @@ const createRouter = () =>
     if (meta?.hasAuth && !ctx.user) {
       throw new TRPCError({
         code: 'UNAUTHORIZED',
+      });
+    }
+
+    if (meta?.requiresAdmin && !ctx.user?.isAdmin) {
+      throw new TRPCError({
+        code: 'FORBIDDEN',
       });
     }
 
@@ -49,6 +56,21 @@ export const createProtectedRouter = () => {
     if (!ctx.user) {
       throw new trpc.TRPCError({ code: 'UNAUTHORIZED' });
     }
+    return next({
+      ctx: {
+        ...ctx,
+        user: ctx.user,
+      },
+    });
+  });
+};
+
+export const createAdminOnlyRouter = () => {
+  return createRouter().middleware(({ ctx, next }) => {
+    if (!ctx.user?.isAdmin) {
+      throw new trpc.TRPCError({ code: 'FORBIDDEN' });
+    }
+
     return next({
       ctx: {
         ...ctx,
