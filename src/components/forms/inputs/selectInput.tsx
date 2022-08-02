@@ -31,6 +31,7 @@ interface SelectInputProps
   creatable?: boolean;
   onChange?: (value: OptionType | null) => void;
   placeholder?: string;
+  showError?: boolean;
 }
 
 const grey = getThemeColor('grey');
@@ -46,6 +47,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       options,
       onChange,
       creatable = false,
+      showError = false,
       ...props
     },
     ref
@@ -144,7 +146,12 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
         />
       );
 
-    return <SelectComponent />;
+    return (
+      <>
+        <SelectComponent />
+        {showError && error && <div className="text-red">⚠ {error}</div>}
+      </>
+    );
   }
 );
 
