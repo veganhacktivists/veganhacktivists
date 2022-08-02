@@ -18,6 +18,8 @@ import TextInput from '../../forms/inputs/textInput';
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import Checkbox from '../../forms/inputs/checkbox';
+import ToolTip from '../../decoration/tooltip';
+import CustomLink from '../../decoration/link';
 // import DateInput from './inputs/dateInput';
 
 type Priority = 'low' | 'medium' | 'high';
@@ -156,29 +158,9 @@ const SubmitRequestForm: React.FC = () => {
         >
           <div className="flex gap-2">
             Link to your Calendly
-            <span>
-              <sup>?</sup>
-            </span>
-            {/*
-            <p
-              ref={floating}
-              style={{
-                position: strategy,
-                top: y ?? 0,
-                left: x ?? 0,
-              }}
-            >
-              <CustomLink href="https://calendly.com/" className="text-green">
-                Calendly
-              </CustomLink>
-              &nbsp;is your hub for scheduling meetings professionally and
-              efficiently, eliminating the hassle of back-and-forth emails so
-              you can get back to work.
-            </p>
-            {/*<Tooltip
-              maxWidth={225}
-              arrowPosition="end"
-              message={
+            <ToolTip
+              placement="top-end"
+              content={
                 <p>
                   <CustomLink
                     href="https://calendly.com/"
@@ -193,8 +175,7 @@ const SubmitRequestForm: React.FC = () => {
               }
             >
               <sup>?</sup>
-            </Tooltip>
-            */}
+            </ToolTip>
           </div>
         </TextInput>
 
