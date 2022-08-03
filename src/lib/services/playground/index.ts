@@ -4,7 +4,7 @@ import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
-import type { User } from '@prisma/client';
+import type { Session } from 'next-auth';
 
 import type {
   applyToRequestSchema,
@@ -37,13 +37,13 @@ export const getPlaygroundRequests = async (
 
 export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
-  userId?: User['id']
+  user?: Session['user']
 ) => {
   const [request, existingUserApplication] = await Promise.all([
     prisma.playgroundRequest.findFirstOrThrow({
       where: {
         id,
-        status: Status.Accepted,
+        status: user?.role === 'Admin' ? undefined : Status.Accepted,
       },
       include: {
         requester: {
@@ -57,14 +57,14 @@ export const getRequestById = async (
     prisma.playgroundApplication.findFirst({
       where: {
         id,
-        applicantId: userId,
+        applicantId: user?.id,
       },
     }),
   ]);
 
   const userAlreadyApplied = !!existingUserApplication;
 
-  const isRequestedByCurrentUser = request.requester.id === userId;
+  const isRequestedByCurrentUser = request.requester.id === user?.id;
 
   return { ...request, isRequestedByCurrentUser, userAlreadyApplied };
 };

@@ -18,6 +18,9 @@ export const getPendingApplications = async (
       ...params,
       status: Status.Pending,
     },
+    include: {
+      request: true,
+    },
   });
 
   return applications;
@@ -30,6 +33,14 @@ export const getPendingRequests = async (
     where: {
       ...params,
       status: Status.Pending,
+    },
+    include: {
+      requester: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
     },
   });
 

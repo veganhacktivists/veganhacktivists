@@ -72,10 +72,8 @@ const playgroundRouter = createRouter()
   .query('request', {
     input: getRequestByIdSchema,
     resolve: async ({ input, ctx: { user } }) => {
-      const userId = user?.id;
-
       try {
-        const request = await getRequestById(input, userId);
+        const request = await getRequestById(input, user);
         return request;
       } catch {
         throw new TRPCError({

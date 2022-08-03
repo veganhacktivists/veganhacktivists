@@ -8,6 +8,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { NextSeo } from 'next-seo';
 
+import { useSession } from 'next-auth/react';
+
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
 import { trpc } from 'lib/client/trpc';
@@ -23,6 +25,7 @@ const idSchema = z.string().cuid({ message: 'The request ID is invalid' });
 
 const PlaygroundRequest: PageWithLayout = ({}) => {
   const router = useRouter();
+  const session = useSession();
   useOnce(
     async () => {
       const data = idSchema.safeParse(router.query.id);
@@ -61,6 +64,19 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
               <FontAwesomeIcon icon={faArrowLeft} /> Return to requests page
             </a>
           </Link>
+          {session.data?.user?.role === 'Admin' && (
+            <div className="text-left">
+              <Link
+                href={{
+                  pathname: '/playground/admin',
+                }}
+              >
+                <a>
+                  <FontAwesomeIcon icon={faArrowLeft} /> Review requests
+                </a>
+              </Link>
+            </div>
+          )}
         </div>
         {status === 'success' && (
           <>

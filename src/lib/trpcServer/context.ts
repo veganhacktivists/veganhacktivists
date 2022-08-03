@@ -1,9 +1,8 @@
 import { unstable_getServerSession } from 'next-auth';
-
 import * as trpc from '@trpc/server';
-
 import { TRPCError } from '@trpc/server';
 
+import prisma from 'lib/db/prisma';
 import { nextAuthOptions } from 'pages/api/auth/[...nextauth]';
 
 import type { inferAsyncReturnType } from '@trpc/server';
@@ -18,6 +17,7 @@ export const createContext = async ({
   return {
     req,
     res,
+    prisma,
     user: session?.user,
   };
 };
@@ -37,7 +37,7 @@ const createRouter = () =>
       });
     }
 
-    if (meta?.requiresAdmin && !ctx.user?.isAdmin) {
+    if (meta?.requiresAdmin && ctx.user?.role !== 'Admin') {
       throw new TRPCError({
         code: 'FORBIDDEN',
       });
@@ -67,14 +67,14 @@ export const createProtectedRouter = () => {
 
 export const createAdminOnlyRouter = () => {
   return createRouter().middleware(({ ctx, next }) => {
-    if (!ctx.user?.isAdmin) {
+    if (ctx.user?.role !== 'Admin') {
       throw new trpc.TRPCError({ code: 'FORBIDDEN' });
     }
 
     return next({
       ctx: {
         ...ctx,
-        user: ctx.user,
+        user: { ...ctx.user, role: ctx.user.role },
       },
     });
   });

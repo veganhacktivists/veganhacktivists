@@ -4,7 +4,7 @@ import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 
-import PlaygroundRequestSummary from 'components/layout/playground/requestSummary';
+import PlaygroundRequestCard from 'components/layout/playground/requestSummary';
 
 import { trpc } from 'lib/client/trpc';
 
@@ -28,7 +28,7 @@ const Playground: PageWithLayout = ({}) => {
           {/* TODO: no available requests message */}
           {isFetched &&
             requests?.map((request) => (
-              <PlaygroundRequestSummary key={request.id} request={request} />
+              <PlaygroundRequestCard key={request.id} request={request} />
             ))}
         </div>
       </div>

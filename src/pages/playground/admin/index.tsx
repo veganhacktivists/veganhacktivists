@@ -1,44 +1,43 @@
-import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
+import { ExternalLinkButton, LightButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 
-import type { PlaygroundApplication } from '@prisma/client';
+import PlaygroundRequestCard from 'components/layout/playground/requestSummary';
+
+import type { PlaygroundRequest } from '@prisma/client';
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
   const { queryClient } = trpc.useContext();
 
   const { data, isSuccess } = trpc.useQuery([
-    'playground.admin.pendingApplications',
+    'playground.admin.pendingRequests',
   ]);
 
   const { mutate, isLoading: isMutationLoading } = trpc.useMutation(
-    ['playground.admin.setApplicationStatus'],
+    ['playground.admin.setRequestStatus'],
     {
       onMutate: async ({ id }) => {
-        await queryClient.cancelQueries([
-          'playground.admin.pendingApplications',
+        await queryClient.cancelQueries(['playground.admin.pendingRequests']);
+        const previousRequests = queryClient.getQueryData<PlaygroundRequest[]>([
+          'playground.admin.pendingRequests',
         ]);
-        const previousApplications = queryClient.getQueryData<
-          PlaygroundApplication[]
-        >(['playground.admin.pendingApplications']);
 
-        queryClient.setQueryData<PlaygroundApplication[]>(
-          ['playground.admin.pendingApplications'],
-          (oldApplications = []) =>
-            oldApplications?.filter((old) => old.id !== id)
+        queryClient.setQueryData<PlaygroundRequest[]>(
+          ['playground.admin.pendingRequests'],
+          (oldRequests = []) => oldRequests?.filter((old) => old.id !== id)
         );
 
-        return { previousApplications };
+        return { previousApplications: previousRequests };
       },
       onError: (error, variables, context) => {
         queryClient.setQueryData(
-          ['playground.admin.pendingApplications'],
+          ['playground.admin.pendingRequests'],
           context?.previousApplications
         );
       },
       onSettled: () => {
         void queryClient.invalidateQueries([
-          'playground.admin.pendingApplications',
+          'playground.admin.pendingRequests',
         ]);
       },
     }
@@ -46,28 +45,31 @@ const AdminPage: NextPage = ({}) => {
 
   if (!isSuccess) return null;
   return (
-    <div>
-      {data.map((application) => (
-        <div key={application.id}>
-          <div>{JSON.stringify(application)}</div>
-          <div className="flex flex-row gap-5">
-            <DarkButton
-              disabled={isMutationLoading}
-              onClick={() => {
-                mutate({ id: application.id, status: 'Accepted' });
-              }}
-            >
-              Accept
-            </DarkButton>
-            <ExternalLinkButton
-              disabled={isMutationLoading}
-              onClick={() => {
-                mutate({ id: application.id, status: 'Rejected' });
-              }}
-            >
-              Deny
-            </ExternalLinkButton>
-          </div>
+    <div className="grid gap-5 px-10 my-5 md:grid-cols-2 md:px-40">
+      {data.map((request) => (
+        <div key={request.id}>
+          <PlaygroundRequestCard request={request}>
+            <div className="flex flex-row gap-5">
+              <LightButton
+                className="w-full"
+                disabled={isMutationLoading}
+                onClick={() => {
+                  mutate({ id: request.id, status: 'Accepted' });
+                }}
+              >
+                Accept
+              </LightButton>
+              <ExternalLinkButton
+                className="w-full px-2 text-xl text-grey-dark"
+                disabled={isMutationLoading}
+                onClick={() => {
+                  mutate({ id: request.id, status: 'Rejected' });
+                }}
+              >
+                Deny
+              </ExternalLinkButton>
+            </div>
+          </PlaygroundRequestCard>
         </div>
       ))}
     </div>

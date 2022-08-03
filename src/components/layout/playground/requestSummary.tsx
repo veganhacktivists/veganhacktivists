@@ -58,7 +58,9 @@ const PRIORITY_CLASSES: Record<Priority, string> = {
   Urgent: 'bg-red',
 };
 
-const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
+const PlaygroundRequestCard: React.FC<
+  React.PropsWithChildren<PlaygroundRequestCardProps>
+> = ({
   request: {
     id,
     title,
@@ -70,6 +72,7 @@ const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
     organization,
     isFree,
   },
+  children,
 }) => {
   const timeSinceCreated = useMemo(
     () => readableTimeSinceDate(createdAt),
@@ -79,7 +82,7 @@ const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
 
   return (
-    <div className="flex flex-col gap-2 p-4 text-left bg-grey-background">
+    <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
       <div className="space-y-1">
         <h3
           className="font-mono text-lg font-bold capitalize line-clamp-1"
@@ -137,6 +140,7 @@ const PlaygroundRequestCard: React.FC<PlaygroundRequestCardProps> = ({
       >
         Read more / apply to help
       </DarkButton>
+      {children}
     </div>
   );
 };

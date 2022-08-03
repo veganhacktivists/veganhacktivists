@@ -77,14 +77,27 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
 
   return (
     <div className="px-10 mb-5 md:px-40">
-      <div
-        className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
-          'border-pink text-pink': request.isFree,
-          'border-blue text-blue': !request.isFree,
-        })}
-      >
-        {request.isFree ? 'Volunteer' : 'Paid'} role
+      <div className="flex flex-row justify-start gap-5">
+        <div
+          className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
+            'border-pink text-pink': request.isFree,
+            'border-blue text-blue': !request.isFree,
+          })}
+        >
+          {request.isFree ? 'Volunteer' : 'Paid'} role
+        </div>
+        {request.status !== 'Accepted' && (
+          <div
+            className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
+              'bg-red text-white': request.status === 'Rejected',
+              'bg-grey text-grey-light': request.status === 'Pending',
+            })}
+          >
+            {request.status === 'Pending' ? 'Pending' : 'Denied'} request!
+          </div>
+        )}
       </div>
+
       <div className="relative flex flex-row gap-10 font-mono text-left justfy-between">
         <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
         <div className="flex flex-col gap-5">

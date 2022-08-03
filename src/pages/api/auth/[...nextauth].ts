@@ -25,34 +25,28 @@ export const nextAuthOptions: NextAuthOptions = {
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    session: async ({ session, token }) => {
-      // TODO: maybe don't use JWT. Or add conditionals to avoid doing this DB access
-      const user = await prisma.user.findUniqueOrThrow({
-        where: { id: token.sub },
-        select: {
-          isAdmin: true,
-          name: true,
-          email: true,
-        },
-      });
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.role = user.role;
+        token.email = user.email;
+        token.name = user.name;
+        token.sub = user.id;
+      }
+
+      return token;
+    },
+    session: ({ session, token }) => {
       if (session?.user) {
         if (token.sub) {
           session.user.id = token.sub;
         }
-        session.user.name = user.name;
-        session.user.email = user.email;
-        session.user.isAdmin = user.isAdmin;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.role = token.role;
       }
 
       delete session.user?.image;
       return session;
-    },
-    jwt: ({ token, user }) => {
-      if (user) {
-        token.isAdmin = user.isAdmin;
-      }
-
-      return token;
     },
   },
 };
