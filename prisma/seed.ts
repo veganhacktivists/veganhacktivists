@@ -17,10 +17,16 @@ const NUMBER = 50;
 const seedUsers = async (n: number = NUMBER) => {
   const users: Prisma.UserCreateManyInput[] = Array(n)
     .fill(null)
-    .map(() => ({
-      email: faker.internet.email(),
-      name: faker.name.findName(),
-    }));
+    .map(() => {
+      const firstName = faker.name.firstName();
+      const lastName = faker.name.lastName();
+      const name = faker.name.findName(firstName, lastName);
+
+      return {
+        email: faker.internet.email(firstName, lastName),
+        name,
+      };
+    });
   const { count } = await prisma.user.createMany({ data: users });
   console.log('Seeded', count, 'users');
 };
@@ -79,6 +85,7 @@ const seedApplications = async (n: number = NUMBER) => {
         .map(() => {
           const user = faker.helpers.arrayElement(users);
           return {
+            createdAt: faker.date.soon(2, request.createdAt),
             applicantId: user.id,
             requestId: request.id,
             hasAppliedInThePast: faker.datatype.boolean(),
@@ -86,7 +93,17 @@ const seedApplications = async (n: number = NUMBER) => {
             name: user.name || faker.name.findName(),
             providedEmail: user.email,
             status: faker.helpers.objectValue(Status),
-          };
+            calendlyUrl: faker.internet.url(),
+            instagramUrl:
+              (faker.datatype.boolean() ? '@' : '') +
+              faker.internet.userName(user.name || undefined),
+            linkedinUrl: faker.internet.userName(user.name || undefined),
+            portfolioLink: faker.internet.url(),
+            twitterUrl:
+              (faker.datatype.boolean() ? '@' : '') +
+              faker.internet.userName(user.name || undefined),
+            moreInfo: faker.lorem.paragraphs(faker.datatype.number(5)),
+          } as Prisma.PlaygroundApplicationCreateManyInput;
         })
     );
 
