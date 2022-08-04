@@ -117,7 +117,11 @@ const seedApplications = async (n: number = NUMBER) => {
 const cleanup = async () => {
   await prisma.playgroundApplication.deleteMany();
   await prisma.playgroundRequest.deleteMany();
-  await prisma.user.deleteMany();
+  await prisma.user.deleteMany({
+    where: {
+      emailVerified: null,
+    },
+  });
 };
 
 async function main() {
