@@ -1,5 +1,7 @@
 import { TRPCError } from '@trpc/server';
 
+import { Status } from '@prisma/client';
+
 import createRouter, {
   createAdminOnlyRouter,
   createProtectedRouter,
@@ -48,6 +50,40 @@ const adminPlaygroundRouter = createAdminOnlyRouter()
     input: setRequestStatusSchema,
     resolve: async ({ input }) => {
       return await setRequestStatus(input);
+    },
+  })
+  .query('requestsWithPendingApplications', {
+    resolve: ({ ctx: { prisma } }) => {
+      return prisma.playgroundRequest.findMany({
+        where: {
+          status: Status.Accepted,
+          applications: {
+            some: {
+              status: Status.Pending,
+            },
+          },
+        },
+        include: {
+          applications: {
+            where: {
+              status: Status.Pending,
+            },
+            include: {
+              applicant: {
+                select: {
+                  email: true,
+                },
+              },
+            },
+          },
+          requester: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      });
     },
   });
 

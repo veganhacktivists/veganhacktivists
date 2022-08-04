@@ -4,7 +4,7 @@ import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 
-import PlaygroundRequestCard from 'components/layout/playground/requestSummary';
+import PlaygroundRequestCard from 'components/layout/playground/requestCard';
 
 import { trpc } from 'lib/client/trpc';
 
