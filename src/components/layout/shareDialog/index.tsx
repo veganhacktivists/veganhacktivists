@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { pixelStar } from '../../../images/separators';
-import CustomImage from '../../decoration/customImage';
 import SquareField from '../../decoration/squares';
 import { SectionHeader } from '../../decoration/textBlocks';
 import ContentfulImage from '../contentfulImage';
@@ -50,15 +48,15 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
           ]}
         />
         <div className="w-full p-8 mx-auto bg-grey-background text-grey">
-          <div className="flex flex-col justify-center gap-x-10 md:flex-row pt-24 md:pt-24 md:gap-x-8">
-            <div className="mx-auto w-1/2 md:w-1/3 md:m-0">
+          <div className="flex flex-col justify-center pt-24 gap-x-10 md:flex-row md:pt-24 md:gap-x-8">
+            <div className="w-1/2 mx-auto md:w-1/3 md:m-0">
               <ContentfulImage
                 priority
                 image={shareInfo.image}
                 alt={`${shareInfo.title} logo`}
               />
             </div>
-            <div className="mx-auto mt-5 flex items-center md:m-0">
+            <div className="flex items-center mx-auto mt-5 md:m-0">
               <div>
                 <h1 className="mb-8 text-center">
                   <span className="text-4xl font-bold">
