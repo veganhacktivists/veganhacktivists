@@ -41,13 +41,13 @@ import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
 
 import Spinner from 'components/decoration/spinner';
 
+import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
+
 import type { AppRouter } from 'pages/api/trpc/[trpc]';
 
 import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
-
-import type { InferMutationInput, InferQueryOutput } from 'types/trpcHelper';
 
 const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   title,
@@ -61,7 +61,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: InferQueryOutput<'playground.request'>;
+  request: inferQueryOutput<'playground.request'>;
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
@@ -183,7 +183,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     reset,
     control,
     watch,
-  } = useForm<InferMutationInput<'playground.apply'>>({
+  } = useForm<inferMutationInput<'playground.apply'>>({
     defaultValues: {
       ...storedForm,
       hasAppliedInThePast: request.userAlreadyApplied,
@@ -238,7 +238,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     }
   );
   const onSubmit = useCallback(
-    (values: InferMutationInput<'playground.apply'>) => {
+    (values: inferMutationInput<'playground.apply'>) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         return;

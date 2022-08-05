@@ -4,8 +4,6 @@ import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
-import { withTRPC } from '@trpc/next';
-import superjson from 'superjson';
 
 import useOnce from '../hooks/useOnce';
 
@@ -13,11 +11,12 @@ import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 
+import { trpc } from 'lib/client/trpc';
+
 import type { Session } from 'next-auth';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import type { AppRouter } from './api/trpc/[trpc]';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
@@ -116,23 +115,4 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
   );
 };
 
-export default withTRPC<AppRouter>({
-  config: ({ ctx }) => {
-    const url = `${process.env.NEXT_PUBLIC_URL || ''}/api/trpc`;
-    return {
-      url,
-      transformer: superjson,
-      headers: () => {
-        if (ctx?.req) {
-          // on ssr, forward client's headers to the server
-          return {
-            ...ctx.req.headers,
-            'x-ssr': '1',
-          };
-        }
-        return {};
-      },
-    };
-  },
-  ssr: true,
-})(MyApp);
+export default trpc.withTRPC(MyApp);

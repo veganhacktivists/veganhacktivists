@@ -13,13 +13,11 @@ import type { NextPage } from 'next';
 const AdminPage: NextPage = ({}) => {
   const { queryClient } = trpc.useContext();
 
-  const { data, isSuccess } = trpc.useQuery([
-    'playground.admin.pendingRequests',
-  ]);
+  const { data, isSuccess } =
+    trpc.proxy.playground.admin.pendingRequests.useQuery();
 
-  const { mutate, isLoading: isMutationLoading } = trpc.useMutation(
-    ['playground.admin.setRequestStatus'],
-    {
+  const { mutate, isLoading: isMutationLoading } =
+    trpc.proxy.playground.admin.setRequestStatus.useMutation({
       onMutate: async ({ id }) => {
         await queryClient.cancelQueries(['playground.admin.pendingRequests']);
         const previousRequests = queryClient.getQueryData<PlaygroundRequest[]>([
@@ -44,8 +42,7 @@ const AdminPage: NextPage = ({}) => {
           'playground.admin.pendingRequests',
         ]);
       },
-    }
-  );
+    });
 
   if (!isSuccess) return null;
   return (

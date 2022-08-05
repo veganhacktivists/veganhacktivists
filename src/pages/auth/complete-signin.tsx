@@ -7,11 +7,12 @@ import { useSession } from 'next-auth/react';
 
 import TextInput from 'components/forms/inputs/textInput';
 import { DarkButton } from 'components/decoration/buttons';
-import { useUpdateUser } from 'lib/client/api/hooks/users';
 
 import { updateUserSchema } from 'lib/services/users/schemas';
 
-import type { InferMutationInput } from 'types/trpcHelper';
+import { trpc } from 'lib/client/trpc';
+
+import type { inferMutationInput } from 'lib/client/trpc';
 
 const resolver = zodResolver(updateUserSchema);
 
@@ -24,7 +25,7 @@ const CompleteSignin: React.FC = ({}) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InferMutationInput<'users.updateMe'>>({
+  } = useForm<inferMutationInput<'users.updateMe'>>({
     resolver,
   });
 
@@ -33,12 +34,13 @@ const CompleteSignin: React.FC = ({}) => {
     router.reload();
   }, [router]);
 
-  const { mutate: updateUser, isLoading } = useUpdateUser({
-    onSuccess: onUserUpdate,
-  });
+  const { mutate: updateUser, isLoading } =
+    trpc.proxy.users.updateMe.useMutation({
+      onSuccess: onUserUpdate,
+    });
 
   const onSubmit = useCallback(
-    (values: InferMutationInput<'users.updateMe'>) => updateUser(values),
+    (values: inferMutationInput<'users.updateMe'>) => updateUser(values),
     [updateUser]
   );
 

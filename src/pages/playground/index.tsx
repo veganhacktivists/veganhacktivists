@@ -11,7 +11,8 @@ import { trpc } from 'lib/client/trpc';
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
-  const { data: requests, isFetched } = trpc.useQuery(['playground.requests']);
+  const { data: requests, isFetched } =
+    trpc.proxy.playground.requests.useQuery();
 
   return (
     <>

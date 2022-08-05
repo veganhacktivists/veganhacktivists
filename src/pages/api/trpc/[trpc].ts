@@ -1,17 +1,7 @@
 import * as trpcNext from '@trpc/server/adapters/next';
-import superjson from 'superjson';
 
-import playgroundRouter from 'lib/trpcServer/playground';
-import usersRouter from 'lib/trpcServer/users';
-import createRouter, { createContext } from 'lib/trpcServer/context';
-
-export const appRouter = createRouter()
-  .transformer(superjson)
-  .merge('playground.', playgroundRouter)
-  .merge('users.', usersRouter);
-// .merge('auth.', authRouter);
-
-export type AppRouter = typeof appRouter;
+import { createContext } from 'server/context';
+import { appRouter } from 'server/routers/_app';
 
 export default trpcNext.createNextApiHandler({
   router: appRouter,
@@ -22,4 +12,5 @@ export default trpcNext.createNextApiHandler({
       console.error(error);
     }
   },
+  batching: { enabled: true },
 });

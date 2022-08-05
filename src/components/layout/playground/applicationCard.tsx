@@ -4,10 +4,10 @@ import classNames from 'classnames';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
 
-import type { InferQueryOutput } from 'types/trpcHelper';
+import type { inferQueryOutput } from 'lib/client/trpc';
 
 interface ApplicationCardProps {
-  application: InferQueryOutput<'playground.admin.requestsWithPendingApplications'>[0]['applications'][0];
+  application: inferQueryOutput<'playground.admin.requestsWithPendingApplications'>[0]['applications'][0];
 }
 
 const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({

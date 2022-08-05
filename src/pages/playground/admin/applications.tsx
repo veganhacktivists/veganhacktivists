@@ -11,9 +11,8 @@ import type { NextPage } from 'next';
 const AdminPage: NextPage = ({}) => {
   const { queryClient } = trpc.useContext();
 
-  const { data, isSuccess } = trpc.useQuery([
-    'playground.admin.requestsWithPendingApplications',
-  ]);
+  const { data, isSuccess } =
+    trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
 
   const { mutate, isLoading: isMutationLoading } = trpc.useMutation(
     ['playground.admin.setApplicationStatus'],

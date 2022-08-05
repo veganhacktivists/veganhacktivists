@@ -11,13 +11,13 @@ import getThemeColor from 'lib/helpers/theme';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
 
-import type { InferQueryOutput } from 'types/trpcHelper';
+import type { inferQueryOutput } from 'lib/client/trpc';
 
 import type { PlaygroundRequestCategory, Priority } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: InferQueryOutput<'playground.requests'>[0];
+  request: inferQueryOutput<'playground.requests'>[0];
 }
 
 const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
