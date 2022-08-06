@@ -58,9 +58,11 @@ const CookiesCTA: React.FC = () => {
         <p className="font-mono text-xl mb-7">
           This website uses cookies to enhance your browsing experience.
         </p>
-        <DarkButton className="w-3/4 mb-4" onClick={() => onChange(true)}>
-          Accept cookies
-        </DarkButton>
+        <div className="flex justify-center">
+          <DarkButton className="w-3/4 mb-4" onClick={() => onChange(true)}>
+            Accept cookies
+          </DarkButton>
+        </div>
         <p
           onClick={() => onChange(false)}
           className="font-mono underline cursor-pointer"
