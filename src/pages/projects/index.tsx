@@ -216,7 +216,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
           </div>
         ))}
         {pagedProjects.length < projectsForSelectedYear.length && (
-          <div className="mt-16">
+          <div className="mt-16 flex justify-center">
             <WhiteButton
               className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
