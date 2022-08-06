@@ -1,9 +1,7 @@
 import { setupTRPC } from '@trpc/next';
-
 import superjson from 'superjson';
 
 import type { NextPageContext } from 'next';
-
 import type { inferProcedureInput, inferProcedureOutput } from '@trpc/server';
 import type { AppRouter } from 'server/routers/_app';
 

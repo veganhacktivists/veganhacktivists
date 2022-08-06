@@ -41,9 +41,9 @@ import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
 
 import Spinner from 'components/decoration/spinner';
 
-import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
+import type { AppRouter } from 'server/routers/_app';
 
-import type { AppRouter } from 'pages/api/trpc/[trpc]';
+import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
 
 import type { TRPCClientError } from '@trpc/react';
 
