@@ -4,6 +4,8 @@ import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
+import type { submitRequestSchema } from './schemas';
+
 import type { Session } from 'next-auth';
 
 import type {
@@ -116,4 +118,27 @@ export const applyToHelp = async (
     }
     throw e;
   }
+};
+
+export const submitRequest = async (
+  params: z.infer<typeof submitRequestSchema> & { requesterId: string }
+) => {
+  const [newRequest] = await prisma.$transaction([
+    prisma.playgroundRequest.create({
+      data: {
+        ...params,
+        requesterId: params.requesterId,
+      },
+    }),
+    prisma.user.update({
+      where: {
+        id: params.requesterId,
+      },
+      data: {
+        name: params.name,
+      },
+    }),
+  ]);
+
+  return newRequest;
 };

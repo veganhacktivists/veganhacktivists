@@ -1,17 +1,17 @@
-// import ky from 'ky-universal';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
-// import { useFloating } from '@floating-ui/react-dom';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import { useSession } from 'next-auth/react';
+
+import { PlaygroundRequestCategory } from '@prisma/client';
 
 import { firstLetterUppercase } from '../../../lib/helpers/strings';
-import useErrorStore from '../../../lib/stores/errorStore';
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
-
-// import Tooltip;
 
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
@@ -20,83 +20,140 @@ import SelectInput from '../../forms/inputs/selectInput';
 import Checkbox from '../../forms/inputs/checkbox';
 import ToolTip from '../../decoration/tooltip';
 import CustomLink from '../../decoration/link';
-// import DateInput from './inputs/dateInput';
 
-type Priority = 'low' | 'medium' | 'high';
-type Pricing = 'free' | 'paid';
+import useOnce from '../../../hooks/useOnce';
 
-interface RequestSubmission {
-  name: string;
-  email: string;
-  phone?: string;
-  organization?: string;
-  website?: string;
-  calendly?: string;
+import RadioButton from '../../forms/inputs/radioButton';
 
-  requestTitle: string;
-  category: string;
-  priority: Priority;
-  roleTitle: string;
-  skillsRequired: string;
-  pricing: Pricing;
-  budget: string;
-  issue: string;
-  dueDate: string;
-  estimatedTime: string;
+import SignInPrompt from './siginInPrompt';
 
-  qualityAgreement: boolean;
-  agreeToTerms: boolean;
-}
+import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+
+import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
+
+import { trpc } from 'lib/client/trpc';
+
+import type { inferMutationInput } from 'lib/client/trpc';
+
+import type { z } from 'zod';
+
+import type { TRPCClientError } from '@trpc/react';
+
+type FormInput = z.infer<typeof submitRequestSchemaClient>;
 
 const SubmitRequestForm: React.FC = () => {
-  const { pageThatErrored, clearErrorData } = useErrorStore();
+  const { data: session, status: sessionStatus } = useSession();
 
-  const {
-    control,
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<RequestSubmission>();
-  const { reload } = useRouter();
-
-  const defaultErrorMessage = useErrorStore(
-    (state) => state.generateErrorMessage
-  )();
-
-  // Clear error data on unmount so if they don't submit
-  // the form is clear on return visits.
-  useEffect(() => {
-    return () => clearErrorData();
-  }, [clearErrorData]);
-
-  const onSubmit = useCallback(
-    async (values: RequestSubmission) => {
-      const submit = async () => {};
-      //ky.post('/api/contact-us', {
-      //  json: values,
-      //});
-
-      await toast
-        .promise(submit, {
-          pending: 'Submitting...',
-          error:
-            'Something went wrong processing your submission! Please try again later',
-          success: 'Your request was sent successfully!',
-        })
-        .then(() => {
-          reset();
-          setTimeout(() => {
-            reload();
-          }, 5000);
-        });
-    },
-    [reload, reset]
+  const storedForm = usePlaygroundSubmitRequestStore((state) =>
+    state.getForm()
+  );
+  const setFormData = usePlaygroundSubmitRequestStore((state) =>
+    state.setForm()
+  );
+  const clearFormData = usePlaygroundSubmitRequestStore((state) =>
+    state.resetForm()
   );
 
-  /*const { x, y, reference, floating, strategy } = useFloating({
-    placement: 'top-end',
-  });*/
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const onModalClose = useCallback(() => {
+    setIsSignInModalOpen(false);
+  }, []);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const {
+    handleSubmit,
+    setValue,
+    getValues,
+    register,
+    formState: { errors },
+    reset,
+    control,
+    watch,
+  } = useForm<inferMutationInput<'playground.submitRequest'>>({
+    defaultValues: {
+      ...storedForm,
+    },
+    resolver: zodResolver(submitRequestSchemaClient),
+  });
+
+  const onChangeValue = useCallback(
+    (name: keyof FormInput) => (value: unknown) => {
+      setFormData({ [name]: value });
+    },
+    [setFormData]
+  );
+
+  const myRegister = useCallback<typeof register>(
+    (name, options) => {
+      return register(name, {
+        ...options,
+        onChange: (value) => {
+          options?.onChange?.(value);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          onChangeValue(name)(value.currentTarget?.value);
+        },
+      });
+    },
+    [onChangeValue, register]
+  );
+
+  const dataFilled = useOnce(
+    () => {
+      if (!session?.user) return;
+      const { name, email } = session.user;
+      if (name && !watch('name')) {
+        setValue('name', name);
+      }
+      if (email && !watch('email')) {
+        setValue('email', email);
+      }
+    },
+    { enabled: sessionStatus === 'authenticated' }
+  );
+
+  const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
+    ['playground.submitRequest'],
+    {
+      onSuccess: () => {
+        clearFormData();
+        reset();
+      },
+    }
+  );
+
+  const onSubmit = useCallback(
+    (values: InferMutationInput<'playground.submitRequest'>) => {
+      if (sessionStatus === 'unauthenticated') {
+        setIsSignInModalOpen(true);
+        return;
+      } else if (sessionStatus === 'loading') {
+        return;
+      }
+      void toast.promise(mutateAsync(values), {
+        pending: 'Submitting...',
+        success: 'Your request has been submitted!',
+        error: {
+          render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
+            return data?.message;
+          },
+        },
+      });
+    },
+    [mutateAsync, sessionStatus]
+  );
+
+  const router = useRouter();
+
+  useOnce(
+    () => {
+      if (router.query.submit !== 'true') return;
+      if (formRef.current) {
+        formRef.current.scrollIntoView();
+      }
+      void handleSubmit(onSubmit)();
+    },
+    { enabled: router.isReady && dataFilled }
+  );
 
   return (
     <div className="bg-grey-background" id="contact-us">
@@ -104,7 +161,7 @@ const SubmitRequestForm: React.FC = () => {
         noValidate
         //className="flex flex-col gap-5"
         onSubmit={handleSubmit(onSubmit)}
-        className="mx-10 py-10 flex flex-col flex-grow gap-5 px-10 text-left"
+        className="flex flex-col flex-grow gap-5 px-10 py-10 mx-10 text-left"
       >
         <div className="text-xl">Personal Information</div>
         <div className="flex flex-row gap-5">
@@ -112,14 +169,14 @@ const SubmitRequestForm: React.FC = () => {
             className="w-full"
             placeholder="Name"
             showRequiredMark
-            {...register('name', { required: 'Please enter a name' })}
+            {...myRegister('name', { required: 'Please enter a name' })}
             error={errors.name?.message}
           />
           <TextInput
             className="w-full"
             placeholder="Email"
             showRequiredMark
-            {...register('email', {
+            {...myRegister('email', {
               required: 'The email is required',
               pattern: {
                 value:
@@ -135,26 +192,28 @@ const SubmitRequestForm: React.FC = () => {
             className="w-full "
             placeholder="Phone"
             type="tel"
-            {...register('phone', { required: false })}
+            {...myRegister('phone', { required: false })}
             error={errors.phone?.message}
           />
           <TextInput
             className="w-full "
             placeholder="Organization"
-            {...register('organization', { required: false })}
+            {...myRegister('organization', { required: false })}
             error={errors.organization?.message}
           />
         </div>
         <TextInput
           placeholder="www.website..."
           showRequiredMark
-          {...register('website', { required: 'Please enter a valid website' })}
+          {...myRegister('website', {
+            required: 'Please enter a valid website',
+          })}
           error={errors.website?.message}
         />
         <TextInput
           placeholder="Calendly"
-          {...register('calendly', { required: false })}
-          error={errors.calendly?.message}
+          {...myRegister('calendlyUrl', { required: false })}
+          error={errors.calendlyUrl?.message}
         >
           <div className="flex gap-2">
             Link to your Calendly
@@ -183,23 +242,44 @@ const SubmitRequestForm: React.FC = () => {
         <TextInput
           placeholder="Title of Request"
           showRequiredMark
-          {...register('requestTitle', {
+          {...myRegister('title', {
             required: 'Please enter the title of the request',
           })}
-          error={errors.requestTitle?.message}
+          error={errors.title?.message}
         >
           Title of Request
         </TextInput>
         <div className="flex flex-row gap-5">
-          <TextInput
-            className="w-full"
-            placeholder="Category"
-            showRequiredMark
-            {...register('category', {
-              required: 'Please select the category of the request',
-            })}
-            error={errors.category?.message}
-          />
+          <div className="w-full">
+            <Label name="category" showRequiredMark />
+            <Controller
+              name="category"
+              control={control}
+              rules={{ required: 'Please select a category of the request' }}
+              render={({ field }) => (
+                <SelectInput
+                  {...field}
+                  error={errors.priority?.message}
+                  options={Object.keys(PlaygroundRequestCategory).map((k) => ({
+                    value:
+                      PlaygroundRequestCategory[k as PlaygroundRequestCategory],
+                    label: PlaygroundRequestCategory[
+                      k as PlaygroundRequestCategory
+                    ].replace(/([0-9A-Z])/g, ' $&'),
+                  }))}
+                  showError
+                  defaultValue={
+                    getValues('category') //|| PlaygroundRequestCategory.Design
+                  }
+                  {...myRegister('category')}
+                  onChange={(e) => {
+                    setFormData({ category: e as PlaygroundRequestCategory });
+                    setValue('category', e as PlaygroundRequestCategory);
+                  }}
+                />
+              )}
+            />
+          </div>
           <div className="w-full">
             <Label name="priority" showRequiredMark />
             <Controller
@@ -209,14 +289,20 @@ const SubmitRequestForm: React.FC = () => {
               render={({ field }) => (
                 <SelectInput
                   {...field}
-                  ref={null}
                   error={errors.priority?.message}
-                  options={['low', 'medium', 'high'].map((option) => ({
-                    value: option,
-                    label: firstLetterUppercase(`${option} priority`),
+                  options={Object.keys(Priority).map((k) => ({
+                    value: Priority[k as Priority],
+                    label: firstLetterUppercase(
+                      `${Priority[k as Priority]} priority`
+                    ),
                   }))}
                   showError
-                  defaultValue={pageThatErrored ? 'low' : undefined}
+                  defaultValue={getValues('priority')} //|| Priority.Low}
+                  {...myRegister('priority')}
+                  onChange={(e) => {
+                    setFormData({ priority: e as Priority });
+                    setValue('priority', e as Priority);
+                  }}
                 />
               )}
             />
@@ -224,10 +310,10 @@ const SubmitRequestForm: React.FC = () => {
         </div>
         <div className="flex flex-row gap-5">
           <TextInput
-            className="w-full md:mt-0 mt-6"
+            className="w-full mt-6 md:mt-0"
             placeholder="Role title"
             showRequiredMark
-            {...register('roleTitle', {
+            {...myRegister('roleTitle', {
               required: 'Please select the role title of the request',
             })}
             error={errors.roleTitle?.message}
@@ -237,10 +323,10 @@ const SubmitRequestForm: React.FC = () => {
           <TextInput
             className="w-full"
             placeholder="Communication, ..."
-            {...register('skillsRequired', {
+            {...myRegister('requiredSkills', {
               required: 'Please select the skills required for the request',
             })}
-            error={errors.skillsRequired?.message}
+            error={errors.requiredSkills?.message}
           >
             <div className="flex flex-col md:flex-row">
               <p>
@@ -252,43 +338,47 @@ const SubmitRequestForm: React.FC = () => {
         </div>
         <div className="flex flex-row gap-5">
           <div className="w-full ">
-            <Label name="pricing" showRequiredMark>
+            <Label name="isFree" showRequiredMark>
               Free or Paid?
             </Label>
             <Controller
-              name="pricing"
               control={control}
-              rules={{ required: 'Please select the pricing of the request' }}
-              render={({ field }) => (
-                <SelectInput
-                  {...field}
-                  ref={null}
-                  error={errors.pricing?.message}
-                  options={['free', 'paid'].map((option) => ({
-                    value: option,
-                    label: firstLetterUppercase(
-                      `${option} ${
-                        option === 'free' ? '(Volunteer Requested)' : ''
-                      }`
-                    ),
-                  }))}
-                  showError
-                  defaultValue={pageThatErrored ? 'free' : undefined}
-                />
+              name="isFree"
+              render={({ field: { value, onChange } }) => (
+                <div className="sm:flex sm:flex-row sm:gap-20 sm:mb-2 sm:mt-3">
+                  <RadioButton
+                    onChange={() => {
+                      setFormData({ isFree: true });
+                      onChange(true);
+                    }}
+                    checked={value === true}
+                    label="Free"
+                  />
+                  <RadioButton
+                    onChange={() => {
+                      setFormData({ isFree: false });
+
+                      onChange(false);
+                    }}
+                    checked={value === false}
+                    label="Paid"
+                  />
+                </div>
               )}
             />
+            {errors.isFree?.message && (
+              <span className="text-red">⚠ {errors.isFree.message}</span>
+            )}
           </div>
           <TextInput
             className="w-full"
             placeholder="Budget"
+            type="number"
+            inputMode="numeric"
+            step={50}
+            min={0}
             showRequiredMark
-            {...register('budget', {
-              required: 'Please select the budget of the request',
-              pattern: {
-                value: /^(?!0\.00)[1-9]\d*(\.\d\d)?$/,
-                message: 'Please enter a valid budget',
-              },
-            })}
+            {...myRegister('budget', { valueAsNumber: true })}
             error={errors.budget?.message}
           >
             Budget?
@@ -297,24 +387,23 @@ const SubmitRequestForm: React.FC = () => {
         <TextArea
           placeholder="Describe your issue"
           showRequiredMark
-          error={errors.issue?.message}
-          {...register('issue', {
+          error={errors.description?.message}
+          {...myRegister('description', {
             required: 'Issue description is required',
           })}
-          defaultValue={defaultErrorMessage}
           style={{ resize: 'vertical' }}
         >
           Describe your issue
         </TextArea>
         <div className="flex flex-row gap-5">
           <TextInput
-            className="w-full sm:mt-0 mt-6"
+            className="w-full mt-6 sm:mt-0"
             min={new Date().toISOString().split('T')[0]}
             type="date"
             placeholder="Due date"
             showRequiredMark
-            {...register('dueDate', {
-              required: 'Please select the due date of the requested task',
+            {...myRegister('dueDate', {
+              valueAsDate: true,
             })}
             error={errors.dueDate?.message}
           >
@@ -322,47 +411,53 @@ const SubmitRequestForm: React.FC = () => {
           </TextInput>
           <TextInput
             className="w-full"
-            placeholder="Estimated time commitment"
+            type="number"
+            min={0}
+            placeholder="Days"
             showRequiredMark
-            {...register('estimatedTime', {
-              required:
-                'Please select the estimated time of commitment of the requested task',
-            })}
-            error={errors.estimatedTime?.message}
+            {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
+            error={errors.estimatedTimeDays?.message}
           >
             Estimated time <br className="sm:hidden" /> commitment
           </TextInput>
         </div>
-
         <Checkbox
-          {...register('qualityAgreement', {
-            required: 'You must check this option in order to continue',
-          })}
+          error={errors.qualityAgreement?.message}
+          {...myRegister('qualityAgreement')}
+          onChange={(e) => {
+            const checked = e.currentTarget.checked;
+            setFormData({ qualityAgreement: checked });
+            setValue('qualityAgreement', checked);
+          }}
         >
           I understand that Vegan Hacktivists cannot guarantee the quality of
           work done by our volunteers.
         </Checkbox>
         <Checkbox
           error={errors.agreeToTerms?.message}
-          {...register('agreeToTerms')}
+          {...myRegister('agreeToTerms')}
           onChange={(e) => {
-            //const checked = e.currentTarget.checked;
-            //setFormData({ agreeToTerms: checked });
-            //setValue('agreeToTerms', checked);
+            const checked = e.currentTarget.checked;
+            setFormData({ agreeToTerms: checked });
+            setValue('agreeToTerms', checked);
           }}
         >
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
-
         <DarkButton
-          //className="pt-5 pb-10 text-center w-62"
+          className="mx-auto mt-24 mb-10 text-center w-72"
+          disabled={isLoading || isSuccess}
           type="submit"
-          disabled={isSubmitting || isSubmitSuccessful}
-          className="text-center mx-auto mt-24 mb-10 w-72"
         >
-          {isSubmitting ? <Spinner /> : 'Submit My Request'}
+          {isLoading ? <Spinner /> : 'Submit My Request'}
         </DarkButton>
       </form>
+      <SignInPrompt
+        isOpen={isSignInModalOpen}
+        onClose={onModalClose}
+        email={watch('email')}
+        submitOnVerify
+      />
     </div>
   );
 };
