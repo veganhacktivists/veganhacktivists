@@ -14,27 +14,19 @@ export const paginationSchema = z
 export const getRequestByIdSchema = z.string().cuid();
 
 const filterSchema = z.object({
-  category: z.array(z.nativeEnum(PlaygroundRequestCategory)),
+  categories: z.array(z.nativeEnum(PlaygroundRequestCategory)).min(1),
+  // .optional(),
   isFree: z.boolean(),
 });
 
-export const filterAndSortRequestsSchema = z
-  .object({
-    sort: z.object({
-      priority: z.enum(['asc', 'desc']).default('desc'),
-      createdAt: z.enum(['asc', 'desc']).default('desc'),
-    }),
-  })
-  .and(filterSchema.partial().optional());
+const sortSchema = z.record(
+  z.enum(['priority', 'createdAt']),
+  z.enum(['asc', 'desc'])
+);
 
-export const getPlaygroundRequestsSchema = z
-  .object({
-    isFree: z.boolean(),
-    category: z.nativeEnum(PlaygroundRequestCategory),
-  })
+export const getPlaygroundRequestsSchema = filterSchema
   .partial()
-  .optional()
-  .and(filterAndSortRequestsSchema);
+  .and(z.object({ sort: sortSchema.optional() }));
 
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),

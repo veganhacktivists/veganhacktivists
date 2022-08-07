@@ -32,9 +32,11 @@ const Playground: PageWithLayout = ({}) => {
     return { sort, ...otherFilters };
   }, [filters]);
 
-  const { data: requests, isFetched } = trpc.proxy.playground.requests.useQuery(
+  const { data: requests, isSuccess } = trpc.proxy.playground.requests.useQuery(
     params,
-    { keepPreviousData: true }
+    {
+      keepPreviousData: true,
+    }
   );
 
   return (
@@ -45,11 +47,11 @@ const Playground: PageWithLayout = ({}) => {
           Check out both volunteer and paid project requests from individuals
           and organizations seeking support for their work for the animals.
         </SectionHeader>
-        <div className="lg:mx-12 2xl:mx-44 xl:mx-36">
+        <div className="mt-5 lg:mx-12 2xl:mx-44 xl:mx-36">
           <RequestFilters onChange={setFilters} filters={filters} />
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-8 mt-5 sm:grid-cols-2">
             {/* TODO: no available requests message */}
-            {isFetched &&
+            {isSuccess &&
               requests?.map((request) => (
                 <PlaygroundRequestCard key={request.id} request={request} />
               ))}
