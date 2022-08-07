@@ -1,11 +1,10 @@
-import { Status } from '@prisma/client';
+import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { z } from 'zod';
 
 export const paginationSchema = z
   .object({
     page: z.number().int().positive(),
     limit: z.number().int().positive(),
-    sort: z.array(z.string()).optional(),
   })
   .refine(
     (data) => (!!data.page && !!data.limit) || (!data.page && !data.limit),
@@ -14,22 +13,28 @@ export const paginationSchema = z
 
 export const getRequestByIdSchema = z.string().cuid();
 
-export const getPlaygroundRequestsSchema = paginationSchema
-  .and(
-    z
-      .object({
-        isFree: z.boolean(),
-        category: z.enum([
-          'Design',
-          'Website',
-          'Marketing',
-          'VideoProduction',
-          'SocialMedia',
-        ]),
-      })
-      .partial()
-  )
-  .optional();
+const filterSchema = z.object({
+  category: z.array(z.nativeEnum(PlaygroundRequestCategory)),
+  isFree: z.boolean(),
+});
+
+export const filterAndSortRequestsSchema = z
+  .object({
+    sort: z.object({
+      priority: z.enum(['asc', 'desc']).default('desc'),
+      createdAt: z.enum(['asc', 'desc']).default('desc'),
+    }),
+  })
+  .and(filterSchema.partial().optional());
+
+export const getPlaygroundRequestsSchema = z
+  .object({
+    isFree: z.boolean(),
+    category: z.nativeEnum(PlaygroundRequestCategory),
+  })
+  .partial()
+  .optional()
+  .and(filterAndSortRequestsSchema);
 
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),

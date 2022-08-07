@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import {
   PlaygroundRequestCategory,
-  Priority,
   PrismaClient,
   Status,
 } from '@prisma/client';
@@ -51,7 +50,7 @@ const seedRequests = async (n: number = NUMBER) => {
         )}`,
         dueDate: faker.date.future(),
         isFree: faker.datatype.boolean(),
-        priority: faker.helpers.objectValue(Priority),
+        priority: faker.datatype.number({ min: 0, max: 3, precision: 1 }),
         roleTitle: faker.hacker.noun(),
         requiredSkills: faker.helpers.uniqueArray(
           () => faker.hacker.ingverb(),

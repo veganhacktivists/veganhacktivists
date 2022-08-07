@@ -5,7 +5,7 @@ import {
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 
-import PlaygroundRequestCard from 'components/layout/playground/requestCard';
+import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 
 import type { PlaygroundRequest } from '@prisma/client';
 import type { NextPage } from 'next';

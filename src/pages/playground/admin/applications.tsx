@@ -1,7 +1,7 @@
 import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 
-import PlaygroundRequestCard from 'components/layout/playground/requestCard';
+import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 
 import ApplicationCard from 'components/layout/playground/applicationCard';
 

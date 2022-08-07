@@ -13,7 +13,7 @@ import { readableTimeSinceDate } from 'lib/helpers/date';
 
 import type { inferQueryOutput } from 'lib/client/trpc';
 
-import type { PlaygroundRequestCategory, Priority } from '@prisma/client';
+import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
@@ -51,12 +51,12 @@ const Li: React.FC<
   </li>
 );
 
-const PRIORITY_CLASSES: Record<Priority, string> = {
-  Low: 'bg-green',
-  Medium: 'bg-yellow-orange',
-  High: 'bg-orange',
-  Urgent: 'bg-red',
-};
+const PRIORITIES = [
+  { label: 'Low', className: 'bg-green' },
+  { label: 'Medium', className: 'bg-yellow-orange' },
+  { label: 'High', className: 'bg-orange' },
+  { label: 'Urgent', className: 'bg-red' },
+];
 
 const PlaygroundRequestCard: React.FC<
   React.PropsWithChildren<PlaygroundRequestCardProps>
@@ -64,7 +64,7 @@ const PlaygroundRequestCard: React.FC<
   request: {
     id,
     title,
-    priority,
+    priority: priorityNumber,
     description,
     requester,
     createdAt,
@@ -80,6 +80,7 @@ const PlaygroundRequestCard: React.FC<
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
+  const priority = useMemo(() => PRIORITIES[priorityNumber], [priorityNumber]);
 
   return (
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
@@ -118,11 +119,11 @@ const PlaygroundRequestCard: React.FC<
           <span className="font-bold">Priority:</span>{' '}
           <span
             className={classNames(
-              PRIORITY_CLASSES[priority],
+              priority.className,
               'rounded-lg px-2 py-0.5 bg-opacity-75'
             )}
           >
-            {priority}
+            {priority.label}
           </span>
         </Li>
         <Li category={category} className="col-span-full">
