@@ -333,7 +333,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           </TextInput>
         </div>
         <div className="flex flex-row justify-start gap-5">
-          <div>Have you applied for a Playground volunteer role in the past?</div>
+          <div>Have you applied for a Playground project in the past?</div>
           <Controller
             control={control}
             name="hasAppliedInThePast"
