@@ -77,7 +77,12 @@ export const submitRequestSchema = z.object({
   requiredSkills: z
     .string()
     .min(1)
-    .transform((x) => x.split(',').map((item) => item.trim())),
+    .transform((x) =>
+      x
+        .split(',')
+        .map((item) => item.trim())
+        .filter((x) => !!x)
+    ),
   isFree: z.boolean(),
   budget: z
     .number()
