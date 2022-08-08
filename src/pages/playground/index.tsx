@@ -18,10 +18,9 @@ const Playground: PageWithLayout = ({}) => {
     <>
       <NextSeo title="Requests" />
       <div>
-        <SectionHeader
-          header={['Open requests', 'for support']}
-        >
-          Check out both volunteer and paid project requests from individuals and organizations seeking support for their work for the animals.
+        <SectionHeader header={['Open requests', 'for support']}>
+          Check out both volunteer and paid project requests from individuals
+          and organizations seeking support for their work for the animals.
         </SectionHeader>
         <div className="grid gap-8 lg:mx-12 2xl:mx-44 xl:mx-36 sm:grid-cols-2">
           {/* TODO: no available requests message */}
