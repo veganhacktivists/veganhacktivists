@@ -128,13 +128,22 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
 };
 
 const FormSidebar: React.FC<RequestProps> = ({ request }) => {
+  const initials = useMemo(() => {
+    const [first, second] = request.name.split(/\s+/);
+    if (second) {
+      return `${first[0]}${second[0]}`.toUpperCase();
+    }
+
+    return `${first[0].toUpperCase()}${first?.[1] || ''}`;
+  }, [request.name]);
+
   return (
     <aside className="flex flex-col pl-20 text-left">
       <div className="font-bold uppercase">Contact person</div>
       <div className="grid content-center w-32 rounded-full place-content-center aspect-square bg-red">
         <div className="font-bold text-white text-7xl w-fit">
           {/* Initials go here */}
-          VH
+          {initials}
         </div>
       </div>
       <div className="truncate">
