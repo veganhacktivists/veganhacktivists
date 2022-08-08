@@ -17,13 +17,11 @@ const Playground: PageWithLayout = ({}) => {
   return (
     <>
       <NextSeo title="Requests" />
-      <div className="">
+      <div>
         <SectionHeader
-          className="capitalize"
           header={['Open requests', 'for support']}
         >
-          Below are requests we&apos;ve recieved from organizations or activists
-          who need help with their work for the animals.
+          Check out volunteer-based project requests from individuals and organizations seeking support for their work for the animals.
         </SectionHeader>
         <div className="grid gap-8 lg:mx-12 2xl:mx-44 xl:mx-36 sm:grid-cols-2">
           {/* TODO: no available requests message */}

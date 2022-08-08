@@ -60,7 +60,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
             }}
           >
             <a>
-              <FontAwesomeIcon icon={faArrowLeft} /> Return to requests page
+              <FontAwesomeIcon icon={faArrowLeft} /> View all requests
             </a>
           </Link>
           {session.data?.user?.role === 'Admin' && (
