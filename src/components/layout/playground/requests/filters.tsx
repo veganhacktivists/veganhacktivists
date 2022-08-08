@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
+import { CATEGORY_TEXT } from './requestCard';
+
 import RadioButton from 'components/forms/inputs/radioButton';
 
 import Checkbox from 'components/forms/inputs/checkbox';
@@ -47,7 +49,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   );
 
   return (
-    <div className="flex flex-col justify-start gap-24 md:flex-row ">
+    <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 md:flex-row">
       <div className="text-left divide-y">
         <div className="uppercase">Sort by</div>
         <div className="flex flex-row gap-5">
@@ -86,13 +88,14 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
       </div>
       <div className="text-left divide-y">
         <div className="uppercase">Filter by</div>
-        <div className="flex flex-row justify-start gap-x-16">
+        <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
           <div>
             <div className="font-bold">Category</div>
             <div className="grid grid-flow-col grid-rows-2 gap-x-4">
               {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
                 <div key={key} className="w-fit">
                   <Checkbox
+                    name={key}
                     labelPosition="right"
                     className="w-4 h-4 before:text-sm"
                     onChange={(e) => {
@@ -116,7 +119,9 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                       }
                     }}
                   >
-                    <span className="font-normal">{value}</span>
+                    <span className="font-normal">
+                      {CATEGORY_TEXT[key as PlaygroundRequestCategory] || value}
+                    </span>
                   </Checkbox>
                 </div>
               ))}

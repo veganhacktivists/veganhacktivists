@@ -19,10 +19,10 @@ const filterSchema = z.object({
   isFree: z.boolean(),
 });
 
-const sortSchema = z.record(
-  z.enum(['priority', 'createdAt']),
-  z.enum(['asc', 'desc'])
-);
+const sortSchema = z.object({
+  priority: z.enum(['asc', 'desc']).optional(),
+  createdAt: z.enum(['asc', 'desc']).optional(),
+});
 
 export const getPlaygroundRequestsSchema = filterSchema
   .partial()

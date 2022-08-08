@@ -28,10 +28,11 @@ const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
   VideoProduction: getThemeColor('orange'),
 };
 
-const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> = {
-  SocialMedia: 'Social Media',
-  VideoProduction: 'Video Production',
-};
+export const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> =
+  {
+    SocialMedia: 'Social Media',
+    VideoProduction: 'Video Production',
+  };
 
 const Li: React.FC<
   HTMLAttributes<HTMLLIElement> & { category: PlaygroundRequestCategory }
