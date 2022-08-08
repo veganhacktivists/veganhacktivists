@@ -66,7 +66,7 @@ export const setRequestStatus = async ({
   id,
   status,
 }: z.infer<typeof setRequestStatusSchema>) => {
-  const updatedApplication = await prisma.playgroundApplication.update({
+  const updatedApplication = await prisma.playgroundRequest.update({
     where: {
       id,
     },
