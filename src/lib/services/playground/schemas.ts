@@ -89,14 +89,9 @@ export const submitRequestSchema = z.object({
     .nonnegative()
     .refine((x) => /^\d+(\.\d{1,2})?$/.test(String(x))),
   description: z.string().trim().min(1),
-  dueDate: z.date().min(
-    (() => {
-      const date = new Date();
-      date.setHours(0, 0, 0, 0);
-      return date;
-    })(),
-    'Date must be greater than or equal to today'
-  ),
+  dueDate: z
+    .date()
+    .min(new Date(), { message: 'Due date must be in the future' }),
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()

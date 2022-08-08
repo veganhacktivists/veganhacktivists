@@ -28,11 +28,10 @@ import RadioButton from '../../forms/inputs/radioButton';
 import SignInPrompt from './siginInPrompt';
 
 import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
-
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
-
 import { trpc } from 'lib/client/trpc';
 
+import type { AppRouter } from 'server/routers/_app';
 import type { inferMutationInput } from 'lib/client/trpc';
 
 import type { z } from 'zod';
@@ -69,7 +68,7 @@ const SubmitRequestForm: React.FC = () => {
     reset,
     control,
     watch,
-  } = useForm<inferMutationInput<'playground.submitRequest'>>({
+  } = useForm<FormInput>({
     defaultValues: {
       ...storedForm,
     },
@@ -89,8 +88,8 @@ const SubmitRequestForm: React.FC = () => {
         ...options,
         onChange: (value) => {
           options?.onChange?.(value);
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          onChangeValue(name)(value.currentTarget?.value);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+          onChangeValue(name as any)(value.currentTarget?.value);
         },
       });
     },
@@ -122,7 +121,7 @@ const SubmitRequestForm: React.FC = () => {
   );
 
   const onSubmit = useCallback(
-    (values: InferMutationInput<'playground.submitRequest'>) => {
+    (values: inferMutationInput<'playground.submitRequest'>) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         return;
