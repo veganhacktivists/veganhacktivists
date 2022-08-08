@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import getThemeColor from '../../../lib/helpers/theme';
 
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ComponentProps } from 'react';
 
 import type { StylesConfig } from 'react-select';
 import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
@@ -65,9 +65,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       },
     });
 
-    const styles: Partial<
-      StylesConfig<{ label: string; value: string }, false>
-    > = {
+    const styles: StylesConfig<{ label: string; value: string }, false> = {
       placeholder: (provided) => ({
         ...provided,
         color: '#a1a1aa',
@@ -111,46 +109,38 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
 
     const classes = classNames(className, 'text-left');
 
+    const commonProps: Partial<
+      ComponentProps<typeof StateManagedSelect<OptionType>>
+    > = {
+      ...props,
+      onChange,
+      value: current,
+      styles,
+      theme,
+      id: props.id || props.name,
+      instanceId: props.id || props.name,
+      options: allOptions,
+      className: classes,
+      placeholder: props.placeholder,
+    };
+
     const SelectComponent = () =>
       creatable ? (
         <CreatableSelect
-          {...props}
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+          {...commonProps}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ref={ref as any}
           onCreateOption={(value) => {
             const newOption = { label: value, value };
             setAllOptions((options) => [...options, newOption]);
-
             onChange?.(newOption);
           }}
-          onChange={(value) => {
-            onChange?.(value || null);
-          }}
-          value={current}
-          id={props.id || props.name}
-          instanceId={props.id || props.name}
-          placeholder={props.placeholder}
-          theme={theme}
-          styles={styles}
-          options={allOptions}
-          className={classes}
         />
       ) : (
         <Select
-          {...props}
+          {...commonProps}
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
           ref={ref as any}
-          id={props.id || props.name}
-          value={current}
-          instanceId={props.id || props.name}
-          placeholder={props.placeholder}
-          onChange={(value) => {
-            onChange?.(value || null);
-          }}
-          theme={theme}
-          styles={styles}
-          options={allOptions}
-          className={classes}
         />
       );
 
