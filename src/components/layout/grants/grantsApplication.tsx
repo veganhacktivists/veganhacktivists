@@ -118,10 +118,16 @@ const GrantsApplication: React.FC = () => {
             <Controller
               name="gender"
               control={control}
-              render={({ field }) => (
+              render={({ field: { value, onChange, ...field } }) => (
                 <SelectInput
                   creatable
                   {...field}
+                  current={
+                    value ? { label: firstLetterUppercase(value), value } : null
+                  }
+                  onChange={(option) => {
+                    onChange(option ? option.value : null);
+                  }}
                   ref={null}
                   placeholder="Select or type something..."
                   error={errors.gender?.message}

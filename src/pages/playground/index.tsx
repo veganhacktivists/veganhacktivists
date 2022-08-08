@@ -32,12 +32,9 @@ const Playground: PageWithLayout = ({}) => {
     return { sort, ...otherFilters };
   }, [filters]);
 
-  const { data: requests, isSuccess } = trpc.proxy.playground.requests.useQuery(
-    params,
-    {
-      keepPreviousData: true,
-    }
-  );
+  const { data: requests } = trpc.proxy.playground.requests.useQuery(params, {
+    keepPreviousData: true,
+  });
 
   return (
     <>
@@ -51,10 +48,9 @@ const Playground: PageWithLayout = ({}) => {
           <RequestFilters onChange={setFilters} filters={filters} />
           <div className="grid gap-8 mt-5 sm:grid-cols-2">
             {/* TODO: no available requests message */}
-            {isSuccess &&
-              requests?.map((request) => (
-                <PlaygroundRequestCard key={request.id} request={request} />
-              ))}
+            {requests?.map((request) => (
+              <PlaygroundRequestCard key={request.id} request={request} />
+            ))}
           </div>
         </div>
       </div>
