@@ -41,6 +41,8 @@ import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
 
 import Spinner from 'components/decoration/spinner';
 
+import TextArea from 'components/forms/inputs/textArea';
+
 import type { AppRouter } from 'server/routers/_app';
 
 import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
@@ -412,12 +414,13 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         >
           Calendly link (if you do not have one, list weekly availabilities)
         </TextInput>
-        <TextInput
+        <TextArea
+          rows={5}
           {...myRegister('moreInfo')}
           placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
         >
           Is there anything else you&apos;d like to add?
-        </TextInput>
+        </TextArea>
         <Checkbox
           error={errors.commitToHelping?.message}
           {...myRegister('commitToHelping')}

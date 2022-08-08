@@ -20,7 +20,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <textarea
           id={props.id || props.name}
           wrap="soft"
-          className={classNames(inputClassNames, 'resize-none w-full', {
+          className={classNames(inputClassNames, 'resize-y w-full', {
             'ring-2 ring-red': error,
           })}
           rows={10}
