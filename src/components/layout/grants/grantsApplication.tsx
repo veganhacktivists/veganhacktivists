@@ -345,7 +345,7 @@ const GrantsApplication: React.FC = () => {
         <DarkButton
           type="submit"
           disabled={isSubmitting || isSubmitSuccessful}
-          className="w-64 mt-10 font-mono uppercase"
+          className="w-64 mx-auto mt-10 font-mono uppercase"
         >
           {isSubmitting ? <Spinner /> : 'Submit'}
         </DarkButton>
