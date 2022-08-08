@@ -103,22 +103,20 @@ const SubmitRequestForm: React.FC = () => {
       if (name && !watch('name')) {
         setValue('name', name);
       }
-      if (email && !watch('email')) {
-        setValue('email', email);
+      if (email && !watch('providedEmail')) {
+        setValue('providedEmail', email);
       }
     },
     { enabled: sessionStatus === 'authenticated' }
   );
 
-  const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
-    ['playground.submitRequest'],
-    {
+  const { mutateAsync, isLoading, isSuccess } =
+    trpc.proxy.playground.submitRequest.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();
       },
-    }
-  );
+    });
 
   const onSubmit = useCallback(
     (values: inferMutationInput<'playground.submitRequest'>) => {
@@ -175,7 +173,7 @@ const SubmitRequestForm: React.FC = () => {
             className="w-full"
             placeholder="Email"
             showRequiredMark
-            {...myRegister('email', {
+            {...myRegister('providedEmail', {
               required: 'The email is required',
               pattern: {
                 value:
@@ -183,7 +181,7 @@ const SubmitRequestForm: React.FC = () => {
                 message: 'Please enter a valid email',
               },
             })}
-            error={errors.email?.message}
+            error={errors.providedEmail?.message}
           />
         </div>
         <div className="flex flex-row gap-5">
@@ -454,7 +452,7 @@ const SubmitRequestForm: React.FC = () => {
       <SignInPrompt
         isOpen={isSignInModalOpen}
         onClose={onModalClose}
-        email={watch('email')}
+        email={watch('providedEmail')}
         submitOnVerify
       />
     </div>

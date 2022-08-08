@@ -64,7 +64,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
 
 export const submitRequestSchema = z.object({
   name: z.string().trim().min(1),
-  email: z.string().email(),
+  providedEmail: z.string().email(),
   phone: z.string().trim().optional(),
   organization: z.string().trim().optional(),
   website: z.string().trim().min(1),

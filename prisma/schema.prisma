@@ -110,6 +110,8 @@ enum PlaygroundRequestCategory {
 model PlaygroundRequest {
   id                String   @id @default(cuid())
   phone             String?
+  name              String
+  providedEmail     String
   organization      String?
   website           String
   calendlyUrl       String?
