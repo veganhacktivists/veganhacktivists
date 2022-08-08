@@ -37,7 +37,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
               <div className="font-mono uppercase text-7xl">Playground</div>
             </div>
             <div className="text-2xl font-italic">
-              Our Vegan Volunteer community
+              Our vegan network of digital activists
             </div>
           </div>
         </Hero>

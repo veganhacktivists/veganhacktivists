@@ -130,7 +130,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
 const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   return (
     <aside className="flex flex-col pl-20 text-left">
-      <div className="font-bold uppercase">About the requestor</div>
+      <div className="font-bold uppercase">Contact person</div>
       <div className="grid content-center w-32 rounded-full place-content-center aspect-square bg-red">
         <div className="font-bold text-white text-7xl w-fit">
           {/* Initials go here */}
@@ -279,7 +279,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         className="flex flex-col flex-grow gap-5 px-10 text-left"
       >
         <div className="text-2xl font-medium font-italic">
-          Would you like to apply to help with this issue?
+          Interested in applying to help with this project?
         </div>
         <TextInput
           error={errors.name?.message}
@@ -301,9 +301,9 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             className="w-full"
             error={errors.portfolioLink?.message}
             {...myRegister('portfolioLink')}
-            placeholder="yourportfolio.com"
+            placeholder="yourwebsite.com"
           >
-            Portfolio link
+            Personal website or portfolio link
           </TextInput>
         </div>
         <div className="flex flex-row gap-5">
@@ -327,13 +327,13 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             className="w-full"
             error={errors.linkedinUrl?.message}
             {...myRegister('linkedinUrl')}
-            placeholder="LinkedIn username"
+            placeholder="linkedin.com/in/"
           >
             LinkedIn
           </TextInput>
         </div>
         <div className="flex flex-row justify-start gap-5">
-          <div>Have you applied for a Playground role in the past?</div>
+          <div>Have you applied for a Playground project in the past?</div>
           <Controller
             control={control}
             name="hasAppliedInThePast"
@@ -401,7 +401,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           {...myRegister('calendlyUrl')}
           placeholder="calendly.com/yourname"
         >
-          Link to your Calendly, if you have one
+          Calendly link (if you do not have one, list weekly availabilities)
         </TextInput>
         <TextInput
           {...myRegister('moreInfo')}
@@ -418,9 +418,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             setValue('commitToHelping', checked);
           }}
         >
-          I understand that by applying to help that I will in a timely manner
-          reasonably commit to helping this organization or person for the
-          animals.
+          I understand that, if selected to help with this project, I will commit to a reasonable and regular amount of time to the project, communicate status updates and progress, and do my best to meet the deadline.
         </Checkbox>
         <Checkbox
           error={errors.agreeToTerms?.message}
