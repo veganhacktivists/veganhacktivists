@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import React from 'react';
 
 import heroImage from '../../../../public/images/playground/hero.jpg';
+import tagline from '../../../../public/images/playground/getsupportfrom.svg';
 
 import Hero from 'components/decoration/hero';
 import { DarkButton, OutlineButton } from 'components/decoration/buttons';
@@ -21,26 +22,12 @@ const PlaygroundLayout: Layout = ({ children }) => {
       <div className="">
         <Hero
           imageBackground={heroImage}
-          // tagline={{
-          //   alt: 'Get Support from Playground',
-          // image: null,
-          // }}
+          tagline={{
+            alt: 'Get Support from Playground',
+            image: tagline,
+          }}
           alignment="left"
-        >
-          <div className="p-10 text-white py-28">
-            <div className="text-5xl font-italic">
-              <div>
-                <span>Get</span>{' '}
-                <span className="font-mono font-light uppercase">support</span>{' '}
-                <span>from</span>
-              </div>
-              <div className="font-mono uppercase text-7xl">Playground</div>
-            </div>
-            <div className="text-2xl font-italic">
-              Our vegan network of digital activists
-            </div>
-          </div>
-        </Hero>
+        />
       </div>
       {children}
     </>

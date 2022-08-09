@@ -161,59 +161,56 @@ const SubmitRequestForm: React.FC = () => {
     <div className="bg-grey-background" id="contact-us">
       <form
         noValidate
-        //className="flex flex-col gap-5"
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col flex-grow gap-5 px-10 py-10 mx-10 text-left"
+        className="grid grid-cols-1 gap-5 py-10 mx-10 text-left md:px-10 md:grid-cols-2"
       >
-        <div className="text-xl">Personal Information</div>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            className="w-full"
-            placeholder="Name"
-            showRequiredMark
-            {...myRegister('name', { required: 'Please enter a name' })}
-            error={errors.name?.message}
-          />
-          <TextInput
-            className="w-full"
-            placeholder="Email"
-            showRequiredMark
-            {...myRegister('providedEmail', {
-              required: 'The email is required',
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Please enter a valid email',
-              },
-            })}
-            error={errors.providedEmail?.message}
-          />
-        </div>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            className="w-full "
-            placeholder="Phone"
-            type="tel"
-            {...myRegister('phone', { required: false })}
-            error={errors.phone?.message}
-          />
-          <TextInput
-            className="w-full "
-            placeholder="Organization"
-            {...myRegister('organization', { required: false })}
-            error={errors.organization?.message}
-          />
-        </div>
+        <div className="text-xl col-span-full">Personal Information</div>
+        <TextInput
+          className="w-full"
+          placeholder="Name"
+          showRequiredMark
+          {...myRegister('name', { required: 'Please enter a name' })}
+          error={errors.name?.message}
+        />
+        <TextInput
+          className="w-full"
+          placeholder="Email"
+          showRequiredMark
+          {...myRegister('providedEmail', {
+            required: 'The email is required',
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: 'Please enter a valid email',
+            },
+          })}
+          error={errors.providedEmail?.message}
+        />
+        <TextInput
+          className="w-full "
+          placeholder="Phone"
+          type="tel"
+          {...myRegister('phone', { required: false })}
+          error={errors.phone?.message}
+        />
+        <TextInput
+          className="w-full "
+          placeholder="Organization"
+          {...myRegister('organization', { required: false })}
+          error={errors.organization?.message}
+        />
         <TextInput
           placeholder="www.website..."
           showRequiredMark
           {...myRegister('website', {
             required: 'Please enter a valid website',
           })}
+          className="col-span-full"
           error={errors.website?.message}
         />
         <TextInput
           placeholder="Calendly"
+          className="col-span-full"
           {...myRegister('calendlyUrl', { required: false })}
           error={errors.calendlyUrl?.message}
         >
@@ -240,146 +237,141 @@ const SubmitRequestForm: React.FC = () => {
           </div>
         </TextInput>
 
-        <div className="text-xl">Request Information</div>
+        <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"
           showRequiredMark
           {...myRegister('title', {
             required: 'Please enter the title of the request',
           })}
+          className="col-span-full"
           error={errors.title?.message}
         >
           Title of Request
         </TextInput>
-        <div className="flex flex-row gap-5">
-          <div className="w-full">
-            <Label name="category" showRequiredMark />
-            <Controller
-              name="category"
-              control={control}
-              rules={{ required: 'Please select a category of the request' }}
-              render={({ field: { value: current, onChange, ...field } }) => (
-                <SelectInput
-                  {...field}
-                  current={CATEGORIES.find((c) => c.value === current) || null}
-                  error={errors.category?.message}
-                  options={CATEGORIES}
-                  showError
-                  {...myRegister('category')}
-                  onChange={(option) => {
-                    setFormData({
-                      category: option?.value as PlaygroundRequestCategory,
-                    });
-                    onChange(option?.value || null);
-                  }}
-                />
-              )}
-            />
-          </div>
-          <div className="w-full">
-            <Label name="priority" showRequiredMark />
-            <Controller
-              name="priority"
-              control={control}
-              rules={{ required: 'Please select a priority of the request' }}
-              render={({ field: { value, onChange, ...field } }) => (
-                <SelectInput
-                  {...field}
-                  current={
-                    value === null ? null : { value, label: PRIORITIES[value] }
-                  }
-                  error={errors.priority?.message}
-                  options={PRIORITIES.map((priority, i) => ({
-                    value: i,
-                    label: priority,
-                  }))}
-                  showError
-                  {...myRegister('priority')}
-                  onChange={(e) => {
-                    setFormData({ priority: e?.value as number });
-                    onChange(e?.value || null);
-                  }}
-                />
-              )}
-            />
-          </div>
-        </div>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            className="w-full mt-6 md:mt-0"
-            placeholder="Role title"
-            showRequiredMark
-            {...myRegister('roleTitle', {
-              required: 'Please select the role title of the request',
-            })}
-            error={errors.roleTitle?.message}
-          >
-            Role title
-          </TextInput>
-          <TextInput
-            className="w-full"
-            placeholder="Communication, ..."
-            {...myRegister('requiredSkills', {
-              required: 'Please select the skills required for the request',
-            })}
-            error={errors.requiredSkills?.message}
-          >
-            <div className="flex flex-col md:flex-row">
-              <p>
-                Skills Required<span className="text-red">*</span>&nbsp;
-              </p>
-              <p className="font-thin">(separate by comma)</p>
-            </div>
-          </TextInput>
-        </div>
-        <div className="flex flex-row gap-5">
-          <div className="w-full ">
-            <Label name="isFree" showRequiredMark>
-              Free or Paid?
-            </Label>
-            <Controller
-              control={control}
-              name="isFree"
-              render={({ field: { value, onChange } }) => (
-                <div className="sm:flex sm:flex-row sm:gap-20 sm:mb-2 sm:mt-3">
-                  <RadioButton
-                    onChange={() => {
-                      setFormData({ isFree: true });
-                      onChange(true);
-                    }}
-                    checked={value === true}
-                    label="Free"
-                  />
-                  <RadioButton
-                    onChange={() => {
-                      setFormData({ isFree: false });
-
-                      onChange(false);
-                    }}
-                    checked={value === false}
-                    label="Paid"
-                  />
-                </div>
-              )}
-            />
-            {errors.isFree?.message && (
-              <span className="text-red">⚠ {errors.isFree.message}</span>
+        <div className="w-full">
+          <Label name="category" showRequiredMark />
+          <Controller
+            name="category"
+            control={control}
+            rules={{ required: 'Please select a category of the request' }}
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={CATEGORIES.find((c) => c.value === current) || null}
+                error={errors.category?.message}
+                options={CATEGORIES}
+                showError
+                {...myRegister('category')}
+                onChange={(option) => {
+                  setFormData({
+                    category: option?.value as PlaygroundRequestCategory,
+                  });
+                  onChange(option?.value || null);
+                }}
+              />
             )}
-          </div>
-          <TextInput
-            className="w-full"
-            placeholder="Budget"
-            type="number"
-            inputMode="numeric"
-            step={50}
-            min={0}
-            showRequiredMark
-            {...myRegister('budget', { valueAsNumber: true })}
-            error={errors.budget?.message}
-          >
-            Budget?
-          </TextInput>
+          />
         </div>
+        <div className="w-full">
+          <Label name="priority" showRequiredMark />
+          <Controller
+            name="priority"
+            control={control}
+            rules={{ required: 'Please select a priority of the request' }}
+            render={({ field: { value, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  value === null ? null : { value, label: PRIORITIES[value] }
+                }
+                error={errors.priority?.message}
+                options={PRIORITIES.map((priority, i) => ({
+                  value: i,
+                  label: priority,
+                }))}
+                showError
+                {...myRegister('priority')}
+                onChange={(e) => {
+                  setFormData({ priority: e?.value as number });
+                  onChange(e?.value || null);
+                }}
+              />
+            )}
+          />
+        </div>
+        <TextInput
+          className="w-full mt-6 md:mt-0"
+          placeholder="Role title"
+          showRequiredMark
+          {...myRegister('roleTitle', {
+            required: 'Please select the role title of the request',
+          })}
+          error={errors.roleTitle?.message}
+        >
+          Role title
+        </TextInput>
+        <TextInput
+          className="w-full"
+          placeholder="Communication, ..."
+          {...myRegister('requiredSkills', {
+            required: 'Please select the skills required for the request',
+          })}
+          error={errors.requiredSkills?.message}
+        >
+          <div className="flex flex-col md:flex-row">
+            <p>
+              Skills Required<span className="text-red">*</span>&nbsp;
+            </p>
+            <p className="font-thin">(separate by comma)</p>
+          </div>
+        </TextInput>
+        <div className="w-full ">
+          <Label name="isFree" showRequiredMark>
+            Free or Paid?
+          </Label>
+          <Controller
+            control={control}
+            name="isFree"
+            render={({ field: { value, onChange } }) => (
+              <div className="sm:flex sm:flex-row sm:gap-20 sm:mb-2 sm:mt-3">
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ isFree: true });
+                    onChange(true);
+                  }}
+                  checked={value === true}
+                  label="Free"
+                />
+                <RadioButton
+                  onChange={() => {
+                    setFormData({ isFree: false });
+
+                    onChange(false);
+                  }}
+                  checked={value === false}
+                  label="Paid"
+                />
+              </div>
+            )}
+          />
+          {errors.isFree?.message && (
+            <span className="text-red">⚠ {errors.isFree.message}</span>
+          )}
+        </div>
+        <TextInput
+          className="w-full"
+          placeholder="Budget"
+          type="number"
+          inputMode="numeric"
+          step={50}
+          min={0}
+          showRequiredMark
+          {...myRegister('budget', { valueAsNumber: true })}
+          error={errors.budget?.message}
+        >
+          Budget?
+        </TextInput>
         <TextArea
           placeholder="Describe your issue"
           showRequiredMark
@@ -388,36 +380,36 @@ const SubmitRequestForm: React.FC = () => {
             required: 'Issue description is required',
           })}
           style={{ resize: 'vertical' }}
+          className="col-span-full"
         >
           Describe your issue
         </TextArea>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            className="w-full mt-6 sm:mt-0"
-            min={new Date().toISOString().split('T')[0]}
-            type="date"
-            placeholder="Due date"
-            showRequiredMark
-            {...myRegister('dueDate', {
-              valueAsDate: true,
-            })}
-            error={errors.dueDate?.message}
-          >
-            Due date for task
-          </TextInput>
-          <TextInput
-            className="w-full"
-            type="number"
-            min={0}
-            placeholder="Days"
-            showRequiredMark
-            {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
-            error={errors.estimatedTimeDays?.message}
-          >
-            Estimated time <br className="sm:hidden" /> commitment
-          </TextInput>
-        </div>
+        <TextInput
+          className="w-full mt-6 sm:mt-0"
+          min={new Date().toISOString().split('T')[0]}
+          type="date"
+          placeholder="Due date"
+          showRequiredMark
+          {...myRegister('dueDate', {
+            valueAsDate: true,
+          })}
+          error={errors.dueDate?.message}
+        >
+          Due date for task
+        </TextInput>
+        <TextInput
+          className="w-full"
+          type="number"
+          min={0}
+          placeholder="Days"
+          showRequiredMark
+          {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
+          error={errors.estimatedTimeDays?.message}
+        >
+          Estimated time <br className="sm:hidden" /> commitment
+        </TextInput>
         <Checkbox
+          className="col-span-full"
           error={errors.qualityAgreement?.message}
           {...myRegister('qualityAgreement')}
           onChange={(e) => {
@@ -430,6 +422,7 @@ const SubmitRequestForm: React.FC = () => {
           work done by our volunteers.
         </Checkbox>
         <Checkbox
+          className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
           onChange={(e) => {
@@ -441,7 +434,7 @@ const SubmitRequestForm: React.FC = () => {
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
         <DarkButton
-          className="mx-auto mt-24 mb-10 text-center w-72"
+          className="mx-auto mt-24 mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
           type="submit"
         >

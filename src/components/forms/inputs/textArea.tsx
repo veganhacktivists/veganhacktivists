@@ -11,9 +11,9 @@ interface TextAreaProps
 }
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ error, children, showRequiredMark, ...props }, ref) => {
+  ({ error, children, showRequiredMark, className, ...props }, ref) => {
     return (
-      <>
+      <div className={className}>
         <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
           {children}
         </Label>
@@ -28,7 +28,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           ref={ref}
         />
         {error && <div className="text-red">⚠ {error}</div>}
-      </>
+      </div>
     );
   }
 );

@@ -124,7 +124,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                   }
                 }}
                 checked={filters.isFree === true}
-                className="w-4 h-4 before:text-sm"
+                size="small"
                 labelPosition="right"
               >
                 <span className="font-normal">Volunteer</span>
@@ -139,7 +139,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                   }
                 }}
                 checked={filters.isFree === false}
-                className="w-4 h-4 before:text-sm"
+                size="small"
                 labelPosition="right"
               >
                 <span className="font-normal">Paid</span>
