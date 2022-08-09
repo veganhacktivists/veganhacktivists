@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@axe-core/react': ^4.4.3
-  '@babel/core': ^7.18.10
   '@contentful/rich-text-plain-text-renderer': ^15.12.1
   '@contentful/rich-text-react-renderer': ^15.12.1
   '@contentful/rich-text-types': ^15.12.1
@@ -90,12 +89,10 @@ specifiers:
   tailwindcss: ^3.1.6
   ts-node: ^10.9.1
   typescript: 4.7.4
-  webpack: ^5.74.0
   zod: ^3.17.10
   zustand: 4.0.0-rc.2
 
 dependencies:
-  '@babel/core': 7.18.10
   '@contentful/rich-text-plain-text-renderer': 15.12.1
   '@contentful/rich-text-react-renderer': 15.12.1_biqbaboplfbrettd7655fr4n2y
   '@floating-ui/react-dom-interactions': 0.9.1_biqbaboplfbrettd7655fr4n2y
@@ -147,7 +144,6 @@ dependencies:
   sharp: 0.30.7
   superjson: 1.9.1
   tailwindcss: 3.1.6_ts-node@10.9.1
-  webpack: 5.74.0
   zod: 3.17.10
   zustand: 4.0.0-rc.2_react@18.2.0
 
