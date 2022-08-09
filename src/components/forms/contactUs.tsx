@@ -14,12 +14,12 @@ import TextInput from './inputs/textInput';
 import Label from './inputs/label';
 import SelectInput from './inputs/selectInput';
 
-type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
+const SERVICES = ['website', 'project', 'funding', 'advice'] as const;
 
 interface ContactUsSubmission {
   name: string;
   email: string;
-  service: Service;
+  service: typeof SERVICES[number] | null;
   message: string;
 }
 
@@ -32,7 +32,11 @@ const ContactUsForm: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<ContactUsSubmission>();
+  } = useForm<ContactUsSubmission>({
+    defaultValues: {
+      service: pageThatErrored ? 'website' : null,
+    },
+  });
   const { reload } = useRouter();
 
   const defaultErrorMessage = useErrorStore(
@@ -96,22 +100,23 @@ const ContactUsForm: React.FC = () => {
             name="service"
             control={control}
             rules={{ required: 'Select a service' }}
-            render={({ field }) => (
+            render={({ field: { value, onChange, ...field } }) => (
               <SelectInput
                 {...field}
+                current={
+                  value
+                    ? { value: value, label: firstLetterUppercase(value) }
+                    : null
+                }
+                onChange={(option) => {
+                  onChange(option ? option.value : null);
+                }}
                 ref={null}
                 error={errors.service?.message}
-                options={[
-                  'website',
-                  'project',
-                  'funding',
-                  'advice',
-                  'other',
-                ].map((option) => ({
+                options={SERVICES.map((option) => ({
                   value: option,
                   label: firstLetterUppercase(option),
                 }))}
-                defaultValue={pageThatErrored ? 'website' : undefined}
               />
             )}
           />

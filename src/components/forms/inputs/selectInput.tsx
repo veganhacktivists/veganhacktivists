@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import React from 'react';
+import classNames from 'classnames';
 
 import getThemeColor from '../../../lib/helpers/theme';
+
+import type { HTMLAttributes, ComponentProps } from 'react';
 
 import type { StylesConfig } from 'react-select';
 import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
@@ -14,32 +17,40 @@ interface OptionType {
   value: string;
 }
 
-interface SelectInputProps {
+// interface SingleSelectProps {
+//   multiple: false;
+// }
+
+interface SelectInputProps
+  extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {
   id?: string;
+  current: OptionType | null;
   name?: string;
   error?: string;
   options: OptionType[];
   creatable?: boolean;
-  defaultValue?: OptionType['value'];
-  onChange?: (value: OptionType['value'] | null) => void;
+  onChange?: (value: OptionType | null) => void;
   placeholder?: string;
 }
 
+const grey = getThemeColor('grey');
+const lightGrey = getThemeColor('grey-light');
+const red = getThemeColor('red');
+
 const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
   (
-    { error, options, creatable = false, defaultValue = null, ...props },
+    {
+      error,
+      current,
+      className,
+      options,
+      onChange,
+      creatable = false,
+      ...props
+    },
     ref
   ) => {
-    const grey = getThemeColor('grey');
-    const lightGrey = getThemeColor('grey-light');
-    const red = getThemeColor('red');
-
     const [allOptions, setAllOptions] = useState(options);
-    const [value, setValue] = useState<string | null>(defaultValue);
-
-    useEffect(() => {
-      props.onChange?.(value);
-    }, [props, value]);
 
     const height = '44px';
 
@@ -54,9 +65,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       },
     });
 
-    const styles: Partial<
-      StylesConfig<{ label: string; value: string }, false>
-    > = {
+    const styles: StylesConfig<{ label: string; value: string }, false> = {
       placeholder: (provided) => ({
         ...provided,
         color: '#a1a1aa',
@@ -98,46 +107,40 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       }),
     };
 
+    const classes = classNames(className, 'text-left');
+
+    const commonProps: Partial<
+      ComponentProps<typeof StateManagedSelect<OptionType>>
+    > = {
+      ...props,
+      onChange,
+      value: current,
+      styles,
+      theme,
+      id: props.id || props.name,
+      instanceId: props.id || props.name,
+      options: allOptions,
+      className: classes,
+      placeholder: props.placeholder,
+    };
+
     const SelectComponent = () =>
       creatable ? (
         <CreatableSelect
-          {...props}
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+          {...commonProps}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ref={ref as any}
           onCreateOption={(value) => {
             const newOption = { label: value, value };
             setAllOptions((options) => [...options, newOption]);
-
-            setValue(value);
+            onChange?.(newOption);
           }}
-          onChange={(value) => {
-            setValue(value?.value || null);
-          }}
-          value={allOptions.find((option) => option.value === value)}
-          id={props.id || props.name}
-          instanceId={props.id || props.name}
-          placeholder={props.placeholder}
-          theme={theme}
-          styles={styles}
-          options={allOptions}
-          className="text-left"
         />
       ) : (
         <Select
-          {...props}
+          {...commonProps}
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
           ref={ref as any}
-          id={props.id || props.name}
-          value={allOptions.find((option) => option.value === value)}
-          instanceId={props.id || props.name}
-          placeholder={props.placeholder}
-          onChange={(value) => {
-            setValue(value?.value || null);
-          }}
-          theme={theme}
-          styles={styles}
-          options={allOptions}
-          className="text-left"
         />
       );
 
