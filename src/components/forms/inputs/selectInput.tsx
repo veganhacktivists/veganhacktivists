@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import React from 'react';
@@ -49,6 +49,11 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
     ref
   ) => {
     const [allOptions, setAllOptions] = useState(options);
+    const [rendered, setRendered] = useState<boolean>(false);
+
+    useEffect(() => {
+      setRendered(true);
+    }, []);
 
     const height = '44px';
 
@@ -110,7 +115,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
     const commonProps: Partial<ReactSelectProps<OptionType, false>> = {
       ...props,
       onChange,
-      value: current,
+      value: rendered ? current : undefined,
       styles: styles as StylesConfig<OptionType>,
       theme,
       id: props.id || props.name,

@@ -264,10 +264,10 @@ const SubmitRequestForm: React.FC = () => {
                 showError
                 {...myRegister('category')}
                 onChange={(option) => {
+                  onChange(option?.value || null);
                   setFormData({
                     category: option?.value as PlaygroundRequestCategory,
                   });
-                  onChange(option?.value || null);
                 }}
               />
             )}
@@ -283,7 +283,7 @@ const SubmitRequestForm: React.FC = () => {
               <SelectInput
                 {...field}
                 current={
-                  value === null ? null : { value, label: PRIORITIES[value] }
+                  isNaN(value) ? null : { value, label: PRIORITIES[value] }
                 }
                 error={errors.priority?.message}
                 options={PRIORITIES.map((priority, i) => ({
@@ -291,10 +291,11 @@ const SubmitRequestForm: React.FC = () => {
                   label: priority,
                 }))}
                 showError
-                {...myRegister('priority')}
+                {...myRegister('priority', { valueAsNumber: true })}
                 onChange={(e) => {
-                  setFormData({ priority: e?.value as number });
-                  onChange(e?.value || null);
+                  const value = e?.value;
+                  onChange(isNaN(value as number) ? null : value);
+                  setFormData({ priority: value as number });
                 }}
               />
             )}
