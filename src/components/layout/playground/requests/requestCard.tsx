@@ -52,7 +52,7 @@ const Li: React.FC<
   </li>
 );
 
-const PRIORITIES = [
+export const PRIORITIES = [
   { label: 'Low', className: 'bg-green' },
   { label: 'Medium', className: 'bg-yellow-orange' },
   { label: 'High', className: 'bg-orange' },

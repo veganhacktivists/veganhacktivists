@@ -71,7 +71,7 @@ export const submitRequestSchema = z.object({
   calendlyUrl: z.string().trim().optional(),
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
-  priority: z.nativeEnum(Priority),
+  priority: z.number().int().positive().max(3),
   roleTitle: z.string().trim().min(1),
   // Transform the string of skills separated by a comma in an array of strings
   requiredSkills: z

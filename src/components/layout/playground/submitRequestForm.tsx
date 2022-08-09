@@ -9,7 +9,6 @@ import { useSession } from 'next-auth/react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
-import { firstLetterUppercase } from '../../../lib/helpers/strings';
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
 
@@ -40,6 +39,13 @@ import type { TRPCClientError } from '@trpc/react';
 
 type FormInput = z.infer<typeof submitRequestSchemaClient>;
 
+const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
+  value: cat,
+  label: cat.replace(/([0-9A-Z])/g, ' $&'),
+}));
+
+const PRIORITIES = ['Low', 'Medium', 'High', 'Urgent'] as const;
+
 const SubmitRequestForm: React.FC = () => {
   const { data: session, status: sessionStatus } = useSession();
 
@@ -62,7 +68,6 @@ const SubmitRequestForm: React.FC = () => {
   const {
     handleSubmit,
     setValue,
-    getValues,
     register,
     formState: { errors },
     reset,
@@ -253,25 +258,19 @@ const SubmitRequestForm: React.FC = () => {
               name="category"
               control={control}
               rules={{ required: 'Please select a category of the request' }}
-              render={({ field }) => (
+              render={({ field: { value: current, onChange, ...field } }) => (
                 <SelectInput
                   {...field}
-                  error={errors.priority?.message}
-                  options={Object.keys(PlaygroundRequestCategory).map((k) => ({
-                    value:
-                      PlaygroundRequestCategory[k as PlaygroundRequestCategory],
-                    label: PlaygroundRequestCategory[
-                      k as PlaygroundRequestCategory
-                    ].replace(/([0-9A-Z])/g, ' $&'),
-                  }))}
+                  current={CATEGORIES.find((c) => c.value === current) || null}
+                  error={errors.category?.message}
+                  options={CATEGORIES}
                   showError
-                  defaultValue={
-                    getValues('category') //|| PlaygroundRequestCategory.Design
-                  }
                   {...myRegister('category')}
-                  onChange={(e) => {
-                    setFormData({ category: e as PlaygroundRequestCategory });
-                    setValue('category', e as PlaygroundRequestCategory);
+                  onChange={(option) => {
+                    setFormData({
+                      category: option?.value as PlaygroundRequestCategory,
+                    });
+                    onChange(option?.value || null);
                   }}
                 />
               )}
@@ -283,22 +282,22 @@ const SubmitRequestForm: React.FC = () => {
               name="priority"
               control={control}
               rules={{ required: 'Please select a priority of the request' }}
-              render={({ field }) => (
+              render={({ field: { value, onChange, ...field } }) => (
                 <SelectInput
                   {...field}
+                  current={
+                    value === null ? null : { value, label: PRIORITIES[value] }
+                  }
                   error={errors.priority?.message}
-                  options={Object.keys(Priority).map((k) => ({
-                    value: Priority[k as Priority],
-                    label: firstLetterUppercase(
-                      `${Priority[k as Priority]} priority`
-                    ),
+                  options={PRIORITIES.map((priority, i) => ({
+                    value: i,
+                    label: priority,
                   }))}
                   showError
-                  defaultValue={getValues('priority')} //|| Priority.Low}
                   {...myRegister('priority')}
                   onChange={(e) => {
-                    setFormData({ priority: e as Priority });
-                    setValue('priority', e as Priority);
+                    setFormData({ priority: e?.value as number });
+                    onChange(e?.value || null);
                   }}
                 />
               )}

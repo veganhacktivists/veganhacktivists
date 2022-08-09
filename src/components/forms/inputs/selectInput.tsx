@@ -6,20 +6,16 @@ import classNames from 'classnames';
 
 import getThemeColor from '../../../lib/helpers/theme';
 
-import type { HTMLAttributes, ComponentProps } from 'react';
+import type { HTMLAttributes } from 'react';
 
-import type { StylesConfig } from 'react-select';
+import type { StylesConfig, Props as ReactSelectProps } from 'react-select';
 import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
 import type StateManagedSelect from 'react-select';
 
 interface OptionType {
   label: string;
-  value: string;
+  value: string | number;
 }
-
-// interface SingleSelectProps {
-//   multiple: false;
-// }
 
 interface SelectInputProps
   extends Pick<HTMLAttributes<HTMLDivElement>, 'className'> {
@@ -111,13 +107,11 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
 
     const classes = classNames(className, 'text-left');
 
-    const commonProps: Partial<
-      ComponentProps<typeof StateManagedSelect<OptionType>>
-    > = {
+    const commonProps: Partial<ReactSelectProps<OptionType, false>> = {
       ...props,
       onChange,
       value: current,
-      styles,
+      styles: styles as StylesConfig<OptionType>,
       theme,
       id: props.id || props.name,
       instanceId: props.id || props.name,
