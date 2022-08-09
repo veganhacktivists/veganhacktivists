@@ -13,8 +13,10 @@ import volunteerTagline from '../../../../public/images/playground/volunteer.svg
 
 import SquareField from '../../decoration/squares';
 
+import AdminCallout from './adminCallout';
+
 import Hero from 'components/decoration/hero';
-import { DarkButton, OutlineButton } from 'components/decoration/buttons';
+import { OutlineButton } from 'components/decoration/buttons';
 
 import type { Layout } from 'types/persistentLayout';
 
@@ -70,12 +72,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
     <PlaygroundLayout>
       <div>
         {status === 'authenticated' && session.user?.role === 'Admin' && (
-          <div className="py-5 mx-auto w-fit">
-            <div>You&apos;re an admin!</div>
-            <DarkButton href="/playground/admin" className="">
-              Enter review mode
-            </DarkButton>
-          </div>
+          <AdminCallout />
         )}
         <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
           <OutlineButton
