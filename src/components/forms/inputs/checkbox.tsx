@@ -1,11 +1,16 @@
 import classNames from 'classnames';
+
 import React from 'react';
 
 import Label from './label';
 import { inputClassNames } from './textInput';
 
+import type { InputHTMLAttributes } from 'react';
+
 interface CheckboxProps
-  extends React.PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>> {
+  extends React.PropsWithChildren<
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
+  > {
   error?: string;
   description?: React.ReactNode;
   labelPosition?: 'left' | 'right';

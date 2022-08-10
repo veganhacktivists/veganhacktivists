@@ -140,13 +140,10 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   }, [request.name]);
 
   return (
-    <aside className="flex flex-col pl-20 text-left">
+    <aside className="flex flex-col pl-20 ml-0 md:mx-auto md:text-left">
       <div className="font-bold uppercase">Contact person</div>
-      <div className="grid content-center w-32 rounded-full place-content-center aspect-square bg-red">
-        <div className="font-bold text-white text-7xl w-fit">
-          {/* Initials go here */}
-          {initials}
-        </div>
+      <div className="grid content-center w-32 ml-0 rounded-full place-content-center aspect-square bg-red">
+        <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div className="truncate">
         <div className="text-lg font-bold">{request.requester.name}</div>
@@ -287,64 +284,64 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col flex-grow gap-5 px-10 text-left"
+        className="grid max-w-3xl grid-cols-1 gap-5 mx-auto text-left align-bottom lg:pr-10 md:grid-cols-6"
       >
-        <div className="text-2xl font-medium font-italic">
+        <div className="text-2xl font-medium font-italic col-span-full">
           Interested in applying to help with this project?
         </div>
         <TextInput
+          className="col-span-full"
           error={errors.name?.message}
           {...myRegister('name')}
           placeholder="Your name"
         >
           Name
         </TextInput>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            error={errors.providedEmail?.message}
-            {...myRegister('providedEmail')}
-            className="w-full"
-            placeholder="name@example.com"
-          >
-            Email
-          </TextInput>
-          <TextInput
-            className="w-full"
-            error={errors.portfolioLink?.message}
-            {...myRegister('portfolioLink')}
-            placeholder="yourwebsite.com"
-          >
-            Personal website or portfolio link
-          </TextInput>
-        </div>
-        <div className="flex flex-row gap-5">
-          <TextInput
-            error={errors.twitterUrl?.message}
-            {...myRegister('twitterUrl')}
-            placeholder="@yourhandle"
-            className="w-full"
-          >
-            Twitter
-          </TextInput>
-          <TextInput
-            className="w-full"
-            error={errors.instagramUrl?.message}
-            {...myRegister('instagramUrl')}
-            placeholder="@yourhandle"
-          >
-            Instagram
-          </TextInput>
-          <TextInput
-            className="w-full"
-            error={errors.linkedinUrl?.message}
-            {...myRegister('linkedinUrl')}
-            placeholder="linkedin.com/in/"
-          >
-            LinkedIn
-          </TextInput>
-        </div>
-        <div className="flex flex-row justify-start gap-5">
-          <div>Have you applied for a Playground project in the past?</div>
+        <TextInput
+          className="flex flex-col justify-end md:col-span-3"
+          error={errors.providedEmail?.message}
+          {...myRegister('providedEmail')}
+          placeholder="name@example.com"
+        >
+          Email
+        </TextInput>
+        <TextInput
+          className="md:col-span-3"
+          error={errors.portfolioLink?.message}
+          {...myRegister('portfolioLink')}
+          placeholder="yourwebsite.com"
+        >
+          <span className="hidden lg:inline">Personal website or p</span>
+          <span className="inline lg:hidden">P</span>ortfolio link
+        </TextInput>
+        <TextInput
+          className="md:col-span-2"
+          error={errors.twitterUrl?.message}
+          {...myRegister('twitterUrl')}
+          placeholder="@yourhandle"
+        >
+          Twitter
+        </TextInput>
+        <TextInput
+          className="md:col-span-2"
+          error={errors.instagramUrl?.message}
+          {...myRegister('instagramUrl')}
+          placeholder="@yourhandle"
+        >
+          Instagram
+        </TextInput>
+        <TextInput
+          className="md:col-span-2"
+          error={errors.linkedinUrl?.message}
+          {...myRegister('linkedinUrl')}
+          placeholder="linkedin.com/in/"
+        >
+          LinkedIn
+        </TextInput>
+        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
+          <div className="font-bold">
+            Have you applied for a Playground project in the past?
+          </div>
           <Controller
             control={control}
             name="hasAppliedInThePast"
@@ -376,8 +373,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             )}
           />
         </div>
-        <div className="flex flex-row justify-start gap-5">
-          <div>Are you vegan?</div>
+        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
+          <div className="font-bold">Are you vegan?</div>
           <Controller
             control={control}
             name="isVegan"
@@ -408,6 +405,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           />
         </div>
         <TextInput
+          className="col-span-full"
           error={errors.calendlyUrl?.message}
           {...myRegister('calendlyUrl')}
           placeholder="calendly.com/yourname"
@@ -415,6 +413,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Calendly link (if you do not have one, list weekly availabilities)
         </TextInput>
         <TextArea
+          className="col-span-full"
           rows={5}
           {...myRegister('moreInfo')}
           placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
@@ -422,6 +421,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Is there anything else you&apos;d like to add?
         </TextArea>
         <Checkbox
+          className="col-span-full"
           error={errors.commitToHelping?.message}
           {...myRegister('commitToHelping')}
           onChange={(e) => {
@@ -436,6 +436,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           deadline.
         </Checkbox>
         <Checkbox
+          className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
           onChange={(e) => {
@@ -449,6 +450,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         <DarkButton
           disabled={isLoading || isSuccess || request.userAlreadyApplied}
           type="submit"
+          className="w-full px-10 mx-auto col-span-full md:ml-0 md:w-fit"
         >
           {isLoading ? (
             <Spinner />
@@ -472,7 +474,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
   return (
-    <div className="min-h-[30vh] bg-grey-background flex md:flex-row flex-col-reverse justify-between divide-x-2 divide-white py-10 px-20 md:px-32">
+    <div className="min-h-[30vh] bg-grey-background flex lg:flex-row flex-col-reverse justify-between lg:divide-x-2 divide-white py-10 px-20 md:px-32 gap-y-5">
       <MainForm request={request} />
       <FormSidebar request={request} />
     </div>

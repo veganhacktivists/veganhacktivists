@@ -162,7 +162,7 @@ const SubmitRequestForm: React.FC = () => {
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-5 py-10 mx-10 text-left md:px-10 md:grid-cols-2"
+        className="grid grid-cols-1 gap-5 py-10 mx-10 text-left md:px-10 xl:px-40 md:grid-cols-2"
       >
         <div className="text-xl col-span-full">Personal Information</div>
         <TextInput
