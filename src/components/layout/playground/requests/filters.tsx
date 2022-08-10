@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
@@ -7,8 +7,6 @@ import { CATEGORY_TEXT } from './requestCard';
 import RadioButton from 'components/forms/inputs/radioButton';
 
 import Checkbox from 'components/forms/inputs/checkbox';
-
-import SelectInput from 'components/forms/inputs/selectInput';
 
 import type { inferQueryInput } from 'lib/client/trpc';
 
@@ -49,9 +47,6 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
     },
     [filters, onChange]
   );
-
-  const [selectedCategory, setSelectedCategory] =
-    useState<React.ComponentProps<typeof SelectInput>['current']>(null);
 
   return (
     <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 md:flex-row">
@@ -96,18 +91,40 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
           <div className="flex-grow">
             <div className="font-bold">Category</div>
-            <div className="w-full">
-              <SelectInput
-                current={selectedCategory}
-                onChange={setSelectedCategory}
-                className="w-full"
-                options={Object.entries(PlaygroundRequestCategory).map(
-                  ([key, value]) => ({
-                    value: key,
-                    label: CATEGORY_TEXT[value] || value,
-                  })
-                )}
-              />
+            <div className="grid justify-start grid-flow-col grid-rows-3 lg:grid-rows-2 gap-x-4">
+              {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
+                <div key={key} className="w-fit">
+                  <Checkbox
+                    name={key}
+                    labelPosition="right"
+                    size="small"
+                    onChange={(e) => {
+                      if (e.currentTarget.checked) {
+                        onChangeFilter(
+                          'categories',
+                          filters.categories
+                            ? [...filters.categories, value]
+                            : [value]
+                        );
+                      } else {
+                        const filteredCategories = filters.categories?.filter(
+                          (v) => v !== value
+                        );
+                        onChangeFilter(
+                          'categories',
+                          filteredCategories?.length
+                            ? filteredCategories
+                            : undefined
+                        );
+                      }
+                    }}
+                  >
+                    <span className="font-normal">
+                      {CATEGORY_TEXT[key as PlaygroundRequestCategory] || value}
+                    </span>
+                  </Checkbox>
+                </div>
+              ))}
             </div>
           </div>
 
