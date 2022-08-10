@@ -51,10 +51,10 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   return (
     <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 md:flex-row">
       <div className="text-left divide-y">
-        <div className="uppercase">Sort by</div>
-        <div className="flex flex-row gap-5">
+        <div className="mb-2 uppercase">Sort by</div>
+        <div className="flex flex-row gap-10">
           <div>
-            <div className="font-bold">Date posted</div>
+            <div className="font-bold mt-2 mb-2">Date posted</div>
 
             <>
               <RadioButton
@@ -70,7 +70,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
             </>
           </div>
           <div>
-            <div className="font-bold">Priority</div>
+            <div className="font-bold mt-2 mb-2">Priority</div>
             <>
               <RadioButton
                 onChange={() => onChangeSort('priority', 'desc')}
@@ -87,10 +87,10 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         </div>
       </div>
       <div className="text-left divide-y">
-        <div className="uppercase">Filter by</div>
+        <div className="mb-2 uppercase">Filter by</div>
         <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
           <div className="flex-grow">
-            <div className="font-bold">Category</div>
+            <div className="font-bold mt-2 mb-2">Category</div>
             <div className="grid justify-start grid-flow-col grid-rows-3 lg:grid-rows-2 gap-x-4">
               {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
                 <div key={key} className="w-fit">
@@ -129,7 +129,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           </div>
 
           <div>
-            <div className="font-bold">Job Type</div>
+            <div className="font-bold mt-2 mb-2">Job Type</div>
             <div className="flex flex-col gap-2">
               <Checkbox
                 name="jobTypeVolunteer"

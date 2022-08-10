@@ -44,9 +44,9 @@ const Playground: PageWithLayout = ({}) => {
           Check out both volunteer and paid project requests from individuals
           and organizations seeking support for their work for the animals.
         </SectionHeader>
-        <div className="mt-5 lg:mx-12 2xl:mx-44 xl:mx-36">
+        <div className="mt-10 mb-10 lg:mx-12 2xl:mx-44 xl:mx-36">
           <RequestFilters onChange={setFilters} filters={filters} />
-          <div className="grid gap-8 mt-5 sm:grid-cols-2">
+          <div className="grid gap-8 mt-10 sm:grid-cols-2">
             {/* TODO: no available requests message */}
             {requests?.map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />
