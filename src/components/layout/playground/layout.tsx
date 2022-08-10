@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
-import heroFishImage from '../../../../public/images/playground/fishHero.jpg';
+import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
 import submitTagline from '../../../../public/images/playground/getsupport.svg';
 import volunteerTagline from '../../../../public/images/playground/volunteer.svg';
