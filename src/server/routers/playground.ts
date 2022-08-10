@@ -9,6 +9,7 @@ import {
   paginationSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
+  submitRequestSchema,
 } from 'lib/services/playground/schemas';
 import { adminProcedure, protectedProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
@@ -16,6 +17,7 @@ import {
   applyToHelp,
   getPlaygroundRequests,
   getRequestById,
+  submitRequest,
 } from 'lib/services/playground';
 import {
   getPendingApplications,
@@ -109,6 +111,12 @@ const playgroundRouter = t.router({
         ...input,
         applicantId: user.id,
       });
+    }),
+
+  submitRequest: protectedProcedure
+    .input(submitRequestSchema)
+    .mutation(({ input, ctx: { user } }) => {
+      return submitRequest({ ...input, requesterId: user.id });
     }),
 });
 

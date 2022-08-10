@@ -43,6 +43,7 @@ const seedRequests = async (n: number = NUMBER) => {
               precision: faker.helpers.arrayElement([0.01, 0.1]),
             })
           : faker.datatype.number({ min: 10, max: 10000 }),
+        name: faker.name.findName(),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
         description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(
@@ -63,6 +64,7 @@ const seedRequests = async (n: number = NUMBER) => {
         organization: faker.company.companyName(),
         createdAt: faker.date.recent(14),
         status: faker.helpers.objectValue(Status),
+        providedEmail: faker.internet.email(),
       };
     });
   const { count } = await prisma.playgroundRequest.createMany({

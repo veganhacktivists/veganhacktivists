@@ -8,13 +8,16 @@ export const inputClassNames =
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
+  showRequiredMark?: boolean;
 }
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ error, children, className, ...props }, ref) => {
+  ({ error, children, className, showRequiredMark, ...props }, ref) => {
     return (
       <div className={className}>
-        <Label name={props.name || ''}>{children}</Label>
+        <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
+          {children}
+        </Label>
         <input
           ref={ref}
           className={classNames(

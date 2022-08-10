@@ -62,6 +62,58 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
   })
 );
 
+export const submitRequestSchema = z.object({
+  name: z.string().trim().min(1),
+  providedEmail: z.string().email(),
+  phone: z.string().trim().optional(),
+  organization: z.string().trim().optional(),
+  website: z.string().trim().min(1),
+  calendlyUrl: z.string().trim().optional(),
+  title: z.string().trim().min(1),
+  category: z.nativeEnum(PlaygroundRequestCategory),
+  priority: z.number().int().nonnegative().max(3),
+  roleTitle: z.string().trim().min(1),
+  // Transform the string of skills separated by a comma in an array of strings
+  requiredSkills: z
+    .string()
+    .min(1)
+    .transform((x) =>
+      x
+        .split(',')
+        .map((item) => item.trim())
+        .filter((x) => !!x)
+    ),
+  isFree: z.boolean(),
+  budget: z
+    .number()
+    .nonnegative()
+    .refine((x) => /^\d+(\.\d{1,2})?$/.test(String(x))),
+  description: z.string().trim().min(1),
+  dueDate: z
+    .date()
+    .min(new Date(), { message: 'Due date must be in the future' }),
+  estimatedTimeDays: z.number().nonnegative().int(),
+  qualityAgreement: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
+  agreeToTerms: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
+});
+
+export const submitRequestSchemaClient = submitRequestSchema.merge(
+  z.object({
+    // Require both of these values to be true
+    requiredSkills: z.string().min(1),
+    qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
+    agreeToTerms: z
+      .boolean()
+      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+  })
+);
+
 export const getPendingApplicationsSchema = paginationSchema.optional();
 export const getPendingRequestsSchema = paginationSchema.optional();
 
