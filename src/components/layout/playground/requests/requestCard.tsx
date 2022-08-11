@@ -87,7 +87,7 @@ const PlaygroundRequestCard: React.FC<
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
       <div className="space-y-1">
         <h3
-          className="font-mono text-lg font-bold capitalize line-clamp-1"
+          className="font-mono text-lg font-bold capitalize line-clamp-1 mb-2"
           title={title}
         >
           {title}
@@ -108,8 +108,8 @@ const PlaygroundRequestCard: React.FC<
         </div>
       </div>
 
-      <div className="line-clamp-5">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-2 gap-x-1">
+      <div className="line-clamp-5 mb-4 mt-4">{description}</div>
+      <ul className="grid content-end flex-grow grid-cols-2 gap-x-1 mb-2">
         <Li category={category} title={requester.name || undefined}>
           <span>
             <span className="font-bold">{requester.name}</span>{' '}
