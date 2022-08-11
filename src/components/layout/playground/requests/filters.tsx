@@ -54,7 +54,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         <div className="mb-2 uppercase">Sort by</div>
         <div className="flex flex-row gap-10">
           <div>
-            <div className="font-bold mt-2 mb-2">Date posted</div>
+            <div className="font-bold mt-2 mb-2">Date</div>
 
             <>
               <RadioButton
@@ -129,7 +129,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           </div>
 
           <div>
-            <div className="font-bold mt-2 mb-2">Job Type</div>
+            <div className="font-bold mt-2 mb-2">Type</div>
             <div className="flex flex-col gap-2">
               <Checkbox
                 name="jobTypeVolunteer"
