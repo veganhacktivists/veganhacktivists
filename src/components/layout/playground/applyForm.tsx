@@ -100,7 +100,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         )}
       </div>
 
-      <div className="relative flex flex-row gap-10 font-mono text-left justfy-between">
+      <div className="relative flex flex-row gap-10 font-mono text-left justfy-between mb-4">
         <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
         <div className="flex flex-col gap-5">
           <Field title="Title">
@@ -142,7 +142,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   return (
     <aside className="flex flex-col pl-20 ml-0 md:mx-auto md:text-left">
       <div className="font-bold uppercase">Contact person</div>
-      <div className="grid content-center w-32 ml-0 rounded-full place-content-center aspect-square bg-red">
+      <div className="grid content-center w-32 ml-0 rounded-full place-content-center aspect-square bg-red mb-4 mt-4">
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div className="truncate">

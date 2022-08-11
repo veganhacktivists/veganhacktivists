@@ -5,7 +5,7 @@ interface LabelProps extends React.PropsWithChildren {
 
 const Label: React.FC<LabelProps> = ({ name, children, showRequiredMark }) => {
   return (
-    <label className="block font-bold text-left" htmlFor={name}>
+    <label className="block font-bold text-left mb-2" htmlFor={name}>
       {children || <span className="capitalize">{name}</span>}
       {showRequiredMark && <span className="text-red">*</span>}
     </label>
