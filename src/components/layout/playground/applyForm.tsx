@@ -113,7 +113,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             <div>{request.requiredSkills.join(', ')}</div>
           </Field>
         </div>
-        <SubtleBorder className="flex flex-col gap-1 p-2 min-w-fit bg-grey-background h-fit">
+        <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
           <Field title="Priority">{request.priority}</Field>
           <Field title="Due date">{createdAtFormatted}</Field>
