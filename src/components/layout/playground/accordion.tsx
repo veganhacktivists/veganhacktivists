@@ -31,11 +31,13 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
           setEntryState(!entryState);
         }}
       >
-        <span className="text-black select-none text-2xl">{headline}</span>
+        <span className="text-black select-none text-1xl font-medium font-italic">
+          {headline}
+        </span>
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
       </div>
       {entryState && (
-        <div className="p-2.5 text-black text-justify select-none bg-white mt-1.5">
+        <div className="p-2.5 text-black text-justify select-none bg-white mt-1.5 font-sans">
           {content}
         </div>
       )}
