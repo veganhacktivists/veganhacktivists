@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+
 import {
   DarkButton,
   ExternalLinkButton,
@@ -46,42 +48,45 @@ const AdminPage: NextPage = ({}) => {
 
   if (!isSuccess) return null;
   return (
-    <div>
-      <DarkButton
-        href="/playground/admin/applications"
-        className="m-10 mx-auto w-fit"
-      >
-        See applications
-      </DarkButton>
-      <div className="grid gap-5 px-10 my-5 md:grid-cols-2 md:px-40">
-        {data.map((request) => (
-          <div key={request.id}>
-            <PlaygroundRequestCard request={request}>
-              <div className="flex flex-row gap-5">
-                <LightButton
-                  className="w-full"
-                  disabled={isMutationLoading}
-                  onClick={() => {
-                    mutate({ id: request.id, status: 'Accepted' });
-                  }}
-                >
-                  Accept
-                </LightButton>
-                <ExternalLinkButton
-                  className="w-full px-2 text-xl text-grey-dark"
-                  disabled={isMutationLoading}
-                  onClick={() => {
-                    mutate({ id: request.id, status: 'Rejected' });
-                  }}
-                >
-                  Deny
-                </ExternalLinkButton>
-              </div>
-            </PlaygroundRequestCard>
-          </div>
-        ))}
+    <>
+      <NextSeo title="Admin panel" />
+      <div>
+        <DarkButton
+          href="/playground/admin/applications"
+          className="m-10 mx-auto w-fit"
+        >
+          See applications
+        </DarkButton>
+        <div className="grid gap-5 px-10 my-5 md:grid-cols-2 md:px-40">
+          {data.map((request) => (
+            <div key={request.id}>
+              <PlaygroundRequestCard request={request}>
+                <div className="flex flex-row gap-5">
+                  <LightButton
+                    className="w-full"
+                    disabled={isMutationLoading}
+                    onClick={() => {
+                      mutate({ id: request.id, status: 'Accepted' });
+                    }}
+                  >
+                    Accept
+                  </LightButton>
+                  <ExternalLinkButton
+                    className="w-full px-2 text-xl text-grey-dark"
+                    disabled={isMutationLoading}
+                    onClick={() => {
+                      mutate({ id: request.id, status: 'Rejected' });
+                    }}
+                  >
+                    Deny
+                  </ExternalLinkButton>
+                </div>
+              </PlaygroundRequestCard>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
