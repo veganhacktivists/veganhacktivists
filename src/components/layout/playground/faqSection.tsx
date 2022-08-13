@@ -1,3 +1,5 @@
+import React from 'react';
+
 import SquareField from '../../decoration/squares';
 
 import Accordion from './accordion';
@@ -12,6 +14,7 @@ const faqSection: React.FC<FaqSection> = ({ design }) => {
       headline: 'What is VH: Playground?',
       content:
         'Playground is our public community of diverse vegan developers and designers. Anyone can join this community and apply to help you with your request. Playground is separate from the core team of Vegan Hacktivists with the aim to increase the capacity in which we can help you and others.',
+      expanded: true,
     },
     { headline: 'How does it work?', content: '' },
     {
