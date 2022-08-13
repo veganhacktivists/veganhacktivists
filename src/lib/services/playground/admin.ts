@@ -131,7 +131,9 @@ export const setRequestStatus = async ({
     }
 
     const shouldPost =
-      request.status === Status.Pending && status === Status.Accepted;
+      !!request.discordMessageId &&
+      request.status === Status.Pending &&
+      status === Status.Accepted;
 
     const updatedApplication = await prisma.playgroundRequest.update({
       where: { id },
