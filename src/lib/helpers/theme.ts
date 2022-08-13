@@ -9,7 +9,6 @@ const fullConfig = (
   resolveConfig as (config: TailwindConfig) => TailwindConfig
 )(tailwindConfig as unknown as TailwindConfig);
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const colors = fullConfig.theme!.colors!;
 
 const byString: (

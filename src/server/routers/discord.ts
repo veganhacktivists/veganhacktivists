@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
-import { ChannelType } from 'discord.js';
-
-import { TRPCError } from '@trpc/server';
-
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
-import client from 'lib/discord';
+import client, { sendDiscordMessage } from 'lib/discord';
+
+import type { Client } from 'discord.js';
 
 const schema = z.object({
   channelId: z
@@ -16,20 +14,17 @@ const schema = z.object({
   message: z.string().default('Olo! Esto es un test'),
 });
 
-// type x = z.output<typeof schema>;
-
 const discordRouter = t.router({
   sendTestMessage: adminProcedure
     .input(schema)
     .mutation(async ({ input: { channelId, message } }) => {
-      const channel =
-        client.channels.cache.get(channelId) ||
-        (await client.channels.fetch(channelId));
-
-      if (!channel || channel.type !== ChannelType.GuildText) {
-        throw new TRPCError({ code: 'NOT_FOUND' });
+      if (client.isReady()) {
+        await sendDiscordMessage(channelId, message);
+      } else {
+        (client as Client<false>).once('ready', async () => {
+          await sendDiscordMessage(channelId, message);
+        });
       }
-      await channel.send(message);
     }),
 });
 

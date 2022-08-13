@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';

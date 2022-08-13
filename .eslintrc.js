@@ -65,6 +65,7 @@ module.exports = {
         varsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/no-non-null-assertion': ['off'],
 
     // typescript typechecking
     '@typescript-eslint/no-misused-promises': [

@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
 }
 
 datasource db {
@@ -127,6 +128,7 @@ model PlaygroundRequest {
   requester         User     @relation(fields: [requesterId], references: [id])
   requesterId       String
   status            Status   @default(Pending)
+  discordMessageId  String?
 
   applications PlaygroundApplication[]
   category     PlaygroundRequestCategory

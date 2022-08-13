@@ -45,8 +45,13 @@ const adminRouter = t.router({
     }),
   setRequestStatus: adminProcedure
     .input(setRequestStatusSchema)
-    .mutation(({ input }) => {
-      return setRequestStatus(input);
+    .mutation(async ({ input }) => {
+      const request = await setRequestStatus(input);
+
+      if (input.status === Status.Accepted) {
+      }
+
+      return request;
     }),
 
   requestsWithPendingApplications: adminProcedure.query(
@@ -115,8 +120,11 @@ const playgroundRouter = t.router({
 
   submitRequest: protectedProcedure
     .input(submitRequestSchema)
-    .mutation(({ input, ctx: { user } }) => {
-      return submitRequest({ ...input, requesterId: user.id });
+    .mutation(({ input, ctx }) => {
+      return submitRequest({
+        ...input,
+        requesterId: ctx.user.id,
+      });
     }),
 });
 
