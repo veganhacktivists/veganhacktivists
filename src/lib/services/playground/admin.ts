@@ -83,10 +83,9 @@ ${bold('Compensation:')} ${
       : 'Hell yeah'
   }
 
-What's next: Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/requests/${request.id}`}
+What's next: Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
 
-${codeBlock(request.description)}
-`;
+${codeBlock(request.description)}`;
 };
 
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
@@ -116,14 +115,12 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
   const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
 
-  const messages = await Promise.all([
-    withDiscordClient(() =>
+  const messages = await withDiscordClient(() =>
+    Promise.all([
       sendDiscordMessage(
         playgroundChannelId,
         `Hi @everyone! ${requestMessage(request)}`
-      )
-    ),
-    withDiscordClient(() =>
+      ),
       sendDiscordMessage(
         araChannelId,
         `Hi everyone! ${requestMessage(request)}
@@ -131,9 +128,9 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
 ${bold(
   'Note:'
 )} Please only apply if you're 18+, minors are not currently allowed - sorry!        `
-      )
-    ),
-  ]);
+      ),
+    ])
+  );
 
   const okMessages = messages.filter((msg) => msg !== false) as Message<true>[];
 
