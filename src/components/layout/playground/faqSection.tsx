@@ -29,16 +29,22 @@ const faqSection: React.FC<FaqSection> = ({ design }) => {
   ];
   return (
     <div>
-      {design !== 'light' && (
-        <SquareField
-          squares={[{ color: 'white', size: 16, left: 0, top: 0 }]}
-        />
-      )}
-      {design === 'light' && (
-        <SquareField
-          squares={[{ color: '#3D3D3D3D', size: 16, right: 0, top: 0 }]}
-        />
-      )}
+      <SquareField
+        squares={[
+          {
+            color: `${
+              design === 'dark'
+                ? '#E2E2E2'
+                : design === 'light'
+                ? '#3D3D3D3D'
+                : 'white'
+            }`,
+            size: 16,
+            right: 0,
+            top: 0,
+          },
+        ]}
+      />
       <div
         className={`${
           design === 'dark'
