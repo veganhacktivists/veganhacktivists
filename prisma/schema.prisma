@@ -128,7 +128,7 @@ model PlaygroundRequest {
   requester         User     @relation(fields: [requesterId], references: [id])
   requesterId       String
   status            Status   @default(Pending)
-  discordMessageId  String?
+  discordMessageIds String[] @default([])
 
   applications PlaygroundApplication[]
   category     PlaygroundRequestCategory

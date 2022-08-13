@@ -6,6 +6,8 @@ import { bold, codeBlock } from 'discord.js';
 import prisma from 'lib/db/prisma';
 import { sendDiscordMessage, withDiscordClient } from 'lib/discord';
 
+import type { Message } from 'discord.js';
+
 import type { PlaygroundRequest } from '@prisma/client';
 
 import type { z } from 'zod';
@@ -69,7 +71,7 @@ export const setApplicationStatus = async ({
 };
 
 const requestMessage = (request: PlaygroundRequest) => {
-  return `Hi @everyone! ${
+  return `${
     request.organization || request.name
   } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤💕
 
@@ -87,34 +89,61 @@ ${codeBlock(request.description)}
 `;
 };
 
-const channelIdByCategory = (request: PlaygroundRequest) => {
-  if (!request.isFree) {
-    return process.env.DISCORD_PLAYGROUND_PAID_CHANNEL_ID!;
-  }
+const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
+  // TODO: remove this and uncomment below code, this is just for testing in production
+  const id = (
+    Math.random() < 0.5
+      ? process.env.DISCORD_CHANNEL1_ID
+      : process.env.DISCORD_CHANNEL2_ID
+  )!;
 
-  switch (request.category) {
-    case PlaygroundRequestCategory.Website:
-      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
-    case PlaygroundRequestCategory.Design:
-      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
-    default:
-      return process.env.DISCORD_PLAYGROUND_MISC_CHANNEL_ID!;
-  }
+  return id;
+  // if (!request.isFree) {
+  //   return process.env.DISCORD_PLAYGROUND_PAID_CHANNEL_ID!;
+  // }
+
+  // switch (request.category) {
+  //   case PlaygroundRequestCategory.Website:
+  //     return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
+  //   case PlaygroundRequestCategory.Design:
+  //     return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
+  //   default:
+  //     return process.env.DISCORD_PLAYGROUND_MISC_CHANNEL_ID!;
+  // }
 };
 
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
-  const channelId = channelIdByCategory(request);
+  const playgroundChannelId = playgroundChannelIdByCategory(request);
+  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
 
-  const message = await withDiscordClient(() =>
-    sendDiscordMessage(channelId, requestMessage(request))
-  );
-  if (!message) {
+  const messages = await Promise.all([
+    withDiscordClient(() =>
+      sendDiscordMessage(
+        playgroundChannelId,
+        `Hi @everyone! ${requestMessage(request)}`
+      )
+    ),
+    withDiscordClient(() =>
+      sendDiscordMessage(
+        araChannelId,
+        `Hi everyone! ${requestMessage(request)}
+
+${bold(
+  'Note:'
+)} Please only apply if you're 18+, minors are not currently allowed - sorry!        `
+      )
+    ),
+  ]);
+
+  const okMessages = messages.filter((msg) => msg !== false) as Message<true>[];
+
+  if (messages.length !== okMessages.length) {
     throw new TRPCError({
       code: 'INTERNAL_SERVER_ERROR',
       message: 'Could not send message to discord',
     });
   }
-  return message.id;
+  return okMessages.map((msg) => msg.id);
 };
 
 export const setRequestStatus = async ({
@@ -131,7 +160,9 @@ export const setRequestStatus = async ({
     }
 
     const shouldPost =
-      request.status === Status.Pending && status === Status.Accepted;
+      request.discordMessageIds.length === 0 &&
+      request.status === Status.Pending &&
+      status === Status.Accepted;
 
     const updatedApplication = await prisma.playgroundRequest.update({
       where: { id },
@@ -139,11 +170,11 @@ export const setRequestStatus = async ({
     });
 
     if (shouldPost) {
-      const discordMessageId = await postRequestOnDiscord(updatedApplication);
+      const discordMessageIds = await postRequestOnDiscord(updatedApplication);
       await prisma.playgroundRequest.update({
         where: { id },
         data: {
-          discordMessageId,
+          discordMessageIds,
         },
       });
     }

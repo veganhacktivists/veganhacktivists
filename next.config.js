@@ -13,7 +13,7 @@ const nextConfig = {
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' && {
-      exclude: ['error'],
+      exclude: ['error', 'info', 'warn'],
     },
   },
   async redirects() {

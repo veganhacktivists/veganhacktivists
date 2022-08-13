@@ -4,7 +4,8 @@ const client = new Client({ intents: [GatewayIntentBits.GuildMessages] });
 void client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', () => {
-  // console.log('discord client ready!');
+  // eslint-disable-next-line no-console
+  console.info('Discord client ready!');
 });
 
 export const sendDiscordMessage = async (
