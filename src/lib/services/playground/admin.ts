@@ -80,7 +80,7 @@ ${bold('Message:')} ${request.website || 'None'}
 ${bold('Compensation:')} ${
     request.isFree
       ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
-      : 'Hell yeah'
+      : 'Paid'
   }
 
 What's next: Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
