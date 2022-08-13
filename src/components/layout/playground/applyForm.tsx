@@ -146,7 +146,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div className="truncate">
-        <div className="text-lg font-bold">{request.requester.name}</div>
+        <div className="text-lg font-bold">{request.name}</div>
         <div>{request.organization}</div>
         <div>
           <a
