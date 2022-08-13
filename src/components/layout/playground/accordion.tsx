@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 interface AccordionEntryProps extends React.PropsWithChildren {
   headline: string;
   content: string;
+  design?: string;
 }
 
 interface AccordionEntry {
@@ -14,18 +15,24 @@ interface AccordionEntry {
 
 interface AccordionProps extends React.PropsWithChildren {
   entries: AccordionEntry[];
+  design?: string;
 }
 
 const AccordionEntry: React.FC<AccordionEntryProps> = ({
   headline,
   content,
+  design,
 }) => {
   const [entryState, setEntryState] = useState(false);
   return (
     <div className="w-5/6 sm:w-4/6 mt-1.5 first-of-type:mt-0">
       <div
         className={`flex ${
-          entryState ? 'bg-green' : 'bg-gray-background'
+          entryState
+            ? 'bg-green'
+            : design === 'light'
+            ? 'bg-grey-background'
+            : 'bg-white'
         } text-black items-center justify-between h-10 p-2.5`}
         onClick={() => {
           setEntryState(!entryState);
@@ -37,7 +44,11 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
       </div>
       {entryState && (
-        <div className="p-2.5 text-black text-justify select-none bg-white mt-1.5 font-sans">
+        <div
+          className={`p-2.5 text-black text-justify select-none ${
+            design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
+          } mt-1.5 font-sans`}
+        >
           {content}
         </div>
       )}
@@ -45,7 +56,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   );
 };
 
-const Accordion: React.FC<AccordionProps> = ({ entries }) => {
+const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
   if (!entries) {
     return <></>;
   }
@@ -57,6 +68,7 @@ const Accordion: React.FC<AccordionProps> = ({ entries }) => {
           key={key}
           headline={entry.headline}
           content={entry.content}
+          design={design}
         />
       );
     }
