@@ -88,18 +88,10 @@ ${codeBlock(request.description)}
 };
 
 const channelIdByCategory = (request: PlaygroundRequest) => {
-  if (!request.isFree) {
-    return process.env.DISCORD_PLAYGROUND_PAID_CHANNEL_ID!;
-  }
-
-  switch (request.category) {
-    case PlaygroundRequestCategory.Website:
-      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
-    case PlaygroundRequestCategory.Design:
-      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
-    default:
-      return process.env.DISCORD_PLAYGROUND_MISC_CHANNEL_ID!;
-  }
+  // TODO: revert this, it's just for testing in production
+  return Math.random() < 0.5
+    ? process.env.DISCORD_CHANEL1_ID!
+    : process.env.DISCORD_CHANEL2_ID!;
 };
 
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
