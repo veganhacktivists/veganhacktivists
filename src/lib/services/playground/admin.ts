@@ -117,11 +117,7 @@ export const setApplicationStatus = ({
         .join('<br />');
 
       await emailClient.sendMail({
-        to: [
-          updatedApplication.providedEmail,
-          updatedApplication.request.providedEmail,
-        ],
-        cc: OUR_EMAIL,
+        to: OUR_EMAIL,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
 
         html: `Hi ${updatedApplication.request.name},
@@ -169,7 +165,7 @@ Thank you so much everyone for helping the animals, and for using Playground.
       });
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
-        to: application.providedEmail,
+        to: OUR_EMAIL,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
         html: `Thanks so much for submitting your request to support with Playground!
@@ -300,7 +296,7 @@ export const setRequestStatus = ({
       });
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
-        to: updatedRequest.providedEmail,
+        to: OUR_EMAIL,
         subject: 'Thanks so much for submitting your request to Playground!',
         html: `Thanks so much for submitting your request to Playground!
 <br />
