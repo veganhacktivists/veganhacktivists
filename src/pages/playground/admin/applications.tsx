@@ -68,7 +68,7 @@ const AdminPage: NextPage = ({}) => {
                         <DarkButton
                           disabled={isMutationLoading}
                           onClick={() => {
-                            mutate({ id: request.id, status: 'Accepted' });
+                            mutate({ id: app.id, status: 'Accepted' });
                           }}
                         >
                           Accept
@@ -77,7 +77,7 @@ const AdminPage: NextPage = ({}) => {
                           className="px-4 text-xl text-grey-dark"
                           disabled={isMutationLoading}
                           onClick={() => {
-                            mutate({ id: request.id, status: 'Rejected' });
+                            mutate({ id: app.id, status: 'Rejected' });
                           }}
                         >
                           Deny

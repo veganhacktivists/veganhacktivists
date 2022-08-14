@@ -100,8 +100,9 @@ export const setApplicationStatus = ({
             ['Message', updatedApplication.moreInfo],
           ] as [string, string | null][]
         ).filter(([, value]) => value !== null) as [string, string][]
-      ).map(([name, value]) => `<b>${name}:</b> ${value}`).join(`
-`);
+      )
+        .map(([name, value]) => `<b>${name}:</b> ${value}`)
+        .join('<br />');
 
       await emailClient.sendMail({
         to: [
@@ -111,27 +112,30 @@ export const setApplicationStatus = ({
           // updatedApplication.request.providedEmail,
         ],
         cc: OUR_EMAIL,
-        subject: "It's a match!",
+        subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
 
-        html: `We&apos;d like to introduce ${
-          updatedApplication.name
-        }, from VH: Playground!
-
-Hi ${updatedApplication.request.name},
-
+        html: `Hi ${updatedApplication.request.name},
+<br />
+<br />
 We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
           updatedApplication.request.title
         }&rdquo;!
-
+<br />
+<br />
 Meet the person (cc&apos;ed to this email, just reply all!) below that applied to help with your request!
-
+<br />
+<br />
 <b>Name:</b> ${updatedApplication.name}
+<br />
 ${optionalMessageParts}
-
+<br />
+<br />
 They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
-
+<br />
+<br />
 <b>What&apos;s next?</b>
-
+<br />
+<br />
 We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
           updatedApplication.request.name
         }&apos;s Calendy link <a href="${
@@ -139,14 +143,17 @@ We highly recommend either of you to schedule a call with the other as soon as p
           updatedApplication.request.calendlyUrl
         }">here</a>${
           updatedApplication.calendlyUrl
-            ? `or ${updatedApplication.name}&apos;s Calendy link <a href="${updatedApplication.calendlyUrl}">here</a>`
+            ? ` or ${updatedApplication.name}&apos;s Calendy link <a href="${updatedApplication.calendlyUrl}">here</a>`
             : ''
         }.
-
+<br />
+<br />
 Is someone not responding at all? Or are you having any other issues? Email us to let us know!
-
+<br />
+<br />
 Thank you so much everyone for helping the animals, and for using Playground.
-
+<br />
+<br />
 <b>Vegan Hacktivists</b>
 `,
       });

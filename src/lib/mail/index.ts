@@ -18,7 +18,7 @@ class EmailClient {
   async sendMail(data: Email) {
     return await this.mg.messages.create(DOMAIN, {
       ...data,
-      from: data.from ?? OUR_EMAIL,
+      from: data.from ?? OUR_EMAIL_FORMATTED,
     });
   }
 }
