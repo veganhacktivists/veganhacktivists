@@ -430,10 +430,10 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             setValue('commitToHelping', checked);
           }}
         >
-          I understand that, if selected to help with this project, I will
-          commit to a reasonable and regular amount of time to the project,
-          communicate status updates and progress, and do my best to meet the
-          deadline.
+          I understand that if selected to help with this project, I will
+          commit to a reasonable amount of time that would be needed to help with this project,
+          communicate status updates and progress, and do my best to meet any potential
+          deadlines.
         </Checkbox>
         <Checkbox
           className="col-span-full"
