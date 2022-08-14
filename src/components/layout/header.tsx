@@ -62,10 +62,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   const active = pathname.startsWith(href);
 
   const classes = classNames(
-    'p-5',
-    'py-6',
-    'transition duration-500',
-    'text-center',
+    'p-5 py-6 transition duration-500 text-center whitespace-nowrap',
     className
   );
 

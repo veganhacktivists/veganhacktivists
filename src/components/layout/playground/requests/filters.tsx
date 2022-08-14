@@ -54,7 +54,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         <div className="mb-2 uppercase">Sort by</div>
         <div className="flex flex-row gap-10">
           <div>
-            <div className="font-bold mt-2 mb-2">Date</div>
+            <div className="mt-2 mb-2 font-bold">Date</div>
 
             <>
               <RadioButton
@@ -70,7 +70,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
             </>
           </div>
           <div>
-            <div className="font-bold mt-2 mb-2">Priority</div>
+            <div className="mt-2 mb-2 font-bold">Priority</div>
             <>
               <RadioButton
                 onChange={() => onChangeSort('priority', 'desc')}
@@ -90,7 +90,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         <div className="mb-2 uppercase">Filter by</div>
         <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
           <div className="flex-grow">
-            <div className="font-bold mt-2 mb-2">Category</div>
+            <div className="mt-2 mb-2 font-bold">Category</div>
             <div className="grid justify-start grid-flow-col grid-rows-3 lg:grid-rows-2 gap-x-4">
               {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
                 <div key={key} className="w-fit">
@@ -98,8 +98,8 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                     name={key}
                     labelPosition="right"
                     size="small"
-                    onChange={(e) => {
-                      if (e.currentTarget.checked) {
+                    onChange={(checked) => {
+                      if (checked) {
                         onChangeFilter(
                           'categories',
                           filters.categories
@@ -129,7 +129,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           </div>
 
           <div>
-            <div className="font-bold mt-2 mb-2">Type</div>
+            <div className="mt-2 mb-2 font-bold">Type</div>
             <div className="flex flex-col">
               <Checkbox
                 name="jobTypeVolunteer"
