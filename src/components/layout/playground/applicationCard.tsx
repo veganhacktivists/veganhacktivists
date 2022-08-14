@@ -2,6 +2,8 @@ import React from 'react';
 
 import classNames from 'classnames';
 
+import { TimePerWeekLabel } from './applyForm';
+
 import { readableTimeSinceDate } from 'lib/helpers/date';
 
 import type { inferQueryOutput } from 'lib/client/trpc';
@@ -35,14 +37,6 @@ const ApplicationCard: React.FC<
         )}
       </div>
       <div>Applied {readableTimeSinceDate(app.createdAt)} ago</div>
-      <Data name="Calendly" value={app.calendlyUrl} />
-      <Data name="Instagram" value={app.instagramUrl} />
-      <Data name="Twitter" value={app.twitterUrl} />
-      <Data name="LinkedIn" value={app.linkedinUrl} />
-      <Data
-        name="Applied in the past"
-        value={JSON.stringify(app.hasAppliedInThePast)}
-      />
       <div
         className={classNames('font-bold', {
           'text-red': !app.isVegan,
@@ -51,6 +45,18 @@ const ApplicationCard: React.FC<
       >
         {app.isVegan ? 'Vegan :D' : 'Not vegan D:'}
       </div>
+      <Data
+        name="Available time per week"
+        value={TimePerWeekLabel[app.availableTimePerWeek]}
+      />
+      <Data name="Calendly" value={app.calendlyUrl} />
+      <Data name="Instagram" value={app.instagramUrl} />
+      <Data name="Twitter" value={app.twitterUrl} />
+      <Data name="LinkedIn" value={app.linkedinUrl} />
+      <Data
+        name="Applied in the past"
+        value={JSON.stringify(app.hasAppliedInThePast)}
+      />
       <Data
         name="Comments"
         value={

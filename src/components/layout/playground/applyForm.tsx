@@ -57,7 +57,7 @@ import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
 
-const TimePerWeekLabel: Record<TimePerWeek, string> = {
+export const TimePerWeekLabel: Record<TimePerWeek, string> = {
   OneToThree: '1-3 hours/week',
   ThreeToFive: '3-5 hours/week',
   FiveToEight: '5-8 hours/week',
