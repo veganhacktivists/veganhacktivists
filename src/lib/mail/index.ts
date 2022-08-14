@@ -23,11 +23,8 @@ class EmailClient {
   }
 }
 
-type Email = MailgunMessageData & {
-  to: string | string[];
-  subject: string;
-  html: string;
-};
+type Email = MailgunMessageData &
+  Required<Pick<MailgunMessageData, 'html' | 'to' | 'subject'>>;
 
 export const createFormattedMessage: (
   data: Record<string, string>

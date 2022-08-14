@@ -39,10 +39,18 @@ export const getPendingApplications = async (
 export const getPendingRequests = async (
   params: z.infer<typeof getPendingRequestsSchema>
 ) => {
-  const applications = await prisma.playgroundRequest.findMany({
+  const requestsWithApplications = await prisma.playgroundRequest.findMany({
     where: {
       ...params,
       status: Status.Pending,
+      applications: {
+        none: {
+          status: Status.Accepted,
+        },
+        some: {
+          status: Status.Pending,
+        },
+      },
     },
     include: {
       requester: {
@@ -54,7 +62,7 @@ export const getPendingRequests = async (
     },
   });
 
-  return applications;
+  return requestsWithApplications;
 };
 
 export const setApplicationStatus = ({
@@ -89,6 +97,10 @@ export const setApplicationStatus = ({
       application.status === Status.Pending &&
       updatedApplication.status === Status.Accepted;
 
+    const shouldNotifyDenialToApplicant =
+      application.status === Status.Pending &&
+      updatedApplication.status === Status.Rejected;
+
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
         (
@@ -106,10 +118,8 @@ export const setApplicationStatus = ({
 
       await emailClient.sendMail({
         to: [
-          'quin.trinanes@gmail.com',
-          'hello@veganhacktivists.org',
-          // updatedApplication.providedEmail,
-          // updatedApplication.request.providedEmail,
+          updatedApplication.providedEmail,
+          updatedApplication.request.providedEmail,
         ],
         cc: OUR_EMAIL,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
@@ -156,6 +166,25 @@ Thank you so much everyone for helping the animals, and for using Playground.
 <br />
 <b>Vegan Hacktivists</b>
 `,
+      });
+    } else if (shouldNotifyDenialToApplicant) {
+      await emailClient.sendMail({
+        to: application.providedEmail,
+        subject:
+          'Thanks so much for submitting your request to support with Playground!',
+        html: `Thanks so much for submitting your request to support with Playground!
+<br />
+<br />
+Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone with qualifications that were more relevant to this request was chosen, or they had more time to contribute.
+<br />
+<br />
+To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
+<br />
+<br />
+If you have any specific questions feel free to contact us here. In the meantime, check out <a href="https://veganhacktivists.org/playground/requests">other pending requests</a>!
+<br />
+<br />
+Thank you so much for considering VH: Playground for your activism!`,
       });
     }
 
@@ -235,11 +264,11 @@ ${bold(
   return okMessages.map((msg) => msg.id);
 };
 
-export const setRequestStatus = async ({
+export const setRequestStatus = ({
   id,
   status,
-}: z.infer<typeof setRequestStatusSchema>) => {
-  const updatedApplication = await prisma.$transaction(async (prisma) => {
+}: z.infer<typeof setRequestStatusSchema>) =>
+  prisma.$transaction(async (prisma) => {
     const request = await prisma.playgroundRequest.findUnique({
       where: { id },
     });
@@ -253,23 +282,37 @@ export const setRequestStatus = async ({
       request.status === Status.Pending &&
       status === Status.Accepted;
 
-    let updatedApplication = await prisma.playgroundRequest.update({
+    const shouldNotifyDenial =
+      request.status === Status.Pending && status === Status.Rejected;
+
+    let updatedRequest = await prisma.playgroundRequest.update({
       where: { id },
       data: { status },
     });
 
     if (shouldPost) {
-      const discordMessageIds = await postRequestOnDiscord(updatedApplication);
-      updatedApplication = await prisma.playgroundRequest.update({
+      const discordMessageIds = await postRequestOnDiscord(updatedRequest);
+      updatedRequest = await prisma.playgroundRequest.update({
         where: { id },
         data: {
           discordMessageIds,
         },
       });
+    } else if (shouldNotifyDenial) {
+      await emailClient.sendMail({
+        to: updatedRequest.providedEmail,
+        subject: 'Thanks so much for submitting your request to Playground!',
+        html: `Thanks so much for submitting your request to Playground!
+<br />
+<br />
+Unfortunately your request did not meet the relevant or quality standards needed to go live. This can be for various reasons such as not being vegan, being for-profit, or just not enough details were submitted.
+<br />
+<br />
+If you have any specific questions, or believe this was a mistake, feel free to contact us here.
+<br />
+<br />
+Thank you so much for considering VH: Playground for your request!`,
+      });
     }
-
-    return updatedApplication;
+    return updatedRequest;
   });
-
-  return updatedApplication;
-};
