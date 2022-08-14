@@ -115,7 +115,7 @@ model PlaygroundRequest {
   providedEmail     String
   organization      String?
   website           String
-  calendlyUrl       String?
+  calendlyUrl       String
   title             String
   priority          Int      @db.SmallInt
   roleTitle         String

@@ -44,6 +44,7 @@ const seedRequests = async (n: number = NUMBER) => {
             })
           : faker.datatype.number({ min: 10, max: 10000 }),
         name: faker.name.findName(),
+        calendlyUrl: faker.internet.url(),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
         description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(

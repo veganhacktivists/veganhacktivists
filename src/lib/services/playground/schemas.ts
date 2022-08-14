@@ -68,7 +68,7 @@ export const submitRequestSchema = z.object({
   phone: z.string().trim().optional(),
   organization: z.string().trim().optional(),
   website: z.string().trim().min(1),
-  calendlyUrl: z.string().trim().optional(),
+  calendlyUrl: z.string().trim(),
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
   priority: z.number().int().nonnegative().max(3),

@@ -211,7 +211,7 @@ const SubmitRequestForm: React.FC = () => {
         <TextInput
           placeholder="Calendly"
           className="col-span-full"
-          {...myRegister('calendlyUrl', { required: false })}
+          {...myRegister('calendlyUrl')}
           error={errors.calendlyUrl?.message}
         >
           <div className="flex gap-2">
