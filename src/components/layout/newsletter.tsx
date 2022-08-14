@@ -66,14 +66,16 @@ const Newsletter: React.FC<NewsletterProps> = ({
         />
       </div>
       <h1 className="mb-8 text-center">
-        <span className="text-3xl font-italic">Our</span>{' '}
+        <span className="text-3xl font-serif italic">Our</span>{' '}
         <span className="text-4xl font-bold">NEWSLETTER</span>
       </h1>
       <div className="mx-auto mb-8 text-2xl text-center">
         Join our newsletter now and never miss an update! <br />
         Sign up now to receive...
       </div>
-      <div className={classNames('mx-auto text-xl font-italic mb-8 w-fit')}>
+      <div
+        className={classNames('mx-auto text-xl font-serif italic mb-8 w-fit')}
+      >
         <ul className="list-none">
           {[
             'Instant updates from our blog',
