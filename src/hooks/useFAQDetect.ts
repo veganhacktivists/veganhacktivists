@@ -12,7 +12,7 @@ import { doesContainKeywords } from 'lib/helpers/strings';
 
 export const useFAQDetect = () => {
   const [message, setMessage] = useState('');
-  const debouncedMessage = useDebounce<string>(message, 350);
+  const debouncedMessage = useDebounce(message, 350);
 
   const [suggestions, setSuggestions] = useState<ReactNode[]>([]);
 
