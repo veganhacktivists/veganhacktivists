@@ -45,7 +45,7 @@ const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
       </div>
       <div className="w-5/6 mx-auto my-0 text-left">
         <div className="text-2xl font-bold">{name}</div>
-        <div className="font-italic">{position}</div>
+        <div className="font-serif italic">{position}</div>
         {socialLinks && (
           <div className="mt-2">
             <SocialLinks

@@ -29,7 +29,9 @@ const Social: React.FC = () => {
       </div>
       <div className="pt-10 text-center">
         <ExternalLinkButton href="https://www.patreon.com/veganhacktivists">
-          <div className="font-italic text-xl capitalize">Support us on</div>
+          <div className="font-serif italic text-xl capitalize">
+            Support us on
+          </div>
           <div className="text-4xl uppercase font-mono font-semibold">
             Patreon
           </div>

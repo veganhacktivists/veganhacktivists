@@ -42,7 +42,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
           setEntryState(!entryState);
         }}
       >
-        <span className="text-black select-none text-1xl font-medium font-italic">
+        <span className="text-black select-none text-1xl font-medium font-serif">
           {headline}
         </span>
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
