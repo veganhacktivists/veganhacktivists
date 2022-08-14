@@ -3,6 +3,8 @@ import HttpCodes from 'http-status-codes';
 import emailClient, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
 
+import { determineEmailRecipients } from 'lib/mail/router';
+
 import type { NextApiHandler } from 'next';
 
 export type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
@@ -26,6 +28,7 @@ const handler: NextApiHandler = async (req, res) => {
   try {
     await emailClient.sendMail({
       to: OUR_EMAIL,
+      cc: determineEmailRecipients(message).join(','),
       from: email,
       subject: `Contact about ${service} from ${name}`,
       html: createFormattedMessage({
