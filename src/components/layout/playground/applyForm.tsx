@@ -410,7 +410,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           {...myRegister('calendlyUrl')}
           placeholder="calendly.com/yourname"
         >
-          Calendly link (if you do not have one, list weekly availabilities)
+          Calendly link (or alternative scheduling link)
         </TextInput>
         <TextArea
           className="col-span-full"
