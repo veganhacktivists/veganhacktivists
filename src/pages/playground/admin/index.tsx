@@ -57,7 +57,7 @@ const AdminPage: NextPage = ({}) => {
         >
           See applications
         </DarkButton>
-        <div className="grid gap-5 px-10 my-5 md:grid-cols-2 md:px-40">
+        <div className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40">
           {data.map((request) => (
             <div key={request.id}>
               <PlaygroundRequestCard request={request}>
