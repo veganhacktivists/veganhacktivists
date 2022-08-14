@@ -1,15 +1,15 @@
 import { NextSeo } from 'next-seo';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
 import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { usePagination } from 'react-use-pagination';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { useRouter } from 'next/router';
 
 import { DarkButton } from '../../components/decoration/buttons';
 
@@ -39,6 +39,7 @@ const Playground: PageWithLayout = ({}) => {
     },
     filter: {},
   }));
+  const router = useRouter();
 
   const params = useMemo(() => {
     const { sort, ...otherFilters } = filters;
@@ -48,22 +49,29 @@ const Playground: PageWithLayout = ({}) => {
   const { data: requests } = trpc.proxy.playground.requests.useQuery(params, {
     keepPreviousData: true,
   });
-  // const {
-  //   increase,
-  //   decrease,
-  //   startIndex,
-  //   endIndex,
-  //   setNextPage,
-  //   setPreviousPage,
-  // } = useExtendedPagination({
-  //   length: requests?.length,
-  //   pageSize: 6,
-  //   currentPage: 0,
-  // });
-  const { startIndex, endIndex, setPreviousPage, setNextPage } = usePagination({
+  const {
+    startIndex,
+    endIndex,
+    setNextPage,
+    setPreviousPage,
+    increasePageParam,
+    decreasePageParam,
+    previousEnabled,
+    nextEnabled,
+  } = useExtendedPagination({
     totalItems: requests?.length,
     initialPageSize: 6,
+    initialPage: 0,
   });
+  const requestContainer = useRef<HTMLDivElement>(null);
+  const scrollUp = () => {
+    if (!requestContainer.current) return;
+
+    window.scrollTo({
+      top: requestContainer.current.offsetTop,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <>
@@ -73,7 +81,10 @@ const Playground: PageWithLayout = ({}) => {
           Check out both volunteer and paid project requests from individuals
           and organizations seeking support for their work for the animals.
         </SectionHeader>
-        <div className="mt-10 mb-10 lg:mx-12 2xl:mx-44 xl:mx-36">
+        <div
+          className="mt-10 mb-10 lg:mx-12 2xl:mx-44 xl:mx-36"
+          ref={requestContainer}
+        >
           <RequestFilters onChange={setFilters} filters={filters} />
           <div className="grid gap-8 mt-10 sm:grid-cols-2">
             {/* TODO: no available requests message */}
@@ -85,9 +96,11 @@ const Playground: PageWithLayout = ({}) => {
             <DarkButton
               className="flex font-mono font-bold uppercase"
               onClick={() => {
-                // decrease();
+                decreasePageParam();
                 setPreviousPage();
+                scrollUp();
               }}
+              disabled={!previousEnabled}
             >
               <div>
                 <FontAwesomeIcon icon={leftArrow} size="xs" />
@@ -97,9 +110,11 @@ const Playground: PageWithLayout = ({}) => {
             <DarkButton
               className="font-mono font-bold uppercase"
               onClick={() => {
-                // increase();
+                increasePageParam();
                 setNextPage();
+                scrollUp();
               }}
+              disabled={!nextEnabled}
             >
               <div className="flex">
                 <span className="hidden pr-3 md:block">Next</span>
