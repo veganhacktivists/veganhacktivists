@@ -43,7 +43,6 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       options,
       onChange,
       creatable = false,
-      showError = false,
       ...props
     },
     ref
@@ -148,7 +147,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
     return (
       <>
         <SelectComponent />
-        {showError && error && <div className="text-red">⚠ {error}</div>}
+        {error && <div className="text-red">⚠ {error}</div>}
       </>
     );
   }

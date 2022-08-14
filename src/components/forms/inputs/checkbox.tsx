@@ -9,17 +9,19 @@ import type { InputHTMLAttributes } from 'react';
 
 interface CheckboxProps
   extends React.PropsWithChildren<
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'>
   > {
   error?: string;
   description?: React.ReactNode;
   labelPosition?: 'left' | 'right';
   size?: 'small' | 'medium' | 'large';
+  onChange?: (checked: boolean) => void;
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
+      onChange,
       error,
       children,
       description,
@@ -39,6 +41,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             </div>
           )}
           <input
+            onChange={(e) => {
+              onChange?.(e.target.checked);
+            }}
             ref={ref}
             className={classNames(
               inputClassNames,

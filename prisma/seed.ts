@@ -3,6 +3,7 @@ import {
   PlaygroundRequestCategory,
   PrismaClient,
   Status,
+  TimePerWeek,
 } from '@prisma/client';
 
 import { faker } from '@faker-js/faker';
@@ -89,6 +90,7 @@ const seedApplications = async (n: number = NUMBER) => {
           return {
             createdAt: faker.date.soon(2, request.createdAt),
             applicantId: user.id,
+            availableTimePerWeek: faker.helpers.objectValue(TimePerWeek),
             requestId: request.id,
             hasAppliedInThePast: faker.datatype.boolean(),
             isVegan: faker.datatype.boolean(),

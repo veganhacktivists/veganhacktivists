@@ -57,6 +57,7 @@ const GrantsApplication: React.FC = () => {
     register,
     watch,
     reset,
+    setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<GrantsForm>({});
 
@@ -101,7 +102,12 @@ const GrantsApplication: React.FC = () => {
           >
             What&apos;s your name?
           </TextInput>
-          <Checkbox {...register('over18', {})}>Are you over 18?</Checkbox>
+          <Checkbox
+            {...register('over18')}
+            onChange={(checked) => setValue('over18', checked)}
+          >
+            Are you over 18?
+          </Checkbox>
           {!watch('over18') && (
             <div>
               <i>
@@ -331,6 +337,7 @@ const GrantsApplication: React.FC = () => {
             {...register('canAcceptFunding', {
               required: REQUIRED_FIELD,
             })}
+            onChange={(checked) => setValue('canAcceptFunding', checked)}
             description={
               <>
                 I confirm that I have a bank or PayPal account that is in my
