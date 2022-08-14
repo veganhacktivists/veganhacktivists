@@ -1,5 +1,19 @@
 import { NextSeo } from 'next-seo';
-import React, { useMemo, useState } from 'react';
+
+import React, { useEffect, useMemo, useState } from 'react';
+
+import {
+  faLongArrowAltLeft as leftArrow,
+  faLongArrowAltRight as rightArrow,
+} from '@fortawesome/free-solid-svg-icons';
+
+import { usePagination } from 'react-use-pagination';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { DarkButton } from '../../components/decoration/buttons';
+
+import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
@@ -34,6 +48,22 @@ const Playground: PageWithLayout = ({}) => {
   const { data: requests } = trpc.proxy.playground.requests.useQuery(params, {
     keepPreviousData: true,
   });
+  // const {
+  //   increase,
+  //   decrease,
+  //   startIndex,
+  //   endIndex,
+  //   setNextPage,
+  //   setPreviousPage,
+  // } = useExtendedPagination({
+  //   length: requests?.length,
+  //   pageSize: 6,
+  //   currentPage: 0,
+  // });
+  const { startIndex, endIndex, setPreviousPage, setNextPage } = usePagination({
+    totalItems: requests?.length,
+    initialPageSize: 6,
+  });
 
   return (
     <>
@@ -47,9 +77,37 @@ const Playground: PageWithLayout = ({}) => {
           <RequestFilters onChange={setFilters} filters={filters} />
           <div className="grid gap-8 mt-10 sm:grid-cols-2">
             {/* TODO: no available requests message */}
-            {requests?.map((request) => (
+            {requests?.slice(startIndex, endIndex + 1).map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
+          </div>
+          <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
+            <DarkButton
+              className="flex font-mono font-bold uppercase"
+              onClick={() => {
+                // decrease();
+                setPreviousPage();
+              }}
+            >
+              <div>
+                <FontAwesomeIcon icon={leftArrow} size="xs" />
+              </div>
+              <span className="hidden pl-3 md:block">Previous</span>
+            </DarkButton>
+            <DarkButton
+              className="font-mono font-bold uppercase"
+              onClick={() => {
+                // increase();
+                setNextPage();
+              }}
+            >
+              <div className="flex">
+                <span className="hidden pr-3 md:block">Next</span>
+                <div>
+                  <FontAwesomeIcon icon={rightArrow} size="xs" />
+                </div>
+              </div>
+            </DarkButton>
           </div>
         </div>
       </div>
