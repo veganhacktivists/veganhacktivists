@@ -17,6 +17,8 @@ import { useRouter } from 'next/router';
 
 import { useRef } from 'react';
 
+import { TimePerWeek } from '@prisma/client';
+
 import SignInPrompt from './siginInPrompt';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
@@ -43,6 +45,10 @@ import Spinner from 'components/decoration/spinner';
 
 import TextArea from 'components/forms/inputs/textArea';
 
+import SelectInput from 'components/forms/inputs/selectInput';
+
+import Label from 'components/forms/inputs/label';
+
 import type { AppRouter } from 'server/routers/_app';
 
 import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
@@ -50,6 +56,13 @@ import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
 import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
+
+const TimePerWeekLabel: Record<TimePerWeek, string> = {
+  OneToThree: '1-3 hours/week',
+  ThreeToFive: '3-5 hours/week',
+  FiveToEight: '5-8 hours/week',
+  TenPlus: '10+ hours/week',
+};
 
 const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   title,
@@ -100,7 +113,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         )}
       </div>
 
-      <div className="relative flex flex-row gap-10 font-mono text-left justfy-between mb-4">
+      <div className="relative flex flex-row gap-10 mb-4 font-mono text-left justfy-between">
         <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
         <div className="flex flex-col gap-5">
           <Field title="Title">
@@ -142,7 +155,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   return (
     <aside className="flex flex-col pl-20 ml-0 md:mx-auto md:text-left">
       <div className="font-bold uppercase">Contact person</div>
-      <div className="grid content-center w-32 ml-0 rounded-full place-content-center aspect-square bg-red mb-4 mt-4">
+      <div className="grid content-center w-32 mt-4 mb-4 ml-0 rounded-full place-content-center aspect-square bg-red">
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div className="truncate">
@@ -405,13 +418,40 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           />
         </div>
         <TextInput
-          className="col-span-full"
+          className="col-span-full md:col-span-3"
           error={errors.calendlyUrl?.message}
           {...myRegister('calendlyUrl')}
           placeholder="calendly.com/yourname"
         >
           Calendly link (or alternative scheduling link)
         </TextInput>
+        <div className="relative bottom-0 self-end col-span-full md:col-span-3">
+          <Label
+            name="availableTimePerWeek"
+            error={errors.availableTimePerWeek?.message}
+            showRequiredMark
+          >
+            Available time per week
+          </Label>
+          <Controller
+            control={control}
+            name="availableTimePerWeek"
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                // error={errors.availableTimePerWeek?.message}
+                onChange={(value) => {
+                  onChange(value ? value.value : null);
+                }}
+                current={{ value: current, label: TimePerWeekLabel[current] }}
+                options={Object.keys(TimePerWeek).map((time) => ({
+                  value: time,
+                  label: TimePerWeekLabel[time as TimePerWeek],
+                }))}
+              />
+            )}
+          />
+        </div>
         <TextArea
           className="col-span-full"
           rows={5}
@@ -420,33 +460,44 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         >
           Is there anything else you&apos;d like to add?
         </TextArea>
-        <Checkbox
-          className="col-span-full"
-          error={errors.commitToHelping?.message}
-          {...myRegister('commitToHelping')}
-          onChange={(e) => {
-            const checked = e.currentTarget.checked;
-            setFormData({ commitToHelping: checked });
-            setValue('commitToHelping', checked);
-          }}
-        >
-          I understand that if selected, I will
-         do my best to commit to a reasonable amount of time needed to help with this project,
-          communicate progress updates, and meet any potential
-          deadlines.
-        </Checkbox>
-        <Checkbox
-          className="col-span-full"
-          error={errors.agreeToTerms?.message}
-          {...myRegister('agreeToTerms')}
-          onChange={(e) => {
-            const checked = e.currentTarget.checked;
-            setFormData({ agreeToTerms: checked });
-            setValue('agreeToTerms', checked);
-          }}
-        >
-          I agree to the VH: Playground terms and conditions.
-        </Checkbox>
+        <Controller
+          control={control}
+          name="commitToHelping"
+          render={({ field: { value, onChange, ...field } }) => (
+            <Checkbox
+              checked={value}
+              onChange={(checked) => {
+                setFormData({ [field.name]: checked });
+                onChange(checked);
+              }}
+              className="col-span-full"
+              error={errors.commitToHelping?.message}
+              {...field}
+            >
+              I understand that if selected, I will do my best to commit to a
+              reasonable amount of time needed to help with this project,
+              communicate progress updates, and meet any potential deadlines.
+            </Checkbox>
+          )}
+        />
+        <Controller
+          control={control}
+          name="agreeToTerms"
+          render={({ field: { value, onChange, ...field } }) => (
+            <Checkbox
+              checked={value}
+              onChange={(checked) => {
+                setFormData({ [field.name]: checked });
+                onChange(checked);
+              }}
+              className="col-span-full"
+              error={errors.agreeToTerms?.message}
+              {...field}
+            >
+              I agree to the VH: Playground terms and conditions.
+            </Checkbox>
+          )}
+        />
         <DarkButton
           disabled={isLoading || isSuccess || request.userAlreadyApplied}
           type="submit"

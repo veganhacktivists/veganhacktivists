@@ -413,8 +413,7 @@ const SubmitRequestForm: React.FC = () => {
           className="col-span-full"
           error={errors.qualityAgreement?.message}
           {...myRegister('qualityAgreement')}
-          onChange={(e) => {
-            const checked = e.currentTarget.checked;
+          onChange={(checked) => {
             setFormData({ qualityAgreement: checked });
             setValue('qualityAgreement', checked);
           }}
@@ -426,8 +425,7 @@ const SubmitRequestForm: React.FC = () => {
           className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
-          onChange={(e) => {
-            const checked = e.currentTarget.checked;
+          onChange={(checked) => {
             setFormData({ agreeToTerms: checked });
             setValue('agreeToTerms', checked);
           }}

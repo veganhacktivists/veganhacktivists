@@ -120,9 +120,6 @@ const ContactUsForm: React.FC = () => {
               />
             )}
           />
-          {errors.service && (
-            <p className="text-red">⚠ {errors.service.message}</p>
-          )}
         </div>
         <div>
           <TextArea

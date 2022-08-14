@@ -1,4 +1,4 @@
-import { PlaygroundRequestCategory, Status } from '@prisma/client';
+import { PlaygroundRequestCategory, Status, TimePerWeek } from '@prisma/client';
 import { z } from 'zod';
 
 export const paginationSchema = z
@@ -30,7 +30,8 @@ export const getPlaygroundRequestsSchema = filterSchema
 
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
-  name: z.string().min(1),
+  name: z.string().min(1, { message: 'This value is required' }),
+  availableTimePerWeek: z.nativeEnum(TimePerWeek),
   providedEmail: z.string().email(),
   portfolioLink: z.string().optional(),
   twitterUrl: z.string().optional(),
@@ -63,7 +64,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
 );
 
 export const submitRequestSchema = z.object({
-  name: z.string().trim().min(1),
+  name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().email(),
   phone: z.string().trim().optional(),
   organization: z.string().trim().optional(),
