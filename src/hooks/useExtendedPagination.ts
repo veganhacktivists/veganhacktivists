@@ -1,19 +1,35 @@
 import { useRouter } from 'next/router';
 import { usePagination } from 'react-use-pagination';
 
+import useOnce from './useOnce';
+
 interface ExtendedPaginationProps {
-  length?: number;
-  pageSize: number;
-  currentPage: number;
+  totalItems?: number;
+  initialPageSize?: number;
+  initialPage?: number;
 }
 
-export const useExtendedPagination = (props?: ExtendedPaginationProps) => {
+export const useExtendedPagination = (props: ExtendedPaginationProps) => {
   const router = useRouter();
+  const { page } = router.query;
   const pagination = usePagination({
-    totalItems: props?.length,
-    initialPageSize: props?.pageSize,
-    initialPage: props?.currentPage,
+    totalItems: props.totalItems,
+    initialPageSize: props.initialPageSize,
+    initialPage: props.initialPage,
   });
+  useOnce(
+    () => {
+      if (page !== undefined) {
+        let newPage = Number(page);
+        newPage -= 1;
+        newPage = newPage >= 0 ? newPage : 0;
+        if (newPage !== pagination.currentPage) {
+          pagination.setPage(newPage);
+        }
+      }
+    },
+    { enabled: router.isReady }
+  );
   const increasePageNumber = () => {
     if (pagination.currentPage + 1 === pagination.totalPages) {
       return;
@@ -48,8 +64,8 @@ export const useExtendedPagination = (props?: ExtendedPaginationProps) => {
     );
   };
   return {
-    increase: increasePageNumber,
-    decrease: decreasePageNumber,
+    increasePageParam: increasePageNumber,
+    decreasePageParam: decreasePageNumber,
     ...pagination,
   };
 };
