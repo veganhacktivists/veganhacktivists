@@ -6,6 +6,8 @@ import { bold, codeBlock } from 'discord.js';
 import prisma from 'lib/db/prisma';
 import { sendDiscordMessage, withDiscordClient } from 'lib/discord';
 
+import emailClient, { OUR_EMAIL } from 'lib/mail';
+
 import type { Message } from 'discord.js';
 
 import type { PlaygroundRequest } from '@prisma/client';
@@ -55,20 +57,103 @@ export const getPendingRequests = async (
   return applications;
 };
 
-export const setApplicationStatus = async ({
+export const setApplicationStatus = ({
   id,
   status,
-}: z.infer<typeof setApplicationStatusSchema>) => {
-  const updatedApplication = await prisma.playgroundApplication.update({
-    where: {
-      id,
-    },
-    data: {
-      status,
-    },
+}: z.infer<typeof setApplicationStatusSchema>) =>
+  prisma.$transaction(async (prisma) => {
+    const application = await prisma.playgroundApplication.findUnique({
+      where: { id },
+    });
+
+    if (!application) {
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+        message: 'The application was not found',
+      });
+    }
+
+    const updatedApplication = await prisma.playgroundApplication.update({
+      where: {
+        id,
+      },
+      data: {
+        status,
+      },
+      include: {
+        request: true,
+      },
+    });
+
+    const shouldNotifyBoth =
+      application.status === Status.Pending &&
+      updatedApplication.status === Status.Accepted;
+
+    if (shouldNotifyBoth) {
+      const optionalMessageParts = (
+        (
+          [
+            ['Website / Portfolio', updatedApplication.portfolioLink],
+            ['Twitter', updatedApplication.twitterUrl],
+            ['Instagram', updatedApplication.instagramUrl],
+            ['LinkedIn', updatedApplication.linkedinUrl],
+            ['Message', updatedApplication.moreInfo],
+          ] as [string, string | null][]
+        ).filter(([, value]) => value !== null) as [string, string][]
+      ).map(([name, value]) => `<b>${name}:</b> ${value}`).join(`
+`);
+
+      await emailClient.sendMail({
+        to: [
+          'quin.trinanes@gmail.com',
+          'hello@veganhacktivists.org',
+          // updatedApplication.providedEmail,
+          // updatedApplication.request.providedEmail,
+        ],
+        cc: OUR_EMAIL,
+        subject: "It's a match!",
+
+        html: `We&apos;d like to introduce ${
+          updatedApplication.name
+        }, from VH: Playground!
+
+Hi ${updatedApplication.request.name},
+
+We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
+          updatedApplication.request.title
+        }&rdquo;!
+
+Meet the person (cc&apos;ed to this email, just reply all!) below that applied to help with your request!
+
+<b>Name:</b> ${updatedApplication.name}
+${optionalMessageParts}
+
+They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
+
+<b>What&apos;s next?</b>
+
+We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
+          updatedApplication.request.name
+        }&apos;s Calendy link <a href="${
+          // TODO: sanitize this and all the other data?
+          updatedApplication.request.calendlyUrl
+        }">here</a>${
+          updatedApplication.calendlyUrl
+            ? `or ${updatedApplication.name}&apos;s Calendy link <a href="${updatedApplication.calendlyUrl}">here</a>`
+            : ''
+        }.
+
+Is someone not responding at all? Or are you having any other issues? Email us to let us know!
+
+Thank you so much everyone for helping the animals, and for using Playground.
+
+<b>Vegan Hacktivists</b>
+`,
+      });
+    }
+
+    return updatedApplication;
   });
-  return updatedApplication;
-};
 
 const requestMessage = (request: PlaygroundRequest) => {
   return `${
@@ -161,14 +246,14 @@ export const setRequestStatus = async ({
       request.status === Status.Pending &&
       status === Status.Accepted;
 
-    const updatedApplication = await prisma.playgroundRequest.update({
+    let updatedApplication = await prisma.playgroundRequest.update({
       where: { id },
       data: { status },
     });
 
     if (shouldPost) {
       const discordMessageIds = await postRequestOnDiscord(updatedApplication);
-      await prisma.playgroundRequest.update({
+      updatedApplication = await prisma.playgroundRequest.update({
         where: { id },
         data: {
           discordMessageIds,
