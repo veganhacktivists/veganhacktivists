@@ -1,6 +1,6 @@
 import HttpCodes from 'http-status-codes';
 
-import sendMail, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
+import emailClient, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
 
 import type { NextApiHandler } from 'next';
@@ -24,7 +24,7 @@ const handler: NextApiHandler = async (req, res) => {
   const { name, email, service, message } = req.body as ContactUsSubmission;
 
   try {
-    await sendMail({
+    await emailClient.sendMail({
       to: OUR_EMAIL,
       from: email,
       subject: `Contact about ${service} from ${name}`,

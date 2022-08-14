@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-import { OUR_EMAIL } from 'lib/mail';
+import { OUR_EMAIL_FORMATTED } from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
 import type { NextAuthOptions } from 'next-auth';
@@ -16,7 +16,7 @@ export const nextAuthOptions: NextAuthOptions = {
     EmailProvider({
       name: 'magic link',
       server: process.env.EMAIL_SERVER_URL,
-      from: `Vegan Hacktivists <${OUR_EMAIL}>`,
+      from: OUR_EMAIL_FORMATTED,
     }),
   ],
   pages: {

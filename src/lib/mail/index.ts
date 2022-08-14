@@ -3,25 +3,30 @@ import formData from 'form-data';
 
 import { firstLetterUppercase } from '../helpers/strings';
 
-import type { MessagesSendResult } from 'mailgun.js/interfaces/Messages';
+import type { MailgunMessageData } from 'mailgun.js/interfaces/Messages';
+
+import type MailgunClient from 'mailgun.js/client';
 
 const DOMAIN = 'veganhacktivists.org';
 
-const mailgun = new Mailgun(formData);
-const mg = mailgun.client({
-  username: 'api',
-  key: process.env.MAILGUN_API_KEY || '',
-});
+class EmailClient {
+  private mg: MailgunClient;
+  constructor(mg: MailgunClient) {
+    this.mg = mg;
+  }
 
-interface Email {
-  to: string;
-  from: string;
-  subject: string;
-  html: string;
+  async sendMail(data: Email) {
+    return await this.mg.messages.create(DOMAIN, {
+      ...data,
+      from: data.from ?? OUR_EMAIL,
+    });
+  }
 }
 
-const sendMail: (data: Email) => Promise<MessagesSendResult> = async (data) => {
-  return await mg.messages.create(DOMAIN, data);
+type Email = MailgunMessageData & {
+  to: string | string[];
+  subject: string;
+  html: string;
 };
 
 export const createFormattedMessage: (
@@ -36,6 +41,14 @@ export const createFormattedMessage: (
     .join('<br/>');
 };
 
-export const OUR_EMAIL = 'hello@veganhacktivists.org';
+export const OUR_EMAIL = 'hello@veganhacktivists.org' as const;
+export const OUR_EMAIL_FORMATTED = `Vegan Hacktivists <${OUR_EMAIL}>` as const;
 
-export default sendMail;
+const emailClient = new EmailClient(
+  new Mailgun(formData).client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY || '',
+  })
+);
+
+export default emailClient;
