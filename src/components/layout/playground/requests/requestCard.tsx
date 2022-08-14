@@ -103,7 +103,7 @@ const PlaygroundRequestCard: React.FC<
           </div>
           <div className="flex flex-row items-center gap-2 my-auto">
             <FontAwesomeIcon icon={faClock} size="sm" />{' '}
-            <div>{timeSinceCreated ? `${timeSinceCreated} ago` : 'Today'}</div>
+            <div><strong>Posted: </strong>{timeSinceCreated ? `${timeSinceCreated} ago` : 'Today'}</div>
           </div>
         </div>
       </div>
