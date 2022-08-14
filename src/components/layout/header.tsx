@@ -102,7 +102,13 @@ const NavbarItems: React.FC = () => {
         href={'/support'}
         className="font-bold bg-pink hover:bg-pink-dark"
       >
-        Support
+        Donate
+      </NavBarItem>
+      <NavBarItem
+        href={'/playground'}
+        className="font-bold bg-green hover:bg-green-dark"
+      >
+        Get Help
       </NavBarItem>
       <a
         className="p-5 py-6 text-center transition duration-500 hover:bg-gray-dark"
