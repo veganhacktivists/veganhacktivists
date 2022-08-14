@@ -1,16 +1,13 @@
 import { FAQService } from '../service';
 
 const service: FAQService = {
-  keywords: [
-    ['vegan', 'linguist'],
-    ['vegan', 'linguists'],
-  ],
+  keywords: [['vegan', 'linguist']],
   suggestions: [
     {
       keywords: [
         'accuracy',
         'accurate',
-        'qualifications',
+        'qualification',
         'qualified',
         'quality',
         'vet',

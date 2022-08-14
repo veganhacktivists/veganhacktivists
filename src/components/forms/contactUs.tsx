@@ -131,8 +131,11 @@ const ContactUsForm: React.FC = () => {
             onChange={onMessageChange}
           />
         </div>
-        {suggestions.map((suggestion) => (
-          <div className="text-left border-l-8 border-l-yellow bg-white p-4">
+        {suggestions.map((suggestion, i) => (
+          <div
+            className="text-left border-l-8 border-l-yellow bg-white p-4"
+            key={i}
+          >
             {suggestion}
           </div>
         ))}
