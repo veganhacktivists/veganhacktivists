@@ -52,6 +52,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
               ? 'Get Support from Playground'
               : 'Volunteer for the Animals',
             image: isSupportPage ? submitTagline : volunteerTagline,
+            imageWidth: 380,
           }}
           alignment="left"
           classNameMapping={{
