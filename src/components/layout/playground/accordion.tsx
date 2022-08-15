@@ -37,12 +37,12 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
             : design === 'light'
             ? 'bg-grey-background'
             : 'bg-white'
-        } text-black items-center justify-between h-10 px-5 p-2.5`}
+        } text-black items-center justify-between h-15 px-5 p-2.5`}
         onClick={() => {
           setEntryState(!entryState);
         }}
       >
-        <span className="font-serif font-medium text-black select-none text-1xl">
+        <span className="font-serif font-medium text-black select-none text-xl">
           {headline}
         </span>
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
@@ -50,7 +50,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
       {entryState && (
         <div
           className={classNames(
-            'p-2.5 px-5 text-black text-justify select-none mt-1.5 font-sans text-sm',
+            'p-2.5 px-5 text-black text-justify select-none mt-1.5 font-sans text-lg',
             design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
           )}
         >
