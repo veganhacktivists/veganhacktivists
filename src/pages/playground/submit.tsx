@@ -2,8 +2,6 @@ import { NextSeo } from 'next-seo';
 
 import SquareField from '../../components/decoration/squares';
 
-import FaqSection from '../../components/layout/playground/faqSection';
-
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import SubmitRequestForm from 'components/layout/playground/submitRequestForm';
@@ -13,7 +11,7 @@ import type PageWithLayout from 'types/persistentLayout';
 const Header: React.FC = () => {
   return (
     <div>
-      <h3 className="text-3xl uppercase font-mono font-bold mb-3">
+      <h3 className="mb-3 font-mono text-3xl font-bold uppercase">
         Need support? Let us know!
       </h3>
       <div>Please fill in the form below.</div>
@@ -35,12 +33,6 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
         className="mt-11"
       />
       <SubmitRequestForm />
-      <FaqSection design="dark" />
-      <div className="h-[700px]">
-        <SquareField
-          squares={[{ color: '#3D3D3D', size: 16, left: 0, top: 0 }]}
-        />
-      </div>
     </>
   );
 };

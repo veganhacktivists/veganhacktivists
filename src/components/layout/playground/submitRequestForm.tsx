@@ -433,7 +433,7 @@ const SubmitRequestForm: React.FC = () => {
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
         <DarkButton
-          className="mx-auto mt-24 mb-10 text-center w-fit md:w-72"
+          className="mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
           type="submit"
         >

@@ -1,10 +1,5 @@
 import { NextSeo } from 'next-seo';
-
 import React, { useMemo, useState } from 'react';
-
-import FaqSection from '../../components/layout/playground/faqSection';
-
-import SquareField from '../../components/decoration/squares';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
@@ -56,23 +51,6 @@ const Playground: PageWithLayout = ({}) => {
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
           </div>
-        </div>
-        <div>
-          <FaqSection />
-        </div>
-        <div className="h-[700px]">
-          <SquareField
-            squares={[{ color: '#949494', size: 16, left: 0, top: 0 }]}
-          />
-          <SquareField
-            squares={[{ color: '#B6B6B6', size: 16, left: 16, top: 0 }]}
-          />
-          <SquareField
-            squares={[{ color: '#B3B3B3', size: 28, right: 0, top: 0 }]}
-          />
-          <SquareField
-            squares={[{ color: '#D9D9D9', size: 14, right: 28, top: 0 }]}
-          />
         </div>
       </div>
     </>
