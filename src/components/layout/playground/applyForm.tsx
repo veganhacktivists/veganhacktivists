@@ -135,7 +135,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           </Field>
         </SubtleBorder>
       </div>
-      <div className="text-left font-italic text-grey-light">
+      <div className="text-left font-serif italic text-grey-light">
         <FontAwesomeIcon icon={faClock} /> Posted {timeSinceCreated} ago
       </div>
     </div>
@@ -299,7 +299,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         onSubmit={handleSubmit(onSubmit)}
         className="grid max-w-3xl grid-cols-1 gap-5 mx-auto text-left align-bottom lg:pr-10 md:grid-cols-6"
       >
-        <div className="text-2xl font-medium font-italic col-span-full">
+        <div className="text-2xl font-medium font-serif italic col-span-full">
           Interested in applying to help with this project?
         </div>
         <TextInput

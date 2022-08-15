@@ -45,7 +45,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   ...props
 }) => {
   const boldClasses = 'text-5xl md:text-6xl font-mono font-semibold uppercase';
-  const italicClasses = 'font-italic text-4xl';
+  const italicClasses = 'font-serif italic text-4xl';
 
   return (
     <div {...props}>
@@ -121,7 +121,7 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
   return (
     <HeaderContainer className={className}>
       <div className="pb-[15px]">
-        <span className="font-italic text-3xl">{firstWords}</span>{' '}
+        <span className="font-serif italic text-3xl">{firstWords}</span>{' '}
         <BoldHeaderText className={className}>{remainingWords}</BoldHeaderText>
       </div>
       <div>{children}</div>

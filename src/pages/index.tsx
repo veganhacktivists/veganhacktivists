@@ -99,7 +99,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           alt="Compassion, Creativity, Code"
         />
         <p className="mb-16 text-grey-dark">
-          <span className="text-3xl font-semibold font-italic">We are </span>
+          <span className="text-3xl font-semibold font-serif italic">
+            We are{' '}
+          </span>
           <span className="font-mono text-5xl font-semibold">
             VEGAN HACKTIVISTS
           </span>
@@ -181,7 +183,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <div className="bg-grey-background">
         <div className="content-center px-5 pt-16 mx-auto text-2xl md:w-1/2">
           <p className="pb-5 text-grey-dark">
-            <span className="text-3xl font-semibold font-italic">
+            <span className="text-3xl font-semibold font-serif italic">
               Featured{' '}
             </span>
             <b className="font-mono text-5xl">PROJECTS</b>

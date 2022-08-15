@@ -92,7 +92,7 @@ module.exports = {
     fontFamily: {
       mono: ['Rajdhani', 'monospace'],
       sans: 'PT Sans',
-      italic: 'Bitter',
+      serif: 'Bitter',
     },
   },
   variants: {

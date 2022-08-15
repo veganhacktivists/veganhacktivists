@@ -11,7 +11,9 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
     <>
       <div className="content-center mx-auto md:w-1/2 text-2xl pt-16">
         <p className="text-grey-dark pb-5">
-          <span className="font-italic font-semibold text-3xl">On the </span>
+          <span className="font-serif italic font-semibold text-3xl">
+            On the{' '}
+          </span>
           <b className="text-5xl font-mono">BLOG</b>
         </p>
         <p className="pb-16">

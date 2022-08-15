@@ -10,13 +10,18 @@ import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
 import submitTagline from '../../../../public/images/playground/getsupport.svg';
 import volunteerTagline from '../../../../public/images/playground/volunteer.svg';
+import discord from '../../../../public/images/yearInReview/2021/discord.png';
 
 import SquareField from '../../decoration/squares';
 
 import AdminCallout from './adminCallout';
 
+import FaqSection from './faqSection';
+
 import Hero from 'components/decoration/hero';
-import { OutlineButton } from 'components/decoration/buttons';
+import { DarkButton, OutlineButton } from 'components/decoration/buttons';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { Layout } from 'types/persistentLayout';
 
@@ -47,6 +52,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
               ? 'Get Support from Playground'
               : 'Volunteer for the Animals',
             image: isSupportPage ? submitTagline : volunteerTagline,
+            imageWidth: 380,
           }}
           alignment="left"
           classNameMapping={{
@@ -59,6 +65,38 @@ const PlaygroundLayout: Layout = ({ children }) => {
         />
       </div>
       {children}
+      {/* <div className="pb-10"> */}
+      <FaqSection />
+      {/* </div> */}
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: '#949494', size: 16, left: 0, top: 0 },
+          { color: '#B6B6B6', size: 16, left: 16, top: 0 },
+          { color: '#B3B3B3', size: 28, right: 0, top: 0 },
+          { color: '#D9D9D9', size: 14, right: 28, top: 0 },
+        ]}
+      />
+      <div className="py-10">
+        <div className="font-mono text-3xl font-bold capitalize text-grey">
+          Stay updated, join our community!
+        </div>
+        <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
+          <div className="p-5 space-y-2 bg-grey-background">
+            <div className="w-32 mx-auto">
+              <CustomImage src={discord} alt="Discord logo" />
+            </div>
+            <div className="text-xl text-grey">
+              Join our vegan volunteer Discord community and meet others in
+              Playground!
+            </div>
+            <DarkButton href="/joinplayground">Join</DarkButton>
+          </div>
+          {/* <div>
+            <Newsletter />
+          </div> */}
+        </div>
+      </div>
     </>
   );
 };

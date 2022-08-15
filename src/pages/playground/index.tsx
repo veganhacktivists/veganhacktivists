@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-
 import React, { useMemo, useState } from 'react';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
