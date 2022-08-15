@@ -252,7 +252,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
-          <div className="mt-10">
+          <div className="mt-10 flex justify-center">
             <WhiteButton
               className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
