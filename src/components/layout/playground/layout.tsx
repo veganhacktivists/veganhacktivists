@@ -87,7 +87,9 @@ const PlaygroundLayout: Layout = ({ children }) => {
               <CustomImage src={discord} alt="Discord logo" />
             </div>
             <div className="text-xl text-grey pb-4 pt-4">
-            Are you a developer, designer, or have other skills to contribute for animals? Join our vegan volunteer Discord community and meet others in Playground!
+              Are you a developer, designer, or have other skills to contribute
+              for animals? Join our vegan volunteer Discord community and meet
+              others in Playground!
             </div>
             <DarkButton href="/joinplayground">Join</DarkButton>
           </div>
