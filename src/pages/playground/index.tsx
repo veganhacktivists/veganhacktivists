@@ -51,6 +51,11 @@ const Playground: PageWithLayout = ({}) => {
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
           </div>
+          {requests?.length === 0 && (
+            <div className="mx-auto text-center text-gray-500">
+              There are no requests matching your criteria
+            </div>
+          )}
         </div>
       </div>
     </>
