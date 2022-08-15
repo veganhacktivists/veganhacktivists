@@ -98,7 +98,9 @@ const Playground: PageWithLayout = ({}) => {
               onClick={() => {
                 decreasePageParam();
                 setPreviousPage();
-                scrollUp();
+                setTimeout(() => {
+                  scrollUp();
+                }, 1);
               }}
               disabled={!previousEnabled}
             >
@@ -112,7 +114,9 @@ const Playground: PageWithLayout = ({}) => {
               onClick={() => {
                 increasePageParam();
                 setNextPage();
-                scrollUp();
+                setTimeout(() => {
+                  scrollUp();
+                }, 1);
               }}
               disabled={!nextEnabled}
             >
