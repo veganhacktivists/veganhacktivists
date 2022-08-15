@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import SquareField from '../../decoration/squares';
@@ -46,30 +47,27 @@ const faqSection: React.FC<FaqSection> = ({ design }) => {
         ]}
       />
       <div
-        className={`${
+        className={classNames(
           design === 'dark'
             ? 'bg-[#3D3D3D]'
             : design === 'light'
             ? 'bg-white'
-            : 'bg-grey-background'
-        } py-10`}
+            : 'bg-grey-background',
+          'py-10'
+        )}
       >
         <span
-          className={`${
-            design === 'dark' ? 'text-white' : 'text-black'
-          } text-3xl font-bold font-mono`}
+          className={classNames(
+            design === 'dark' ? 'text-white' : 'text-black',
+            'text-3xl font-bold font-mono'
+          )}
         >
           Frequently Asked Questions
         </span>
-        <div className="mt-9 mb-4">
+        <div className="mb-4 mt-9">
           <Accordion entries={faqEntries} design={design} />
         </div>
       </div>
-      {design !== 'light' && design !== 'dark' && (
-        <SquareField
-          squares={[{ color: '#B6B6B6', size: 16, bottom: 0, left: 0 }]}
-        />
-      )}
     </div>
   );
 };
