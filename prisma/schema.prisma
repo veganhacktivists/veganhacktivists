@@ -114,6 +114,7 @@ enum PlaygroundRequestCategory {
   Marketing
   VideoProduction
   SocialMedia
+  Other
 }
 
 model PlaygroundRequest {

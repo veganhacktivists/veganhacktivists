@@ -26,6 +26,7 @@ const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
   Marketing: getThemeColor('green'),
   SocialMedia: getThemeColor('yellow-orange'),
   VideoProduction: getThemeColor('orange'),
+  Other: getThemeColor('grey-light'),
 };
 
 export const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> =
@@ -87,7 +88,7 @@ const PlaygroundRequestCard: React.FC<
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
       <div className="space-y-1">
         <h3
-          className="font-mono text-lg font-bold capitalize line-clamp-1 mb-2"
+          className="mb-2 font-mono text-lg font-bold capitalize line-clamp-1"
           title={title}
         >
           {title}
@@ -111,8 +112,8 @@ const PlaygroundRequestCard: React.FC<
         </div>
       </div>
 
-      <div className="line-clamp-5 mb-4 mt-4">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-2 gap-x-1 mb-2">
+      <div className="mt-4 mb-4 line-clamp-5">{description}</div>
+      <ul className="grid content-end flex-grow grid-cols-2 mb-2 gap-x-1">
         <Li category={category} title={requester.name || undefined}>
           <span>
             <span className="font-bold">{requester.name}</span>{' '}
