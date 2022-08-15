@@ -31,18 +31,19 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   return (
     <div className="w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
       <div
-        className={`flex ${
+        className={classNames(
+          'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
           entryState
             ? 'bg-green'
             : design === 'light'
             ? 'bg-grey-background'
             : 'bg-white'
-        } text-black items-center justify-between h-15 px-5 p-2.5`}
+        )}
         onClick={() => {
           setEntryState(!entryState);
         }}
       >
-        <span className="font-serif font-medium text-black select-none text-xl">
+        <span className="font-serif text-xl font-medium text-black select-none">
           {headline}
         </span>
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />

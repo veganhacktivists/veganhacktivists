@@ -65,9 +65,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
         />
       </div>
       {children}
-      {/* <div className="pb-10"> */}
       <FaqSection />
-      {/* </div> */}
       <SquareField
         className="hidden md:block"
         squares={[
@@ -78,7 +76,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
         ]}
       />
       <div className="py-10">
-        <div className="font-mono text-3xl font-bold capitalize text-grey mb-8">
+        <div className="mb-8 font-mono text-3xl font-bold capitalize text-grey">
           Volunteer? Join our community!
         </div>
         <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
@@ -86,7 +84,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
             <div className="w-32 mx-auto">
               <CustomImage src={discord} alt="Discord logo" />
             </div>
-            <div className="text-xl text-grey pb-4 pt-4">
+            <div className="pt-4 pb-4 text-xl text-grey">
               Are you a developer, designer, or have other skills to contribute
               for animals? Join our vegan volunteer Discord community and meet
               others in Playground!
