@@ -30,38 +30,59 @@ export const useExtendedPagination = (props: ExtendedPaginationProps) => {
     },
     { enabled: router.isReady }
   );
+  /*
+   * Is needed in order to not rerender on param change
+   */
+  const changeHistoryParam = (key: string, value: string) => {
+    const url = window.location.toString();
+    const urlParts = url.split('?');
+    const base = urlParts[0];
+    let params: string[] = [];
+    if (urlParts[1] !== undefined) {
+      params = urlParts[1].split('&');
+    }
+    const paramList = [];
+    let found = false;
+    for (const param of params) {
+      const keyValue = param.split('=');
+      const newParam: { key: string; value: string } = {
+        key: keyValue[0],
+        value: keyValue[1],
+      };
+      if (keyValue[0] === key) {
+        newParam.value = value;
+        found = true;
+      }
+      paramList.push(newParam);
+    }
+    if (!found) {
+      const newParam = { key: key, value: value };
+      paramList.push(newParam);
+    }
+    let newUrl = base + '?';
+    let firstParam = true;
+    for (const param of paramList) {
+      if (!firstParam) {
+        newUrl += '&';
+      }
+      newUrl += param.key + '=' + param.value;
+      firstParam = false;
+    }
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  };
   const increasePageNumber = () => {
     if (pagination.currentPage + 1 === pagination.totalPages) {
       return;
     }
     const newPageQuery: number = pagination.currentPage + 2;
-    void router.push(
-      {
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page: newPageQuery.toString(),
-        },
-      },
-      undefined,
-      { shallow: true }
-    );
+    changeHistoryParam('page', newPageQuery.toString());
   };
+
   const decreasePageNumber = () => {
     if (pagination.currentPage === 0) {
       return;
     }
-    void router.push(
-      {
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page: pagination.currentPage.toString(),
-        },
-      },
-      undefined,
-      { shallow: true }
-    );
+    changeHistoryParam('page', pagination.currentPage.toString());
   };
   return {
     increasePageParam: increasePageNumber,
