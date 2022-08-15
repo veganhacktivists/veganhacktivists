@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import classNames from 'classnames';
 
 interface AccordionEntryProps extends React.PropsWithChildren {
   headline: string;
@@ -23,10 +24,9 @@ interface AccordionProps extends React.PropsWithChildren {
 const AccordionEntry: React.FC<AccordionEntryProps> = ({
   headline,
   content,
-  expanded,
+  expanded = false,
   design,
 }) => {
-  expanded = expanded ?? false;
   const [entryState, setEntryState] = useState(expanded);
   return (
     <div className="w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
@@ -42,16 +42,17 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
           setEntryState(!entryState);
         }}
       >
-        <span className="text-black select-none text-1xl font-medium font-serif">
+        <span className="font-serif font-medium text-black select-none text-1xl">
           {headline}
         </span>
         <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
       </div>
       {entryState && (
         <div
-          className={`p-2.5 px-5 text-black text-justify select-none ${
+          className={classNames(
+            'p-2.5 px-5 text-black text-justify select-none mt-1.5 font-sans text-sm',
             design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
-          } mt-1.5 font-sans text-sm`}
+          )}
         >
           {content}
         </div>
@@ -61,28 +62,34 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
 };
 
 const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
-  if (!entries) {
-    return <></>;
-  }
-  const accordionEntries = entries.map(
-    (
-      entry: { headline: string; content: string; expanded?: boolean },
-      iter: number
-    ) => {
-      const key = `ae-${iter}`;
-      return (
-        <AccordionEntry
-          key={key}
-          headline={entry.headline}
-          content={entry.content}
-          expanded={entry.expanded}
-          design={design}
-        />
-      );
-    }
+  const accordionEntries = useMemo(
+    () =>
+      entries?.map(
+        (
+          entry: { headline: string; content: string; expanded?: boolean },
+          iter: number
+        ) => {
+          const key = `ae-${iter}`;
+          return (
+            <AccordionEntry
+              key={key}
+              headline={entry.headline}
+              content={entry.content}
+              expanded={entry.expanded}
+              design={design}
+            />
+          );
+        }
+      ),
+    [design, entries]
   );
+
+  if (!entries) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col justify-center items-center content-center">
+    <div className="flex flex-col items-center content-center justify-center">
       {accordionEntries}
     </div>
   );
