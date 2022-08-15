@@ -16,6 +16,7 @@ interface HeroProps extends React.PropsWithChildren {
   backgroundImageProps?: Partial<ImageProps>;
   tagline?: {
     image: StaticImageData;
+    imageWidth?: number;
     alt: string;
   };
   alignment: 'right' | 'left' | 'center';
@@ -89,7 +90,9 @@ const Hero: React.FC<HeroProps> = ({
               alt={tagline.alt}
               title={tagline.alt}
               width={
-                (tagline.image.width / tagline.image.height) * taglineHeight
+                ((tagline?.imageWidth ?? tagline?.image.width ?? 380) /
+                  tagline.image.height) *
+                taglineHeight
               }
               height={taglineHeight}
               priority
