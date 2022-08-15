@@ -78,17 +78,16 @@ const PlaygroundLayout: Layout = ({ children }) => {
         ]}
       />
       <div className="py-10">
-        <div className="font-mono text-3xl font-bold capitalize text-grey">
-          Stay updated, join our community!
+        <div className="font-mono text-3xl font-bold capitalize text-grey mb-8">
+          Volunteer? Join our community!
         </div>
         <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
           <div className="p-5 space-y-2 bg-grey-background">
             <div className="w-32 mx-auto">
               <CustomImage src={discord} alt="Discord logo" />
             </div>
-            <div className="text-xl text-grey">
-              Join our vegan volunteer Discord community and meet others in
-              Playground!
+            <div className="text-xl text-grey pb-4 pt-4">
+            Are you a developer, designer, or have other skills to contribute for animals? Join our vegan volunteer Discord community and meet others in Playground!
             </div>
             <DarkButton href="/joinplayground">Join</DarkButton>
           </div>
