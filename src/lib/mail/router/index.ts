@@ -20,7 +20,7 @@ const projectSpecificEmails: Record<string, (string | string[])[]> = {
 };
 
 export const determineEmailRecipients = (message: string) => {
-  const tokens = message.toLocaleLowerCase().split(' ');
+  const tokens = message.toLocaleLowerCase().split(/[^\d\w]/gi);
 
   return Object.keys(projectSpecificEmails).filter((email) =>
     doesContainKeywords(tokens, projectSpecificEmails[email])

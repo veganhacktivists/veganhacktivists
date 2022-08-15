@@ -24,7 +24,7 @@ export const useFAQDetect = () => {
   );
 
   useEffect(() => {
-    const tokens = debouncedMessage.toLocaleLowerCase().split(' ');
+    const tokens = debouncedMessage.toLocaleLowerCase().split(/[^\d\w]/gi);
 
     setSuggestions(
       faqServices
