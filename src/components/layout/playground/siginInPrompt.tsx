@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { signIn } from 'next-auth/react';
 
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import Modal from '../modal';
 
@@ -43,6 +43,8 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
     resolver,
   });
 
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -59,8 +61,7 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
         searchParams.append('submit', 'true');
       }
 
-      const pathname = Router.pathname;
-      const callbackUrl = `${pathname}?${searchParams.toString()}`;
+      const callbackUrl = `${router.asPath}?${searchParams.toString()}`;
 
       signIn<'email'>('email', {
         email,
@@ -69,7 +70,7 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
         setIsLoading(false);
       });
     },
-    [submitOnVerify]
+    [router.asPath, submitOnVerify]
   );
 
   const handleClose = useCallback(() => {
