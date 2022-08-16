@@ -435,6 +435,7 @@ const SubmitRequestForm: React.FC = () => {
           Estimated time <br className="sm:hidden" /> commitment
         </TextInput>
         <Checkbox
+          labelPosition="right"
           className="col-span-full"
           error={errors.qualityAgreement?.message}
           {...myRegister('qualityAgreement')}
@@ -447,6 +448,7 @@ const SubmitRequestForm: React.FC = () => {
           work done by our volunteers.
         </Checkbox>
         <Checkbox
+          labelPosition="right"
           className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}

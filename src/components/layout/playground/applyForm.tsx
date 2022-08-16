@@ -491,6 +491,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           name="commitToHelping"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
@@ -511,6 +512,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           name="agreeToTerms"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
