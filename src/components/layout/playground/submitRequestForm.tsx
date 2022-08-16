@@ -83,6 +83,7 @@ const SubmitRequestForm: React.FC = () => {
   } = useForm<FormInput>({
     defaultValues: {
       ...storedForm,
+      budget: storedForm.isFree ? undefined : storedForm.budget,
     },
     resolver: zodResolver(submitRequestSchemaClient),
   });
@@ -111,11 +112,9 @@ const SubmitRequestForm: React.FC = () => {
   const { data: lastSubmittedRequest, isLoading: isLastRequestLoading } =
     trpc.proxy.playground.lastRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
-
-      // TODO: does the stale timerender this unneccessary?
-      // refetchOnMount: false,
-      // refetchOnReconnect: false,
-      // refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
       staleTime: Infinity,
       retry: false,
     });
@@ -358,8 +357,9 @@ const SubmitRequestForm: React.FC = () => {
               <div className="sm:flex sm:flex-row sm:gap-20 sm:mb-2 sm:mt-3">
                 <RadioButton
                   onChange={() => {
-                    setFormData({ isFree: true });
+                    setFormData({ isFree: true, budget: undefined });
                     onChange(true);
+                    setValue('budget', undefined);
                   }}
                   checked={value === true}
                   label="Free"
@@ -367,7 +367,6 @@ const SubmitRequestForm: React.FC = () => {
                 <RadioButton
                   onChange={() => {
                     setFormData({ isFree: false });
-
                     onChange(false);
                   }}
                   checked={value === false}
