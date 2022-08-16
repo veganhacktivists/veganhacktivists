@@ -178,14 +178,11 @@ const SubmitRequestForm: React.FC = () => {
           showRequiredMark
           {...myRegister('providedEmail', {
             required: 'The email is required',
-            pattern: {
-              value:
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: 'Please enter a valid email',
-            },
           })}
           error={errors.providedEmail?.message}
-        />
+        >
+          Email
+        </TextInput>
         <TextInput
           className="w-full "
           placeholder="Phone"
