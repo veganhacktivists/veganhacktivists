@@ -127,10 +127,9 @@ model PlaygroundRequest {
   calendlyUrl       String
   title             String
   priority          Int      @db.SmallInt
-  roleTitle         String
   requiredSkills    String[] @default([])
   isFree            Boolean
-  budget            Decimal  @db.Money
+  budget            Decimal? @db.Money
   description       String   @db.Text
   dueDate           DateTime @db.Date
   estimatedTimeDays Int
