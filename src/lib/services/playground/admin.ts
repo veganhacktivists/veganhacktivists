@@ -1,10 +1,14 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
-import { bold, codeBlock } from 'discord.js';
+import { bold, codeBlock, roleMention } from 'discord.js';
 
 import prisma from 'lib/db/prisma';
-import { sendDiscordMessage, withDiscordClient } from 'lib/discord';
+import {
+  ROLE_ID_BY_CATEGORY,
+  sendDiscordMessage,
+  withDiscordClient,
+} from 'lib/discord';
 
 import emailClient, { OUR_EMAIL } from 'lib/mail';
 
@@ -232,12 +236,14 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
   const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
 
+  const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
   const messages = await withDiscordClient(() =>
     Promise.all([
       sendDiscordMessage(
         playgroundChannelId,
-        // TODO: mention correct role
-        `Hi @everyone! ${requestMessage(request)}`
+        `Hi ${
+          roleToMention ? roleMention(roleToMention) : 'everyone'
+        }! ${requestMessage(request)}`
       ),
       sendDiscordMessage(
         araChannelId,
