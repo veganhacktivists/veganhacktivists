@@ -275,6 +275,9 @@ export const setRequestStatus = ({
   prisma.$transaction(async (prisma) => {
     const request = await prisma.playgroundRequest.findUnique({
       where: { id },
+      include: {
+        discordMessages: true,
+      },
     });
 
     if (!request) {
@@ -282,7 +285,7 @@ export const setRequestStatus = ({
     }
 
     const shouldPost =
-      request.discordMessageIds.length === 0 &&
+      request.discordMessages.length === 0 &&
       request.status === Status.Pending &&
       status === Status.Accepted;
 
@@ -300,12 +303,17 @@ export const setRequestStatus = ({
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
+
           data: {
-            discordMessageIds: discordMessages.map((msg) => msg.id),
+            discordMessages: {
+              create: discordMessages.map((msg) => ({
+                channelId: msg.channelId,
+                messageId: msg.id,
+              })),
+            },
           },
         });
       } catch (e) {
-        // TODO: delete messages
         try {
           await withDiscordClient(() => {
             discordMessages.forEach(async (msg) => {
