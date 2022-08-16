@@ -192,7 +192,9 @@ ${bold('Compensation:')} ${
       : 'Paid'
   }
 
-What's next: Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
+${bold(
+  "What's next:"
+)} Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
 
 ${codeBlock(request.description)}`;
 };

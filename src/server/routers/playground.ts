@@ -127,26 +127,36 @@ const playgroundRouter = t.router({
       });
     }),
 
-  lastApplication: protectedProcedure.query(({ ctx: { user, prisma } }) => {
-    return prisma.playgroundApplication.findFirstOrThrow({
-      where: {
-        applicantId: user.id,
-      },
-      select: {
-        name: true,
-        portfolioLink: true,
-        twitterUrl: true,
-        instagramUrl: true,
-        linkedinUrl: true,
-        isVegan: true,
-        calendlyUrl: true,
-        providedEmail: true,
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
-  }),
+  lastApplication: protectedProcedure.query(
+    async ({ ctx: { user, prisma } }) => {
+      const application = await prisma.playgroundApplication.findFirst({
+        where: {
+          applicantId: user.id,
+        },
+        select: {
+          name: true,
+          portfolioLink: true,
+          twitterUrl: true,
+          instagramUrl: true,
+          linkedinUrl: true,
+          isVegan: true,
+          calendlyUrl: true,
+          providedEmail: true,
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+      });
+
+      if (!application) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+        });
+      }
+
+      return application;
+    }
+  ),
 
   lastRequest: protectedProcedure.query(({ ctx: { user, prisma } }) => {
     return prisma.playgroundRequest.findFirstOrThrow({
