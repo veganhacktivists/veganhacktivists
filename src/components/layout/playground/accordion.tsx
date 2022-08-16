@@ -29,7 +29,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
 }) => {
   const [entryState, setEntryState] = useState(expanded);
   return (
-    <div className="w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
+    <div className="w-4/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
       <div
         className={classNames(
           'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
