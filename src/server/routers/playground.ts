@@ -158,8 +158,8 @@ const playgroundRouter = t.router({
     }
   ),
 
-  lastRequest: protectedProcedure.query(({ ctx: { user, prisma } }) => {
-    return prisma.playgroundRequest.findFirstOrThrow({
+  lastRequest: protectedProcedure.query(async ({ ctx: { user, prisma } }) => {
+    const request = await prisma.playgroundRequest.findFirst({
       where: {
         requesterId: user.id,
       },
@@ -175,6 +175,12 @@ const playgroundRouter = t.router({
         createdAt: 'desc',
       },
     });
+
+    if (!request) {
+      throw new TRPCError({ code: 'NOT_FOUND' });
+    }
+
+    return request;
   }),
 });
 
