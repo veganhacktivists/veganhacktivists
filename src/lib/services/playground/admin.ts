@@ -157,7 +157,7 @@ Thank you so much everyone for helping the animals, and for using Playground.
       });
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: updatedApplication.providedEmail,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
         html: `Thanks so much for submitting your request to support with Playground!
