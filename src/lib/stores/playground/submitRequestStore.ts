@@ -1,9 +1,11 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import type { inferMutationInput } from 'lib/client/trpc';
+import type { z } from 'zod';
 
-type FormProps = Partial<inferMutationInput<'playground.submitRequest'>>;
+import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+
+type FormProps = Partial<z.infer<typeof submitRequestSchemaClient>>;
 
 interface PlaygroundSubmitRequestProps {
   form: FormProps;

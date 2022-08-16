@@ -45,13 +45,23 @@ export const applyToRequestSchema = z.object({
   // Check those parameters are set, and delete them from the request aferwards
   commitToHelping: z
     .boolean()
-    .refine((x) => !!x, { message: 'This value is required' })
+    .refine((x) => !!x)
     .transform(() => undefined),
-  // agreeToTerms: z
-  //   .boolean()
-  //   .refine((x) => !!x)
-  //   .transform(() => undefined),
+  agreeToTerms: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
 });
+
+export const applyToRequestSchemaClient = applyToRequestSchema.merge(
+  z.object({
+    // Require both of these values to be true
+    commitToHelping: z.boolean().refine((x) => !!x, { message: 'Required' }),
+    agreeToTerms: z
+      .boolean()
+      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+  })
+);
 
 export const submitRequestSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
@@ -86,13 +96,24 @@ export const submitRequestSchema = z.object({
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
-    .refine((x) => !!x, { message: 'Required' })
+    .refine((x) => !!x)
     .transform(() => undefined),
-  // agreeToTerms: z
-  //   .boolean()
-  //   .refine((x) => !!x)
-  //   .transform(() => undefined),
+  agreeToTerms: z
+    .boolean()
+    .refine((x) => !!x)
+    .transform(() => undefined),
 });
+
+export const submitRequestSchemaClient = submitRequestSchema.merge(
+  z.object({
+    // Require both of these values to be true
+    requiredSkills: z.string().min(1),
+    qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
+    agreeToTerms: z
+      .boolean()
+      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+  })
+);
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 export const getPendingRequestsSchema = paginationSchema.optional();

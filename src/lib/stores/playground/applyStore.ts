@@ -1,18 +1,20 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import type { inferMutationInput } from 'lib/client/trpc';
+import type { z } from 'zod';
+
+import type { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
 
 import type { PlaygroundRequest } from '@prisma/client';
 
-type FormProps = Partial<inferMutationInput<'playground.apply'>>;
+type FormProps = z.infer<typeof applyToRequestSchemaClient>;
 interface PlaygroundApplyProps {
   forms: Record<PlaygroundRequest['id'], FormProps>;
 }
 
 interface PlaygroundApplyMethods {
   getForm: (id: PlaygroundRequest['id']) => FormProps;
-  setForm: (id: PlaygroundRequest['id']) => (form: FormProps) => void;
+  setForm: (id: PlaygroundRequest['id']) => (form: Partial<FormProps>) => void;
   resetForm: (id: PlaygroundRequest['id']) => () => void;
   resetForms: () => void;
 }
