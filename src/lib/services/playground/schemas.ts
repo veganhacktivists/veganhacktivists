@@ -116,6 +116,7 @@ export const submitRequestSchema = unsafeSubmitRequestSchema
   })
   .refine(({ isFree, budget }) => !isFree && budget, {
     message: 'Cannot have a budget if the request is free',
+    path: ['isFree'],
   });
 
 export const submitRequestSchemaClient = unsafeSubmitRequestSchema
@@ -138,6 +139,7 @@ export const submitRequestSchemaClient = unsafeSubmitRequestSchema
   })
   .refine(({ isFree, budget }) => !isFree && budget, {
     message: 'Cannot have a budget if the request is free',
+    path: ['isFree'],
   });
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
