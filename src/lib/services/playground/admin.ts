@@ -215,8 +215,8 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
 };
 
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
-  const playgroundChannelId = playgroundChannelIdByCategory(request);
-  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
+  const playgroundChannelId = '1009070311318237255'; // playgroundChannelIdByCategory(request);
+  const araChannelId = '1009070339680108544'; // process.env.DISCORD_ARA_CHANNEL_ID!;
 
   const messages = await withDiscordClient(() =>
     Promise.all([
