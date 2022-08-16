@@ -40,8 +40,7 @@ const Playground: PageWithLayout = ({}) => {
       <NextSeo title="Requests" />
       <div>
         <SectionHeader header={['Open requests', 'for support']}>
-          Check out both volunteer and paid project requests from individuals
-          and organizations seeking support for their work for the animals.
+        Find volunteer and paid opportunities to support the animal protection movement, or if you&apos;re a vegan advocate or organization, submit a request of your own!
         </SectionHeader>
         <div className="mt-10 mb-10 lg:mx-12 2xl:mx-44 xl:mx-36">
           <RequestFilters onChange={setFilters} filters={filters} />
