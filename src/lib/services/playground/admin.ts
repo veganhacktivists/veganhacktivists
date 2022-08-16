@@ -43,14 +43,6 @@ export const getPendingRequests = async (
     where: {
       ...params,
       status: Status.Pending,
-      applications: {
-        none: {
-          status: Status.Accepted,
-        },
-        some: {
-          status: Status.Pending,
-        },
-      },
     },
     include: {
       requester: {
