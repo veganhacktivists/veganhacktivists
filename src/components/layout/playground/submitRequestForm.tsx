@@ -24,6 +24,12 @@ import useOnce from '../../../hooks/useOnce';
 
 import RadioButton from '../../forms/inputs/radioButton';
 
+import {
+  CATEGORY_DESCRIPTION,
+  CATEGORY_LABELS,
+  PRIORITIES,
+} from '../../../../prisma/constants';
+
 import SignInPrompt from './siginInPrompt';
 
 import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
@@ -37,14 +43,14 @@ import type { z } from 'zod';
 
 import type { TRPCClientError } from '@trpc/react';
 
-type FormInput = z.infer<typeof submitRequestSchemaClient>;
-
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
-  value: cat,
-  label: cat.replace(/([0-9A-Z])/g, ' $&'),
+  value: cat as PlaygroundRequestCategory,
+  label: `${CATEGORY_LABELS[cat as PlaygroundRequestCategory]} (${
+    CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
+  })`,
 }));
 
-const PRIORITIES = ['Low', 'Medium', 'High', 'Urgent'] as const;
+type FormInput = z.infer<typeof submitRequestSchemaClient>;
 
 const SubmitRequestForm: React.FC = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -274,7 +280,7 @@ const SubmitRequestForm: React.FC = () => {
         >
           Title of Request
         </TextInput>
-        <div className="w-full">
+        <div className="col-span-full">
           <Label name="category" showRequiredMark />
           <Controller
             name="category"
@@ -327,17 +333,6 @@ const SubmitRequestForm: React.FC = () => {
           />
         </div>
         <TextInput
-          className="w-full mt-6 md:mt-0"
-          placeholder="Role title"
-          showRequiredMark
-          {...myRegister('roleTitle', {
-            required: 'Please select the role title of the request',
-          })}
-          error={errors.roleTitle?.message}
-        >
-          Role title
-        </TextInput>
-        <TextInput
           className="w-full"
           placeholder="Communication, ..."
           {...myRegister('requiredSkills', {
@@ -385,19 +380,22 @@ const SubmitRequestForm: React.FC = () => {
             <span className="text-red">⚠ {errors.isFree.message}</span>
           )}
         </div>
-        <TextInput
-          className="w-full"
-          placeholder="Budget"
-          type="number"
-          inputMode="numeric"
-          step={50}
-          min={0}
-          showRequiredMark
-          {...myRegister('budget', { valueAsNumber: true })}
-          error={errors.budget?.message}
-        >
-          Budget?
-        </TextInput>
+
+        {!watch('isFree') && (
+          <TextInput
+            className="w-full"
+            placeholder="Budget"
+            type="number"
+            inputMode="numeric"
+            step={50}
+            min={0}
+            showRequiredMark
+            {...myRegister('budget', { valueAsNumber: true })}
+            error={errors.budget?.message}
+          >
+            Budget?
+          </TextInput>
+        )}
         <TextArea
           placeholder="Describe your issue"
           showRequiredMark

@@ -63,7 +63,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
   })
 );
 
-export const submitRequestSchema = z.object({
+const unsafeSubmitRequestSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().email(),
   phone: z.string().trim().optional(),
@@ -73,7 +73,6 @@ export const submitRequestSchema = z.object({
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
   priority: z.number().int().nonnegative().max(3),
-  roleTitle: z.string().trim().min(1),
   // Transform the string of skills separated by a comma in an array of strings
   requiredSkills: z
     .string()
@@ -88,7 +87,10 @@ export const submitRequestSchema = z.object({
   budget: z
     .number()
     .nonnegative()
-    .refine((x) => /^\d+(\.\d{1,2})?$/.test(String(x))),
+    .refine((x) => /^\d+((\.|,)\d{1,2})?$/.test(String(x)), {
+      message: 'Not a valid monetary value',
+    })
+    .optional(),
   description: z.string().trim().min(1),
   dueDate: z
     .date()
@@ -104,16 +106,39 @@ export const submitRequestSchema = z.object({
     .transform(() => undefined),
 });
 
-export const submitRequestSchemaClient = submitRequestSchema.merge(
-  z.object({
-    // Require both of these values to be true
-    requiredSkills: z.string().min(1),
-    qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
-    agreeToTerms: z
-      .boolean()
-      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+export const submitRequestSchema = unsafeSubmitRequestSchema
+  .transform((data) => {
+    if (data.isFree) {
+      return { ...data, budget: undefined };
+    }
+
+    return data;
   })
-);
+  .refine(({ isFree, budget }) => !isFree && budget, {
+    message: 'Cannot have a budget if the request is free',
+  });
+
+export const submitRequestSchemaClient = unsafeSubmitRequestSchema
+  .merge(
+    z.object({
+      // Require both of these values to be true
+      requiredSkills: z.string().min(1),
+      qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
+      agreeToTerms: z
+        .boolean()
+        .refine((x) => !!x, { message: 'You must agree to the terms' }),
+    })
+  )
+  .transform((data) => {
+    if (data.isFree) {
+      return { ...data, budget: undefined };
+    }
+
+    return data;
+  })
+  .refine(({ isFree, budget }) => !isFree && budget, {
+    message: 'Cannot have a budget if the request is free',
+  });
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 export const getPendingRequestsSchema = paginationSchema.optional();

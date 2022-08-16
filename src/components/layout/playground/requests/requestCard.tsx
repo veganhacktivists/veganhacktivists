@@ -5,6 +5,11 @@ import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
+import {
+  CATEGORY_LABELS,
+  PRIORITIES_CLASSES,
+} from '../../../../../prisma/constants';
+
 import { DarkButton } from 'components/decoration/buttons';
 
 import getThemeColor from 'lib/helpers/theme';
@@ -21,19 +26,18 @@ interface PlaygroundRequestCardProps {
 }
 
 const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
-  Design: getThemeColor('magenta'),
-  Website: getThemeColor('blue'),
-  Marketing: getThemeColor('green'),
-  SocialMedia: getThemeColor('yellow-orange'),
-  VideoProduction: getThemeColor('orange'),
+  Designer: getThemeColor('magenta'),
+  Developer: getThemeColor('blue'), //TODO
+  DataScientist: getThemeColor('green'),
+  Editor: getThemeColor('orange'),
+  Marketer: getThemeColor('red'),
+  Researcher: getThemeColor('orange'),
+  Security: getThemeColor('purple'),
+  Social: getThemeColor('yellow-orange'),
+  Translator: getThemeColor('brown'),
+  Writer: getThemeColor('gray'),
   Other: getThemeColor('grey-light'),
 };
-
-export const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> =
-  {
-    SocialMedia: 'Social Media',
-    VideoProduction: 'Video Production',
-  };
 
 const Li: React.FC<
   HTMLAttributes<HTMLLIElement> & { category: PlaygroundRequestCategory }
@@ -52,13 +56,6 @@ const Li: React.FC<
     <span className="my-auto truncate h-min">{children}</span>
   </li>
 );
-
-export const PRIORITIES = [
-  { label: 'Low', className: 'bg-green' },
-  { label: 'Medium', className: 'bg-yellow-orange' },
-  { label: 'High', className: 'bg-orange' },
-  { label: 'Urgent', className: 'bg-red' },
-];
 
 const PlaygroundRequestCard: React.FC<
   React.PropsWithChildren<PlaygroundRequestCardProps>
@@ -82,7 +79,10 @@ const PlaygroundRequestCard: React.FC<
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
-  const priority = useMemo(() => PRIORITIES[priorityNumber], [priorityNumber]);
+  const priority = useMemo(
+    () => PRIORITIES_CLASSES[priorityNumber],
+    [priorityNumber]
+  );
 
   return (
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
@@ -100,7 +100,7 @@ const PlaygroundRequestCard: React.FC<
             }}
             className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
           >
-            {CATEGORY_TEXT[category] || category}
+            {CATEGORY_LABELS[category]}
           </div>
           <div className="flex flex-row items-center gap-2 my-auto">
             <FontAwesomeIcon icon={faClock} size="sm" />{' '}

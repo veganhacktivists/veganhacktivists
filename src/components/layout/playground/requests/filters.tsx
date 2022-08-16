@@ -2,10 +2,9 @@ import { useCallback } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
-import { CATEGORY_TEXT } from './requestCard';
+import { CATEGORY_LABELS } from '../../../../../prisma/constants';
 
 import RadioButton from 'components/forms/inputs/radioButton';
-
 import Checkbox from 'components/forms/inputs/checkbox';
 
 import type { inferQueryInput } from 'lib/client/trpc';
@@ -49,7 +48,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   );
 
   return (
-    <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 md:flex-row">
+    <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 lg:flex-row">
       <div className="text-left divide-y">
         <div className="mb-2 uppercase">Sort by</div>
         <div className="flex flex-row gap-10">
@@ -89,7 +88,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
       <div className="text-left divide-y">
         <div className="mb-2 uppercase">Filter by</div>
         <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
-          <div className="flex-grow">
+          <div>
             <div className="mt-2 mb-2 font-bold">Category</div>
             <div className="grid justify-start grid-flow-col grid-rows-3 lg:grid-rows-2 gap-x-4">
               {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
@@ -120,7 +119,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                     }}
                   >
                     <span className="font-normal">
-                      {CATEGORY_TEXT[key as PlaygroundRequestCategory] || value}
+                      {CATEGORY_LABELS[key as PlaygroundRequestCategory]}
                     </span>
                   </Checkbox>
                 </div>

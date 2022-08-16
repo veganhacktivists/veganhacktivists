@@ -54,7 +54,6 @@ const seedRequests = async (n: number = NUMBER) => {
         dueDate: faker.date.future(),
         isFree: faker.datatype.boolean(),
         priority: faker.datatype.number({ min: 0, max: 3, precision: 1 }),
-        roleTitle: faker.hacker.noun(),
         requiredSkills: faker.helpers.uniqueArray(
           () => faker.hacker.ingverb(),
           faker.datatype.number({ min: 0, max: 10 })
