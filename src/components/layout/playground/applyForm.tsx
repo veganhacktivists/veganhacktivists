@@ -25,7 +25,7 @@ import { readableTimeSinceDate } from 'lib/helpers/date';
 
 import { DarkButton } from 'components/decoration/buttons';
 
-import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
+import { applyToRequestSchema } from 'lib/services/playground/schemas';
 
 import useOnce from 'hooks/useOnce';
 
@@ -54,8 +54,6 @@ import type { AppRouter } from 'server/routers/_app';
 import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
 
 import type { TRPCClientError } from '@trpc/react';
-
-import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
   OneToThree: '1-3 hours/week',
@@ -176,7 +174,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
-type FormInput = z.infer<typeof applyToRequestSchemaClient>;
+type FormInput = inferMutationInput<'playground.apply'>;
 
 const MainForm: React.FC<RequestProps> = ({ request }) => {
   const { data: session, status: sessionStatus } = useSession();
@@ -211,7 +209,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       hasAppliedInThePast: request.userAlreadyApplied,
       requestId: request.id,
     },
-    resolver: zodResolver(applyToRequestSchemaClient),
+    resolver: zodResolver(applyToRequestSchema),
   });
 
   const onChangeValue = useCallback(
@@ -506,7 +504,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             </Checkbox>
           )}
         />
-        <Controller
+        {/* <Controller
           control={control}
           name="agreeToTerms"
           render={({ field: { value, onChange, ...field } }) => (
@@ -523,7 +521,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
               I agree to the VH: Playground terms and conditions.
             </Checkbox>
           )}
-        />
+        /> */}
         <DarkButton
           disabled={isLoading || isSuccess || request.userAlreadyApplied}
           type="submit"

@@ -26,18 +26,16 @@ import RadioButton from '../../forms/inputs/radioButton';
 
 import SignInPrompt from './siginInPrompt';
 
-import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import { submitRequestSchema } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
 
 import type { AppRouter } from 'server/routers/_app';
 import type { inferMutationInput } from 'lib/client/trpc';
 
-import type { z } from 'zod';
-
 import type { TRPCClientError } from '@trpc/react';
 
-type FormInput = z.infer<typeof submitRequestSchemaClient>;
+type FormInput = inferMutationInput<'playground.submitRequest'>;
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   value: cat,
@@ -78,7 +76,7 @@ const SubmitRequestForm: React.FC = () => {
     defaultValues: {
       ...storedForm,
     },
-    resolver: zodResolver(submitRequestSchemaClient),
+    resolver: zodResolver(submitRequestSchema),
   });
 
   const onChangeValue = useCallback(
@@ -446,7 +444,7 @@ const SubmitRequestForm: React.FC = () => {
           I understand that Vegan Hacktivists cannot guarantee the quality of
           work done by our volunteers.
         </Checkbox>
-        <Checkbox
+        {/* <Checkbox
           className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
@@ -456,7 +454,7 @@ const SubmitRequestForm: React.FC = () => {
           }}
         >
           I agree to the VH: Playground terms and conditions.
-        </Checkbox>
+        </Checkbox> */}
         <DarkButton
           className="mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
