@@ -109,11 +109,16 @@ model PlaygroundApplication {
 }
 
 enum PlaygroundRequestCategory {
-  Design
-  Website
-  Marketing
-  VideoProduction
-  SocialMedia
+  Developer
+  Designer
+  Writer
+  Editor
+  Researcher
+  Translator
+  Marketer
+  Social
+  DataScientist
+  Security
   Other
 }
 
