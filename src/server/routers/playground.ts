@@ -126,6 +126,46 @@ const playgroundRouter = t.router({
         requesterId: ctx.user.id,
       });
     }),
+
+  lastApplication: protectedProcedure.query(({ ctx: { user, prisma } }) => {
+    return prisma.playgroundApplication.findFirstOrThrow({
+      where: {
+        applicantId: user.id,
+      },
+      select: {
+        name: true,
+        portfolioLink: true,
+        twitterUrl: true,
+        instagramUrl: true,
+        linkedinUrl: true,
+        isVegan: true,
+        calendlyUrl: true,
+        providedEmail: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }),
+
+  lastRequest: protectedProcedure.query(({ ctx: { user, prisma } }) => {
+    return prisma.playgroundRequest.findFirstOrThrow({
+      where: {
+        requesterId: user.id,
+      },
+      select: {
+        name: true,
+        organization: true,
+        calendlyUrl: true,
+        phone: true,
+        providedEmail: true,
+        website: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }),
 });
 
 export default playgroundRouter;

@@ -64,14 +64,15 @@ const SubmitRequestForm: React.FC = () => {
     setIsSignInModalOpen(false);
   }, []);
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   const {
-    handleSubmit,
-    setValue,
-    register,
-    formState: { errors },
-    reset,
     control,
+    formState: { errors },
+    handleSubmit,
+    register,
+    reset,
+    setValue,
     watch,
   } = useForm<FormInput>({
     defaultValues: {
@@ -101,7 +102,19 @@ const SubmitRequestForm: React.FC = () => {
     [onChangeValue, register]
   );
 
-  const dataFilled = useOnce(
+  const { data: lastSubmittedRequest, isLoading: isLastRequestLoading } =
+    trpc.proxy.playground.lastRequest.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+
+      // TODO: does the stale timerender this unneccessary?
+      // refetchOnMount: false,
+      // refetchOnReconnect: false,
+      // refetchOnWindowFocus: false,
+      staleTime: Infinity,
+      retry: false,
+    });
+
+  const userDataFilled = useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
@@ -112,7 +125,27 @@ const SubmitRequestForm: React.FC = () => {
         setValue('providedEmail', email);
       }
     },
-    { enabled: sessionStatus === 'authenticated' }
+    {
+      enabled:
+        !isLastRequestLoading &&
+        sessionStatus === 'authenticated' &&
+        router.isReady &&
+        router.query.submit !== 'true',
+    }
+  );
+
+  useOnce(
+    () => {
+      if (!lastSubmittedRequest) return;
+      Object.entries(lastSubmittedRequest).forEach(([key, value]) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (value && !watch(key as any)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          setValue(key as any, value);
+        }
+      });
+    },
+    { enabled: userDataFilled && !isLastRequestLoading }
   );
 
   const { mutateAsync, isLoading, isSuccess } =
@@ -144,18 +177,13 @@ const SubmitRequestForm: React.FC = () => {
     [mutateAsync, sessionStatus]
   );
 
-  const router = useRouter();
-
-  useOnce(
-    () => {
-      if (router.query.submit !== 'true') return;
-      if (formRef.current) {
-        formRef.current.scrollIntoView();
-      }
-      void handleSubmit(onSubmit)();
-    },
-    { enabled: router.isReady && dataFilled }
-  );
+  useOnce(() => {
+    if (router.query.submit !== 'true') return;
+    if (formRef.current) {
+      formRef.current.scrollIntoView();
+    }
+    void handleSubmit(onSubmit)();
+  });
 
   return (
     <div className="bg-grey-background" id="contact-us">

@@ -195,6 +195,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     setIsSignInModalOpen(false);
   }, []);
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -233,8 +234,14 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     },
     [onChangeValue, register]
   );
+  const shouldSubmit = router.query.submit === 'true';
 
-  const dataFilled = useOnce(
+  const { data: lastApplication, isLoading: isLastApplicationLoading } =
+    trpc.proxy.playground.lastApplication.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+    });
+
+  const userDataFilled = useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
@@ -246,7 +253,25 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         setValue('providedEmail', email);
       }
     },
-    { enabled: sessionStatus === 'authenticated' }
+    {
+      enabled:
+        sessionStatus === 'authenticated' && !shouldSubmit && router.isReady,
+    }
+  );
+  useOnce(
+    () => {
+      if (!lastApplication) return;
+      Object.entries(lastApplication).forEach(([key, value]) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (value && !watch(key as any)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          setValue(key as any, value);
+        }
+      });
+    },
+    {
+      enabled: userDataFilled && !isLastApplicationLoading,
+    }
   );
 
   const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
@@ -279,8 +304,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     [mutateAsync, sessionStatus]
   );
 
-  const router = useRouter();
-
   useOnce(
     () => {
       if (router.query.submit !== 'true') return;
@@ -289,7 +312,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       }
       void handleSubmit(onSubmit)();
     },
-    { enabled: router.isReady && dataFilled }
+    { enabled: router.isReady && userDataFilled }
   );
 
   return (
@@ -439,6 +462,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             render={({ field: { value: current, onChange, ...field } }) => (
               <SelectInput
                 {...field}
+                placeholder="Select an option"
                 onChange={(value) => {
                   setFormData({
                     availableTimePerWeek: value?.value as TimePerWeek,
