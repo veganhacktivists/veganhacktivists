@@ -24,7 +24,11 @@ import useOnce from '../../../hooks/useOnce';
 
 import RadioButton from '../../forms/inputs/radioButton';
 
-import { CATEGORY_LABELS, PRIORITIES } from '../../../../prisma/constants';
+import {
+  CATEGORY_DESCRIPTION,
+  CATEGORY_LABELS,
+  PRIORITIES,
+} from '../../../../prisma/constants';
 
 import SignInPrompt from './siginInPrompt';
 
@@ -41,7 +45,9 @@ import type { TRPCClientError } from '@trpc/react';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   value: cat as PlaygroundRequestCategory,
-  label: CATEGORY_LABELS[cat as PlaygroundRequestCategory],
+  label: `${CATEGORY_LABELS[cat as PlaygroundRequestCategory]} (${
+    CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
+  })`,
 }));
 
 type FormInput = z.infer<typeof submitRequestSchemaClient>;

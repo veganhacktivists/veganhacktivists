@@ -205,12 +205,26 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
   }
 
   switch (request.category) {
-    case PlaygroundRequestCategory.Website:
+    case PlaygroundRequestCategory.Developer:
       return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
-    case PlaygroundRequestCategory.Design:
+    case PlaygroundRequestCategory.Designer:
       return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Writer:
+      return process.env.DISCORD_PLAYGROUND_WRITER_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Editor:
+      return process.env.DISCORD_PLAYGROUND_EDITOR_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Researcher:
+      return process.env.DISCORD_PLAYGROUND_RESEARCH_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Marketer:
+      return process.env.DISCORD_PLAYGROUND_MARKETER_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Social:
+      return process.env.DISCORD_PLAYGROUND_SOCIAL_CHANNEL_ID!;
+    case PlaygroundRequestCategory.DataScientist:
+      return process.env.DISCORD_PLAYGROUND_DATA_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Security:
+      return process.env.DISCORD_PLAYGROUND_SECURITY_CHANNEL_ID!;
     default:
-      return process.env.DISCORD_PLAYGROUND_MISC_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_OTHER_CHANNEL_ID!;
   }
 };
 

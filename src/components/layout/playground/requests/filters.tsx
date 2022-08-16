@@ -2,10 +2,9 @@ import { useCallback } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
-import { CATEGORY_TEXT } from './requestCard';
+import { CATEGORY_LABELS } from '../../../../../prisma/constants';
 
 import RadioButton from 'components/forms/inputs/radioButton';
-
 import Checkbox from 'components/forms/inputs/checkbox';
 
 import type { inferQueryInput } from 'lib/client/trpc';
@@ -120,7 +119,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
                     }}
                   >
                     <span className="font-normal">
-                      {CATEGORY_TEXT[key as PlaygroundRequestCategory] || value}
+                      {CATEGORY_LABELS[key as PlaygroundRequestCategory]}
                     </span>
                   </Checkbox>
                 </div>
