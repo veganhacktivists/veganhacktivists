@@ -44,7 +44,7 @@ specifiers:
   contentful-management: ^10.8.0
   contentful-typescript-codegen: ^3.2.3
   crypto-js: ^4.1.1
-  discord.js: ^14.1.2
+  discord.js: ^14.2.0
   eslint: 8.20.0
   eslint-config-next: 12.2.2
   eslint-config-prettier: ^8.5.0
@@ -116,7 +116,7 @@ dependencies:
   classnames: 2.3.1
   contentful: 9.1.32
   crypto-js: 4.1.1
-  discord.js: 14.1.2
+  discord.js: 14.2.0
   form-data: 4.0.0
   fuse.js: 6.6.2
   http-status-codes: 2.2.0
@@ -2589,6 +2589,10 @@ packages:
   /@types/node/18.0.6:
     resolution: {integrity: sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==}
 
+  /@types/node/18.7.6:
+    resolution: {integrity: sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==}
+    dev: false
+
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: false
@@ -2684,7 +2688,7 @@ packages:
   /@types/ws/8.5.3:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
     dependencies:
-      '@types/node': 18.0.6
+      '@types/node': 18.7.6
     dev: false
 
   /@types/yargs-parser/21.0.0:
@@ -4083,8 +4087,8 @@ packages:
     resolution: {integrity: sha512-bz/NDyG0KBo/tY14vSkrwQ/n3HKPf87a0WFW/1M9+tXYK+vp5Z5EksawfCWo2zkAc6o7CClc0eff1Pjrqznlwg==}
     dev: false
 
-  /discord.js/14.1.2:
-    resolution: {integrity: sha512-apdWNLkjAkeEnuNpB8H6rS/4OgrXQlSAjuuzeodjCOdIXy3OwOjD314V/HiSttcAlr9+r3ONhaT5qvbDad5SIg==}
+  /discord.js/14.2.0:
+    resolution: {integrity: sha512-kIGhEeOB1d9k7whL9HCCuRuzK2GL7i/hTesYINOZ2szWm4TOsBVwRU+i9O/zDb2M+Gvff4SJ4EpAtCVV0okgVw==}
     engines: {node: '>=16.9.0'}
     dependencies:
       '@discordjs/builders': 1.1.0
@@ -8337,8 +8341,8 @@ packages:
       webpack: 5.74.0
     dev: false
 
-  /terser-webpack-plugin/5.3.4_webpack@5.74.0:
-    resolution: {integrity: sha512-SmnkUhBxLDcBfTIeaq+ZqJXLVEyXxSaNcCeSezECdKjfkMrTTnPvapBILylYwyEvHFZAn2cJ8dtiXel5XnfOfQ==}
+  /terser-webpack-plugin/5.3.5_webpack@5.74.0:
+    resolution: {integrity: sha512-AOEDLDxD2zylUGf/wxHxklEkOe2/r+seuyOWujejFrIxHf11brA1/dWQNIgXa1c6/Wkxgu7zvv0JhOWfc2ELEA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -8812,7 +8816,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.4_webpack@5.74.0
+      terser-webpack-plugin: 5.3.5_webpack@5.74.0
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:

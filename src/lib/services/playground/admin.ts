@@ -222,6 +222,7 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
     Promise.all([
       sendDiscordMessage(
         playgroundChannelId,
+        // TODO: mention correct role
         `Hi @everyone! ${requestMessage(request)}`
       ),
       sendDiscordMessage(
@@ -243,7 +244,8 @@ ${bold(
       message: 'Could not send message to discord',
     });
   }
-  return okMessages.map((msg) => msg.id);
+
+  return okMessages;
 };
 
 export const setRequestStatus = ({
@@ -273,13 +275,27 @@ export const setRequestStatus = ({
     });
 
     if (shouldPost) {
-      const discordMessageIds = await postRequestOnDiscord(updatedRequest);
-      updatedRequest = await prisma.playgroundRequest.update({
-        where: { id },
-        data: {
-          discordMessageIds,
-        },
-      });
+      let discordMessages: Message[] = [];
+      try {
+        discordMessages = await postRequestOnDiscord(updatedRequest);
+        updatedRequest = await prisma.playgroundRequest.update({
+          where: { id },
+          data: {
+            discordMessageIds: discordMessages.map((msg) => msg.id),
+          },
+        });
+      } catch (e) {
+        // TODO: delete messages
+        try {
+          await withDiscordClient(() => {
+            discordMessages.forEach(async (msg) => {
+              await msg.delete();
+            });
+          });
+        } finally {
+          throw e;
+        }
+      }
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
         to: OUR_EMAIL,

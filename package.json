@@ -38,7 +38,7 @@
     "classnames": "^2.3.1",
     "contentful": "^9.1.32",
     "crypto-js": "^4.1.1",
-    "discord.js": "^14.1.2",
+    "discord.js": "^14.2.0",
     "form-data": "^4.0.0",
     "fuse.js": "^6.6.2",
     "http-status-codes": "^2.2.0",

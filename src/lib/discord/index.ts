@@ -8,14 +8,14 @@ client.on('ready', () => {
   console.info('Discord client ready!');
 });
 
+const getChannel = async (id: string) =>
+  client.channels.cache.get(id) || (await client.channels.fetch(id));
+
 export const sendDiscordMessage = async (
   channelId: string,
   message: string
 ) => {
-  // TODO: is the fetch needed? Looks like it
-  const channel =
-    client.channels.cache.get(channelId) ||
-    (await client.channels.fetch(channelId));
+  const channel = await getChannel(channelId);
 
   if (!channel || channel.type !== ChannelType.GuildText) {
     return false;
@@ -23,7 +23,7 @@ export const sendDiscordMessage = async (
   return await channel.send(message);
 };
 
-export const withDiscordClient = async <T>(callback: () => Promise<T>) =>
+export const withDiscordClient = async <T>(callback: () => Promise<T> | T) =>
   new Promise<T>(async (resolve) => {
     if (!client.isReady()) {
       (client as Client<false>).on('ready', async () => {
