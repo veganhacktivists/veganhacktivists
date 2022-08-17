@@ -184,6 +184,17 @@ Thank you so much for considering VH: Playground for your activism!`,
   });
 
 const requestMessage = (request: PlaygroundRequest) => {
+  const DESCRIPTION_CHAR_LIMIT = 1200;
+
+  const truncatedDescription = request.description.slice(
+    0,
+    DESCRIPTION_CHAR_LIMIT
+  );
+  const description =
+    truncatedDescription.length < request.description.length
+      ? `${truncatedDescription}...`
+      : truncatedDescription;
+
   return `${
     request.organization || request.name
   } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤💕
@@ -202,9 +213,7 @@ ${bold(
   "What's next:"
 )} Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
 
-${codeBlock(request.description.slice(0, 1500))}${
-    request.description.length > 1500 ? '...' : ''
-  }`;
+${codeBlock(description)}`;
 };
 
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
