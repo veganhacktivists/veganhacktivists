@@ -125,7 +125,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans">{request.description}</div>
+            <div className="font-sans">
+              {request.description.split('\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </Field>
           <Field title="Skills required">
             <div>{request.requiredSkills.join(', ')}</div>
