@@ -1,5 +1,7 @@
 import { ChannelType, Client, GatewayIntentBits } from 'discord.js';
 
+import type { Message } from 'discord.js';
+
 import type { PlaygroundRequestCategory } from '@prisma/client';
 
 export const ROLE_ID_BY_CATEGORY: Partial<
@@ -35,7 +37,9 @@ export const sendDiscordMessage = async (
   const channel = await getChannel(channelId);
 
   if (!channel || channel.type !== ChannelType.GuildText) {
-    return false;
+    throw new Error(
+      `Channel ${channelId} not found or is not a a valid text channel`
+    );
   }
   return await channel.send(message);
 };
@@ -50,5 +54,23 @@ export const withDiscordClient = async <T>(callback: () => Promise<T> | T) =>
 
     resolve(await callback());
   });
+
+export class DiscordSendMessagesError extends Error {
+  public messages: (Message | false)[];
+
+  constructor(messages: (Message | false)[]) {
+    super('DiscordError');
+    this.name = 'DiscordError';
+    this.message = 'An error happened trying to send messages to Discord';
+    this.messages = messages;
+  }
+  getOkMessages() {
+    return this.messages.filter((m) => !!m) as Message[];
+  }
+
+  getErroredMessages() {
+    return this.messages.filter((m) => !m) as false[];
+  }
+}
 
 export default client;

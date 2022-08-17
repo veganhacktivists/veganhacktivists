@@ -254,43 +254,39 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
-  const messages = await withDiscordClient(() =>
-    Promise.all([
-      sendDiscordMessage(
-        playgroundChannelId,
-        `Hi ${
-          roleToMention ? roleMention(roleToMention) : 'everyone'
-        }! ${requestMessage(request)}`
-      ),
-      sendDiscordMessage(
-        araChannelId,
-        `Hi everyone! ${requestMessage(request)}
+
+  return await withDiscordClient(async () => {
+    const playgroundMessage = await sendDiscordMessage(
+      playgroundChannelId,
+      `Hi ${
+        roleToMention ? roleMention(roleToMention) : 'everyone'
+      }! ${requestMessage(request)}`
+    ).catch((err) => {
+      throw new Error('Failed to send Playground message', { cause: err });
+    });
+
+    const araMessage = await sendDiscordMessage(
+      araChannelId,
+      `Hi everyone! ${requestMessage(request)}
 
 ${bold(
   'Note:'
 )} Please only apply if you're 18+, minors are not currently allowed - sorry!        `
-      ),
-    ])
-  );
-
-  const okMessages = messages.filter((msg) => msg !== false) as Message<true>[];
-
-  if (messages.length !== okMessages.length) {
-    throw new TRPCError({
-      code: 'INTERNAL_SERVER_ERROR',
-      message: 'Could not send message to discord',
+    ).catch(async (err) => {
+      await playgroundMessage.delete();
+      throw new Error('Failed to send ARA message', { cause: err });
     });
-  }
 
-  return okMessages;
+    return [playgroundMessage, araMessage];
+  });
 };
 
 export const setRequestStatus = ({
   id,
   status,
 }: z.infer<typeof setRequestStatusSchema>) =>
-  prisma.$transaction(async (prisma) => {
-    const request = await prisma.playgroundRequest.findUnique({
+  prisma.$transaction(async (transactionPrisma) => {
+    const request = await transactionPrisma.playgroundRequest.findUnique({
       where: { id },
       include: {
         discordMessages: true,
@@ -309,15 +305,14 @@ export const setRequestStatus = ({
     const shouldNotifyDenial =
       request.status === Status.Pending && status === Status.Rejected;
 
-    let updatedRequest = await prisma.playgroundRequest.update({
+    let updatedRequest = await transactionPrisma.playgroundRequest.update({
       where: { id },
       data: { status },
     });
 
     if (shouldPost) {
-      let discordMessages: Message[] = [];
       try {
-        discordMessages = await postRequestOnDiscord(updatedRequest);
+        const discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
 
@@ -332,11 +327,17 @@ export const setRequestStatus = ({
         });
       } catch (e) {
         try {
-          await withDiscordClient(() => {
-            discordMessages.forEach(async (msg) => {
-              await msg.delete();
+          if (Array.isArray(e)) {
+            await withDiscordClient(() => {
+              (
+                (e as Message[]).filter((msg) => !!msg) as Message<true>[]
+              ).forEach(async (msg) => {
+                try {
+                  await msg.delete();
+                } catch {}
+              });
             });
-          });
+          }
         } finally {
           throw e;
         }
