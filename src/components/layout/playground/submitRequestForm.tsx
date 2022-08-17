@@ -32,6 +32,8 @@ import {
 
 import SignInPrompt from './siginInPrompt';
 
+import ConfirmationModal from './confirmationModal';
+
 import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
@@ -467,6 +469,7 @@ const SubmitRequestForm: React.FC = () => {
           {isLoading ? <Spinner /> : 'Submit My Request'}
         </DarkButton>
       </form>
+      <ConfirmationModal isOpen={isSuccess} type="request" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
         onClose={onModalClose}

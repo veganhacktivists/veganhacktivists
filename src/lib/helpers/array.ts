@@ -9,3 +9,8 @@ export const sortByArray = <T, X>(
       sorterArray.indexOf(getFieldFunc(b))
   );
 };
+
+export const randomArrayElement = <T>(array: T[]): T => {
+  const index = Math.floor(Math.random() * array.length);
+  return array[index];
+};

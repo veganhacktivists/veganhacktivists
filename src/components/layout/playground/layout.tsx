@@ -149,7 +149,7 @@ const PlaygroundStats: React.FC = () => {
     <div>
       <div className="flex flex-col justify-center mt-16 lg:flex-row gap-y-5">
         <PlaygroundStat
-          label="Requests open"
+          label="Requests opened"
           icon={resumeIcon}
           value={data?.requestsOpen}
         />

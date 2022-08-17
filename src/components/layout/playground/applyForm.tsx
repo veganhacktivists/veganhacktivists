@@ -23,6 +23,8 @@ import { PRIORITIES } from '../../../../prisma/constants';
 
 import SignInPrompt from './siginInPrompt';
 
+import ConfirmationModal from './confirmationModal';
+
 import { readableTimeSinceDate } from 'lib/helpers/date';
 
 import { DarkButton } from 'components/decoration/buttons';
@@ -557,6 +559,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           {/* Apply */}
         </DarkButton>
       </form>
+      <ConfirmationModal isOpen={isSuccess} type="application" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
         onClose={onModalClose}
