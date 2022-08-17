@@ -113,7 +113,11 @@ export const setApplicationStatus = ({
         .join('<br />');
 
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: [
+          updatedApplication.providedEmail,
+          updatedApplication.request.providedEmail,
+        ],
+        cc: OUR_EMAIL,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
 
         html: `Hi ${updatedApplication.request.name},
@@ -339,7 +343,7 @@ export const setRequestStatus = ({
       }
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: updatedRequest.providedEmail,
         subject: 'Thanks so much for submitting your request to Playground!',
         html: `Thanks so much for submitting your request to Playground!
 <br />
