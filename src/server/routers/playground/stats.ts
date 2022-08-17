@@ -15,11 +15,7 @@ const statsRouter = t.router({
   stats: t.procedure.query(async ({ ctx: { prisma } }) => {
     const [requestsOpen, requestsSupported, numberOfVolunteers] =
       await Promise.all([
-        prisma.playgroundRequest.count({
-          where: {
-            status: Status.Accepted,
-          },
-        }),
+        prisma.playgroundRequest.count(),
         prisma.playgroundRequest.count({
           where: {
             status: Status.Accepted,
