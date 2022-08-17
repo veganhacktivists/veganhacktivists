@@ -154,7 +154,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
 
   return (
     <aside className="flex flex-col pl-20 ml-0 md:mx-auto md:text-left">
-      <div className="font-bold uppercase">Contact person</div>
+      <div className="font-bold uppercase">About the Requestor</div>
       <div className="grid content-center w-32 mt-4 mb-4 ml-0 rounded-full place-content-center aspect-square bg-red">
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
