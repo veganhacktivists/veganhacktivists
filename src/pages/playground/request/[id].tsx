@@ -10,8 +10,6 @@ import { NextSeo } from 'next-seo';
 
 import { useSession } from 'next-auth/react';
 
-import FaqSection from '../../../components/layout/playground/faqSection';
-
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
 import { trpc } from 'lib/client/trpc';
@@ -90,7 +88,6 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
             <Spinner />
           </div>
         )}
-        <FaqSection design="light" />
       </div>
     </>
   );

@@ -63,7 +63,9 @@ const PlaygroundLayout: Layout = ({ children }) => {
         />
       </div>
       {children}
-      <FaqSection />
+      <FaqSection
+        design={router.pathname === '/playground/submit' ? 'dark' : undefined}
+      />
       <SquareField
         className="hidden md:block"
         squares={[
