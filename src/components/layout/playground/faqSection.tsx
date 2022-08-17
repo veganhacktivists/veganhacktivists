@@ -82,6 +82,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ design }) => {
         )}
       >
         <span
+          id="faq"
           className={classNames(
             design === 'dark' ? 'text-white' : 'text-black',
             'text-3xl font-bold font-mono'

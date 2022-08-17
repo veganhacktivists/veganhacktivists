@@ -341,6 +341,19 @@ export const setRequestStatus = ({
           throw e;
         }
       }
+      await emailClient.sendMail({
+        to: updatedRequest.providedEmail,
+        subject: 'Your request is now live on Playground!',
+        html: `Your request is now live on Playground!
+<br /><br />
+Hey ${updatedRequest.name}!
+<br /><br />
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="https://veganhacktivists.org/playground/request/${updatedRequest.id}">clicking this link</a>.
+<br /><br />
+Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="https://veganhacktivists.org/playground#faq">in this page</a>.
+<br /><br />
+Thank you so much!`,
+      });
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
         to: updatedRequest.providedEmail,

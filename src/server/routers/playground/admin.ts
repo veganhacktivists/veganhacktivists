@@ -36,9 +36,6 @@ const adminRouter = t.router({
     .mutation(async ({ input }) => {
       const request = await setRequestStatus(input);
 
-      if (input.status === Status.Accepted) {
-      }
-
       return request;
     }),
 
