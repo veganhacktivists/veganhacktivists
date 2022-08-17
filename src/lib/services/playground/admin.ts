@@ -1,7 +1,7 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
-import { bold, codeBlock, roleMention } from 'discord.js';
+import { bold, codeBlock, roleMention, underscore } from 'discord.js';
 
 import prisma from 'lib/db/prisma';
 import {
@@ -188,7 +188,9 @@ const requestMessage = (request: PlaygroundRequest) => {
     request.organization || request.name
   } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤💕
 
-${bold('Message:')} ${request.website || 'None'}
+${underscore(bold(request.title))}
+
+${bold('Website:')} ${request.website || 'None'}
 
 ${bold('Compensation:')} ${
     request.isFree
@@ -200,7 +202,9 @@ ${bold(
   "What's next:"
 )} Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
 
-${codeBlock(request.description)}`;
+${codeBlock(request.description.slice(0, 1500))}${
+    request.description.length > 1500 ? '...' : ''
+  }`;
 };
 
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
