@@ -1,88 +1,92 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames';
 
-interface AccordionEntryProps extends React.PropsWithChildren {
-  headline: string;
-  content: string;
-  expanded?: boolean;
-  design?: string;
+interface AccordionEntry extends React.PropsWithChildren {
+  title: string;
 }
 
-interface AccordionEntry {
-  headline: string;
-  content: string;
-  expanded?: boolean;
+interface AccordionEntryProps {
+  entry: AccordionEntry;
+  onExpandedChange: () => void;
+  design: Required<AccordionProps>['design'];
+  expanded: boolean;
 }
 
-interface AccordionProps extends React.PropsWithChildren {
+interface AccordionProps {
   entries: AccordionEntry[];
-  design?: string;
+  design?: 'dark' | 'light';
 }
 
 const AccordionEntry: React.FC<AccordionEntryProps> = ({
-  headline,
-  content,
-  expanded = false,
+  entry: { title, children },
+  expanded,
   design,
+  onExpandedChange,
 }) => {
-  const [entryState, setEntryState] = useState(expanded);
   return (
     <div className="w-4/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
       <div
         className={classNames(
           'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
-          entryState
+          expanded
             ? 'bg-green'
             : design === 'light'
             ? 'bg-grey-background'
             : 'bg-white'
         )}
-        onClick={() => {
-          setEntryState(!entryState);
-        }}
+        onClick={onExpandedChange}
       >
         <span className="font-serif text-xl font-medium text-black select-none">
-          {headline}
+          {title}
         </span>
-        <FontAwesomeIcon icon={entryState ? faAngleUp : faAngleDown} />
+        <FontAwesomeIcon icon={expanded ? faAngleUp : faAngleDown} />
       </div>
-      {entryState && (
+      {expanded && (
         <div
           className={classNames(
             'p-2.5 px-5 text-black text-left select-none mt-1.5 font-sans text-lg',
             design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
           )}
         >
-          {content}
+          {children}
         </div>
       )}
     </div>
   );
 };
 
-const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
+const Accordion: React.FC<AccordionProps> = ({ entries, design = 'light' }) => {
+  const [expandedEntryIndex, setExpandedEntryIndex] = useState<number | null>(
+    0
+  );
+
+  const onChangeEntryExpanded = useCallback(
+    (index: number) => () => {
+      if (index === expandedEntryIndex) {
+        setExpandedEntryIndex(null);
+      } else {
+        setExpandedEntryIndex(index);
+      }
+    },
+    [expandedEntryIndex]
+  );
+
   const accordionEntries = useMemo(
     () =>
-      entries?.map(
-        (
-          entry: { headline: string; content: string; expanded?: boolean },
-          iter: number
-        ) => {
-          const key = `ae-${iter}`;
-          return (
-            <AccordionEntry
-              key={key}
-              headline={entry.headline}
-              content={entry.content}
-              expanded={entry.expanded}
-              design={design}
-            />
-          );
-        }
-      ),
-    [design, entries]
+      entries.map((entry, i) => {
+        return (
+          <AccordionEntry
+            entry={entry}
+            onExpandedChange={onChangeEntryExpanded(i)}
+            key={`${entry.title}-${i}`}
+            expanded={i === expandedEntryIndex}
+            design={design}
+          />
+        );
+      }),
+    [design, entries, expandedEntryIndex, onChangeEntryExpanded]
   );
 
   if (!entries) {
