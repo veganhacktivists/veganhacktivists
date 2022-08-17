@@ -19,6 +19,8 @@ import { useRef } from 'react';
 
 import { TimePerWeek } from '@prisma/client';
 
+import { PRIORITIES } from '../../../../prisma/constants';
+
 import SignInPrompt from './siginInPrompt';
 
 import { readableTimeSinceDate } from 'lib/helpers/date';
@@ -114,7 +116,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
       </div>
 
       <div className="relative flex flex-col-reverse justify-between gap-10 mb-4 font-mono text-xl text-left md:flex-row">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 leading-6 prose prose-xl">
           <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
           <Field title="Title">
             <h1
@@ -125,7 +127,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans max-w-prose">
+            <div className="font-sans">
               {request.description.split('\n').map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
@@ -137,7 +139,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
-          <Field title="Priority">{request.priority}</Field>
+          <Field title="Priority">{PRIORITIES[request.priority]}</Field>
           <Field title="Due date">{createdAtFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
