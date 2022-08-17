@@ -147,7 +147,8 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </SubtleBorder>
       </div>
       <div className="font-serif italic text-left text-grey-light">
-        <FontAwesomeIcon icon={faClock} /> Posted {timeSinceCreated} ago
+        <FontAwesomeIcon icon={faClock} /> Posted{' '}
+        {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
     </div>
   );
