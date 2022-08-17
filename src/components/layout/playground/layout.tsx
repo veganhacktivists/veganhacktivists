@@ -6,6 +6,8 @@ import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
+import classNames from 'classnames';
+
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
 import submitTagline from '../../../../public/images/playground/getsupport.svg';
@@ -64,7 +66,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
       </div>
       {children}
       <FaqSection
-        design={router.pathname === '/playground/submit' ? 'dark' : undefined}
+        design={router.pathname === '/playground/submit' ? 'dark' : 'light'}
       />
       <SquareField
         className="hidden md:block"
@@ -75,25 +77,31 @@ const PlaygroundLayout: Layout = ({ children }) => {
           { color: '#D9D9D9', size: 14, right: 28, top: 0 },
         ]}
       />
-      <div className="py-10">
-        <div className="mb-8 font-mono text-3xl font-bold capitalize text-grey">
-          Volunteer? Join our community!
-        </div>
-        <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
-          <div className="p-5 space-y-2 bg-grey-background">
-            <div className="w-32 mx-auto">
-              <CustomImage src={discord} alt="Discord logo" />
-            </div>
-            <div className="pt-4 pb-4 text-xl text-grey">
-              Are you a developer, designer, or have other skills to contribute
-              for animals? Join our vegan volunteer Discord community and meet
-              others in Playground!
-            </div>
-            <DarkButton href="/joinplayground">Join</DarkButton>
+      <div
+        className={classNames({
+          dark: router.pathname === '/playground/request/[id]',
+        })}
+      >
+        <div className="py-10 dark:bg-grey">
+          <div className="font-mono text-3xl font-bold capitalize text-grey">
+            Volunteer? Join our community!
           </div>
-          {/* <div>
+          <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
+            <div className={classNames('p-5 space-y-2 bg-grey-background')}>
+              <div className="w-32 mx-auto">
+                <CustomImage src={discord} alt="Discord logo" />
+              </div>
+              <div className="pt-4 pb-4 text-xl text-grey">
+                Are you a developer, designer, or have other skills to
+                contribute for animals? Join our vegan volunteer Discord
+                community and meet others in Playground!
+              </div>
+              <DarkButton href="/joinplayground">Join</DarkButton>
+            </div>
+            {/* <div>
             <Newsletter />
           </div> */}
+          </div>
         </div>
       </div>
     </>
