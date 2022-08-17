@@ -16,12 +16,20 @@ import discord from '../../../../public/images/yearInReview/2021/discord.png';
 
 import SquareField from '../../decoration/squares';
 
+import checkmarkIcon from '../../../../public/images/playground/icons/checkmark.svg';
+import heartIcon from '../../../../public/images/playground/icons/heart.svg';
+import resumeIcon from '../../../../public/images/playground/icons/resume.svg';
+
+import clockIcon from '../../../../public/images/playground/icons/clock.svg';
+
 import FaqSection from './faqSection';
 
 import Hero from 'components/decoration/hero';
 import { DarkButton, OutlineButton } from 'components/decoration/buttons';
 
 import CustomImage from 'components/decoration/customImage';
+
+import { trpc } from 'lib/client/trpc';
 
 import type { Layout } from 'types/persistentLayout';
 
@@ -108,6 +116,60 @@ const PlaygroundLayout: Layout = ({ children }) => {
   );
 };
 
+const PlaygroundStat: React.FC<{
+  label: string;
+  value: number;
+  icon: typeof clockIcon;
+}> = ({ label, icon, value }) => {
+  return (
+    <div className="flex flex-row justify-center gap-3 place-items-center">
+      {/* <div className='mx-auto'> */}
+      <CustomImage src={icon} alt="" />
+      {/* </div> */}
+      <div className="w-1/2 font-mono text-left text-grey">
+        <div className="text-3xl font-bold leading-none">{value}</div>
+        <div className="text-2xl font-light leading-none capitalize">
+          {label}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PlaygroundStats: React.FC = () => {
+  const { data, isSuccess } = trpc.proxy.playground.stats.useQuery(undefined, {
+    staleTime: 10000,
+  });
+  return (
+    <div>
+      {isSuccess && (
+        <div className="flex justify-center mt-10 md:flex-row">
+          <PlaygroundStat
+            label="Requests open"
+            icon={resumeIcon}
+            value={data.requestsOpen}
+          />
+          <PlaygroundStat
+            label="Requests supported"
+            value={data.requestsSupported}
+            icon={checkmarkIcon}
+          />
+          <PlaygroundStat
+            label="Playground volunteers"
+            value={data.numberOfVolunteers}
+            icon={heartIcon}
+          />
+          <PlaygroundStat
+            label="Hours volunteered"
+            value={data.hoursVolunteered}
+            icon={clockIcon}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const PlaygroundLandingLayout: Layout = ({ children }) => {
   const router = useRouter();
   const showRequests = router.pathname === '/playground';
@@ -116,6 +178,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
   return (
     <PlaygroundLayout>
       <div>
+        <PlaygroundStats />
         <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
           <OutlineButton
             capitalize={false}

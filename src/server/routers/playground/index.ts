@@ -1,6 +1,7 @@
 import adminRouter from './admin';
 import requestsRouter from './requests';
 import applicationsRouter from './applications';
+import statsRouter from './stats';
 
 import { t } from 'server/trpc';
 
@@ -9,7 +10,8 @@ const playgroundRouter = t.mergeRouters(
     admin: adminRouter,
   }),
   requestsRouter,
-  applicationsRouter
+  applicationsRouter,
+  statsRouter
 );
 
 export default playgroundRouter;
