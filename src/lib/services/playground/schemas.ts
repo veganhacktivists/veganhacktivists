@@ -68,7 +68,14 @@ const unsafeSubmitRequestSchema = z.object({
   providedEmail: z.string().email(),
   phone: z.string().trim().optional(),
   organization: z.string().trim().optional(),
-  website: z.string().trim().min(1),
+  website: z
+    .string()
+    .trim()
+    .min(1)
+    .refine((url) => !url.includes(' '), {
+      message: "The URL can't contain spaces",
+    })
+    .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
   calendlyUrl: z.string().trim(),
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
