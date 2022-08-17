@@ -126,7 +126,9 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
             Submit a request
           </OutlineButton>
           {status === 'authenticated' && session.user?.role === 'Admin' && (
-            <DarkButton href="/playground/admin">Admin</DarkButton>
+            <DarkButton className="w-full uppercase" href="/playground/admin">
+              Admin
+            </DarkButton>
           )}
         </div>
         {children}
