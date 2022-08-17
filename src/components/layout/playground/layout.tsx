@@ -14,8 +14,6 @@ import discord from '../../../../public/images/yearInReview/2021/discord.png';
 
 import SquareField from '../../decoration/squares';
 
-import AdminCallout from './adminCallout';
-
 import FaqSection from './faqSection';
 
 import Hero from 'components/decoration/hero';
@@ -108,9 +106,6 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
   return (
     <PlaygroundLayout>
       <div>
-        {status === 'authenticated' && session.user?.role === 'Admin' && (
-          <AdminCallout />
-        )}
         <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
           <OutlineButton
             capitalize={false}
@@ -130,6 +125,9 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
           >
             Submit a request
           </OutlineButton>
+          {status === 'authenticated' && session.user?.role === 'Admin' && (
+            <DarkButton href="/playground/admin">Admin</DarkButton>
+          )}
         </div>
         {children}
       </div>
