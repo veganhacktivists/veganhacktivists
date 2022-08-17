@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -28,6 +28,10 @@ const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({
 const ApplicationCard: React.FC<
   React.PropsWithChildren<ApplicationCardProps>
 > = ({ children, application: app }) => {
+  const timeSinceCreated = useMemo(
+    () => readableTimeSinceDate(app.createdAt),
+    [app.createdAt]
+  );
   return (
     <div className="py-5">
       <div>
@@ -36,7 +40,9 @@ const ApplicationCard: React.FC<
           <> &rArr; (logs in as {app.applicant.email})</>
         )}
       </div>
-      <div>Applied {readableTimeSinceDate(app.createdAt)} ago</div>
+      <div>
+        Applied {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
+      </div>
       <div
         className={classNames('font-bold', {
           'text-red': !app.isVegan,
