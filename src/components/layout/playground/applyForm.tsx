@@ -117,10 +117,15 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
         <div className="flex flex-col gap-5">
           <Field title="Title">
-            <h1 className="text-2xl font-bold line-clamp-1">{request.title}</h1>
+            <h1
+              className="text-2xl font-bold line-clamp-1"
+              title={request.title}
+            >
+              {request.title}
+            </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans line-clamp-3">{request.description}</div>
+            <div className="font-sans">{request.description}</div>
           </Field>
           <Field title="Skills required">
             <div>{request.requiredSkills.join(', ')}</div>
