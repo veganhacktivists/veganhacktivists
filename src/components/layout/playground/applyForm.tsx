@@ -175,7 +175,11 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
             target="_blank"
             rel="noreferrer"
             className="font-bold underline hover:text-grey visited:text-grey"
-            href={request.website}
+            href={
+              request.website.match(/^https?:\/\//)
+                ? request.website
+                : `http://${request.website}`
+            }
           >
             {request.website.replace(/^https?:\/\//i, '')}
           </a>
