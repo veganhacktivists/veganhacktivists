@@ -113,7 +113,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         )}
       </div>
 
-      <div className="relative flex flex-row gap-10 mb-4 font-mono text-left justfy-between">
+      <div className="relative flex flex-row justify-between gap-10 mb-4 font-mono text-left">
         <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
         <div className="flex flex-col gap-5">
           <Field title="Title">
