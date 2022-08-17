@@ -182,13 +182,16 @@ const SubmitRequestForm: React.FC = () => {
     [mutateAsync, sessionStatus]
   );
 
-  useOnce(() => {
-    if (router.query.submit !== 'true') return;
-    if (formRef.current) {
-      formRef.current.scrollIntoView();
-    }
-    void handleSubmit(onSubmit)();
-  });
+  useOnce(
+    () => {
+      if (router.query.submit !== 'true') return;
+      if (formRef.current) {
+        formRef.current.scrollIntoView();
+      }
+      void handleSubmit(onSubmit)();
+    },
+    { enabled: router.isReady }
+  );
 
   return (
     <div className="bg-grey-background" id="contact-us">
