@@ -76,7 +76,13 @@ const PlaygroundLayout: Layout = ({ children }) => {
       </div>
       {children}
       <FaqSection
-        design={router.pathname === '/playground/submit' ? 'dark' : 'light'}
+        design={
+          router.pathname === '/playground/submit'
+            ? 'dark'
+            : router.pathname === '/playground'
+            ? undefined
+            : 'light'
+        }
       />
       <SquareField
         className="hidden md:block"
@@ -92,7 +98,11 @@ const PlaygroundLayout: Layout = ({ children }) => {
           dark: router.pathname === '/playground/request/[id]',
         })}
       >
-        <div className="py-10 dark:bg-grey">
+        <div
+          className={classNames('py-10 dark:bg-grey', {
+            // 'bg-grey-background': router.pathname === '/playground',
+          })}
+        >
           <div className="font-mono text-3xl font-bold capitalize text-grey">
             Volunteer? Join our community!
           </div>
