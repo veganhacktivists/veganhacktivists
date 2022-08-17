@@ -106,18 +106,15 @@ const unsafeSubmitRequestSchema = z.object({
     .transform(() => undefined),
 });
 
-export const submitRequestSchema = unsafeSubmitRequestSchema
-  .transform((data) => {
+export const submitRequestSchema = unsafeSubmitRequestSchema.transform(
+  (data) => {
     if (data.isFree) {
       return { ...data, budget: undefined };
     }
 
     return data;
-  })
-  .refine(({ isFree, budget }) => !isFree && budget, {
-    message: 'Cannot have a budget if the request is free',
-    path: ['isFree'],
-  });
+  }
+);
 
 export const submitRequestSchemaClient = unsafeSubmitRequestSchema
   .merge(
@@ -136,12 +133,7 @@ export const submitRequestSchemaClient = unsafeSubmitRequestSchema
     }
 
     return data;
-  })
-  .refine(({ isFree, budget }) => !isFree && budget, {
-    message: 'Cannot have a budget if the request is free',
-    path: ['isFree'],
   });
-
 export const getPendingApplicationsSchema = paginationSchema.optional();
 export const getPendingRequestsSchema = paginationSchema.optional();
 
