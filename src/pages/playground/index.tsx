@@ -39,7 +39,7 @@ const Playground: PageWithLayout = ({}) => {
     <>
       <NextSeo title="Requests" />
       <div>
-        <SectionHeader header={['Open requests', 'for support']}>
+        <SectionHeader header={['Requests', 'for support']}>
           Find volunteer and paid opportunities to support the animal protection
           movement, or if you&apos;re a vegan advocate or organization, submit a
           request of your own!
