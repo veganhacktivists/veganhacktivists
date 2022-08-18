@@ -116,7 +116,9 @@ const PlaygroundLayout: Layout = ({ children }) => {
                 contribute for animals? Join our vegan volunteer Discord
                 community and meet others in Playground!
               </div>
-              <DarkButton href="/joinplayground">Join</DarkButton>
+              <DarkButton newTab href="/joinplayground">
+                Join
+              </DarkButton>
             </div>
             {/* <div>
             <Newsletter />

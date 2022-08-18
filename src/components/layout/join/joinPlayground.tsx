@@ -8,9 +8,9 @@ const JoinPlayground: React.FC = () => {
         squares={[{ size: 16, color: 'gray-light', right: 0, bottom: 0 }]}
         className="hidden md:block"
       />
-      <div className="bg-grey-darker text-white text-xl pt-16 pb-20">
+      <div className="pt-16 pb-20 text-xl text-white bg-grey-darker">
         <div className="mx-auto md:w-1/2">
-          <h2 className="mb-8 text-6xl font-bold font-mono">
+          <h2 className="mb-8 font-mono text-6xl font-bold">
             Attention Developers!
           </h2>
           <div className="text-2xl">
@@ -23,10 +23,11 @@ const JoinPlayground: React.FC = () => {
               projects or your own!
             </p>
           </div>
-          <div className="relative mx-10 md:mx-auto mt-10 md:w-1/3">
+          <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
             <LightButton
-              href="https://veganhacktivists.org/joinplayground"
-              className="font-mono font-semibold mt-10"
+              newTab
+              href="/joinplayground"
+              className="mt-10 font-mono font-semibold"
             >
               Join VH: Playground
             </LightButton>

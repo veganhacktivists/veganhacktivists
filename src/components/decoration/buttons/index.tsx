@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   faInstagram,
   faPatreon,
@@ -34,6 +34,7 @@ export interface ButtonProps
   onClick?: MouseEventHandler;
   type?: 'submit' | 'reset' | 'button';
   capitalize?: boolean;
+  newTab?: boolean;
 }
 
 const baseButtonClasses = classNames(
@@ -61,12 +62,18 @@ const BaseButton: React.FC<ButtonProps> = ({
   linkProps,
   capitalize = true,
   className = '',
-  'aria-label': ariaLabel,
+  newTab = false,
   ...props
 }) => {
   const classes = classNames(className, 'block', { capitalize });
 
   const isExternal = isExternalLink(props.href);
+
+  const openInNewTab = useMemo(
+    () => newTab || linkProps?.target || isExternal,
+    [isExternal, linkProps?.target, newTab]
+  );
+
   return (
     <>
       {props.href ? (
@@ -74,20 +81,14 @@ const BaseButton: React.FC<ButtonProps> = ({
           <a
             {...(props as AnchorHTMLAttributes<unknown>)}
             className={classes}
-            target={linkProps?.target || isExternal ? '_blank' : undefined}
-            rel={linkProps?.rel || isExternal ? 'noreferrer' : undefined}
-            aria-label={ariaLabel}
+            target={openInNewTab ? '_blank' : undefined}
+            rel={openInNewTab ? 'noreferrer' : undefined}
           >
             {children}
           </a>
         </Link>
       ) : (
-        <button
-          type="button"
-          {...props}
-          className={classes}
-          aria-label={ariaLabel}
-        >
+        <button type="button" {...props} className={classes}>
           {children}
         </button>
       )}
