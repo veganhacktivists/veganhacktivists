@@ -99,7 +99,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
         })}
       >
         <div
-          className={classNames('mb-10 mt-5 py-10 dark:bg-grey', {
+          className={classNames('pb-10 pt-5 py-10 dark:bg-grey', {
             // 'bg-grey-background': router.pathname === '/playground',
           })}
         >
