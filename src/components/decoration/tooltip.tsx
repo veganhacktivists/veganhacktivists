@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import {
   offset,
@@ -39,7 +39,6 @@ const Tooltip: React.FC<TooltipProps> = ({
     floating,
     strategy,
     middlewareData: { arrow: { x: arrowX, y: arrowY, centerOffset = 0 } = {} },
-    update,
     placement: floatingPlacement,
     context,
   } = useFloating({
@@ -57,19 +56,15 @@ const Tooltip: React.FC<TooltipProps> = ({
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useClick(context, { enabled: true, toggle: true }),
+    useClick(context, { toggle: true }),
     useDismiss(context),
   ]);
-
-  useLayoutEffect(() => {
-    update();
-  }, [content, isActive, update]);
 
   return (
     <>
       <span
         {...getReferenceProps({ ref: reference })}
-        className="cursor-pointer relative"
+        className="relative cursor-pointer"
       >
         {children}
       </span>
@@ -77,7 +72,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         <div
           {...getFloatingProps({
             className:
-              'relative drop-shadow-md w-fit break-words font-normal p-2 text-xs text-grey bg-white',
+              'drop-shadow-md w-fit break-words font-normal p-2 text-xs text-grey bg-white',
             ref: floating,
             style: {
               position: strategy,

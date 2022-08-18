@@ -244,32 +244,28 @@ const SubmitRequestForm: React.FC = () => {
           error={errors.website?.message}
         />
         <TextInput
+          showRequiredMark
           placeholder="Calendly"
           className="col-span-full"
           {...myRegister('calendlyUrl')}
           error={errors.calendlyUrl?.message}
         >
-          <div className="flex gap-2">
-            Link to your Calendly
-            <ToolTip
-              placement="top-end"
-              content={
-                <p>
-                  <CustomLink
-                    href="https://calendly.com/"
-                    className="text-green"
-                  >
-                    Calendly
-                  </CustomLink>
-                  &nbsp;is your hub for scheduling meetings professionally and
-                  efficiently, eliminating the hassle of back-and-forth emails
-                  so you can get back to work.
-                </p>
-              }
-            >
-              <sup>?</sup>
-            </ToolTip>
-          </div>
+          Link to your Calendly
+          <ToolTip
+            placement="top-end"
+            content={
+              <p>
+                <CustomLink href="https://calendly.com/" className="text-green">
+                  Calendly
+                </CustomLink>
+                &nbsp;is your hub for scheduling meetings professionally and
+                efficiently, eliminating the hassle of back-and-forth emails so
+                you can get back to work.
+              </p>
+            }
+          >
+            <sup className="ml-1">?</sup>
+          </ToolTip>
         </TextInput>
 
         <div className="text-xl col-span-full">Request Information</div>

@@ -76,7 +76,7 @@ const unsafeSubmitRequestSchema = z.object({
       message: "The URL can't contain spaces",
     })
     .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
-  calendlyUrl: z.string().trim(),
+  calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
   priority: z.number().int().nonnegative().max(3),
