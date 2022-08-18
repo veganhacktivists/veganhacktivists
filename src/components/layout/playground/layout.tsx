@@ -99,15 +99,15 @@ const PlaygroundLayout: Layout = ({ children }) => {
         })}
       >
         <div
-          className={classNames('py-10 dark:bg-grey', {
+          className={classNames('mb-10 mt-5 py-10 dark:bg-grey', {
             // 'bg-grey-background': router.pathname === '/playground',
           })}
         >
-          <div className="font-mono text-3xl font-bold capitalize text-grey">
+          <div className="mb-8 font-mono text-3xl font-bold capitalize text-grey">
             Volunteer? Join our community!
           </div>
           <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
-            <div className={classNames('p-5 space-y-2 bg-grey-background')}>
+            <div className={classNames('pt-8 pb-8 p-5 space-y-2 bg-grey-background')}>
               <div className="w-32 mx-auto">
                 <CustomImage src={discord} alt="Discord logo" />
               </div>
@@ -136,7 +136,7 @@ const PlaygroundStat: React.FC<{
   icon: typeof clockIcon;
 }> = ({ label, icon, value }) => {
   return (
-    <div className="flex flex-col justify-center gap-3 lg:flex-row place-items-center">
+    <div className="flex flex-col justify-center gap-5 lg:flex-row place-items-center">
       {/* <div className='mx-auto'> */}
       <CustomImage src={icon} alt="" />
       {/* </div> */}
@@ -159,7 +159,7 @@ const PlaygroundStats: React.FC = () => {
   });
   return (
     <div>
-      <div className="flex flex-col justify-center mt-16 lg:flex-row gap-y-5">
+      <div className="flex flex-col justify-center mt-16 mb-16 lg:flex-row gap-y-5">
         <PlaygroundStat
           label="Requests opened"
           icon={resumeIcon}

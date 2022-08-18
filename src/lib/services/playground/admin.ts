@@ -171,7 +171,7 @@ Thank you so much everyone for helping the animals, and for using Playground.
         html: `Thanks so much for submitting your request to support with Playground!
 <br />
 <br />
-Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone with qualifications that were more relevant to this request was chosen, or they had more time to contribute.
+Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.
 <br />
 <br />
 To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
@@ -201,7 +201,7 @@ const requestMessage = (request: PlaygroundRequest) => {
 
   return `${
     request.organization || request.name
-  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤💕
+  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤 💕
 
 ${underscore(bold(request.title))}
 
@@ -362,7 +362,7 @@ Thank you so much!`,
         html: `Thanks so much for submitting your request to Playground!
 <br />
 <br />
-Unfortunately your request did not meet the relevant or quality standards needed to go live. This can be for various reasons such as not being vegan, being for-profit, or just not enough details were submitted.
+Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.
 <br />
 <br />
 If you have any specific questions, or believe this was a mistake, feel free to contact us here.

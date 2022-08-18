@@ -72,13 +72,13 @@ const Playground: PageWithLayout = ({}) => {
             <h2 className="text-2xl font-bold">Need support?</h2>
           </div>
 
-          <div className="px-10 mx-auto text-xl md:w-1/2">
+          <div className="pb-4 pt-4 px-10 mx-auto text-xl md:w-1/2">
             If you are a vegan individual or organization that needs help with
             your work in helping the animals, you can apply for free support
             from Playground!
           </div>
           <LightButton href="/playground/submit" className="mx-auto w-fit">
-            Submit you request
+            Submit your request
           </LightButton>
         </div>
       </div>
