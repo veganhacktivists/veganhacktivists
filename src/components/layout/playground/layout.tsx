@@ -103,10 +103,10 @@ const PlaygroundLayout: Layout = ({ children }) => {
             // 'bg-grey-background': router.pathname === '/playground',
           })}
         >
-          <div className="mb-8 font-mono text-3xl font-bold capitalize text-grey">
+          <div className="mb-8 mt-10 font-mono text-3xl font-bold capitalize text-grey">
             Volunteer? Join our community!
           </div>
-          <div className="flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
+          <div className="mb-8 flex flex-col justify-center gap-5 mx-auto md:flex-row md:w-2/3 lg:w-1/2">
             <div
               className={classNames(
                 'pt-8 pb-8 p-5 space-y-2 bg-grey-background'
