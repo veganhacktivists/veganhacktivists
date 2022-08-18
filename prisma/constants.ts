@@ -21,7 +21,7 @@ export const CATEGORY_DESCRIPTION: Record<PlaygroundRequestCategory, string> = {
   Editor: 'videos, producing, editing, animator, sound, etc',
   Researcher: 'conducting studies, writing reports, etc',
   Translator: 'translating content, videos, websites, etc',
-  Marketer: 'promotions, advertising, campaigns, etc',
+  Marketer: 'promotions, advertising, campaigns, seo, etc',
   Social: 'managing social accounts on insta, twit, etc',
   DataScientist: 'analyzing data, finding patterns, graphs, etc',
   Security: 'penetration tests, consulting, code reviews, etc',
