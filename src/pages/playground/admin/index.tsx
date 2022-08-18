@@ -37,6 +37,12 @@ const AdminPage: NextPage = ({}) => {
         >
           See applications
         </DarkButton>
+        <LightButton
+          href="/auth/signout"
+          className="m-10 mx-auto w-fit"
+        >
+          Logout
+        </LightButton>
         <div className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40">
           {data.map((request) => (
             <div key={request.id}>
