@@ -117,7 +117,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
                 community and meet others in Playground!
               </div>
               <DarkButton newTab href="/joinplayground">
-                Join
+                Join us on Discord
               </DarkButton>
             </div>
             {/* <div>
