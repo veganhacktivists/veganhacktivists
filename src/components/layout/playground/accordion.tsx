@@ -10,7 +10,7 @@ interface AccordionEntry extends React.PropsWithChildren {
 interface AccordionEntryProps {
   entry: AccordionEntry;
   onExpandedChange: () => void;
-  design: Required<AccordionProps>['design'];
+  design: AccordionProps['design'];
   expanded: boolean;
 }
 
@@ -25,16 +25,22 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   design,
   onExpandedChange,
 }) => {
+  const bgColorClass = useMemo(() => {
+    switch (design) {
+      case 'light':
+        return 'bg-grey-background';
+      case 'dark':
+        return 'bg-white';
+      default:
+        return 'bg-white';
+    }
+  }, [design]);
   return (
     <div className="w-4/6 sm:w-4/7 mt-1.5 first-of-type:mt-0">
       <div
         className={classNames(
           'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
-          expanded
-            ? 'bg-green'
-            : design === 'light'
-            ? 'bg-grey-background'
-            : 'bg-white'
+          expanded ? 'bg-green' : bgColorClass
         )}
         onClick={onExpandedChange}
       >
@@ -57,7 +63,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   );
 };
 
-const Accordion: React.FC<AccordionProps> = ({ entries, design = 'light' }) => {
+const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
   const [expandedEntryIndex, setExpandedEntryIndex] = useState<number | null>(
     0
   );
