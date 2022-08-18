@@ -107,7 +107,7 @@ export const setApplicationStatus = ({
             ['LinkedIn', updatedApplication.linkedinUrl],
             ['Message', updatedApplication.moreInfo],
           ] as [string, string | null][]
-        ).filter(([, value]) => value !== null) as [string, string][]
+        ).filter(([, value]) => !!value) as [string, string][]
       )
         .map(([name, value]) => `<b>${name}:</b> ${value}`)
         .join('<br />');
