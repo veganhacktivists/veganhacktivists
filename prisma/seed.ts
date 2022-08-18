@@ -118,6 +118,7 @@ const seedApplications = async (n: number = NUMBER) => {
 };
 
 const cleanup = async () => {
+  await prisma.discordMessage.deleteMany();
   await prisma.playgroundApplication.deleteMany();
   await prisma.playgroundRequest.deleteMany();
   await prisma.user.deleteMany({
