@@ -39,7 +39,6 @@ import { trpc } from 'lib/client/trpc';
 import type { RefCallback } from 'react';
 
 import type { AppRouter } from 'server/routers/_app';
-import type { inferMutationInput } from 'lib/client/trpc';
 
 import type { z } from 'zod';
 
@@ -173,7 +172,7 @@ const SubmitRequestForm: React.FC = () => {
     });
 
   const onSubmit = useCallback(
-    (values: inferMutationInput<'playground.submitRequest'>) => {
+    (values: trpc['playground']['submitRequest']['input']) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {

@@ -6,10 +6,10 @@ import { TimePerWeekLabel } from './applyForm';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
-import type { inferQueryOutput } from 'lib/client/trpc';
+import type { trpc } from 'lib/client/trpc';
 
 interface ApplicationCardProps {
-  application: inferQueryOutput<'playground.admin.requestsWithPendingApplications'>[0]['applications'][0];
+  application: trpc['playground']['admin']['requestsWithPendingApplications']['output'][number]['applications'][number];
 }
 
 const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({

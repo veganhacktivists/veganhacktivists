@@ -11,12 +11,11 @@ import { pixelHeart } from 'images/separators';
 import { LightButton } from 'components/decoration/buttons';
 import SquareField from 'components/decoration/squares';
 
-import type { inferQueryInput } from 'lib/client/trpc';
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
   const [filters, setFilters] = useState<
-    inferQueryInput<'playground.requests'>
+    trpc['playground']['requests']['input']
   >(() => ({
     sort: {
       createdAt: 'desc',

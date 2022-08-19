@@ -98,11 +98,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
           dark: router.pathname === '/playground/request/[id]',
         })}
       >
-        <div
-          className={classNames('pb-10 pt-5 py-10 dark:bg-grey', {
-            // 'bg-grey-background': router.pathname === '/playground',
-          })}
-        >
+        <div className="py-10 pt-5 pb-10 dark:bg-grey">
           <div className="mt-10 mb-8 font-mono text-3xl font-bold capitalize text-grey">
             Volunteer? Join our community!
           </div>
@@ -159,7 +155,7 @@ const PlaygroundStat: React.FC<{
 const PlaygroundStats: React.FC = () => {
   const { data } = trpc.proxy.playground.stats.useQuery(undefined, {
     staleTime: 10000,
-    ssr: false,
+    trpc: { ssr: false },
   });
   return (
     <div>
@@ -197,32 +193,35 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
   return (
     <PlaygroundLayout>
       <div>
-        <PlaygroundStats />
-        <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
-          <OutlineButton
-            capitalize={false}
-            className="w-full uppercase"
-            active={showRequests}
-            href="/playground"
-            linkProps={{ scroll: false }}
-          >
-            View requests
-          </OutlineButton>
-          <OutlineButton
-            capitalize={false}
-            className="w-full uppercase"
-            active={!showRequests}
-            href="/playground/submit"
-            linkProps={{ scroll: false }}
-          >
-            Submit a request
-          </OutlineButton>
-          {status === 'authenticated' && session.user?.role === 'Admin' && (
-            <DarkButton className="w-full uppercase" href="/playground/admin">
-              Admin
-            </DarkButton>
-          )}
+        <div className="py-2 mb-36 bg-grey-background">
+          <PlaygroundStats />
+          <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
+            <OutlineButton
+              capitalize={false}
+              className="w-full uppercase"
+              active={showRequests}
+              href="/playground"
+              linkProps={{ scroll: false }}
+            >
+              View requests
+            </OutlineButton>
+            <OutlineButton
+              capitalize={false}
+              className="w-full uppercase"
+              active={!showRequests}
+              href="/playground/submit"
+              linkProps={{ scroll: false }}
+            >
+              Submit a request
+            </OutlineButton>
+            {status === 'authenticated' && session.user?.role === 'Admin' && (
+              <DarkButton className="w-full uppercase" href="/playground/admin">
+                Admin
+              </DarkButton>
+            )}
+          </div>
         </div>
+
         {children}
       </div>
     </PlaygroundLayout>

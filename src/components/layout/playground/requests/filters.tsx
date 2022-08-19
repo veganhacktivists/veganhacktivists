@@ -7,9 +7,9 @@ import { CATEGORY_LABELS } from '../../../../../prisma/constants';
 import RadioButton from 'components/forms/inputs/radioButton';
 import Checkbox from 'components/forms/inputs/checkbox';
 
-import type { inferQueryInput } from 'lib/client/trpc';
+import type { trpc } from 'lib/client/trpc';
 
-type Filters = inferQueryInput<'playground.requests'>;
+type Filters = trpc['playground']['requests']['input'];
 
 type FiltersWithoutSort = Omit<Filters, 'sort'>;
 interface RequestFiltersProps {

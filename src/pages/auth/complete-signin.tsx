@@ -12,8 +12,6 @@ import { updateUserSchema } from 'lib/services/users/schemas';
 
 import { trpc } from 'lib/client/trpc';
 
-import type { inferMutationInput } from 'lib/client/trpc';
-
 const resolver = zodResolver(updateUserSchema);
 
 const CompleteSignin: React.FC = ({}) => {
@@ -25,7 +23,7 @@ const CompleteSignin: React.FC = ({}) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<inferMutationInput<'users.updateMe'>>({
+  } = useForm<trpc['users']['updateMe']['input']>({
     resolver,
   });
 
@@ -40,7 +38,7 @@ const CompleteSignin: React.FC = ({}) => {
     });
 
   const onSubmit = useCallback(
-    (values: inferMutationInput<'users.updateMe'>) => updateUser(values),
+    (values: trpc['users']['updateMe']['input']) => updateUser(values),
     [updateUser]
   );
 

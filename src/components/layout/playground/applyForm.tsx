@@ -50,9 +50,6 @@ import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 
 import type { AppRouter } from 'server/routers/_app';
-
-import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
-
 import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
@@ -76,7 +73,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: inferQueryOutput<'playground.request'>;
+  request: trpc['playground']['request']['output'];
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
@@ -218,7 +215,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     reset,
     control,
     watch,
-  } = useForm<inferMutationInput<'playground.apply'>>({
+  } = useForm<trpc['playground']['apply']['input']>({
     defaultValues: {
       ...storedForm,
       hasAppliedInThePast: request.userAlreadyApplied,
@@ -290,17 +287,16 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     }
   );
 
-  const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
-    ['playground.apply'],
-    {
+  const { mutateAsync, isLoading, isSuccess } =
+    trpc.proxy.playground.apply.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();
       },
-    }
-  );
+    });
+
   const onSubmit = useCallback(
-    (values: inferMutationInput<'playground.apply'>) => {
+    (values: trpc['playground']['apply']['input']) => {
       if (sessionStatus !== 'authenticated') {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });
