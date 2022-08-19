@@ -19,8 +19,6 @@ import { useRef } from 'react';
 
 import { TimePerWeek } from '@prisma/client';
 
-import { PRIORITIES } from '../../../../prisma/constants';
-
 import SignInPrompt from './siginInPrompt';
 
 import ConfirmationModal from './confirmationModal';
@@ -141,7 +139,6 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
-          <Field title="Priority">{PRIORITIES[request.priority]}</Field>
           <Field title="Due date">{createdAtFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS

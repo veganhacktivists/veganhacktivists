@@ -69,17 +69,17 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
             </>
           </div>
           <div>
-            <div className="mt-2 mb-2 font-bold">Priority</div>
+            <div className="mt-2 mb-2 font-bold">Due date</div>
             <>
               <RadioButton
-                onChange={() => onChangeSort('priority', 'desc')}
-                checked={filters.sort?.priority === 'desc'}
-                label="High to low"
+                onChange={() => onChangeSort('dueDate', 'desc')}
+                checked={filters.sort?.dueDate === 'desc'}
+                label="Early first"
               />
               <RadioButton
-                onChange={() => onChangeSort('priority', 'asc')}
-                checked={filters.sort?.priority === 'asc'}
-                label="Low to high"
+                onChange={() => onChangeSort('dueDate', 'asc')}
+                checked={filters.sort?.dueDate === 'asc'}
+                label="Late first"
               />
             </>
           </div>
