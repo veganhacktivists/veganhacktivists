@@ -16,12 +16,18 @@ import useDeviceDetect from '../../../hooks/useDeviceDetect';
 
 import { FillBackground } from './utils';
 
-import type { MouseEventHandler, AnchorHTMLAttributes, Ref } from 'react';
+import type {
+  MouseEventHandler,
+  AnchorHTMLAttributes,
+  Ref,
+  HTMLAttributes,
+} from 'react';
 import type { LinkProps } from 'next/link';
 import type ShareInfo from '../../layout/shareDialog/shareInfo';
 
 export interface ButtonProps
   extends React.RefAttributes<HTMLElement>,
+    HTMLAttributes<HTMLElement>,
     React.PropsWithChildren {
   primary?: boolean;
   href?: LinkProps['href'];
