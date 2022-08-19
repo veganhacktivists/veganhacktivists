@@ -34,6 +34,9 @@ export const getPendingApplications = async (
     include: {
       request: true,
     },
+    orderBy: {
+      createdAt: 'asc',
+    },
   });
 
   return applications;
@@ -54,6 +57,9 @@ export const getPendingRequests = async (
           name: true,
         },
       },
+    },
+    orderBy: {
+      createdAt: 'asc',
     },
   });
 
