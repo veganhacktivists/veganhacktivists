@@ -27,12 +27,3 @@ export const CATEGORY_DESCRIPTION: Record<PlaygroundRequestCategory, string> = {
   Security: 'penetration tests, consulting, code reviews, etc',
   Other: 'anything else, please pick this category',
 };
-
-export const PRIORITIES = ['Low', 'Medium', 'High', 'Urgent'] as const;
-
-export const PRIORITIES_CLASSES = [
-  { label: 'Low', className: 'bg-green' },
-  { label: 'Medium', className: 'bg-yellow-orange' },
-  { label: 'High', className: 'bg-orange' },
-  { label: 'Urgent', className: 'bg-red' },
-];

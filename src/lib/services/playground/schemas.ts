@@ -20,7 +20,7 @@ const filterSchema = z.object({
 });
 
 const sortSchema = z.object({
-  priority: z.enum(['asc', 'desc']).optional(),
+  dueDate: z.enum(['asc', 'desc']).optional(),
   createdAt: z.enum(['asc', 'desc']).optional(),
 });
 
@@ -79,7 +79,6 @@ const unsafeSubmitRequestSchema = z.object({
   calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
   title: z.string().trim().min(1),
   category: z.nativeEnum(PlaygroundRequestCategory),
-  priority: z.number().int().nonnegative().max(3),
   // Transform the string of skills separated by a comma in an array of strings
   requiredSkills: z
     .string()

@@ -5,10 +5,7 @@ import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import {
-  CATEGORY_LABELS,
-  PRIORITIES_CLASSES,
-} from '../../../../../prisma/constants';
+import { CATEGORY_LABELS } from '../../../../../prisma/constants';
 
 import { DarkButton } from 'components/decoration/buttons';
 
@@ -63,7 +60,6 @@ const PlaygroundRequestCard: React.FC<
   request: {
     id,
     title,
-    priority: priorityNumber,
     description,
     requester,
     createdAt,
@@ -79,10 +75,6 @@ const PlaygroundRequestCard: React.FC<
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
-  const priority = useMemo(
-    () => PRIORITIES_CLASSES[priorityNumber],
-    [priorityNumber]
-  );
 
   return (
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
@@ -118,17 +110,6 @@ const PlaygroundRequestCard: React.FC<
           <span>
             <span className="font-bold">{requester.name}</span>{' '}
             {!!organization && <>({organization})</>}
-          </span>
-        </Li>
-        <Li category={category}>
-          <span className="font-bold">Priority:</span>{' '}
-          <span
-            className={classNames(
-              priority.className,
-              'rounded-lg px-2 py-0.5 bg-opacity-75'
-            )}
-          >
-            {priority.label}
           </span>
         </Li>
         <Li category={category} className="col-span-full">

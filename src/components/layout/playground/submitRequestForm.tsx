@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import React, { useCallback, useRef, useState } from 'react';
+
+import React, { useCallback, useState, useEffect } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -22,12 +23,9 @@ import CustomLink from '../../decoration/link';
 
 import useOnce from '../../../hooks/useOnce';
 
-import RadioButton from '../../forms/inputs/radioButton';
-
 import {
   CATEGORY_DESCRIPTION,
   CATEGORY_LABELS,
-  PRIORITIES,
 } from '../../../../prisma/constants';
 
 import SignInPrompt from './siginInPrompt';
@@ -37,6 +35,8 @@ import ConfirmationModal from './confirmationModal';
 import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
+
+import type { RefCallback } from 'react';
 
 import type { AppRouter } from 'server/routers/_app';
 import type { inferMutationInput } from 'lib/client/trpc';
@@ -51,6 +51,11 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
     CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
   })`,
 }));
+
+const IS_FREE_OPTIONS = [
+  { label: 'Volunteer', value: true },
+  { label: 'Paid', value: false },
+];
 
 type FormInput = z.infer<typeof submitRequestSchemaClient>;
 
@@ -71,12 +76,15 @@ const SubmitRequestForm: React.FC = () => {
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
+  const [submitButtonRef, setSubminButtonRef] = useState<HTMLElement | null>(
+    null
+  );
   const router = useRouter();
 
   const {
     control,
-    formState: { errors },
+    formState: { errors, isSubmitted, isSubmitting },
     handleSubmit,
     register,
     reset,
@@ -85,7 +93,7 @@ const SubmitRequestForm: React.FC = () => {
   } = useForm<FormInput>({
     defaultValues: {
       ...storedForm,
-      budget: storedForm.isFree ? undefined : storedForm.budget,
+      budget: storedForm.isFree ? 0 : storedForm.budget,
     },
     resolver: zodResolver(submitRequestSchemaClient),
   });
@@ -111,7 +119,7 @@ const SubmitRequestForm: React.FC = () => {
     [onChangeValue, register]
   );
 
-  const { data: lastSubmittedRequest, isLoading: isLastRequestLoading } =
+  const { data: lastSubmittedRequest, isSuccess: isLastRequestSuccess } =
     trpc.proxy.playground.lastRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
       refetchOnMount: false,
@@ -121,27 +129,28 @@ const SubmitRequestForm: React.FC = () => {
       retry: false,
     });
 
-  const userDataFilled = useOnce(
+  useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
+        setFormData({ name });
       }
       if (email && !watch('providedEmail')) {
         setValue('providedEmail', email);
+        setFormData({ providedEmail: email });
       }
     },
     {
       enabled:
-        !isLastRequestLoading &&
         sessionStatus === 'authenticated' &&
         router.isReady &&
         router.query.submit !== 'true',
     }
   );
 
-  useOnce(
+  const filledDataFromStorage = useOnce(
     () => {
       if (!lastSubmittedRequest) return;
       Object.entries(lastSubmittedRequest).forEach(([key, value]) => {
@@ -152,7 +161,7 @@ const SubmitRequestForm: React.FC = () => {
         }
       });
     },
-    { enabled: userDataFilled && !isLastRequestLoading }
+    { enabled: isLastRequestSuccess }
   );
 
   const { mutateAsync, isLoading, isSuccess } =
@@ -167,11 +176,17 @@ const SubmitRequestForm: React.FC = () => {
     (values: inferMutationInput<'playground.submitRequest'>) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
+        reset(undefined, {
+          keepValues: true,
+        });
         return;
       } else if (sessionStatus === 'loading') {
-        return;
+        reset(undefined, {
+          keepValues: true,
+        });
       }
-      void toast.promise(mutateAsync(values), {
+
+      return toast.promise(mutateAsync(values), {
         pending: 'Submitting...',
         success: 'Your request has been submitted!',
         error: {
@@ -181,26 +196,56 @@ const SubmitRequestForm: React.FC = () => {
         },
       });
     },
-    [mutateAsync, sessionStatus]
+    [mutateAsync, reset, sessionStatus]
   );
 
-  useOnce(
-    () => {
-      if (router.query.submit !== 'true') return;
-      if (formRef.current) {
-        formRef.current.scrollIntoView();
-      }
-      void handleSubmit(onSubmit)();
-    },
-    { enabled: router.isReady }
+  useEffect(() => {
+    if (
+      !router.isReady ||
+      !formRef ||
+      !submitButtonRef ||
+      router.query.submit !== 'true' ||
+      isSubmitted ||
+      isSubmitting ||
+      !filledDataFromStorage
+    ) {
+      return;
+    }
+
+    formRef.scrollIntoView({
+      block: 'end',
+    });
+
+    void handleSubmit(onSubmit)();
+  }, [
+    formRef,
+    submitButtonRef,
+    handleSubmit,
+    isSubmitted,
+    isSubmitting,
+    onSubmit,
+    router.isReady,
+    router.query.submit,
+    filledDataFromStorage,
+  ]);
+
+  const isFree = watch('isFree');
+
+  const [isBudgetHidden, setIsBudgetHidden] = useState<boolean | undefined>(
+    undefined
   );
+
+  useEffect(() => {
+    setIsBudgetHidden(isFree === true);
+  }, [isFree]);
 
   return (
     <div className="bg-grey-background" id="contact-us">
       <form
+        ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-5 py-10 mx-10 text-left md:px-10 xl:px-40 md:grid-cols-2"
+        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left md:grid-cols-2 md:max-w-3xl"
       >
         <div className="text-xl col-span-full">Personal Information</div>
         <TextInput
@@ -292,8 +337,6 @@ const SubmitRequestForm: React.FC = () => {
                 current={CATEGORIES.find((c) => c.value === current) || null}
                 error={errors.category?.message}
                 options={CATEGORIES}
-                showError
-                {...myRegister('category')}
                 onChange={(option) => {
                   onChange(option?.value || null);
                   setFormData({
@@ -304,36 +347,8 @@ const SubmitRequestForm: React.FC = () => {
             )}
           />
         </div>
-        <div className="w-full">
-          <Label name="priority" showRequiredMark />
-          <Controller
-            name="priority"
-            control={control}
-            rules={{ required: 'Please select a priority of the request' }}
-            render={({ field: { value, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  isNaN(value) ? null : { value, label: PRIORITIES[value] }
-                }
-                error={errors.priority?.message}
-                options={PRIORITIES.map((priority, i) => ({
-                  value: i,
-                  label: priority,
-                }))}
-                showError
-                {...myRegister('priority', { valueAsNumber: true })}
-                onChange={(e) => {
-                  const value = e?.value;
-                  onChange(isNaN(value as number) ? null : value);
-                  setFormData({ priority: value as number });
-                }}
-              />
-            )}
-          />
-        </div>
         <TextInput
-          className="w-full"
+          className="w-full col-span-full"
           placeholder="Communication, ..."
           {...myRegister('requiredSkills', {
             required: 'Please select the skills required for the request',
@@ -349,31 +364,25 @@ const SubmitRequestForm: React.FC = () => {
         </TextInput>
         <div className="w-full ">
           <Label name="isFree" showRequiredMark>
-            Free or Paid?
+            Volunteer or Paid?
           </Label>
           <Controller
             control={control}
             name="isFree"
-            render={({ field: { value, onChange } }) => (
-              <div className="sm:flex sm:flex-row sm:gap-20 sm:mb-2 sm:mt-3">
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ isFree: true, budget: undefined });
-                    onChange(true);
-                    setValue('budget', undefined);
-                  }}
-                  checked={value === true}
-                  label="Free"
-                />
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ isFree: false });
-                    onChange(false);
-                  }}
-                  checked={value === false}
-                  label="Paid"
-                />
-              </div>
+            render={({ field: { value, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                error={errors.isFree?.message}
+                current={IS_FREE_OPTIONS.find((c) => c.value === value) || null}
+                onChange={(option) => {
+                  const value = (option?.value as boolean) ?? null;
+                  onChange(value);
+                  setFormData({
+                    isFree: value,
+                  });
+                }}
+                options={IS_FREE_OPTIONS}
+              />
             )}
           />
           {errors.isFree?.message && (
@@ -381,23 +390,22 @@ const SubmitRequestForm: React.FC = () => {
           )}
         </div>
 
-        {!watch('isFree') && (
-          <TextInput
-            className="w-full"
-            placeholder="Budget"
-            type="number"
-            inputMode="numeric"
-            step={50}
-            min={0}
-            showRequiredMark
-            {...myRegister('budget', { valueAsNumber: true })}
-            error={errors.budget?.message}
-          >
-            Budget?
-          </TextInput>
-        )}
+        <TextInput
+          hidden={isBudgetHidden}
+          className="w-full"
+          placeholder="Budget"
+          type="number"
+          inputMode="numeric"
+          step={50}
+          min={0}
+          showRequiredMark
+          {...myRegister('budget', { valueAsNumber: true })}
+          error={errors.budget?.message}
+        >
+          Budget?
+        </TextInput>
         <TextArea
-          placeholder="Describe your issue"
+          placeholder="Please describe the task and be as detailed as possible. The more detail your request has, the easier it is for both the volunteer and for us!"
           showRequiredMark
           error={errors.description?.message}
           {...myRegister('description', {
@@ -458,6 +466,7 @@ const SubmitRequestForm: React.FC = () => {
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
         <DarkButton
+          ref={setSubminButtonRef}
           className="mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
           type="submit"
