@@ -252,6 +252,7 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
   const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
+  const rVeganChannelId = process.env.DISCORD_R_VEGAN_CHANNEL_ID!;
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
 
@@ -265,19 +266,29 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
       throw new Error('Failed to send Playground message', { cause: err });
     });
 
-    const araMessage = await sendDiscordMessage(
-      araChannelId,
-      `Hi everyone! ${requestMessage(request)}
-
+    const rVeganAraMessageText = `Hi everyone! ${requestMessage(request)}
 ${bold(
   'Note:'
-)} Please only apply if you're 18+, minors are not currently allowed - sorry!        `
+)} Please only apply if you're 18+, minors are not currently allowed - sorry!`;
+
+    const araMessage = await sendDiscordMessage(
+      araChannelId,
+      rVeganAraMessageText
     ).catch(async (err) => {
       await playgroundMessage.delete();
       throw new Error('Failed to send ARA message', { cause: err });
     });
 
-    return [playgroundMessage, araMessage];
+    const rVeganMessage = await sendDiscordMessage(
+      rVeganChannelId,
+      rVeganAraMessageText
+    ).catch(async (err) => {
+      await playgroundMessage.delete();
+      await araMessage.delete();
+      throw new Error('Failed to send r/Vegan message', { cause: err });
+    });
+
+    return [playgroundMessage, araMessage, rVeganMessage];
   });
 };
 
