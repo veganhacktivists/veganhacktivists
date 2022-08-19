@@ -31,7 +31,7 @@ export const getDiscordChannel = async (id: string) =>
   client.channels.cache.get(id) || (await client.channels.fetch(id));
 
 export const getDiscordServer = async (id: string) =>
-  client.guilds.cache.get(id) || (await client.guilds.fetch(id));
+  await client.guilds.fetch({ guild: id, withCounts: true });
 
 export const sendDiscordMessage = async (
   channelId: string,
