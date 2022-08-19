@@ -36,7 +36,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <div className={className}>
         <div className="flex gap-5">
           {labelPosition === 'left' && (
-            <div className="w-fit">
+            <div className="mt-2 w-fit">
               <Label name={props.name || ''}>{children}</Label>
             </div>
           )}
@@ -48,7 +48,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             className={classNames(
               inputClassNames,
               {
-                'h-4 w-4 before:text-sm': size === 'small',
+                'md:h-4 md:w-4 before:text-sm h-6 w-6': size === 'small',
                 'h-6 w-6': size === 'medium',
                 'h-8 w-8 before:text-lg': size === 'large',
               },
@@ -62,8 +62,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
           />
           {labelPosition === 'right' && (
-            <div className="w-fit">
-              <Label name={props.name || ''}>{children}</Label>
+            <div className="truncate w-fit">
+              <Label className="mb-0" name={props.name || ''}>
+                {children}
+              </Label>
             </div>
           )}
         </div>

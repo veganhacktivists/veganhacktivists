@@ -90,7 +90,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
           <div>
             <div className="mt-2 mb-2 font-bold">Category</div>
-            <div className="grid justify-start grid-flow-col grid-rows-6 sm:grid-rows-4 md:grid-rows-3 gap-x-4">
+            <div className="grid justify-start grid-flow-col grid-rows-6 sm:grid-rows-4 md:grid-rows-3 gap-x-4 gap-y-2">
               {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
                 <div key={key} className="w-fit">
                   <Checkbox
@@ -129,7 +129,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
 
           <div>
             <div className="mt-2 mb-2 font-bold">Type</div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-y-2">
               <Checkbox
                 name="jobTypeVolunteer"
                 onChange={() => {
