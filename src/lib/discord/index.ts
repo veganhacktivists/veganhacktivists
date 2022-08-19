@@ -27,14 +27,17 @@ client.on('ready', () => {
   console.info('Discord client ready!');
 });
 
-const getChannel = async (id: string) =>
+export const getDiscordChannel = async (id: string) =>
   client.channels.cache.get(id) || (await client.channels.fetch(id));
+
+export const getDiscordServer = async (id: string) =>
+  client.guilds.cache.get(id) || (await client.guilds.fetch(id));
 
 export const sendDiscordMessage = async (
   channelId: string,
   message: string
 ) => {
-  const channel = await getChannel(channelId);
+  const channel = await getDiscordChannel(channelId);
 
   if (!channel || channel.type !== ChannelType.GuildText) {
     throw new Error(
@@ -44,15 +47,17 @@ export const sendDiscordMessage = async (
   return await channel.send(message);
 };
 
-export const withDiscordClient = async <T>(callback: () => Promise<T> | T) =>
+const withDiscordClient = async <T>(
+  callback: (client: Client) => Promise<T> | T
+) =>
   new Promise<T>(async (resolve) => {
     if (!client.isReady()) {
       (client as Client<false>).on('ready', async () => {
-        resolve(await callback());
+        resolve(await callback(client));
       });
     }
 
-    resolve(await callback());
+    resolve(await callback(client));
   });
 
 export class DiscordSendMessagesError extends Error {
@@ -73,4 +78,4 @@ export class DiscordSendMessagesError extends Error {
   }
 }
 
-export default client;
+export default withDiscordClient;

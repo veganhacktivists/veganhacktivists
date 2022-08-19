@@ -4,10 +4,9 @@ import { TRPCError } from '@trpc/server';
 import { bold, codeBlock, roleMention, underscore } from 'discord.js';
 
 import prisma from 'lib/db/prisma';
-import {
+import withDiscordClient, {
   ROLE_ID_BY_CATEGORY,
   sendDiscordMessage,
-  withDiscordClient,
 } from 'lib/discord';
 
 import emailClient, { OUR_EMAIL } from 'lib/mail';

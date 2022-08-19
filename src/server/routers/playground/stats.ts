@@ -2,6 +2,8 @@ import { Status } from '@prisma/client';
 
 import { t } from 'server/trpc';
 
+import withDiscordClient, { getDiscordServer } from 'lib/discord';
+
 import type { TimePerWeek } from '@prisma/client';
 
 const averageWeeklyHoursPerValue: Record<TimePerWeek, number> = {
@@ -26,10 +28,11 @@ const statsRouter = t.router({
             },
           },
         }),
-        prisma.user.count({
-          where: {
-            playgroundApplications: { some: {} },
-          },
+        withDiscordClient(async () => {
+          const playgroundServer = await getDiscordServer(
+            process.env.DISCORD_PLAYGROUND_SERVER_ID!
+          );
+          return playgroundServer.approximateMemberCount;
         }),
       ]);
 
