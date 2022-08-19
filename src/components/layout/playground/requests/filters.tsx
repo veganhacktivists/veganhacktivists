@@ -74,12 +74,12 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
               <RadioButton
                 onChange={() => onChangeSort('dueDate', 'desc')}
                 checked={filters.sort?.dueDate === 'desc'}
-                label="Early first"
+                label="Most recent first"
               />
               <RadioButton
                 onChange={() => onChangeSort('dueDate', 'asc')}
                 checked={filters.sort?.dueDate === 'asc'}
-                label="Late first"
+                label="Latest first"
               />
             </>
           </div>

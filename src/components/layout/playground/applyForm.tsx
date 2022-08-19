@@ -23,7 +23,7 @@ import SignInPrompt from './siginInPrompt';
 
 import ConfirmationModal from './confirmationModal';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
+import { readableTimeDiff } from 'lib/helpers/date';
 
 import { DarkButton } from 'components/decoration/buttons';
 
@@ -84,7 +84,7 @@ interface RequestProps {
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   const timeSinceCreated = useMemo(() => {
     if (!request) return null;
-    return readableTimeSinceDate(request.createdAt);
+    return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
   const createdAtFormatted = useMemo(() => {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { TimePerWeekLabel } from './applyForm';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
+import { readableTimeDiff } from 'lib/helpers/date';
 
 import type { inferQueryOutput } from 'lib/client/trpc';
 
@@ -28,8 +28,8 @@ const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({
 const ApplicationCard: React.FC<
   React.PropsWithChildren<ApplicationCardProps>
 > = ({ children, application: app }) => {
-  const timeSinceCreated = useMemo(
-    () => readableTimeSinceDate(app.createdAt),
+  const [timeSinceCreated] = useMemo(
+    () => readableTimeDiff(app.createdAt),
     [app.createdAt]
   );
   return (

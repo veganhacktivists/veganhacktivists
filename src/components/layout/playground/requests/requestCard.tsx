@@ -11,7 +11,7 @@ import { DarkButton } from 'components/decoration/buttons';
 
 import getThemeColor from 'lib/helpers/theme';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
+import { readableTimeDiff } from 'lib/helpers/date';
 
 import type { inferQueryOutput } from 'lib/client/trpc';
 
@@ -66,12 +66,18 @@ const PlaygroundRequestCard: React.FC<
     category,
     organization,
     isFree,
+    dueDate,
   },
   children,
 }) => {
-  const timeSinceCreated = useMemo(
-    () => readableTimeSinceDate(createdAt),
+  const [timeSinceCreated] = useMemo(
+    () => readableTimeDiff(createdAt),
     [createdAt]
+  );
+
+  const [timeUntilDue, isDue] = useMemo(
+    () => readableTimeDiff(dueDate),
+    [dueDate]
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
@@ -110,6 +116,15 @@ const PlaygroundRequestCard: React.FC<
           <span>
             <span className="font-bold">{requester.name}</span>{' '}
             {!!organization && <>({organization})</>}
+          </span>
+        </Li>
+        <Li category={category} className="col-span-full">
+          <span className="font-bold">
+            {timeUntilDue
+              ? isDue
+                ? `Was due ${timeUntilDue} ago`
+                : `Due in ${timeUntilDue}`
+              : 'Due today'}
           </span>
         </Li>
         <Li category={category} className="col-span-full">
