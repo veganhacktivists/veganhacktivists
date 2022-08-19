@@ -21,7 +21,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'jest.config.js'],
   rules: {
     'prettier/prettier': ['error'],
     'react/button-has-type': ['error'],
@@ -108,4 +108,14 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      env: {
+        'jest/globals': true,
+      },
+      files: ['__test__/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/all'],
+    },
+  ],
 };
