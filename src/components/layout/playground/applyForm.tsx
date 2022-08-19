@@ -15,8 +15,6 @@ import { toast } from 'react-toastify';
 
 import { useRouter } from 'next/router';
 
-import { useRef } from 'react';
-
 import { TimePerWeek } from '@prisma/client';
 
 import SignInPrompt from './siginInPrompt';
@@ -209,7 +207,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
   const router = useRouter();
 
   const {
@@ -251,21 +249,23 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
   const shouldSubmit = router.query.submit === 'true';
 
-  const { data: lastApplication, isLoading: isLastApplicationLoading } =
+  const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
     trpc.proxy.playground.lastApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
 
-  const userDataFilled = useOnce(
+  useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
+        setFormData({ name });
       }
 
       if (email && !watch('providedEmail')) {
         setValue('providedEmail', email);
+        setFormData({ providedEmail: email });
       }
     },
     {
@@ -273,7 +273,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         sessionStatus === 'authenticated' && !shouldSubmit && router.isReady,
     }
   );
-  useOnce(
+
+  const storedDataFilled = useOnce(
     () => {
       if (!lastApplication) return;
       Object.entries(lastApplication).forEach(([key, value]) => {
@@ -285,7 +286,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       });
     },
     {
-      enabled: userDataFilled && !isLastApplicationLoading,
+      enabled: isLastApplicationSuccess,
     }
   );
 
@@ -300,12 +301,12 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
   const onSubmit = useCallback(
     (values: inferMutationInput<'playground.apply'>) => {
-      if (sessionStatus === 'unauthenticated') {
-        setIsSignInModalOpen(true);
-        return;
-      } else if (sessionStatus === 'loading') {
+      if (sessionStatus !== 'authenticated') {
+        if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
+        reset(undefined, { keepValues: true });
         return;
       }
+
       void toast.promise(mutateAsync(values), {
         pending: 'Submitting...',
         success: 'Your application has been submitted!',
@@ -316,24 +317,21 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         },
       });
     },
-    [mutateAsync, sessionStatus]
+    [mutateAsync, reset, sessionStatus]
   );
 
   useOnce(
     () => {
-      if (router.query.submit !== 'true') return;
-      if (formRef.current) {
-        formRef.current.scrollIntoView();
-      }
+      formRef!.scrollIntoView({ block: 'end' });
       void handleSubmit(onSubmit)();
     },
-    { enabled: router.isReady && userDataFilled }
+    { enabled: router.isReady && !!formRef && storedDataFilled && shouldSubmit }
   );
 
   return (
     <>
       <form
-        ref={formRef}
+        ref={setFormRef}
         onSubmit={handleSubmit(onSubmit)}
         className="grid max-w-3xl grid-cols-1 gap-5 mx-auto text-left align-bottom lg:pr-10 md:grid-cols-6"
       >
