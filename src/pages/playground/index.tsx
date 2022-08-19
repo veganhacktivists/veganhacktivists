@@ -15,7 +15,7 @@ import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
   const [filters, setFilters] = useState<
-    trpc['playground']['requests']['input']
+    trpc['playground']['getAllRequests']['input']
   >(() => ({
     sort: {
       createdAt: 'desc',
@@ -29,9 +29,12 @@ const Playground: PageWithLayout = ({}) => {
     return { sort, ...otherFilters };
   }, [filters]);
 
-  const { data: requests } = trpc.proxy.playground.requests.useQuery(params, {
-    keepPreviousData: true,
-  });
+  const { data: requests } = trpc.proxy.playground.getAllRequests.useQuery(
+    params,
+    {
+      keepPreviousData: true,
+    }
+  );
 
   return (
     <>

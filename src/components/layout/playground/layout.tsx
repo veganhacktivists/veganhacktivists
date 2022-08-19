@@ -153,10 +153,13 @@ const PlaygroundStat: React.FC<{
 };
 
 const PlaygroundStats: React.FC = () => {
-  const { data } = trpc.proxy.playground.stats.useQuery(undefined, {
-    staleTime: 10000,
-    trpc: { ssr: false },
-  });
+  const { data } = trpc.proxy.playground.getPlaygroundStats.useQuery(
+    undefined,
+    {
+      staleTime: 10000,
+      trpc: { ssr: false },
+    }
+  );
   return (
     <div>
       <div className="flex flex-col justify-center mt-16 mb-16 lg:flex-row gap-y-5">

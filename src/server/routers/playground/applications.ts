@@ -14,7 +14,7 @@ const applicationsRouter = t.router({
         applicantId: user.id,
       });
     }),
-  lastApplication: protectedProcedure.query(
+  getLastUserApplication: protectedProcedure.query(
     async ({ ctx: { user, prisma } }) => {
       const application = await prisma.playgroundApplication.findFirst({
         where: {

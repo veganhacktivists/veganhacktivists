@@ -14,12 +14,12 @@ import { protectedProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 
 const requestsRouter = t.router({
-  requests: t.procedure
+  getAllRequests: t.procedure
     .input(getPlaygroundRequestsSchema)
     .query(async ({ input }) => {
       return await getPlaygroundRequests(input);
     }),
-  request: t.procedure
+  getRequest: t.procedure
     .input(getRequestByIdSchema)
     .query(({ input, ctx: { user } }) => {
       try {
@@ -40,30 +40,32 @@ const requestsRouter = t.router({
         requesterId: ctx.user.id,
       });
     }),
-  lastRequest: protectedProcedure.query(async ({ ctx: { user, prisma } }) => {
-    const request = await prisma.playgroundRequest.findFirst({
-      where: {
-        requesterId: user.id,
-      },
-      select: {
-        name: true,
-        organization: true,
-        calendlyUrl: true,
-        phone: true,
-        providedEmail: true,
-        website: true,
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+  getLastUserRequest: protectedProcedure.query(
+    async ({ ctx: { user, prisma } }) => {
+      const request = await prisma.playgroundRequest.findFirst({
+        where: {
+          requesterId: user.id,
+        },
+        select: {
+          name: true,
+          organization: true,
+          calendlyUrl: true,
+          phone: true,
+          providedEmail: true,
+          website: true,
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+      });
 
-    if (!request) {
-      throw new TRPCError({ code: 'NOT_FOUND' });
+      if (!request) {
+        throw new TRPCError({ code: 'NOT_FOUND' });
+      }
+
+      return request;
     }
-
-    return request;
-  }),
+  ),
 });
 
 export default requestsRouter;

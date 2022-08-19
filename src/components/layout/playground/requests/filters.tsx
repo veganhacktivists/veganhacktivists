@@ -9,7 +9,7 @@ import Checkbox from 'components/forms/inputs/checkbox';
 
 import type { trpc } from 'lib/client/trpc';
 
-type Filters = trpc['playground']['requests']['input'];
+type Filters = trpc['playground']['getAllRequests']['input'];
 
 type FiltersWithoutSort = Omit<Filters, 'sort'>;
 interface RequestFiltersProps {

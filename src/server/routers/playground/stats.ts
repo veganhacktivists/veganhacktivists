@@ -14,7 +14,7 @@ const averageWeeklyHoursPerValue: Record<TimePerWeek, number> = {
 };
 
 const statsRouter = t.router({
-  stats: t.procedure.query(async ({ ctx: { prisma } }) => {
+  getPlaygroundStats: t.procedure.query(async ({ ctx: { prisma } }) => {
     const [requestsOpen, requestsSupported, numberOfVolunteers] =
       await Promise.all([
         prisma.playgroundRequest.count(),

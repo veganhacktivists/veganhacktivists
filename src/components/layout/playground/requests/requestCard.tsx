@@ -19,7 +19,7 @@ import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: trpc['playground']['requests']['output'][number];
+  request: trpc['playground']['getAllRequests']['output'][number];
 }
 
 const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {

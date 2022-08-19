@@ -119,7 +119,7 @@ const SubmitRequestForm: React.FC = () => {
   );
 
   const { data: lastSubmittedRequest, isSuccess: isLastRequestSuccess } =
-    trpc.proxy.playground.lastRequest.useQuery(undefined, {
+    trpc.proxy.playground.getLastUserRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
       refetchOnMount: false,
       refetchOnReconnect: false,

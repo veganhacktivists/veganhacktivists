@@ -39,7 +39,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
     { enabled: router.isReady }
   );
 
-  const { data: request, status } = trpc.proxy.playground.request.useQuery(
+  const { data: request, status } = trpc.proxy.playground.getRequest.useQuery(
     router.query.id as string,
     {
       onError: () => {

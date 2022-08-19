@@ -73,7 +73,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: trpc['playground']['request']['output'];
+  request: trpc['playground']['getRequest']['output'];
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
@@ -247,7 +247,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const shouldSubmit = router.query.submit === 'true';
 
   const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
-    trpc.proxy.playground.lastApplication.useQuery(undefined, {
+    trpc.proxy.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
 
