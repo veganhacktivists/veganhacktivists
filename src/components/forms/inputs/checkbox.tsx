@@ -34,12 +34,19 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     return (
       <div className={className}>
-        <div className="flex gap-5">
-          {labelPosition === 'left' && (
-            <div className="mt-2 w-fit">
-              <Label name={props.name || ''}>{children}</Label>
-            </div>
+        <div
+          className={classNames(
+            'flex gap-5',
+            labelPosition === 'right'
+              ? 'flex-row-reverse justify-end'
+              : 'flex-row justify-start'
           )}
+        >
+          <div className="w-fit">
+            <Label className="mt-2" name={props.name || ''}>
+              {children}
+            </Label>
+          </div>
           <input
             onChange={(e) => {
               onChange?.(e.target.checked);
@@ -47,6 +54,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             ref={ref}
             className={classNames(
               inputClassNames,
+              'flex-shrink-0',
               {
                 'md:h-4 md:w-4 before:text-sm h-6 w-6': size === 'small',
                 'h-6 w-6': size === 'medium',
@@ -61,13 +69,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             id={props.id || props.name}
             type="checkbox"
           />
-          {labelPosition === 'right' && (
-            <div className="truncate w-fit">
-              <Label className="mb-0" name={props.name || ''}>
-                {children}
-              </Label>
-            </div>
-          )}
         </div>
         <div className="text-left">{description}</div>
         {error && <div className="text-red">⚠ {error}</div>}

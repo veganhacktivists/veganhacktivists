@@ -547,7 +547,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           ) : (
             'Submit'
           )}
-          {/* Apply */}
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="application" />
