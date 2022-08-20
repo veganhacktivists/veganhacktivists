@@ -62,6 +62,15 @@ export const getRequestById = async (
       where: {
         id,
         status: user?.role === 'Admin' ? undefined : Status.Accepted,
+        applications: {
+          ...(user?.role === 'Admin'
+            ? {}
+            : {
+                none: {
+                  status: Status.Accepted,
+                },
+              }),
+        },
       },
       include: {
         requester: {
