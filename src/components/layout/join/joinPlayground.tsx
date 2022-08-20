@@ -26,7 +26,7 @@ const JoinPlayground: React.FC = () => {
           <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
             <LightButton
               newTab
-              href="/joinplayground"
+              href="https://discord.gg/vhplayground"
               className="mt-10 font-mono font-semibold"
             >
               Join VH: Playground

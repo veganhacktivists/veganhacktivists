@@ -311,13 +311,13 @@ exports[`should render correctly 1`] = `
         class="relative mx-10 md:mx-auto mt-10 md:w-1/3"
       >
         <a
-          href="https://veganhacktivists.org/joinplayground"
+          href="https://discord.gg/vhplayground"
           rel="noreferrer"
           target="_blank"
         >
           <div
             class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold font-mono font-semibold mt-10 transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
-            href="https://veganhacktivists.org/joinplayground"
+            href="https://discord.gg/vhplayground"
             style="background-size: 250% 100%; background-position: right;"
           >
             Join VH: Playground

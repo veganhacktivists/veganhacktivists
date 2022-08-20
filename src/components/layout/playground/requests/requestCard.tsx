@@ -86,7 +86,7 @@ const PlaygroundRequestCard: React.FC<
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
       <div className="space-y-1">
         <h3
-          className="mb-2 font-mono text-lg font-bold capitalize line-clamp-1"
+          className="mb-2 font-mono text-2xl font-bold capitalize line-clamp-1"
           title={title}
         >
           {title}
