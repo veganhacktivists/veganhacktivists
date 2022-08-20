@@ -58,7 +58,7 @@ export const getRequestById = async (
   user?: Session['user']
 ) => {
   const [request, previousUserApplicationCount] = await Promise.all([
-    prisma.playgroundRequest.findFirstOrThrow({
+    prisma.playgroundRequest.findFirst({
       where: {
         id,
         status: user?.role === 'Admin' ? undefined : Status.Accepted,
@@ -85,6 +85,10 @@ export const getRequestById = async (
       where: { requestId: id, applicantId: user?.id },
     }),
   ]);
+
+  if (!request) {
+    throw new TRPCError({ code: 'NOT_FOUND' });
+  }
 
   const userAlreadyApplied = user ? previousUserApplicationCount !== 0 : false;
 

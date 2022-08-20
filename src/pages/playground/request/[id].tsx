@@ -42,6 +42,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
   const { data: request, status } = trpc.proxy.playground.getRequest.useQuery(
     router.query.id as string,
     {
+      retry: 1,
       onError: () => {
         toast.error('The request could not be found');
         void router.push('/playground', undefined, { shallow: true });
