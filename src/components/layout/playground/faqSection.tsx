@@ -102,8 +102,8 @@ const faqEntries = [
         <p>
           Playground was designed with the aim to increase the capacity in which
           we can help you and others by leveraging our massive network of vegan
-          communities to find volunteers for you. We have thousands of volunteers,
-          so give us a try!
+          communities to find volunteers for you. We have thousands of
+          volunteers, so give us a try!
         </p>
       </>
     ),
