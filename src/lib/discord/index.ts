@@ -30,16 +30,25 @@ client.on('ready', () => {
 export const getDiscordChannel = async (id: string) =>
   client.channels.cache.get(id) || (await client.channels.fetch(id));
 
-export const getDiscordServer = async (id: string) =>
-  await client.guilds.fetch({ guild: id, withCounts: true });
+export const getDiscordServer = async (id: string) => {
+  if (!id) {
+    throw new Error('No server ID provided');
+  }
+  return await client.guilds.fetch({ guild: id, withCounts: true });
+};
 
-export const sendDiscordMessage = async (
-  channelId: string,
-  message: string
-) => {
+export const sendDiscordMessage = async ({
+  channelId,
+  message,
+}: {
+  channelId?: string;
+  message: string;
+}) => {
   if (!channelId) {
     throw new Error(
-      `Error sending discord message. ChannelId is required, got '${channelId}'`
+      `Error sending discord message. ChannelId is required, got ${
+        channelId === undefined ? 'undefined' : `'${channelId}'`
+      }`
     );
   }
   const channel = await getDiscordChannel(channelId);

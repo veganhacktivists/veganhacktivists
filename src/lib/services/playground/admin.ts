@@ -228,42 +228,42 @@ ${codeBlock(description)}`;
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
   switch (request.category) {
     case PlaygroundRequestCategory.Developer:
-      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID;
     case PlaygroundRequestCategory.Designer:
-      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID;
     case PlaygroundRequestCategory.Writer:
-      return process.env.DISCORD_PLAYGROUND_WRITER_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_WRITER_CHANNEL_ID;
     case PlaygroundRequestCategory.Editor:
-      return process.env.DISCORD_PLAYGROUND_EDITOR_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_EDITOR_CHANNEL_ID;
     case PlaygroundRequestCategory.Researcher:
-      return process.env.DISCORD_PLAYGROUND_RESEARCH_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_RESEARCH_CHANNEL_ID;
     case PlaygroundRequestCategory.Marketer:
-      return process.env.DISCORD_PLAYGROUND_MARKETER_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_MARKETER_CHANNEL_ID;
     case PlaygroundRequestCategory.Social:
-      return process.env.DISCORD_PLAYGROUND_SOCIAL_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_SOCIAL_CHANNEL_ID;
     case PlaygroundRequestCategory.DataScientist:
-      return process.env.DISCORD_PLAYGROUND_DATA_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_DATA_CHANNEL_ID;
     case PlaygroundRequestCategory.Security:
-      return process.env.DISCORD_PLAYGROUND_SECURITY_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_SECURITY_CHANNEL_ID;
     default:
-      return process.env.DISCORD_PLAYGROUND_OTHER_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_OTHER_CHANNEL_ID;
   }
 };
 
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
-  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
-  const rVeganChannelId = process.env.DISCORD_R_VEGAN_CHANNEL_ID!;
+  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID;
+  const rVeganChannelId = process.env.DISCORD_R_VEGAN_CHANNEL_ID;
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
 
   return await withDiscordClient(async () => {
-    const playgroundMessage = await sendDiscordMessage(
-      playgroundChannelId,
-      `Hi ${
+    const playgroundMessage = await sendDiscordMessage({
+      channelId: playgroundChannelId,
+      message: `Hi ${
         roleToMention ? roleMention(roleToMention) : 'everyone'
-      }! ${requestMessage(request)}`
-    ).catch((err) => {
+      }! ${requestMessage(request)}`,
+    }).catch((err) => {
       throw new Error('Failed to send Playground message', { cause: err });
     });
 
@@ -272,18 +272,18 @@ ${bold(
   'Note:'
 )} Please only apply if you're 18+, minors are not currently allowed - sorry!`;
 
-    const araMessage = await sendDiscordMessage(
-      araChannelId,
-      rVeganAraMessageText
-    ).catch(async (err) => {
+    const araMessage = await sendDiscordMessage({
+      channelId: araChannelId,
+      message: rVeganAraMessageText,
+    }).catch(async (err) => {
       await playgroundMessage.delete();
       throw new Error('Failed to send ARA message', { cause: err });
     });
 
-    const rVeganMessage = await sendDiscordMessage(
-      rVeganChannelId,
-      rVeganAraMessageText
-    ).catch(async (err) => {
+    const rVeganMessage = await sendDiscordMessage({
+      channelId: rVeganChannelId,
+      message: rVeganAraMessageText,
+    }).catch(async (err) => {
       await playgroundMessage.delete();
       await araMessage.delete();
       throw new Error('Failed to send r/Vegan message', { cause: err });

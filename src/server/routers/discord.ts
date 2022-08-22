@@ -13,7 +13,7 @@ const discordRouter = t.router({
   sendMessage: adminProcedure
     .input(schema)
     .mutation(async ({ input: { channelId, message } }) => {
-      await withDiscordClient(() => sendDiscordMessage(channelId, message));
+      await withDiscordClient(() => sendDiscordMessage({ channelId, message }));
     }),
 });
 
