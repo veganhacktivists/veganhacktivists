@@ -37,22 +37,32 @@ const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
 };
 
 const Li: React.FC<
-  HTMLAttributes<HTMLLIElement> & { category: PlaygroundRequestCategory }
-> = ({ children, className, category, ...props }) => (
-  <li
-    {...props}
-    className={classNames(
-      'flex flex-row gap-2 justify-start items-center',
-      className
-    )}
-  >
-    <span
-      style={{ backgroundColor: CATEGORY_COLORS[category] }}
-      className="w-1.5 h-1.5 my-auto aspect-square"
-    />
-    <span className="my-auto truncate h-min">{children}</span>
-  </li>
-);
+  HTMLAttributes<HTMLLIElement> & {
+    category: PlaygroundRequestCategory;
+    name: string;
+  }
+> = ({ name, children, className, category, ...props }) => {
+  if (!children) {
+    return null;
+  }
+  return (
+    <li
+      {...props}
+      className={classNames(
+        'max-w-fit flex flex-row gap-2 justify-start items-center',
+        className
+      )}
+    >
+      <span
+        style={{ backgroundColor: CATEGORY_COLORS[category] }}
+        className="w-1.5 h-1.5 my-auto aspect-square"
+      />
+      <span className="my-auto truncate h-min">
+        <b>{name}:</b> {children}
+      </span>
+    </li>
+  );
+};
 
 const PlaygroundRequestCard: React.FC<
   React.PropsWithChildren<PlaygroundRequestCardProps>
@@ -111,26 +121,35 @@ const PlaygroundRequestCard: React.FC<
       </div>
 
       <div className="mt-4 mb-4 line-clamp-5">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-2 mb-2 gap-x-1">
-        <Li category={category} title={requester.name || undefined}>
-          <span>
-            <span className="font-bold">{requester.name}</span>{' '}
-            {!!organization && <>({organization})</>}
-          </span>
+      <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
+        <Li
+          name="Requestor"
+          category={category}
+          title={requester.name || undefined}
+        >
+          {requester.name}
         </Li>
-        <Li category={category} className="col-span-full">
-          <span className="font-bold">
-            {timeUntilDue
+        <Li name="Due in" category={category}>
+          {timeUntilDue}
+          {/* {timeUntilDue
               ? isDue
                 ? `Was due ${timeUntilDue} ago`
                 : `Due in ${timeUntilDue}`
-              : 'Due today'}
-          </span>
+              : 'Due today'} */}
         </Li>
-        <Li category={category} className="col-span-full">
-          <span className="font-bold">
-            {isFree ? 'Volunteer' : 'Paid'} role
-          </span>
+        <Li
+          name="Organization"
+          title={organization || undefined}
+          category={category}
+        >
+          {organization}
+        </Li>
+        <Li
+          name="Compensation"
+          title={`${isFree ? 'Volunteer' : 'Paid'} role`}
+          category={category}
+        >
+          {isFree ? 'Volunteer' : 'Paid'} role
         </Li>
       </ul>
       <DarkButton

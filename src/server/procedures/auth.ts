@@ -15,6 +15,7 @@ export const protectedProcedure = t.procedure.use(
     });
   })
 );
+
 export const adminProcedure = protectedProcedure.use(
   t.middleware(async ({ ctx, next }) => {
     if (ctx.user?.role !== 'Admin') {
