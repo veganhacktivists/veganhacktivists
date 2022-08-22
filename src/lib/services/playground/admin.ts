@@ -226,10 +226,6 @@ ${codeBlock(description)}`;
 };
 
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
-  if (!request.isFree) {
-    return process.env.DISCORD_PLAYGROUND_PAID_CHANNEL_ID!;
-  }
-
   switch (request.category) {
     case PlaygroundRequestCategory.Developer:
       return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;

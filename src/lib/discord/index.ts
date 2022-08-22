@@ -37,8 +37,12 @@ export const sendDiscordMessage = async (
   channelId: string,
   message: string
 ) => {
+  if (!channelId) {
+    throw new Error(
+      `Error sending discord message. ChannelId is required, got '${channelId}'`
+    );
+  }
   const channel = await getDiscordChannel(channelId);
-
   if (!channel || channel.type !== ChannelType.GuildText) {
     throw new Error(
       `Channel ${channelId} not found or is not a a valid text channel`
