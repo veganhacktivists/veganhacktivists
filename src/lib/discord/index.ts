@@ -34,7 +34,10 @@ export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
   }
-  return await client.guilds.fetch({ guild: id, withCounts: true });
+  return (
+    client.guilds.cache.get(id) ||
+    (await client.guilds.fetch({ guild: id, withCounts: true }))
+  );
 };
 
 export const sendDiscordMessage = async ({
