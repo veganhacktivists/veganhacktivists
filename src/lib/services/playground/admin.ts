@@ -1,7 +1,9 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
-import { bold, codeBlock, roleMention, underscore } from 'discord.js';
+import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
+
+import { CATEGORY_COLORS } from '../../../../prisma/constants';
 
 import prisma from 'lib/db/prisma';
 import withDiscordClient, { sendDiscordMessage } from 'lib/discord';
@@ -191,8 +193,8 @@ Thank you so much for considering VH: Playground for your activism!`,
     return updatedApplication;
   });
 
-const requestMessage = (request: PlaygroundRequest) => {
-  const DESCRIPTION_CHAR_LIMIT = 1200;
+const getMessageDescription = (request: PlaygroundRequest) => {
+  const DESCRIPTION_CHAR_LIMIT = 3000;
 
   const truncatedDescription = request.description.slice(
     0,
@@ -205,21 +207,7 @@ const requestMessage = (request: PlaygroundRequest) => {
 
   return `${
     request.organization || request.name
-  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤 💕
-
-${underscore(bold(request.title))}
-
-${bold('Website:')} ${request.website || 'None'}
-
-${bold('Compensation:')} ${
-    request.isFree
-      ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
-      : 'Paid'
-  }
-
-${bold(
-  "What's next:"
-)} Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
+  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤
 
 ${codeBlock(description)}`;
 };
@@ -255,27 +243,73 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
+  const correctedWebsite = /https?:\/\//.test(request.website)
+    ? request.website
+    : `http://${request.website}`;
 
   return await withDiscordClient(async () => {
+    const basicEmbed = new EmbedBuilder()
+      .setColor(CATEGORY_COLORS[request.category])
+      .setURL(`https://veganhacktivists.org/request/${request.id}`)
+      .setTitle(request.title)
+      .setAuthor({
+        name: 'VH Playground Bot',
+        url: 'https://veganhacktivists.org/playground',
+        iconURL:
+          'https://veganhacktivists.org/images/playground/VH_Playground_Avatar_Circle.png',
+      })
+      .setDescription(getMessageDescription(request))
+      .setImage(
+        'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png'
+      )
+      .addFields([
+        {
+          name: 'Website',
+          value: hyperlink(request.website, correctedWebsite),
+        },
+        {
+          name: 'Compensation',
+          value: request.isFree
+            ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
+            : 'Paid',
+        },
+        {
+          name: "What's next?",
+          value: `Read the request, if interested, apply on the Playground website to be introduced 👉 ${hyperlink(
+            'Click here!',
+            `https://veganhacktivists.org/playground/request/${request.id}`
+          )}`,
+        },
+      ])
+      .setFooter({
+        text: "Note: Please only apply if you're 18+, minors are not currently allowed - sorry!",
+      })
+      .toJSON();
+
     const playgroundMessage = await sendDiscordMessage({
       channelId: playgroundChannelId,
-      message: `Hi ${
-        roleToMention ? roleMention(roleToMention) : 'everyone'
-      }! ${requestMessage(request)}`,
+      embeds: [
+        new EmbedBuilder(basicEmbed)
+          .setDescription(
+            `Hi ${roleToMention ? roleMention(roleToMention) : 'everyone'}! ${
+              basicEmbed.description || ''
+            }`
+          )
+          .toJSON(),
+      ],
     }).catch((err) => {
       throw new Error('Failed to send Playground message', { cause: err });
     });
-
-    const genericMessageText = `Hi everyone! ${requestMessage(request)}
-${bold(
-  'Note:'
-)} Please only apply if you're 18+, minors are not currently allowed - sorry!`;
 
     const sentMessages = [playgroundMessage];
     for await (const channelId of DISCORD_CHANNEL_IDS) {
       const message = await sendDiscordMessage({
         channelId,
-        message: genericMessageText,
+        embeds: [
+          new EmbedBuilder(basicEmbed)
+            .setDescription(`Hi everyone! ${basicEmbed.description || ''}`)
+            .toJSON(),
+        ],
       }).catch((err) => {
         sentMessages.forEach((message) => message.delete());
         throw new Error(`Failed to send message to ${channelId} channel`, {

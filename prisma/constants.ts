@@ -1,4 +1,23 @@
+import getThemeColor from 'lib/helpers/theme';
+
 import type { PlaygroundRequestCategory } from '@prisma/client';
+
+export const CATEGORY_COLORS: Record<
+  PlaygroundRequestCategory,
+  ReturnType<typeof getThemeColor>
+> = {
+  Designer: getThemeColor('magenta'),
+  Developer: getThemeColor('blue'), //TODO
+  DataScientist: getThemeColor('green'),
+  Editor: getThemeColor('orange'),
+  Marketer: getThemeColor('red'),
+  Researcher: getThemeColor('orange'),
+  Security: getThemeColor('purple'),
+  Social: getThemeColor('yellow-orange'),
+  Translator: getThemeColor('brown'),
+  Writer: getThemeColor('gray'),
+  Other: getThemeColor('grey-light'),
+};
 
 export const CATEGORY_LABELS: Record<PlaygroundRequestCategory, string> = {
   Developer: 'Developer',

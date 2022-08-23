@@ -5,11 +5,12 @@ import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { CATEGORY_LABELS } from '../../../../../prisma/constants';
+import {
+  CATEGORY_COLORS,
+  CATEGORY_LABELS,
+} from '../../../../../prisma/constants';
 
 import { DarkButton } from 'components/decoration/buttons';
-
-import getThemeColor from 'lib/helpers/theme';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
@@ -21,20 +22,6 @@ import type { HTMLAttributes } from 'react';
 interface PlaygroundRequestCardProps {
   request: trpc['playground']['getAllRequests']['output'][number];
 }
-
-const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
-  Designer: getThemeColor('magenta'),
-  Developer: getThemeColor('blue'), //TODO
-  DataScientist: getThemeColor('green'),
-  Editor: getThemeColor('orange'),
-  Marketer: getThemeColor('red'),
-  Researcher: getThemeColor('orange'),
-  Security: getThemeColor('purple'),
-  Social: getThemeColor('yellow-orange'),
-  Translator: getThemeColor('brown'),
-  Writer: getThemeColor('gray'),
-  Other: getThemeColor('grey-light'),
-};
 
 const Li: React.FC<
   HTMLAttributes<HTMLLIElement> & {
