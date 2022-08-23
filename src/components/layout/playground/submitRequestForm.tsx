@@ -128,7 +128,7 @@ const SubmitRequestForm: React.FC = () => {
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       staleTime: Infinity,
-      retry: false,
+      retry: 1,
     });
 
   useOnce(

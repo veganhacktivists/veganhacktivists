@@ -249,10 +249,10 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
   }
 };
 
+const DISCORD_CHANNEL_IDS = (process.env.DISCORD_CHANNEL_IDS || '').split(',');
+
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
-  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID;
-  const rVeganChannelId = process.env.DISCORD_R_VEGAN_CHANNEL_ID;
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
 
@@ -266,29 +266,26 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
       throw new Error('Failed to send Playground message', { cause: err });
     });
 
-    const rVeganAraMessageText = `Hi everyone! ${requestMessage(request)}
+    const genericMessageText = `Hi everyone! ${requestMessage(request)}
 ${bold(
   'Note:'
 )} Please only apply if you're 18+, minors are not currently allowed - sorry!`;
 
-    const araMessage = await sendDiscordMessage({
-      channelId: araChannelId,
-      message: rVeganAraMessageText,
-    }).catch(async (err) => {
-      await playgroundMessage.delete();
-      throw new Error('Failed to send ARA message', { cause: err });
-    });
+    const sentMessages = [playgroundMessage];
+    for await (const channelId of DISCORD_CHANNEL_IDS) {
+      const message = await sendDiscordMessage({
+        channelId,
+        message: genericMessageText,
+      }).catch((err) => {
+        sentMessages.forEach((message) => message.delete());
+        throw new Error(`Failed to send message to ${channelId} channel`, {
+          cause: err,
+        });
+      });
+      sentMessages.push(message);
+    }
 
-    const rVeganMessage = await sendDiscordMessage({
-      channelId: rVeganChannelId,
-      message: rVeganAraMessageText,
-    }).catch(async (err) => {
-      await playgroundMessage.delete();
-      await araMessage.delete();
-      throw new Error('Failed to send r/Vegan message', { cause: err });
-    });
-
-    return [playgroundMessage, araMessage, rVeganMessage];
+    return sentMessages;
   });
 };
 
