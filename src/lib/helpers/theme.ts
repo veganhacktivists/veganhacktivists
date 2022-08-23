@@ -29,9 +29,9 @@ const byString: (
   return object as string;
 };
 
-const getThemeColor: (color: string) => string = (color) => {
+const getThemeColor: (color: string) => `#${string}` = (color) => {
   if (color.startsWith('#')) {
-    return color;
+    return color as `#${string}`;
   }
 
   const obj = byString(
@@ -43,9 +43,9 @@ const getThemeColor: (color: string) => string = (color) => {
   );
 
   if (typeof obj !== 'object') {
-    return obj as string;
+    return obj as `#${string}`;
   }
-  return obj.DEFAULT;
+  return obj.DEFAULT as `#${string}`;
 };
 
 export default getThemeColor;
