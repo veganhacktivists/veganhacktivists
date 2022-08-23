@@ -1,15 +1,24 @@
 import { NextSeo } from 'next-seo';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import {
+  faLongArrowAltLeft as leftArrow,
+  faLongArrowAltRight as rightArrow,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import { trpc } from 'lib/client/trpc';
 import RequestFilters from 'components/layout/playground/requests/filters';
+
+import { DarkButton, LightButton } from 'components/decoration/buttons';
+
 import CustomImage from 'components/decoration/customImage';
-import { pixelHeart } from 'images/separators';
-import { LightButton } from 'components/decoration/buttons';
 import SquareField from 'components/decoration/squares';
+import { pixelHeart } from 'images/separators';
 
 import type PageWithLayout from 'types/persistentLayout';
 
@@ -23,7 +32,6 @@ const Playground: PageWithLayout = ({}) => {
     },
     filter: {},
   }));
-
   const params = useMemo(() => {
     const { sort, ...otherFilters } = filters;
     return { sort, ...otherFilters };
@@ -35,6 +43,34 @@ const Playground: PageWithLayout = ({}) => {
       keepPreviousData: true,
     }
   );
+  const {
+    startIndex,
+    endIndex,
+    setNextPage,
+    setPreviousPage,
+    increasePageParam,
+    decreasePageParam,
+    previousEnabled,
+    nextEnabled,
+  } = useExtendedPagination({
+    totalItems: requests?.length,
+    initialPageSize: 6,
+    initialPage: 0,
+  });
+  const requestContainer = useRef<HTMLDivElement>(null);
+  const scrollUp = () => {
+    if (!requestContainer.current) return;
+
+    window.scrollTo({
+      top: requestContainer.current.offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
+  const paginatedRequests = useMemo(
+    () => requests?.slice(startIndex, endIndex + 1),
+    [requests, startIndex, endIndex]
+  );
 
   return (
     <>
@@ -45,17 +81,57 @@ const Playground: PageWithLayout = ({}) => {
           to help the animals! Are you a vegan advocate or organization? Submit
           a request of your own!
         </SectionHeader>
-        <div className="mt-10 mb-20 lg:mx-12 2xl:mx-44 xl:mx-36">
+        <div
+          className="mt-10 mb-20 lg:mx-12 2xl:mx-44 xl:mx-36"
+          ref={requestContainer}
+        >
           <RequestFilters onChange={setFilters} filters={filters} />
           <div className="grid gap-8 mx-20 mt-10 md:mx-5 md:grid-cols-2">
             {/* TODO: no available requests message */}
-            {requests?.map((request) => (
+            {paginatedRequests?.map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
           </div>
-          {requests?.length === 0 && (
+          {requests?.length === 0 ? (
             <div className="mx-auto text-center text-gray-500">
               There are no requests matching your criteria
+            </div>
+          ) : (
+            <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
+              <DarkButton
+                className="flex font-mono font-bold uppercase"
+                onClick={() => {
+                  decreasePageParam();
+                  setPreviousPage();
+                  setTimeout(() => {
+                    scrollUp();
+                  }, 1);
+                }}
+                disabled={!previousEnabled}
+              >
+                <div>
+                  <FontAwesomeIcon icon={leftArrow} size="xs" />
+                </div>
+                <span className="hidden pl-3 md:block">Previous</span>
+              </DarkButton>
+              <DarkButton
+                className="font-mono font-bold uppercase"
+                onClick={() => {
+                  increasePageParam();
+                  setNextPage();
+                  setTimeout(() => {
+                    scrollUp();
+                  }, 1);
+                }}
+                disabled={!nextEnabled}
+              >
+                <div className="flex">
+                  <span className="hidden pr-3 md:block">Next</span>
+                  <div>
+                    <FontAwesomeIcon icon={rightArrow} size="xs" />
+                  </div>
+                </div>
+              </DarkButton>
             </div>
           )}
         </div>

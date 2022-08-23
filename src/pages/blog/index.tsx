@@ -6,7 +6,6 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-import { usePagination } from 'react-use-pagination';
 
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
@@ -19,6 +18,8 @@ import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
 import useOnce from '../../hooks/useOnce';
+
+import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import type {
   IBlogEntry,
@@ -102,7 +103,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     currentPage,
     previousEnabled,
     nextEnabled,
-  } = usePagination({
+    increasePageParam,
+    decreasePageParam,
+  } = useExtendedPagination({
     totalItems: filteredEntries.length,
     initialPageSize: 9,
   });
@@ -126,24 +129,6 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     { enabled: router.isReady }
   );
 
-  const increasePageNumber = () => {
-    if (currentPage + 1 === totalPages) {
-      return;
-    }
-    const newPageQuery: number = currentPage + 2;
-    void router.push(
-      {
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page: newPageQuery.toString(),
-        },
-      },
-      undefined,
-      { shallow: true }
-    );
-  };
-
   const updateSearchParam = () => {
     void router.replace(
       {
@@ -151,23 +136,6 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         query: {
           ...router.query,
           search: searchQuery,
-        },
-      },
-      undefined,
-      { shallow: true }
-    );
-  };
-
-  const decreasePageNumber = () => {
-    if (currentPage === 0) {
-      return;
-    }
-    void router.push(
-      {
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page: currentPage.toString(),
         },
       },
       undefined,
@@ -243,9 +211,11 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
           <DarkButton
             onClick={() => {
-              decreasePageNumber();
+              decreasePageParam();
               setPreviousPage();
-              scrollUp();
+              setTimeout(() => {
+                scrollUp();
+              }, 1);
             }}
             className="flex font-mono font-bold uppercase"
             disabled={!previousEnabled}
@@ -257,9 +227,11 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           </DarkButton>
           <DarkButton
             onClick={() => {
-              increasePageNumber();
+              increasePageParam();
               setNextPage();
-              scrollUp();
+              setTimeout(() => {
+                scrollUp();
+              }, 1);
             }}
             className="font-mono font-bold uppercase"
             disabled={!nextEnabled}
