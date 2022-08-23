@@ -52,7 +52,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
 
   return (
     <>
-      <NextSeo title={request?.title} />
+      <NextSeo title={request?.title} description={request?.description} />
       <div className="mt-24">
         <div className="m-10 mb-5 w-fit text-grey">
           <Link
