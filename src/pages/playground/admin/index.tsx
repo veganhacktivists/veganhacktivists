@@ -49,7 +49,13 @@ const AdminPage: NextPage = ({}) => {
                     className="w-full"
                     disabled={isMutationLoading}
                     onClick={() => {
-                      mutate({ id: request.id, status: 'Accepted' });
+                      if (
+                        confirm(
+                          `Are you sure you want to accept '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: 'Accepted' });
+                      }
                     }}
                   >
                     Accept
@@ -58,7 +64,13 @@ const AdminPage: NextPage = ({}) => {
                     className="w-full px-2 text-xl text-grey-dark"
                     disabled={isMutationLoading}
                     onClick={() => {
-                      mutate({ id: request.id, status: 'Rejected' });
+                      if (
+                        confirm(
+                          `Are you sure you want to reject '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: 'Rejected' });
+                      }
                     }}
                   >
                     Deny
