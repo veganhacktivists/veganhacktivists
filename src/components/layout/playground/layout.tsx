@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+
 import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
@@ -32,6 +33,8 @@ import Spinner from 'components/decoration/spinner';
 
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
 
+import type { NextSeoProps } from 'next-seo';
+
 import type { Layout } from 'types/persistentLayout';
 
 const HERO_DECORATION_SQUARES = [
@@ -43,6 +46,17 @@ const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, right: 32, bottom: 0 },
 ];
 
+const playgroundSEO: NextSeoProps = {
+  titleTemplate: '%s | VH Playground',
+  openGraph: {
+    images: [
+      {
+        url: '/images/playground/VH_Playground_FullLogoWithBackground.png',
+      },
+    ],
+  },
+};
+
 const PlaygroundLayout: Layout = ({ children }) => {
   const router = useRouter();
   const isSupportPage =
@@ -52,7 +66,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
   // TODO: put the real tagline here, stop messing up the padding
   return (
     <>
-      <NextSeo titleTemplate="%s | VH Playground" />
+      <NextSeo {...playgroundSEO} />
       <div>
         <Hero
           imageBackground={isSupportPage ? heroFishImage : heroCrabImage}

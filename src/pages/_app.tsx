@@ -43,13 +43,13 @@ type AppPropsWithLayout = AppProps & {
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
   openGraph: {
-    images: [82, 96, 120, 128, 144, 152, 167, 180, 192, 196, 256, 512].map(
-      (size) => ({
-        url: `${process.env.NEXT_PUBLIC_URL!}/images/icon-${size}x${size}.png`,
-        width: size,
-        height: size,
-      })
-    ),
+    images: [
+      82, 96, 120, 128, 144, 152, 167, 180, 192, 196, 256, 384, 512,
+    ].map((size) => ({
+      url: `/icons/icon-${size}x${size}.png`,
+      width: size,
+      height: size,
+    })),
   },
 };
 
