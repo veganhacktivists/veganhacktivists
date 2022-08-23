@@ -47,7 +47,7 @@ const Playground: PageWithLayout = ({}) => {
         </SectionHeader>
         <div className="mt-10 mb-20 lg:mx-12 2xl:mx-44 xl:mx-36">
           <RequestFilters onChange={setFilters} filters={filters} />
-          <div className="grid gap-8 mt-10 sm:grid-cols-2">
+          <div className="grid gap-8 mx-20 mt-10 md:mx-5 md:grid-cols-2">
             {/* TODO: no available requests message */}
             {requests?.map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />

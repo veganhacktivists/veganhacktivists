@@ -242,7 +242,7 @@ const SubmitRequestForm: React.FC = () => {
   }, [isFree]);
 
   return (
-    <div className="bg-grey-background" id="contact-us">
+    <div className="px-10 bg-grey-background" id="contact-us">
       <form
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
