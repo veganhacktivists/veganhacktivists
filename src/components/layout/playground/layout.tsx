@@ -209,7 +209,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
   return (
     <PlaygroundLayout>
       <div>
-        <div className="py-2 mb-12 bg-grey-background">
+        <div className="py-2 mb-20 bg-grey-background">
           <PlaygroundStats />
           <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
             <OutlineButton
