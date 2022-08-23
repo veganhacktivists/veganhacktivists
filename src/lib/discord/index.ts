@@ -2,41 +2,34 @@ import { ChannelType, Client, GatewayIntentBits } from 'discord.js';
 
 import type { Message } from 'discord.js';
 
-import type { PlaygroundRequestCategory } from '@prisma/client';
-
-export const ROLE_ID_BY_CATEGORY: Partial<
-  Record<PlaygroundRequestCategory, string>
-> = {
-  Developer: process.env.DISCORD_DEVELOPER_ROLE_ID,
-  Designer: process.env.DISCORD_DESIGNER_ROLE_ID,
-  Writer: process.env.DISCORD_WRITER_ROLE_ID,
-  Editor: process.env.DISCORD_EDITOR_ROLE_ID,
-  Researcher: process.env.DISCORD_RESEARCHER_ROLE_ID,
-  Translator: process.env.DISCORD_TRANSLATOR_ROLE_ID,
-  Marketer: process.env.DISCORD_MARKETER_ROLE_ID,
-  DataScientist: process.env.DISCORD_DATA_ROLE_ID,
-  Social: process.env.DISCORD_SOCIAL_ROLE_ID,
-  Security: process.env.DISCORD_SECURITY_ROLE_ID,
+const discordGlobal = global as typeof global & {
+  discord?: Client;
 };
 
-const client = new Client({ intents: [GatewayIntentBits.GuildMessages] });
-void client.login(process.env.DISCORD_TOKEN);
+const createClient = () => {
+  const discord = new Client({ intents: [GatewayIntentBits.GuildMessages] });
+  void discord.login(process.env.DISCORD_TOKEN);
 
-client.on('ready', () => {
+  return discord;
+};
+
+const discord = discordGlobal.discord || createClient();
+
+discord.on('ready', () => {
   // eslint-disable-next-line no-console
   console.info('Discord client ready!');
 });
 
 export const getDiscordChannel = async (id: string) =>
-  client.channels.cache.get(id) || (await client.channels.fetch(id));
+  discord.channels.cache.get(id) || (await discord.channels.fetch(id));
 
 export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
   }
   return (
-    client.guilds.cache.get(id) ||
-    (await client.guilds.fetch({ guild: id, withCounts: true }))
+    discord.guilds.cache.get(id) ||
+    (await discord.guilds.fetch({ guild: id, withCounts: true }))
   );
 };
 
@@ -64,16 +57,16 @@ export const sendDiscordMessage = async ({
 };
 
 const withDiscordClient = async <T>(
-  callback: (client: Client) => Promise<T> | T
+  callback: (discord: Client) => Promise<T> | T
 ) =>
   new Promise<T>(async (resolve) => {
-    if (!client.isReady()) {
-      (client as Client<false>).on('ready', async () => {
-        resolve(await callback(client));
+    if (!discord.isReady()) {
+      (discord as Client<false>).on('ready', async () => {
+        resolve(await callback(discord));
       });
     }
 
-    resolve(await callback(client));
+    resolve(await callback(discord));
   });
 
 export class DiscordSendMessagesError extends Error {
@@ -92,6 +85,10 @@ export class DiscordSendMessagesError extends Error {
   getErroredMessages() {
     return this.messages.filter((m) => !m) as false[];
   }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  discordGlobal.discord = discord;
 }
 
 export default withDiscordClient;

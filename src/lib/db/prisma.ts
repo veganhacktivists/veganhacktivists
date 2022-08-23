@@ -1,17 +1,13 @@
 import { PrismaClient } from '@prisma/client';
 
-import GlobalRef from 'lib/globalRef';
+const prismaGlobal = global as typeof global & {
+  prisma?: PrismaClient;
+};
 
-// all this boilerplate is to avoid multiple clients being created while developing because of hot reloading
-let prisma: PrismaClient;
+const prisma = prismaGlobal.prisma || new PrismaClient();
+
 if (process.env.NODE_ENV !== 'production') {
-  const prismaInstance = new GlobalRef<PrismaClient>('prisma');
-  if (!prismaInstance.value) {
-    prismaInstance.value = new PrismaClient();
-  }
-  prisma = prismaInstance.value;
-} else {
-  prisma = new PrismaClient();
+  prismaGlobal.prisma = prisma;
 }
 
 export default prisma;

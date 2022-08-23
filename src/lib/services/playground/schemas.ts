@@ -140,7 +140,9 @@ export const submitRequestSchemaClient = unsafeSubmitRequestSchema
 
     return data;
   });
+
 export const getPendingApplicationsSchema = paginationSchema.optional();
+
 export const getPendingRequestsSchema = paginationSchema.optional();
 
 export const setApplicationStatusSchema = z.object({
