@@ -92,7 +92,10 @@ const SubmitRequestForm: React.FC = () => {
   } = useForm<FormInput>({
     defaultValues: {
       ...storedForm,
-      budget: storedForm.isFree ? 0 : storedForm.budget,
+      budget:
+        storedForm.isFree || !storedForm.budget || isNaN(storedForm.budget)
+          ? 0
+          : storedForm.budget,
     },
     resolver: zodResolver(submitRequestSchemaClient),
   });
