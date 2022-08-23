@@ -40,7 +40,7 @@ const Playground: PageWithLayout = ({}) => {
     <>
       <NextSeo title="Requests" />
       <div>
-        <SectionHeader header={[]}>
+        <SectionHeader header={['View pending', 'requests']}>
           View a list of requests below to find volunteer or paid opportunities
           to help the animals! Are you a vegan advocate or organization? Submit
           a request of your own!
