@@ -52,6 +52,8 @@ const playgroundSEO: NextSeoProps = {
     images: [
       {
         url: '/images/playground/VH_Playground_FullLogoWithBackground.png',
+        height: 630,
+        width: 1200,
       },
     ],
   },
