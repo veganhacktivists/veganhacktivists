@@ -159,19 +159,21 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   }, [request.name]);
 
   return (
-    <aside className="flex flex-col justify-center mx-auto text-center lg:pl-20 lg:text-left">
+    <aside className="text-center truncate lg:text-left">
       <div className="font-bold uppercase">About the Requestor</div>
       <div className="grid content-center w-32 mx-auto mt-4 mb-4 rounded-full place-content-center aspect-square bg-red lg:ml-0">
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
-      <div className="truncate">
-        <div className="text-lg font-bold">{request.name}</div>
-        <div>{request.organization}</div>
-        <div>
+      <div>
+        <div className="text-lg font-bold truncate">{request.name}</div>
+        <div title={request.organization || undefined} className="truncate">
+          {request.organization}
+        </div>
+        <div className="truncate">
           <a
             target="_blank"
             rel="noreferrer"
-            className="font-bold underline hover:text-grey visited:text-grey"
+            className="font-bold underline truncate hover:text-grey visited:text-grey"
             href={
               request.website.match(/^https?:\/\//)
                 ? request.website
@@ -329,7 +331,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <form
         ref={setFormRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="grid max-w-3xl grid-cols-1 gap-5 mx-auto text-left align-bottom lg:pr-10 md:grid-cols-6"
+        className="grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6"
       >
         <div className="font-serif text-2xl italic font-medium col-span-full">
           Interested in applying to help with this project?
@@ -562,9 +564,13 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
   return (
-    <div className="min-h-[30vh] bg-grey-background flex lg:flex-row flex-col-reverse justify-between lg:divide-x-2 divide-white py-10 px-20 md:px-32 gap-y-5">
-      <MainForm request={request} />
-      <FormSidebar request={request} />
+    <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
+      <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+        <MainForm request={request} />
+      </div>
+      <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
+        <FormSidebar request={request} />
+      </div>
     </div>
   );
 };
