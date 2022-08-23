@@ -52,7 +52,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
       {expanded && (
         <div
           className={classNames(
-            'p-2.5 px-5 text-black text-left select-none mt-1.5 font-sans text-lg',
+            'p-2.5 px-5 text-black text-left mt-1.5 font-sans text-lg',
             design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
           )}
         >

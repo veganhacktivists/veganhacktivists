@@ -1,8 +1,5 @@
 import { useRouter } from 'next/router';
-
 import { NextSeo } from 'next-seo';
-
-// TODO: get the image without the circles
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
@@ -32,6 +29,8 @@ import CustomImage from 'components/decoration/customImage';
 import { trpc } from 'lib/client/trpc';
 
 import Spinner from 'components/decoration/spinner';
+
+import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
 
 import type { Layout } from 'types/persistentLayout';
 
@@ -116,7 +115,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
                 contribute for animals? Join our vegan volunteer Discord
                 community and meet others in Playground!
               </div>
-              <DarkButton newTab href="https://discord.gg/vhplayground">
+              <DarkButton newTab href={JOIN_PLAYGROUND_URL}>
                 Join us on Discord
               </DarkButton>
             </div>

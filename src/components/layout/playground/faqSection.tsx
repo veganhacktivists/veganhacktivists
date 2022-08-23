@@ -1,9 +1,13 @@
 import classNames from 'classnames';
+
 import React from 'react';
 
 import SquareField from '../../decoration/squares';
 
 import Accordion from './accordion';
+
+import CustomLink from 'components/decoration/link';
+import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
 
 const faqEntries = [
   {
@@ -131,11 +135,15 @@ const faqEntries = [
     children: (
       <>
         <p>
-          Absolutely! Join our Playground Discord server, all new requests get
-          posted automatically there. You&apos;ll get notifications and
-          you&apos;ll also be able to chat and discuss your volunteer work and
-          experiences, as-well as get support with the Playground community
-          there. We&apos;re looking forward to seeing you soon!
+          Absolutely!{' '}
+          <CustomLink href={JOIN_PLAYGROUND_URL}>
+            Join our Playground Discord server
+          </CustomLink>
+          , all new requests get posted automatically there. You&apos;ll get
+          notifications and you&apos;ll also be able to chat and discuss your
+          volunteer work and experiences, as-well as get support with the
+          Playground community there. We&apos;re looking forward to seeing you
+          soon!
         </p>
       </>
     ),

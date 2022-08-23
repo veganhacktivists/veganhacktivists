@@ -1,6 +1,8 @@
 import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
 
+import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
+
 const JoinPlayground: React.FC = () => {
   return (
     <>
@@ -26,7 +28,7 @@ const JoinPlayground: React.FC = () => {
           <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
             <LightButton
               newTab
-              href="https://discord.gg/vhplayground"
+              href={JOIN_PLAYGROUND_URL}
               className="mt-10 font-mono font-semibold"
             >
               Join VH: Playground
