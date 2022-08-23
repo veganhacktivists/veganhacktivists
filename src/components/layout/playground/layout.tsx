@@ -65,7 +65,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
     router.pathname === '/playground' ||
     router.pathname === '/playground/submit';
 
-  // TODO: put the real tagline here, stop messing up the padding
   return (
     <>
       <NextSeo {...playgroundSEO} />
