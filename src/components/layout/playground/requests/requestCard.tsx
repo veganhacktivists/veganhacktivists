@@ -85,10 +85,7 @@ const PlaygroundRequestCard: React.FC<
     [createdAt]
   );
 
-  const [timeUntilDue, isDue] = useMemo(
-    () => readableTimeDiff(dueDate),
-    [dueDate]
-  );
+  const [timeUntilDue] = useMemo(() => readableTimeDiff(dueDate), [dueDate]);
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
 

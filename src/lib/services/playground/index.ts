@@ -4,6 +4,8 @@ import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
+import emailClient, { OUR_EMAIL } from 'lib/mail';
+
 import type { submitRequestSchema } from './schemas';
 
 import type { Session } from 'next-auth';
@@ -118,6 +120,14 @@ export const applyToHelp = async (
       }),
     ]);
 
+    await emailClient.sendMail({
+      to: OUR_EMAIL,
+      subject: 'New Playground Request',
+      html: `A new applicant has applied to help in Playground!
+      <br/><br/>
+      Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
+    });
+
     return newRequest;
   } catch (e) {
     if (
@@ -154,6 +164,14 @@ export const submitRequest = async (
       },
     }),
   ]);
+
+  await emailClient.sendMail({
+    to: OUR_EMAIL,
+    subject: 'New Playground Request',
+    html: `A new Request has been submitted to Playground for review!
+    <br/><br/>
+    Please <a href="https://veganhacktivists.org/playground/admin">click here</a> to review the request submitted to Playground.`,
+  });
 
   return newRequest;
 };
