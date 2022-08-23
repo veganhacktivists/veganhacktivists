@@ -11,14 +11,14 @@ const NewsletterLaunch: React.FC = () => {
   return (
     <>
       <SectionContainer color="grey-background" className="pb-0">
-        <div className="flex flex-col md:flex-row gap-x-24 gap-y-10 md:w-2/3 justify-center mx-auto">
+        <div className="flex flex-col justify-center mx-auto md:flex-row gap-x-24 gap-y-10 md:w-2/3">
           <div className="md:text-left md:w-2/3">
             <SectionHeader
               header="Newsletter Launch"
               className="text-grey"
               startWithBoldFont
             />
-            <div className="mb-10 mt-5">
+            <div className="mt-5 mb-10">
               Much has been happening in the vegan movement, and we are excited
               to be part of those changes. To keep you up-to-date with our
               progress, we have launched a monthly newsletter to showcase our
@@ -27,9 +27,9 @@ const NewsletterLaunch: React.FC = () => {
               newsletter today!
             </div>
             <DarkButton
-              className="w-min font-semibold font-mono md:mb-10 mx-auto md:mx-0"
+              className="mx-auto font-mono font-semibold w-min md:mb-10 md:mx-0"
               href="/newsletter"
-              linkProps={{ target: '_blank', rel: 'noreferrer' }}
+              newTab
             >
               Sign up for our newsletter!
             </DarkButton>

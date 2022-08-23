@@ -42,6 +42,9 @@ type AppPropsWithLayout = AppProps & {
 
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 
 const AppWrapper: React.FC<

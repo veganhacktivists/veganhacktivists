@@ -39,7 +39,7 @@ module.exports = {
     'react/display-name': ['off'],
     'react/forbid-elements': ['warn', { forbid: ['Image'] }],
     'jsx-a11y/alt-text': [
-      2,
+      'error',
       {
         elements: ['img', 'object', 'area', 'input[type="image"]'],
         img: ['Image', 'CustomImage'],

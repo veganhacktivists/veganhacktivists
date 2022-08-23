@@ -14,7 +14,7 @@ import type StateManagedSelect from 'react-select';
 
 interface OptionType {
   label: string;
-  value: string | number;
+  value: string | number | boolean;
 }
 
 interface SelectInputProps

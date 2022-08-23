@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   faInstagram,
   faPatreon,
@@ -18,14 +18,17 @@ import { FillBackground } from './utils';
 
 import type {
   MouseEventHandler,
-  ButtonHTMLAttributes,
   AnchorHTMLAttributes,
+  Ref,
+  HTMLAttributes,
 } from 'react';
 import type { LinkProps } from 'next/link';
 import type ShareInfo from '../../layout/shareDialog/shareInfo';
 
 export interface ButtonProps
-  extends React.PropsWithChildren<ButtonHTMLAttributes<unknown>> {
+  extends React.RefAttributes<HTMLElement>,
+    HTMLAttributes<HTMLElement>,
+    React.PropsWithChildren {
   primary?: boolean;
   href?: LinkProps['href'];
   className?: string;
@@ -34,6 +37,8 @@ export interface ButtonProps
   onClick?: MouseEventHandler;
   type?: 'submit' | 'reset' | 'button';
   capitalize?: boolean;
+  newTab?: boolean;
+  disabled?: boolean;
 }
 
 const baseButtonClasses = classNames(
@@ -56,49 +61,55 @@ const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
   );
 };
 
-const BaseButton: React.FC<ButtonProps> = ({
-  children,
-  linkProps,
-  capitalize = true,
-  className = '',
-  'aria-label': ariaLabel,
-  ...props
-}) => {
-  const classes = classNames(className, 'block', { capitalize });
+const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
+  (
+    {
+      children,
+      linkProps,
+      capitalize = true,
+      className = '',
+      newTab = false,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = classNames(className, 'block', { capitalize });
 
-  const isExternal = isExternalLink(props.href);
-  return (
-    <>
-      {props.href ? (
-        <Link {...linkProps} href={props.href} passHref>
-          <a
-            {...(props as AnchorHTMLAttributes<unknown>)}
+    const isExternal = isExternalLink(props.href);
+
+    const openInNewTab = useMemo(
+      () => newTab || linkProps?.target || isExternal,
+      [isExternal, linkProps?.target, newTab]
+    );
+
+    return (
+      <>
+        {props.href ? (
+          <Link {...linkProps} href={props.href} passHref>
+            <a
+              {...(props as AnchorHTMLAttributes<unknown>)}
+              ref={ref as Ref<HTMLAnchorElement>}
+              className={classes}
+              target={openInNewTab ? '_blank' : undefined}
+              rel={openInNewTab ? 'noreferrer' : undefined}
+            >
+              {children}
+            </a>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            {...props}
             className={classes}
-            target={linkProps?.target || isExternal ? '_blank' : undefined}
-            rel={linkProps?.rel || isExternal ? 'noreferrer' : undefined}
-            aria-label={ariaLabel}
+            ref={ref as Ref<HTMLButtonElement>}
           >
             {children}
-          </a>
-        </Link>
-      ) : (
-        <button
-          type="button"
-          {...props}
-          className={classes}
-          aria-label={ariaLabel}
-        >
-          {children}
-        </button>
-      )}
-    </>
-  );
-};
-
-// TODO: define what a submit should look like
-const SubmitButton: React.FC<ButtonProps> = (props) => {
-  return <BaseButton {...props} />;
-};
+          </button>
+        )}
+      </>
+    );
+  }
+);
 
 const LightButton: React.FC<ButtonProps> = ({
   children,
@@ -123,32 +134,30 @@ const LightButton: React.FC<ButtonProps> = ({
   );
 };
 
-const DarkButton: React.FC<ButtonProps> = ({
-  children,
-  active,
-  className = '',
-  ...props
-}) => {
-  return (
-    <FillBackground
-      disabled={props.disabled}
-      base={active ? 'magenta' : 'grey-dark'}
-      fill={active ? 'magenta' : 'green'}
-    >
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          'transition-all overflow-hidden text-white',
-          active ? 'border-pink' : 'border-green',
-          className
-        )}
+const DarkButton = React.forwardRef<HTMLElement, ButtonProps>(
+  ({ children, active, className = '', ...props }, ref) => {
+    return (
+      <FillBackground
+        disabled={props.disabled}
+        base={active ? 'magenta' : 'grey-dark'}
+        fill={active ? 'magenta' : 'green'}
       >
-        {children}
-      </BaseButton>
-    </FillBackground>
-  );
-};
+        <BaseButton
+          {...props}
+          ref={ref}
+          className={classNames(
+            baseButtonClasses,
+            'transition-all overflow-hidden text-white',
+            active ? 'border-pink' : 'border-green',
+            className
+          )}
+        >
+          {children}
+        </BaseButton>
+      </FillBackground>
+    );
+  }
+);
 
 const GreyButton: React.FC<ButtonProps> = ({
   className,
@@ -372,7 +381,6 @@ const OutlineButton: React.FC<ButtonProps> = ({
 
 export {
   ExternalLinkButton,
-  SubmitButton,
   PatreonButton,
   InstagramButton,
   IconButton,

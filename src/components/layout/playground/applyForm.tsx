@@ -15,13 +15,13 @@ import { toast } from 'react-toastify';
 
 import { useRouter } from 'next/router';
 
-import { useRef } from 'react';
-
 import { TimePerWeek } from '@prisma/client';
 
 import SignInPrompt from './siginInPrompt';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
+import ConfirmationModal from './confirmationModal';
+
+import { readableTimeDiff } from 'lib/helpers/date';
 
 import { DarkButton } from 'components/decoration/buttons';
 
@@ -50,9 +50,6 @@ import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 
 import type { AppRouter } from 'server/routers/_app';
-
-import type { inferMutationInput, inferQueryOutput } from 'lib/client/trpc';
-
 import type { TRPCClientError } from '@trpc/react';
 
 import type { z } from 'zod';
@@ -76,13 +73,13 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: inferQueryOutput<'playground.request'>;
+  request: trpc['playground']['getRequest']['output'];
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   const timeSinceCreated = useMemo(() => {
     if (!request) return null;
-    return readableTimeSinceDate(request.createdAt);
+    return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
   const createdAtFormatted = useMemo(() => {
@@ -113,14 +110,23 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         )}
       </div>
 
-      <div className="relative flex flex-row gap-10 mb-4 font-mono text-left justfy-between">
-        <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
-        <div className="flex flex-col gap-5">
+      <div className="relative flex flex-col-reverse justify-between gap-10 mb-4 font-mono text-xl text-left md:flex-row">
+        <div className="flex flex-col gap-5 leading-[22px] prose prose-xl">
+          <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
           <Field title="Title">
-            <h1 className="text-2xl font-bold line-clamp-1">{request.title}</h1>
+            <h1
+              className="text-2xl font-bold line-clamp-1"
+              title={request.title}
+            >
+              {request.title}
+            </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans line-clamp-3">{request.description}</div>
+            <div className="font-sans">
+              {request.description.split('\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </Field>
           <Field title="Skills required">
             <div>{request.requiredSkills.join(', ')}</div>
@@ -128,15 +134,15 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
-          <Field title="Priority">{request.priority}</Field>
           <Field title="Due date">{createdAtFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
         </SubtleBorder>
       </div>
-      <div className="text-left font-serif italic text-grey-light">
-        <FontAwesomeIcon icon={faClock} /> Posted {timeSinceCreated} ago
+      <div className="font-serif italic text-left text-grey-light">
+        <FontAwesomeIcon icon={faClock} /> Posted{' '}
+        {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
     </div>
   );
@@ -153,20 +159,26 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   }, [request.name]);
 
   return (
-    <aside className="flex flex-col pl-20 ml-0 md:mx-auto md:text-left">
-      <div className="font-bold uppercase">Contact person</div>
-      <div className="grid content-center w-32 mt-4 mb-4 ml-0 rounded-full place-content-center aspect-square bg-red">
+    <aside className="text-center truncate lg:text-left">
+      <div className="font-bold uppercase">About the Requestor</div>
+      <div className="grid content-center w-32 mx-auto mt-4 mb-4 rounded-full place-content-center aspect-square bg-red lg:ml-0">
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
-      <div className="truncate">
-        <div className="text-lg font-bold">{request.name}</div>
-        <div>{request.organization}</div>
-        <div>
+      <div>
+        <div className="text-lg font-bold truncate">{request.name}</div>
+        <div title={request.organization || undefined} className="truncate">
+          {request.organization}
+        </div>
+        <div className="truncate">
           <a
             target="_blank"
             rel="noreferrer"
-            className="font-bold underline hover:text-grey visited:text-grey"
-            href={request.website}
+            className="font-bold underline truncate hover:text-grey visited:text-grey"
+            href={
+              request.website.match(/^https?:\/\//)
+                ? request.website
+                : `http://${request.website}`
+            }
           >
             {request.website.replace(/^https?:\/\//i, '')}
           </a>
@@ -194,7 +206,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -204,7 +217,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     reset,
     control,
     watch,
-  } = useForm<inferMutationInput<'playground.apply'>>({
+  } = useForm<trpc['playground']['apply']['input']>({
     defaultValues: {
       ...storedForm,
       hasAppliedInThePast: request.userAlreadyApplied,
@@ -233,39 +246,65 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     },
     [onChangeValue, register]
   );
+  const shouldSubmit = router.query.submit === 'true';
 
-  const dataFilled = useOnce(
+  const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
+    trpc.proxy.playground.getLastUserApplication.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+    });
+
+  useOnce(
     () => {
       if (!session?.user) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
+        setFormData({ name });
       }
 
       if (email && !watch('providedEmail')) {
         setValue('providedEmail', email);
+        setFormData({ providedEmail: email });
       }
     },
-    { enabled: sessionStatus === 'authenticated' }
+    {
+      enabled:
+        sessionStatus === 'authenticated' && !shouldSubmit && router.isReady,
+    }
   );
 
-  const { mutateAsync, isLoading, isSuccess } = trpc.useMutation(
-    ['playground.apply'],
+  const storedDataFilled = useOnce(
+    () => {
+      if (!lastApplication) return;
+      Object.entries(lastApplication).forEach(([key, value]) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (value && !watch(key as any)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          setValue(key as any, value);
+        }
+      });
+    },
     {
+      enabled: isLastApplicationSuccess,
+    }
+  );
+
+  const { mutateAsync, isLoading, isSuccess } =
+    trpc.proxy.playground.apply.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();
       },
-    }
-  );
+    });
+
   const onSubmit = useCallback(
-    (values: inferMutationInput<'playground.apply'>) => {
-      if (sessionStatus === 'unauthenticated') {
-        setIsSignInModalOpen(true);
-        return;
-      } else if (sessionStatus === 'loading') {
+    (values: trpc['playground']['apply']['input']) => {
+      if (sessionStatus !== 'authenticated') {
+        if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
+        reset(undefined, { keepValues: true });
         return;
       }
+
       void toast.promise(mutateAsync(values), {
         pending: 'Submitting...',
         success: 'Your application has been submitted!',
@@ -276,30 +315,25 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         },
       });
     },
-    [mutateAsync, sessionStatus]
+    [mutateAsync, reset, sessionStatus]
   );
-
-  const router = useRouter();
 
   useOnce(
     () => {
-      if (router.query.submit !== 'true') return;
-      if (formRef.current) {
-        formRef.current.scrollIntoView();
-      }
+      formRef!.scrollIntoView({ block: 'end' });
       void handleSubmit(onSubmit)();
     },
-    { enabled: router.isReady && dataFilled }
+    { enabled: router.isReady && !!formRef && storedDataFilled && shouldSubmit }
   );
 
   return (
     <>
       <form
-        ref={formRef}
+        ref={setFormRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="grid max-w-3xl grid-cols-1 gap-5 mx-auto text-left align-bottom lg:pr-10 md:grid-cols-6"
+        className="grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6"
       >
-        <div className="text-2xl font-medium font-serif italic col-span-full">
+        <div className="font-serif text-2xl italic font-medium col-span-full">
           Interested in applying to help with this project?
         </div>
         <TextInput
@@ -439,8 +473,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             render={({ field: { value: current, onChange, ...field } }) => (
               <SelectInput
                 {...field}
-                // error={errors.availableTimePerWeek?.message}
+                placeholder="Select an option"
                 onChange={(value) => {
+                  setFormData({
+                    availableTimePerWeek: value?.value as TimePerWeek,
+                  });
                   onChange(value ? value.value : null);
                 }}
                 current={{ value: current, label: TimePerWeekLabel[current] }}
@@ -465,6 +502,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           name="commitToHelping"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
@@ -485,6 +523,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           name="agreeToTerms"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
@@ -510,9 +549,9 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           ) : (
             'Submit'
           )}
-          {/* Apply */}
         </DarkButton>
       </form>
+      <ConfirmationModal isOpen={isSuccess} type="application" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
         onClose={onModalClose}
@@ -525,9 +564,13 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
   return (
-    <div className="min-h-[30vh] bg-grey-background flex lg:flex-row flex-col-reverse justify-between lg:divide-x-2 divide-white py-10 px-20 md:px-32 gap-y-5">
-      <MainForm request={request} />
-      <FormSidebar request={request} />
+    <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
+      <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+        <MainForm request={request} />
+      </div>
+      <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
+        <FormSidebar request={request} />
+      </div>
     </div>
   );
 };

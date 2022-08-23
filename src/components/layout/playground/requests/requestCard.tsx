@@ -5,59 +5,51 @@ import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
+import {
+  CATEGORY_COLORS,
+  CATEGORY_LABELS,
+} from '../../../../../prisma/constants';
+
 import { DarkButton } from 'components/decoration/buttons';
 
-import getThemeColor from 'lib/helpers/theme';
+import { readableTimeDiff } from 'lib/helpers/date';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
-
-import type { inferQueryOutput } from 'lib/client/trpc';
+import type { trpc } from 'lib/client/trpc';
 
 import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: inferQueryOutput<'playground.requests'>[0];
+  request: trpc['playground']['getAllRequests']['output'][number];
 }
 
-const CATEGORY_COLORS: Record<PlaygroundRequestCategory, string> = {
-  Design: getThemeColor('magenta'),
-  Website: getThemeColor('blue'),
-  Marketing: getThemeColor('green'),
-  SocialMedia: getThemeColor('yellow-orange'),
-  VideoProduction: getThemeColor('orange'),
-};
-
-export const CATEGORY_TEXT: Partial<Record<PlaygroundRequestCategory, string>> =
-  {
-    SocialMedia: 'Social Media',
-    VideoProduction: 'Video Production',
-  };
-
 const Li: React.FC<
-  HTMLAttributes<HTMLLIElement> & { category: PlaygroundRequestCategory }
-> = ({ children, className, category, ...props }) => (
-  <li
-    {...props}
-    className={classNames(
-      'flex flex-row gap-2 justify-start items-center',
-      className
-    )}
-  >
-    <span
-      style={{ backgroundColor: CATEGORY_COLORS[category] }}
-      className="w-1.5 h-1.5 my-auto aspect-square"
-    />
-    <span className="my-auto truncate h-min">{children}</span>
-  </li>
-);
-
-export const PRIORITIES = [
-  { label: 'Low', className: 'bg-green' },
-  { label: 'Medium', className: 'bg-yellow-orange' },
-  { label: 'High', className: 'bg-orange' },
-  { label: 'Urgent', className: 'bg-red' },
-];
+  HTMLAttributes<HTMLLIElement> & {
+    category: PlaygroundRequestCategory;
+    name: string;
+  }
+> = ({ name, children, className, category, ...props }) => {
+  if (!children) {
+    return null;
+  }
+  return (
+    <li
+      {...props}
+      className={classNames(
+        'max-w-fit flex flex-row gap-2 justify-start items-center',
+        className
+      )}
+    >
+      <span
+        style={{ backgroundColor: CATEGORY_COLORS[category] }}
+        className="w-1.5 h-1.5 my-auto aspect-square"
+      />
+      <span className="my-auto truncate h-min">
+        <b>{name}:</b> {children}
+      </span>
+    </li>
+  );
+};
 
 const PlaygroundRequestCard: React.FC<
   React.PropsWithChildren<PlaygroundRequestCardProps>
@@ -65,29 +57,30 @@ const PlaygroundRequestCard: React.FC<
   request: {
     id,
     title,
-    priority: priorityNumber,
     description,
     requester,
     createdAt,
     category,
     organization,
     isFree,
+    dueDate,
   },
   children,
 }) => {
-  const timeSinceCreated = useMemo(
-    () => readableTimeSinceDate(createdAt),
+  const [timeSinceCreated] = useMemo(
+    () => readableTimeDiff(createdAt),
     [createdAt]
   );
 
+  const [timeUntilDue] = useMemo(() => readableTimeDiff(dueDate), [dueDate]);
+
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
-  const priority = useMemo(() => PRIORITIES[priorityNumber], [priorityNumber]);
 
   return (
     <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
       <div className="space-y-1">
         <h3
-          className="font-mono text-lg font-bold capitalize line-clamp-1 mb-2"
+          className="mb-2 font-mono text-2xl font-bold capitalize line-clamp-1"
           title={title}
         >
           {title}
@@ -99,7 +92,7 @@ const PlaygroundRequestCard: React.FC<
             }}
             className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
           >
-            {CATEGORY_TEXT[category] || category}
+            {CATEGORY_LABELS[category]}
           </div>
           <div className="flex flex-row items-center gap-2 my-auto">
             <FontAwesomeIcon icon={faClock} size="sm" />{' '}
@@ -111,29 +104,36 @@ const PlaygroundRequestCard: React.FC<
         </div>
       </div>
 
-      <div className="line-clamp-5 mb-4 mt-4">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-2 gap-x-1 mb-2">
-        <Li category={category} title={requester.name || undefined}>
-          <span>
-            <span className="font-bold">{requester.name}</span>{' '}
-            {!!organization && <>({organization})</>}
-          </span>
+      <div className="mt-4 mb-4 line-clamp-5">{description}</div>
+      <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
+        <Li
+          name="Requestor"
+          category={category}
+          title={requester.name || undefined}
+        >
+          {requester.name}
         </Li>
-        <Li category={category}>
-          <span className="font-bold">Priority:</span>{' '}
-          <span
-            className={classNames(
-              priority.className,
-              'rounded-lg px-2 py-0.5 bg-opacity-75'
-            )}
-          >
-            {priority.label}
-          </span>
+        <Li name="Due in" category={category}>
+          {timeUntilDue}
+          {/* {timeUntilDue
+              ? isDue
+                ? `Was due ${timeUntilDue} ago`
+                : `Due in ${timeUntilDue}`
+              : 'Due today'} */}
         </Li>
-        <Li category={category} className="col-span-full">
-          <span className="font-bold">
-            {isFree ? 'Volunteer' : 'Paid'} role
-          </span>
+        <Li
+          name="Organization"
+          title={organization || undefined}
+          category={category}
+        >
+          {organization}
+        </Li>
+        <Li
+          name="Compensation"
+          title={`${isFree ? 'Volunteer' : 'Paid'} role`}
+          category={category}
+        >
+          {isFree ? 'Volunteer' : 'Paid'} role
         </Li>
       </ul>
       <DarkButton

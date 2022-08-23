@@ -1,8 +1,13 @@
 import { DateTime, Duration } from 'luxon';
 
-export const readableTimeSinceDate = (date: Date) => {
-  const timeDiff = DateTime.now()
-    .diff(DateTime.fromJSDate(date), ['years', 'months', 'weeks', 'days'])
+export const readableTimeDiff = (date: Date) => {
+  const now = DateTime.now();
+  const other = DateTime.fromJSDate(date);
+
+  const isPastDate = other.diff(now).milliseconds < 0;
+
+  const timeDiff = (isPastDate ? now : other)
+    .diff(isPastDate ? other : now, ['years', 'months', 'weeks', 'days'])
     .normalize()
     .toObject();
 
@@ -11,10 +16,13 @@ export const readableTimeSinceDate = (date: Date) => {
   );
 
   if (Object.keys(diffWithoutZeroes).length === 0) {
-    return null;
+    return [null, null] as const;
   }
 
-  return Duration.fromObject(diffWithoutZeroes).toHuman({
-    maximumFractionDigits: 0,
-  });
+  return [
+    Duration.fromObject(diffWithoutZeroes).toHuman({
+      maximumFractionDigits: 0,
+    }),
+    isPastDate,
+  ] as const;
 };

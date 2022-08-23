@@ -8,7 +8,6 @@ import type { NextApiHandler } from 'next';
 const handler: NextApiHandler = async (_req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1;`;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: unknown) {
     if (!(e instanceof Error)) {
       console.error('Health check FAIL', e);

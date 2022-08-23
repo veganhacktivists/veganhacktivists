@@ -66,16 +66,18 @@ const Modal: React.FC<ModalProps> = ({
       )}
       onRequestClose={closeModal}
       closeTimeoutMS={reduceMotion ? 0 : 700}
-      shouldCloseOnEsc
-      shouldCloseOnOverlayClick
+      shouldCloseOnEsc={!!onClose}
+      shouldCloseOnOverlayClick={!!onClose}
     >
       <div className={className}>
-        <div
-          onClick={closeModal}
-          className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
-        >
-          &#10005;
-        </div>
+        {onClose && (
+          <div
+            onClick={closeModal}
+            className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
+          >
+            &#10005;
+          </div>
+        )}
         <div>{children}</div>
       </div>
     </ReactModal>

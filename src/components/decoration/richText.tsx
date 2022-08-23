@@ -60,12 +60,14 @@ const defaultRichTextOptions: Options = {
       const imageData = node.data.target as Asset;
       const { title, description } = imageData?.fields;
       return (
-        <div>
+        <figure>
           <ContentfulImage image={imageData} alt={title} />
           {description && (
-            <div className="text-base italic text-gray-dark">{description}</div>
+            <figcaption className="text-base italic text-gray-dark">
+              {description}
+            </figcaption>
           )}
-        </div>
+        </figure>
       );
     },
     [BLOCKS.HEADING_1]: (node, children) => (

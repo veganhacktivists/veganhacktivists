@@ -5,7 +5,6 @@ import PlaygroundRequestCard from 'components/layout/playground/requests/request
 
 import ApplicationCard from 'components/layout/playground/applicationCard';
 
-import type { PlaygroundApplication } from '@prisma/client';
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
@@ -14,38 +13,14 @@ const AdminPage: NextPage = ({}) => {
   const { data, isSuccess } =
     trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
 
-  const { mutate, isLoading: isMutationLoading } = trpc.useMutation(
-    ['playground.admin.setApplicationStatus'],
-    {
-      onMutate: async ({ id }) => {
-        await queryClient.cancelQueries([
-          'playground.admin.requestsWithPendingApplications',
-        ]);
-        const previousApplications = queryClient.getQueryData<
-          PlaygroundApplication[]
-        >(['playground.admin.requestsWithPendingApplications']);
-
-        queryClient.setQueryData<PlaygroundApplication[]>(
-          ['playground.admin.requestsWithPendingApplications'],
-          (oldApplications = []) =>
-            oldApplications?.filter((old) => old.id !== id)
-        );
-
-        return { previousApplications };
-      },
-      onError: (error, variables, context) => {
-        queryClient.setQueryData(
-          ['playground.admin.requestsWithPendingApplications'],
-          context?.previousApplications
-        );
-      },
-      onSettled: () => {
+  const { mutate, isLoading: isMutationLoading } =
+    trpc.proxy.playground.admin.setApplicationStatus.useMutation({
+      onSuccess: () => {
         void queryClient.invalidateQueries([
           'playground.admin.requestsWithPendingApplications',
         ]);
       },
-    }
-  );
+    });
 
   if (!isSuccess) return null;
   return (

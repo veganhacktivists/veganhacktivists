@@ -4,6 +4,8 @@ import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
+import emailClient, { OUR_EMAIL } from 'lib/mail';
+
 import type { submitRequestSchema } from './schemas';
 
 import type { Session } from 'next-auth';
@@ -41,6 +43,11 @@ export const getPlaygroundRequests = async ({
         in: categories,
       },
       status: Status.Accepted,
+      applications: {
+        none: {
+          status: Status.Accepted,
+        },
+      },
     },
     orderBy,
   });
@@ -52,11 +59,20 @@ export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
   user?: Session['user']
 ) => {
-  const [request, existingUserApplication] = await Promise.all([
-    prisma.playgroundRequest.findFirstOrThrow({
+  const [request, previousUserApplicationCount] = await Promise.all([
+    prisma.playgroundRequest.findFirst({
       where: {
         id,
         status: user?.role === 'Admin' ? undefined : Status.Accepted,
+        applications: {
+          ...(user?.role === 'Admin'
+            ? {}
+            : {
+                none: {
+                  status: Status.Accepted,
+                },
+              }),
+        },
       },
       include: {
         requester: {
@@ -67,15 +83,16 @@ export const getRequestById = async (
         },
       },
     }),
-    prisma.playgroundApplication.findFirst({
-      where: {
-        id,
-        applicantId: user?.id,
-      },
+    prisma.playgroundApplication.count({
+      where: { requestId: id, applicantId: user?.id },
     }),
   ]);
 
-  const userAlreadyApplied = !!existingUserApplication;
+  if (!request) {
+    throw new TRPCError({ code: 'NOT_FOUND' });
+  }
+
+  const userAlreadyApplied = user ? previousUserApplicationCount !== 0 : false;
 
   const isRequestedByCurrentUser = request.requester.id === user?.id;
 
@@ -102,6 +119,14 @@ export const applyToHelp = async (
         },
       }),
     ]);
+
+    await emailClient.sendMail({
+      to: OUR_EMAIL,
+      subject: 'New Playground Request',
+      html: `A new applicant has applied to help in Playground!
+      <br/><br/>
+      Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
+    });
 
     return newRequest;
   } catch (e) {
@@ -139,6 +164,14 @@ export const submitRequest = async (
       },
     }),
   ]);
+
+  await emailClient.sendMail({
+    to: OUR_EMAIL,
+    subject: 'New Playground Request',
+    html: `A new Request has been submitted to Playground for review!
+    <br/><br/>
+    Please <a href="https://veganhacktivists.org/playground/admin">click here</a> to review the request submitted to Playground.`,
+  });
 
   return newRequest;
 };

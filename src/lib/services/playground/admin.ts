@@ -1,12 +1,16 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
-import { bold, codeBlock } from 'discord.js';
+import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
+
+import { CATEGORY_COLORS } from '../../../../prisma/constants';
 
 import prisma from 'lib/db/prisma';
-import { sendDiscordMessage, withDiscordClient } from 'lib/discord';
+import withDiscordClient, { sendDiscordMessage } from 'lib/discord';
 
 import emailClient, { OUR_EMAIL } from 'lib/mail';
+
+import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 
 import type { Message } from 'discord.js';
 
@@ -31,6 +35,9 @@ export const getPendingApplications = async (
     include: {
       request: true,
     },
+    orderBy: {
+      createdAt: 'asc',
+    },
   });
 
   return applications;
@@ -43,14 +50,6 @@ export const getPendingRequests = async (
     where: {
       ...params,
       status: Status.Pending,
-      applications: {
-        none: {
-          status: Status.Accepted,
-        },
-        some: {
-          status: Status.Pending,
-        },
-      },
     },
     include: {
       requester: {
@@ -59,6 +58,9 @@ export const getPendingRequests = async (
           name: true,
         },
       },
+    },
+    orderBy: {
+      createdAt: 'asc',
     },
   });
 
@@ -111,13 +113,17 @@ export const setApplicationStatus = ({
             ['LinkedIn', updatedApplication.linkedinUrl],
             ['Message', updatedApplication.moreInfo],
           ] as [string, string | null][]
-        ).filter(([, value]) => value !== null) as [string, string][]
+        ).filter(([, value]) => !!value) as [string, string][]
       )
         .map(([name, value]) => `<b>${name}:</b> ${value}`)
         .join('<br />');
 
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: [
+          updatedApplication.providedEmail,
+          updatedApplication.request.providedEmail,
+        ],
+        cc: OUR_EMAIL,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
 
         html: `Hi ${updatedApplication.request.name},
@@ -165,13 +171,13 @@ Thank you so much everyone for helping the animals, and for using Playground.
       });
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: updatedApplication.providedEmail,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
         html: `Thanks so much for submitting your request to support with Playground!
 <br />
 <br />
-Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone with qualifications that were more relevant to this request was chosen, or they had more time to contribute.
+Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.
 <br />
 <br />
 To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
@@ -187,78 +193,146 @@ Thank you so much for considering VH: Playground for your activism!`,
     return updatedApplication;
   });
 
-const requestMessage = (request: PlaygroundRequest) => {
+const getMessageDescription = (request: PlaygroundRequest) => {
+  const DESCRIPTION_CHAR_LIMIT = 3000;
+
+  const truncatedDescription = request.description.slice(
+    0,
+    DESCRIPTION_CHAR_LIMIT
+  );
+  const description =
+    truncatedDescription.length < request.description.length
+      ? `${truncatedDescription}...`
+      : truncatedDescription;
+
   return `${
     request.organization || request.name
-  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤💕
+  } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤
 
-${bold('Message:')} ${request.website || 'None'}
-
-${bold('Compensation:')} ${
-    request.isFree
-      ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
-      : 'Paid'
-  }
-
-What's next: Read the request, if interested, apply on the Playground website to be introduced 👉 ${`https://veganhacktivists.org/playground/request/${request.id}`}
-
-${codeBlock(request.description)}`;
+${codeBlock(description)}`;
 };
 
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
-  if (!request.isFree) {
-    return process.env.DISCORD_PLAYGROUND_PAID_CHANNEL_ID!;
-  }
-
   switch (request.category) {
-    case PlaygroundRequestCategory.Website:
-      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID!;
-    case PlaygroundRequestCategory.Design:
-      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID!;
+    case PlaygroundRequestCategory.Developer:
+      return process.env.DISCORD_PLAYGROUND_CODE_CHANNEL_ID;
+    case PlaygroundRequestCategory.Designer:
+      return process.env.DISCORD_PLAYGROUND_DESIGN_CHANNEL_ID;
+    case PlaygroundRequestCategory.Writer:
+      return process.env.DISCORD_PLAYGROUND_WRITER_CHANNEL_ID;
+    case PlaygroundRequestCategory.Editor:
+      return process.env.DISCORD_PLAYGROUND_EDITOR_CHANNEL_ID;
+    case PlaygroundRequestCategory.Researcher:
+      return process.env.DISCORD_PLAYGROUND_RESEARCH_CHANNEL_ID;
+    case PlaygroundRequestCategory.Marketer:
+      return process.env.DISCORD_PLAYGROUND_MARKETER_CHANNEL_ID;
+    case PlaygroundRequestCategory.Social:
+      return process.env.DISCORD_PLAYGROUND_SOCIAL_CHANNEL_ID;
+    case PlaygroundRequestCategory.DataScientist:
+      return process.env.DISCORD_PLAYGROUND_DATA_CHANNEL_ID;
+    case PlaygroundRequestCategory.Security:
+      return process.env.DISCORD_PLAYGROUND_SECURITY_CHANNEL_ID;
     default:
-      return process.env.DISCORD_PLAYGROUND_MISC_CHANNEL_ID!;
+      return process.env.DISCORD_PLAYGROUND_OTHER_CHANNEL_ID;
   }
 };
 
+const DISCORD_CHANNEL_IDS = (process.env.DISCORD_CHANNEL_IDS || '').split(',');
+
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
-  const araChannelId = process.env.DISCORD_ARA_CHANNEL_ID!;
 
-  const messages = await withDiscordClient(() =>
-    Promise.all([
-      sendDiscordMessage(
-        playgroundChannelId,
-        `Hi @everyone! ${requestMessage(request)}`
-      ),
-      sendDiscordMessage(
-        araChannelId,
-        `Hi everyone! ${requestMessage(request)}
+  const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
+  const correctedWebsite = /https?:\/\//.test(request.website)
+    ? request.website
+    : `http://${request.website}`;
 
-${bold(
-  'Note:'
-)} Please only apply if you're 18+, minors are not currently allowed - sorry!        `
-      ),
-    ])
-  );
+  return await withDiscordClient(async () => {
+    const basicEmbed = new EmbedBuilder()
+      .setColor(CATEGORY_COLORS[request.category])
+      .setURL(`https://veganhacktivists.org/request/${request.id}`)
+      .setTitle(request.title)
+      .setAuthor({
+        name: 'VH Playground Bot',
+        url: 'https://veganhacktivists.org/playground',
+        iconURL:
+          'https://veganhacktivists.org/images/playground/VH_Playground_Avatar_Circle.png',
+      })
+      .setDescription(getMessageDescription(request))
+      .setImage(
+        'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png'
+      )
+      .addFields([
+        {
+          name: 'Website',
+          value: hyperlink(request.website, correctedWebsite),
+        },
+        {
+          name: 'Compensation',
+          value: request.isFree
+            ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
+            : 'Paid',
+        },
+        {
+          name: "What's next?",
+          value: `Read the request, if interested, apply on the Playground website to be introduced 👉 ${hyperlink(
+            'Click here!',
+            `https://veganhacktivists.org/playground/request/${request.id}`
+          )}`,
+        },
+      ])
+      .setFooter({
+        text: "Note: Please only apply if you're 18+, minors are not currently allowed - sorry!",
+      })
+      .toJSON();
 
-  const okMessages = messages.filter((msg) => msg !== false) as Message<true>[];
-
-  if (messages.length !== okMessages.length) {
-    throw new TRPCError({
-      code: 'INTERNAL_SERVER_ERROR',
-      message: 'Could not send message to discord',
+    const playgroundMessage = await sendDiscordMessage({
+      channelId: playgroundChannelId,
+      embeds: [
+        new EmbedBuilder(basicEmbed)
+          .setDescription(
+            `Hi ${roleToMention ? roleMention(roleToMention) : 'everyone'}! ${
+              basicEmbed.description || ''
+            }`
+          )
+          .toJSON(),
+      ],
+    }).catch((err) => {
+      throw new Error('Failed to send Playground message', { cause: err });
     });
-  }
-  return okMessages.map((msg) => msg.id);
+
+    const sentMessages = [playgroundMessage];
+    for await (const channelId of DISCORD_CHANNEL_IDS) {
+      const message = await sendDiscordMessage({
+        channelId,
+        embeds: [
+          new EmbedBuilder(basicEmbed)
+            .setDescription(`Hi everyone! ${basicEmbed.description || ''}`)
+            .toJSON(),
+        ],
+      }).catch((err) => {
+        sentMessages.forEach((message) => message.delete());
+        throw new Error(`Failed to send message to ${channelId} channel`, {
+          cause: err,
+        });
+      });
+      sentMessages.push(message);
+    }
+
+    return sentMessages;
+  });
 };
 
 export const setRequestStatus = ({
   id,
   status,
 }: z.infer<typeof setRequestStatusSchema>) =>
-  prisma.$transaction(async (prisma) => {
-    const request = await prisma.playgroundRequest.findUnique({
+  prisma.$transaction(async (transactionPrisma) => {
+    const request = await transactionPrisma.playgroundRequest.findUnique({
       where: { id },
+      include: {
+        discordMessages: true,
+      },
     });
 
     if (!request) {
@@ -266,34 +340,71 @@ export const setRequestStatus = ({
     }
 
     const shouldPost =
-      request.discordMessageIds.length === 0 &&
+      request.discordMessages.length === 0 &&
       request.status === Status.Pending &&
       status === Status.Accepted;
 
     const shouldNotifyDenial =
       request.status === Status.Pending && status === Status.Rejected;
 
-    let updatedRequest = await prisma.playgroundRequest.update({
+    let updatedRequest = await transactionPrisma.playgroundRequest.update({
       where: { id },
       data: { status },
     });
 
     if (shouldPost) {
-      const discordMessageIds = await postRequestOnDiscord(updatedRequest);
-      updatedRequest = await prisma.playgroundRequest.update({
-        where: { id },
-        data: {
-          discordMessageIds,
-        },
+      try {
+        const discordMessages = await postRequestOnDiscord(updatedRequest);
+        updatedRequest = await prisma.playgroundRequest.update({
+          where: { id },
+
+          data: {
+            discordMessages: {
+              create: discordMessages.map((msg) => ({
+                channelId: msg.channelId,
+                messageId: msg.id,
+              })),
+            },
+          },
+        });
+      } catch (e) {
+        try {
+          if (Array.isArray(e)) {
+            await withDiscordClient(() => {
+              (
+                (e as Message[]).filter((msg) => !!msg) as Message<true>[]
+              ).forEach(async (msg) => {
+                try {
+                  await msg.delete();
+                } catch {}
+              });
+            });
+          }
+        } finally {
+          throw e;
+        }
+      }
+      await emailClient.sendMail({
+        to: updatedRequest.providedEmail,
+        subject: 'Your request is now live on Playground!',
+        html: `Your request is now live on Playground!
+<br /><br />
+Hey ${updatedRequest.name}!
+<br /><br />
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="https://veganhacktivists.org/playground/request/${updatedRequest.id}">clicking this link</a>.
+<br /><br />
+Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="https://veganhacktivists.org/playground#faq">in this page</a>.
+<br /><br />
+Thank you so much!`,
       });
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
-        to: OUR_EMAIL,
+        to: updatedRequest.providedEmail,
         subject: 'Thanks so much for submitting your request to Playground!',
         html: `Thanks so much for submitting your request to Playground!
 <br />
 <br />
-Unfortunately your request did not meet the relevant or quality standards needed to go live. This can be for various reasons such as not being vegan, being for-profit, or just not enough details were submitted.
+Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.
 <br />
 <br />
 If you have any specific questions, or believe this was a mistake, feel free to contact us here.

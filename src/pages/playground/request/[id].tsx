@@ -10,8 +10,6 @@ import { NextSeo } from 'next-seo';
 
 import { useSession } from 'next-auth/react';
 
-import FaqSection from '../../../components/layout/playground/faqSection';
-
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
 import { trpc } from 'lib/client/trpc';
@@ -41,9 +39,10 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
     { enabled: router.isReady }
   );
 
-  const { data: request, status } = trpc.proxy.playground.request.useQuery(
+  const { data: request, status } = trpc.proxy.playground.getRequest.useQuery(
     router.query.id as string,
     {
+      retry: 1,
       onError: () => {
         toast.error('The request could not be found');
         void router.push('/playground', undefined, { shallow: true });
@@ -53,7 +52,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
 
   return (
     <>
-      <NextSeo title={request?.title} />
+      <NextSeo title={request?.title} description={request?.description} />
       <div className="mt-24">
         <div className="m-10 mb-5 w-fit text-grey">
           <Link
@@ -90,7 +89,6 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
             <Spinner />
           </div>
         )}
-        <FaqSection design="light" />
       </div>
     </>
   );

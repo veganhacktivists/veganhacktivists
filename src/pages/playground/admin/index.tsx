@@ -9,7 +9,6 @@ import { trpc } from 'lib/client/trpc';
 
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 
-import type { PlaygroundRequest } from '@prisma/client';
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
@@ -20,26 +19,7 @@ const AdminPage: NextPage = ({}) => {
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.proxy.playground.admin.setRequestStatus.useMutation({
-      onMutate: async ({ id }) => {
-        await queryClient.cancelQueries(['playground.admin.pendingRequests']);
-        const previousRequests = queryClient.getQueryData<PlaygroundRequest[]>([
-          'playground.admin.pendingRequests',
-        ]);
-
-        queryClient.setQueryData<PlaygroundRequest[]>(
-          ['playground.admin.pendingRequests'],
-          (oldRequests = []) => oldRequests?.filter((old) => old.id !== id)
-        );
-
-        return { previousApplications: previousRequests };
-      },
-      onError: (error, variables, context) => {
-        queryClient.setQueryData(
-          ['playground.admin.pendingRequests'],
-          context?.previousApplications
-        );
-      },
-      onSettled: () => {
+      onSuccess: () => {
         void queryClient.invalidateQueries([
           'playground.admin.pendingRequests',
         ]);
@@ -57,6 +37,9 @@ const AdminPage: NextPage = ({}) => {
         >
           See applications
         </DarkButton>
+        <LightButton href="/auth/signout" className="m-10 mx-auto w-fit">
+          Logout
+        </LightButton>
         <div className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40">
           {data.map((request) => (
             <div key={request.id}>
@@ -66,7 +49,13 @@ const AdminPage: NextPage = ({}) => {
                     className="w-full"
                     disabled={isMutationLoading}
                     onClick={() => {
-                      mutate({ id: request.id, status: 'Accepted' });
+                      if (
+                        confirm(
+                          `Are you sure you want to accept '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: 'Accepted' });
+                      }
                     }}
                   >
                     Accept
@@ -75,7 +64,13 @@ const AdminPage: NextPage = ({}) => {
                     className="w-full px-2 text-xl text-grey-dark"
                     disabled={isMutationLoading}
                     onClick={() => {
-                      mutate({ id: request.id, status: 'Rejected' });
+                      if (
+                        confirm(
+                          `Are you sure you want to reject '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: 'Rejected' });
+                      }
                     }}
                   >
                     Deny

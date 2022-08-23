@@ -65,6 +65,7 @@ colors.fuchsia = colors.magenta;
  * @type import("tailwindcss").Config
  */
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -98,5 +99,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+  ],
 };

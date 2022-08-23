@@ -109,15 +109,31 @@ model PlaygroundApplication {
 }
 
 enum PlaygroundRequestCategory {
-  Design
-  Website
-  Marketing
-  VideoProduction
-  SocialMedia
+  Developer
+  Designer
+  Writer
+  Editor
+  Researcher
+  Translator
+  Marketer
+  Social
+  DataScientist
+  Security
+  Other
+}
+
+model DiscordMessage {
+  messageId           String
+  channelId           String
+  playgroundRequestId String
+
+  request PlaygroundRequest? @relation(fields: [playgroundRequestId], references: [id])
+
+  @@id([messageId, channelId])
 }
 
 model PlaygroundRequest {
-  id                String   @id @default(cuid())
+  id                String           @id @default(cuid())
   phone             String?
   name              String
   providedEmail     String
@@ -125,18 +141,16 @@ model PlaygroundRequest {
   website           String
   calendlyUrl       String
   title             String
-  priority          Int      @db.SmallInt
-  roleTitle         String
-  requiredSkills    String[] @default([])
+  requiredSkills    String[]         @default([])
   isFree            Boolean
-  budget            Decimal  @db.Money
-  description       String   @db.Text
-  dueDate           DateTime @db.Date
+  budget            Decimal?         @db.Money
+  description       String           @db.Text
+  dueDate           DateTime         @db.Date
   estimatedTimeDays Int
-  requester         User     @relation(fields: [requesterId], references: [id])
+  requester         User             @relation(fields: [requesterId], references: [id])
   requesterId       String
-  status            Status   @default(Pending)
-  discordMessageIds String[] @default([])
+  status            Status           @default(Pending)
+  discordMessages   DiscordMessage[]
 
   applications PlaygroundApplication[]
   category     PlaygroundRequestCategory

@@ -46,7 +46,7 @@ const nextConfig = {
       },
       {
         source: '/joinplayground',
-        destination: 'https://discord.gg/cRqJBmUR9b',
+        destination: 'https://discord.gg/vhplayground',
         permanent: false,
       },
       {

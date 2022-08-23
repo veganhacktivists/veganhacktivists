@@ -85,11 +85,11 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
       {...props}
       onPointerEnter={(e) => {
         setIsHovered(true);
-        return props?.onPointerEnter?.(e);
+        return props?.onPointerEnter?.(e as React.PointerEvent<unknown>);
       }}
       onPointerLeave={(e) => {
         setIsHovered(false);
-        return props?.onPointerLeave?.(e);
+        return props?.onPointerLeave?.(e as React.PointerEvent<unknown>);
       }}
     >
       <div className="flex items-center justify-center mx-auto w-fit aspect-square">

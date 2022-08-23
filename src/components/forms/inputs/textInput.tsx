@@ -14,7 +14,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ({ error, children, className, showRequiredMark, ...props }, ref) => {
     return (
-      <div className={className}>
+      <div className={classNames(className, { hidden: props.hidden })}>
         <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
           {children}
         </Label>

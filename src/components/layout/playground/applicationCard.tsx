@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import { TimePerWeekLabel } from './applyForm';
 
-import { readableTimeSinceDate } from 'lib/helpers/date';
+import { readableTimeDiff } from 'lib/helpers/date';
 
-import type { inferQueryOutput } from 'lib/client/trpc';
+import type { trpc } from 'lib/client/trpc';
 
 interface ApplicationCardProps {
-  application: inferQueryOutput<'playground.admin.requestsWithPendingApplications'>[0]['applications'][0];
+  application: trpc['playground']['admin']['requestsWithPendingApplications']['output'][number]['applications'][number];
 }
 
 const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({
@@ -28,6 +28,10 @@ const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({
 const ApplicationCard: React.FC<
   React.PropsWithChildren<ApplicationCardProps>
 > = ({ children, application: app }) => {
+  const [timeSinceCreated] = useMemo(
+    () => readableTimeDiff(app.createdAt),
+    [app.createdAt]
+  );
   return (
     <div className="py-5">
       <div>
@@ -36,7 +40,9 @@ const ApplicationCard: React.FC<
           <> &rArr; (logs in as {app.applicant.email})</>
         )}
       </div>
-      <div>Applied {readableTimeSinceDate(app.createdAt)} ago</div>
+      <div>
+        Applied {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
+      </div>
       <div
         className={classNames('font-bold', {
           'text-red': !app.isVegan,

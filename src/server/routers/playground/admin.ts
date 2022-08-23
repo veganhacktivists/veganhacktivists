@@ -1,30 +1,18 @@
-import { TRPCError } from '@trpc/server';
-
 import { Status } from '@prisma/client';
 
-import {
-  applyToRequestSchema,
-  getPlaygroundRequestsSchema,
-  getRequestByIdSchema,
-  paginationSchema,
-  setApplicationStatusSchema,
-  setRequestStatusSchema,
-  submitRequestSchema,
-} from 'lib/services/playground/schemas';
-import { adminProcedure, protectedProcedure } from 'server/procedures/auth';
-import { t } from 'server/trpc';
-import {
-  applyToHelp,
-  getPlaygroundRequests,
-  getRequestById,
-  submitRequest,
-} from 'lib/services/playground';
 import {
   getPendingApplications,
   getPendingRequests,
   setApplicationStatus,
   setRequestStatus,
 } from 'lib/services/playground/admin';
+import {
+  paginationSchema,
+  setApplicationStatusSchema,
+  setRequestStatusSchema,
+} from 'lib/services/playground/schemas';
+import { adminProcedure } from 'server/procedures/auth';
+import { t } from 'server/trpc';
 
 const adminRouter = t.router({
   pendingApplications: adminProcedure
@@ -47,9 +35,6 @@ const adminRouter = t.router({
     .input(setRequestStatusSchema)
     .mutation(async ({ input }) => {
       const request = await setRequestStatus(input);
-
-      if (input.status === Status.Accepted) {
-      }
 
       return request;
     }),
@@ -90,42 +75,4 @@ const adminRouter = t.router({
   ),
 });
 
-const playgroundRouter = t.router({
-  admin: adminRouter,
-  requests: t.procedure
-    .input(getPlaygroundRequestsSchema)
-    .query(async ({ input }) => {
-      return await getPlaygroundRequests(input);
-    }),
-  request: t.procedure
-    .input(getRequestByIdSchema)
-    .query(({ input, ctx: { user } }) => {
-      try {
-        return getRequestById(input, user);
-      } catch {
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-        });
-      }
-    }),
-
-  apply: protectedProcedure
-    .input(applyToRequestSchema)
-    .mutation(async ({ input, ctx: { user } }) => {
-      return applyToHelp({
-        ...input,
-        applicantId: user.id,
-      });
-    }),
-
-  submitRequest: protectedProcedure
-    .input(submitRequestSchema)
-    .mutation(({ input, ctx }) => {
-      return submitRequest({
-        ...input,
-        requesterId: ctx.user.id,
-      });
-    }),
-});
-
-export default playgroundRouter;
+export default adminRouter;

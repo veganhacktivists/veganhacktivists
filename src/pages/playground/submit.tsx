@@ -6,15 +6,20 @@ import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 
 import SubmitRequestForm from 'components/layout/playground/submitRequestForm';
 
+import { SectionHeader } from 'components/decoration/textBlocks';
+
 import type PageWithLayout from 'types/persistentLayout';
 
 const Header: React.FC = () => {
   return (
     <div>
-      <h3 className="mb-3 font-mono text-3xl font-bold uppercase">
-        Need support? Let us know!
-      </h3>
-      <div>Please fill in the form below.</div>
+      <SectionHeader
+        className="-mb-10"
+        startWithBoldFont
+        header="Need support? Let us know!"
+      >
+        Please fill in the form below.
+      </SectionHeader>
     </div>
   );
 };
@@ -30,7 +35,7 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className="mt-11"
+        className="hidden md:block"
       />
       <SubmitRequestForm />
     </>

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
@@ -30,6 +30,7 @@ const resolver = zodResolver(signInSchema);
 const SignIn: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { status } = useSession();
+  const router = useRouter();
 
   const [providers, setProviders] =
     useState<Awaited<ReturnType<typeof getProviders>>>(null);
@@ -47,23 +48,19 @@ const SignIn: NextPage = () => {
   });
 
   const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
-    async ({
-      email,
-      // name
-    }) => {
-      const callbackUrl = Router.query.callbackUrl as string;
+    async ({ email }) => {
+      const callbackUrl = router.query.callbackUrl as string;
       setIsLoading(true);
 
       const { ok } = (await signIn<'email'>('email', {
         email,
         callbackUrl,
-        // name,
       })) as SignInResponse;
       if (!ok) {
         setIsLoading(false);
       }
     },
-    []
+    [router.query]
   );
 
   if (isLoading || status === 'loading') {

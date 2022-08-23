@@ -8,20 +8,16 @@ import TextArea from 'components/forms/inputs/textArea';
 
 import { trpc } from 'lib/client/trpc';
 
-import type { inferMutationInput } from 'lib/client/trpc';
+type SendMessageInput = trpc['discord']['sendMessage']['input'];
 
 const AdminCallout: React.FC = () => {
-  const { handleSubmit, register } =
-    useForm<inferMutationInput<'discord.sendTestMessage'>>();
+  const { handleSubmit, register } = useForm<SendMessageInput>();
 
-  const { mutate } = trpc.proxy.discord.sendTestMessage.useMutation();
+  const { mutate } = trpc.proxy.discord.sendMessage.useMutation();
 
   const onSubmit = useCallback(
-    ({ channelId, message }: inferMutationInput<'discord.sendTestMessage'>) => {
-      mutate({
-        channelId: channelId || undefined,
-        message: message || undefined,
-      });
+    (input: SendMessageInput) => {
+      mutate(input);
     },
     [mutate]
   );
