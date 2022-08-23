@@ -49,8 +49,6 @@ const SignIn: NextPage = () => {
 
   const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
     async ({ email }) => {
-      console.log(router.query);
-
       const callbackUrl = router.query.callbackUrl as string;
       setIsLoading(true);
 

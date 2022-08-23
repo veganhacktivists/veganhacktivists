@@ -1,6 +1,8 @@
 import { NextSeo } from 'next-seo';
 import React from 'react';
 
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
 import { getContents } from '../../lib/cms';
 import {
   getAllBlogSlugs,
@@ -80,12 +82,12 @@ const getEntryOrPreview: (
 
 const Header: React.FC = () => {
   return (
-    <div className="absolute w-full -z-10 overflow-hidden">
+    <div className="absolute w-full overflow-hidden -z-10">
       <div className="relative z-10">
         <Circle opacity={0.1} xAlign="left" yAlign="top" radius={16} />
         <Circle opacity={0.05} xAlign="right" yAlign="bottom" radius={11} />
       </div>
-      <div className="bg-black relative h-36 lg:h-80" />
+      <div className="relative bg-black h-36 lg:h-80" />
       <div className="z-20">
         <SquareField
           squares={[
@@ -109,19 +111,41 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
     return <div>Loading...</div>;
   }
 
-  const { title, author, content, featuredImage } = blog.fields;
+  const { title, author, content, featuredImage, excerpt } = blog.fields;
 
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
+  const excerptText = documentToPlainTextString(excerpt);
+
   return (
     <>
-      <NextSeo title={title} titleTemplate="%s | Vegan Hacktivists Blog" />
+      <NextSeo
+        title={title}
+        description={excerptText}
+        openGraph={{
+          type: 'article',
+          article: {
+            authors: [author.fields.name],
+            modifiedTime: blog.sys.updatedAt,
+            publishedTime: date.toISOString(),
+            tags: blog.fields.tags?.map((tag) => tag.fields.name),
+          },
+          images: [
+            {
+              url: `https:${featuredImage.fields.file.url}`,
+              height: featuredImage.fields.file.details.image?.height,
+              width: featuredImage.fields.file.details.image?.width,
+            },
+          ],
+        }}
+        titleTemplate="%s | Vegan Hacktivists Blog"
+      />
       <div>
         <Header />
         <div className="mx-auto">
-          <div className="px-5 lg:w-3/5 pt-20 mx-auto">
+          <div className="px-5 pt-20 mx-auto lg:w-3/5">
             {featuredImage && (
-              <div className="border-2 border-white mx-auto">
+              <div className="mx-auto border-2 border-white">
                 <ContentfulImage
                   image={featuredImage}
                   alt=""
@@ -132,12 +156,12 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
             )}
           </div>
           <div className="mt-20">
-            <h1 className="text-5xl font-bold w-3/4 mx-auto text-left">
+            <h1 className="w-3/4 mx-auto text-5xl font-bold text-left">
               {title}
             </h1>
             <div className="md:divide-y divide-grey-light">
               <BlogContentContainer>
-                <div className="text-left text-xl leading-relaxed space-y-4 md:flex-grow overflow-x-auto">
+                <div className="space-y-4 overflow-x-auto text-xl leading-relaxed text-left md:flex-grow">
                   {author && (
                     <div>
                       Written by{' '}
@@ -159,7 +183,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                       </div>
                     </div>
                     {author && (
-                      <div className="lg:hidden pt-5 mx-auto">
+                      <div className="pt-5 mx-auto lg:hidden">
                         <AuthorCard author={author} />
                       </div>
                     )}
@@ -189,8 +213,8 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
   const { image, name, description, socialLinks } = author.fields;
 
   return (
-    <div className="mb-14 w-full md:w-2/3 lg:w-full mx-auto">
-      <div className="text-grey-dark text-left text-3xl font-bold mb-10">
+    <div className="w-full mx-auto mb-14 md:w-2/3 lg:w-full">
+      <div className="mb-10 text-3xl font-bold text-left text-grey-dark">
         About the Author
       </div>
       <SubtleBorder className="flex flex-col lg:flex-row bg-grey-background">
@@ -199,15 +223,15 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
             <ContentfulImage image={image} alt="" />
           </div>
         )}
-        <div className="p-5 pl-10 pt-8 text-center lg:text-left h-full lg:h-64 w-full">
-          <div className="text-3xl font-bold pb-4">{name}</div>
+        <div className="w-full h-full p-5 pt-8 pl-10 text-center lg:text-left lg:h-64">
+          <div className="pb-4 text-3xl font-bold">{name}</div>
           {description && (
             <div className="text-xl">
               <RichText document={description} />
             </div>
           )}
           {socialLinks && (
-            <div className="md:ml-auto -px-5 pt-5 md:w-fit">
+            <div className="pt-5 md:ml-auto -px-5 md:w-fit">
               <SocialLinks
                 socialLinks={socialLinks.fields}
                 className="justify-center"
