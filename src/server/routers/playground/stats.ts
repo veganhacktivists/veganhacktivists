@@ -32,7 +32,6 @@ const statsRouter = t.router({
           const playgroundServer = await getDiscordServer(
             process.env.DISCORD_PLAYGROUND_SERVER_ID!
           );
-          console.info('playgroundServer:', playgroundServer);
 
           return playgroundServer.approximateMemberCount;
         }),
