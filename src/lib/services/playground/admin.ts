@@ -164,7 +164,10 @@ We highly recommend either of you to schedule a call with the other as soon as p
 Is someone not responding at all? Or are you having any other issues? Email us to let us know!
 <br />
 <br />
-Thank you so much everyone for helping the animals, and for using Playground.
+<i>Note that while we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers.</i>
+<br />
+<br />
+Thank you so much for helping the animals, and for using Playground!
 <br />
 <br />
 <b>Vegan Hacktivists</b>
