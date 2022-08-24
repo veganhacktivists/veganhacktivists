@@ -40,6 +40,9 @@ export const createFormattedMessage: (
 
 export const OUR_EMAIL = 'hello@veganhacktivists.org' as const;
 export const OUR_EMAIL_FORMATTED = `Vegan Hacktivists <${OUR_EMAIL}>` as const;
+export const PLAYGROUND_EMAIL = 'playground@veganhacktivists.org' as const;
+export const PLAYGROUND_EMAIL_FORMATTED =
+  `VH Playground <${PLAYGROUND_EMAIL}>` as const;
 
 const emailClient = new EmailClient(
   new Mailgun(formData).client({

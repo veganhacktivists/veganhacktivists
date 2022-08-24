@@ -8,7 +8,7 @@ import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import prisma from 'lib/db/prisma';
 import withDiscordClient, { sendDiscordMessage } from 'lib/discord';
 
-import emailClient, { OUR_EMAIL } from 'lib/mail';
+import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 
@@ -176,6 +176,7 @@ Thank you so much for helping the animals, and for using Playground!
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
         to: updatedApplication.providedEmail,
+        from: PLAYGROUND_EMAIL_FORMATTED,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
         html: `Thanks so much for submitting your request to support with Playground!
@@ -375,6 +376,7 @@ export const setRequestStatus = ({
       });
       await emailClient.sendMail({
         to: updatedRequest.providedEmail,
+        from: PLAYGROUND_EMAIL_FORMATTED,
         subject: 'Your request is now live on Playground!',
         html: `Your request is now live on Playground!
 <br /><br />
@@ -389,6 +391,7 @@ Thank you so much!`,
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
         to: updatedRequest.providedEmail,
+        from: PLAYGROUND_EMAIL_FORMATTED,
         subject: 'Thanks so much for submitting your request to Playground!',
         html: `Thanks so much for submitting your request to Playground!
 <br />
