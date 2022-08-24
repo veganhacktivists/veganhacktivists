@@ -325,7 +325,7 @@ const SubmitRequestForm: React.FC = () => {
           className="col-span-full"
           error={errors.title?.message}
         >
-          Title of Request
+          Title of Request (max. 55 characters)
         </TextInput>
         <div className="col-span-full">
           <Label name="category" showRequiredMark />

@@ -77,7 +77,7 @@ const unsafeSubmitRequestSchema = z.object({
     })
     .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
   calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
-  title: z.string().trim().min(1),
+  title: z.string().trim().min(1).max(55),
   category: z.nativeEnum(PlaygroundRequestCategory),
   // Transform the string of skills separated by a comma in an array of strings
   requiredSkills: z

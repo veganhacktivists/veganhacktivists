@@ -58,7 +58,7 @@ const seedRequests = async (n: number = NUMBER) => {
           faker.datatype.number({ min: 0, max: 10 })
         ),
         website: faker.internet.url(),
-        title: faker.hacker.phrase(),
+        title: faker.hacker.phrase().slice(0, 55),
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
         organization: faker.company.companyName(),

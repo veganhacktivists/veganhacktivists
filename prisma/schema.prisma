@@ -140,7 +140,7 @@ model PlaygroundRequest {
   organization      String?
   website           String
   calendlyUrl       String
-  title             String
+  title             String           @db.VarChar(55)
   requiredSkills    String[]         @default([])
   isFree            Boolean
   budget            Decimal?         @db.Money
