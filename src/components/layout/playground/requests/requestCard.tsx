@@ -14,6 +14,8 @@ import { DarkButton } from 'components/decoration/buttons';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
+import SquareField from 'components/decoration/squares';
+
 import type { trpc } from 'lib/client/trpc';
 
 import type { PlaygroundRequestCategory } from '@prisma/client';
@@ -77,75 +79,80 @@ const PlaygroundRequestCard: React.FC<
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
 
   return (
-    <div className="flex flex-col h-full gap-2 p-4 text-left bg-grey-background">
-      <div className="space-y-1">
-        <h3
-          className="mb-2 font-mono text-2xl font-bold capitalize line-clamp-1"
-          title={title}
-        >
-          {title}
-        </h3>
-        <div className="flex flex-row justify-start gap-2">
-          <div
-            style={{
-              borderColor: categoryColor,
-            }}
-            className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
+    <div className="bg-grey-background">
+      <SquareField
+        squares={[{ top: 0, right: 0, color: categoryColor, size: 12 }]}
+      />
+      <div className="flex flex-col h-full gap-2 p-4 text-left">
+        <div className="space-y-1">
+          <h3
+            className="mb-2 mr-12 font-mono text-xl font-bold capitalize break-all md:text-2xl line-clamp-1"
+            title={title}
           >
-            {CATEGORY_LABELS[category]}
-          </div>
-          <div className="flex flex-row items-center gap-2 my-auto">
-            <FontAwesomeIcon icon={faClock} size="sm" />{' '}
-            <div>
-              <strong>Posted: </strong>
-              {timeSinceCreated ? `${timeSinceCreated} ago` : 'Today'}
+            {title}
+          </h3>
+          <div className="flex flex-row justify-start gap-2">
+            <div
+              style={{
+                borderColor: categoryColor,
+              }}
+              className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
+            >
+              {CATEGORY_LABELS[category]}
+            </div>
+            <div className="flex flex-row items-center gap-2 my-auto">
+              <FontAwesomeIcon icon={faClock} size="sm" />{' '}
+              <div>
+                <strong>Posted: </strong>
+                {timeSinceCreated ? `${timeSinceCreated} ago` : 'Today'}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="mt-4 mb-4 line-clamp-5">{description}</div>
-      <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
-        <Li
-          name="Requestor"
-          category={category}
-          title={requester.name || undefined}
-        >
-          {requester.name}
-        </Li>
-        <Li name="Due in" category={category}>
-          {timeUntilDue}
-          {/* {timeUntilDue
+        <div className="mt-4 mb-4 line-clamp-5">{description}</div>
+        <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
+          <Li
+            name="Requestor"
+            category={category}
+            title={requester.name || undefined}
+          >
+            {requester.name}
+          </Li>
+          <Li name="Due in" category={category}>
+            {timeUntilDue}
+            {/* {timeUntilDue
               ? isDue
                 ? `Was due ${timeUntilDue} ago`
                 : `Due in ${timeUntilDue}`
               : 'Due today'} */}
-        </Li>
-        <Li
-          name="Organization"
-          title={organization || undefined}
-          category={category}
+          </Li>
+          <Li
+            name="Organization"
+            title={organization || undefined}
+            category={category}
+          >
+            {organization}
+          </Li>
+          <Li
+            name="Compensation"
+            title={`${isFree ? 'Volunteer' : 'Paid'} role`}
+            category={category}
+          >
+            {isFree ? 'Volunteer' : 'Paid'} role
+          </Li>
+        </ul>
+        <DarkButton
+          href={{
+            pathname: '/playground/request/[id]',
+            query: { id },
+          }}
+          className="text-center text-md"
         >
-          {organization}
-        </Li>
-        <Li
-          name="Compensation"
-          title={`${isFree ? 'Volunteer' : 'Paid'} role`}
-          category={category}
-        >
-          {isFree ? 'Volunteer' : 'Paid'} role
-        </Li>
-      </ul>
-      <DarkButton
-        href={{
-          pathname: '/playground/request/[id]',
-          query: { id },
-        }}
-        className="text-center text-md"
-      >
-        Read more / apply to help
-      </DarkButton>
-      {children}
+          Read more / apply to help
+        </DarkButton>
+        {children}
+      </div>
     </div>
   );
 };

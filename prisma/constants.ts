@@ -14,8 +14,8 @@ export const CATEGORY_COLORS: Record<
   Researcher: getThemeColor('orange'),
   Security: getThemeColor('purple'),
   Social: getThemeColor('yellow-orange'),
-  Translator: getThemeColor('brown'),
-  Writer: getThemeColor('gray'),
+  Translator: getThemeColor('yellow'),
+  Writer: getThemeColor('grey'),
   Other: getThemeColor('grey-light'),
 };
 
