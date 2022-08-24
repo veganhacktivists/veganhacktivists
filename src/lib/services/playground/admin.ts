@@ -134,15 +134,16 @@ We&apos;re excited to let you know that we&apos;ve been able to find someone to 
         }&rdquo;!
 <br />
 <br />
-Meet the person (cc&apos;ed to this email, just reply all!) below that applied to help with your request!
+Meet the person (cc&apos;ed to this email) below that applied to help with your request!
 <br />
 <br />
 <b>Name:</b> ${updatedApplication.name}
 <br />
+<br />
 ${optionalMessageParts}
 <br />
 <br />
-They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
+<b>Note:</b> They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
 <br />
 <br />
 <b>What&apos;s next?</b>
