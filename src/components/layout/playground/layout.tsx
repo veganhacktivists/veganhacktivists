@@ -51,7 +51,7 @@ const playgroundSEO: NextSeoProps = {
   openGraph: {
     images: [
       {
-        url: '/images/playground/VH_Playground_FullLogoWithBackground.png',
+        url: 'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png',
         alt: 'VH Playground logo',
         width: 1200,
         height: 630,
