@@ -30,9 +30,7 @@ const Playground: PageWithLayout = ({}) => {
   >(() => ({
     sort: {
       createdAt: 'desc',
-      dueDate: 'desc',
     },
-    filter: {},
   }));
   const params = useMemo(() => {
     const { sort, ...otherFilters } = filters;
