@@ -86,8 +86,7 @@ const Playground: PageWithLayout = ({}) => {
           ref={requestContainer}
         >
           <RequestFilters onChange={setFilters} filters={filters} />
-          <div className="grid gap-8 mx-20 mt-10 md:mx-5 md:grid-cols-2">
-            {/* TODO: no available requests message */}
+          <div className="grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2">
             {paginatedRequests?.map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
