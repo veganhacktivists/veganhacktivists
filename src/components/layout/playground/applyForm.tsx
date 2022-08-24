@@ -331,7 +331,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <form
         ref={setFormRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6"
+        className="grid grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6"
       >
         <div className="font-serif text-2xl italic font-medium col-span-full">
           Interested in applying to help with this project?
