@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
@@ -8,6 +8,8 @@ import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
 } from '../../../../../prisma/constants';
+
+import SelectInput from '../../../forms/inputs/selectInput';
 
 import RadioButton from 'components/forms/inputs/radioButton';
 import Checkbox from 'components/forms/inputs/checkbox';
@@ -161,6 +163,11 @@ const FilterBy: React.FC<{
   );
 };
 
+interface OptionType {
+  label: string;
+  value: string | number | boolean;
+}
+
 const RequestFilters: React.FC<RequestFiltersProps> = ({
   filters,
   onChange,
@@ -176,17 +183,88 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
     },
     [filters, onChange]
   );
+  const [sortOption, setSortOption] = useState({} as OptionType | null);
 
   const { sort, ...otherFilters } = filters;
+  let currentOption;
+
+  const sortNewest = {
+    label: 'Newest',
+    value: 'newest',
+  };
+  const sortOldest = {
+    label: 'Oldest',
+    value: 'oldest',
+  };
+  const sortHighestPrio = {
+    label: 'Highest priority',
+    value: 'highest',
+  };
+  const sortLowestPrio = {
+    label: 'Lowest priority',
+    value: 'lowest',
+  };
+  const sortOptions = [sortNewest, sortOldest, sortHighestPrio, sortLowestPrio];
+  useEffect(() => {
+    if (sort?.createdAt === 'asc' && sort?.dueDate === undefined) {
+      setSortOption(sortOldest);
+    } else if (sort?.createdAt === 'desc' && sort?.dueDate === undefined) {
+      setSortOption(sortNewest);
+    } else if (sort?.dueDate === 'asc') {
+      setSortOption(sortHighestPrio);
+    } else if (sort?.dueDate === 'desc') {
+      setSortOption(sortLowestPrio);
+    } else {
+      setSortOption(sortNewest);
+    }
+  }, []);
+
+  const changeSortOption = (option: OptionType | null) => {
+    let sort:
+      | {
+          createdAt?: 'asc' | 'desc' | undefined;
+          dueDate?: 'asc' | 'desc' | undefined;
+        }
+      | undefined;
+    switch (option?.value) {
+      case 'newest':
+        sort = { createdAt: 'desc' };
+        break;
+      case 'oldest':
+        sort = { createdAt: 'asc' };
+        break;
+      case 'highest':
+        sort = { dueDate: 'asc' };
+        break;
+      case 'lowest':
+        sort = { dueDate: 'desc' };
+        break;
+      default:
+        sort = { createdAt: 'desc' };
+        break;
+    }
+    onChange({ sort: sort, ...otherFilters });
+    setSortOption(option);
+  };
 
   return (
-    <div>
+    <div className={classNames('flex flex-row p-6 justify-between')}>
       <FilterBy
         filters={otherFilters}
         onFiltersChange={(newFilters) =>
           onChange({ sort: filters.sort, ...newFilters })
         }
       />
+      <div className={classNames('flex flex-row')}>
+        <span className={classNames('flex uppercase mr-2 mt-2')}>Sort by:</span>
+        <SelectInput
+          current={sortOption}
+          options={sortOptions}
+          onChange={(option) => {
+            changeSortOption(option);
+          }}
+        />
+      </div>
     </div>
   );
   // return (
