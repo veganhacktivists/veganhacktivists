@@ -111,7 +111,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
       </div>
 
       <div className="relative flex flex-col-reverse justify-between gap-2 mb-4 font-mono text-xl text-left md:flex-row">
-        <div className="flex flex-col gap-5 leading-[22px] prose prose-p:max-w-prose md:prose-xl max-w-none">
+        <div className="prose prose-p:max-w-prose md:prose-xl max-w-none prose-p:leading-6 prose-headings:leading-none">
           <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
           <Field title="Title">
             <h1
