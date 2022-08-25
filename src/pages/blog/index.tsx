@@ -7,6 +7,8 @@ import {
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { useAutoAnimate } from '@formkit/auto-animate/react';
+
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
 import { DarkButton } from '../../components/decoration/buttons';
@@ -99,7 +101,6 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     setPreviousPage,
     setNextPage,
     setPage,
-    totalPages,
     currentPage,
     previousEnabled,
     nextEnabled,
@@ -154,6 +155,8 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     });
   };
 
+  const [animatedRef] = useAutoAnimate<HTMLDivElement>();
+
   return (
     <>
       <NextSeo title="Blog" />
@@ -188,7 +191,10 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         {!filteredFirstBlog.length && !filteredEntries.length ? (
           <div className="mx-auto text-xl">No entries match your query</div>
         ) : (
-          <div className="grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min">
+          <div
+            ref={animatedRef}
+            className="grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min"
+          >
             {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
               <SubtleBorder
                 key={filteredFirstBlog[0].fields.slug}

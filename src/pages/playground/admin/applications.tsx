@@ -1,3 +1,5 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react';
+
 import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 
@@ -12,6 +14,7 @@ const AdminPage: NextPage = ({}) => {
 
   const { data, isSuccess } =
     trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
+  const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.proxy.playground.admin.setApplicationStatus.useMutation({
@@ -28,7 +31,10 @@ const AdminPage: NextPage = ({}) => {
       <DarkButton href="/playground/admin" className="m-10 mx-auto w-fit">
         See requests
       </DarkButton>
-      <div className="flex flex-row flex-wrap justify-center gap-5">
+      <div
+        className="flex flex-row flex-wrap justify-center gap-5"
+        ref={animatedRef}
+      >
         {data.map((request) => (
           <div key={request.id}>
             <div className="max-w-xl h-ful">

@@ -1,5 +1,7 @@
 import { NextSeo } from 'next-seo';
 
+import { useAutoAnimate } from '@formkit/auto-animate/react';
+
 import {
   DarkButton,
   ExternalLinkButton,
@@ -26,6 +28,8 @@ const AdminPage: NextPage = ({}) => {
       },
     });
 
+  const [animatedRef] = useAutoAnimate<HTMLDivElement>();
+
   if (!isSuccess) return null;
   return (
     <>
@@ -40,7 +44,10 @@ const AdminPage: NextPage = ({}) => {
         <LightButton href="/auth/signout" className="m-10 mx-auto w-fit">
           Logout
         </LightButton>
-        <div className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40">
+        <div
+          className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40"
+          ref={animatedRef}
+        >
           {data.map((request) => (
             <div key={request.id}>
               <PlaygroundRequestCard request={request}>

@@ -6,6 +6,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useAutoAnimate } from '@formkit/auto-animate/react';
+
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
@@ -72,6 +74,8 @@ const Playground: PageWithLayout = ({}) => {
     [requests, startIndex, endIndex]
   );
 
+  const [animatedRef] = useAutoAnimate<HTMLDivElement>();
+
   return (
     <>
       <NextSeo title="Requests" />
@@ -86,7 +90,10 @@ const Playground: PageWithLayout = ({}) => {
           ref={requestContainer}
         >
           <RequestFilters onChange={setFilters} filters={filters} />
-          <div className="grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2">
+          <div
+            className="grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2"
+            ref={animatedRef}
+          >
             {paginatedRequests?.map((request) => (
               <PlaygroundRequestCard key={request.id} request={request} />
             ))}
