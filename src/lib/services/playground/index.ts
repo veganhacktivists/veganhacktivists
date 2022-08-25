@@ -4,7 +4,7 @@ import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 
-import emailClient, { OUR_EMAIL } from 'lib/mail';
+import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
 import type { submitRequestSchema } from './schemas';
 
@@ -122,6 +122,7 @@ export const applyToHelp = async (
 
     await emailClient.sendMail({
       to: OUR_EMAIL,
+      from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Request',
       html: `A new applicant has applied to help in Playground!
       <br/><br/>
@@ -167,6 +168,7 @@ export const submitRequest = async (
 
   await emailClient.sendMail({
     to: OUR_EMAIL,
+    from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'New Playground Request',
     html: `A new Request has been submitted to Playground for review!
     <br/><br/>
