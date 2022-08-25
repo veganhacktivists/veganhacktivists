@@ -96,10 +96,12 @@ export const setApplicationStatus = ({
     });
 
     const shouldNotifyBoth =
+      process.env.NODE_ENV === 'production' &&
       application.status === Status.Pending &&
       updatedApplication.status === Status.Accepted;
 
     const shouldNotifyDenialToApplicant =
+      process.env.NODE_ENV === 'production' &&
       application.status === Status.Pending &&
       updatedApplication.status === Status.Rejected;
 
@@ -348,12 +350,15 @@ export const setRequestStatus = ({
     }
 
     const shouldPost =
+      process.env.NODE_ENV === 'production' &&
       request.discordMessages.length === 0 &&
       request.status === Status.Pending &&
       status === Status.Accepted;
 
     const shouldNotifyDenial =
-      request.status === Status.Pending && status === Status.Rejected;
+      process.env.NODE_ENV === 'production' &&
+      request.status === Status.Pending &&
+      status === Status.Rejected;
 
     let updatedRequest = await transactionPrisma.playgroundRequest.update({
       where: { id },
