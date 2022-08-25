@@ -121,8 +121,9 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
     <>
       <NextSeo
         title={title}
-        description={excerptText}
+        description={excerptText.slice(0, 300)}
         openGraph={{
+          title,
           type: 'article',
           article: {
             authors: [author.fields.name],

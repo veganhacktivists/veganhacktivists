@@ -50,9 +50,15 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
     }
   );
 
+  const truncatedDescription = request?.description.slice(0, 300);
+
   return (
     <>
-      <NextSeo title={request?.title} description={request?.description} />
+      <NextSeo
+        title={request?.title}
+        description={truncatedDescription}
+        openGraph={{ title: request?.title }}
+      />
       <div className="mt-24">
         <div className="m-10 mb-5 w-fit text-grey">
           <Link

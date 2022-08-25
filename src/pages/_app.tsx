@@ -42,6 +42,9 @@ type AppPropsWithLayout = AppProps & {
 
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
+  openGraph: {
+    url: 'https://veganhacktivists.org',
+  },
   twitter: {
     cardType: 'summary_large_image',
   },
