@@ -45,12 +45,9 @@ const FilterBy: React.FC<{
   return (
     <div
       onClick={isOpen ? undefined : openFilters}
-      className={classNames(
-        'px-4 py-2 border md:max-w-[75%] border-grey w-fit text-left',
-        {
-          'cursor-pointer': !isOpen,
-        }
-      )}
+      className={classNames('px-4 py-2 border border-grey w-fit text-left', {
+        'cursor-pointer': !isOpen,
+      })}
     >
       {!isOpen &&
         (numberOfAppliedFilters === 0
@@ -59,7 +56,7 @@ const FilterBy: React.FC<{
       {isOpen && (
         <div>
           <div>
-            <div className="font-bold">Category</div>
+            <div className="font-bold mb-2">Category</div>
             <div className="flex flex-row flex-wrap gap-2">
               {Object.keys(PlaygroundRequestCategory).map((category) => {
                 const isSelected = localFilters.categories?.includes(
@@ -67,7 +64,7 @@ const FilterBy: React.FC<{
                 );
                 return (
                   <div
-                    className="px-2 py-1 border cursor-pointer"
+                    className="px-2 py-1 border cursor-pointer select-none"
                     onClick={() => {
                       if (isSelected) {
                         setLocalFilters((filters) => ({
@@ -248,15 +245,30 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   };
 
   return (
-    <div className={classNames('flex flex-row p-6 justify-between')}>
-      <FilterBy
-        filters={otherFilters}
-        onFiltersChange={(newFilters) =>
-          onChange({ sort: filters.sort, ...newFilters })
-        }
-      />
-      <div className={classNames('flex flex-row')}>
-        <span className={classNames('flex uppercase mr-2 mt-2')}>Sort by:</span>
+    <div
+      className={classNames(
+        'flex p-6 justify-between flex-wrap sm:flex-nowrap gap-3'
+      )}
+    >
+      <div className={classNames('flex sm:mb-10 flex-row w-auto max-w-[75%]')}>
+        <span
+          className={classNames('flex uppercase mr-2 mt-2 whitespace-nowrap')}
+        >
+          Filter by:
+        </span>
+        <FilterBy
+          filters={otherFilters}
+          onFiltersChange={(newFilters) =>
+            onChange({ sort: filters.sort, ...newFilters })
+          }
+        />
+      </div>
+      <div className={classNames('flex w-[200px] min-w-[200px] flex-row')}>
+        <span
+          className={classNames('flex uppercase mr-2 mt-2 whitespace-nowrap')}
+        >
+          Sort by:
+        </span>
         <SelectInput
           current={sortOption}
           options={sortOptions}
