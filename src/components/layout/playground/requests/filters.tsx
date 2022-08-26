@@ -11,6 +11,10 @@ import {
 
 import SelectInput from '../../../forms/inputs/selectInput';
 
+import getThemeColor from '../../../../lib/helpers/theme';
+
+import { getHSPByHex, isHexDark } from '../../../../lib/helpers/colors';
+
 import RadioButton from 'components/forms/inputs/radioButton';
 import Checkbox from 'components/forms/inputs/checkbox';
 
@@ -45,9 +49,12 @@ const FilterBy: React.FC<{
   return (
     <div
       onClick={isOpen ? undefined : openFilters}
-      className={classNames('px-4 py-2 border border-grey w-fit text-left', {
-        'cursor-pointer': !isOpen,
-      })}
+      className={classNames(
+        'px-4 py-2 border border-grey w-fit text-left select-none',
+        {
+          'cursor-pointer': !isOpen,
+        }
+      )}
     >
       {!isOpen &&
         (numberOfAppliedFilters === 0
@@ -64,7 +71,15 @@ const FilterBy: React.FC<{
                 );
                 return (
                   <div
-                    className="px-2 py-1 border cursor-pointer select-none"
+                    className={classNames(
+                      `px-2 py-1 border cursor-pointer select-none ${
+                        isHexDark(
+                          CATEGORY_COLORS[category as PlaygroundRequestCategory]
+                        ) && isSelected
+                          ? 'text-white'
+                          : 'text-black'
+                      }`
+                    )}
                     onClick={() => {
                       if (isSelected) {
                         setLocalFilters((filters) => ({
