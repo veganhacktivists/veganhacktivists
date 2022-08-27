@@ -43,7 +43,9 @@ export const readableTimeDiff = (date: Date) => {
   }
 
   return [
-    Duration.fromObject(diffWithoutZeroes).toHuman({
+    Duration.fromObject(diffWithoutZeroes, {
+      locale: 'en-US',
+    }).toHuman({
       maximumFractionDigits: 0,
     }),
     isPastDate,
