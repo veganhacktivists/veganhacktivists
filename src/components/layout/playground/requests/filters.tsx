@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
@@ -13,12 +13,19 @@ import SelectInput from '../../../forms/inputs/selectInput';
 
 import { isHexDark } from '../../../../lib/helpers/colors';
 
+import useOnce from '../../../../hooks/useOnce';
+
 import { GreyButton } from 'components/decoration/buttons';
+
+import type { sortSchema } from '../../../../lib/services/playground/schemas';
 
 import type { trpc } from 'lib/client/trpc';
 
+import type { z } from 'zod';
+
 type Filters = trpc['playground']['getAllRequests']['input'];
 
+type Sorting = z.infer<typeof sortSchema>;
 type FiltersWithoutSort = Omit<Filters, 'sort'>;
 interface RequestFiltersProps {
   filters: Filters;
@@ -172,31 +179,11 @@ const FilterBy: React.FC<{
   );
 };
 
-interface OptionType {
-  label: string;
-  value: string | number | boolean;
-}
-
-const RequestFilters: React.FC<RequestFiltersProps> = ({
-  filters,
-  onChange,
-}) => {
-  const onChangeSort = useCallback(
-    (name: keyof Required<Filters>['sort'], value: 'asc' | 'desc') => {
-      onChange({
-        ...filters,
-        sort: {
-          [name]: value,
-        },
-      });
-    },
-    [filters, onChange]
-  );
+const SortBy: React.FC<{
+  sort?: Sorting;
+  onFiltersChange: (sorting: Sorting) => void;
+}> = ({ sort, onFiltersChange }) => {
   const [sortOption, setSortOption] = useState({} as OptionType | null);
-
-  const { sort, ...otherFilters } = filters;
-  let currentOption;
-
   const sortNewest = {
     label: 'Newest',
     value: 'newest',
@@ -214,7 +201,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
     value: 'lowest',
   };
   const sortOptions = [sortNewest, sortOldest, sortHighestPrio, sortLowestPrio];
-  useEffect(() => {
+  useOnce(() => {
     if (sort?.createdAt === 'asc' && sort?.dueDate === undefined) {
       setSortOption(sortOldest);
     } else if (sort?.createdAt === 'desc' && sort?.dueDate === undefined) {
@@ -226,15 +213,9 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
     } else {
       setSortOption(sortNewest);
     }
-  }, []);
-
+  });
   const changeSortOption = (option: OptionType | null) => {
-    let sort:
-      | {
-          createdAt?: 'asc' | 'desc' | undefined;
-          dueDate?: 'asc' | 'desc' | undefined;
-        }
-      | undefined;
+    let sort: Sorting;
     switch (option?.value) {
       case 'newest':
         sort = { createdAt: 'desc' };
@@ -252,9 +233,30 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         sort = { createdAt: 'desc' };
         break;
     }
-    onChange({ sort: sort, ...otherFilters });
+    onFiltersChange(sort);
     setSortOption(option);
   };
+  return (
+    <SelectInput
+      current={sortOption}
+      options={sortOptions}
+      onChange={(option) => {
+        changeSortOption(option);
+      }}
+    />
+  );
+};
+
+interface OptionType {
+  label: string;
+  value: string | number | boolean;
+}
+
+const RequestFilters: React.FC<RequestFiltersProps> = ({
+  filters,
+  onChange,
+}) => {
+  const { sort, ...otherFilters } = filters;
 
   return (
     <div
@@ -285,11 +287,10 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         >
           Sort by:
         </span>
-        <SelectInput
-          current={sortOption}
-          options={sortOptions}
-          onChange={(option) => {
-            changeSortOption(option);
+        <SortBy
+          sort={sort}
+          onFiltersChange={(newSorting) => {
+            onChange({ sort: newSorting, ...otherFilters });
           }}
         />
       </div>
