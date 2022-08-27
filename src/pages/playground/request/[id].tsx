@@ -10,6 +10,10 @@ import { NextSeo } from 'next-seo';
 
 import { useSession } from 'next-auth/react';
 
+import { faLongArrowAltLeft as leftArrow } from '@fortawesome/free-solid-svg-icons';
+
+import { DarkButton } from '../../../components/decoration/buttons';
+
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
 import { trpc } from 'lib/client/trpc';
@@ -60,25 +64,35 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         openGraph={{ title: request?.title }}
       />
       <div className="mt-24">
-        <div className="m-10 mb-5 w-fit text-grey">
+        <div className="m-10 mb-5 w-fit text-grey ml-10 md:ml-20">
           <Link
             href={{
               pathname: '/playground',
             }}
           >
             <a>
-              <FontAwesomeIcon icon={faArrowLeft} /> View all requests
+              <DarkButton className="flex font-mono font-bold uppercase">
+                <div>
+                  <FontAwesomeIcon icon={leftArrow} size="xs" />
+                </div>
+                <span className="pl-3 block">Go Back</span>
+              </DarkButton>
             </a>
           </Link>
           {session.data?.user?.role === 'Admin' && (
-            <div className="text-left">
+            <div className="text-left mt-2">
               <Link
                 href={{
                   pathname: '/playground/admin',
                 }}
               >
                 <a>
-                  <FontAwesomeIcon icon={faArrowLeft} /> Review requests
+                  <DarkButton className="flex font-mono font-bold uppercase">
+                    <div>
+                      <FontAwesomeIcon icon={leftArrow} size="xs" />
+                    </div>
+                    <span className="block pl-3">Review requests</span>
+                  </DarkButton>
                 </a>
               </Link>
             </div>
