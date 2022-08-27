@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -23,7 +23,7 @@ import ConfirmationModal from './confirmationModal';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
-import { DarkButton } from 'components/decoration/buttons';
+import { DarkButton, WhiteButton } from 'components/decoration/buttons';
 
 import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
 
@@ -86,7 +86,22 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     if (!request) return '';
     return DateTime.fromJSDate(request.createdAt).toFormat('MMMM dd, yyyy');
   }, [request]);
-
+  const [expanded, setExpanded] = useState(false);
+  const [description, setDescription] = useState('');
+  useEffect(() => {
+    const words = request.description?.split(' ');
+    let newDescription = '';
+    const MAX_WORDS = 300;
+    if (words.length > MAX_WORDS && !expanded) {
+      for (let i = 0; i < MAX_WORDS; i++) {
+        newDescription += words[i] + (i < MAX_WORDS - 1 ? ' ' : '...');
+      }
+    } else {
+      newDescription = request.description;
+      setExpanded(true);
+    }
+    setDescription(newDescription);
+  }, [expanded, request.description]);
   return (
     <div className="px-10 mb-5 md:px-40">
       <div className="flex flex-row justify-start gap-5">
@@ -123,9 +138,21 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           </Field>
           <Field title="Description">
             <div className="font-sans break-words">
-              {request.description.split('\n').map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
+              <div className="inline-block">
+                {description.split('\n').map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+                {!expanded && (
+                  <div className="flex justify-center my-14">
+                    <WhiteButton
+                      className="font-mono text-2xl"
+                      onClick={() => setExpanded(true)}
+                    >
+                      Load more
+                    </WhiteButton>
+                  </div>
+                )}
+              </div>
             </div>
           </Field>
           <Field title="Skills required">
