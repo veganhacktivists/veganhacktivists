@@ -11,12 +11,7 @@ import {
 
 import SelectInput from '../../../forms/inputs/selectInput';
 
-import getThemeColor from '../../../../lib/helpers/theme';
-
 import { getHSPByHex, isHexDark } from '../../../../lib/helpers/colors';
-
-import RadioButton from 'components/forms/inputs/radioButton';
-import Checkbox from 'components/forms/inputs/checkbox';
 
 import { DarkButton, GreyButton } from 'components/decoration/buttons';
 
@@ -114,7 +109,7 @@ const FilterBy: React.FC<{
             </div>
           </div>
           <div>
-            <div className="font-bold">Job Type</div>
+            <div className="font-bold my-2">Job Type</div>
             <div className="flex flex-col gap-2 md:flex-row">
               <div
                 className={classNames(
@@ -134,7 +129,9 @@ const FilterBy: React.FC<{
               </div>
               <div
                 className={classNames(
-                  'px-2 py-1 border cursor-pointer bg-magenta-dark border-magenta-dark',
+                  `px-2 py-1 border cursor-pointer bg-magenta-dark border-magenta-dark ${
+                    localFilters.isFree === false ? 'text-white' : 'text-black'
+                  }`,
                   localFilters.isFree === false
                     ? 'bg-opacity-80'
                     : 'bg-opacity-10'

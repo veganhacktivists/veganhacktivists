@@ -107,6 +107,12 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
         ...provided,
         height,
       }),
+      menu: (provided) => ({
+        ...provided,
+        position: 'absolute',
+        top: '45px',
+        'z-index': '11',
+      }),
     };
 
     const classes = classNames(className, 'text-left');
