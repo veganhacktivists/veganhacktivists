@@ -11,9 +11,9 @@ import {
 
 import SelectInput from '../../../forms/inputs/selectInput';
 
-import { getHSPByHex, isHexDark } from '../../../../lib/helpers/colors';
+import { isHexDark } from '../../../../lib/helpers/colors';
 
-import { DarkButton, GreyButton } from 'components/decoration/buttons';
+import { GreyButton } from 'components/decoration/buttons';
 
 import type { trpc } from 'lib/client/trpc';
 
@@ -110,7 +110,7 @@ const FilterBy: React.FC<{
           </div>
           <div>
             <div className="font-bold my-2">Job Type</div>
-            <div className="flex flex-col gap-2 md:flex-row">
+            <div className="flex flex-row flex-wrap gap-2 ">
               <div
                 className={classNames(
                   'px-2 py-1 border cursor-pointer bg-yellow border-yellow',
@@ -146,7 +146,7 @@ const FilterBy: React.FC<{
                 Paid
               </div>
             </div>
-            <div className="flex flex-col justify-end gap-2 md:flex-row place-items-center">
+            <div className="flex flex-col justify-end gap-2 mt-5 sm:flex-row place-items-center">
               <div
                 className="cursor-pointer"
                 onClick={() => {
@@ -259,10 +259,14 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   return (
     <div
       className={classNames(
-        'flex p-6 justify-between flex-wrap sm:flex-nowrap gap-3'
+        'flex p-6 justify-between flex-wrap-reverse sm:flex-nowrap gap-3'
       )}
     >
-      <div className={classNames('flex sm:mb-10 flex-row w-auto max-w-[75%]')}>
+      <div
+        className={classNames(
+          'flex sm:mb-10 flex-col sm:flex-row w-auto sm:max-w-[70%]'
+        )}
+      >
         <span
           className={classNames('flex uppercase mr-2 mt-2 whitespace-nowrap')}
         >
@@ -275,7 +279,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           }
         />
       </div>
-      <div className={classNames('flex w-[200px] min-w-[200px] flex-row')}>
+      <div className={classNames('flex w-[200px] min-w-[200px] sm:flex-row')}>
         <span
           className={classNames('flex uppercase mr-2 mt-2 whitespace-nowrap')}
         >
@@ -291,125 +295,6 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
       </div>
     </div>
   );
-  // return (
-  //   <div className="flex flex-col justify-start px-5 gap-y-4 gap-x-24 lg:flex-row">
-  //     <div className="text-left divide-y">
-  //       <div className="mb-2 uppercase">Sort by</div>
-  //       <div className="flex flex-row gap-10">
-  //         <div>
-  //           <div className="mt-2 mb-2 font-bold">Date</div>
-
-  //           <>
-  //             <RadioButton
-  //               onChange={() => onChangeSort('createdAt', 'desc')}
-  //               checked={filters.sort?.createdAt === 'desc'}
-  //               label="Newest"
-  //             />
-  //             <RadioButton
-  //               onChange={() => onChangeSort('createdAt', 'asc')}
-  //               checked={filters.sort?.createdAt === 'asc'}
-  //               label="Oldest"
-  //             />
-  //           </>
-  //         </div>
-  //         <div>
-  //           <div className="mt-2 mb-2 font-bold">Due date</div>
-  //           <>
-  //             <RadioButton
-  //               onChange={() => onChangeSort('dueDate', 'desc')}
-  //               checked={filters.sort?.dueDate === 'desc'}
-  //               label="Most recent first"
-  //             />
-  //             <RadioButton
-  //               onChange={() => onChangeSort('dueDate', 'asc')}
-  //               checked={filters.sort?.dueDate === 'asc'}
-  //               label="Latest first"
-  //             />
-  //           </>
-  //         </div>
-  //       </div>
-  //     </div>
-  //     <div className="text-left divide-y">
-  //       <div className="mb-2 uppercase">Filter by</div>
-  //       <div className="flex flex-col justify-start md:flex-row gap-x-16 gap-y-4">
-  //         <div>
-  //           <div className="mt-2 mb-2 font-bold">Category</div>
-  //           <div className="grid justify-start grid-flow-col grid-rows-6 sm:grid-rows-4 md:grid-rows-3 gap-x-4 gap-y-1">
-  //             {Object.entries(PlaygroundRequestCategory).map(([key, value]) => (
-  //               <div key={key} className="w-fit">
-  //                 <Checkbox
-  //                   name={key}
-  //                   labelPosition="right"
-  //                   size="small"
-  //                   onChange={(checked) => {
-  //                     if (checked) {
-  //                       onChangeFilter(
-  //                         'categories',
-  //                         filters.categories
-  //                           ? [...filters.categories, value]
-  //                           : [value]
-  //                       );
-  //                     } else {
-  //                       const filteredCategories = filters.categories?.filter(
-  //                         (v) => v !== value
-  //                       );
-  //                       onChangeFilter(
-  //                         'categories',
-  //                         filteredCategories?.length
-  //                           ? filteredCategories
-  //                           : undefined
-  //                       );
-  //                     }
-  //                   }}
-  //                 >
-  //                   <span className="font-normal">
-  //                     {CATEGORY_LABELS[key as PlaygroundRequestCategory]}
-  //                   </span>
-  //                 </Checkbox>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-
-  //         <div>
-  //           <div className="mt-2 mb-2 font-bold">Type</div>
-  //           <div className="flex flex-col gap-y-2">
-  //             <Checkbox
-  //               name="jobTypeVolunteer"
-  //               onChange={() => {
-  //                 if (filters.isFree === true) {
-  //                   onChangeFilter('isFree', undefined);
-  //                 } else if (!filters.isFree) {
-  //                   onChangeFilter('isFree', true);
-  //                 }
-  //               }}
-  //               checked={filters.isFree === true}
-  //               size="small"
-  //               labelPosition="right"
-  //             >
-  //               <span className="font-normal">Volunteer</span>
-  //             </Checkbox>
-  //             <Checkbox
-  //               name="jobTypePaid"
-  //               onChange={() => {
-  //                 if (filters.isFree !== false) {
-  //                   onChangeFilter('isFree', false);
-  //                 } else if (filters.isFree === false) {
-  //                   onChangeFilter('isFree', undefined);
-  //                 }
-  //               }}
-  //               checked={filters.isFree === false}
-  //               size="small"
-  //               labelPosition="right"
-  //             >
-  //               <span className="font-normal">Paid</span>
-  //             </Checkbox>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default RequestFilters;
