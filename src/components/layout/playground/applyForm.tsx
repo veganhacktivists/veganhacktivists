@@ -148,7 +148,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
                       className="font-mono text-2xl"
                       onClick={() => setExpanded(true)}
                     >
-                      Load more
+                      Read more
                     </WhiteButton>
                   </div>
                 )}
