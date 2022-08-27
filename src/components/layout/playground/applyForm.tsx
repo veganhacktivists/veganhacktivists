@@ -82,9 +82,8 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
-  const createdAtFormatted = useMemo(() => {
-    if (!request) return '';
-    return DateTime.fromJSDate(request.createdAt).toFormat('MMMM dd, yyyy');
+  const dueDateFormatted = useMemo(() => {
+    return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
   }, [request]);
 
   const [expanded, setExpanded] = useState(false);
@@ -156,7 +155,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{request.category}</Field>
-          <Field title="Due date">{createdAtFormatted}</Field>
+          <Field title="Due date">{dueDateFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
