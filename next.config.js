@@ -19,6 +19,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/research',
+        destination:
+          'https://tilburgss.co1.qualtrics.com/jfe/form/SV_78v0EGkf6hzIukS',
+        permanent: false,
+      },
+      {
         source: '/about',
         destination: '/about/our-mission',
         permanent: true,
