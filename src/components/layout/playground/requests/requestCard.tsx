@@ -79,9 +79,14 @@ const PlaygroundRequestCard: React.FC<
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
 
   return (
-    <div className="bg-grey-background">
+    <div
+      className="bg-grey-background border-l-[10px]"
+      style={{
+        borderColor: categoryColor,
+      }}
+    >
       <SquareField
-        squares={[{ top: 0, right: 0, color: categoryColor, size: 12 }]}
+        squares={[{ top: 0, right: 0, color: categoryColor, size: 6 }]}
       />
       <div className="flex flex-col h-full gap-2 p-4 text-left">
         <div className="space-y-1">
