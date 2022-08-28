@@ -176,28 +176,30 @@ const FilterBy: React.FC<{
   );
 };
 
+const sortNewest = {
+  label: 'Newest',
+  value: 'newest',
+};
+const sortOldest = {
+  label: 'Oldest',
+  value: 'oldest',
+};
+const sortHighestPrio = {
+  label: 'Highest priority',
+  value: 'highest',
+};
+const sortLowestPrio = {
+  label: 'Lowest priority',
+  value: 'lowest',
+};
+
+const sortOptions = [sortNewest, sortOldest, sortHighestPrio, sortLowestPrio];
+
 const SortBy: React.FC<{
   sort?: Sorting;
   onFiltersChange: (sorting: Sorting) => void;
 }> = ({ sort, onFiltersChange }) => {
   const [sortOption, setSortOption] = useState({} as OptionType | null);
-  const sortNewest = {
-    label: 'Newest',
-    value: 'newest',
-  };
-  const sortOldest = {
-    label: 'Oldest',
-    value: 'oldest',
-  };
-  const sortHighestPrio = {
-    label: 'Highest priority',
-    value: 'highest',
-  };
-  const sortLowestPrio = {
-    label: 'Lowest priority',
-    value: 'lowest',
-  };
-  const sortOptions = [sortNewest, sortOldest, sortHighestPrio, sortLowestPrio];
   useOnce(() => {
     if (sort?.createdAt === 'asc' && sort?.dueDate === undefined) {
       setSortOption(sortOldest);
@@ -235,6 +237,7 @@ const SortBy: React.FC<{
   };
   return (
     <SelectInput
+      className="max-w-fit"
       current={sortOption}
       options={sortOptions}
       onChange={(option) => {
@@ -258,12 +261,12 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   return (
     <div
       className={classNames(
-        'flex p-6 justify-between flex-wrap-reverse sm:flex-nowrap gap-3'
+        'flex flex-col sm:flex-row p-6 justify-start sm:justify-between gap-3'
       )}
     >
       <div
         className={classNames(
-          'flex sm:mb-10 flex-col sm:flex-row w-auto sm:max-w-[70%]'
+          'flex flex-col sm:flex-row w-auto sm:max-w-[70%]'
         )}
       >
         <span
@@ -278,9 +281,15 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           }
         />
       </div>
-      <div className={classNames('flex w-[200px] min-w-[200px] sm:flex-row')}>
+      <div
+        className={classNames(
+          'flex min-w-[300px] w-fit flex-col sm:flex-row h-fit'
+        )}
+      >
         <span
-          className={classNames('flex uppercase mr-2 mt-2 whitespace-nowrap')}
+          className={classNames(
+            'flex uppercase mr-2 whitespace-nowrap my-auto'
+          )}
         >
           Sort by:
         </span>
