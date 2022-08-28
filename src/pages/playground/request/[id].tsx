@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { z } from 'zod';
 import React from 'react';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { NextSeo } from 'next-seo';
@@ -64,34 +63,22 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
       />
       <div className="mt-24">
         <div className="m-10 mb-5 ml-10 w-fit text-grey md:ml-20">
-          <Link
-            href={{
-              pathname: '/playground',
-            }}
+          <DarkButton
+            href="/playground"
+            className="flex font-mono uppercase place-items-center"
           >
-            <a>
-              <DarkButton className="flex font-mono uppercase place-items-center">
-                <FontAwesomeIcon icon={leftArrow} size="xs" />
-                <span className="block pl-3">Go Back</span>
-              </DarkButton>
-            </a>
-          </Link>
+            <FontAwesomeIcon icon={leftArrow} size="xs" />
+            <span className="block pl-3">Go Back</span>
+          </DarkButton>
           {session.data?.user?.role === 'Admin' && (
             <div className="mt-2 text-left">
-              <Link
-                href={{
-                  pathname: '/playground/admin',
-                }}
+              <DarkButton
+                href="/playground/admin"
+                className="flex font-mono uppercase place-items-center"
               >
-                <a>
-                  <DarkButton className="flex font-mono uppercase place-items-center">
-                    <div>
-                      <FontAwesomeIcon icon={leftArrow} size="xs" />
-                    </div>
-                    <span className="block pl-3">Review requests</span>
-                  </DarkButton>
-                </a>
-              </Link>
+                <FontAwesomeIcon icon={leftArrow} size="xs" />
+                <span className="block pl-3">Review requests</span>
+              </DarkButton>
             </div>
           )}
         </div>
