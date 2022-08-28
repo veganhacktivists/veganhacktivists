@@ -32,6 +32,7 @@ interface SelectInputProps
 
 const grey = getThemeColor('grey');
 const lightGrey = getThemeColor('grey-light');
+const lighterGrey = getThemeColor('grey-lighter');
 const red = getThemeColor('red');
 
 const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
@@ -67,52 +68,48 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       },
     });
 
-    const styles: StylesConfig<{ label: string; value: string }, false> = {
+    const styles: StylesConfig<OptionType, false> = {
       placeholder: (provided) => ({
         ...provided,
         color: '#a1a1aa',
-      }),
-      singleValue: (provided) => ({
-        ...provided,
-      }),
-      dropdownIndicator: (provided) => ({
-        ...provided,
-        backgroundColor: grey,
-        height,
-        verticalAlign: 'middle',
-        marginTop: 'auto',
-        marginBottom: 'auto',
       }),
       control: (provided) => ({
         ...provided,
         minHeight: height,
         height,
-        border: error ? undefined : 0,
-        borderColor: error && red,
+        borderColor: error ? red : grey,
+        boxSizing: 'content-box',
         fontSize: '1.25rem',
       }),
       valueContainer: (provided) => ({
         ...provided,
-        height,
         padding: '0 6px',
       }),
       input: (provided) => ({
         ...provided,
         margin: '0px',
       }),
-      indicatorSeparator: () => ({
-        display: 'none',
+      dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
+        ...provided,
+        color: lighterGrey,
+        transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        '&:hover': {
+          color: lightGrey,
+        },
+        '&:active': {
+          color: grey,
+        },
       }),
       indicatorsContainer: (provided) => ({
         ...provided,
-        height,
+        backgroundColor: grey,
       }),
       menu: (provided) => ({
         ...provided,
-        position: 'absolute',
-        top: '45px',
+        marginTop: 4,
         'z-index': '11',
       }),
+      menuList: (provided) => ({ ...provided, padding: 0 }),
     };
 
     const classes = classNames(className, 'text-left');
@@ -121,13 +118,16 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
       ...props,
       onChange,
       value: rendered ? current : undefined,
-      styles: styles as StylesConfig<OptionType>,
+      styles,
       theme,
       id: props.id || props.name,
       instanceId: props.id || props.name,
       options: allOptions,
       className: classes,
       placeholder: props.placeholder,
+      components: {
+        IndicatorSeparator: null,
+      },
     };
 
     const SelectComponent = () =>
