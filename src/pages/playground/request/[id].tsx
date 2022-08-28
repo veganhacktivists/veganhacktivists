@@ -4,7 +4,6 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { NextSeo } from 'next-seo';
 
@@ -64,30 +63,28 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         openGraph={{ title: request?.title }}
       />
       <div className="mt-24">
-        <div className="m-10 mb-5 w-fit text-grey ml-10 md:ml-20">
+        <div className="m-10 mb-5 ml-10 w-fit text-grey md:ml-20">
           <Link
             href={{
               pathname: '/playground',
             }}
           >
             <a>
-              <DarkButton className="flex font-mono font-bold uppercase">
-                <div>
-                  <FontAwesomeIcon icon={leftArrow} size="xs" />
-                </div>
-                <span className="pl-3 block">Go Back</span>
+              <DarkButton className="flex font-mono uppercase place-items-center">
+                <FontAwesomeIcon icon={leftArrow} size="xs" />
+                <span className="block pl-3">Go Back</span>
               </DarkButton>
             </a>
           </Link>
           {session.data?.user?.role === 'Admin' && (
-            <div className="text-left mt-2">
+            <div className="mt-2 text-left">
               <Link
                 href={{
                   pathname: '/playground/admin',
                 }}
               >
                 <a>
-                  <DarkButton className="flex font-mono font-bold uppercase">
+                  <DarkButton className="flex font-mono uppercase place-items-center">
                     <div>
                       <FontAwesomeIcon icon={leftArrow} size="xs" />
                     </div>
