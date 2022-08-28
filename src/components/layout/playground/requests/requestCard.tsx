@@ -80,6 +80,7 @@ const PlaygroundRequestCard: React.FC<
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
+
   return (
     <div
       className="bg-grey-background border-l-[10px]"
@@ -127,6 +128,10 @@ const PlaygroundRequestCard: React.FC<
             {requester.name}
           </Li>
           <Li
+            title={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'} ${
+              timeUntilDue || ''
+            }
+            ${timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}`}
             name={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
             category={category}
           >
