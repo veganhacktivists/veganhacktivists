@@ -159,6 +159,31 @@ const DarkButton = React.forwardRef<HTMLElement, ButtonProps>(
   }
 );
 
+const DenyButton = React.forwardRef<HTMLElement, ButtonProps>(
+  ({ children, active, className = '', ...props }, ref) => {
+    return (
+      <FillBackground
+        disabled={props.disabled}
+        base={active ? 'magenta' : 'grey-dark'}
+        fill={active ? 'magenta' : '#FF1B18'}
+      >
+        <BaseButton
+          {...props}
+          ref={ref}
+          className={classNames(
+            baseButtonClasses,
+            'transition-all overflow-hidden text-white',
+            active ? 'border-pink' : 'border-[#FF1B18]',
+            className
+          )}
+        >
+          {children}
+        </BaseButton>
+      </FillBackground>
+    );
+  }
+);
+
 const GreyButton: React.FC<ButtonProps> = ({
   className,
   children,
@@ -393,4 +418,5 @@ export {
   NavButton,
   GreyButton,
   OutlineButton,
+  DenyButton,
 };

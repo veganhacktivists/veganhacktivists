@@ -4,7 +4,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import {
   DarkButton,
-  ExternalLinkButton,
+  DenyButton,
   LightButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
@@ -67,8 +67,8 @@ const AdminPage: NextPage = ({}) => {
                   >
                     Accept
                   </LightButton>
-                  <ExternalLinkButton
-                    className="w-full px-2 text-xl text-grey-dark"
+                  <DenyButton
+                    className="w-full text-xl text-white"
                     disabled={isMutationLoading}
                     onClick={() => {
                       if (
@@ -81,7 +81,7 @@ const AdminPage: NextPage = ({}) => {
                     }}
                   >
                     Deny
-                  </ExternalLinkButton>
+                  </DenyButton>
                 </div>
               </PlaygroundRequestCard>
             </div>
