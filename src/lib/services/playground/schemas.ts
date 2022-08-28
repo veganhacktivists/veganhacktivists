@@ -24,6 +24,8 @@ export const sortSchema = z.object({
   createdAt: z.enum(['asc', 'desc']).optional(),
 });
 
+export type Sorting = z.infer<typeof sortSchema>;
+
 export const getPlaygroundRequestsSchema = filterSchema
   .partial()
   .and(z.object({ sort: sortSchema.optional() }));

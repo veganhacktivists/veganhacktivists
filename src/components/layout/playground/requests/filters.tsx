@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { PlaygroundRequestCategory } from '@prisma/client';
 
@@ -17,15 +17,12 @@ import useOnce from '../../../../hooks/useOnce';
 
 import { GreyButton } from 'components/decoration/buttons';
 
-import type { sortSchema } from '../../../../lib/services/playground/schemas';
+import type { Sorting } from 'lib/services/playground/schemas';
 
 import type { trpc } from 'lib/client/trpc';
 
-import type { z } from 'zod';
-
 type Filters = trpc['playground']['getAllRequests']['input'];
 
-type Sorting = z.infer<typeof sortSchema>;
 type FiltersWithoutSort = Omit<Filters, 'sort'>;
 interface RequestFiltersProps {
   filters: Filters;
@@ -65,7 +62,7 @@ const FilterBy: React.FC<{
       {isOpen && (
         <div>
           <div>
-            <div className="font-bold mb-2">Category</div>
+            <div className="mb-2 font-bold">Category</div>
             <div className="flex flex-row flex-wrap gap-2">
               {Object.keys(PlaygroundRequestCategory).map((category) => {
                 const isSelected = localFilters.categories?.includes(
@@ -116,7 +113,7 @@ const FilterBy: React.FC<{
             </div>
           </div>
           <div>
-            <div className="font-bold my-2">Job Type</div>
+            <div className="my-2 font-bold">Job Type</div>
             <div className="flex flex-row flex-wrap gap-2 ">
               <div
                 className={classNames(
