@@ -77,6 +77,7 @@ const SelectInput = React.forwardRef<StateManagedSelect, SelectInputProps>(
         ...provided,
         minHeight: height,
         height,
+        borderWidth: error ? 2 : 1,
         borderColor: error ? red : grey,
         boxSizing: 'content-box',
         fontSize: '1.25rem',
