@@ -5,6 +5,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import { DateTime } from 'luxon';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -53,7 +54,11 @@ const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
 type FormInput = z.input<typeof submitRequestSchemaClient>;
 type FormOutput = z.infer<typeof submitRequestSchemaClient>;
 
-const SubmitRequestForm: React.FC = () => {
+interface SubmitRequestFormParam {
+  requestId?: string;
+}
+
+const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
 
   const { budget: storedBudget, ...storedForm } =
@@ -63,12 +68,62 @@ const SubmitRequestForm: React.FC = () => {
     (state) => state.resetForm
   );
 
+  let replaceData: Partial<z.infer<typeof submitRequestSchemaClient>>;
+  if (requestId !== undefined) {
+    const request = trpc.proxy.playground.getRequest.useQuery(requestId)?.data;
+    let skills = '';
+    if (request?.requiredSkills && request.requiredSkills.length > 0) {
+      let firstSkill = true;
+      request.requiredSkills.forEach((skill) => {
+        if (firstSkill) {
+          firstSkill = false;
+        } else {
+          skills += ', ';
+        }
+        skills += skill;
+      });
+    }
+    replaceData = {
+      providedEmail: request?.providedEmail,
+      name: request?.name,
+      phone: request?.phone ?? undefined,
+      organization: request?.organization ?? undefined,
+      website: request?.website,
+      calendlyUrl: request?.calendlyUrl,
+      title: request?.title,
+      category: request?.category,
+      requiredSkills: skills,
+      isFree: request?.isFree,
+      budget:
+        typeof request?.budget === 'string'
+          ? parseInt(request.budget)
+          : undefined,
+      description: request?.description,
+      dueDate: request?.dueDate
+        ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+            'yyyy-LL-dd'
+          ) as unknown as Date)
+        : undefined,
+      estimatedTimeDays: request?.estimatedTimeDays,
+    };
+    console.log(request);
+  }
+  useOnce(() => {
+    if (replaceData !== undefined) {
+      Object.keys(replaceData).forEach((keystring) => {
+        const key = keystring as keyof typeof replaceData;
+        setValue(key, replaceData[key]);
+      });
+    }
+  });
+
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
   const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
   const router = useRouter();
+  const defaultValues = requestId === undefined ? storedForm : {};
 
   const {
     control,
@@ -79,7 +134,7 @@ const SubmitRequestForm: React.FC = () => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm,
+    defaultValues: defaultValues,
     resolver: zodResolver(submitRequestSchemaClient),
   });
 
@@ -126,7 +181,7 @@ const SubmitRequestForm: React.FC = () => {
 
   useOnce(
     () => {
-      if (!session?.user) return;
+      if (!session?.user || requestId !== undefined) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
@@ -148,7 +203,8 @@ const SubmitRequestForm: React.FC = () => {
 
   useOnce(
     () => {
-      Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
+      if (!lastSubmittedRequest) return;
+      Object.entries(lastSubmittedRequest).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -439,7 +495,7 @@ const SubmitRequestForm: React.FC = () => {
           Describe your issue
         </TextArea>
         <TextInput
-          className="lg:col-span-3 col-span-full"
+          className="w-full mt-6 sm:mt-0"
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
@@ -462,37 +518,47 @@ const SubmitRequestForm: React.FC = () => {
         >
           Estimated time <br className="sm:hidden" /> commitment
         </TextInput>
-        <Checkbox
-          labelPosition="right"
-          className="col-span-full"
-          error={errors.qualityAgreement?.message}
-          {...myRegister('qualityAgreement')}
-          onChange={(checked) => {
-            setFormData({ qualityAgreement: checked });
-            setValue('qualityAgreement', checked);
-          }}
-        >
-          I understand that Vegan Hacktivists cannot guarantee the quality of
-          work done by our volunteers.
-        </Checkbox>
-        <Checkbox
-          labelPosition="right"
-          className="col-span-full"
-          error={errors.agreeToTerms?.message}
-          {...myRegister('agreeToTerms')}
-          onChange={(checked) => {
-            setFormData({ agreeToTerms: checked });
-            setValue('agreeToTerms', checked);
-          }}
-        >
-          I agree to the VH: Playground terms and conditions.
-        </Checkbox>
+        {requestId === undefined && (
+          <>
+            <Checkbox
+              labelPosition="right"
+              className="col-span-full"
+              error={errors.qualityAgreement?.message}
+              {...myRegister('qualityAgreement')}
+              onChange={(checked) => {
+                setFormData({ qualityAgreement: checked });
+                setValue('qualityAgreement', checked);
+              }}
+            >
+              I understand that Vegan Hacktivists cannot guarantee the quality
+              of work done by our volunteers.
+            </Checkbox>
+            <Checkbox
+              labelPosition="right"
+              className="col-span-full"
+              error={errors.agreeToTerms?.message}
+              {...myRegister('agreeToTerms')}
+              onChange={(checked) => {
+                setFormData({ agreeToTerms: checked });
+                setValue('agreeToTerms', checked);
+              }}
+            >
+              I agree to the VH: Playground terms and conditions.
+            </Checkbox>
+          </>
+        )}
         <DarkButton
           className="mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
           type="submit"
         >
-          {isLoading ? <Spinner /> : 'Submit My Request'}
+          {isLoading ? (
+            <Spinner />
+          ) : requestId === undefined ? (
+            'Submit My Request'
+          ) : (
+            'Save changes'
+          )}
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="request" />

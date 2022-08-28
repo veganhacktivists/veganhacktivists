@@ -87,13 +87,13 @@ export const getRequestById = async (
     },
   });
 
-  if (!request) {
+  const isRequestedByCurrentUser = request?.requester.id === user?.id;
+
+  if (!request || (!isRequestedByCurrentUser && user?.role !== 'Admin')) {
     throw new TRPCError({ code: 'NOT_FOUND' });
   }
 
   const userAlreadyApplied = user ? request._count.applications !== 0 : false;
-
-  const isRequestedByCurrentUser = request.requester.id === user?.id;
 
   return { ...request, isRequestedByCurrentUser, userAlreadyApplied };
 };
