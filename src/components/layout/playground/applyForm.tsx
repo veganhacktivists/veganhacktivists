@@ -86,12 +86,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     if (!request) return '';
     return DateTime.fromJSDate(request.createdAt).toFormat('MMMM dd, yyyy');
   }, [request]);
+
   const [expanded, setExpanded] = useState(false);
   const [description, setDescription] = useState('');
+
   useEffect(() => {
     const words = request.description?.split(' ');
     let newDescription = '';
-    const MAX_WORDS = 300;
+    const MAX_WORDS = 100;
     if (words.length > MAX_WORDS && !expanded) {
       for (let i = 0; i < MAX_WORDS; i++) {
         newDescription += words[i] + (i < MAX_WORDS - 1 ? ' ' : '...');
@@ -102,6 +104,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     }
     setDescription(newDescription);
   }, [expanded, request.description]);
+
   return (
     <div className="px-10 mb-5 md:px-40">
       <div className="flex flex-row justify-start gap-5">
