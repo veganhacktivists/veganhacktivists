@@ -160,6 +160,9 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
+          <Field title="Compensation">
+            {request.isFree ? 'Volunteer' : 'Paid'} role
+          </Field>
         </SubtleBorder>
       </div>
       <div className="font-serif italic text-left text-grey-light">
