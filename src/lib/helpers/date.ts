@@ -1,30 +1,29 @@
 import { DateTime, Duration } from 'luxon';
 
+import type { DurationUnits, DurationObjectUnits } from 'luxon';
+
+const DIFF_TIME_UNITS = ['years', 'months', 'weeks', 'days'];
+
 export const readableTimeDiff = (date: Date) => {
   const now = DateTime.now();
   const other = DateTime.fromJSDate(date);
 
   const isPastDate = other.diff(now).milliseconds < 0;
 
-  const timeDiff: {
-    years?: number;
-    months?: number;
-    weeks?: number;
-    days?: number;
-  } = (isPastDate ? now : other)
-    .diff(isPastDate ? other : now, ['years', 'months', 'weeks', 'days'])
+  const diffInDays = other.diffNow(['days']);
+  if (diffInDays.days <= 1) {
+    return [null, null] as const;
+  }
+
+  const timeDiff = (isPastDate ? now : other)
+    .diff(isPastDate ? other : now, DIFF_TIME_UNITS as unknown as DurationUnits)
     .normalize()
     .toObject();
 
-  let roundedDiff: {
-    years?: number;
-    months?: number;
-    weeks?: number;
-    days?: number;
-  } = {};
+  let roundedDiff: typeof timeDiff = {};
 
   Object.keys(timeDiff).forEach((keystring) => {
-    const key = keystring as keyof typeof roundedDiff;
+    const key = keystring as keyof DurationObjectUnits;
     const original = timeDiff[key];
     if (typeof original === 'number') {
       const addition = {
