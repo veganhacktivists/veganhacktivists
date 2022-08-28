@@ -30,9 +30,7 @@ const Playground: PageWithLayout = ({}) => {
   >(() => ({
     sort: {
       createdAt: 'desc',
-      dueDate: 'desc',
     },
-    filter: {},
   }));
   const params = useMemo(() => {
     const { sort, ...otherFilters } = filters;
@@ -86,7 +84,7 @@ const Playground: PageWithLayout = ({}) => {
           a request of your own!
         </SectionHeader>
         <div
-          className="mt-10 mb-20 lg:mx-12 2xl:mx-44 xl:mx-36"
+          className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
           ref={requestContainer}
         >
           <RequestFilters onChange={setFilters} filters={filters} />

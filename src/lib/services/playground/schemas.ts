@@ -19,10 +19,12 @@ const filterSchema = z.object({
   isFree: z.boolean(),
 });
 
-const sortSchema = z.object({
+export const sortSchema = z.object({
   dueDate: z.enum(['asc', 'desc']).optional(),
   createdAt: z.enum(['asc', 'desc']).optional(),
 });
+
+export type Sorting = z.infer<typeof sortSchema>;
 
 export const getPlaygroundRequestsSchema = filterSchema
   .partial()
