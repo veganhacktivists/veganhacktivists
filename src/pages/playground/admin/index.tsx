@@ -5,6 +5,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import {
   DarkButton,
   DenyButton,
+  ExternalLinkButton,
   LightButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
@@ -21,6 +22,15 @@ const AdminPage: NextPage = ({}) => {
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.proxy.playground.admin.setRequestStatus.useMutation({
+      onSuccess: () => {
+        void queryClient.invalidateQueries([
+          'playground.admin.pendingRequests',
+        ]);
+      },
+    });
+
+  const { mutate: mutateDelete, isLoading: isDeletionLoading } =
+    trpc.proxy.playground.admin.deleteRequest.useMutation({
       onSuccess: () => {
         void queryClient.invalidateQueries([
           'playground.admin.pendingRequests',
@@ -82,6 +92,21 @@ const AdminPage: NextPage = ({}) => {
                   >
                     Deny
                   </DenyButton>
+                  <ExternalLinkButton
+                    className="w-full px-2 text-xl text-white"
+                    disabled={isDeletionLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to delete '${request.title}'?`
+                        )
+                      ) {
+                        mutateDelete({ id: request.id });
+                      }
+                    }}
+                  >
+                    Delete
+                  </ExternalLinkButton>
                 </div>
               </PlaygroundRequestCard>
             </div>
