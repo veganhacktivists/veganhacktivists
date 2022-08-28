@@ -283,7 +283,7 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
       </div>
       <div
         className={classNames(
-          'flex min-w-[300px] w-fit flex-col sm:flex-row h-fit'
+          'flex min-w-[300px] justify-end w-fit flex-col sm:flex-row h-fit'
         )}
       >
         <span
