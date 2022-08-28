@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
+import Link from 'next/link';
+
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
@@ -80,8 +82,11 @@ const Playground: PageWithLayout = ({}) => {
       <div>
         <SectionHeader header={['View pending', 'requests']}>
           View a list of requests below to find volunteer or paid opportunities
-          to help the animals! Are you a vegan advocate or organization? Submit
-          a request of your own!
+          to help the animals! Are you a vegan advocate or organization?{' '}
+          <Link href={'/playground/submit'}>
+            <span className="font-bold cursor-pointer">Submit a request</span>
+          </Link>{' '}
+          of your own!
         </SectionHeader>
         <div
           className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
