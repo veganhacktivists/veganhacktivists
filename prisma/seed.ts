@@ -36,6 +36,7 @@ const seedRequests = async (n: number = NUMBER) => {
   const requests: Prisma.PlaygroundRequestCreateManyInput[] = Array(n)
     .fill(null)
     .map(() => {
+      const createdAt = faker.date.recent(14);
       return {
         budget: faker.datatype.boolean()
           ? faker.datatype.float({
@@ -51,7 +52,16 @@ const seedRequests = async (n: number = NUMBER) => {
         description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(
           faker.datatype.number(5)
         )}`,
-        dueDate: faker.date.future(),
+        dueDate:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.1
+            ? faker.datatype.boolean()
+              ? faker.datatype.boolean()
+                ? faker.date.future(undefined, createdAt)
+                : faker.date.soon(30, createdAt)
+              : faker.datatype.boolean()
+              ? faker.date.past(undefined, createdAt)
+              : faker.date.recent(30, createdAt)
+            : new Date(),
         isFree: faker.datatype.boolean(),
         requiredSkills: faker.helpers.uniqueArray(
           () => faker.hacker.ingverb(),
@@ -62,7 +72,7 @@ const seedRequests = async (n: number = NUMBER) => {
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
         organization: faker.company.companyName(),
-        createdAt: faker.date.recent(14),
+        createdAt,
         status: faker.helpers.objectValue(Status),
         providedEmail: faker.internet.email(),
       };
