@@ -22,6 +22,8 @@ import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { pixelHeart } from 'images/separators';
 
+import CustomLink from 'components/decoration/link';
+
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
@@ -80,8 +82,11 @@ const Playground: PageWithLayout = ({}) => {
       <div>
         <SectionHeader header={['View pending', 'requests']}>
           View a list of requests below to find volunteer or paid opportunities
-          to help the animals! Are you a vegan advocate or organization? Submit
-          a request of your own!
+          to help the animals! Are you a vegan advocate or organization?{' '}
+          <CustomLink className="font-bold" href="/playground/submit">
+            Submit a request
+          </CustomLink>{' '}
+          of your own!
         </SectionHeader>
         <div
           className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
