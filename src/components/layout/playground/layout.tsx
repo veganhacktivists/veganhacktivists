@@ -151,7 +151,7 @@ const PlaygroundStat: React.FC<{
   icon: typeof clockIcon;
 }> = ({ label, icon, value }) => {
   return (
-    <div className="flex flex-col justify-center gap-5 lg:flex-row place-items-center">
+    <div className="flex flex-col justify-center gap-5 mx-auto lg:flex-row place-items-center w-fit">
       {/* <div className='mx-auto'> */}
       <CustomImage src={icon} alt="" />
       {/* </div> */}
@@ -177,7 +177,7 @@ const PlaygroundStats: React.FC = () => {
   );
   return (
     <div>
-      <div className="flex flex-col justify-center mt-16 mb-16 lg:flex-row gap-y-5">
+      <div className="grid justify-center mx-auto mt-16 mb-16 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 w-fit">
         <PlaygroundStat
           label="Requests opened"
           icon={resumeIcon}
