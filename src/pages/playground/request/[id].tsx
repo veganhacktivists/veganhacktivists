@@ -2,13 +2,15 @@ import { useRouter } from 'next/router';
 import { z } from 'zod';
 import React from 'react';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { NextSeo } from 'next-seo';
 
 import { useSession } from 'next-auth/react';
+
+import { faLongArrowAltLeft as leftArrow } from '@fortawesome/free-solid-svg-icons';
+
+import { DarkButton } from '../../../components/decoration/buttons';
 
 import PlaygroundLayout from 'components/layout/playground/layout';
 import useOnce from 'hooks/useOnce';
@@ -60,27 +62,23 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         openGraph={{ title: request?.title }}
       />
       <div className="mt-24">
-        <div className="m-10 mb-5 w-fit text-grey">
-          <Link
-            href={{
-              pathname: '/playground',
-            }}
+        <div className="m-10 mb-5 ml-10 w-fit text-grey md:ml-20">
+          <DarkButton
+            href="/playground"
+            className="flex font-mono uppercase place-items-center"
           >
-            <a>
-              <FontAwesomeIcon icon={faArrowLeft} /> View all requests
-            </a>
-          </Link>
+            <FontAwesomeIcon icon={leftArrow} size="xs" />
+            <span className="block pl-3">Go Back</span>
+          </DarkButton>
           {session.data?.user?.role === 'Admin' && (
-            <div className="text-left">
-              <Link
-                href={{
-                  pathname: '/playground/admin',
-                }}
+            <div className="mt-2 text-left">
+              <DarkButton
+                href="/playground/admin"
+                className="flex font-mono uppercase place-items-center"
               >
-                <a>
-                  <FontAwesomeIcon icon={faArrowLeft} /> Review requests
-                </a>
-              </Link>
+                <FontAwesomeIcon icon={leftArrow} size="xs" />
+                <span className="block pl-3">Review requests</span>
+              </DarkButton>
             </div>
           )}
         </div>

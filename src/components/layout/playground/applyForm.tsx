@@ -108,14 +108,6 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   return (
     <div className="px-10 mb-5 md:px-40">
       <div className="flex flex-row justify-start gap-5">
-        <div
-          className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
-            'border-pink text-pink': request.isFree,
-            'border-blue text-blue': !request.isFree,
-          })}
-        >
-          {request.isFree ? 'Volunteer' : 'Paid'} role
-        </div>
         {request.status !== 'Accepted' && (
           <div
             className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
