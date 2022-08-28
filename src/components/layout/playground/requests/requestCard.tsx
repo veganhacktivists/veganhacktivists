@@ -136,7 +136,7 @@ const PlaygroundRequestCard: React.FC<
             category={category}
           >
             {timeUntilDue}
-            {timeUntilDue ? (isDue ? ' ago' : '') : 'today'}
+            {timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}
           </Li>
           <Li
             name="Organization"
