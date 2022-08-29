@@ -10,7 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'import'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -23,7 +23,6 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
-    'prettier/prettier': ['error'],
     'react/button-has-type': ['error'],
     'no-console': ['warn'],
     'react/self-closing-comp': ['warn'],
@@ -96,7 +95,7 @@ module.exports = {
           'object',
           'type',
         ],
-        'newlines-between': 'always-and-inside-groups',
+        'newlines-between': 'always',
       },
     ],
     'import/first': ['warn'],
