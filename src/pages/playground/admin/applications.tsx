@@ -16,6 +16,15 @@ const AdminPage: NextPage = ({}) => {
     trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  const { mutate: mutateDelete, isLoading: isDeletionLoading } =
+    trpc.proxy.playground.admin.deleteApplication.useMutation({
+      onSuccess: () => {
+        void queryClient.invalidateQueries([
+          'playground.admin.requestsWithPendingApplications',
+        ]);
+      },
+    });
+
   const { mutate, isLoading: isMutationLoading } =
     trpc.proxy.playground.admin.setApplicationStatus.useMutation({
       onSuccess: () => {
@@ -24,6 +33,8 @@ const AdminPage: NextPage = ({}) => {
         ]);
       },
     });
+
+  const isLoading = isMutationLoading || isDeletionLoading;
 
   if (!isSuccess) return null;
   return (
@@ -45,23 +56,51 @@ const AdminPage: NextPage = ({}) => {
                 <div className="flex flex-col gap-5 divide-y">
                   {request.applications.map((app) => (
                     <ApplicationCard key={app.id} application={app}>
-                      <div className="grid justify-center grid-cols-2 gap-5">
+                      <div className="flex flex-col gap-2 md:flex-row ">
                         <DarkButton
-                          disabled={isMutationLoading}
+                          className="w-full"
+                          disabled={isLoading}
                           onClick={() => {
-                            mutate({ id: app.id, status: 'Accepted' });
+                            if (
+                              confirm(
+                                `Are you sure you want to deny ${app.name}'s application?`
+                              )
+                            ) {
+                              mutate({ id: app.id, status: 'Accepted' });
+                            }
                           }}
                         >
                           Accept
                         </DarkButton>
                         <ExternalLinkButton
-                          className="px-4 text-xl text-grey-dark"
-                          disabled={isMutationLoading}
+                          className="w-full px-4 text-xl text-grey-dark"
+                          disabled={isLoading}
                           onClick={() => {
-                            mutate({ id: app.id, status: 'Rejected' });
+                            if (
+                              confirm(
+                                `Are you sure you want to deny ${app.name}'s application?`
+                              )
+                            ) {
+                              mutate({ id: app.id, status: 'Rejected' });
+                            }
                           }}
                         >
                           Deny
+                        </ExternalLinkButton>
+                        <ExternalLinkButton
+                          className="w-full"
+                          disabled={isLoading}
+                          onClick={() => {
+                            if (
+                              confirm(
+                                `Are you sure you want to delete ${app.name}'s application?`
+                              )
+                            ) {
+                              mutateDelete(app.id);
+                            }
+                          }}
+                        >
+                          🤫 Delete
                         </ExternalLinkButton>
                       </div>
                     </ApplicationCard>

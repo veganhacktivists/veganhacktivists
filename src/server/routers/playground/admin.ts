@@ -1,5 +1,7 @@
 import { Status } from '@prisma/client';
 
+import { z } from 'zod';
+
 import {
   deleteRequest,
   getPendingApplications,
@@ -27,6 +29,14 @@ const adminRouter = t.router({
     .mutation(({ input }) => {
       return setApplicationStatus(input);
     }),
+  deleteApplication: adminProcedure
+    .input(z.string().cuid())
+    .mutation(({ input: id, ctx: { prisma } }) =>
+      prisma.playgroundApplication.update({
+        where: { id },
+        data: { status: Status.Rejected },
+      })
+    ),
 
   pendingRequests: adminProcedure
     .input(paginationSchema.optional())
