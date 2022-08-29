@@ -105,7 +105,7 @@ const AdminPage: NextPage = ({}) => {
                       }
                     }}
                   >
-                    Delete
+                    🤫 Delete
                   </ExternalLinkButton>
                 </div>
               </PlaygroundRequestCard>

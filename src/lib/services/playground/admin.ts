@@ -336,20 +336,9 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
 };
 
 export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
-  prisma.$transaction(async (transactionPrisma) => {
-    await transactionPrisma.playgroundApplication.deleteMany({
-      where: {
-        requestId: id,
-      },
-    });
-    await transactionPrisma.discordMessage.deleteMany({
-      where: {
-        playgroundRequestId: id,
-      },
-    });
-    await transactionPrisma.playgroundRequest.delete({
-      where: { id },
-    });
+  prisma.playgroundRequest.update({
+    where: { id },
+    data: { status: Status.Rejected },
   });
 
 export const setRequestStatus = ({
