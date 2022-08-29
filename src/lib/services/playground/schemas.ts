@@ -152,6 +152,10 @@ export const setApplicationStatusSchema = z.object({
   status: z.nativeEnum(Status),
 });
 
+export const deleteRequestSchema = z.object({
+  id: z.string().cuid(),
+});
+
 export const setRequestStatusSchema = z.object({
   id: z.string().cuid(),
   status: z.nativeEnum(Status),

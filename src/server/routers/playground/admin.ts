@@ -1,12 +1,14 @@
 import { Status } from '@prisma/client';
 
 import {
+  deleteRequest,
   getPendingApplications,
   getPendingRequests,
   setApplicationStatus,
   setRequestStatus,
 } from 'lib/services/playground/admin';
 import {
+  deleteRequestSchema,
   paginationSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
@@ -30,6 +32,12 @@ const adminRouter = t.router({
     .input(paginationSchema.optional())
     .query(({ input }) => {
       return getPendingRequests(input);
+    }),
+  deleteRequest: adminProcedure
+    .input(deleteRequestSchema)
+    .mutation(async ({ input }) => {
+      const request = await deleteRequest(input);
+      return request;
     }),
   setRequestStatus: adminProcedure
     .input(setRequestStatusSchema)

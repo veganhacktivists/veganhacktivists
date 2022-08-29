@@ -12,6 +12,8 @@ import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 
+import type { deleteRequestSchema } from './schemas';
+
 import type { Message } from 'discord.js';
 
 import type { PlaygroundRequest } from '@prisma/client';
@@ -332,6 +334,12 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
     });
   }
 };
+
+export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
+  prisma.playgroundRequest.update({
+    where: { id },
+    data: { status: Status.Rejected },
+  });
 
 export const setRequestStatus = ({
   id,
