@@ -7,6 +7,7 @@ import {
   DenyButton,
   ExternalLinkButton,
   LightButton,
+  LogoutButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 
@@ -45,15 +46,17 @@ const AdminPage: NextPage = ({}) => {
     <>
       <NextSeo title="Admin panel" />
       <div>
-        <DarkButton
-          href="/playground/admin/applications"
-          className="m-10 mx-auto w-fit"
-        >
-          See applications
-        </DarkButton>
-        <LightButton href="/auth/signout" className="m-10 mx-auto w-fit">
-          Logout
-        </LightButton>
+        <div className="flex flex-row justify-center">
+          <DarkButton
+            href="/playground/admin/applications"
+            className="m-10 mx-5 w-fit"
+          >
+            See applications
+          </DarkButton>
+          <LogoutButton href="/auth/signout" className="m-10 mx-5 w-fit">
+            Logout
+          </LogoutButton>
+        </div>
         <div
           className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40"
           ref={animatedRef}

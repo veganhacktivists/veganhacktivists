@@ -404,6 +404,29 @@ const OutlineButton: React.FC<ButtonProps> = ({
   );
 };
 
+const LogoutButton: React.FC<ButtonProps> = ({
+  children,
+  primary,
+  className = '',
+  ...props
+}) => {
+  return (
+    <FillBackground base="white" fill="#FF1A18" disabled={props.disabled}>
+      <BaseButton
+        {...props}
+        className={classNames(
+          baseButtonClasses,
+          'text-grey-dark border-[#FF1A18] bg-w-x2 bg-white font-mono font-semibold',
+          primary ? 'border-pink' : '',
+          className
+        )}
+      >
+        {children}
+      </BaseButton>
+    </FillBackground>
+  );
+};
+
 export {
   ExternalLinkButton,
   PatreonButton,
@@ -419,4 +442,5 @@ export {
   GreyButton,
   OutlineButton,
   DenyButton,
+  LogoutButton,
 };
