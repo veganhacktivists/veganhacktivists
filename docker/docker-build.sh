@@ -19,7 +19,7 @@ docker build -t veganhacktivists \
     --build-arg PATREON_CAMPAIGN_ID=$PATREON_CAMPAIGN_ID \
     --build-arg PORT=3000 \
     --network="host" \
-    -f ./Dockerfile \
+    -f ./Dockerfile.dev \
     "$@" \
 .. \
 && \

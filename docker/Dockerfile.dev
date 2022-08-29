@@ -1,0 +1,45 @@
+ARG NODE_VERSION=16.16.0
+
+FROM node:${NODE_VERSION}-alpine AS base
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+ARG PNPM_VERSION=7.5.1
+
+RUN npm install --location=global pnpm@${PNPM_VERSION}
+RUN pnpm config set store-dir ./.pnpm-store
+
+# Install dependencies only when needed
+FROM base AS deps
+
+COPY pnpm-lock.yaml ./
+RUN pnpm fetch
+
+COPY package.json ./
+RUN pnpm install --offline --no-verify-store-integrity
+
+COPY prisma /app/prisma
+
+ARG DATABASE_URL
+RUN pnpm prisma generate
+
+FROM base AS runner
+RUN apk add --no-cache tini
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+RUN mkdir /app/.next
+RUN chown -R nextjs:nodejs /app/.next
+
+ENV NODE_ENV=development
+
+ARG CACHE_BUSTER
+
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules /app/node_modules
+COPY --chown=nextjs:nodejs . .
+
+USER nextjs
+EXPOSE ${PORT}
+
+CMD ["pnpm", "next", "dev"]
+# ENTRYPOINT ["tini", "--"]
+# CMD ["pnpm", "dev"]

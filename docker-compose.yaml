@@ -1,3 +1,4 @@
+# this is a development compose, so don't ever use this to make deployments!
 version: "3.8"
 services:
   veganhacktivists:
@@ -6,7 +7,7 @@ services:
     build:
       network: host
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/Dockerfile.dev
       args:
         CF_DELIVERY_ACCESS_TOKEN: ${CF_DELIVERY_ACCESS_TOKEN}
         CF_ENVIRONMENT: ${CF_ENVIRONMENT}
@@ -23,6 +24,10 @@ services:
       - .env
     ports:
       - 3000:3000
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
   db:
     image: postgres:14
     restart: always
