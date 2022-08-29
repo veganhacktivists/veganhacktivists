@@ -86,23 +86,23 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
   }, [request]);
 
-  const [expanded, setExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [description, setDescription] = useState('');
 
   useEffect(() => {
     const words = request.description?.split(' ');
     let newDescription = '';
     const MAX_WORDS = 100;
-    if (words.length > MAX_WORDS && !expanded) {
+    if (words.length > MAX_WORDS && !isExpanded) {
       for (let i = 0; i < MAX_WORDS; i++) {
         newDescription += words[i] + (i < MAX_WORDS - 1 ? ' ' : '...');
       }
     } else {
       newDescription = request.description;
-      setExpanded(true);
+      setIsExpanded(true);
     }
     setDescription(newDescription);
-  }, [expanded, request.description]);
+  }, [isExpanded, request.description]);
 
   return (
     <div className="px-10 mb-5 md:px-40">
@@ -131,16 +131,16 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans break-words">
+            <div className="font-sans break-all">
               <div className="inline-block">
                 {description.split('\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
-                {!expanded && (
+                {!isExpanded && (
                   <div className="flex justify-center my-14">
                     <WhiteButton
                       className="font-mono text-2xl"
-                      onClick={() => setExpanded(true)}
+                      onClick={() => setIsExpanded(true)}
                     >
                       Read more
                     </WhiteButton>
