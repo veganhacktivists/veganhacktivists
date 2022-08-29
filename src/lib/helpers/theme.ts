@@ -1,4 +1,3 @@
-// @ts-expect-error For some reason this module is not detected, awaiting fix!
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 import tailwindConfig from '../../../tailwind.config';

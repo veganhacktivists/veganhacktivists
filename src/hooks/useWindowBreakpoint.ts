@@ -1,4 +1,3 @@
-// @ts-expect-error Same as src/lib/helpers/theme.ts
 import resolveConfig from 'tailwindcss/resolveConfig';
 import { useMemo } from 'react';
 
@@ -7,7 +6,7 @@ import tailwindConfig from '../../tailwind.config';
 import type { Config as TailwindConfig } from 'tailwindcss';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-const fullConfig = resolveConfig(tailwindConfig) as TailwindConfig;
+const fullConfig = resolveConfig(tailwindConfig);
 
 const useWindowBreakpoint: (
   size: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
