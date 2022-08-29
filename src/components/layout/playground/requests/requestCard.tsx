@@ -1,8 +1,6 @@
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import React, { useMemo } from 'react';
-
 import classNames from 'classnames';
 
 import {
@@ -11,13 +9,10 @@ import {
 } from '../../../../../prisma/constants';
 
 import { DarkButton } from 'components/decoration/buttons';
-
 import { readableTimeDiff } from 'lib/helpers/date';
-
 import SquareField from 'components/decoration/squares';
 
 import type { trpc } from 'lib/client/trpc';
-
 import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 

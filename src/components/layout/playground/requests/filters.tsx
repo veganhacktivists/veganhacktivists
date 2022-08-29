@@ -1,24 +1,18 @@
 import React, { useCallback, useMemo, useState } from 'react';
-
 import { PlaygroundRequestCategory } from '@prisma/client';
-
 import classNames from 'classnames';
 
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
 } from '../../../../../prisma/constants';
-
 import SelectInput from '../../../forms/inputs/selectInput';
-
 import { isHexDark } from '../../../../lib/helpers/colors';
-
 import useOnce from '../../../../hooks/useOnce';
 
 import { GreyButton } from 'components/decoration/buttons';
 
 import type { Sorting } from 'lib/services/playground/schemas';
-
 import type { trpc } from 'lib/client/trpc';
 
 type Filters = trpc['playground']['getAllRequests']['input'];

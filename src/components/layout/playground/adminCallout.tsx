@@ -1,11 +1,9 @@
 import { useCallback } from 'react';
-
 import { useForm } from 'react-hook-form';
 
 import { DarkButton } from 'components/decoration/buttons';
 import TextInput from 'components/forms/inputs/textInput';
 import TextArea from 'components/forms/inputs/textArea';
-
 import { trpc } from 'lib/client/trpc';
 
 type SendMessageInput = trpc['discord']['sendMessage']['input'];

@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 

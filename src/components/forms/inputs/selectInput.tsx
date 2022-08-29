@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import getThemeColor from '../../../lib/helpers/theme';
 
 import type { HTMLAttributes } from 'react';
-
 import type { StylesConfig, Props as ReactSelectProps } from 'react-select';
 import type { ThemeConfig } from 'react-select/dist/declarations/src/theme';
 import type StateManagedSelect from 'react-select';

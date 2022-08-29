@@ -1,23 +1,17 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
-
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 
 import prisma from 'lib/db/prisma';
 import withDiscordClient, { sendDiscordMessage } from 'lib/discord';
-
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
-
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 
 import type { deleteRequestSchema } from './schemas';
-
 import type { Message } from 'discord.js';
-
 import type { PlaygroundRequest } from '@prisma/client';
-
 import type { z } from 'zod';
 import type {
   getPendingApplicationsSchema,

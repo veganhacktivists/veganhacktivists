@@ -4,7 +4,6 @@ import formData from 'form-data';
 import { firstLetterUppercase } from '../helpers/strings';
 
 import type { MailgunMessageData } from 'mailgun.js/interfaces/Messages';
-
 import type MailgunClient from 'mailgun.js/client';
 
 const DOMAIN = 'veganhacktivists.org';

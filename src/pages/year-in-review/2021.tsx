@@ -7,8 +7,6 @@ import FeedbackAndTesting from '../../components/layout/yearInReview/2021/feedba
 import CommunityGrowth from '../../components/layout/yearInReview/2021/communityGrowth';
 import AnimatedVideos from '../../components/layout/yearInReview/2021/animatedVideos';
 import Intro from '../../components/layout/yearInReview/2021/intro';
-
-// images imports
 import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.jpg';
 import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
 import MinorChangesBigImpact from '../../components/layout/yearInReview/2021/minorChangesBigImpact';

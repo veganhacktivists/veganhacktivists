@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import {
@@ -10,7 +9,6 @@ import {
   LogoutButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
-
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 
 import type { NextPage } from 'next';

@@ -1,6 +1,5 @@
 import { NextSeo } from 'next-seo';
 import React from 'react';
-
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 import { getContents } from '../../lib/cms';

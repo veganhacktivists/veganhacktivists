@@ -1,21 +1,16 @@
 import { TRPCError } from '@trpc/server';
-
 import { Prisma, Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
-
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
 import type { submitRequestSchema } from './schemas';
-
 import type { Session } from 'next-auth';
-
 import type {
   applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
 } from './schemas';
-
 import type { z } from 'zod';
 
 export const getPlaygroundRequests = async ({

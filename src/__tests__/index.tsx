@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
+
 import '@testing-library/jest-dom/extend-expect';
 import Home from '../pages';
+
 import type { IBlogEntry, IProject } from '../types/generated/contentful';
 
 const featuredProjects: IProject[] = [];

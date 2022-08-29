@@ -1,18 +1,13 @@
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-
 import React, { useCallback, useState, useEffect } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-
 import { useSession } from 'next-auth/react';
-
 import { PlaygroundRequestCategory } from '@prisma/client';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
-
 import TextArea from '../../forms/inputs/textArea';
 import TextInput from '../../forms/inputs/textInput';
 import Label from '../../forms/inputs/label';
@@ -20,16 +15,13 @@ import SelectInput from '../../forms/inputs/selectInput';
 import Checkbox from '../../forms/inputs/checkbox';
 import ToolTip from '../../decoration/tooltip';
 import CustomLink from '../../decoration/link';
-
 import useOnce from '../../../hooks/useOnce';
-
 import {
   CATEGORY_DESCRIPTION,
   CATEGORY_LABELS,
 } from '../../../../prisma/constants';
 
 import SignInPrompt from './siginInPrompt';
-
 import ConfirmationModal from './confirmationModal';
 
 import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
@@ -37,11 +29,8 @@ import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequest
 import { trpc } from 'lib/client/trpc';
 
 import type { RefCallback } from 'react';
-
 import type { AppRouter } from 'server/routers/_app';
-
 import type { z } from 'zod';
-
 import type { TRPCClientError } from '@trpc/react';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({

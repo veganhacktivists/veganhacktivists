@@ -3,9 +3,7 @@ import { NextSeo } from 'next-seo';
 import SquareField from '../../components/decoration/squares';
 
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
-
 import SubmitRequestForm from 'components/layout/playground/submitRequestForm';
-
 import { SectionHeader } from 'components/decoration/textBlocks';
 
 import type PageWithLayout from 'types/persistentLayout';

@@ -1,9 +1,7 @@
 import { toast } from 'react-toastify';
-
 import { useState } from 'react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faCheck, faCopy, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -13,15 +11,12 @@ import {
   faTwitter,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
-
 import classNames from 'classnames';
 
 import { IconButton } from '../../decoration/buttons';
-
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
 
 import type ShareInfo from './shareInfo';
-
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import type { ButtonHTMLAttributes } from 'react';
 import type { UrlObject } from 'url';

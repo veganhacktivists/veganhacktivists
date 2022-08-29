@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
-
 import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
-
 import classNames from 'classnames';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
@@ -11,30 +9,22 @@ import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
 import submitTagline from '../../../../public/images/playground/getsupport.svg';
 import volunteerTagline from '../../../../public/images/playground/volunteer.svg';
 import discord from '../../../../public/images/yearInReview/2021/discord.png';
-
 import SquareField from '../../decoration/squares';
-
 import checkmarkIcon from '../../../../public/images/playground/icons/checkmark.svg';
 import heartIcon from '../../../../public/images/playground/icons/heart.svg';
 import resumeIcon from '../../../../public/images/playground/icons/resume.svg';
-
 import clockIcon from '../../../../public/images/playground/icons/clock.svg';
 
 import FaqSection from './faqSection';
 
 import Hero from 'components/decoration/hero';
 import { DarkButton, OutlineButton } from 'components/decoration/buttons';
-
 import CustomImage from 'components/decoration/customImage';
-
 import { trpc } from 'lib/client/trpc';
-
 import Spinner from 'components/decoration/spinner';
-
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
 
 import type { NextSeoProps } from 'next-seo';
-
 import type { Layout } from 'types/persistentLayout';
 
 const HERO_DECORATION_SQUARES = [

@@ -3,11 +3,8 @@ import { z } from 'zod';
 import React from 'react';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { NextSeo } from 'next-seo';
-
 import { useSession } from 'next-auth/react';
-
 import { faLongArrowAltLeft as leftArrow } from '@fortawesome/free-solid-svg-icons';
 
 import { DarkButton } from '../../../components/decoration/buttons';

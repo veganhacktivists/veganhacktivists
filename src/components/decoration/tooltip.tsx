@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-
 import {
   offset,
   useFloating,
@@ -11,7 +10,6 @@ import {
   shift,
   autoUpdate,
 } from '@floating-ui/react-dom-interactions';
-
 import classNames from 'classnames';
 
 import type { Placement } from '@floating-ui/react-dom-interactions';

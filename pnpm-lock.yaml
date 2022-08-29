@@ -29,6 +29,7 @@ specifiers:
   '@trpc/react': 10.0.0-alpha.47
   '@trpc/server': 10.0.0-alpha.47
   '@types/crypto-js': ^4.1.1
+  '@types/jest': ^28.1.8
   '@types/luxon': ^3.0.0
   '@types/mailchimp__mailchimp_marketing': ^3.0.5
   '@types/node': ^18.7.13
@@ -165,6 +166,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@types/crypto-js': 4.1.1
+  '@types/jest': 28.1.8
   '@types/luxon': 3.0.0
   '@types/mailchimp__mailchimp_marketing': 3.0.5
   '@types/node': 18.7.13

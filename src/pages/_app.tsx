@@ -10,10 +10,7 @@ import useOnce from '../hooks/useOnce';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
-
 import { trpc } from 'lib/client/trpc';
-
-import type { Session } from 'next-auth';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -22,6 +19,7 @@ import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
 import type { AppProps } from 'next/app';
+import type { Session } from 'next-auth';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom') as ReactDOM;

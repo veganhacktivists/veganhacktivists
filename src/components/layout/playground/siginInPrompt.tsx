@@ -1,11 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
 import { signIn } from 'next-auth/react';
-
 import { useRouter } from 'next/router';
 
 import Modal from '../modal';

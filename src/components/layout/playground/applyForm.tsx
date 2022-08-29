@@ -1,57 +1,35 @@
 import { DateTime } from 'luxon';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faClock } from '@fortawesome/free-regular-svg-icons';
-
 import classNames from 'classnames';
-
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-
 import { toast } from 'react-toastify';
-
 import { useRouter } from 'next/router';
-
 import { TimePerWeek } from '@prisma/client';
 
 import SignInPrompt from './siginInPrompt';
-
 import ConfirmationModal from './confirmationModal';
 
 import { readableTimeDiff } from 'lib/helpers/date';
-
 import { DarkButton, WhiteButton } from 'components/decoration/buttons';
-
 import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
-
 import useOnce from 'hooks/useOnce';
-
 import TextInput from 'components/forms/inputs/textInput';
-
 import { trpc } from 'lib/client/trpc';
-
 import RadioButton from 'components/forms/inputs/radioButton';
-
 import Checkbox from 'components/forms/inputs/checkbox';
-
 import SubtleBorder from 'components/decoration/subtleBorder';
-
 import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
-
 import Spinner from 'components/decoration/spinner';
-
 import TextArea from 'components/forms/inputs/textArea';
-
 import SelectInput from 'components/forms/inputs/selectInput';
-
 import Label from 'components/forms/inputs/label';
 
 import type { AppRouter } from 'server/routers/_app';
 import type { TRPCClientError } from '@trpc/react';
-
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {

@@ -6,7 +6,6 @@ import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
-
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import useFuse from '../../hooks/useFuse';
@@ -20,7 +19,6 @@ import { getContents } from '../../lib/cms';
 import SubtleBorder from '../../components/decoration/subtleBorder';
 import { useHash } from '../../hooks/useHash';
 import useOnce from '../../hooks/useOnce';
-
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
 import type {
