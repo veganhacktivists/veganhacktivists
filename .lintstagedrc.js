@@ -1,11 +1,19 @@
 const path = require('path');
 
-const buildEslintCommand = (filenames) =>
-  `lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(' --file ')}`;
+/**
+ *
+ * @param {string[]} absolutePaths
+ */
+const buildEslintCommand = (absolutePaths) => {
+  const cwd = process.cwd();
+  const relativePaths = absolutePaths.map((file) => path.relative(cwd, file));
+
+  return `pnpm lint --fix ${relativePaths
+    .map((path) => `--file ${path}`)
+    .join(' ')}`;
+};
 
 module.exports = {
   '*.{js,jsx,ts,tsx}': [buildEslintCommand],
-  '*.{md,html,css,json,yml,yaml}': 'prettier --write',
+  '*.{md,html,css,json,yml,yaml}': 'pnpm prettier --write',
 };
