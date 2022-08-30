@@ -75,8 +75,6 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           image: heroTagline,
           alt: 'Compassion, Creativity, Code',
         }}
-  
-        
         alignment="right"
         classNameMapping={{
           container: 'bg-center',
