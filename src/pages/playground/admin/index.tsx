@@ -1,10 +1,12 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { Status } from '@prisma/client';
 
 import {
   DarkButton,
   DenyButton,
   ExternalLinkButton,
+  GreenButton,
   LightButton,
   LogoutButton,
 } from 'components/decoration/buttons';
@@ -62,7 +64,7 @@ const AdminPage: NextPage = ({}) => {
           {data.map((request) => (
             <div key={request.id} className="mx-auto">
               <PlaygroundRequestCard request={request}>
-                <div className="flex flex-col gap-5 md:flex-row">
+                <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   <LightButton
                     className="w-full"
                     disabled={isMutationLoading}
@@ -108,6 +110,21 @@ const AdminPage: NextPage = ({}) => {
                   >
                     🤫 Delete
                   </ExternalLinkButton>
+                  <GreenButton
+                    className="w-full px-2 text-xl text-grey"
+                    disabled={isMutationLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to complete '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: Status.Completed });
+                      }
+                    }}
+                  >
+                    🎉 Mark as completed
+                  </GreenButton>
                 </div>
               </PlaygroundRequestCard>
             </div>
