@@ -1,7 +1,6 @@
-tailwind.config.js
-next.config.js
 src/types/generated/*
 node_modules
 .next
-jestSetup.js
 .github
+__mocks__
+/public

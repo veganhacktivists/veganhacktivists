@@ -21,7 +21,7 @@ const nextConfig = {
       exclude: ['error', 'info', 'warn'],
     },
   },
-  async redirects() {
+  redirects() {
     return [
       {
         source: '/research',

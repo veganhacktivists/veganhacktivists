@@ -1,0 +1,81 @@
+name: Lint
+
+on:
+  workflow_dispatch:
+  # Replace pull_request with pull_request_target if you
+  # plan to use this action with forks, see the Limitations section
+  pull_request:
+    branches:
+      - "**"
+
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository
+    # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+    permissions:
+      pull-requests: write
+      checks: write
+      contents: write
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.0.1
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: |
+          pnpm install --no-optional
+          pnpm prisma generate
+
+      - name: Lint project
+        id: lint
+        run: pnpm lint --fix
+
+      - name: Create Pull Request
+        if: ${{ failure() && steps.lint.outcome == 'failure' }}
+        uses: peter-evans/create-pull-request@v4
+        continue-on-error: true
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: autofix/${{ github.event.pull_request.head.ref }}
+          base: ${{ github.head_ref }}
+          reviewers: ${{ github.actor }}
+          delete-branch: true
+          title: "Auto fix code style"
+
+      - name: Fail if lint errors
+        if: ${{ failure() && steps.lint.outcome == 'failure' }}
+        run: exit 1

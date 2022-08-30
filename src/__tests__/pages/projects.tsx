@@ -1,8 +1,11 @@
 import React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
+
 import Projects from '../../pages/projects';
 import '../../__mocks__/matchMediaMock';
 import MainElementMock from '../../__mocks__/mainElementMock';
+
+import type { IProject } from 'types/generated/contentful';
 
 const projects = [
   {
@@ -23,7 +26,7 @@ const projects = [
       url: 'https://sehatisanctuary.org',
     },
   },
-];
+] as unknown as IProject[];
 
 const projectYears = [2021, 2020, 2019, 2018];
 
@@ -31,7 +34,7 @@ it('should render correctly', () => {
   const { asFragment } = render(
     <>
       <MainElementMock />
-      <Projects projects={projects as any} projectYears={projectYears} />
+      <Projects projects={projects} projectYears={projectYears} />
     </>
   );
   expect(asFragment()).toMatchSnapshot();
@@ -61,7 +64,7 @@ expectedProjectsPerYear.forEach(({ year, projects: expected }) => {
     const { findByText } = render(
       <>
         <MainElementMock />
-        <Projects projects={projects as any} projectYears={projectYears} />
+        <Projects projects={projects} projectYears={projectYears} />
       </>
     );
 
@@ -81,7 +84,7 @@ it('should show all projects', () => {
     (accumulator, { projects }) => [...accumulator, ...projects],
     [] as string[]
   );
-  render(<Projects projects={projects as any} projectYears={projectYears} />);
+  render(<Projects projects={projects} projectYears={projectYears} />);
   fireEvent.click(screen.getByText('View all'));
   const actual = Array.from(
     document.querySelectorAll('h1.text-4xl.font-bold')

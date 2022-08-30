@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
 import Join from '../../pages/join';
 
 it('should render correctly', () => {
