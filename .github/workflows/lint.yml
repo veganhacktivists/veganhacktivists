@@ -71,6 +71,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.event.pull_request.head.ref }}
           branch-suffix: autofix/
+          base: ${{ github.head_ref }}
           reviewers: ${{ github.actor }}
           delete-branch: true
           title: "Auto fix code style"
