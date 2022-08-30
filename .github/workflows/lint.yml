@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
@@ -55,13 +55,18 @@ jobs:
           pnpm prisma generate
 
       - name: Lint project
-        continue-on-error: true
+        id: lint
         run: pnpm lint --fix
 
       - name: Create Pull Request
+        if: steps.lint.outcome == 'failure'
         uses: peter-evans/create-pull-request@v4
         with:
           branch: ${{ github.ref_name }}-lint
           reviewers: ${{ github.actor }}
           delete-branch: true
           title: "Auto fix code style"
+
+      - name: Fail if lint errors
+        if: steps.lint.outcome == 'failure'
+        run: exit 1
