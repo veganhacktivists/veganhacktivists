@@ -55,14 +55,13 @@ jobs:
           pnpm prisma generate
 
       - name: Lint project
+        continue-on-error: true
         run: pnpm lint --fix
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
-        continue-on-error: true
         with:
           branch: ${{ github.ref_name }}-lint
-          base: ${{ github.ref_name }}
           reviewers: ${{ github.actor }}
           delete-branch: true
           title: "Auto fix code style"
