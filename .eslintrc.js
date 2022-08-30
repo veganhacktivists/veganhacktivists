@@ -1,26 +1,11 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
-  },
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
     'next/core-web-vitals',
   ],
-  plugins: ['@typescript-eslint', 'import'],
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-      },
-    },
-  },
+  plugins: ['import'],
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     'react/button-has-type': ['error'],
@@ -47,35 +32,6 @@ module.exports = {
         'input[type="image"]': ['InputImage'],
       },
     ],
-
-    // typescript
-    '@typescript-eslint/consistent-type-imports': [
-      'warn',
-      {
-        prefer: 'type-imports',
-      },
-    ],
-    '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
-    '@typescript-eslint/array-type': ['warn', { default: 'array' }],
-    '@typescript-eslint/no-empty-function': ['warn'],
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        varsIgnorePattern: '^_',
-      },
-    ],
-    '@typescript-eslint/no-non-null-assertion': ['off'],
-
-    // typescript typechecking
-    '@typescript-eslint/no-misused-promises': [
-      'error',
-      {
-        checksVoidReturn: false,
-      },
-    ],
-    '@typescript-eslint/no-unsafe-assignment': ['off'],
-    '@typescript-eslint/no-unsafe-call': ['off'],
-
     // misc
     'no-console': ['warn'],
     'prefer-arrow-callback': ['warn'],
@@ -107,4 +63,53 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
+      },
+      settings: {
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+        },
+      },
+      plugins: ['@typescript-eslint'],
+      rules: {
+        '@typescript-eslint/consistent-type-imports': [
+          'warn',
+          {
+            prefer: 'type-imports',
+          },
+        ],
+        '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+        '@typescript-eslint/array-type': ['warn', { default: 'array' }],
+        '@typescript-eslint/no-empty-function': ['warn'],
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          {
+            varsIgnorePattern: '^_',
+          },
+        ],
+        '@typescript-eslint/no-non-null-assertion': ['off'],
+
+        // typescript typechecking
+        '@typescript-eslint/no-misused-promises': [
+          'error',
+          {
+            checksVoidReturn: false,
+          },
+        ],
+        '@typescript-eslint/no-unsafe-assignment': ['off'],
+        '@typescript-eslint/no-unsafe-call': ['off'],
+      },
+    },
+  ],
 };
