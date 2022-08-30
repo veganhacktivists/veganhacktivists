@@ -69,8 +69,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.event.pull_request.head.ref }}
-          branch-suffix: autofix/
+          branch: autofix/${{ github.event.pull_request.head.ref }}
           base: ${{ github.head_ref }}
           reviewers: ${{ github.actor }}
           delete-branch: true
