@@ -5,10 +5,10 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   extends: [
-    'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
+    'next/core-web-vitals',
   ],
   plugins: ['@typescript-eslint', 'import'],
   settings: {

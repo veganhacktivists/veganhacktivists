@@ -138,18 +138,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const PROJECTS_DESCRIPTION: Record<string, React.ReactNode> = {
-  'Vegan Bootcamp':
-    // eslint-disable-next-line quotes
-    `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups,
+  'Vegan Bootcamp': `Following the success of Vegan Bootcamp\'s launch in 2019 with over 5000+ signups,
       we decided to invest more time in improving it. We sent out a survey to all members
       and received a large amount of feedback helping us decide what new content and
       features were needed. Vegan Bootcamp now includes community forums, individual
       courses, tags, better rewards, advanced statistics for referrals, content search,
       a vegan dietitian support program, a mentorship support program, and it now comes
       translated in 10 different languages!`,
-  'Animal Rights Map':
-    // eslint-disable-next-line quotes
-    `With over 2,500 groups, the Animal Rights Map is a globally updated map that helps
+  'Animal Rights Map': `With over 2,500 groups, the Animal Rights Map is a globally updated map that helps
       vegans find local groups to get active with. Our map includes everyone from the
       largest organizations to the very small grassroots groups spread around the country.
       We worked with a few organizations to import new groups automatically, and we have a
@@ -157,18 +153,14 @@ const PROJECTS_DESCRIPTION: Record<string, React.ReactNode> = {
       almost every day. We've received a lot of great feedback for the map from vegans
       who were looking to get active - we plan on gathering more data soon and expanding
       the features of this map for 2021!`,
-  'Daily Nooch':
-    // eslint-disable-next-line quotes
-    `With this project we wanted to create something a little more fun and light-weight that
+  'Daily Nooch': `With this project we wanted to create something a little more fun and light-weight that
       vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop
       source for daily vegan news, resources and inspiration. Designed to be your homepage,
       get the latest news, quotes, art, memes, facts, videos, and more updated every day at
       midnight. This project is very experimental and we don't know if vegans will use this
       consistently, but in the meantime the team had a lot of fun building it. If folks like
       it we have a bunch of fun ideas to explore that will add more interactivity to the project.`,
-  'My Daily Dozen':
-    // eslint-disable-next-line quotes
-    `Dr. Greger, founder of NutritionFacts.org, created an app called "Daily Dozen" that allows
+  'My Daily Dozen': `Dr. Greger, founder of NutritionFacts.org, created an app called "Daily Dozen" that allows
       you to track your diet and make sure you get the best nutrition possible - and details the
       healthiest foods and how many servings of each we should try to check off every day.
       We wanted to expand on this concept and create a web-based version of his app with
@@ -262,7 +254,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         squares={STRATEGY_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <div className="bg-gray-background py-8">
+      <div className="py-8 bg-gray-background">
         <CustomImage
           src={pixelFlower.src}
           height={pixelFlower.height / 3}
@@ -292,8 +284,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         squares={[{ color: 'grey-light', size: 16, bottom: 0, right: 0 }]}
         className="hidden md:block"
       />
-      <div className="bg-grey-dark py-16">
-        <h1 className="text-6xl text-white font-mono mx-auto mb-16">
+      <div className="py-16 bg-grey-dark">
+        <h1 className="mx-auto mb-16 font-mono text-6xl text-white">
           COMMUNITY BUILDING
         </h1>
         <div className="w-2/3 mx-auto">
@@ -346,7 +338,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             elevated us this year and we&apos;re so grateful to have the ability
             to both serve them and rely on them as our new friends.
           </SubSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
+          <div className="grid justify-center grid-cols-1 md:grid-cols-3">
             <CustomImage src={petaLogo} alt="peta logo" />
             <CustomImage src={beyondLogo} alt="beyond animal logo" />
             <CustomImage src={counterglowLogo} alt="counterglow logo" />
@@ -354,9 +346,9 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         </div>
       </div>
       <SquareField squares={NEW_TEAM_SQUARES} className="hidden md:block" />
-      <div className="bg-grey-background py-16">
-        <h2 className="text-3xl mx-auto flex flex-col justify-center">
-          <div className="w-36 mx-auto">
+      <div className="py-16 bg-grey-background">
+        <h2 className="flex flex-col justify-center mx-auto text-3xl">
+          <div className="mx-auto w-36">
             <CustomImage
               className="drop-shadow-xl"
               src={Strawberry}
@@ -387,8 +379,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
           We&apos;re excited to see how this team will shape the future of the
           work we do!
         </SubSection>
-        <h2 className="text-3xl mx-auto flex flex-col justify-center">
-          <div className="w-36 mx-auto">
+        <h2 className="flex flex-col justify-center mx-auto text-3xl">
+          <div className="mx-auto w-36">
             <CustomImage
               src={Blueberry}
               alt=""
@@ -417,7 +409,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
           header="Minor changes with a BIG IMPACT"
           firstWordsNum={4}
         />
-        <div className="space-y-6 text-left mx-auto md:w-max text-2xl">
+        <div className="mx-auto space-y-6 text-2xl text-left md:w-max">
           {[
             {
               icon: <>&#127815;</>,
@@ -472,10 +464,10 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
           ].map(({ icon, description }, i) => (
             <div
               key={i}
-              className="flex flex-col md:flex-row gap-x-5 w-full justify-start"
+              className="flex flex-col justify-start w-full md:flex-row gap-x-5"
             >
-              <div className="mx-auto md:mx-0 text-5xl md:text-2xl">{icon}</div>
-              <div className="mx-auto md:mx-0 text-center md:text-left">
+              <div className="mx-auto text-5xl md:mx-0 md:text-2xl">{icon}</div>
+              <div className="mx-auto text-center md:mx-0 md:text-left">
                 {description}
               </div>
             </div>
@@ -485,96 +477,96 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
       <SquareField
         squares={[{ color: 'grey-light', size: 16, right: 0, bottom: 0 }]}
       />
-      <div className="bg-black py-24 uppercase">
-        <div className="w-5/6 md:w-2/3 mx-auto space-y-8">
-          <h1 className="text-white text-6xl font-mono">By the numbers</h1>
-          <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
+      <div className="py-24 uppercase bg-black">
+        <div className="w-5/6 mx-auto space-y-8 md:w-2/3">
+          <h1 className="font-mono text-6xl text-white">By the numbers</h1>
+          <h2 className="p-6 font-mono text-4xl font-bold text-left text-white bg-grey-dark">
             OUR 2020 TRAFFIC
           </h2>
           <div className="flex flex-col md:flex-row gap-x-5">
             <div className="flex-1 text-left">
-              <h1 className="text-magenta font-mono font-bold">
+              <h1 className="font-mono font-bold text-magenta">
                 <AnimatedNumber number={318000} approx />
               </h1>
-              <p className="text-3xl text-white font-mono font-bold w-2/3">
+              <p className="w-2/3 font-mono text-3xl font-bold text-white">
                 UNIQUE VISITORS
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-magenta font-mono font-bold">
+              <h1 className="font-mono font-bold text-magenta">
                 <AnimatedNumber number={1710000} approx />
               </h1>
-              <p className="text-3xl text-white font-mono font-bold w-2/3">
+              <p className="w-2/3 font-mono text-3xl font-bold text-white">
                 UNIQUE PAGE VIEWS
               </p>
             </div>
           </div>
-          <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
+          <h2 className="p-6 font-mono text-4xl font-bold text-left text-white bg-grey-dark">
             PROJECT STATISTICS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             <div className="flex-1 text-left">
-              <h1 className="text-green font-mono font-bold">
+              <h1 className="font-mono font-bold text-green">
                 <AnimatedNumber number={734} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3 mb-10">
+              <p className="w-2/3 mb-10 font-mono text-3xl text-white">
                 COURSES DONE ON{' '}
                 <span className="font-bold">VEGANBOOTCAMP.ORG</span> IN UNDER 60
                 DAYS
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-green font-mono font-bold">
+              <h1 className="font-mono font-bold text-green">
                 <AnimatedNumber number={8854} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3 mb-10">
+              <p className="w-2/3 mb-10 font-mono text-3xl text-white">
                 TWEETS BY OUR{' '}
                 <span className="font-bold">5 MINUTES 5 VEGANS</span> SUPPORT
                 BOT
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-green font-mono font-bold">
+              <h1 className="font-mono font-bold text-green">
                 <AnimatedNumber number={2528} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3">
+              <p className="w-2/3 font-mono text-3xl text-white">
                 ANIMAL RIGHTS GROUPS ADDED TO{' '}
                 <span className="font-bold">ANIMALRIGHTSMAP.ORG</span>
               </p>
             </div>
             <div className="flex-1 text-left">
-              <h1 className="text-green font-mono font-bold">
+              <h1 className="font-mono font-bold text-green">
                 <AnimatedNumber number={46562} approx />
               </h1>
-              <p className="text-3xl text-white font-mono w-2/3">
+              <p className="w-2/3 font-mono text-3xl text-white">
                 CLICKS DIRECTING ACTIVISTS TO ORGS{' '}
                 <span className="font-bold">VEGANACTIVISM.ORG</span>
               </p>
             </div>
           </div>
-          <h2 className="bg-grey-dark text-4xl font-bold font-mono text-white p-6 text-left">
+          <h2 className="p-6 font-mono text-4xl font-bold text-left text-white bg-grey-dark">
             ON THE BLOG
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 md:gap-y-0">
             <div className="flex flex-col flex-1">
               <div className="flex-1 text-left">
-                <h1 className="text-yellow font-mono font-bold">
+                <h1 className="font-mono font-bold text-yellow">
                   <AnimatedNumber number={24} />
                 </h1>
-                <p className="text-3xl text-white font-mono w-2/3 mb-10">
+                <p className="w-2/3 mb-10 font-mono text-3xl text-white">
                   <b>NEW POSTS</b> FROM THE CONTENT TEAM
                 </p>
               </div>
-              <div className="flex-1 text-left mb-8">
-                <h1 className="text-yellow font-mono font-bold">
+              <div className="flex-1 mb-8 text-left">
+                <h1 className="font-mono font-bold text-yellow">
                   <AnimatedNumber number={13926} approx />
                 </h1>
-                <p className="text-3xl text-white font-mono w-2/3">
+                <p className="w-2/3 font-mono text-3xl text-white">
                   UNIQUE <b>PAGE VIEWS</b> ON THE BLOG
                 </p>
               </div>
             </div>
-            <div className="md:flex-1 text-left flex flex-col">
+            <div className="flex flex-col text-left md:flex-1">
               <TopPosts topPosts={topBlogs.map((entry) => entry.fields)} />
             </div>
           </div>
