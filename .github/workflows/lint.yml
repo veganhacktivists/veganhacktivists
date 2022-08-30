@@ -11,16 +11,16 @@ on:
 env:
   NEXT_TELEMETRY_DISABLED: 1
 
-# Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
-permissions:
-  checks: write
-  contents: write
-
 jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
     if: startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository
+    # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+    permissions:
+      pull_requests: write
+      checks: write
+      contents: write
 
     steps:
       - name: Check out Git repository
