@@ -68,7 +68,9 @@ jobs:
         if: ${{ failure() && steps.lint.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: autofix/${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.event.pull_request.head.ref }}
+          branch_suffix: autofix/
           reviewers: ${{ github.actor }}
           delete-branch: true
           title: "Auto fix code style"
