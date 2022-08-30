@@ -71,10 +71,12 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <Hero
         main
         imageBackground={heroBackground}
-        tagline={{
+        tagline={ {
           image: heroTagline,
           alt: 'Compassion, Creativity, Code',
         }}
+  
+        
         alignment="right"
         classNameMapping={{
           container: 'bg-center',

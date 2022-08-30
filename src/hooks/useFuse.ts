@@ -3,8 +3,8 @@ import Fuse from 'fuse.js';
 
 const fuzzySearch: <T>(params: {
   fuse: Fuse<T>;
-  data: T[];
-  term: string;
+  data: any;
+  term: string ;
 }) => T[] = ({ fuse, data, term }) => {
   if (!term) return data;
   return fuse.search(term).map((result) => result.item);
