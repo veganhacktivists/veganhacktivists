@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const twColors = require('tailwindcss/colors');
 
 const colors = {

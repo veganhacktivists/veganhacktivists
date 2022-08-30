@@ -3,9 +3,6 @@ import { useMemo } from 'react';
 
 import tailwindConfig from '../../tailwind.config';
 
-import type { Config as TailwindConfig } from 'tailwindcss';
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
 const fullConfig = resolveConfig(tailwindConfig);
 
 const useWindowBreakpoint: (

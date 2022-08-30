@@ -1,15 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
 import Hero from '../../../components/decoration/hero';
 
-jest.mock(
-  'next/image',
-  () =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function ({ src, alt }: any) {
-      // eslint-disable-next-line @next/next/no-img-element
-      return <img src={src} alt={alt} />;
-    }
+jest.mock('next/image', () =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ({ src, alt }: any) => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} />;
+  }
 );
 
 it('should render correctly when providing a URL string', () => {

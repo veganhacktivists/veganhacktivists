@@ -1,7 +1,6 @@
 import { Status } from '@prisma/client';
 
 import { t } from 'server/trpc';
-
 import withDiscordClient, { getDiscordServer } from 'lib/discord';
 
 import type { TimePerWeek } from '@prisma/client';

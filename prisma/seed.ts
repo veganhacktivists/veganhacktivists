@@ -5,7 +5,6 @@ import {
   Status,
   TimePerWeek,
 } from '@prisma/client';
-
 import { faker } from '@faker-js/faker';
 
 import type { Prisma } from '@prisma/client';
