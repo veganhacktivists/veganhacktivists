@@ -20,12 +20,13 @@ jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository
 
     steps:
-      - uses: hmarr/debug-action@v2
-
       - name: Check out Git repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Use Node.js 16
         uses: actions/setup-node@v3
@@ -67,6 +68,7 @@ jobs:
         if: ${{ failure() && steps.lint.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v4
         with:
+          branch: autofix/${{ github.event.pull_request.head.ref }}
           reviewers: ${{ github.actor }}
           delete-branch: true
           title: "Auto fix code style"
