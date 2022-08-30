@@ -73,6 +73,7 @@ enum Status {
   Pending
   Accepted
   Rejected
+  Completed
 }
 
 enum TimePerWeek {
