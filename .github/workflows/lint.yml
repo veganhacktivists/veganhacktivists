@@ -5,6 +5,8 @@ on:
   # Replace pull_request with pull_request_target if you
   # plan to use this action with forks, see the Limitations section
   pull_request:
+    branches:
+      - "**"
 
 # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
 permissions:
@@ -48,15 +50,18 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm prisma generate
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
+      - name: Lint project
+        run: pnpm lint --fix
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        continue-on-error: true
         with:
-          eslint: true
-          eslint_extensions: js,ts,jsx,tsx
-          eslint_command_prefix: pnpm
-          prettier: true
-          prettier_extensions: md,html,css,json
-          prettier_command_prefix: pnpm
-          auto_fix: true
+          branch: ${{ github.ref_name }}-lint
+          reviewers: ${{ github.actor }}
+          delete-branch: true
+          title: "Auto fix code style"
