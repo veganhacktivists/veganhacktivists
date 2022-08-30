@@ -67,7 +67,6 @@ jobs:
       - name: Create Pull Request
         if: ${{ failure() && steps.lint.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v4
-        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: autofix/${{ github.event.pull_request.head.ref }}
