@@ -8,6 +8,9 @@ on:
     branches:
       - "**"
 
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+
 # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
 permissions:
   checks: write
