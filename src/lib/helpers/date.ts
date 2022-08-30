@@ -11,7 +11,7 @@ export const readableTimeDiff = (date: Date) => {
   const isPastDate = other.diff(now).milliseconds < 0;
 
   const diffInDays = other.diffNow(['days']);
-  if (diffInDays.days <= 1) {
+  if (Math.abs(diffInDays.days) <= 1) {
     return [null, null] as const;
   }
 
