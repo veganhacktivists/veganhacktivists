@@ -15,7 +15,7 @@ jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.action != 'pull_request' || (startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository)
     # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     permissions:
       pull-requests: write
