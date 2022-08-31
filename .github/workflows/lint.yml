@@ -2,8 +2,6 @@ name: Lint
 
 on:
   workflow_dispatch:
-  # Replace pull_request with pull_request_target if you
-  # plan to use this action with forks, see the Limitations section
   pull_request:
     branches:
       - "**"
@@ -15,7 +13,14 @@ jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
-    if: github.event.action != 'pull_request' || (startsWith(github.head_ref, 'autofix/') == false && github.event.pull_request.head.repo.full_name == github.repository)
+    # Only run if triggered manually OR the PR isn't a draft and it's not a linting PR (and not a fork)
+    if: |
+      github.event_name != 'pull_request' ||
+      (
+        github.event.pull_request.draft == false &&
+        startsWith(github.head_ref, 'autofix/') == false &&
+        github.event.pull_request.head.repo.full_name == github.repository
+      )
     # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     permissions:
       pull-requests: write
