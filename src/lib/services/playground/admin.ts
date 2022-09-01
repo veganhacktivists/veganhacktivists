@@ -1,6 +1,7 @@
 import { PlaygroundRequestCategory, Status } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
+import { z } from 'zod';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 
@@ -8,11 +9,11 @@ import prisma from 'lib/db/prisma';
 import { sendDiscordMessage } from 'lib/discord';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
+import { parseEnv } from 'lib/helpers/env';
 
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
 import type { PlaygroundRequest } from '@prisma/client';
-import type { z } from 'zod';
 import type {
   getPendingApplicationsSchema,
   getPendingRequestsSchema,
@@ -215,6 +216,19 @@ const getMessageDescription = (request: PlaygroundRequest) => {
 ${codeBlock(description)}`;
 };
 
+const infoSchema = z.object({ channelId: z.string(), roleId: z.string() });
+
+const playgroundInfoSchema = z.object(
+  Object.fromEntries(
+    Object.keys(PlaygroundRequestCategory).map((key) => [key, infoSchema])
+  ) as Record<PlaygroundRequestCategory, typeof infoSchema>
+);
+
+const playgroundData = parseEnv(
+  'PLAYGROUND_DISCORD_DATA',
+  playgroundInfoSchema
+);
+
 const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
   switch (request.category) {
     case PlaygroundRequestCategory.Developer:
@@ -293,7 +307,6 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
 
     const playgroundMessage = await sendDiscordMessage({
       channelId: playgroundChannelId,
-      content: roleToMention ? roleMention(roleToMention) : undefined,
       embeds: [
         new EmbedBuilder(basicEmbed)
           .setDescription(
