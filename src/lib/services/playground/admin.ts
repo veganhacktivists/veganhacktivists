@@ -8,6 +8,7 @@ import prisma from 'lib/db/prisma';
 import { sendDiscordMessage } from 'lib/discord';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
+import { getListFromEnv } from 'lib/helpers/env';
 
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
@@ -240,7 +241,7 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
   }
 };
 
-const DISCORD_CHANNEL_IDS = (process.env.DISCORD_CHANNEL_IDS || '').split(',');
+const DISCORD_CHANNEL_IDS = getListFromEnv('DISCORD_CHANNEL_IDS');
 
 const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
