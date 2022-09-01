@@ -1,11 +1,13 @@
 import { TRPCError } from '@trpc/server';
 
 import {
+  editRequest,
   getPlaygroundRequests,
   getRequestById,
   submitRequest,
 } from 'lib/services/playground';
 import {
+  editRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
   submitRequestSchema,
@@ -37,6 +39,14 @@ const requestsRouter = t.router({
     .input(submitRequestSchema)
     .mutation(({ input, ctx }) => {
       return submitRequest({
+        ...input,
+        requesterId: ctx.user.id,
+      });
+    }),
+  editRequest: protectedProcedure
+    .input(editRequestSchema)
+    .mutation(({ input, ctx }) => {
+      return editRequest({
         ...input,
         requesterId: ctx.user.id,
       });

@@ -4,7 +4,13 @@ import { Status } from '@prisma/client';
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
+<<<<<<< HEAD
 import type { applyToRequestSchema, submitRequestSchema } from './schemas';
+=======
+import type { editRequestSchema } from './schemas';
+
+import type { submitRequestSchema } from './schemas';
+>>>>>>> 3a3309f1 (adds update-request functionality)
 import type { Session } from 'next-auth';
 import type {
   getPlaygroundRequestsSchema,
@@ -132,10 +138,33 @@ export const applyToHelp = async (
   return newRequest;
 };
 
+<<<<<<< HEAD
 export const submitRequest = async ({
   budget,
   ...params
 }: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
+=======
+export const editRequest = async (
+  params: z.infer<typeof editRequestSchema> & { requesterId: string }
+  // eslint-disable-next-line @typescript-eslint/require-await
+) => {
+  const [request] = await prisma.$transaction([
+    prisma.playgroundRequest.update({
+      where: {
+        id: params.id,
+      },
+      data: {
+        ...params,
+      },
+    }),
+  ]);
+  return request;
+};
+
+export const submitRequest = async (
+  params: z.infer<typeof submitRequestSchema> & { requesterId: string }
+) => {
+>>>>>>> 3a3309f1 (adds update-request functionality)
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {

@@ -106,7 +106,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         : undefined,
       estimatedTimeDays: request?.estimatedTimeDays,
     };
-    console.log(request);
   }
   useOnce(() => {
     if (replaceData !== undefined) {
@@ -123,7 +122,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   }, []);
   const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
   const router = useRouter();
-  const defaultValues = requestId === undefined ? storedForm : {};
+  const defaultValues =
+    requestId === undefined ? storedForm : { id: requestId };
 
   const {
     control,
@@ -221,6 +221,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     }
   );
 
+<<<<<<< HEAD
   const { mutateAsync, isLoading, isSuccess } =
     trpc.playground.submitRequest.useMutation({
       onSuccess: () => {
@@ -228,6 +229,57 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         reset();
       },
     });
+=======
+  const {
+    mutateAsync: mutateSubmitAsync,
+    isLoading: isSubmitLoading,
+    isSuccess: isSubmitSuccess,
+  } = trpc.proxy.playground.submitRequest.useMutation({
+    onSuccess: () => {
+      clearFormData();
+      reset();
+    },
+  });
+  const {
+    mutateAsync: mutateEditAsync,
+    isLoading: isEditLoading,
+    isSuccess: isEditSuccess,
+  } = trpc.proxy.playground.editRequest.useMutation({
+    onSuccess: () => {
+      clearFormData();
+      reset();
+    },
+  });
+
+  const onEdit = useCallback(
+    (values: trpc['playground']['editRequest']['input']) => {
+      {
+        if (sessionStatus === 'unauthenticated') {
+          setIsSignInModalOpen(true);
+          reset(undefined, {
+            keepValues: true,
+          });
+          return;
+        } else if (sessionStatus === 'loading') {
+          reset(undefined, {
+            keepValues: true,
+          });
+        }
+
+        return toast.promise(mutateEditAsync(values), {
+          pending: 'Editing...',
+          success: 'Your request has been successfully edited!',
+          error: {
+            render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
+              return data?.message;
+            },
+          },
+        });
+      }
+    },
+    [mutateEditAsync, reset, sessionStatus]
+  );
+>>>>>>> 3a3309f1 (adds update-request functionality)
 
   const mutate = useCallback<typeof mutateAsync>(
     (params) => {
@@ -255,9 +307,23 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         });
       }
 
+<<<<<<< HEAD
       await mutate(values);
     },
     [mutate, reset, sessionStatus]
+=======
+      return toast.promise(mutateSubmitAsync(values), {
+        pending: 'Submitting...',
+        success: 'Your request has been submitted!',
+        error: {
+          render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
+            return data?.message;
+          },
+        },
+      });
+    },
+    [mutateSubmitAsync, reset, sessionStatus]
+>>>>>>> 3a3309f1 (adds update-request functionality)
   );
 
   useOnce(
@@ -275,6 +341,37 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         !!formRef &&
         filledDataFromStorage,
     }
+<<<<<<< HEAD
+=======
+
+    formRef.scrollIntoView({
+      block: 'end',
+    });
+
+    if (requestId === undefined) {
+      void handleSubmit(onSubmit)();
+    } else {
+      void handleSubmit(onEdit)();
+    }
+  }, [
+    requestId,
+    formRef,
+    submitButtonRef,
+    handleSubmit,
+    isSubmitted,
+    isSubmitting,
+    onSubmit,
+    onEdit,
+    router.isReady,
+    router.query.submit,
+    filledDataFromStorage,
+  ]);
+
+  const isFree = watch('isFree');
+
+  const [isBudgetHidden, setIsBudgetHidden] = useState<boolean | undefined>(
+    undefined
+>>>>>>> 3a3309f1 (adds update-request functionality)
   );
 
   useEffect(() => {
@@ -287,8 +384,17 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       <form
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
+<<<<<<< HEAD
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
+=======
+        onSubmit={
+          requestId === undefined
+            ? handleSubmit(onSubmit)
+            : handleSubmit(onEdit)
+        }
+        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left md:grid-cols-2 md:max-w-3xl"
+>>>>>>> 3a3309f1 (adds update-request functionality)
       >
         <div className="text-xl col-span-full">Personal Information</div>
         <TextInput
@@ -518,41 +624,39 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         >
           Estimated time <br className="sm:hidden" /> commitment
         </TextInput>
-        {requestId === undefined && (
-          <>
-            <Checkbox
-              labelPosition="right"
-              className="col-span-full"
-              error={errors.qualityAgreement?.message}
-              {...myRegister('qualityAgreement')}
-              onChange={(checked) => {
-                setFormData({ qualityAgreement: checked });
-                setValue('qualityAgreement', checked);
-              }}
-            >
-              I understand that Vegan Hacktivists cannot guarantee the quality
-              of work done by our volunteers.
-            </Checkbox>
-            <Checkbox
-              labelPosition="right"
-              className="col-span-full"
-              error={errors.agreeToTerms?.message}
-              {...myRegister('agreeToTerms')}
-              onChange={(checked) => {
-                setFormData({ agreeToTerms: checked });
-                setValue('agreeToTerms', checked);
-              }}
-            >
-              I agree to the VH: Playground terms and conditions.
-            </Checkbox>
-          </>
-        )}
+        <Checkbox
+          labelPosition="right"
+          className="col-span-full"
+          error={errors.qualityAgreement?.message}
+          {...myRegister('qualityAgreement')}
+          onChange={(checked) => {
+            setFormData({ qualityAgreement: checked });
+            setValue('qualityAgreement', checked);
+          }}
+        >
+          I understand that Vegan Hacktivists cannot guarantee the quality of
+          work done by our volunteers.
+        </Checkbox>
+        <Checkbox
+          labelPosition="right"
+          className="col-span-full"
+          error={errors.agreeToTerms?.message}
+          {...myRegister('agreeToTerms')}
+          onChange={(checked) => {
+            setFormData({ agreeToTerms: checked });
+            setValue('agreeToTerms', checked);
+          }}
+        >
+          I agree to the VH: Playground terms and conditions.
+        </Checkbox>
         <DarkButton
           className="mb-10 text-center w-fit md:w-72"
-          disabled={isLoading || isSuccess}
+          disabled={
+            isSubmitLoading || isEditLoading || isSubmitSuccess || isEditSuccess
+          }
           type="submit"
         >
-          {isLoading ? (
+          {isSubmitLoading && isEditLoading ? (
             <Spinner />
           ) : requestId === undefined ? (
             'Submit My Request'
@@ -561,7 +665,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           )}
         </DarkButton>
       </form>
-      <ConfirmationModal isOpen={isSuccess} type="request" />
+      <ConfirmationModal
+        isOpen={isSubmitSuccess || isEditSuccess}
+        type={requestId === undefined ? 'request' : 'edit-request'}
+      />
       <SignInPrompt
         isOpen={isSignInModalOpen}
         onClose={onModalClose}

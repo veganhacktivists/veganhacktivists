@@ -75,6 +75,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
   })
 );
 
+<<<<<<< HEAD
 const budgetSchema = z.object({
   quantity: z
     .number()
@@ -86,6 +87,10 @@ const budgetSchema = z.object({
 });
 
 export const submitRequestSchema = z.object({
+=======
+const unsafeSubmitRequestSchema = z.object({
+  id: z.string().cuid().optional(),
+>>>>>>> 3a3309f1 (adds update-request functionality)
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().optional(),
@@ -116,17 +121,42 @@ export const submitRequestSchema = z.object({
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
+    .optional()
     .refine((x) => !!x)
     .transform(() => undefined),
   agreeToTerms: z
     .boolean()
+    .optional()
     .refine((x) => !!x)
     .transform(() => undefined),
 });
 
+<<<<<<< HEAD
 export const submitRequestSchemaClient = submitRequestSchema.merge(
   z.object({
     requiredSkills: z.string().trim().min(1),
+=======
+export const editRequestSchema = unsafeSubmitRequestSchema
+  .omit({ agreeToTerms: true, qualityAgreement: true })
+  .transform((data) => {
+    if (data.isFree) {
+      return {
+        ...data,
+        budget: undefined,
+      };
+    }
+    return {
+      ...data,
+      budget: undefined,
+    };
+  });
+
+export const submitRequestSchema = unsafeSubmitRequestSchema.transform(
+  (data) => {
+    if (data.isFree) {
+      return { ...data, budget: undefined };
+    }
+>>>>>>> 3a3309f1 (adds update-request functionality)
 
     // Require both of these values to be true
     qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
@@ -136,7 +166,27 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
   })
 );
 
+<<<<<<< HEAD
 export const getPendingApplicationsSchema = paginationSchema;
+=======
+export const submitRequestSchemaClient = unsafeSubmitRequestSchema
+  .merge(
+    z.object({
+      id: z.string().cuid().optional(),
+      requiredSkills: z.string().trim().min(1),
+      // Require both of these values to be true
+      qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
+      /* Todo: Need to check wheter or not that should be optional for editing requests */
+      agreeToTerms: z
+        .boolean()
+        .refine((x) => !!x, { message: 'You must agree to the terms' }),
+    })
+  )
+  .transform((data) => {
+    if (data.isFree) {
+      return { ...data, budget: undefined };
+    }
+>>>>>>> 3a3309f1 (adds update-request functionality)
 
 export const getPendingRequestsSchema = paginationSchema;
 
