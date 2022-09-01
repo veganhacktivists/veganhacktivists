@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { TimePerWeek } from '@prisma/client';
 
+import { CATEGORY_LABELS } from '../../../../prisma/constants';
+
 import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
@@ -132,7 +134,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           </Field>
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
-          <Field title="Category">{request.category}</Field>
+          <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
           <Field title="Due date">{dueDateFormatted}</Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
