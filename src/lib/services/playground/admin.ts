@@ -255,7 +255,7 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   try {
     const basicEmbed = new EmbedBuilder()
       .setColor(CATEGORY_COLORS[request.category])
-      .setURL(`https://veganhacktivists.org/request/${request.id}`)
+      .setURL(`https://veganhacktivists.org/playground/request/${request.id}`)
       .setTitle(request.title)
       .setAuthor({
         name: 'VH Playground Bot',
