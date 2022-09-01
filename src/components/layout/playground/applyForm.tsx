@@ -111,7 +111,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             </h1>
           </Field>
           <Field title="Description">
-            <div className="font-sans break-all">
+            <div className="font-sans">
               <div className="inline-block">
                 {description.split('\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
