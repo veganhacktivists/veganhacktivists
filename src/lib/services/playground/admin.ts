@@ -293,6 +293,7 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
 
     const playgroundMessage = await sendDiscordMessage({
       channelId: playgroundChannelId,
+      content: roleToMention ? roleMention(roleToMention) : undefined,
       embeds: [
         new EmbedBuilder(basicEmbed)
           .setDescription(
