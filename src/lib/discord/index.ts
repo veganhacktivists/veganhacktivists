@@ -20,14 +20,14 @@ discord.on('ready', () => {
   console.info('Discord client ready!');
 });
 
-export const getDiscordChannel = async (id: string) =>
-  discord.channels.cache.get(id) || (await discord.channels.fetch(id));
+export const getDiscordChannel = async (id: string) => {
+  return discord.channels.cache.get(id) || (await discord.channels.fetch(id));
+};
 
 export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
   }
-
   const cachedServer = discord.guilds.cache.get(id);
 
   if (!cachedServer || !cachedServer.approximateMemberCount) {
@@ -49,7 +49,7 @@ export const sendDiscordMessage = async ({
 } & MessageOptions) => {
   if (!channelId) {
     throw new Error(
-      `Error sending discord message. ChannelId is required, got ${
+      `ChannelId is required, got ${
         channelId === undefined ? 'undefined' : `'${channelId}'`
       }`
     );
@@ -62,19 +62,6 @@ export const sendDiscordMessage = async ({
   }
   return await channel.send(options);
 };
-
-const withDiscordClient = async <T>(
-  callback: (discord: Client) => Promise<T> | T
-) =>
-  new Promise<T>(async (resolve) => {
-    if (!discord.isReady()) {
-      (discord as Client<false>).on('ready', async () => {
-        resolve(await callback(discord));
-      });
-    }
-
-    resolve(await callback(discord));
-  });
 
 export class DiscordSendMessagesError extends Error {
   public messages: (Message | false)[];
@@ -98,4 +85,4 @@ if (process.env.NODE_ENV !== 'production') {
   discordGlobal.discord = discord;
 }
 
-export default withDiscordClient;
+export default discord;

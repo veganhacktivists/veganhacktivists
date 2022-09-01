@@ -5,7 +5,7 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 
 import prisma from 'lib/db/prisma';
-import withDiscordClient, { sendDiscordMessage } from 'lib/discord';
+import { sendDiscordMessage } from 'lib/discord';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 
@@ -253,79 +253,80 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
   const sentMessages: Message[] = [];
 
   try {
-    return await withDiscordClient(async () => {
-      const basicEmbed = new EmbedBuilder()
-        .setColor(CATEGORY_COLORS[request.category])
-        .setURL(`https://veganhacktivists.org/request/${request.id}`)
-        .setTitle(request.title)
-        .setAuthor({
-          name: 'VH Playground Bot',
-          url: 'https://veganhacktivists.org/playground',
-          iconURL:
-            'https://veganhacktivists.org/images/playground/VH_Playground_Avatar_Circle.png',
-        })
-        .setDescription(getMessageDescription(request))
-        .setImage(
-          'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png'
-        )
-        .addFields([
-          {
-            name: 'Website',
-            value: hyperlink(request.website, correctedWebsite),
-          },
-          {
-            name: 'Compensation',
-            value: request.isFree
-              ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
-              : 'Paid',
-          },
-          {
-            name: "What's next?",
-            value: `Read the request, if interested, apply on the Playground website to be introduced 👉 ${hyperlink(
-              'Click here!',
-              `https://veganhacktivists.org/playground/request/${request.id}`
-            )}`,
-          },
-        ])
-        .setFooter({
-          text: "Note: Please only apply if you're 18+, minors are not currently allowed - sorry!",
-        })
-        .toJSON();
+    const basicEmbed = new EmbedBuilder()
+      .setColor(CATEGORY_COLORS[request.category])
+      .setURL(`https://veganhacktivists.org/request/${request.id}`)
+      .setTitle(request.title)
+      .setAuthor({
+        name: 'VH Playground Bot',
+        url: 'https://veganhacktivists.org/playground',
+        iconURL:
+          'https://veganhacktivists.org/images/playground/VH_Playground_Avatar_Circle.png',
+      })
+      .setDescription(getMessageDescription(request))
+      .setImage(
+        'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png'
+      )
+      .addFields([
+        {
+          name: 'Website',
+          value: hyperlink(request.website, correctedWebsite),
+        },
+        {
+          name: 'Compensation',
+          value: request.isFree
+            ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
+            : 'Paid',
+        },
+        {
+          name: "What's next?",
+          value: `Read the request, if interested, apply on the Playground website to be introduced 👉 ${hyperlink(
+            'Click here!',
+            `https://veganhacktivists.org/playground/request/${request.id}`
+          )}`,
+        },
+      ])
+      .setFooter({
+        text: "Note: Please only apply if you're 18+, minors are not currently allowed - sorry!",
+      })
+      .toJSON();
 
-      const playgroundMessage = await sendDiscordMessage({
-        channelId: playgroundChannelId,
+    const playgroundMessage = await sendDiscordMessage({
+      channelId: playgroundChannelId,
+      embeds: [
+        new EmbedBuilder(basicEmbed)
+          .setDescription(
+            `Hi ${roleToMention ? roleMention(roleToMention) : 'everyone'}! ${
+              basicEmbed.description || ''
+            }`
+          )
+          .toJSON(),
+      ],
+    });
+
+    sentMessages.push(playgroundMessage);
+
+    for await (const channelId of DISCORD_CHANNEL_IDS) {
+      const message = await sendDiscordMessage({
+        channelId,
         embeds: [
           new EmbedBuilder(basicEmbed)
-            .setDescription(
-              `Hi ${roleToMention ? roleMention(roleToMention) : 'everyone'}! ${
-                basicEmbed.description || ''
-              }`
-            )
+            .setDescription(`Hi everyone! ${basicEmbed.description || ''}`)
             .toJSON(),
         ],
       });
-
-      sentMessages.push(playgroundMessage);
-
-      for await (const channelId of DISCORD_CHANNEL_IDS) {
-        const message = await sendDiscordMessage({
-          channelId,
-          embeds: [
-            new EmbedBuilder(basicEmbed)
-              .setDescription(`Hi everyone! ${basicEmbed.description || ''}`)
-              .toJSON(),
-          ],
-        });
-        sentMessages.push(message);
-      }
-
-      return sentMessages;
-    });
+      sentMessages.push(message);
+    }
+    return sentMessages;
   } catch (err) {
-    sentMessages.forEach((message) => message.delete());
-    throw new Error('Failed to send Playground message', {
-      cause: err instanceof Error ? err : new Error(err as string),
-    });
+    try {
+      sentMessages.forEach((message) => message.delete());
+    } finally {
+      const cause = err instanceof Error ? err : new Error(err as string);
+      throw new Error(`Failed to send Playground message. ${cause.message}`, {
+        cause,
+      });
+    }
   }
 };
 
@@ -352,15 +353,14 @@ export const setRequestStatus = ({
     }
 
     const shouldPost =
-      process.env.NODE_ENV === 'production' &&
+      // process.env.NODE_ENV === 'production' &&
       request.discordMessages.length === 0 &&
       request.status === Status.Pending &&
       status === Status.Accepted;
 
     const shouldNotifyDenial =
-      process.env.NODE_ENV === 'production' &&
-      request.status === Status.Pending &&
-      status === Status.Rejected;
+      // process.env.NODE_ENV === 'production' &&
+      request.status === Status.Pending && status === Status.Rejected;
 
     let updatedRequest = await transactionPrisma.playgroundRequest.update({
       where: { id },
@@ -381,11 +381,12 @@ export const setRequestStatus = ({
           },
         },
       });
-      await emailClient.sendMail({
-        to: updatedRequest.providedEmail,
-        from: PLAYGROUND_EMAIL_FORMATTED,
-        subject: 'Your request is now live on Playground!',
-        html: `Your request is now live on Playground!
+      if (process.env.NODE_ENV === 'production')
+        await emailClient.sendMail({
+          to: updatedRequest.providedEmail,
+          from: PLAYGROUND_EMAIL_FORMATTED,
+          subject: 'Your request is now live on Playground!',
+          html: `Your request is now live on Playground!
 <br /><br />
 Hey ${updatedRequest.name}!
 <br /><br />
@@ -394,7 +395,7 @@ Thanks for submitting your request to VH: Playground! We're happy to let you kno
 Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="https://veganhacktivists.org/playground#faq">in this page</a>.
 <br /><br />
 Thank you so much!`,
-      });
+        });
     } else if (shouldNotifyDenial) {
       await emailClient.sendMail({
         to: updatedRequest.providedEmail,
