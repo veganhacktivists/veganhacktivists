@@ -123,8 +123,8 @@ enum PlaygroundRequestCategory {
 }
 
 model DiscordMessage {
-  messageId           String
-  channelId           String
+  messageId           String @db.Char(19)
+  channelId           String @db.Char(19)
   playgroundRequestId String
 
   request PlaygroundRequest? @relation(fields: [playgroundRequestId], references: [id])
