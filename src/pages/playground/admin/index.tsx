@@ -44,25 +44,25 @@ const AdminPage: NextPage = ({}) => {
     <>
       <NextSeo title="Admin panel" />
       <div>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
           <DarkButton
             href="/playground/admin/applications"
-            className="m-10 mx-5 w-fit"
+            className="mx-5 w-fit"
           >
             See applications
           </DarkButton>
-          <LogoutButton href="/auth/signout" className="m-10 mx-5 w-fit">
+          <LogoutButton href="/auth/signout" className="mx-5 w-fit">
             Logout
           </LogoutButton>
         </div>
         <div
-          className="grid gap-5 px-10 my-5 md:grid-cols-2 lg:px-40"
+          className="grid gap-5 my-5 sm:px-10 md:grid-cols-2 lg:px-40"
           ref={animatedRef}
         >
           {data.map((request) => (
-            <div key={request.id}>
+            <div key={request.id} className="mx-auto">
               <PlaygroundRequestCard request={request}>
-                <div className="flex flex-row gap-5">
+                <div className="flex flex-col gap-5 md:flex-row">
                   <LightButton
                     className="w-full"
                     disabled={isMutationLoading}
