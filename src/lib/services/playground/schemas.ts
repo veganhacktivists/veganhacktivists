@@ -14,8 +14,13 @@ export const paginationSchema = z
 export const getRequestByIdSchema = z.string().cuid();
 
 const filterSchema = z.object({
-  categories: z.array(z.nativeEnum(PlaygroundRequestCategory)).min(1),
-  // .optional(),
+  categories: z
+    .array(z.nativeEnum(PlaygroundRequestCategory))
+    .transform((input) => {
+      if (input.length === 0) return undefined;
+      return input;
+    })
+    .optional(),
   isFree: z.boolean(),
 });
 
