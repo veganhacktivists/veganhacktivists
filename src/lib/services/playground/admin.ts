@@ -9,6 +9,7 @@ import { sendDiscordMessage } from 'lib/discord';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 import { getListFromEnv } from 'lib/helpers/env';
+import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
@@ -355,13 +356,11 @@ export const setRequestStatus = ({
     }
 
     const shouldPost =
-      // process.env.NODE_ENV === 'production' &&
       request.discordMessages.length === 0 &&
       request.status === Status.Pending &&
       status === Status.Accepted;
 
     const shouldNotifyDenial =
-      // process.env.NODE_ENV === 'production' &&
       request.status === Status.Pending && status === Status.Rejected;
 
     let updatedRequest = await transactionPrisma.playgroundRequest.update({
@@ -370,6 +369,11 @@ export const setRequestStatus = ({
     });
 
     if (shouldPost) {
+      const redditSubmissions = await postPlaygroundRequestOnReddit(
+        updatedRequest
+      );
+      console.log('Reddit submissions', redditSubmissions);
+
       const discordMessages = await postRequestOnDiscord(updatedRequest);
       updatedRequest = await prisma.playgroundRequest.update({
         where: { id },
