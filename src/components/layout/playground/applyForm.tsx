@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { TimePerWeek } from '@prisma/client';
 
-import { CATEGORY_LABELS } from '../../../../prisma/constants';
+import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
 import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
@@ -101,7 +101,12 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
 
       <div className="relative flex flex-col-reverse justify-between gap-2 mb-4 font-mono text-xl text-left md:flex-row">
         <div className="prose prose-p:max-w-prose md:prose-xl max-w-none prose-p:leading-6 prose-headings:leading-none">
-          <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
+          <div
+            className="absolute w-16 -translate-x-full -left-5 aspect-square"
+            style={{
+              backgroundColor: CATEGORY_COLORS[request.category],
+            }}
+          />
           <Field title="Title">
             <h1 className="text-2xl font-bold" title={request.title}>
               {request.title}
