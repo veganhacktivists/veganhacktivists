@@ -47,7 +47,7 @@ export const applyToRequestSchema = z.object({
   hasAppliedInThePast: z.boolean(),
   isVegan: z.boolean(),
   calendlyUrl: z.string().optional(),
-  moreInfo: z.string().optional(),
+  moreInfo: z.string().min(1, { message: 'This value is required' }),
 
   // Check those parameters are set, and delete them from the request aferwards
   commitToHelping: z

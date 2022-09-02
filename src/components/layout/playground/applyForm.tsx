@@ -494,12 +494,15 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           />
         </div>
         <TextArea
+          error={errors.moreInfo?.message}
+          showRequiredMark
           className="col-span-full"
           rows={5}
           {...myRegister('moreInfo')}
           placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
         >
-          Is there anything else you&apos;d like to add?
+          Please tell us a little bit more about yourself and why you&apos;d be
+          a good fit for this request
         </TextArea>
         <Controller
           control={control}
