@@ -89,7 +89,7 @@ const PlaygroundRequestCard: React.FC<
       <div className="flex flex-col h-full gap-2 p-4 text-left">
         <div className="space-y-1">
           <h3
-            className="mb-2 mr-12 font-mono text-xl font-bold capitalize break-words md:text-2xl line-clamp-1"
+            className="mb-2 mr-12 font-mono text-xl font-bold capitalize break-words md:text-2xl line-clamp-6 md:line-clamp-4"
             title={title}
           >
             {title}
@@ -99,7 +99,7 @@ const PlaygroundRequestCard: React.FC<
               style={{
                 borderColor: categoryColor,
               }}
-              className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
+              className="px-2 py-0.5 border-[3px] rounded-xl capitalize my-auto"
             >
               {CATEGORY_LABELS[category]}
             </div>
