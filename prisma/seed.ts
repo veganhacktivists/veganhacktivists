@@ -113,7 +113,9 @@ const seedApplications = async (n: number = NUMBER) => {
             twitterUrl:
               (faker.datatype.boolean() ? '@' : '') +
               faker.internet.userName(user.name || undefined),
-            moreInfo: faker.lorem.paragraphs(faker.datatype.number(5)),
+            moreInfo: faker.datatype.boolean()
+              ? faker.lorem.paragraphs(faker.datatype.number(5))
+              : '',
           } as Prisma.PlaygroundApplicationCreateManyInput;
         })
     );

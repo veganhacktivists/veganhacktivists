@@ -95,7 +95,7 @@ model PlaygroundApplication {
   hasAppliedInThePast  Boolean
   isVegan              Boolean
   calendlyUrl          String?
-  moreInfo             String?
+  moreInfo             String
   requestId            String
   status               Status      @default(Pending)
 
