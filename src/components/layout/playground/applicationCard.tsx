@@ -11,15 +11,16 @@ interface ApplicationCardProps {
   application: trpc['playground']['admin']['requestsWithPendingApplications']['output'][number]['applications'][number];
 }
 
-const Data: React.FC<{ name: string; value: React.ReactNode | null }> = ({
-  name,
-  value,
-}) => {
-  if (!value) return null;
+const Data: React.FC<{
+  name: string;
+  value: React.ReactNode | null;
+  hideIfNull?: boolean;
+}> = ({ name, value, hideIfNull = false }) => {
+  if (!value && hideIfNull) return null;
 
   return (
     <div>
-      <span className="font-bold">{name}:</span> <span>{value}</span>
+      <span className="font-bold">{name}:</span> <span>{value || 'None'}</span>
     </div>
   );
 };
@@ -66,7 +67,7 @@ const ApplicationCard: React.FC<
       <Data
         name="Comments"
         value={
-          app.moreInfo ? (
+          app.moreInfo && (
             <>
               {app.moreInfo?.split('\n').map((paragraph, i) => (
                 <div className="mb-2" key={i}>
@@ -74,8 +75,6 @@ const ApplicationCard: React.FC<
                 </div>
               ))}
             </>
-          ) : (
-            'None'
           )
         }
       />
