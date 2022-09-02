@@ -357,6 +357,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Email
         </TextInput>
         <TextInput
+          showRequiredMark
           className="md:col-span-3"
           error={errors.portfolioLink?.message}
           {...myRegister('portfolioLink')}

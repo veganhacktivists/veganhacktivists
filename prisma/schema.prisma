@@ -88,7 +88,7 @@ model PlaygroundApplication {
   applicantId          String
   name                 String
   availableTimePerWeek TimePerWeek
-  portfolioLink        String?
+  portfolioLink        String
   twitterUrl           String?
   instagramUrl         String?
   linkedinUrl          String?

@@ -40,7 +40,10 @@ export const applyToRequestSchema = z.object({
   name: z.string().min(1, { message: 'This value is required' }),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
   providedEmail: z.string().trim().email(),
-  portfolioLink: z.string().optional(),
+  portfolioLink: z
+    .string()
+    .trim()
+    .min(1, { message: 'This value is required' }),
   twitterUrl: z.string().trim().optional(),
   instagramUrl: z.string().trim().optional(),
   linkedinUrl: z.string().trim().optional(),
