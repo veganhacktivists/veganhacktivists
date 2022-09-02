@@ -1,26 +1,52 @@
 import Mailgun from 'mailgun.js';
 import formData from 'form-data';
+import nodemailer from 'nodemailer';
 
 import { firstLetterUppercase } from '../helpers/strings';
 
-import type { MailgunMessageData } from 'mailgun.js/interfaces/Messages';
+import type { Transporter } from 'nodemailer';
+import type {
+  MailgunMessageData,
+  MessagesSendResult,
+} from 'mailgun.js/interfaces/Messages';
 import type MailgunClient from 'mailgun.js/client';
 
 const DOMAIN = 'veganhacktivists.org';
 
 class EmailClient {
   private mg: MailgunClient;
-  constructor(mg: MailgunClient) {
+  private nm: Transporter;
+  sendMail: (options: EmailDev | Email) => Promise<true | MessagesSendResult>;
+  constructor(mg: MailgunClient, nm: Transporter) {
     this.mg = mg;
+    this.nm = nm;
+    if (process.env.NODE_ENV !== 'production') {
+      this.sendMail = async (options) => {
+        const data = options as EmailDev;
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        return await this.nm.sendMail(data);
+      };
+    } else {
+      this.sendMail = async (options) => {
+        const data = options as Email;
+        return await this.mg.messages.create(DOMAIN, {
+          ...data,
+          from: data.from ?? OUR_EMAIL_FORMATTED,
+        });
+        return true;
+      };
+    }
   }
 
-  async sendMail(data: Email) {
-    return await this.mg.messages.create(DOMAIN, {
-      ...data,
-      from: data.from ?? OUR_EMAIL_FORMATTED,
-    });
-  }
+  // async sendMail(data: Email) {
+  //   return await this.mg.messages.create(DOMAIN, {
+  //     ...data,
+  //     from: data.from ?? OUR_EMAIL_FORMATTED,
+  //   });
+  // }
 }
+
+type EmailDev = nodemailer.SendMailOptions;
 
 type Email = MailgunMessageData &
   Required<Pick<MailgunMessageData, 'html' | 'to' | 'subject'>>;
@@ -47,7 +73,8 @@ const emailClient = new EmailClient(
   new Mailgun(formData).client({
     username: 'api',
     key: process.env.MAILGUN_API_KEY || '',
-  })
+  }),
+  nodemailer.createTransport(process.env.EMAIL_SERVER_URL ?? '')
 );
 
 export default emailClient;
