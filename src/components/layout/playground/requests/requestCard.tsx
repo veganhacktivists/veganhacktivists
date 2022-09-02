@@ -99,7 +99,7 @@ const PlaygroundRequestCard: React.FC<
               style={{
                 borderColor: categoryColor,
               }}
-              className="px-2 py-0.5 border-[3px] rounded-xl capitalize"
+              className="px-2 py-0.5 border-[3px] rounded-xl capitalize my-auto"
             >
               {CATEGORY_LABELS[category]}
             </div>
