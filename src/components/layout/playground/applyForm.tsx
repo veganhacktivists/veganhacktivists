@@ -103,10 +103,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         <div className="prose prose-p:max-w-prose md:prose-xl max-w-none prose-p:leading-6 prose-headings:leading-none">
           <div className="absolute w-16 -translate-x-full -left-5 aspect-square bg-yellow" />
           <Field title="Title">
-            <h1
-              className="text-2xl font-bold line-clamp-1"
-              title={request.title}
-            >
+            <h1 className="text-2xl font-bold" title={request.title}>
               {request.title}
             </h1>
           </Field>
