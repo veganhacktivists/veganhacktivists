@@ -372,9 +372,15 @@ export const setRequestStatus = ({
       const redditSubmissions = await postPlaygroundRequestOnReddit(
         updatedRequest
       );
-      console.log('Reddit submissions', redditSubmissions);
-
-      const discordMessages = await postRequestOnDiscord(updatedRequest);
+      let discordMessages: Message[] = [];
+      try {
+        discordMessages = await postRequestOnDiscord(updatedRequest);
+      } catch (err) {
+        for await (const redditSubmission of redditSubmissions) {
+          await redditSubmission.delete();
+        }
+        throw err;
+      }
       updatedRequest = await prisma.playgroundRequest.update({
         where: { id },
 

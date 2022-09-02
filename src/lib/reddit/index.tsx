@@ -55,15 +55,21 @@ export const postPlaygroundRequestOnReddit = async (
 
   const submissions: Submission[] = [];
 
-  for await (const subreddit of subredditsToPost) {
-    const submission = await r.submitSelfpost({
-      subredditName: subreddit,
-      title: request.title,
-      text: message,
-    });
+  try {
+    for await (const subreddit of subredditsToPost) {
+      const submission = await r.submitSelfpost({
+        subredditName: subreddit,
+        title: request.title,
+        text: message,
+      });
 
-    submissions.push(submission);
+      submissions.push(submission);
+    }
+  } catch (err) {
+    for await (const submission of submissions) {
+      await submission.delete();
+    }
+    throw err;
   }
-
   return submissions;
 };
