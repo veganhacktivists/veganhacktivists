@@ -39,15 +39,15 @@ export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
   name: z.string().min(1, { message: 'This value is required' }),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
-  providedEmail: z.string().email(),
+  providedEmail: z.string().trim().email(),
   portfolioLink: z.string().optional(),
-  twitterUrl: z.string().optional(),
-  instagramUrl: z.string().optional(),
-  linkedinUrl: z.string().optional(),
+  twitterUrl: z.string().trim().optional(),
+  instagramUrl: z.string().trim().optional(),
+  linkedinUrl: z.string().trim().optional(),
   hasAppliedInThePast: z.boolean(),
   isVegan: z.boolean(),
-  calendlyUrl: z.string().optional(),
-  moreInfo: z.string().min(1, { message: 'This value is required' }),
+  calendlyUrl: z.string().trim().optional(),
+  moreInfo: z.string().trim().min(1, { message: 'This value is required' }),
 
   // Check those parameters are set, and delete them from the request aferwards
   commitToHelping: z
@@ -72,7 +72,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
 
 const unsafeSubmitRequestSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
-  providedEmail: z.string().email(),
+  providedEmail: z.string().trim().email(),
   phone: z.string().trim().optional(),
   organization: z.string().trim().optional(),
   website: z
@@ -89,6 +89,7 @@ const unsafeSubmitRequestSchema = z.object({
   // Transform the string of skills separated by a comma in an array of strings
   requiredSkills: z
     .string()
+    .trim()
     .min(1)
     .transform((x) =>
       x
@@ -132,8 +133,8 @@ export const submitRequestSchema = unsafeSubmitRequestSchema.transform(
 export const submitRequestSchemaClient = unsafeSubmitRequestSchema
   .merge(
     z.object({
+      requiredSkills: z.string().trim().min(1),
       // Require both of these values to be true
-      requiredSkills: z.string().min(1),
       qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
       agreeToTerms: z
         .boolean()
