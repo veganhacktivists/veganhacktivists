@@ -16,7 +16,6 @@ declare module 'snoowrap' {
 
 const r = new Snoowrap({
   userAgent: process.env.REDDIT_USER_AGENT!,
-  accessToken: process.env.REDDIT_CLIENT_SECRET,
   clientId: process.env.REDDIT_CLIENT_ID,
   clientSecret: process.env.REDDIT_CLIENT_SECRET,
   password: process.env.REDDIT_PASSWORD,
