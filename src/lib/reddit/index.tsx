@@ -22,6 +22,8 @@ const r = new Snoowrap({
   username: process.env.REDDIT_USERNAME,
 });
 
+r.config({ proxies: false, continueAfterRatelimitError: true });
+
 const subredditsToPost = getListFromEnv('PLAYGROUND_SUBREDDITS');
 
 export const postPlaygroundRequestOnReddit = async (
