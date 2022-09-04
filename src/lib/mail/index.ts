@@ -33,17 +33,9 @@ class EmailClient {
           ...data,
           from: data.from ?? OUR_EMAIL_FORMATTED,
         });
-        return true;
       };
     }
   }
-
-  // async sendMail(data: Email) {
-  //   return await this.mg.messages.create(DOMAIN, {
-  //     ...data,
-  //     from: data.from ?? OUR_EMAIL_FORMATTED,
-  //   });
-  // }
 }
 
 type EmailDev = nodemailer.SendMailOptions;
