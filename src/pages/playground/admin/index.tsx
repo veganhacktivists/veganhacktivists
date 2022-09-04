@@ -56,7 +56,7 @@ const AdminPage: NextPage = ({}) => {
           </LogoutButton>
         </div>
         <div
-          className="grid gap-5 my-5 sm:px-10 md:grid-cols-2 lg:px-40"
+          className="grid gap-5 my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
           ref={animatedRef}
         >
           {data.map((request) => (
