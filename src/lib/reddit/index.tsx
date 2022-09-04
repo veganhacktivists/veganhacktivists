@@ -33,9 +33,9 @@ export const postPlaygroundRequestOnReddit = async (
     ? 'This is a volunteer role, please help the animals!'
     : 'This is a possible paid role!';
 
-  const message = `${
+  const message = `**${
     request.organization || request.name
-  } needs help! If you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism!
+  }** needs help! If you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism!
 
   ## **[${request.title}](https://veganhacktivists.org/playground/request/${
     request.id
