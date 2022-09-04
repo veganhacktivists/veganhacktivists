@@ -48,7 +48,7 @@ export const getPendingRequests = async (
   const requestsWithApplications = await prisma.playgroundRequest.findMany({
     where: {
       ...params,
-      status: Status.Pending,
+      status: { in: [Status.Pending, Status.Accepted] },
     },
     include: {
       requester: {
