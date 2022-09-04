@@ -29,7 +29,7 @@ const subredditsToPost = getListFromEnv('PLAYGROUND_SUBREDDITS');
 export const postPlaygroundRequestOnReddit = async (
   request: PlaygroundRequest
 ) => {
-  const compensation = request.isFree ? 'no' : 'This is a possible paid role!';
+  const compensation = request.isFree ? 'This is a volunteer role, please help the animals!' : 'This is a possible paid role!';
 
   const message = `${
     request.organization || request.name
@@ -45,14 +45,15 @@ export const postPlaygroundRequestOnReddit = async (
 
   **Interested in this request?** Please click the link below to apply to help on Playground!
 
-  **Click here:** [link](https://veganhacktivists.org/playground/request/${
+  **Click here:** [Link to request](https://veganhacktivists.org/playground/request/${
     request.id
   })
 
   Thanks for your activism for the animals!
 
   **VH: Playground** by [Vegan Hacktivists](https://veganhacktivists.org/)
-*Find other requests to help animals, [click here!](https://veganhacktivists.org/playground)*`;
+
+  *Find other requests to help animals, [click here!](https://veganhacktivists.org/playground)*`;
 
   const submissions: Submission[] = [];
 
