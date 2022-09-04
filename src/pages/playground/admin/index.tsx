@@ -64,6 +64,7 @@ const AdminPage: NextPage = ({}) => {
           {data.map((request) => (
             <div key={request.id} className="mx-auto">
               <PlaygroundRequestCard request={request}>
+                <b>This request is {request.status}!</b>
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   <LightButton
                     className="w-full"
