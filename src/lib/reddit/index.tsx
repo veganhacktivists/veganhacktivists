@@ -35,7 +35,9 @@ export const postPlaygroundRequestOnReddit = async (
     request.organization || request.name
   } needs help! If you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism!
 
-  ## **${request.title}**
+  ## **[${request.title}](https://veganhacktivists.org/playground/request/${
+    request.id
+  })**
 
   **Website:** [${request.website}](${request.website})
 
