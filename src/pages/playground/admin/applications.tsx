@@ -4,14 +4,18 @@ import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import ApplicationCard from 'components/layout/playground/applicationCard';
+import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
   const { queryClient } = trpc.useContext();
 
-  const { data, isSuccess } =
-    trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
+  const {
+    data,
+    isSuccess,
+    isLoading: isQueryLoading,
+  } = trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
@@ -34,7 +38,11 @@ const AdminPage: NextPage = ({}) => {
 
   const isLoading = isMutationLoading || isDeletionLoading;
 
+  if (isQueryLoading) {
+    return <Spinner />;
+  }
   if (!isSuccess) return null;
+
   return (
     <div>
       <DarkButton href="/playground/admin" className="m-10 mx-auto w-fit">
@@ -44,6 +52,9 @@ const AdminPage: NextPage = ({}) => {
         className="flex flex-row flex-wrap justify-center gap-5"
         ref={animatedRef}
       >
+        {data.length === 0 && (
+          <div className="text-center">There are no pending requests</div>
+        )}
         {data.map((request) => (
           <div key={request.id}>
             <div className="max-w-xl h-ful">

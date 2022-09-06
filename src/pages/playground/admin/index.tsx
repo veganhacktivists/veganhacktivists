@@ -12,13 +12,14 @@ import {
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
+import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';
 
-const AdminPage: NextPage = ({}) => {
+const AdminPage: NextPage = () => {
   const { queryClient } = trpc.useContext();
 
-  const { data, isSuccess } =
+  const { data, isSuccess, isLoading } =
     trpc.proxy.playground.admin.pendingRequests.useQuery();
 
   const { mutate, isLoading: isMutationLoading } =
@@ -41,7 +42,12 @@ const AdminPage: NextPage = ({}) => {
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   if (!isSuccess) return null;
+
   return (
     <>
       <NextSeo title="Admin panel" />
@@ -58,11 +64,14 @@ const AdminPage: NextPage = ({}) => {
           </LogoutButton>
         </div>
         <div
-          className="grid gap-5 my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
+          className="grid gap-5 mx-auto my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
           ref={animatedRef}
         >
+          {data.length === 0 && (
+            <div className="text-center">There are no available requests</div>
+          )}
           {data.map((request) => (
-            <div key={request.id} className="mx-auto">
+            <div key={request.id}>
               <PlaygroundRequestCard request={request}>
                 <b>This request is {request.status}!</b>
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
