@@ -11,6 +11,7 @@ import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 import { getListFromEnv } from 'lib/helpers/env';
 import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 
+import type { Submission } from 'snoowrap';
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
 import type { PlaygroundRequest } from '@prisma/client';
@@ -325,7 +326,12 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
     try {
       sentMessages.forEach((message) => message.delete());
     } finally {
-      const cause = err instanceof Error ? err : new Error(err as string);
+      const cause =
+        err instanceof Error
+          ? err
+          : typeof err === 'string'
+          ? new Error(err)
+          : new Error(JSON.stringify(err));
       throw new Error(`Failed to send Playground message. ${cause.message}`, {
         cause,
       });
@@ -339,81 +345,115 @@ export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
     data: { status: Status.Rejected },
   });
 
-export const setRequestStatus = ({
+export const setRequestStatus = async ({
   id,
   status,
-}: z.infer<typeof setRequestStatusSchema>) =>
-  prisma.$transaction(async (transactionPrisma) => {
-    const request = await transactionPrisma.playgroundRequest.findUnique({
-      where: { id },
-      include: {
-        discordMessages: true,
-      },
-    });
+}: z.infer<typeof setRequestStatusSchema>) => {
+  const request = await prisma.playgroundRequest.findUnique({
+    where: { id },
+    include: {
+      discordMessages: true,
+    },
+  });
 
-    if (!request) {
-      throw new TRPCError({ code: 'NOT_FOUND' });
-    }
+  if (!request) {
+    throw new TRPCError({ code: 'NOT_FOUND' });
+  }
 
-    const shouldPost =
-      request.discordMessages.length === 0 &&
-      request.status === Status.Pending &&
-      status === Status.Accepted;
+  const shouldPost =
+    request.discordMessages.length === 0 &&
+    request.status === Status.Pending &&
+    status === Status.Accepted;
 
-    const shouldNotifyDenial =
-      request.status === Status.Pending && status === Status.Rejected;
+  const shouldNotifyDenial =
+    request.status === Status.Pending && status === Status.Rejected;
 
-    let updatedRequest = await transactionPrisma.playgroundRequest.update({
-      where: { id },
-      data: { status },
-    });
+  let discordMessages: Message[] = [];
+  let redditSubmissions: Submission[] = [];
 
-    if (shouldPost) {
-      const redditSubmissions = await postPlaygroundRequestOnReddit(
-        updatedRequest
-      );
-      let discordMessages: Message[] = [];
-      try {
-        discordMessages = await postRequestOnDiscord(updatedRequest);
-      } catch (err) {
-        for await (const redditSubmission of redditSubmissions) {
-          await redditSubmission.delete();
+  try {
+    return await prisma.$transaction(
+      async (prisma) => {
+        let updatedRequest = await prisma.playgroundRequest.update({
+          where: { id },
+          data: { status },
+        });
+
+        if (shouldPost) {
+          redditSubmissions = await postPlaygroundRequestOnReddit(
+            updatedRequest
+          );
+
+          discordMessages = await postRequestOnDiscord(updatedRequest);
+          updatedRequest = await prisma.playgroundRequest.update({
+            where: { id },
+            data: {
+              discordMessages: {
+                create: discordMessages.map((msg) => ({
+                  channelId: msg.channelId,
+                  messageId: msg.id,
+                })),
+              },
+            },
+          });
+          await sendAcceptedEmail(updatedRequest);
+        } else if (shouldNotifyDenial) {
+          await sendDenialEmail(updatedRequest);
         }
-        throw err;
-      }
-      updatedRequest = await prisma.playgroundRequest.update({
-        where: { id },
 
-        data: {
-          discordMessages: {
-            create: discordMessages.map((msg) => ({
-              channelId: msg.channelId,
-              messageId: msg.id,
-            })),
-          },
-        },
-      });
-      if (process.env.NODE_ENV === 'production')
-        await emailClient.sendMail({
-          to: updatedRequest.providedEmail,
-          from: PLAYGROUND_EMAIL_FORMATTED,
-          subject: 'Your request is now live on Playground!',
-          html: `Your request is now live on Playground!
+        return updatedRequest;
+      },
+      { timeout: 10000 }
+    );
+  } catch (e) {
+    try {
+      for await (const redditSubmission of redditSubmissions) {
+        await redditSubmission.delete().catch();
+      }
+      for await (const discordMessage of discordMessages) {
+        await discordMessage.delete().catch();
+      }
+    } finally {
+      const cause =
+        e instanceof Error
+          ? e
+          : typeof e === 'string'
+          ? new Error(e)
+          : new Error(JSON.stringify(e));
+      throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
+    }
+  }
+};
+
+const sendAcceptedEmail = (request: PlaygroundRequest) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return true;
+  }
+  return emailClient.sendMail({
+    to: request.providedEmail,
+    from: PLAYGROUND_EMAIL_FORMATTED,
+    subject: 'Your request is now live on Playground!',
+    html: `Your request is now live on Playground!
 <br /><br />
-Hey ${updatedRequest.name}!
+Hey ${request.name}!
 <br /><br />
-Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="https://veganhacktivists.org/playground/request/${updatedRequest.id}">clicking this link</a>.
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="https://veganhacktivists.org/playground/request/${request.id}">clicking this link</a>.
 <br /><br />
 Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="https://veganhacktivists.org/playground#faq">in this page</a>.
 <br /><br />
 Thank you so much!`,
-        });
-    } else if (shouldNotifyDenial) {
-      await emailClient.sendMail({
-        to: updatedRequest.providedEmail,
-        from: PLAYGROUND_EMAIL_FORMATTED,
-        subject: 'Thanks so much for submitting your request to Playground!',
-        html: `Thanks so much for submitting your request to Playground!
+  });
+};
+
+const sendDenialEmail = (request: PlaygroundRequest) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return true;
+  }
+  return emailClient.sendMail({
+    to: request.providedEmail,
+    from: PLAYGROUND_EMAIL_FORMATTED,
+    subject: 'Thanks so much for submitting your request to Playground!',
+    html: `Thanks so much for submitting your request to Playground!
 <br />
 <br />
 Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.
@@ -423,7 +463,5 @@ If you have any specific questions, or believe this was a mistake, feel free to 
 <br />
 <br />
 Thank you so much for considering VH: Playground for your request!`,
-      });
-    }
-    return updatedRequest;
   });
+};
