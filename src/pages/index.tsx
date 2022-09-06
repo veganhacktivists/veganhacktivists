@@ -113,7 +113,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           As capacity builders, we deliver innovative and quality services at no
           cost to advocates and organizations.
         </p>
-        <p>
+        <p className="pb-5">
           Our team is composed of highly-skilled and professional software
           engineers, designers, data scientists, and content creators. By
           leveraging our diverse background and skill sets, we design and build{' '}
