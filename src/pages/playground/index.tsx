@@ -12,13 +12,13 @@ import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
-import { trpc } from 'lib/client/trpc';
 import RequestFilters from 'components/layout/playground/requests/filters';
 import { DarkButton, LightButton } from 'components/decoration/buttons';
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { pixelHeart } from 'images/separators';
 import CustomLink from 'components/decoration/link';
+import { trpc } from 'lib/client/trpc';
 
 import type PageWithLayout from 'types/persistentLayout';
 
@@ -35,12 +35,9 @@ const Playground: PageWithLayout = ({}) => {
     return { sort, ...otherFilters };
   }, [filters]);
 
-  const { data: requests } = trpc.proxy.playground.getAllRequests.useQuery(
-    params,
-    {
-      keepPreviousData: true,
-    }
-  );
+  const { data: requests } = trpc.playground.getAllRequests.useQuery(params, {
+    keepPreviousData: true,
+  });
   const {
     startIndex,
     endIndex,

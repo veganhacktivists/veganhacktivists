@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { setupTRPC } from '@trpc/next';
+import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
 
 import type { NextPageContext } from 'next';
@@ -29,7 +29,7 @@ function getBaseUrl() {
  */
 export type SSRContext = NextPageContext;
 
-export const trpc = setupTRPC<AppRouter, SSRContext>({
+export const trpc = createTRPCNext<AppRouter, SSRContext>({
   config: ({ ctx }) => {
     const url = `${getBaseUrl()}/api/trpc`;
     return {
@@ -37,9 +37,7 @@ export const trpc = setupTRPC<AppRouter, SSRContext>({
       transformer: superjson,
       headers: () => {
         if (ctx?.req) {
-          // on ssr, forward client's headers to the server
           return {
-            ...ctx.req.headers,
             'x-ssr': '1',
           };
         }

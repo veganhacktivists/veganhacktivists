@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { Status } from '@prisma/client';
+import { useCallback } from 'react';
 
 import {
   DarkButton,
@@ -17,27 +18,24 @@ import Spinner from 'components/decoration/spinner';
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = () => {
-  const { queryClient } = trpc.useContext();
+  const utils = trpc.useContext();
+
+  const invalidateQuery = useCallback(
+    () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
+    [utils.playground.admin.requestsWithPendingApplications]
+  );
 
   const { data, isSuccess, isLoading } =
-    trpc.proxy.playground.admin.pendingRequests.useQuery();
+    trpc.playground.admin.pendingRequests.useQuery();
 
   const { mutate, isLoading: isMutationLoading } =
-    trpc.proxy.playground.admin.setRequestStatus.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.pendingRequests',
-        ]);
-      },
+    trpc.playground.admin.setRequestStatus.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
-    trpc.proxy.playground.admin.deleteRequest.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.pendingRequests',
-        ]);
-      },
+    trpc.playground.admin.deleteRequest.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
