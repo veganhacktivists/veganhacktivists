@@ -372,7 +372,7 @@ export const setRequestStatus = async ({
   let redditSubmissions: Submission[] = [];
 
   try {
-    return await prisma.$transaction(
+    const updatedRequest = await prisma.$transaction(
       async (prisma) => {
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
@@ -396,15 +396,18 @@ export const setRequestStatus = async ({
               },
             },
           });
-          await sendAcceptedEmail(updatedRequest);
-        } else if (shouldNotifyDenial) {
-          await sendDenialEmail(updatedRequest);
         }
 
         return updatedRequest;
       },
       { timeout: 10000 }
     );
+    if (shouldPost) {
+      await sendAcceptedEmail(updatedRequest);
+    } else if (shouldNotifyDenial) {
+      await sendDenialEmail(updatedRequest);
+    }
+    return updatedRequest;
   } catch (e) {
     try {
       for await (const redditSubmission of redditSubmissions) {
