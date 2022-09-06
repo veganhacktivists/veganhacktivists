@@ -19,12 +19,7 @@ const statsRouter = t.router({
         prisma.playgroundRequest.count(),
         prisma.playgroundRequest.count({
           where: {
-            status: Status.Accepted,
-            applications: {
-              some: {
-                status: Status.Accepted,
-              },
-            },
+            status: Status.Completed,
           },
         }),
         getDiscordServer(process.env.DISCORD_PLAYGROUND_SERVER_ID!).then(
@@ -34,7 +29,7 @@ const statsRouter = t.router({
 
     const acceptedApplications = await prisma.playgroundApplication.findMany({
       where: {
-        status: Status.Accepted,
+        status: Status.Completed,
       },
       select: {
         availableTimePerWeek: true,

@@ -42,10 +42,10 @@ export const getPendingApplications = async (
   return applications;
 };
 
-export const getPendingRequests = async (
+export const getPendingRequests = (
   params: z.infer<typeof getPendingRequestsSchema>
 ) => {
-  const requestsWithApplications = await prisma.playgroundRequest.findMany({
+  return prisma.playgroundRequest.findMany({
     where: {
       ...params,
       status: { in: [Status.Pending, Status.Accepted] },
@@ -62,8 +62,6 @@ export const getPendingRequests = async (
       createdAt: 'asc',
     },
   });
-
-  return requestsWithApplications;
 };
 
 export const setApplicationStatus = ({
