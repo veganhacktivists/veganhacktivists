@@ -1,45 +1,51 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { Status } from '@prisma/client';
+import { useCallback } from 'react';
 
 import {
   DarkButton,
   DenyButton,
   ExternalLinkButton,
+  GreenButton,
   LightButton,
   LogoutButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
+import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';
 
-const AdminPage: NextPage = ({}) => {
-  const { queryClient } = trpc.useContext();
+const AdminPage: NextPage = () => {
+  const utils = trpc.useContext();
 
-  const { data, isSuccess } =
-    trpc.proxy.playground.admin.pendingRequests.useQuery();
+  const invalidateQuery = useCallback(
+    () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
+    [utils.playground.admin.requestsWithPendingApplications]
+  );
+
+  const { data, isSuccess, isLoading } =
+    trpc.playground.admin.pendingRequests.useQuery();
 
   const { mutate, isLoading: isMutationLoading } =
-    trpc.proxy.playground.admin.setRequestStatus.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.pendingRequests',
-        ]);
-      },
+    trpc.playground.admin.setRequestStatus.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
-    trpc.proxy.playground.admin.deleteRequest.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.pendingRequests',
-        ]);
-      },
+    trpc.playground.admin.deleteRequest.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   if (!isSuccess) return null;
+
   return (
     <>
       <NextSeo title="Admin panel" />
@@ -56,16 +62,22 @@ const AdminPage: NextPage = ({}) => {
           </LogoutButton>
         </div>
         <div
-          className="grid gap-5 my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
+          className="grid gap-5 mx-auto my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
           ref={animatedRef}
         >
+          {data.length === 0 && (
+            <div className="text-center">There are no available requests</div>
+          )}
           {data.map((request) => (
-            <div key={request.id} className="mx-auto">
+            <div key={request.id}>
               <PlaygroundRequestCard request={request}>
-                <div className="flex flex-col gap-5 md:flex-row">
+                <b>This request is {request.status}!</b>
+                <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   <LightButton
                     className="w-full"
-                    disabled={isMutationLoading}
+                    disabled={
+                      isMutationLoading || request.status === Status.Accepted
+                    }
                     onClick={() => {
                       if (
                         confirm(
@@ -108,6 +120,21 @@ const AdminPage: NextPage = ({}) => {
                   >
                     🤫 Delete
                   </ExternalLinkButton>
+                  <GreenButton
+                    className="w-full px-2 text-xl"
+                    disabled={isMutationLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to complete '${request.title}'?`
+                        )
+                      ) {
+                        mutate({ id: request.id, status: Status.Completed });
+                      }
+                    }}
+                  >
+                    🎉 Mark as completed
+                  </GreenButton>
                 </div>
               </PlaygroundRequestCard>
             </div>

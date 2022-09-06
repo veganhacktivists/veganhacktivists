@@ -3,7 +3,7 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["interactiveTransactions"]
+  previewFeatures = ["interactiveTransactions", "filteredRelationCount"]
 }
 
 datasource db {
@@ -73,6 +73,7 @@ enum Status {
   Pending
   Accepted
   Rejected
+  Completed
 }
 
 enum TimePerWeek {

@@ -1,40 +1,45 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { useCallback } from 'react';
 
 import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import ApplicationCard from 'components/layout/playground/applicationCard';
+import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
-  const { queryClient } = trpc.useContext();
-
-  const { data, isSuccess } =
-    trpc.proxy.playground.admin.requestsWithPendingApplications.useQuery();
+  const utils = trpc.useContext();
+  const {
+    data,
+    isSuccess,
+    isLoading: isQueryLoading,
+  } = trpc.playground.admin.requestsWithPendingApplications.useQuery();
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  const invalidateQuery = useCallback(
+    () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
+    [utils.playground.admin.requestsWithPendingApplications]
+  );
+
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
-    trpc.proxy.playground.admin.deleteApplication.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.requestsWithPendingApplications',
-        ]);
-      },
+    trpc.playground.admin.deleteApplication.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const { mutate, isLoading: isMutationLoading } =
-    trpc.proxy.playground.admin.setApplicationStatus.useMutation({
-      onSuccess: () => {
-        void queryClient.invalidateQueries([
-          'playground.admin.requestsWithPendingApplications',
-        ]);
-      },
+    trpc.playground.admin.setApplicationStatus.useMutation({
+      onSuccess: () => invalidateQuery,
     });
 
   const isLoading = isMutationLoading || isDeletionLoading;
 
+  if (isQueryLoading) {
+    return <Spinner />;
+  }
   if (!isSuccess) return null;
+
   return (
     <div>
       <DarkButton href="/playground/admin" className="m-10 mx-auto w-fit">
@@ -44,6 +49,9 @@ const AdminPage: NextPage = ({}) => {
         className="flex flex-row flex-wrap justify-center gap-5"
         ref={animatedRef}
       >
+        {data.length === 0 && (
+          <div className="text-center">There are no pending requests</div>
+        )}
         {data.map((request) => (
           <div key={request.id}>
             <div className="max-w-xl h-ful">

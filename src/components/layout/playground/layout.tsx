@@ -156,13 +156,10 @@ const PlaygroundStat: React.FC<{
 };
 
 const PlaygroundStats: React.FC = () => {
-  const { data } = trpc.proxy.playground.getPlaygroundStats.useQuery(
-    undefined,
-    {
-      staleTime: 10000,
-      trpc: { ssr: false },
-    }
-  );
+  const { data } = trpc.playground.getPlaygroundStats.useQuery(undefined, {
+    staleTime: 10000,
+    trpc: { ssr: false },
+  });
   return (
     <div>
       <div className="grid justify-center mx-auto mt-16 mb-16 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 w-fit">

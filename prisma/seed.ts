@@ -19,7 +19,7 @@ const seedUsers = async (n: number = NUMBER) => {
     .map(() => {
       const firstName = faker.name.firstName();
       const lastName = faker.name.lastName();
-      const name = faker.name.findName(firstName, lastName);
+      const name = faker.name.fullName({ firstName, lastName });
 
       return {
         email: faker.internet.email(firstName, lastName),
@@ -44,7 +44,7 @@ const seedRequests = async (n: number = NUMBER) => {
               precision: faker.helpers.arrayElement([0.01, 0.1]),
             })
           : faker.datatype.number({ min: 10, max: 10000 }),
-        name: faker.name.findName(),
+        name: faker.name.fullName(),
         calendlyUrl: faker.internet.url(),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
@@ -101,7 +101,7 @@ const seedApplications = async (n: number = NUMBER) => {
             requestId: request.id,
             hasAppliedInThePast: faker.datatype.boolean(),
             isVegan: faker.datatype.boolean(),
-            name: user.name || faker.name.findName(),
+            name: user.name || faker.name.fullName(),
             providedEmail: user.email,
             status: faker.helpers.objectValue(Status),
             calendlyUrl: faker.internet.url(),

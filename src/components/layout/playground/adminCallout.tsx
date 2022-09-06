@@ -11,7 +11,7 @@ type SendMessageInput = trpc['discord']['sendMessage']['input'];
 const AdminCallout: React.FC = () => {
   const { handleSubmit, register } = useForm<SendMessageInput>();
 
-  const { mutate } = trpc.proxy.discord.sendMessage.useMutation();
+  const { mutate } = trpc.discord.sendMessage.useMutation();
 
   const onSubmit = useCallback(
     (input: SendMessageInput) => {

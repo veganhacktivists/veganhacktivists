@@ -20,7 +20,6 @@ import { DarkButton, WhiteButton } from 'components/decoration/buttons';
 import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
 import useOnce from 'hooks/useOnce';
 import TextInput from 'components/forms/inputs/textInput';
-import { trpc } from 'lib/client/trpc';
 import RadioButton from 'components/forms/inputs/radioButton';
 import Checkbox from 'components/forms/inputs/checkbox';
 import SubtleBorder from 'components/decoration/subtleBorder';
@@ -29,6 +28,7 @@ import Spinner from 'components/decoration/spinner';
 import TextArea from 'components/forms/inputs/textArea';
 import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
+import { trpc } from 'lib/client/trpc';
 
 import type { AppRouter } from 'server/routers/_app';
 import type { TRPCClientError } from '@trpc/react';
@@ -255,7 +255,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const shouldSubmit = router.query.submit === 'true';
 
   const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
-    trpc.proxy.playground.getLastUserApplication.useQuery(undefined, {
+    trpc.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
 
@@ -296,7 +296,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 
   const { mutateAsync, isLoading, isSuccess } =
-    trpc.proxy.playground.apply.useMutation({
+    trpc.playground.apply.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();

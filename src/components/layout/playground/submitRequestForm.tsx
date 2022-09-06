@@ -111,7 +111,7 @@ const SubmitRequestForm: React.FC = () => {
   );
 
   const { data: lastSubmittedRequest, isSuccess: isLastRequestSuccess } =
-    trpc.proxy.playground.getLastUserRequest.useQuery(undefined, {
+    trpc.playground.getLastUserRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
       refetchOnMount: false,
       refetchOnReconnect: false,
@@ -156,7 +156,7 @@ const SubmitRequestForm: React.FC = () => {
   );
 
   const { mutateAsync, isLoading, isSuccess } =
-    trpc.proxy.playground.submitRequest.useMutation({
+    trpc.playground.submitRequest.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();

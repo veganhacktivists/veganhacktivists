@@ -4,10 +4,9 @@ import { Prisma, Status } from '@prisma/client';
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
-import type { submitRequestSchema } from './schemas';
+import type { applyToRequestSchema, submitRequestSchema } from './schemas';
 import type { Session } from 'next-auth';
 import type {
-  applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
 } from './schemas';
@@ -38,11 +37,6 @@ export const getPlaygroundRequests = async ({
         in: categories,
       },
       status: Status.Accepted,
-      applications: {
-        none: {
-          status: Status.Accepted,
-        },
-      },
     },
     orderBy,
   });
@@ -54,40 +48,37 @@ export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
   user?: Session['user']
 ) => {
-  const [request, previousUserApplicationCount] = await Promise.all([
-    prisma.playgroundRequest.findFirst({
-      where: {
-        id,
-        status: user?.role === 'Admin' ? undefined : Status.Accepted,
-        applications: {
-          ...(user?.role === 'Admin'
-            ? {}
-            : {
-                none: {
-                  status: Status.Accepted,
-                },
-              }),
-        },
+  const request = await prisma.playgroundRequest.findFirst({
+    where: {
+      id,
+      status: user?.role === 'Admin' ? undefined : Status.Accepted,
+      applications: {
+        ...(user?.role === 'Admin'
+          ? {}
+          : {
+              none: {
+                status: Status.Accepted,
+              },
+            }),
       },
-      include: {
-        requester: {
-          select: {
-            id: true,
-            name: true,
+    },
+    include: {
+      requester: true,
+      _count: {
+        select: {
+          applications: {
+            where: { applicantId: user?.id },
           },
         },
       },
-    }),
-    prisma.playgroundApplication.count({
-      where: { requestId: id, applicantId: user?.id },
-    }),
-  ]);
+    },
+  });
 
   if (!request) {
     throw new TRPCError({ code: 'NOT_FOUND' });
   }
 
-  const userAlreadyApplied = user ? previousUserApplicationCount !== 0 : false;
+  const userAlreadyApplied = user ? request._count.applications !== 0 : false;
 
   const isRequestedByCurrentUser = request.requester.id === user?.id;
 
