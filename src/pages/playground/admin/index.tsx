@@ -112,7 +112,7 @@ const AdminPage: NextPage = ({}) => {
                     🤫 Delete
                   </ExternalLinkButton>
                   <GreenButton
-                    className="w-full px-2 text-xl text-grey"
+                    className="w-full px-2 text-xl"
                     disabled={isMutationLoading}
                     onClick={() => {
                       if (

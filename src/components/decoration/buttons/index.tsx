@@ -211,12 +211,16 @@ const GreenButton: React.FC<ButtonProps> = ({
   return (
     <FillBackground
       disabled={props.disabled}
-      base={primary ? 'fuchsia' : 'green-light'}
-      fill={primary ? 'pink' : 'green'}
+      base={primary ? 'fuchsia' : 'green'}
+      fill={primary ? 'pink' : 'green-dark'}
     >
       <BaseButton
         {...props}
-        className={classNames(baseButtonClasses, 'text-white', className)}
+        className={classNames(
+          baseButtonClasses,
+          'text-white border-green-dark',
+          className
+        )}
       >
         {children}
       </BaseButton>
