@@ -68,7 +68,9 @@ const AdminPage: NextPage = ({}) => {
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   <LightButton
                     className="w-full"
-                    disabled={isMutationLoading}
+                    disabled={
+                      isMutationLoading || request.status === Status.Accepted
+                    }
                     onClick={() => {
                       if (
                         confirm(
