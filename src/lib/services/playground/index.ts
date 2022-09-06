@@ -109,7 +109,7 @@ export const applyToHelp = async (
     await emailClient.sendMail({
       to: OUR_EMAIL,
       from: PLAYGROUND_EMAIL_FORMATTED,
-      subject: 'New Playground Request',
+      subject: 'New Playground Application',
       html: `A new applicant has applied to help in Playground!
       <br/><br/>
       Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
