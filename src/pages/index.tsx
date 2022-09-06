@@ -107,20 +107,23 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           </span>
         </p>
         <p className="pb-5">
-          We are a global community of passionate animal advocates offering our skills in 
-          building technology for the animal protection movement <b>through design, development, and data. </b>
-          As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations.
+          We are a global community of passionate animal advocates offering our
+          skills in building technology for the animal protection movement{' '}
+          <b>through design, development, and data. </b>
+          As capacity builders, we deliver innovative and quality services at no
+          cost to advocates and organizations.
         </p>
         <p>
-        Our team is composed of highly-skilled and professional software engineers, 
-        designers, data scientists, and content creators. By leveraging our diverse 
-        background and skill sets, we design and build <b>data-driven projects</b> that 
-        aim to be effective and experimental.
+          Our team is composed of highly-skilled and professional software
+          engineers, designers, data scientists, and content creators. By
+          leveraging our diverse background and skill sets, we design and build{' '}
+          <b>data-driven projects</b> that aim to be effective and experimental.
         </p>
         <p>
-        Our <b>capacity-building services</b> are how we contribute to the movement. 
-        Leveraging our vast network of volunteers, we collaborate with individuals 
-        and organizations to offer web development, branding, and advisory services.
+          Our <b>capacity-building services</b> are how we contribute to the
+          movement. Leveraging our vast network of volunteers, we collaborate
+          with individuals and organizations to offer web development, branding,
+          and advisory services.
         </p>
         <div className="relative mx-auto mt-10 md:w-1/3">
           <DarkButton href="/about/our-mission" className="font-mono">

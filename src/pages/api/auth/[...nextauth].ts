@@ -8,7 +8,7 @@ import emailClient, { OUR_EMAIL_FORMATTED } from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
-import type { NextAuthOptions, Theme } from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
 
 const sendVerificationRequest = async (
   params: SendVerificationRequestParams
