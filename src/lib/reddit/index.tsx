@@ -29,6 +29,9 @@ const subredditsToPost = getListFromEnv('PLAYGROUND_SUBREDDITS');
 export const postPlaygroundRequestOnReddit = async (
   request: PlaygroundRequest
 ) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return [];
+  }
   const compensation = request.isFree
     ? 'This is a volunteer role, please help the animals!'
     : 'This is a possible paid role!';
