@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useRef } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { PlaygroundRequestCategory } from '@prisma/client';
@@ -28,10 +28,9 @@ import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
 
+import type { Id } from 'react-toastify';
 import type { RefCallback } from 'react';
-import type { AppRouter } from 'server/routers/_app';
 import type { z } from 'zod';
-import type { TRPCClientError } from '@trpc/react';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   value: cat as PlaygroundRequestCategory,
@@ -65,14 +64,11 @@ const SubmitRequestForm: React.FC = () => {
     setIsSignInModalOpen(false);
   }, []);
   const [formRef, setFormRef] = useState<HTMLFormElement | null>(null);
-  const [submitButtonRef, setSubminButtonRef] = useState<HTMLElement | null>(
-    null
-  );
   const router = useRouter();
 
   const {
     control,
-    formState: { errors, isSubmitted, isSubmitting },
+    formState: { errors },
     handleSubmit,
     register,
     reset,
@@ -110,7 +106,7 @@ const SubmitRequestForm: React.FC = () => {
     [onChangeValue, register]
   );
 
-  const { data: lastSubmittedRequest, isSuccess: isLastRequestSuccess } =
+  const { data: lastSubmittedRequest } =
     trpc.playground.getLastUserRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
       refetchOnMount: false,
@@ -141,10 +137,9 @@ const SubmitRequestForm: React.FC = () => {
     }
   );
 
-  const filledDataFromStorage = useOnce(
+  useOnce(
     () => {
-      if (!lastSubmittedRequest) return;
-      Object.entries(lastSubmittedRequest).forEach(([key, value]) => {
+      Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -152,14 +147,38 @@ const SubmitRequestForm: React.FC = () => {
         }
       });
     },
-    { enabled: isLastRequestSuccess }
+    {
+      enabled:
+        !!lastSubmittedRequest &&
+        router.isReady &&
+        router.query.submit !== 'true',
+    }
   );
 
-  const { mutateAsync, isLoading, isSuccess } =
+  const toastIdRef = useRef<Id | null>(null);
+
+  const { mutate, isLoading, isSuccess } =
     trpc.playground.submitRequest.useMutation({
+      onMutate: () => {
+        toastIdRef.current = toast.loading('Submitting...');
+      },
       onSuccess: () => {
+        if (toastIdRef.current !== null)
+          toast.update(toastIdRef.current, {
+            isLoading: false,
+            type: 'success',
+            render: 'Your application has been submitted!',
+          });
         clearFormData();
         reset();
+      },
+      onError: (err) => {
+        if (toastIdRef.current !== null)
+          toast.update(toastIdRef.current, {
+            isLoading: false,
+            type: 'error',
+            render: err.message,
+          });
       },
     });
 
@@ -177,58 +196,28 @@ const SubmitRequestForm: React.FC = () => {
         });
       }
 
-      return toast.promise(mutateAsync(values), {
-        pending: 'Submitting...',
-        success: 'Your request has been submitted!',
-        error: {
-          render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
-            return data?.message;
-          },
-        },
-      });
+      mutate(values);
     },
-    [mutateAsync, reset, sessionStatus]
+    [mutate, reset, sessionStatus]
   );
 
-  useEffect(() => {
-    if (
-      !router.isReady ||
-      !formRef ||
-      !submitButtonRef ||
-      router.query.submit !== 'true' ||
-      isSubmitted ||
-      isSubmitting ||
-      !filledDataFromStorage
-    ) {
-      return;
+  useOnce(
+    () => {
+      formRef!.scrollIntoView({
+        block: 'end',
+      });
+      void handleSubmit(onSubmit)();
+    },
+    {
+      enabled:
+        router.isReady &&
+        sessionStatus === 'authenticated' &&
+        router.query.submit === 'true' &&
+        !!formRef,
     }
-
-    formRef.scrollIntoView({
-      block: 'end',
-    });
-
-    void handleSubmit(onSubmit)();
-  }, [
-    formRef,
-    submitButtonRef,
-    handleSubmit,
-    isSubmitted,
-    isSubmitting,
-    onSubmit,
-    router.isReady,
-    router.query.submit,
-    filledDataFromStorage,
-  ]);
+  );
 
   const isFree = watch('isFree');
-
-  const [isBudgetHidden, setIsBudgetHidden] = useState<boolean | undefined>(
-    undefined
-  );
-
-  useEffect(() => {
-    setIsBudgetHidden(isFree === true);
-  }, [isFree]);
 
   return (
     <div className="px-10 bg-grey-background" id="contact-us">
@@ -376,13 +365,10 @@ const SubmitRequestForm: React.FC = () => {
               />
             )}
           />
-          {errors.isFree?.message && (
-            <span className="text-red">⚠ {errors.isFree.message}</span>
-          )}
         </div>
 
         <TextInput
-          hidden={isBudgetHidden}
+          hidden={isFree === true}
           className="w-full"
           placeholder="Budget"
           type="number"
@@ -457,7 +443,6 @@ const SubmitRequestForm: React.FC = () => {
           I agree to the VH: Playground terms and conditions.
         </Checkbox>
         <DarkButton
-          ref={setSubminButtonRef}
           className="mb-10 text-center w-fit md:w-72"
           disabled={isLoading || isSuccess}
           type="submit"

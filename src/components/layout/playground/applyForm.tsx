@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames';
@@ -30,8 +30,7 @@ import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 
-import type { AppRouter } from 'server/routers/_app';
-import type { TRPCClientError } from '@trpc/react';
+import type { Id } from 'react-toastify';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -279,7 +278,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     }
   );
 
-  const storedDataFilled = useOnce(
+  useOnce(
     () => {
       if (!lastApplication) return;
       Object.entries(lastApplication).forEach(([key, value]) => {
@@ -291,17 +290,35 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       });
     },
     {
-      enabled: isLastApplicationSuccess,
+      enabled: isLastApplicationSuccess && !shouldSubmit && router.isReady,
     }
   );
 
-  const { mutateAsync, isLoading, isSuccess } =
-    trpc.playground.apply.useMutation({
-      onSuccess: () => {
-        clearFormData();
-        reset();
-      },
-    });
+  const toastIdRef = useRef<Id | null>(null);
+
+  const { mutate, isLoading, isSuccess } = trpc.playground.apply.useMutation({
+    onMutate: () => {
+      toastIdRef.current = toast.loading('Submitting...');
+    },
+    onSuccess: () => {
+      if (toastIdRef.current !== null)
+        toast.update(toastIdRef.current, {
+          isLoading: false,
+          type: 'success',
+          render: 'Your application has been submitted!',
+        });
+      clearFormData();
+      reset();
+    },
+    onError: (err) => {
+      if (toastIdRef.current !== null)
+        toast.update(toastIdRef.current, {
+          isLoading: false,
+          type: 'error',
+          render: err.message,
+        });
+    },
+  });
 
   const onSubmit = useCallback(
     (values: trpc['playground']['apply']['input']) => {
@@ -311,17 +328,9 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         return;
       }
 
-      void toast.promise(mutateAsync(values), {
-        pending: 'Submitting...',
-        success: 'Your application has been submitted!',
-        error: {
-          render: ({ data }: { data?: TRPCClientError<AppRouter> }) => {
-            return data?.message;
-          },
-        },
-      });
+      mutate(values);
     },
-    [mutateAsync, reset, sessionStatus]
+    [mutate, reset, sessionStatus]
   );
 
   useOnce(
@@ -329,7 +338,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       formRef!.scrollIntoView({ block: 'end' });
       void handleSubmit(onSubmit)();
     },
-    { enabled: router.isReady && !!formRef && storedDataFilled && shouldSubmit }
+    { enabled: router.isReady && !!formRef && shouldSubmit }
   );
 
   return (
