@@ -31,17 +31,18 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
   children,
 }) => {
   const childrenWithProps = React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return;
-    const props = child.props as HTMLAttributes<unknown>;
+    if (!React.isValidElement<HTMLAttributes<HTMLElement>>(child)) return child;
+
+    const { className, style } = child.props;
     return React.cloneElement(child, {
       className: classNames(
-        props.className,
+        className,
         'transition-background-position duration-[400ms] ease-linear',
         {
           'hover:!bg-left group-hover:!bg-left': !disabled,
         }
       ),
-      style: { ...props.style, ...(disabled ? {} : fillStyle(base, fill)) },
+      style: { ...style, ...(disabled ? {} : fillStyle(base, fill)) },
     });
   });
 
