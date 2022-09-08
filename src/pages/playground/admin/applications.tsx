@@ -56,7 +56,17 @@ const AdminPage: NextPage = ({}) => {
           <div key={request.id}>
             <div className="max-w-xl h-ful">
               <PlaygroundRequestCard request={request}>
-                <div className="pt-5 mt-10 text-xl font-bold border-b">
+                <b>
+                  {request._count.applications > 0 ? (
+                    <>
+                      There are {request._count.applications} accepted
+                      applications for this request
+                    </>
+                  ) : (
+                    <>There are no accepted applications in this request</>
+                  )}
+                </b>
+                <div className="pt-5 text-xl font-bold border-b">
                   Applications
                 </div>
                 <div className="flex flex-col gap-5 divide-y">

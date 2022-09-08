@@ -21,8 +21,8 @@ const AdminPage: NextPage = () => {
   const utils = trpc.useContext();
 
   const invalidateQuery = useCallback(
-    () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
-    [utils.playground.admin.requestsWithPendingApplications]
+    () => utils.playground.admin.pendingRequests.invalidate(),
+    [utils.playground.admin.pendingRequests]
   );
 
   const { data, isSuccess, isLoading } =
@@ -72,6 +72,18 @@ const AdminPage: NextPage = () => {
             <div key={request.id}>
               <PlaygroundRequestCard request={request}>
                 <b>This request is {request.status}!</b>
+                {request.status === Status.Accepted && (
+                  <b>
+                    {request._count.applications > 0 ? (
+                      <>
+                        There are {request._count.applications} accepted
+                        applications for this request
+                      </>
+                    ) : (
+                      <>There are no accepted applications in this request</>
+                    )}
+                  </b>
+                )}
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   <LightButton
                     className="w-full"

@@ -6,10 +6,7 @@ export const paginationSchema = z
     page: z.number().int().positive(),
     limit: z.number().int().positive(),
   })
-  .refine(
-    (data) => (!!data.page && !!data.limit) || (!data.page && !data.limit),
-    "Both or neither of 'page' and 'limit' must be specified"
-  );
+  .optional();
 
 export const getRequestByIdSchema = z.string().cuid();
 
@@ -152,9 +149,9 @@ export const submitRequestSchemaClient = unsafeSubmitRequestSchema
     return data;
   });
 
-export const getPendingApplicationsSchema = paginationSchema.optional();
+export const getPendingApplicationsSchema = paginationSchema;
 
-export const getPendingRequestsSchema = paginationSchema.optional();
+export const getPendingRequestsSchema = paginationSchema;
 
 export const setApplicationStatusSchema = z.object({
   id: z.string().cuid(),

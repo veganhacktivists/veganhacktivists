@@ -10,7 +10,8 @@ import {
 } from 'lib/services/playground/admin';
 import {
   deleteRequestSchema,
-  paginationSchema,
+  getPendingApplicationsSchema,
+  getPendingRequestsSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from 'lib/services/playground/schemas';
@@ -19,7 +20,7 @@ import { t } from 'server/trpc';
 
 const adminRouter = t.router({
   pendingApplications: adminProcedure
-    .input(paginationSchema.optional())
+    .input(getPendingApplicationsSchema)
     .query(({ input }) => {
       return getPendingApplications(input);
     }),
@@ -38,7 +39,7 @@ const adminRouter = t.router({
     ),
 
   pendingRequests: adminProcedure
-    .input(paginationSchema.optional())
+    .input(getPendingRequestsSchema)
     .query(({ input }) => {
       return getPendingRequests(input);
     }),
@@ -84,6 +85,15 @@ const adminRouter = t.router({
             select: {
               id: true,
               name: true,
+            },
+          },
+          _count: {
+            select: {
+              applications: {
+                where: {
+                  status: Status.Accepted,
+                },
+              },
             },
           },
         },

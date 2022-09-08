@@ -45,15 +45,32 @@ export const getPendingApplications = async (
 export const getPendingRequests = async (
   params: z.infer<typeof getPendingRequestsSchema>
 ) => {
+  const { page, limit, ...where } = params || {};
   const common = {
-    where: {
-      ...params,
-    },
+    where,
+    ...(limit === undefined || page === undefined
+      ? {}
+      : {
+          take: limit,
+          skip:
+            limit === undefined || page === undefined
+              ? undefined
+              : (page - 1) * limit,
+        }),
     include: {
       requester: {
         select: {
           id: true,
           name: true,
+        },
+      },
+      _count: {
+        select: {
+          applications: {
+            where: {
+              status: Status.Accepted,
+            },
+          },
         },
       },
     },
