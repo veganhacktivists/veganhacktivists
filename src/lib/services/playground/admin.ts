@@ -42,13 +42,12 @@ export const getPendingApplications = async (
   return applications;
 };
 
-export const getPendingRequests = (
+export const getPendingRequests = async (
   params: z.infer<typeof getPendingRequestsSchema>
 ) => {
-  return prisma.playgroundRequest.findMany({
+  const common = {
     where: {
       ...params,
-      status: { in: [Status.Pending, Status.Accepted] },
     },
     include: {
       requester: {
@@ -61,7 +60,19 @@ export const getPendingRequests = (
     orderBy: {
       createdAt: 'asc',
     },
-  });
+  } as const;
+
+  const [pending, accepted] = await Promise.all([
+    prisma.playgroundRequest.findMany({
+      ...common,
+      where: { ...common.where, status: Status.Pending },
+    }),
+    prisma.playgroundRequest.findMany({
+      ...common,
+      where: { ...common.where, status: Status.Accepted },
+    }),
+  ]);
+  return [...pending, ...accepted];
 };
 
 export const setApplicationStatus = ({
