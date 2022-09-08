@@ -1,8 +1,10 @@
 import { TRPCError } from '@trpc/server';
 
+import { baseProcedure } from '.';
+
 import { t } from 'server/trpc';
 
-export const protectedProcedure = t.procedure.use(
+export const protectedProcedure = baseProcedure.use(
   t.middleware(async ({ ctx, next }) => {
     if (!ctx.user) {
       throw new TRPCError({ code: 'UNAUTHORIZED' });

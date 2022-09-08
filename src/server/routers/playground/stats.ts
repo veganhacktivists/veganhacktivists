@@ -2,6 +2,7 @@ import { Status } from '@prisma/client';
 
 import { t } from 'server/trpc';
 import { getDiscordServer } from 'lib/discord';
+import { baseProcedure } from 'server/procedures';
 
 import type { TimePerWeek } from '@prisma/client';
 
@@ -13,7 +14,7 @@ const averageWeeklyHoursPerValue: Record<TimePerWeek, number> = {
 };
 
 const statsRouter = t.router({
-  getPlaygroundStats: t.procedure.query(async ({ ctx: { prisma } }) => {
+  getPlaygroundStats: baseProcedure.query(async ({ ctx: { prisma } }) => {
     const [requestsOpen, requestsSupported, numberOfVolunteers] =
       await Promise.all([
         prisma.playgroundRequest.count(),

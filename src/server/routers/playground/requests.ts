@@ -10,16 +10,17 @@ import {
   getRequestByIdSchema,
   submitRequestSchema,
 } from 'lib/services/playground/schemas';
+import { baseProcedure } from 'server/procedures';
 import { protectedProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 
 const requestsRouter = t.router({
-  getAllRequests: t.procedure
+  getAllRequests: baseProcedure
     .input(getPlaygroundRequestsSchema)
     .query(async ({ input }) => {
       return await getPlaygroundRequests(input);
     }),
-  getRequest: t.procedure
+  getRequest: baseProcedure
     .input(getRequestByIdSchema)
     .query(({ input, ctx: { user } }) => {
       try {
