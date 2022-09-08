@@ -38,6 +38,7 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
       headers: () => {
         if (ctx?.req) {
           return {
+            ...ctx.req.headers,
             'x-ssr': '1',
           };
         }
