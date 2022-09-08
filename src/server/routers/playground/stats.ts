@@ -29,7 +29,7 @@ const statsRouter = t.router({
 
     const acceptedApplications = await prisma.playgroundApplication.findMany({
       where: {
-        status: Status.Completed,
+        status: { in: [Status.Accepted, Status.Completed] },
       },
       select: {
         availableTimePerWeek: true,
