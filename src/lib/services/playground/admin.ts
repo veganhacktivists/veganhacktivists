@@ -45,17 +45,17 @@ export const getPendingApplications = async (
 export const getPendingRequests = async (
   params: z.infer<typeof getPendingRequestsSchema>
 ) => {
-  const { page, limit, ...where } = params || {};
+  const { page, pageSize, ...where } = params || {};
   const common = {
     where,
-    ...(limit === undefined || page === undefined
+    ...(page === undefined
       ? {}
       : {
-          take: limit,
+          take: pageSize,
           skip:
-            limit === undefined || page === undefined
+            pageSize === undefined || page === undefined
               ? undefined
-              : (page - 1) * limit,
+              : (page - 1) * pageSize,
         }),
     include: {
       requester: {
