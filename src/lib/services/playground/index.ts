@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { Prisma, Status } from '@prisma/client';
+import { Status } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
@@ -88,24 +88,24 @@ export const getRequestById = async (
 export const applyToHelp = async (
   params: z.infer<typeof applyToRequestSchema> & { applicantId: string }
 ) => {
-  try {
-    const [newRequest] = await prisma.$transaction([
-      prisma.playgroundApplication.create({
-        data: {
-          ...params,
-          applicantId: params.applicantId,
-        },
-      }),
-      prisma.user.update({
-        where: {
-          id: params.applicantId,
-        },
-        data: {
-          name: params.name,
-        },
-      }),
-    ]);
+  const [newRequest] = await prisma.$transaction([
+    prisma.playgroundApplication.create({
+      data: {
+        ...params,
+        applicantId: params.applicantId,
+      },
+    }),
+    prisma.user.update({
+      where: {
+        id: params.applicantId,
+      },
+      data: {
+        name: params.name,
+      },
+    }),
+  ]);
 
+  if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
       to: OUR_EMAIL,
       from: PLAYGROUND_EMAIL_FORMATTED,
@@ -114,22 +114,9 @@ export const applyToHelp = async (
       <br/><br/>
       Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
     });
-
-    return newRequest;
-  } catch (e) {
-    if (
-      e instanceof Prisma.PrismaClientKnownRequestError &&
-      e.code === 'P2002'
-    ) {
-      // Thanks, I hate this https://www.prisma.io/docs/reference/api-reference/error-reference#p2002
-      throw new TRPCError({
-        code: 'CONFLICT',
-        message: 'You have already applied to this request',
-        cause: e,
-      });
-    }
-    throw e;
   }
+
+  return newRequest;
 };
 
 export const submitRequest = async (
@@ -152,14 +139,16 @@ export const submitRequest = async (
     }),
   ]);
 
-  await emailClient.sendMail({
-    to: OUR_EMAIL,
-    from: PLAYGROUND_EMAIL_FORMATTED,
-    subject: 'New Playground Request',
-    html: `A new Request has been submitted to Playground for review!
+  if (process.env.NODE_ENV === 'production') {
+    await emailClient.sendMail({
+      to: OUR_EMAIL,
+      from: PLAYGROUND_EMAIL_FORMATTED,
+      subject: 'New Playground Request',
+      html: `A new Request has been submitted to Playground for review!
     <br/><br/>
     Please <a href="https://veganhacktivists.org/playground/admin">click here</a> to review the request submitted to Playground.`,
-  });
+    });
+  }
 
   return newRequest;
 };
