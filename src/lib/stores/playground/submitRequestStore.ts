@@ -1,43 +1,51 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import type { DeepPartial } from 'react-hook-form';
+import type { Dispatch } from 'react';
+import type { SetStateAction } from 'react';
 import type { z } from 'zod';
 import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 
-type FormProps = Partial<z.infer<typeof submitRequestSchemaClient>>;
+type FormProps = DeepPartial<z.input<typeof submitRequestSchemaClient>>;
 
 interface PlaygroundSubmitRequestProps {
   form: FormProps;
 }
 
 interface PlaygroundSubmitRequestMethods {
-  getForm: () => FormProps;
-  setForm: () => (form: Partial<FormProps>) => void;
-  resetForm: () => () => void;
+  setForm: Dispatch<SetStateAction<FormProps>>;
+  resetForm: () => void;
 }
 
 const usePlaygroundSubmitRequestStore = create<
   PlaygroundSubmitRequestProps & PlaygroundSubmitRequestMethods
 >()(
   persist(
-    (set, get) => ({
+    (set) => ({
       form: {},
 
-      getForm: () => {
-        return get().form;
-      },
-
-      setForm: () => (form) => {
+      setForm: (prevState) => {
+        if (prevState instanceof Function) {
+          set((state) => ({
+            ...state,
+            form: {
+              ...state?.form,
+              ...prevState(state?.form),
+            },
+          }));
+          return;
+        }
         set((state) => ({
           ...state,
-          form: { ...state.form, ...form },
+          form: { ...state.form, ...prevState },
         }));
       },
-      resetForm: () => () => {
-        set((state) => {
-          state.form = {};
-          return state;
-        });
+      resetForm: () => {
+        set((state) => ({
+          ...state,
+          form: {},
+        }));
       },
     }),
     {

@@ -141,7 +141,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             {request.estimatedTimeDays} DAYS
           </Field>
           <Field title="Compensation">
-            {request.isFree ? 'Volunteer' : 'Paid'} role
+            {request.budget ? 'Paid' : 'Volunteer'} role
           </Field>
         </SubtleBorder>
       </div>

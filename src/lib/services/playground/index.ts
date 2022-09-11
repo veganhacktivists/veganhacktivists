@@ -30,6 +30,7 @@ export const getPlaygroundRequests = async ({
           name: true,
         },
       },
+      budget: true,
     },
     where: {
       ...params,
@@ -64,6 +65,7 @@ export const getRequestById = async (
     },
     include: {
       requester: true,
+      budget: true,
       _count: {
         select: {
           applications: {
