@@ -426,7 +426,7 @@ export const setRequestStatus = async ({
 
         return updatedRequest;
       },
-      { timeout: 10000 }
+      { timeout: 30000 }
     );
     if (shouldPost) {
       await sendAcceptedEmail(updatedRequest);
