@@ -240,18 +240,18 @@ const SubmitRequestForm: React.FC = () => {
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left md:grid-cols-6 md:max-w-3xl"
+        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
       >
         <div className="text-xl col-span-full">Personal Information</div>
         <TextInput
-          className="col-span-3"
+          className="lg:col-span-3 col-span-full"
           placeholder="Name"
           showRequiredMark
           {...myRegister('name', { required: 'Please enter a name' })}
           error={errors.name?.message}
         />
         <TextInput
-          className="col-span-3"
+          className="lg:col-span-3 col-span-full"
           placeholder="Email"
           showRequiredMark
           {...myRegister('providedEmail', {
@@ -262,14 +262,14 @@ const SubmitRequestForm: React.FC = () => {
           Email
         </TextInput>
         <TextInput
-          className="col-span-3"
+          className="lg:col-span-3 col-span-full"
           placeholder="Phone"
           type="tel"
           {...myRegister('phone', { required: false })}
           error={errors.phone?.message}
         />
         <TextInput
-          className="col-span-3"
+          className="lg:col-span-3 col-span-full"
           placeholder="Organization"
           {...myRegister('organization', { required: false })}
           error={errors.organization?.message}
@@ -280,7 +280,7 @@ const SubmitRequestForm: React.FC = () => {
           {...myRegister('website', {
             required: 'Please enter a valid website',
           })}
-          className="col-span-full"
+          className="w-full col-span-full"
           error={errors.website?.message}
         />
         <TextInput
@@ -356,7 +356,7 @@ const SubmitRequestForm: React.FC = () => {
             <p className="font-thin">(separate by comma)</p>
           </div>
         </TextInput>
-        <div className="col-span-2">
+        <div className="lg:col-span-2 col-span-full">
           <Label name="isFree" showRequiredMark>
             Volunteer or Paid?
           </Label>
@@ -377,7 +377,7 @@ const SubmitRequestForm: React.FC = () => {
             render={({ field: { value, onChange } }) => {
               return (
                 <>
-                  <div className="col-span-2">
+                  <div className="lg:col-span-2 col-span-full">
                     <Label name="Hourly or full project?" showRequiredMark />
                     <SelectInput
                       current={
@@ -400,7 +400,7 @@ const SubmitRequestForm: React.FC = () => {
                     />
                   </div>
                   {!!value?.type && (
-                    <div key="budget.quantity" className="col-span-2">
+                    <div key="budget.quantity" className="lg:col-span-2">
                       <TextInput
                         className="col-span-2"
                         placeholder="Budget"
@@ -446,7 +446,7 @@ const SubmitRequestForm: React.FC = () => {
           Describe your issue
         </TextArea>
         <TextInput
-          className="w-full mt-6 sm:mt-0"
+          className="lg:col-span-3 col-span-full"
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
@@ -459,7 +459,7 @@ const SubmitRequestForm: React.FC = () => {
           Due date for task
         </TextInput>
         <TextInput
-          className="w-full"
+          className="lg:col-span-3 col-span-full"
           type="number"
           min={0}
           placeholder="Days"
