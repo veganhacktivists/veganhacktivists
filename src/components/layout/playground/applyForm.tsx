@@ -93,7 +93,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'bg-grey text-grey-light': request.status === 'Pending',
             })}
           >
-            {request.status === 'Pending' ? 'Pending' : 'Denied'} request!
+            {request.status} request!
           </div>
         )}
       </div>
