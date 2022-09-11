@@ -59,7 +59,7 @@ const PlaygroundRequestCard: React.FC<
     createdAt,
     category,
     organization,
-    isFree,
+    budget,
     dueDate,
   },
   children,
@@ -142,10 +142,10 @@ const PlaygroundRequestCard: React.FC<
           </Li>
           <Li
             name="Compensation"
-            title={`${isFree ? 'Volunteer' : 'Paid'} role`}
+            title={`${!!budget ? 'Volunteer' : 'Paid'} role`}
             category={category}
           >
-            {isFree ? 'Volunteer' : 'Paid'} role
+            {budget ? 'Paid' : 'Volunteer'} role
           </Li>
         </ul>
         <DarkButton
