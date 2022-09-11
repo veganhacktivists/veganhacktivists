@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id @default(cuid()) @db.VarChar(30)
   userId            String
   type              String
   provider          String
@@ -31,7 +31,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(cuid()) @db.VarChar(30)
   sessionToken String   @unique
   userId       String
   expires      DateTime
@@ -44,7 +44,7 @@ enum UserRole {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(cuid()) @db.VarChar(30)
   role          UserRole  @default(User)
   name          String?
   email         String    @unique
@@ -89,7 +89,7 @@ enum BudgetType {
 }
 
 model Budget {
-  id        String     @id @default(cuid())
+  id        String     @id @default(cuid()) @db.VarChar(30)
   quantity  Decimal    @db.Money
   type      BudgetType
   requestId String     @unique
@@ -98,7 +98,7 @@ model Budget {
 }
 
 model PlaygroundApplication {
-  id                   String      @id @default(cuid())
+  id                   String      @id @default(cuid()) @db.VarChar(30)
   providedEmail        String
   applicantId          String
   name                 String
@@ -148,7 +148,7 @@ model DiscordMessage {
 }
 
 model PlaygroundRequest {
-  id                String                    @id @default(cuid())
+  id                String                    @id @default(cuid()) @db.VarChar(30)
   phone             String?
   name              String
   providedEmail     String
