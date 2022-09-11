@@ -83,6 +83,20 @@ enum TimePerWeek {
   TenPlus
 }
 
+enum BudgetType {
+  Fixed
+  Hourly
+}
+
+model Budget {
+  id        String     @id @default(cuid())
+  quantity  Decimal    @db.Money
+  type      BudgetType
+  requestId String     @unique
+
+  request PlaygroundRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+}
+
 model PlaygroundApplication {
   id                   String      @id @default(cuid())
   providedEmail        String
@@ -134,27 +148,26 @@ model DiscordMessage {
 }
 
 model PlaygroundRequest {
-  id                String           @id @default(cuid())
+  id                String                    @id @default(cuid())
   phone             String?
   name              String
   providedEmail     String
   organization      String?
   website           String
   calendlyUrl       String
-  title             String           @db.VarChar(200)
-  requiredSkills    String[]         @default([])
-  isFree            Boolean
-  budget            Decimal?         @db.Money
-  description       String           @db.Text
-  dueDate           DateTime         @db.Date
+  title             String                    @db.VarChar(200)
+  requiredSkills    String[]                  @default([])
+  description       String                    @db.Text
+  dueDate           DateTime                  @db.Date
   estimatedTimeDays Int
-  requester         User             @relation(fields: [requesterId], references: [id])
   requesterId       String
-  status            Status           @default(Pending)
-  discordMessages   DiscordMessage[]
+  status            Status                    @default(Pending)
+  category          PlaygroundRequestCategory
 
-  applications PlaygroundApplication[]
-  category     PlaygroundRequestCategory
+  discordMessages DiscordMessage[]
+  requester       User                    @relation(fields: [requesterId], references: [id])
+  applications    PlaygroundApplication[]
+  budget          Budget?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import {
+  BudgetType,
   PlaygroundRequestCategory,
   PrismaClient,
   Status,
@@ -32,18 +33,26 @@ const seedUsers = async (n: number = NUMBER) => {
 
 const seedRequests = async (n: number = NUMBER) => {
   const users = await prisma.user.findMany();
-  const requests: Prisma.PlaygroundRequestCreateManyInput[] = Array(n)
+  const requests: Prisma.PlaygroundRequestCreateArgs['data'][] = Array(n)
     .fill(null)
     .map(() => {
       const createdAt = faker.date.recent(14);
+      const isFree = faker.datatype.boolean();
       return {
-        budget: faker.datatype.boolean()
-          ? faker.datatype.float({
-              min: 10,
-              max: 10000,
-              precision: faker.helpers.arrayElement([0.01, 0.1]),
-            })
-          : faker.datatype.number({ min: 10, max: 10000 }),
+        budget: isFree
+          ? undefined
+          : {
+              create: {
+                quantity: faker.datatype.boolean()
+                  ? faker.datatype.float({
+                      min: 10,
+                      max: 10000,
+                      precision: faker.helpers.arrayElement([0.01, 0.1]),
+                    })
+                  : faker.datatype.number({ min: 10, max: 10000 }),
+                type: faker.helpers.objectValue(BudgetType),
+              },
+            },
         name: faker.name.fullName(),
         calendlyUrl: faker.internet.url(),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
@@ -61,7 +70,6 @@ const seedRequests = async (n: number = NUMBER) => {
               ? faker.date.past(undefined, createdAt)
               : faker.date.recent(30, createdAt)
             : new Date(),
-        isFree: faker.datatype.boolean(),
         requiredSkills: faker.helpers.uniqueArray(
           () => faker.hacker.ingverb(),
           faker.datatype.number({ min: 0, max: 10 })
@@ -70,16 +78,20 @@ const seedRequests = async (n: number = NUMBER) => {
         title: faker.hacker.phrase(),
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
-        organization: faker.company.companyName(),
+        organization: faker.company.name(),
         createdAt,
         status: faker.helpers.objectValue(Status),
         providedEmail: faker.internet.email(),
       };
     });
-  const { count } = await prisma.playgroundRequest.createMany({
-    data: requests,
-  });
-  console.log('Seeded', count, 'requests');
+
+  for await (const request of requests) {
+    await prisma.playgroundRequest.create({
+      data: request,
+    });
+  }
+
+  console.log('Seeded', n, 'requests');
 };
 
 const seedApplications = async (n: number = NUMBER) => {
