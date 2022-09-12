@@ -36,8 +36,8 @@ const FilterBy: React.FC<{
   const numberOfAppliedFilters = useMemo(
     () =>
       (filters.categories?.length || 0) +
-      (filters.isFree !== undefined ? 1 : 0),
-    [filters.categories?.length, filters.isFree]
+      (filters.isPaidRequest !== undefined ? 1 : 0),
+    [filters.categories?.length, filters.isPaidRequest]
   );
   return (
     <div
@@ -112,14 +112,15 @@ const FilterBy: React.FC<{
               <div
                 className={classNames(
                   'px-2 py-1 border cursor-pointer bg-yellow border-yellow',
-                  localFilters.isFree === true
+                  localFilters.isPaidRequest === false
                     ? 'bg-opacity-80'
                     : 'bg-opacity-10'
                 )}
                 onClick={() => {
                   setLocalFilters((filters) => ({
                     ...filters,
-                    isFree: filters.isFree !== true ? true : undefined,
+                    isPaidRequest:
+                      filters.isPaidRequest !== false ? false : undefined,
                   }));
                 }}
               >
@@ -128,16 +129,19 @@ const FilterBy: React.FC<{
               <div
                 className={classNames(
                   `px-2 py-1 border cursor-pointer bg-magenta-dark border-magenta-dark ${
-                    localFilters.isFree === false ? 'text-white' : 'text-black'
+                    localFilters.isPaidRequest === true
+                      ? 'text-white'
+                      : 'text-black'
                   }`,
-                  localFilters.isFree === false
+                  localFilters.isPaidRequest === true
                     ? 'bg-opacity-80'
                     : 'bg-opacity-10'
                 )}
                 onClick={() => {
                   setLocalFilters((filters) => ({
                     ...filters,
-                    isFree: filters.isFree !== false ? false : undefined,
+                    isPaidRequest:
+                      filters.isPaidRequest !== true ? true : undefined,
                   }));
                 }}
               >

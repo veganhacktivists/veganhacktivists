@@ -23,7 +23,7 @@ const filterSchema = z.object({
       return input;
     })
     .optional(),
-  isFree: z.boolean(),
+  isPaidRequest: z.boolean(),
 });
 
 export const sortSchema = z.object({

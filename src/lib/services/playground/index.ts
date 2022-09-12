@@ -15,6 +15,7 @@ import type { z } from 'zod';
 export const getPlaygroundRequests = async ({
   sort,
   categories,
+  isPaidRequest,
   ...params
 }: z.infer<typeof getPlaygroundRequestsSchema>) => {
   const orderBy = sort
@@ -34,6 +35,11 @@ export const getPlaygroundRequests = async ({
     },
     where: {
       ...params,
+      ...(isPaidRequest === undefined
+        ? {}
+        : isPaidRequest
+        ? { budget: { isNot: null } }
+        : { budget: { is: null } }),
       category: {
         in: categories,
       },
