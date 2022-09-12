@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames';
@@ -30,7 +30,6 @@ import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 
-import type { Id } from 'react-toastify';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -294,41 +293,34 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     }
   );
 
-  const toastIdRef = useRef<Id | null>(null);
+  const { mutateAsync, isLoading, isSuccess } =
+    trpc.playground.apply.useMutation({
+      onSuccess: () => {
+        clearFormData();
+        reset();
+      },
+    });
 
-  const { mutate, isLoading, isSuccess } = trpc.playground.apply.useMutation({
-    onMutate: () => {
-      toastIdRef.current = toast.loading('Submitting...');
+  const mutate = useCallback<typeof mutateAsync>(
+    (params) => {
+      return toast.promise(mutateAsync(params), {
+        pending: 'Submitting...',
+        success: 'Your application has been submitted!',
+        error: 'Error submitting the application. Please try again later.',
+      });
     },
-    onSuccess: () => {
-      if (toastIdRef.current !== null)
-        toast.update(toastIdRef.current, {
-          isLoading: false,
-          type: 'success',
-          render: 'Your application has been submitted!',
-        });
-      clearFormData();
-      reset();
-    },
-    onError: (err) => {
-      if (toastIdRef.current !== null)
-        toast.update(toastIdRef.current, {
-          isLoading: false,
-          type: 'error',
-          render: err.message,
-        });
-    },
-  });
+    [mutateAsync]
+  );
 
   const onSubmit = useCallback(
-    (values: trpc['playground']['apply']['input']) => {
+    async (values: trpc['playground']['apply']['input']) => {
       if (sessionStatus !== 'authenticated') {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });
         return;
       }
 
-      mutate(values);
+      await mutate(values);
     },
     [mutate, reset, sessionStatus]
   );

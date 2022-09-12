@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
@@ -30,7 +30,6 @@ import { trpc } from 'lib/client/trpc';
 
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError } from 'react-hook-form';
-import type { Id } from 'react-toastify';
 import type { RefCallback } from 'react';
 import type { z } from 'zod';
 
@@ -166,35 +165,28 @@ const SubmitRequestForm: React.FC = () => {
     }
   );
 
-  const toastIdRef = useRef<Id | null>(null);
-
-  const { mutate, isLoading, isSuccess } =
+  const { mutateAsync, isLoading, isSuccess } =
     trpc.playground.submitRequest.useMutation({
-      onMutate: () => {
-        toastIdRef.current = toast.loading('Submitting...');
-      },
       onSuccess: () => {
-        if (toastIdRef.current !== null)
-          toast.update(toastIdRef.current, {
-            isLoading: false,
-            type: 'success',
-            render: 'Your application has been submitted!',
-          });
         clearFormData();
         reset();
       },
-      onError: (err) => {
-        if (toastIdRef.current !== null)
-          toast.update(toastIdRef.current, {
-            isLoading: false,
-            type: 'error',
-            render: err.message,
-          });
-      },
     });
 
+  const mutate = useCallback<typeof mutateAsync>(
+    (params) => {
+      return toast.promise(mutateAsync(params), {
+        pending: 'Submitting...',
+        success: 'Your application has been submitted!',
+        error:
+          "There's been an error submitting your application. Please try again later.",
+      });
+    },
+    [mutateAsync]
+  );
+
   const onSubmit = useCallback(
-    (values: FormOutput) => {
+    async (values: FormOutput) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {
@@ -207,7 +199,7 @@ const SubmitRequestForm: React.FC = () => {
         });
       }
 
-      mutate(values);
+      await mutate(values);
     },
     [mutate, reset, sessionStatus]
   );
