@@ -417,7 +417,7 @@ const SubmitRequestForm: React.FC = () => {
                         }}
                         error={errors.budget?.message}
                       >
-                        Budget?
+                        Enter budget in USD$
                       </TextInput>
                     </div>
                   )}
