@@ -50,6 +50,7 @@ specifiers:
   contentful-management: ^10.12.1
   contentful-typescript-codegen: ^3.2.3
   crypto-js: ^4.1.1
+  decimal.js: ^10.4.0
   discord.js: ^14.3.0
   eslint: 8.23.0
   eslint-config-next: 12.2.5
@@ -125,6 +126,7 @@ dependencies:
   classnames: 2.3.1
   contentful: 9.1.34
   crypto-js: 4.1.1
+  decimal.js: 10.4.0
   discord.js: 14.3.0
   form-data: 4.0.0
   fuse.js: 6.6.2
@@ -5533,7 +5535,6 @@ packages:
       {
         integrity: sha512-Nv6ENEzyPQ6AItkGwLE2PGKinZZ9g59vSh2BeH6NqPu0OTKZ5ruJsVqh/orbAnqXc9pBbgXAIrc2EyaCj8NpGg==,
       }
-    dev: true
 
   /decompress-response/6.0.0:
     resolution:

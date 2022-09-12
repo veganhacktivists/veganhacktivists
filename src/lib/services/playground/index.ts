@@ -31,7 +31,12 @@ export const getPlaygroundRequests = async ({
           name: true,
         },
       },
-      budget: true,
+      budget: {
+        select: {
+          quantity: true,
+          type: true,
+        },
+      },
     },
     where: {
       ...params,
@@ -127,14 +132,18 @@ export const applyToHelp = async (
   return newRequest;
 };
 
-export const submitRequest = async (
-  params: z.infer<typeof submitRequestSchema> & { requesterId: string }
-) => {
+export const submitRequest = async ({
+  budget,
+  ...params
+}: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {
         ...params,
         requesterId: params.requesterId,
+        budget: {
+          create: budget,
+        },
       },
     }),
     prisma.user.update({

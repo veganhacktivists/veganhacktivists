@@ -64,6 +64,12 @@ export const getPendingRequests = async (
           name: true,
         },
       },
+      budget: {
+        select: {
+          quantity: true,
+          type: true,
+        },
+      },
       _count: {
         select: {
           applications: {

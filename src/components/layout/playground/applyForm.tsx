@@ -29,6 +29,7 @@ import TextArea from 'components/forms/inputs/textArea';
 import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
+import { formatCurrency } from 'lib/helpers/format';
 
 import type { z } from 'zod';
 
@@ -81,6 +82,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     }
     setDescription(newDescription);
   }, [isExpanded, request.description]);
+
+  const formattedBudget = useMemo(() => {
+    if (!request?.budget) return null;
+    return formatCurrency(request?.budget?.quantity.toNumber());
+  }, [request?.budget]);
 
   return (
     <div className="px-10 mb-5 md:px-40">
@@ -140,7 +146,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             {request.estimatedTimeDays} DAYS
           </Field>
           <Field title="Compensation">
-            {request.budget ? 'Paid' : 'Volunteer'} role
+            {request.budget ? (
+              <div>
+                {formattedBudget} {request.budget.type.toLowerCase()}
+              </div>
+            ) : (
+              'Volunteer role'
+            )}
           </Field>
         </SubtleBorder>
       </div>
