@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames';
@@ -29,8 +29,8 @@ import TextArea from 'components/forms/inputs/textArea';
 import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
+import { formatCurrency } from 'lib/helpers/format';
 
-import type { Id } from 'react-toastify';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -82,6 +82,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     }
     setDescription(newDescription);
   }, [isExpanded, request.description]);
+
+  const formattedBudget = useMemo(() => {
+    if (!request?.budget) return null;
+    return formatCurrency(request?.budget?.quantity.toNumber());
+  }, [request?.budget]);
 
   return (
     <div className="px-10 mb-5 md:px-40">
@@ -141,7 +146,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             {request.estimatedTimeDays} DAYS
           </Field>
           <Field title="Compensation">
-            {request.isFree ? 'Volunteer' : 'Paid'} role
+            {request.budget ? (
+              <div>
+                {formattedBudget} {request.budget.type.toLowerCase()}
+              </div>
+            ) : (
+              'Volunteer role'
+            )}
           </Field>
         </SubtleBorder>
       </div>
@@ -294,41 +305,34 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     }
   );
 
-  const toastIdRef = useRef<Id | null>(null);
+  const { mutateAsync, isLoading, isSuccess } =
+    trpc.playground.apply.useMutation({
+      onSuccess: () => {
+        clearFormData();
+        reset();
+      },
+    });
 
-  const { mutate, isLoading, isSuccess } = trpc.playground.apply.useMutation({
-    onMutate: () => {
-      toastIdRef.current = toast.loading('Submitting...');
+  const mutate = useCallback<typeof mutateAsync>(
+    (params) => {
+      return toast.promise(mutateAsync(params), {
+        pending: 'Submitting...',
+        success: 'Your application has been submitted!',
+        error: 'Error submitting the application. Please try again later.',
+      });
     },
-    onSuccess: () => {
-      if (toastIdRef.current !== null)
-        toast.update(toastIdRef.current, {
-          isLoading: false,
-          type: 'success',
-          render: 'Your application has been submitted!',
-        });
-      clearFormData();
-      reset();
-    },
-    onError: (err) => {
-      if (toastIdRef.current !== null)
-        toast.update(toastIdRef.current, {
-          isLoading: false,
-          type: 'error',
-          render: err.message,
-        });
-    },
-  });
+    [mutateAsync]
+  );
 
   const onSubmit = useCallback(
-    (values: trpc['playground']['apply']['input']) => {
+    async (values: trpc['playground']['apply']['input']) => {
       if (sessionStatus !== 'authenticated') {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });
         return;
       }
 
-      mutate(values);
+      await mutate(values);
     },
     [mutate, reset, sessionStatus]
   );

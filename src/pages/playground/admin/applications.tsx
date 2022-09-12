@@ -54,7 +54,7 @@ const AdminPage: NextPage = ({}) => {
         )}
         {data.map((request) => (
           <div key={request.id}>
-            <div className="max-w-xl h-ful">
+            <div className="h-full max-w-xl">
               <PlaygroundRequestCard request={request}>
                 <b>
                   {request._count.applications > 0 ? (

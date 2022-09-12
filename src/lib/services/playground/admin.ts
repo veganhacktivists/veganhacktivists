@@ -14,7 +14,7 @@ import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 import type { Submission } from 'snoowrap';
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
-import type { PlaygroundRequest } from '@prisma/client';
+import type { PlaygroundRequest, Prisma } from '@prisma/client';
 import type { z } from 'zod';
 import type {
   getPendingApplicationsSchema,
@@ -22,6 +22,10 @@ import type {
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from './schemas';
+
+export type RequestWithBudget = Prisma.PlaygroundRequestGetPayload<{
+  include: { budget: { select: { quantity: true; type: true } } };
+}>;
 
 export const getPendingApplications = async (
   params: z.infer<typeof getPendingApplicationsSchema>
@@ -62,6 +66,12 @@ export const getPendingRequests = async (
         select: {
           id: true,
           name: true,
+        },
+      },
+      budget: {
+        select: {
+          quantity: true,
+          type: true,
         },
       },
       _count: {
@@ -271,7 +281,7 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
 
 const DISCORD_CHANNEL_IDS = getListFromEnv('DISCORD_CHANNEL_IDS');
 
-const postRequestOnDiscord = async (request: PlaygroundRequest) => {
+const postRequestOnDiscord = async (request: RequestWithBudget) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
@@ -303,7 +313,7 @@ const postRequestOnDiscord = async (request: PlaygroundRequest) => {
         },
         {
           name: 'Compensation',
-          value: request.isFree
+          value: request.budget
             ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
             : 'Paid',
         },
@@ -403,6 +413,14 @@ export const setRequestStatus = async ({
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
           data: { status },
+          include: {
+            budget: {
+              select: {
+                quantity: true,
+                type: true,
+              },
+            },
+          },
         });
 
         if (shouldPost) {
@@ -413,6 +431,7 @@ export const setRequestStatus = async ({
           discordMessages = await postRequestOnDiscord(updatedRequest);
           updatedRequest = await prisma.playgroundRequest.update({
             where: { id },
+            include: { budget: true },
             data: {
               discordMessages: {
                 create: discordMessages.map((msg) => ({

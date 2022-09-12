@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
+import { Decimal } from 'decimal.js';
 
 import type { NextPageContext } from 'next';
 import type {
@@ -28,6 +29,15 @@ function getBaseUrl() {
  * Extend `NextPageContext` with meta data that can be picked up by `responseMeta()` when server-side rendering
  */
 export type SSRContext = NextPageContext;
+
+superjson.registerCustom<Decimal, string>(
+  {
+    isApplicable: (v): v is Decimal => Decimal.isDecimal(v),
+    serialize: (v) => v.toJSON(),
+    deserialize: (v) => new Decimal(v),
+  },
+  'decimal.js'
+);
 
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
   config: ({ ctx }) => {

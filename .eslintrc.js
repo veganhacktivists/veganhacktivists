@@ -111,5 +111,13 @@ module.exports = {
         '@typescript-eslint/no-unsafe-call': ['off'],
       },
     },
+    {
+      env: {
+        'jest/globals': true,
+      },
+      files: ['__test__/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/all'],
+    }
   ],
 };

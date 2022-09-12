@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import { PlaygroundRequestCategory } from '@prisma/client';
+import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -28,7 +28,8 @@ import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
 
-import type { Id } from 'react-toastify';
+import type { OptionType } from '../../forms/inputs/selectInput';
+import type { FieldError } from 'react-hook-form';
 import type { RefCallback } from 'react';
 import type { z } from 'zod';
 
@@ -39,24 +40,27 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   })`,
 }));
 
-const IS_FREE_OPTIONS = [
+const IS_FREE_OPTIONS: OptionType<boolean>[] = [
   { label: 'Volunteer', value: true },
   { label: 'Paid', value: false },
 ];
 
-type FormInput = z.infer<typeof submitRequestSchemaClient>;
+const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
+  { label: BudgetType.Fixed, value: BudgetType.Fixed },
+  { label: BudgetType.Hourly, value: BudgetType.Hourly },
+];
+
+type FormInput = z.input<typeof submitRequestSchemaClient>;
+type FormOutput = z.infer<typeof submitRequestSchemaClient>;
 
 const SubmitRequestForm: React.FC = () => {
   const { data: session, status: sessionStatus } = useSession();
 
-  const storedForm = usePlaygroundSubmitRequestStore((state) =>
-    state.getForm()
-  );
-  const setFormData = usePlaygroundSubmitRequestStore((state) =>
-    state.setForm()
-  );
-  const clearFormData = usePlaygroundSubmitRequestStore((state) =>
-    state.resetForm()
+  const { budget: storedBudget, ...storedForm } =
+    usePlaygroundSubmitRequestStore((state) => state.form);
+  const setFormData = usePlaygroundSubmitRequestStore((state) => state.setForm);
+  const clearFormData = usePlaygroundSubmitRequestStore(
+    (state) => state.resetForm
   );
 
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
@@ -75,14 +79,18 @@ const SubmitRequestForm: React.FC = () => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: {
-      ...storedForm,
-      budget:
-        storedForm.isFree || !storedForm.budget || isNaN(storedForm.budget)
-          ? 0
-          : storedForm.budget,
-    },
+    defaultValues: storedForm,
     resolver: zodResolver(submitRequestSchemaClient),
+  });
+
+  const [isFree, setIsFree] = useState(false);
+
+  const filledDataFromStorage = useOnce(() => {
+    if (!storedBudget) {
+      setIsFree(true);
+      return;
+    }
+    setValue('budget', storedBudget as FormInput['budget']);
   });
 
   const onChangeValue = useCallback(
@@ -133,7 +141,8 @@ const SubmitRequestForm: React.FC = () => {
       enabled:
         sessionStatus === 'authenticated' &&
         router.isReady &&
-        router.query.submit !== 'true',
+        router.query.submit !== 'true' &&
+        filledDataFromStorage,
     }
   );
 
@@ -151,39 +160,33 @@ const SubmitRequestForm: React.FC = () => {
       enabled:
         !!lastSubmittedRequest &&
         router.isReady &&
-        router.query.submit !== 'true',
+        router.query.submit !== 'true' &&
+        filledDataFromStorage,
     }
   );
 
-  const toastIdRef = useRef<Id | null>(null);
-
-  const { mutate, isLoading, isSuccess } =
+  const { mutateAsync, isLoading, isSuccess } =
     trpc.playground.submitRequest.useMutation({
-      onMutate: () => {
-        toastIdRef.current = toast.loading('Submitting...');
-      },
       onSuccess: () => {
-        if (toastIdRef.current !== null)
-          toast.update(toastIdRef.current, {
-            isLoading: false,
-            type: 'success',
-            render: 'Your application has been submitted!',
-          });
         clearFormData();
         reset();
       },
-      onError: (err) => {
-        if (toastIdRef.current !== null)
-          toast.update(toastIdRef.current, {
-            isLoading: false,
-            type: 'error',
-            render: err.message,
-          });
-      },
     });
 
+  const mutate = useCallback<typeof mutateAsync>(
+    (params) => {
+      return toast.promise(mutateAsync(params), {
+        pending: 'Submitting...',
+        success: 'Your application has been submitted!',
+        error:
+          "There's been an error submitting your application. Please try again later.",
+      });
+    },
+    [mutateAsync]
+  );
+
   const onSubmit = useCallback(
-    (values: trpc['playground']['submitRequest']['input']) => {
+    async (values: FormOutput) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {
@@ -196,7 +199,7 @@ const SubmitRequestForm: React.FC = () => {
         });
       }
 
-      mutate(values);
+      await mutate(values);
     },
     [mutate, reset, sessionStatus]
   );
@@ -213,11 +216,15 @@ const SubmitRequestForm: React.FC = () => {
         router.isReady &&
         sessionStatus === 'authenticated' &&
         router.query.submit === 'true' &&
-        !!formRef,
+        !!formRef &&
+        filledDataFromStorage,
     }
   );
 
-  const isFree = watch('isFree');
+  useEffect(() => {
+    if (!isFree) return;
+    setValue('budget', undefined);
+  }, [isFree, setValue]);
 
   return (
     <div className="px-10 bg-grey-background" id="contact-us">
@@ -225,18 +232,18 @@ const SubmitRequestForm: React.FC = () => {
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left md:grid-cols-2 md:max-w-3xl"
+        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
       >
         <div className="text-xl col-span-full">Personal Information</div>
         <TextInput
-          className="w-full"
+          className="lg:col-span-3 col-span-full"
           placeholder="Name"
           showRequiredMark
           {...myRegister('name', { required: 'Please enter a name' })}
           error={errors.name?.message}
         />
         <TextInput
-          className="w-full"
+          className="lg:col-span-3 col-span-full"
           placeholder="Email"
           showRequiredMark
           {...myRegister('providedEmail', {
@@ -247,14 +254,14 @@ const SubmitRequestForm: React.FC = () => {
           Email
         </TextInput>
         <TextInput
-          className="w-full "
+          className="lg:col-span-3 col-span-full"
           placeholder="Phone"
           type="tel"
           {...myRegister('phone', { required: false })}
           error={errors.phone?.message}
         />
         <TextInput
-          className="w-full "
+          className="lg:col-span-3 col-span-full"
           placeholder="Organization"
           {...myRegister('organization', { required: false })}
           error={errors.organization?.message}
@@ -265,7 +272,7 @@ const SubmitRequestForm: React.FC = () => {
           {...myRegister('website', {
             required: 'Please enter a valid website',
           })}
-          className="col-span-full"
+          className="w-full col-span-full"
           error={errors.website?.message}
         />
         <TextInput
@@ -292,7 +299,6 @@ const SubmitRequestForm: React.FC = () => {
             <sup className="ml-1">?</sup>
           </ToolTip>
         </TextInput>
-
         <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"
@@ -342,45 +348,84 @@ const SubmitRequestForm: React.FC = () => {
             <p className="font-thin">(separate by comma)</p>
           </div>
         </TextInput>
-        <div className="w-full ">
+        <div className="lg:col-span-2 col-span-full">
           <Label name="isFree" showRequiredMark>
             Volunteer or Paid?
           </Label>
-          <Controller
-            control={control}
+          <SelectInput
             name="isFree"
-            render={({ field: { value, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                error={errors.isFree?.message}
-                current={IS_FREE_OPTIONS.find((c) => c.value === value) || null}
-                onChange={(option) => {
-                  const value = (option?.value as boolean) ?? null;
-                  onChange(value);
-                  setFormData({
-                    isFree: value,
-                  });
-                }}
-                options={IS_FREE_OPTIONS}
-              />
-            )}
+            current={IS_FREE_OPTIONS.find((c) => c.value === isFree) || null}
+            onChange={(option) => {
+              const value = (option?.value as boolean) ?? null;
+              setIsFree(value);
+            }}
+            options={IS_FREE_OPTIONS}
           />
         </div>
-
-        <TextInput
-          hidden={isFree === true}
-          className="w-full"
-          placeholder="Budget"
-          type="number"
-          inputMode="numeric"
-          step={50}
-          min={0}
-          showRequiredMark
-          {...myRegister('budget', { valueAsNumber: true })}
-          error={errors.budget?.message}
-        >
-          Budget?
-        </TextInput>
+        {!isFree && (
+          <Controller
+            name="budget"
+            control={control}
+            render={({ field: { value, onChange } }) => {
+              return (
+                <>
+                  <div className="lg:col-span-2 col-span-full">
+                    <Label name="Hourly or full project?" showRequiredMark />
+                    <SelectInput
+                      current={
+                        BUDGET_TYPE_OPTIONS.find(
+                          (c) => c.value === value?.type
+                        ) || null
+                      }
+                      error={(errors.budget?.type as FieldError)?.message}
+                      options={BUDGET_TYPE_OPTIONS}
+                      onChange={(option) => {
+                        onChange(
+                          option?.value
+                            ? { ...value, type: option.value }
+                            : null
+                        );
+                        setFormData((state) => ({
+                          budget: { ...state.budget, type: option?.value },
+                        }));
+                      }}
+                    />
+                  </div>
+                  {!!value?.type && (
+                    <div key="budget.quantity" className="lg:col-span-2">
+                      <TextInput
+                        className="col-span-2"
+                        placeholder="Budget"
+                        type="number"
+                        inputMode="numeric"
+                        step={50}
+                        min={0}
+                        showRequiredMark
+                        value={value?.quantity}
+                        onChange={(e) => {
+                          const quantity = e.currentTarget.valueAsNumber;
+                          onChange({
+                            ...value,
+                            quantity,
+                          });
+                          setFormData({
+                            budget: {
+                              ...value,
+                              quantity,
+                            },
+                          });
+                        }}
+                        error={errors.budget?.message}
+                      >
+                        Budget?
+                      </TextInput>
+                    </div>
+                  )}
+                </>
+              );
+            }}
+          />
+        )}
         <TextArea
           placeholder="Please describe the task and be as detailed as possible. The more detail your request has, the easier it is for both the volunteer and for us!"
           showRequiredMark
@@ -394,7 +439,7 @@ const SubmitRequestForm: React.FC = () => {
           Describe your issue
         </TextArea>
         <TextInput
-          className="w-full mt-6 sm:mt-0"
+          className="lg:col-span-3 col-span-full"
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
@@ -407,7 +452,7 @@ const SubmitRequestForm: React.FC = () => {
           Due date for task
         </TextInput>
         <TextInput
-          className="w-full"
+          className="lg:col-span-3 col-span-full"
           type="number"
           min={0}
           placeholder="Days"

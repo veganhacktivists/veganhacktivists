@@ -15,6 +15,7 @@ import type { z } from 'zod';
 export const getPlaygroundRequests = async ({
   sort,
   categories,
+  isPaidRequest,
   ...params
 }: z.infer<typeof getPlaygroundRequestsSchema>) => {
   const orderBy = sort
@@ -30,9 +31,20 @@ export const getPlaygroundRequests = async ({
           name: true,
         },
       },
+      budget: {
+        select: {
+          quantity: true,
+          type: true,
+        },
+      },
     },
     where: {
       ...params,
+      ...(isPaidRequest === undefined
+        ? {}
+        : isPaidRequest
+        ? { budget: { isNot: null } }
+        : { budget: { is: null } }),
       category: {
         in: categories,
       },
@@ -64,6 +76,7 @@ export const getRequestById = async (
     },
     include: {
       requester: true,
+      budget: true,
       _count: {
         select: {
           applications: {
@@ -119,14 +132,18 @@ export const applyToHelp = async (
   return newRequest;
 };
 
-export const submitRequest = async (
-  params: z.infer<typeof submitRequestSchema> & { requesterId: string }
-) => {
+export const submitRequest = async ({
+  budget,
+  ...params
+}: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {
         ...params,
         requesterId: params.requesterId,
+        budget: {
+          create: budget,
+        },
       },
     }),
     prisma.user.update({
