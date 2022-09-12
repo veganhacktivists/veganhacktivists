@@ -78,7 +78,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
 const budgetSchema = z.object({
   quantity: z
     .number()
-    .nonnegative()
+    .positive()
     .refine((x) => /^\d+((\.|,)\d{1,2})?$/.test(String(x)), {
       message: 'Not a valid monetary value',
     }),

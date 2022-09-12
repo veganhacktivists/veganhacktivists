@@ -403,14 +403,15 @@ const SubmitRequestForm: React.FC = () => {
                         showRequiredMark
                         value={value?.quantity}
                         onChange={(e) => {
+                          const quantity = e.currentTarget.valueAsNumber;
                           onChange({
                             ...value,
-                            quantity: e.currentTarget.valueAsNumber,
+                            quantity,
                           });
                           setFormData({
                             budget: {
                               ...value,
-                              quantity: e.currentTarget.valueAsNumber,
+                              quantity,
                             },
                           });
                         }}
