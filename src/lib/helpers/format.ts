@@ -5,6 +5,8 @@ export const formatCurrency = (
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency,
+    compactDisplay: 'long',
+    currencyDisplay: 'symbol',
   });
   return formatter.format(value);
 };

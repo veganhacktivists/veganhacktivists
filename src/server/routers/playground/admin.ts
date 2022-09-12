@@ -87,6 +87,12 @@ const adminRouter = t.router({
               name: true,
             },
           },
+          budget: {
+            select: {
+              quantity: true,
+              type: true,
+            },
+          },
           _count: {
             select: {
               applications: {

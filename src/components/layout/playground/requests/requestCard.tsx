@@ -11,6 +11,7 @@ import {
 import { DarkButton } from 'components/decoration/buttons';
 import { readableTimeDiff } from 'lib/helpers/date';
 import SquareField from 'components/decoration/squares';
+import { formatCurrency } from 'lib/helpers/format';
 
 import type { trpc } from 'lib/client/trpc';
 import type { PlaygroundRequestCategory } from '@prisma/client';
@@ -75,6 +76,11 @@ const PlaygroundRequestCard: React.FC<
   );
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
+
+  const formattedBudget = useMemo(
+    () => (budget ? formatCurrency(budget.quantity.toNumber()) : null),
+    [budget]
+  );
 
   return (
     <div
@@ -145,7 +151,7 @@ const PlaygroundRequestCard: React.FC<
             title={`${!!budget ? 'Volunteer' : 'Paid'} role`}
             category={category}
           >
-            {budget ? 'Paid' : 'Volunteer'} role
+            {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
         </ul>
         <DarkButton

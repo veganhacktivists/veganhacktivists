@@ -2,8 +2,8 @@ import Snoowrap from 'snoowrap';
 
 import { getListFromEnv } from 'lib/helpers/env';
 
+import type { RequestWithBudget } from 'lib/services/playground/admin';
 import type { Submission } from 'snoowrap';
-import type { Budget, PlaygroundRequest } from '@prisma/client';
 
 declare module 'snoowrap' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,7 +27,7 @@ r.config({ proxies: false, continueAfterRatelimitError: true });
 const subredditsToPost = getListFromEnv('PLAYGROUND_SUBREDDITS');
 
 export const postPlaygroundRequestOnReddit = async (
-  request: PlaygroundRequest & { budget: Budget | null }
+  request: RequestWithBudget
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return [];

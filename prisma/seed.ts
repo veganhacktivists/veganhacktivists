@@ -115,7 +115,11 @@ const seedApplications = async (n: number = NUMBER) => {
             isVegan: faker.datatype.boolean(),
             name: user.name || faker.name.fullName(),
             providedEmail: user.email,
-            status: faker.helpers.objectValue(Status),
+            status: faker.helpers.arrayElement([
+              Status.Accepted,
+              Status.Rejected,
+              Status.Pending,
+            ]),
             calendlyUrl: faker.internet.url(),
             instagramUrl:
               (faker.datatype.boolean() ? '@' : '') +

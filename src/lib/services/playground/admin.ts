@@ -14,7 +14,7 @@ import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 import type { Submission } from 'snoowrap';
 import type { deleteRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
-import type { PlaygroundRequest, Budget } from '@prisma/client';
+import type { PlaygroundRequest, Prisma } from '@prisma/client';
 import type { z } from 'zod';
 import type {
   getPendingApplicationsSchema,
@@ -22,6 +22,10 @@ import type {
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from './schemas';
+
+export type RequestWithBudget = Prisma.PlaygroundRequestGetPayload<{
+  include: { budget: { select: { quantity: true; type: true } } };
+}>;
 
 export const getPendingApplications = async (
   params: z.infer<typeof getPendingApplicationsSchema>
@@ -277,9 +281,7 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
 
 const DISCORD_CHANNEL_IDS = getListFromEnv('DISCORD_CHANNEL_IDS');
 
-const postRequestOnDiscord = async (
-  request: PlaygroundRequest & { budget: Budget | null }
-) => {
+const postRequestOnDiscord = async (request: RequestWithBudget) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
@@ -411,7 +413,14 @@ export const setRequestStatus = async ({
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
           data: { status },
-          include: { budget: true },
+          include: {
+            budget: {
+              select: {
+                quantity: true,
+                type: true,
+              },
+            },
+          },
         });
 
         if (shouldPost) {
