@@ -66,7 +66,14 @@ const emailClient = new EmailClient(
     username: 'api',
     key: process.env.MAILGUN_API_KEY || '',
   }),
-  nodemailer.createTransport(process.env.EMAIL_SERVER_URL ?? '')
+  nodemailer.createTransport({
+    host: process.env.EMAIL_SERVER_HOST,
+    port: parseInt(process.env.EMAIL_SERVER_PORT ?? '25'),
+    secure: process.env.EMAIL_SERVER_TLS?.toLowerCase() === 'true',
+    tls: {
+      rejectUnauthorized: false,
+    },
+  })
 );
 
 export default emailClient;
