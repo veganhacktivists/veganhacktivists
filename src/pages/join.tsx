@@ -110,7 +110,9 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS.
+        Write quality, clean code for projects at various stages of development.
+        We use Laravel for most projects, and expect you to be familiar or
+        interested in levelling up in PHP, JS, and CSS.
       </>
     ),
   },
@@ -122,7 +124,9 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Define the user&apos;s experience and interface for our projects by producing modern, visually-appealing web designs—from wireframes and mockups to the app&apos;s final look and feel.
+        Define the user&apos;s experience and interface for our projects by
+        producing modern, visually-appealing web designs—from wireframes and
+        mockups to the app&apos;s final look and feel.
       </>
     ),
   },
@@ -149,7 +153,9 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Craft our voice and brand though social media, whether it&apos;s through developing content strategy, analyzing engagement data, or interacting with followers.
+        Craft our voice and brand though social media, whether it&apos;s through
+        developing content strategy, analyzing engagement data, or interacting
+        with followers.
       </>
     ),
   },
@@ -161,7 +167,8 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more.
+        Produce original and well-written content for a variety of medium—our
+        blog, newsletter, social media, software copy, and more.
       </>
     ),
   },
@@ -193,7 +200,9 @@ const Join: React.FC = () => (
       className="hidden md:block"
     />
     <FirstSubSection header="Join our team">
-      We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway.
+      We are growing! If you believe in our mission and want to help animals
+      through technology, join us. Even if you do not meet all qualifications,
+      we encourage you to apply anyway.
     </FirstSubSection>
     <div>
       <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl">
@@ -212,7 +221,9 @@ const Join: React.FC = () => (
         alt=""
       />
       <p>
-        Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration.
+        Our team uses Discord for internal communication, Trello for project and
+        task workflow, Figma for designing, and GitHub for code management and
+        collaboration.
       </p>
     </div>
     <JoinPlayground />
@@ -295,7 +306,9 @@ const Join: React.FC = () => (
             alt=""
           />
           <p className="mt-4 mb-4 text-2xl px-10 md:px-0">
-            Don&apos;t see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!
+            Don&apos;t see a role that matches your skills? Reach out to us
+            anyway. We&apos;d love to get to know you and appreciate your
+            interest in supporting us!
           </p>
           <div className="w-2/3 mx-auto">
             <LightButton
