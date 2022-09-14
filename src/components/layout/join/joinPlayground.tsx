@@ -17,7 +17,11 @@ const JoinPlayground: React.FC = () => {
           </h2>
           <div className="text-2xl">
             <p className="mb-4">
-              Don&apos;t have the time to regularly volunteer with us? We&apos;ve launched an open-source, public community called <b>VH: Playground</b>, which has an upward of 1,000 members on Discord! Pick up a project offered by organizations whenever you&apos;re available.
+              Don&apos;t have the time to regularly volunteer with us?
+              We&apos;ve launched an open-source, public community called{' '}
+              <b>VH: Playground</b>, which has an upward of 1,000 members on
+              Discord! Pick up a project offered by organizations whenever
+              you&apos;re available.
             </p>
           </div>
           <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
