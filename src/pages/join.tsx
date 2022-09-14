@@ -67,8 +67,9 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Recruit, onboard, and engage our growing VH community on Discord.
-        Candidate will help facilitate events, and source and support our volunteers of developers,
-        designers, data scientists, writers, and specialists.
+        Candidate will help facilitate events, and source and support our
+        volunteers of developers, designers, data scientists, writers, and
+        specialists.
       </>
     ),
   },
@@ -94,8 +95,9 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Support VH: Playground by hosting virtual events, delegating requests, and engaging the Discord community. Candidate should
-        have someone with a deep commitment to building an inclusive community.
+        Support VH: Playground by hosting virtual events, delegating requests,
+        and engaging the Discord community. Candidate should have someone with a
+        deep commitment to building an inclusive community.
       </>
     ),
   },
@@ -250,7 +252,7 @@ const Join: React.FC = () => (
     </div>
     <JoinPlayground />
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-    <div className="h-[500px] py-20 relative">
+    <div className="h-[500px] py-20 px-5 relative">
       <h2 className="text-4xl font-modo font-bold mb-10">
         High Priority Roles
       </h2>
@@ -277,11 +279,11 @@ const Join: React.FC = () => (
         ]}
         className="hidden md:block"
       />
-      <div className="flex flex-col lg:flex-row justify-center content-center flex-wrap gap-2 lg:gap-4 xl:gap-10 pb-16">
+      <div className="flex flex-col lg:flex-row justify-center content-center flex-wrap gap-2 lg:gap-6 xl:gap-10 pb-16">
         {PRIORITY_ROLES.map((role) => (
           <div
             key={role.title}
-            className="w-[400px] lg:w-[300px] lg:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] "
+            className="w-[400px] lg:w-[320px] xl:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] "
           >
             <PriorityRole key={role.title} {...role} />
           </div>
