@@ -53,9 +53,8 @@ const AdminPage: NextPage = () => {
   );
 
   const invalidateQuery = useCallback(
-    () =>
-      utils.playground.admin.getRequests.invalidate({ status: statusFilter }),
-    [statusFilter, utils.playground.admin.getRequests]
+    () => utils.playground.admin.getRequests.invalidate(),
+    [utils.playground.admin.getRequests]
   );
 
   const { data, isSuccess, isLoading } =
