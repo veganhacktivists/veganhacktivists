@@ -282,7 +282,7 @@ const Join: React.FC = () => (
         {PRIORITY_ROLES.map((role) => (
           <div
             key={role.title}
-            className="w-[400px] lg:w-[300px] lg:w-[320px] first-of-type:mt-[-260px] lg:mt-[-260px] "
+            className="w-[400px] lg:w-[300px] lg:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] "
           >
             <PriorityRole key={role.title} {...role} />
           </div>

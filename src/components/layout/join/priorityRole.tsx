@@ -39,13 +39,13 @@ const JobRole: React.FC<PriorityRoleProps> = ({
         <CustomImage alt={title} src={image} objectFit="contain" />
       </div>
       <h2 className="text-xl font-modo font-bold my-6 md:px-8">{title}</h2>
-      <p className="px-10 md:px-8 text-sm text-center min-h-[100px] lg:min-h-[140px]">
+      <p className="px-10 md:px-8 text-lg text-center min-h-[100px] lg:min-h-[140px]">
         {description}
       </p>
-      <div className="my-8 w-2/3 mx-auto">
+      <div className="my-8 w-3/4 mx-auto">
         <DarkButton
           href={href}
-          className="font-semibold text-sm font-mono px-16 py-2 my-4"
+          className="font-semibold text-lg font-mono px-16 py-4 my-4"
         >
           Apply Now
         </DarkButton>
