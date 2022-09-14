@@ -79,7 +79,7 @@ const AdminPage: NextPage = ({}) => {
                           onClick={() => {
                             if (
                               confirm(
-                                `Are you sure you want to deny ${app.name}'s application?`
+                                `Are you sure you want to accept ${app.name}'s application?`
                               )
                             ) {
                               mutate({ id: app.id, status: 'Accepted' });
