@@ -19,7 +19,6 @@ import communityManagerLogo from '../../public/images/joinUs/VH-icon-communityma
 import grantWriterLogo from '../../public/images/joinUs/VH-icon-grantwriter.png';
 import playgroundManagerLogo from '../../public/images/joinUs/VH-icon-playgroundmanager.png';
 import penLogo from '../../public/images/joinUs/VH-icon-writer.png';
-import bubbleLogo from '../../public/images/joinUs/VH-icon-translator.png';
 import { LightButton } from '../components/decoration/buttons';
 import MeetOurTeam from '../components/layout/meetOurTeam';
 import Sprite, { sheep, chicks } from '../components/decoration/sprite';
@@ -36,17 +35,17 @@ import type { CandidateRequirementProps } from '../components/layout/join/candid
 
 const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   {
-    description: 'Vegan for at least 3 or more months.',
+    description: 'Commitment to a vegan lifestyle',
     image: heartLogo,
     color: 'green',
   },
   {
-    description: 'Experience of 2 or more years in your field.',
+    description: 'Professional experience in your field',
     image: checkLogo,
     color: 'yellow',
   },
   {
-    description: 'A portfolio or resume illustrating your work.',
+    description: 'Portfolio, resume, or work product to demonstrate experience',
     image: resumeLogo,
     color: 'magenta',
   },
@@ -111,10 +110,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for developers to build unique, interesting, or
-        impactful projects for the animals. We use Laravel for most projects,
-        please be comfortable with PHP, JS and CSS. You may be asked to work
-        with other activists and organizations who need your support.
+        Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS.
       </>
     ),
   },
@@ -126,11 +122,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for UI designers to support us by producing modern,
-        visually appealing website designs for our website projects. You would
-        also be advising us on proper UX for older projects that we&apos;re
-        updating and may be asked to help our partners, activists, and
-        organizations.
+        Define the user&apos;s experience and interface for our projects by producing modern, visually-appealing web designs—from wireframes and mockups to the app&apos;s final look and feel.
       </>
     ),
   },
@@ -157,10 +149,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for people with backgrounds in social media,
-        marketing, and advertising. We need help managing our various project
-        social accounts. This includes creating posts, designing content, and
-        interacting with followers.
+        Craft our voice and brand though social media, whether it&apos;s through developing content strategy, analyzing engagement data, or interacting with followers.
       </>
     ),
   },
@@ -172,25 +161,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for people with a background in writing or content
-        creation. Excellent grammar and spelling are a must. You&apos;ll be in
-        charge of writing for our blog, newsletter, projects, Patreon, and other
-        social platforms!
-      </>
-    ),
-  },
-  {
-    image: bubbleLogo,
-    color: 'purple',
-    squareColor: '#692c81',
-    title: 'Translators',
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
-    description: (
-      <>
-        We&apos;re looking for people that can help us translate vegan content
-        in multiple languages. You must consider yourself fluent in the
-        languages you translate for, along with having excellent grammar and
-        spelling. Translators are highly utilized for projects.
+        Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more.
       </>
     ),
   },
@@ -222,10 +193,7 @@ const Join: React.FC = () => (
       className="hidden md:block"
     />
     <FirstSubSection header="Join our team">
-      We&apos;re always looking for more vegan activist volunteers to join our
-      growing team! If you&apos;re interested and have the time, see our
-      positions below. Please note that we prioritize people that meet our
-      qualifications, but encourage you to apply either way!
+      We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway.
     </FirstSubSection>
     <div>
       <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl">
@@ -244,10 +212,7 @@ const Join: React.FC = () => (
         alt=""
       />
       <p>
-        We ask that you please be or get familiar with <b>Discord</b> for team
-        communication, <b>Trello </b>
-        for tracking and workflow, <b>Figma</b> for design collaboration, and
-        <b> GitHub</b> for dev collaboration.
+        Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration.
       </p>
     </div>
     <JoinPlayground />
@@ -330,9 +295,7 @@ const Join: React.FC = () => (
             alt=""
           />
           <p className="mt-4 mb-4 text-2xl px-10 md:px-0">
-            Don&apos;t see a relevant position? If you have other talents or
-            skills for vegan movement, let us know. Whether that be legal,
-            marketing, or something else, we appreciate the support!
+            Don&apos;t see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!
           </p>
           <div className="w-2/3 mx-auto">
             <LightButton

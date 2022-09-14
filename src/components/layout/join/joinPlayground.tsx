@@ -17,12 +17,7 @@ const JoinPlayground: React.FC = () => {
           </h2>
           <div className="text-2xl">
             <p className="mb-4">
-              We launched a open-source community available to the public called{' '}
-              <b>VH: Playground</b>, with over 400+ members and counting!
-              Playground allows developers who don&apos;t have the time or
-              specific skills to join the core Vegan Hacktivists team to still
-              contribute to the movement, whether that be on our open source
-              projects or your own!
+              Don&apos;t have the time to regularly volunteer with us? We&apos;ve launched an open-source, public community called <b>VH: Playground</b>, which has an upward of 1,000 members on Discord! Pick up a project offered by organizations whenever you&apos;re available.
             </p>
           </div>
           <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
