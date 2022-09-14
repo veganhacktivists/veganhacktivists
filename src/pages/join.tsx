@@ -67,7 +67,7 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Recruit, onboard, and engage our growing VH community on Discord.
-        Candidate will help source and support our volunteers of developers,
+        Candidate will help facilitate events, and source and support our volunteers of developers,
         designers, data scientists, writers, and specialists.
       </>
     ),
@@ -94,8 +94,7 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Support VH: Playground by hosting virtual events, managing
-        communications, and engaging the Discord community. Candidate should
+        Support VH: Playground by hosting virtual events, delegating requests, and engaging the Discord community. Candidate should
         have someone with a deep commitment to building an inclusive community.
       </>
     ),
