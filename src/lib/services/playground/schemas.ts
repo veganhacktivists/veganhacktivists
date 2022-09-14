@@ -6,16 +6,14 @@ import {
 } from '@prisma/client';
 import { z } from 'zod';
 
-export const paginationSchema = z
-  .object({
-    page: z.number().int().positive(),
-    pageSize: z.number().int().positive(),
-  })
-  .optional();
+export const paginationSchema = z.object({
+  page: z.number().int().positive(),
+  pageSize: z.number().int().positive(),
+});
 
 export const getRequestByIdSchema = z.string().cuid();
 
-const filterSchema = z.object({
+const requestFilterSchema = z.object({
   categories: z
     .array(z.nativeEnum(PlaygroundRequestCategory))
     .transform((input) => {
@@ -33,7 +31,7 @@ export const sortSchema = z.object({
 
 export type Sorting = z.infer<typeof sortSchema>;
 
-export const getPlaygroundRequestsSchema = filterSchema
+export const getPlaygroundRequestsSchema = requestFilterSchema
   .partial()
   .and(z.object({ sort: sortSchema.optional() }));
 
@@ -136,9 +134,14 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
   })
 );
 
-export const getPendingApplicationsSchema = paginationSchema;
+export const getPendingApplicationsSchema = paginationSchema.optional();
 
-export const getPendingRequestsSchema = paginationSchema;
+export const getRequestsAdminSchema = z
+  .object({
+    status: z.nativeEnum(Status),
+    pagination: paginationSchema.optional(),
+  })
+  .partial();
 
 export const setApplicationStatusSchema = z.object({
   id: z.string().cuid(),

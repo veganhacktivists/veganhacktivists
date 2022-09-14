@@ -1,7 +1,13 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useCallback } from 'react';
+import { Status } from '@prisma/client';
 
-import { DarkButton, ExternalLinkButton } from 'components/decoration/buttons';
+import {
+  DarkButton,
+  ExternalLinkButton,
+  LogoutButton,
+  OutlineButton,
+} from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import ApplicationCard from 'components/layout/playground/applicationCard';
@@ -42,9 +48,28 @@ const AdminPage: NextPage = ({}) => {
 
   return (
     <div>
-      <DarkButton href="/playground/admin" className="m-10 mx-auto w-fit">
-        See requests
-      </DarkButton>
+      <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
+        {Object.values(Status)
+          .filter((status) => status !== 'Rejected')
+          .map((status) => (
+            <OutlineButton
+              href={{ pathname: '/playground/admin', query: { status } }}
+              key={status}
+            >
+              {status} requests
+            </OutlineButton>
+          ))}
+        <OutlineButton
+          href="/playground/admin/applications"
+          className="mx-5 w-fit"
+          active
+        >
+          See applications
+        </OutlineButton>
+        <LogoutButton href="/auth/signout" className="mx-5 w-fit">
+          Logout
+        </LogoutButton>
+      </div>
       <div
         className="flex flex-row flex-wrap justify-center gap-5"
         ref={animatedRef}
