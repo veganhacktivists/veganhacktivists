@@ -1,32 +1,70 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { Status } from '@prisma/client';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import {
-  DarkButton,
   DenyButton,
   ExternalLinkButton,
   GreenButton,
   LightButton,
   LogoutButton,
+  OutlineButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import Spinner from 'components/decoration/spinner';
+import useOnce from 'hooks/useOnce';
 
 import type { NextPage } from 'next';
 
+const STATES_TO_HIDE: Status[] = [Status.Rejected];
+
 const AdminPage: NextPage = () => {
   const utils = trpc.useContext();
+  const router = useRouter();
+  const [statusFilter, setStatusFilter] = useState<Status>(Status.Pending);
+
+  const readFromQuery = useOnce(
+    () => {
+      const status = router.query.status as Status;
+      if (status) {
+        setStatusFilter(status);
+      }
+    },
+    { enabled: router.isReady }
+  );
+
+  useOnce(
+    () => {
+      Object.values(Status)
+        .filter(
+          (status) =>
+            status !== statusFilter && !STATES_TO_HIDE.includes(status)
+        )
+        .forEach(async (status) => {
+          await utils.playground.admin.getRequests.prefetch({
+            status,
+          });
+        });
+    },
+    { enabled: readFromQuery }
+  );
 
   const invalidateQuery = useCallback(
-    () => utils.playground.admin.pendingRequests.invalidate(),
-    [utils.playground.admin.pendingRequests]
+    () =>
+      utils.playground.admin.getRequests.invalidate({ status: statusFilter }),
+    [statusFilter, utils.playground.admin.getRequests]
   );
 
   const { data, isSuccess, isLoading } =
-    trpc.playground.admin.pendingRequests.useQuery();
+    trpc.playground.admin.getRequests.useQuery(
+      {
+        status: statusFilter,
+      },
+      { enabled: readFromQuery }
+    );
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.playground.admin.setRequestStatus.useMutation({
@@ -40,6 +78,25 @@ const AdminPage: NextPage = () => {
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  const RequestFilterButton = useCallback(
+    ({ status }: { status: typeof statusFilter }) => {
+      return (
+        <OutlineButton
+          active={status === statusFilter}
+          onClick={() => {
+            const url = new URL(window.location.href);
+            url.searchParams.set('status', status);
+            window.history.pushState({}, '', url);
+            setStatusFilter(status);
+          }}
+        >
+          {status} requests
+        </OutlineButton>
+      );
+    },
+    [statusFilter]
+  );
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -51,12 +108,17 @@ const AdminPage: NextPage = () => {
       <NextSeo title="Admin panel" />
       <div>
         <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
-          <DarkButton
+          {Object.values(Status)
+            .filter((status) => !STATES_TO_HIDE.includes(status))
+            .map((status) => (
+              <RequestFilterButton key={status} status={status} />
+            ))}
+          <OutlineButton
             href="/playground/admin/applications"
             className="mx-5 w-fit"
           >
             See applications
-          </DarkButton>
+          </OutlineButton>
           <LogoutButton href="/auth/signout" className="mx-5 w-fit">
             Logout
           </LogoutButton>

@@ -18,7 +18,7 @@ import type { PlaygroundRequest, Prisma } from '@prisma/client';
 import type { z } from 'zod';
 import type {
   getPendingApplicationsSchema,
-  getPendingRequestsSchema,
+  getRequestsAdminSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from './schemas';
@@ -46,11 +46,13 @@ export const getPendingApplications = async (
   return applications;
 };
 
-export const getPendingRequests = async (
-  params: z.infer<typeof getPendingRequestsSchema>
-) => {
-  const { page, pageSize, ...where } = params || {};
-  const common = {
+export const getRequests = async ({
+  pagination,
+  ...where
+}: z.infer<typeof getRequestsAdminSchema> = {}) => {
+  const { page, pageSize } = pagination ?? {};
+
+  const requests = prisma.playgroundRequest.findMany({
     where,
     ...(page === undefined
       ? {}
@@ -87,19 +89,8 @@ export const getPendingRequests = async (
     orderBy: {
       createdAt: 'asc',
     },
-  } as const;
-
-  const [pending, accepted] = await Promise.all([
-    prisma.playgroundRequest.findMany({
-      ...common,
-      where: { ...common.where, status: Status.Pending },
-    }),
-    prisma.playgroundRequest.findMany({
-      ...common,
-      where: { ...common.where, status: Status.Accepted },
-    }),
-  ]);
-  return [...pending, ...accepted];
+  });
+  return requests;
 };
 
 export const setApplicationStatus = ({

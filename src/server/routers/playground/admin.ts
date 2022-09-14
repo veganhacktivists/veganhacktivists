@@ -4,14 +4,14 @@ import { z } from 'zod';
 import {
   deleteRequest,
   getPendingApplications,
-  getPendingRequests,
+  getRequests,
   setApplicationStatus,
   setRequestStatus,
 } from 'lib/services/playground/admin';
 import {
   deleteRequestSchema,
   getPendingApplicationsSchema,
-  getPendingRequestsSchema,
+  getRequestsAdminSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from 'lib/services/playground/schemas';
@@ -38,10 +38,11 @@ const adminRouter = t.router({
       })
     ),
 
-  pendingRequests: adminProcedure
-    .input(getPendingRequestsSchema)
-    .query(({ input }) => {
-      return getPendingRequests(input);
+  getRequests: adminProcedure
+    .input(getRequestsAdminSchema)
+    .query(async ({ input }) => {
+      const result = await getRequests(input);
+      return result;
     }),
   deleteRequest: adminProcedure
     .input(deleteRequestSchema)
