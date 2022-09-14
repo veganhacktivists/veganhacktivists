@@ -131,21 +131,6 @@ const JOB_ROLES: JobRoleProps[] = [
     ),
   },
   {
-    image: paintBrushLogo,
-    color: 'pink',
-    squareColor: '#d31679',
-    title: 'Graphic Designers',
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
-    description: (
-      <>
-        We&apos;re looking for graphic designers to support us by producing
-        high-quality, visually appealing design content for our projects,
-        including logos, banners, social media posts, icons, and similar
-        resources. Please include a portfolio of your most recent works.
-      </>
-    ),
-  },
-  {
     image: socialMediaLogo,
     color: 'yellow',
     squareColor: '#fcb216',
@@ -169,6 +154,23 @@ const JOB_ROLES: JobRoleProps[] = [
       <>
         Produce original and well-written content for a variety of medium—our
         blog, newsletter, social media, software copy, and more.
+        <br />
+        <br />
+      </>
+    ),
+  },
+  {
+    image: paintBrushLogo,
+    color: 'pink',
+    squareColor: '#d31679',
+    title: 'Graphic Designers',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    description: (
+      <>
+        We&apos;re looking for graphic designers to support us by producing
+        high-quality, visually appealing design content for our projects,
+        including logos, banners, social media posts, icons, and similar
+        resources. Please include a portfolio of your most recent works.
       </>
     ),
   },
