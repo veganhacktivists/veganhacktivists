@@ -15,6 +15,9 @@ import codeLogo from '../../public/images/joinUs/VH-icon-dev.png';
 import designLogo from '../../public/images/joinUs/VH-icon-uidesigner.png';
 import paintBrushLogo from '../../public/images/joinUs/VH-icon-graphicdesign.png';
 import socialMediaLogo from '../../public/images/joinUs/VH-icon-socialmedia.png';
+import communityManagerLogo from '../../public/images/joinUs/VH-icon-communitymanager.png';
+import grantWriterLogo from '../../public/images/joinUs/VH-icon-grantwriter.png';
+import playgroundManagerLogo from '../../public/images/joinUs/VH-icon-playgroundmanager.png';
 import penLogo from '../../public/images/joinUs/VH-icon-writer.png';
 import bubbleLogo from '../../public/images/joinUs/VH-icon-translator.png';
 import { LightButton } from '../components/decoration/buttons';
@@ -25,7 +28,9 @@ import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
 import CustomImage from '../components/decoration/customImage';
 import { pixelFlower } from '../images/separators';
+import PriorityRole from '../components/layout/join/priorityRole';
 
+import type { PriorityRoleProps } from '../components/layout/join/priorityRole';
 import type { JobRoleProps } from '../components/layout/join/jobRole';
 import type { CandidateRequirementProps } from '../components/layout/join/candidateRequirement';
 
@@ -52,6 +57,50 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
   },
 ];
 
+const PRIORITY_ROLES: PriorityRoleProps[] = [
+  {
+    image: communityManagerLogo,
+    color: 'black',
+    squareColor: 'yellow',
+    title: 'Community Manager',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    description: (
+      <>
+        Recruit, onboard, and engage our growing VH community on Discord.
+        Candidate will help source and support our volunteers of developers,
+        designers, data scientists, writers, and specialists.
+      </>
+    ),
+  },
+  {
+    image: grantWriterLogo,
+    color: 'black',
+    squareColor: '#64BC46',
+    title: 'Grant Writer',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    description: (
+      <>
+        Manage and oversee grantwriting and fundraising pipleine. Candidate must
+        exemplify strong organizational and writing skills and ideally some
+        experience in grantwriting. Excellent grammar and spelling are a must.
+      </>
+    ),
+  },
+  {
+    image: playgroundManagerLogo,
+    color: 'black',
+    squareColor: 'pink',
+    title: 'Playground Manager',
+    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    description: (
+      <>
+        Support VH: Playground by hosting virtual events, managing
+        communications, and engaging the Discord community. Candidate should
+        have someone with a deep commitment to building an inclusive community.
+      </>
+    ),
+  },
+];
 const JOB_ROLES: JobRoleProps[] = [
   {
     image: codeLogo,
@@ -202,6 +251,67 @@ const Join: React.FC = () => (
     </div>
     <JoinPlayground />
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
+    <div className="h-[500px] py-20 relative">
+      <h2 className="text-4xl font-modo font-bold mb-10">
+        High Priority Roles
+      </h2>
+      <h4 className="text-2xl">
+        We’re actively seeking skilled volunteers to fulfill the following
+        positions:
+      </h4>
+    </div>
+    <div className="bg-pink">
+      <SquareField
+        squares={[
+          {
+            color: '#F171A2',
+            size: 16,
+            top: -16,
+            left: 0,
+          },
+          {
+            color: '#EDEDED',
+            size: 16,
+            top: -16,
+            right: 0,
+          },
+        ]}
+        className="hidden md:block"
+      />
+      <div className="flex flex-col lg:flex-row justify-center content-center flex-wrap gap-2 lg:gap-4 xl:gap-10 pb-16">
+        {PRIORITY_ROLES.map((role) => (
+          <div
+            key={role.title}
+            className="w-[400px] lg:w-[300px] lg:w-[320px] first-of-type:mt-[-260px] lg:mt-[-260px] "
+          >
+            <PriorityRole key={role.title} {...role} />
+          </div>
+        ))}
+      </div>
+      <SquareField
+        squares={[
+          {
+            color: '#F171A2',
+            size: 16,
+            bottom: 0,
+            right: 0,
+          },
+          {
+            color: '#ED2384',
+            size: 16,
+            bottom: -16,
+            right: 0,
+          },
+          {
+            color: '#EDEDED',
+            size: 16,
+            bottom: 0,
+            left: 0,
+          },
+        ]}
+        className="hidden md:block"
+      />
+    </div>
     <div className="mt-16 md:max-w-5xl mx-auto mb-16">
       <h2 className="mb-16 text-4xl font-bold">Available Positions</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20">
