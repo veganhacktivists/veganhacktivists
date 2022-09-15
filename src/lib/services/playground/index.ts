@@ -48,6 +48,7 @@ export const getPlaygroundRequests = async ({
       category: {
         in: categories,
       },
+      status: Status.Accepted,
     },
     orderBy,
   });
