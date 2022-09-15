@@ -42,6 +42,6 @@ services:
   smtp:
     image: ixdotai/smtp:latest
     ports:
-      - 127.0.0.1:2525:25
+      - 2525:25
 volumes:
   pgdata:
