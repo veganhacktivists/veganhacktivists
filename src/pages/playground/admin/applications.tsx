@@ -1,6 +1,7 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useCallback } from 'react';
 import { Status } from '@prisma/client';
+import { NextSeo } from 'next-seo';
 
 import {
   DarkButton,
@@ -47,112 +48,115 @@ const AdminPage: NextPage = ({}) => {
   if (!isSuccess) return null;
 
   return (
-    <div>
-      <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
-        {Object.values(Status)
-          .filter((status) => status !== 'Rejected')
-          .map((status) => (
-            <OutlineButton
-              href={{ pathname: '/playground/admin', query: { status } }}
-              key={status}
-            >
-              {status} requests
-            </OutlineButton>
-          ))}
-        <OutlineButton
-          href="/playground/admin/applications"
-          className="mx-5 w-fit"
-          active
+    <>
+      <NextSeo title="Applications - Admin Panel" />
+      <div>
+        <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
+          {Object.values(Status)
+            .filter((status) => status !== 'Rejected')
+            .map((status) => (
+              <OutlineButton
+                href={{ pathname: '/playground/admin', query: { status } }}
+                key={status}
+              >
+                {status} requests
+              </OutlineButton>
+            ))}
+          <OutlineButton
+            href="/playground/admin/applications"
+            className="mx-5 w-fit"
+            active
+          >
+            See applications
+          </OutlineButton>
+          <LogoutButton href="/auth/signout" className="mx-5 w-fit">
+            Logout
+          </LogoutButton>
+        </div>
+        <div
+          className="flex flex-row flex-wrap justify-center gap-5"
+          ref={animatedRef}
         >
-          See applications
-        </OutlineButton>
-        <LogoutButton href="/auth/signout" className="mx-5 w-fit">
-          Logout
-        </LogoutButton>
-      </div>
-      <div
-        className="flex flex-row flex-wrap justify-center gap-5"
-        ref={animatedRef}
-      >
-        {data.length === 0 && (
-          <div className="text-center">There are no pending requests</div>
-        )}
-        {data.map((request) => (
-          <div key={request.id}>
-            <div className="h-full max-w-xl">
-              <PlaygroundRequestCard request={request}>
-                <b>
-                  {request._count.applications > 0 ? (
-                    <>
-                      There are {request._count.applications} accepted
-                      applications for this request
-                    </>
-                  ) : (
-                    <>There are no accepted applications in this request</>
-                  )}
-                </b>
-                <div className="pt-5 text-xl font-bold border-b">
-                  Applications
-                </div>
-                <div className="flex flex-col gap-5 divide-y">
-                  {request.applications.map((app) => (
-                    <ApplicationCard key={app.id} application={app}>
-                      <div className="flex flex-col gap-2 md:flex-row ">
-                        <DarkButton
-                          className="w-full"
-                          disabled={isLoading}
-                          onClick={() => {
-                            if (
-                              confirm(
-                                `Are you sure you want to accept ${app.name}'s application?`
-                              )
-                            ) {
-                              mutate({ id: app.id, status: 'Accepted' });
-                            }
-                          }}
-                        >
-                          Accept
-                        </DarkButton>
-                        <ExternalLinkButton
-                          className="w-full px-4 text-xl text-grey-dark"
-                          disabled={isLoading}
-                          onClick={() => {
-                            if (
-                              confirm(
-                                `Are you sure you want to deny ${app.name}'s application?`
-                              )
-                            ) {
-                              mutate({ id: app.id, status: 'Rejected' });
-                            }
-                          }}
-                        >
-                          Deny
-                        </ExternalLinkButton>
-                        <ExternalLinkButton
-                          className="w-full"
-                          disabled={isLoading}
-                          onClick={() => {
-                            if (
-                              confirm(
-                                `Are you sure you want to delete ${app.name}'s application?`
-                              )
-                            ) {
-                              mutateDelete(app.id);
-                            }
-                          }}
-                        >
-                          🤫 Delete
-                        </ExternalLinkButton>
-                      </div>
-                    </ApplicationCard>
-                  ))}
-                </div>
-              </PlaygroundRequestCard>
+          {data.length === 0 && (
+            <div className="text-center">There are no pending requests</div>
+          )}
+          {data.map((request) => (
+            <div key={request.id}>
+              <div className="h-full max-w-xl">
+                <PlaygroundRequestCard request={request}>
+                  <b>
+                    {request._count.applications > 0 ? (
+                      <>
+                        There are {request._count.applications} accepted
+                        applications for this request
+                      </>
+                    ) : (
+                      <>There are no accepted applications in this request</>
+                    )}
+                  </b>
+                  <div className="pt-5 text-xl font-bold border-b">
+                    Applications
+                  </div>
+                  <div className="flex flex-col gap-5 divide-y">
+                    {request.applications.map((app) => (
+                      <ApplicationCard key={app.id} application={app}>
+                        <div className="flex flex-col gap-2 md:flex-row ">
+                          <DarkButton
+                            className="w-full"
+                            disabled={isLoading}
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Are you sure you want to accept ${app.name}'s application?`
+                                )
+                              ) {
+                                mutate({ id: app.id, status: 'Accepted' });
+                              }
+                            }}
+                          >
+                            Accept
+                          </DarkButton>
+                          <ExternalLinkButton
+                            className="w-full px-4 text-xl text-grey-dark"
+                            disabled={isLoading}
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Are you sure you want to deny ${app.name}'s application?`
+                                )
+                              ) {
+                                mutate({ id: app.id, status: 'Rejected' });
+                              }
+                            }}
+                          >
+                            Deny
+                          </ExternalLinkButton>
+                          <ExternalLinkButton
+                            className="w-full"
+                            disabled={isLoading}
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Are you sure you want to delete ${app.name}'s application?`
+                                )
+                              ) {
+                                mutateDelete(app.id);
+                              }
+                            }}
+                          >
+                            🤫 Delete
+                          </ExternalLinkButton>
+                        </div>
+                      </ApplicationCard>
+                    ))}
+                  </div>
+                </PlaygroundRequestCard>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

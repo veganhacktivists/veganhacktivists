@@ -58,12 +58,9 @@ const AdminPage: NextPage = () => {
   );
 
   const { data, isSuccess, isLoading } =
-    trpc.playground.admin.getRequests.useQuery(
-      {
-        status: statusFilter,
-      },
-      { enabled: readFromQuery }
-    );
+    trpc.playground.admin.getRequests.useQuery({
+      status: statusFilter,
+    });
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.playground.admin.setRequestStatus.useMutation({
@@ -78,7 +75,7 @@ const AdminPage: NextPage = () => {
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const RequestFilterButton = useCallback(
-    ({ status }: { status: typeof statusFilter }) => {
+    ({ status }: { status: Status }) => {
       return (
         <OutlineButton
           active={status === statusFilter}
@@ -104,7 +101,7 @@ const AdminPage: NextPage = () => {
 
   return (
     <>
-      <NextSeo title="Admin panel" />
+      <NextSeo title={`${statusFilter} Requests - Admin panel`} />
       <div>
         <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
           {Object.values(Status)
