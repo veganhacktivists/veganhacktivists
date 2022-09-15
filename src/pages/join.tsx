@@ -133,7 +133,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: socialMediaLogo,
     color: 'yellow',
     squareColor: '#fcb216',
-    title: 'Social or Marketing',
+    title: 'Social Media Manager',
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
@@ -147,7 +147,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: penLogo,
     color: 'red',
     squareColor: '#c61f45',
-    title: 'Content Creators',
+    title: 'Writers',
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
