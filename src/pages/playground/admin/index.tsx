@@ -122,13 +122,13 @@ const AdminPage: NextPage = () => {
             Logout
           </LogoutButton>
         </div>
+        {data.length === 0 && (
+          <div className="text-center">There are no available requests</div>
+        )}
         <div
           className="grid gap-5 mx-auto my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
           ref={animatedRef}
         >
-          {data.length === 0 && (
-            <div className="text-center">There are no available requests</div>
-          )}
           {data.map((request) => (
             <div key={request.id}>
               <PlaygroundRequestCard request={request}>
