@@ -66,8 +66,8 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Recruit, onboard, and engage our growing VH community on Discord.
-        Candidate will host events, facilitate interactions, and support 
-        our growing community of volunteers.
+        Candidate will host events, facilitate interactions, and support our
+        growing community of volunteers.
       </>
     ),
   },
