@@ -50,7 +50,7 @@ const CANDIDATE_REQUIREMENTS: CandidateRequirementProps[] = [
     color: 'magenta',
   },
   {
-    description: 'Ability to volunteer at least 5 hours a week.',
+    description: 'Ability to volunteer at least 5 hours a week',
     image: clockLogo,
     color: 'orange',
   },
@@ -66,9 +66,8 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Recruit, onboard, and engage our growing VH community on Discord.
-        Candidate will help facilitate events, and source and support our
-        volunteers of developers, designers, data scientists, writers, and
-        specialists.
+        Candidate will help facilitate events and engagements and
+        support our growing community of volunteers.
       </>
     ),
   },
@@ -81,8 +80,8 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Manage and oversee grantwriting and fundraising pipleine. Candidate must
-        exemplify strong organizational and writing skills and ideally some
-        experience in grantwriting. Excellent grammar and spelling are a must.
+        exemplify strong organizational and writing skills, with excellent
+        grammar and spelling.
       </>
     ),
   },
@@ -94,9 +93,9 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Support VH: Playground by hosting virtual events, delegating requests,
-        and engaging the Discord community. Candidate should have someone with a
-        deep commitment to building an inclusive community.
+        Support VH: Playground by hosting virtual events, connecting people with
+        opportunities, and engaging the Discord community. Candidate should have
+        a deep commitment to building an inclusive community.
       </>
     ),
   },
@@ -167,10 +166,8 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        We&apos;re looking for graphic designers to support us by producing
-        high-quality, visually appealing design content for our projects,
-        including logos, banners, social media posts, icons, and similar
-        resources. Please include a portfolio of your most recent works.
+        Create high-quality and innovative designs that include logo and
+        branding, social media visuals, and UI components.
       </>
     ),
   },
@@ -232,10 +229,10 @@ const Join: React.FC = () => (
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
     <div className="h-[500px] py-20 px-5 relative">
       <h2 className="text-4xl font-modo font-bold mb-10">
-        High Priority Roles
+        High Priority Positions
       </h2>
       <h4 className="text-2xl">
-        We’re actively seeking skilled volunteers to fulfill the following
+        We&apos;re actively seeking skilled volunteers to fulfill the following
         positions:
       </h4>
     </div>
