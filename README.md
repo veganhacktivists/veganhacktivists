@@ -111,12 +111,12 @@ To setup a local running smtp server see: [Setting up the SMTP-Server](#setting-
 Make sure that the email server settings are properly set in your .env file since our
 authentication is working with magic links.
 
-Start your development server and navigate to [localhost:3000/auth/signin](http://localhost:3000/auth/signin) and fill in a valid e-mail address. You'll receive a confirmation link you'll have to click.
+Start your development server and navigate to [http://localhost:3000/auth/signin](http://localhost:3000/auth/signin) and fill in a valid e-mail address. You'll receive a confirmation link you'll have to click.
 
 Afterwards you need to use a database tool of your choice to connect to the postgresql database.
 
 Looking at the users table you should see your email address under the last create users. Now change the field Role from User to Admin.
-After changing your role you need to [log-out](https://localhost:3000/auth/signout) and [log-in](http://localhost:3000/auth/signin) again to renew your permissions.
+After changing your role you need to [log-out](http://localhost:3000/auth/signout) and [log-in](http://localhost:3000/auth/signin) again to renew your permissions.
 
 ### Coding conventions and guidelines
 
