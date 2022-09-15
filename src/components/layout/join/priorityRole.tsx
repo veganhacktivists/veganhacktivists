@@ -39,7 +39,7 @@ const JobRole: React.FC<PriorityRoleProps> = ({
         <CustomImage alt={title} src={image} objectFit="contain" />
       </div>
       <h2 className="text-xl font-modo font-bold my-6 md:px-8">{title}</h2>
-      <p className="px-10 md:px-8 text-lg text-center min-h-[100px] lg:min-h-[140px]">
+      <p className="px-10 md:px-8 text-lg text-center min-h-[140px] lg:min-h-[230px] xl:min-h-[170px]">
         {description}
       </p>
       <div className="my-8 w-3/4 mx-auto">
