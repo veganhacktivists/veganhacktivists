@@ -57,6 +57,14 @@ This command will create a database container listening on the port 5432 of your
 docker compose down
 ```
 
+### Setting up the SMTP-Server
+
+The `docker-compose.yml` also inclues a smtp service, which is providing a simple smtp server without authentification accessible under port 2525.
+
+```bash
+docker compose up -d smtp
+```
+
 ### Installing the dependencies
 
 We use `pnpm` as a package manager. Install it whatever way fits you best https://pnpm.io/installation. Note that **you need at least version `>=7.0.0`**.
@@ -94,6 +102,21 @@ There are three key concepts at play here: `generate`, `migrate` and `seed`.
 - `pnpm prisma migrate dev` will apply all pending migrations to the database. If there are changes to the schema, it will also create a migration with those new changes. In production, migrations are applied during the build phase of the project. If you want to prototype database schemas it is recommended to use `pnpm prisma db push` instead, as it will avoid creating unnecessary migrations.
 
 - `pnpm prisma db seed` will run the `prisma/seed.ts` script. It's purpose is to populate the database with sample data to improve the development experience.
+
+### Gain access to admin pages
+
+To gain access to restricted pages you first need a working smtp-setup.
+To setup a local running smtp server see: [Setting up the SMTP-Server](#setting-up-the-smtp-server)
+
+Make sure that the email server settings are properly set in your .env file since our
+authentication is working with magic links.
+
+Start your development server and navigate to [localhost:3000/auth/signin](http://localhost:3000/auth/signin) and fill in a valid e-mail address. You'll receive a confirmation link you'll have to click.
+
+Afterwards you need to use a database tool of your choice to connect to the postgresql database.
+
+Looking at the users table you should see your email address under the last create users. Now change the field Role from User to Admin.
+After changing your role you need to [log-out](https://localhost:3000/auth/signout) and [log-in](http://localhost:3000/auth/signin) again to renew your permissions.
 
 ### Coding conventions and guidelines
 

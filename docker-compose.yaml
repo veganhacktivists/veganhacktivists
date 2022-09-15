@@ -39,5 +39,9 @@ services:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+  smtp:
+    image: ixdotai/smtp:latest
+    ports:
+      - 2525:25
 volumes:
   pgdata:
