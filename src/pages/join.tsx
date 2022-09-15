@@ -66,8 +66,8 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     description: (
       <>
         Recruit, onboard, and engage our growing VH community on Discord.
-        Candidate will help facilitate events and engagements and
-        support our growing community of volunteers.
+        Candidate will host events, facilitate interactions, and support 
+        our growing community of volunteers.
       </>
     ),
   },
@@ -79,7 +79,7 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Manage and oversee grantwriting and fundraising pipleine. Candidate must
+        Manage and oversee grantwriting and fundraising pipeline. Candidate must
         exemplify strong organizational and writing skills, with excellent
         grammar and spelling.
       </>
