@@ -33,8 +33,8 @@ export const postPlaygroundRequestOnReddit = async (
     return [];
   }
   const compensation = request.budget
-    ? 'This is a volunteer role, please help the animals!'
-    : 'This is a possible paid role!';
+    ? 'This is a possible paid role!'
+    : 'This is a volunteer role, please help the animals!';
 
   const message = `**${
     request.organization || request.name

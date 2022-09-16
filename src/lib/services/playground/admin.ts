@@ -305,8 +305,8 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
         {
           name: 'Compensation',
           value: request.budget
-            ? 'This request is for volunteer work only, not paid. Please help the animals! 🐓'
-            : 'Paid',
+            ? 'Paid'
+            : 'This request is for volunteer work only, not paid. Please help the animals! 🐓',
         },
         {
           name: "What's next?",
