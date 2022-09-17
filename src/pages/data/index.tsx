@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { NextSeo } from 'next-seo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
@@ -9,9 +10,14 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
-import SelectInput from '../../components/forms/inputs/selectInput';
-import Label from '../../components/forms/inputs/label';
+import Circle from '../../components/decoration/circle';
 import CustomImage from '../../components/decoration/customImage';
+import Label from '../../components/forms/inputs/label';
+import Link from 'next/link';
+import SelectInput from '../../components/forms/inputs/selectInput';
+
+import hero from '../../../public/images/data/VH-goat-hero.jpg';
+import heroTagline from '../../../public/images/data/hero-tagline.png';
 import roundLogo from '../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
 
 import type { StaticImageData } from 'next/image';
@@ -27,10 +33,38 @@ const Logo: React.FC = () => (
   </div>
 );
 
-const Data: React.FC = () => (
-  <>
-    <NextSeo title="Data" />
-    <div className="bg-grey-background">
+const Tagline: React.FC = () => (
+  <div className="lg:pt-10 md:pt-0">
+    <CustomImage
+      src={heroTagline}
+      alt="More data, better impact, for the animals"
+      width={heroTagline.width}
+      height={heroTagline.height}
+    />
+  </div>
+);
+
+const Hero: React.FC = () => (
+  <CustomImage
+    src={hero}
+    alt="Goat"
+    width={hero.width}
+    height={hero.height}
+    objectFit="contain"
+    layout="fill"
+    objectPosition="right bottom"
+    sizes="(max-width: 640px) 40vw, (max-width: 1024px) 60vw,900px"
+  />
+);
+
+const Data: React.FC = () => {
+  const [dataDisplayed, displayData] = useState(false);
+  const test: Function = (option) => {
+    console.log(option);
+    displayData(true);
+  };
+  const DataUI: React.FC = () => {
+    return (
       <div className="flex mx-auto flex-wrap md:flex-nowrap items-start">
         <div
           id="data-options"
@@ -264,8 +298,69 @@ const Data: React.FC = () => (
           </div>
         </div>
       </div>
-    </div>
-  </>
-);
+    );
+  };
+
+  const Landing: React.FC = () => {
+    return (
+      <div className="relative">
+        <div className="flex lg:flex-row flex-col relative">
+          <div
+            id="imgCon"
+            className="w-full sm:h-96 h-48 relative lg:static lg:h-auto lg:flex lg:justify-end lg:order-1 lg:w-1/2"
+          >
+            <Hero />
+
+            <div className="z-10 absolute inset-0 pointer-events-none overflow-hidden">
+              <Circle xAlign="left" yAlign="bottom" opacity={0.5} />
+              <Circle xAlign="right" yAlign="top" opacity={0.5} />
+            </div>
+          </div>
+          <div
+            id="textCon"
+            className="z-20 relative w-full bg-white lg:bg-white/0 flex lg:justify-end px-5 lg:w-1/2"
+          >
+            <div className="flex flex-col w-full lg:max-w-xl">
+              <Tagline />
+              <p className="text-2xl lg:text-left mb-10">
+                Staying true to our{' '}
+                <Link href={'/about/our-mission'}>
+                  <a className="underline">mission statement</a>
+                </Link>
+                , we aim to increase the impact of our projects by building
+                tools to help us both collect and utilize data.
+                <br></br>
+                <br></br>
+                We also strongly believe sharing this data will lead others to
+                increasing their own impact as-well.
+              </p>
+              <div className="w-full mb-10 lg:mb-36 ">
+                <SelectInput
+                  onChange={(option) => {
+                    test(option);
+                  }}
+                  options={[
+                    { value: 'project-1', label: 'Project 1' },
+                    { value: 'project-2', label: 'Project 2' },
+                  ]}
+                  placeholder={'Select A Project'}
+                  name="project"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  return (
+    <>
+      <NextSeo title="Data" />
+      <div className="bg-grey-background relative">
+        {!dataDisplayed ? <Landing /> : <DataUI />}
+      </div>
+    </>
+  );
+};
 
 export default Data;
