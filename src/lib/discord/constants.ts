@@ -10,7 +10,6 @@ export const ROLE_ID_BY_CATEGORY: Partial<
   Writer: process.env.DISCORD_WRITER_ROLE_ID,
   Editor: process.env.DISCORD_EDITOR_ROLE_ID,
   Researcher: process.env.DISCORD_RESEARCHER_ROLE_ID,
-  Translator: process.env.DISCORD_TRANSLATOR_ROLE_ID,
   Marketer: process.env.DISCORD_MARKETER_ROLE_ID,
   DataScientist: process.env.DISCORD_DATA_ROLE_ID,
   Social: process.env.DISCORD_SOCIAL_ROLE_ID,
