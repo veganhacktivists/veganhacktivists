@@ -156,12 +156,10 @@ const Services: React.FC = () => (
         className="hidden md:block"
       />
       <FirstSubSection header="Our services">
-        Aside from building our own projects, we also serve the greater
-        community! If you’re an animal rights activist, organization, or just a
-        vegan who needs help - let us know! Please keep in mind that while all
-        of our services are free this unfortunately means we have to be
-        selective with who we can help with our limited resources. Ask us either
-        way!
+        As capacity builders, we offer our skills and services to the animal
+        protection movement. From development and design to content creation,
+        volunteers, and operational advice, we're here to help elevate your work
+        for the animals.
       </FirstSubSection>
       <div className="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20">
         {SERVICE_BLOCKS.map((service, index) => (
