@@ -325,7 +325,6 @@ const SubmitRequestForm: React.FC = () => {
               </Link>
             </p>
           </div>
-
           <Controller
             name="category"
             control={control}
