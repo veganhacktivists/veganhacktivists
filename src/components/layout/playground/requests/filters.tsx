@@ -191,7 +191,7 @@ const sortLowestPrio = {
   value: 'lowest',
 };
 
-const sortOptions = [sortNewest, sortOldest, sortHighestPrio, sortLowestPrio];
+const sortOptions = [sortNewest, sortOldest];
 
 const SortBy: React.FC<{
   sort?: Sorting;
