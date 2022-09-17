@@ -8,7 +8,7 @@ const buildEslintCommand = (absolutePaths) => {
   const cwd = process.cwd();
   const relativePaths = absolutePaths.map((file) => path.relative(cwd, file));
 
-  return `pnpm lint --fix ${relativePaths
+  return `pnpm next lint --fix ${relativePaths
     .map((path) => `--file ${path}`)
     .join(' ')}`;
 };
