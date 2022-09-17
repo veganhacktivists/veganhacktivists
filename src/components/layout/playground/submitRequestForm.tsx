@@ -5,6 +5,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import Link from 'next/link';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -312,7 +313,18 @@ const SubmitRequestForm: React.FC = () => {
           Title of Request
         </TextInput>
         <div className="col-span-full">
-          <Label name="category" showRequiredMark />
+          <div className="flex flex-col md:flex-row">
+            <Label name="category">
+              Category<span className="text-red">*</span>&nbsp;
+            </Label>
+            <p className="font-thin mb-2">
+              For translators: check out our free content translation
+              service,&nbsp;
+              <Link href="https://veganlinguists.org/">
+                <a className="font-bold whitespace-nowrap">Vegan Linguists</a>
+              </Link>
+            </p>
+          </div>
           <Controller
             name="category"
             control={control}

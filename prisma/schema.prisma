@@ -129,7 +129,6 @@ enum PlaygroundRequestCategory {
   Writer
   Editor
   Researcher
-  Translator
   Marketer
   Social
   DataScientist
