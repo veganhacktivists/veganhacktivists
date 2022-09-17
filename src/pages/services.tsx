@@ -156,10 +156,10 @@ const Services: React.FC = () => (
         className="hidden md:block"
       />
       <FirstSubSection header="Our services">
-      As capacity builders, we offer our skills and services 
-      to the animal protection movement. From development 
-      and design to content creation, volunteers, and operational advice, 
-      we're here to help elevate your work for the animals.
+        As capacity builders, we offer our skills and services to the animal
+        protection movement. From development and design to content creation,
+        volunteers, and operational advice, we're here to help elevate your work
+        for the animals.
       </FirstSubSection>
       <div className="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20">
         {SERVICE_BLOCKS.map((service, index) => (
