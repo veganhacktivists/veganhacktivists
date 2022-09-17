@@ -13,16 +13,11 @@ import type {
 import type { z } from 'zod';
 
 export const getPlaygroundRequests = async ({
-  sort,
+  sort: orderBy,
   categories,
   isPaidRequest,
   ...params
 }: z.infer<typeof getPlaygroundRequestsSchema>) => {
-  const orderBy = sort
-    ? Object.entries(sort).map(([key, value]) => ({
-        [key]: value,
-      }))
-    : undefined;
   const requests = await prisma.playgroundRequest.findMany({
     include: {
       requester: {

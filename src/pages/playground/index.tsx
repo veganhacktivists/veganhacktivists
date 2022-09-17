@@ -38,6 +38,7 @@ const Playground: PageWithLayout = ({}) => {
   const { data: requests } = trpc.playground.getAllRequests.useQuery(params, {
     keepPreviousData: true,
   });
+
   const {
     startIndex,
     endIndex,
@@ -49,7 +50,7 @@ const Playground: PageWithLayout = ({}) => {
     nextEnabled,
   } = useExtendedPagination({
     totalItems: requests?.length,
-    initialPageSize: 6,
+    initialPageSize: 12,
     initialPage: 0,
   });
   const requestContainer = useRef<HTMLDivElement>(null);
