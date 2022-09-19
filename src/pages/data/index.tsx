@@ -312,8 +312,20 @@ const Data: React.FC = () => {
             <Hero />
 
             <div className="z-10 absolute inset-0 pointer-events-none overflow-hidden">
-              <Circle xAlign="left" yAlign="bottom" opacity={0.5} />
-              <Circle xAlign="right" yAlign="top" opacity={0.5} />
+              <Circle
+                color="#BCBCBC"
+                xAlign="left"
+                yAlign="bottom"
+                opacity={0.4}
+                thickness="17px"
+              />
+              <Circle
+                color="#BCBCBC"
+                xAlign="right"
+                yAlign="top"
+                opacity={0.4}
+                thickness="17px"
+              />
             </div>
           </div>
           <div
