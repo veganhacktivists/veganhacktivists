@@ -305,11 +305,22 @@ const Data: React.FC = () => {
     return (
       <div className="relative">
         <div className="flex lg:flex-row flex-col relative">
+          {/*Desktop Only Squares*/}
+          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-0 left-0" />
+          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-16 left-0" />
+          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-0 left-16" />
+          <div className="hidden lg:inline z-20 bg-pink w-24 h-24 absolute bottom-0 right-0" />
+          <div className="hidden lg:inline z-20 bg-white w-10 h-10 absolute bottom-0 right-24" />
+          {/*Desktop & Mobile Square*/}
+          <div className="z-20 bg-orange w-5 lg:w-10 h-5 lg:h-10 absolute top-0 right-0" />
           <div
             id="imgCon"
             className="w-full sm:h-96 h-48 relative lg:static lg:h-auto lg:flex lg:justify-end lg:order-1 lg:w-1/2"
           >
             <Hero />
+            {/*Mobile Only Squares*/}
+            <div className="lg:hidden inline z-20 bg-yellow w-5 h-5 absolute bottom-0 right-0" />
+            <div className="lg:hidden inline z-20 bg-green w-7 h-7 absolute bottom-0 left-0" />
 
             <div className="z-10 absolute inset-0 pointer-events-none overflow-hidden">
               <Circle
@@ -332,6 +343,10 @@ const Data: React.FC = () => {
             id="textCon"
             className="z-20 relative w-full bg-white lg:bg-white/0 flex lg:justify-end px-5 lg:w-1/2"
           >
+            {/*Mobile Only Squares*/}
+            <div className="lg:hidden inline z-20 bg-pink w-6 h-6 absolute top-0 right-5" />
+            <div className="lg:hidden inline z-20 bg-yellow w-4 h-4 absolute top-0 left-7" />
+
             <div className="flex flex-col w-full lg:max-w-xl">
               <Tagline />
               <p className="text-2xl lg:text-left mb-10">
