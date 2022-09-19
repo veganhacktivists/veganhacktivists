@@ -16,6 +16,7 @@ import Label from '../../components/forms/inputs/label';
 import Link from 'next/link';
 import SelectInput from '../../components/forms/inputs/selectInput';
 
+import getThemeColor from '../../lib/helpers/theme';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import roundLogo from '../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
@@ -72,19 +73,19 @@ const Data: React.FC = () => {
         >
           <div className="w-full mb-4">
             <Label className="text-white" name="project" />
-            <SelectInput theme="dark" name="project" />
+            <SelectInput theme="data" name="project" />
           </div>
           <div className="w-full mb-4">
             <Label className="text-white" name="date-range">
               Date range
             </Label>
-            <SelectInput theme="dark" name="date-range" />
+            <SelectInput theme="data" name="date-range" />
           </div>
           <div className="w-full mb-4">
             <Label className="text-white" name="bot">
               Select bot
             </Label>
-            <SelectInput theme="dark" name="bot" />
+            <SelectInput theme="data" name="bot" />
           </div>
           <div className="w-full">
             <p className="mb-2 text-white font-bold text-left block">
@@ -363,12 +364,14 @@ const Data: React.FC = () => {
               </p>
               <div className="w-full mb-10 lg:mb-36 ">
                 <SelectInput
+                  theme="dark"
                   onChange={(option) => {
                     test(option);
                   }}
                   options={[
                     { value: 'project-1', label: 'Project 1' },
                     { value: 'project-2', label: 'Project 2' },
+                    { value: 'project-3', label: 'Project 3' },
                   ]}
                   placeholder={'Select A Project'}
                   name="project"
