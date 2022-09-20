@@ -231,6 +231,12 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   const mutate = useCallback<typeof mutateAsync>(
     (params) => {
+      if (requestId) {
+        params = {
+          id: requestId,
+          ...params,
+        };
+      }
       return toast.promise(mutateAsync(params), {
         pending: 'Submitting...',
         success: 'Your application has been submitted!',

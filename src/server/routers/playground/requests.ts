@@ -4,6 +4,7 @@ import {
   getPlaygroundRequests,
   getRequestById,
   submitRequest,
+  updateRequest,
 } from 'lib/services/playground';
 import {
   getPlaygroundRequestsSchema,
@@ -36,6 +37,13 @@ const requestsRouter = t.router({
   submitRequest: protectedProcedure
     .input(submitRequestSchema)
     .mutation(({ input, ctx }) => {
+      if (input.id) {
+        return updateRequest({
+          ...input,
+          requesterId: ctx.user.id,
+          role: ctx.user.role,
+        });
+      }
       return submitRequest({
         ...input,
         requesterId: ctx.user.id,

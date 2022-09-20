@@ -4,12 +4,13 @@ import { Status, UserRole } from '@prisma/client';
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
-import type { applyToRequestSchema, submitRequestSchema } from './schemas';
-import type { Session } from 'next-auth';
 import type {
+  applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
+  submitRequestSchema,
 } from './schemas';
+import type { Session } from 'next-auth';
 import type { z } from 'zod';
 
 export const getPlaygroundRequests = async ({
@@ -137,6 +138,68 @@ export const applyToHelp = async (
   }
 
   return newRequest;
+};
+
+export const updateRequest = async ({
+  id,
+  budget,
+  requesterId,
+  role,
+  ...params
+}: z.infer<typeof submitRequestSchema> & {
+  requesterId: string;
+  role: string;
+}) => {
+  //Todo: Check auth
+  const oldRequest = await prisma.playgroundRequest.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      budget: true,
+    },
+  });
+  if (
+    !oldRequest ||
+    (oldRequest?.requesterId !== requesterId && role !== 'Admin')
+  ) {
+    return null;
+  }
+  let operation;
+  if (oldRequest && budget) {
+    if (oldRequest.budget) {
+      operation = {
+        update: {
+          ...budget,
+        },
+      };
+    } else {
+      operation = {
+        create: {
+          ...budget,
+        },
+      };
+    }
+  } else {
+    operation = {
+      delete: !!oldRequest?.budget,
+    };
+  }
+
+  return await prisma.playgroundRequest.update({
+    where: {
+      id: id,
+    },
+    data: {
+      ...params,
+      budget: {
+        ...operation,
+      },
+    },
+    include: {
+      budget: true,
+    },
+  });
 };
 
 export const submitRequest = async ({

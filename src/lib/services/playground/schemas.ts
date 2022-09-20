@@ -84,6 +84,7 @@ const budgetSchema = z.object({
 });
 
 export const submitRequestSchema = z.object({
+  id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().optional(),
