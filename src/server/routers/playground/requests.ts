@@ -22,8 +22,11 @@ const requestsRouter = t.router({
       return await getPlaygroundRequests(input);
     }),
   getRequest: baseProcedure
-    .input(getRequestByIdSchema)
+    .input(getRequestByIdSchema.optional())
     .query(({ input, ctx: { user } }) => {
+      if (!input) {
+        return;
+      }
       try {
         return getRequestById(input, user);
       } catch {

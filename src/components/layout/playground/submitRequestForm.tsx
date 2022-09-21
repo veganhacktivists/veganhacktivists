@@ -91,55 +91,51 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   const [isFree, setIsFree] = useState(false);
 
-  let loadedData: Partial<z.infer<typeof submitRequestSchemaClient>>;
-  if (requestId) {
-    const request = trpc.playground.getRequest.useQuery(requestId)?.data;
-    let skills = '';
-    if (request?.requiredSkills && request.requiredSkills.length > 0) {
-      let firstSkill = true;
-      request.requiredSkills.forEach((skill) => {
-        if (firstSkill) {
-          firstSkill = false;
-        } else {
-          skills += ', ';
-        }
-        skills += skill;
-      });
-    }
-    loadedData = {
-      providedEmail: request?.providedEmail,
-      name: request?.name,
-      phone: request?.phone ?? undefined,
-      organization: request?.organization ?? undefined,
-      website: request?.website,
-      calendlyUrl: request?.calendlyUrl,
-      title: request?.title,
-      category: request?.category,
-      requiredSkills: skills,
-      budget: request?.budget
-        ? {
-            type: request?.budget.type,
-            quantity: request?.budget?.quantity.toNumber(),
-          }
-        : undefined,
-      description: request?.description,
-      dueDate: request?.dueDate
-        ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-            'yyyy-LL-dd'
-          ) as unknown as Date)
-        : undefined,
-      estimatedTimeDays: request?.estimatedTimeDays,
-    };
-  }
-
-  useOnce(() => {
-    if (loadedData !== undefined) {
-      Object.keys(loadedData).forEach((keystring) => {
-        const key = keystring as keyof typeof loadedData;
-        setValue(key, loadedData[key]);
-      });
-    }
+  const { data: request } = trpc.playground.getRequest.useQuery(requestId, {
+    enabled: !!requestId,
   });
+
+  useEffect(() => {
+    if (request) {
+      const skills = request.requiredSkills.join(', ');
+      type RequestFormData = Pick<
+        typeof request,
+        | 'providedEmail'
+        | 'name'
+        | 'phone'
+        | 'website'
+        | 'calendlyUrl'
+        | 'title'
+        | 'category'
+        | 'description'
+        | 'estimatedTimeDays'
+      >;
+      const requestData: RequestFormData = {
+        ...request,
+      };
+      const formData: Partial<z.infer<typeof submitRequestSchemaClient>> = {
+        ...requestData,
+        dueDate: request?.dueDate
+          ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+              'yyyy-LL-dd'
+            ) as unknown as Date)
+          : undefined,
+        budget: request?.budget
+          ? {
+              type: request?.budget.type,
+              quantity: request?.budget?.quantity.toNumber(),
+            }
+          : undefined,
+        phone: request?.phone ?? undefined,
+        organization: request?.organization ?? undefined,
+        requiredSkills: skills,
+      };
+      Object.keys(formData).forEach((keystring) => {
+        const key = keystring as keyof typeof formData;
+        setValue(key, formData[key]);
+      });
+    }
+  }, [request, setValue]);
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
@@ -244,7 +240,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           "There's been an error submitting your application. Please try again later.",
       });
     },
-    [mutateAsync]
+    [mutateAsync, requestId]
   );
 
   const onSubmit = useCallback(
