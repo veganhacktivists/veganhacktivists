@@ -2,13 +2,15 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
+import { useSession } from 'next-auth/react';
 
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
 } from '../../../../../prisma/constants';
+import { ContentButton } from '../../yearInReview/contentButton';
 
-import { DarkButton } from 'components/decoration/buttons';
+import { DarkButton, GreyButton } from 'components/decoration/buttons';
 import { readableTimeDiff } from 'lib/helpers/date';
 import SquareField from 'components/decoration/squares';
 import { formatCurrency } from 'lib/helpers/format';
@@ -81,6 +83,9 @@ const PlaygroundRequestCard: React.FC<
     () => (budget ? formatCurrency(budget.quantity.toNumber()) : null),
     [budget]
   );
+  const { data: session, status: sessionStatus } = useSession();
+  const canEdit =
+    session?.user?.role === 'Admin' || requester?.id === session?.user?.id;
 
   return (
     <div
@@ -154,15 +159,36 @@ const PlaygroundRequestCard: React.FC<
             {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
         </ul>
-        <DarkButton
-          href={{
-            pathname: '/playground/request/[id]',
-            query: { id },
-          }}
-          className="text-center text-md"
+        <div
+          className={`${
+            canEdit
+              ? 'flex flex-row flex-wrap-reverse md:flex-nowrap justify-between gap-5'
+              : ''
+          }`}
         >
-          Read more / apply to help
-        </DarkButton>
+          <DarkButton
+            href={{
+              pathname: '/playground/request/[id]',
+              query: { id },
+            }}
+            className={`text-center text-md flex-grow ${
+              canEdit ? 'w-1/2' : ''
+            }`}
+          >
+            Read more / apply to help
+          </DarkButton>
+          {canEdit && (
+            <GreyButton
+              href={{
+                pathname: '/playground/request/edit/[id]',
+                query: { id },
+              }}
+              className="flex-grow w-1/2 text-md text-center"
+            >
+              Edit request
+            </GreyButton>
+          )}
+        </div>
         {children}
       </div>
     </div>
