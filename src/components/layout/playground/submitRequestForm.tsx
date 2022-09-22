@@ -70,6 +70,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   );
 
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [requestLoaded, setRequestLoaded] = useState(false);
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
@@ -96,7 +97,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   });
 
   useEffect(() => {
-    if (request && sessionStatus !== 'loading') {
+    if (request && sessionStatus !== 'loading' && !requestLoaded) {
       if (
         !session?.user ||
         (session?.user?.role !== 'Admin' &&
@@ -142,6 +143,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         const key = keystring as keyof typeof formData;
         setValue(key, formData[key]);
       });
+      if (formData.budget?.type) {
+        setIsFree(false);
+        setValue('budget.type', formData.budget?.type);
+      }
+      setRequestLoaded(true);
     }
   }, [request, setValue, session, router, sessionStatus]);
 
@@ -569,7 +575,13 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           disabled={isLoading || isSuccess}
           type="submit"
         >
-          {isLoading ? <Spinner /> : 'Submit My Request'}
+          {isLoading ? (
+            <Spinner />
+          ) : !requestId ? (
+            'Submit My Request'
+          ) : (
+            'Save changes'
+          )}
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="request" />
