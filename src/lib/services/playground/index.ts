@@ -150,7 +150,6 @@ export const updateRequest = async ({
   requesterId: string;
   role: string;
 }) => {
-  //Todo: Check auth
   const oldRequest = await prisma.playgroundRequest.findUnique({
     where: {
       id: id,

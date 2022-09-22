@@ -96,7 +96,15 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   });
 
   useEffect(() => {
-    if (request) {
+    if (request && sessionStatus !== 'loading') {
+      if (
+        !session?.user ||
+        (session?.user?.role !== 'Admin' &&
+          request.requesterId !== session?.user?.id)
+      ) {
+        void router.push('/playground');
+        return;
+      }
       const skills = request.requiredSkills.join(', ');
       type RequestFormData = Pick<
         typeof request,
@@ -135,7 +143,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         setValue(key, formData[key]);
       });
     }
-  }, [request, setValue]);
+  }, [request, setValue, session, router, sessionStatus]);
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
