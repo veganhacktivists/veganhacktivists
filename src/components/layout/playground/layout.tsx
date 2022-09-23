@@ -165,7 +165,7 @@ const PlaygroundStats: React.FC = () => {
     <div>
       <div className="grid justify-center mx-auto mt-16 mb-16 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 w-fit">
         <PlaygroundStat
-          label="Requests opened"
+          label="Open requests"
           icon={resumeIcon}
           value={data?.requestsOpen}
         />
