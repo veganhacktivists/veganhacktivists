@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { Status } from '@prisma/client';
+import { Status, UserRole } from '@prisma/client';
 
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
@@ -58,10 +58,31 @@ export const getRequestById = async (
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
-      status: user?.role === 'Admin' ? undefined : Status.Accepted,
+      status: user?.role === UserRole.Admin ? undefined : Status.Accepted,
     },
-    include: {
-      requester: true,
+    select: {
+      category: true,
+      createdAt: true,
+      dueDate: true,
+      description: true,
+      id: true,
+      estimatedTimeDays: true,
+      name: true,
+      organization: true,
+      requiredSkills: true,
+      title: true,
+      status: true,
+      updatedAt: true,
+      website: true,
+      providedEmail: user?.role === UserRole.Admin,
+      requester:
+        user?.role === UserRole.Admin
+          ? true
+          : {
+              select: {
+                id: true,
+              },
+            },
       budget: true,
       _count: {
         select: {

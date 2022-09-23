@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek } from '@prisma/client';
+import { TimePerWeek, UserRole } from '@prisma/client';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -56,6 +56,7 @@ interface RequestProps {
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
+  const { data: session } = useSession();
   const timeSinceCreated = useMemo(() => {
     if (!request) return null;
     return readableTimeDiff(request.createdAt)[0];
@@ -154,6 +155,12 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
+          {session?.user?.role === UserRole.Admin && (
+            <>
+              <Field title="Provided email">{request.providedEmail}</Field>
+              <Field title="Registered email">{request.requester.email}</Field>
+            </>
+          )}
         </SubtleBorder>
       </div>
       <div className="font-serif italic text-left text-grey-light">

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import { faLongArrowAltLeft as leftArrow } from '@fortawesome/free-solid-svg-icons';
+import { UserRole } from '@prisma/client';
 
 import { DarkButton } from '../../../components/decoration/buttons';
 
@@ -67,7 +68,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
             <FontAwesomeIcon icon={leftArrow} size="xs" />
             <span className="block pl-3">Go Back</span>
           </DarkButton>
-          {session.data?.user?.role === 'Admin' && (
+          {session.data?.user?.role === UserRole.Admin && (
             <div className="mt-2 text-left">
               <DarkButton
                 href="/playground/admin"

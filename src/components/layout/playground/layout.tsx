@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 import classNames from 'classnames';
+import { UserRole } from '@prisma/client';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
@@ -217,11 +218,15 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
             >
               Submit a request
             </OutlineButton>
-            {status === 'authenticated' && session.user?.role === 'Admin' && (
-              <DarkButton className="w-full uppercase" href="/playground/admin">
-                Admin
-              </DarkButton>
-            )}
+            {status === 'authenticated' &&
+              session.user?.role === UserRole.Admin && (
+                <DarkButton
+                  className="w-full uppercase"
+                  href="/playground/admin"
+                >
+                  Admin
+                </DarkButton>
+              )}
           </div>
         </div>
 
