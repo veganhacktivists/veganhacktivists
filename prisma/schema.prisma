@@ -86,6 +86,7 @@ enum TimePerWeek {
 enum BudgetType {
   Fixed
   Hourly
+  Monthly
 }
 
 model Budget {

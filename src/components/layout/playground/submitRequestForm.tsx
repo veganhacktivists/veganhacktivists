@@ -54,6 +54,7 @@ const IS_FREE_OPTIONS: OptionType<boolean>[] = [
 const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
   { label: BudgetType.Fixed, value: BudgetType.Fixed },
   { label: BudgetType.Hourly, value: BudgetType.Hourly },
+  { label: BudgetType.Monthly, value: BudgetType.Monthly },
 ];
 
 type FormInput = z.input<typeof submitRequestSchemaClient>;
@@ -461,7 +462,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               return (
                 <>
                   <div className="lg:col-span-2 col-span-full">
-                    <Label name="Hourly or full project?" showRequiredMark />
+                    <Label name="Rate?" showRequiredMark />
                     <SelectInput
                       current={
                         BUDGET_TYPE_OPTIONS.find(
