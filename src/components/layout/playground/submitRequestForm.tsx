@@ -149,7 +149,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       }
       setRequestLoaded(true);
     }
-  }, [request, setValue, session, router, sessionStatus]);
+  }, [request, setValue, session, router, sessionStatus, requestLoaded]);
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
