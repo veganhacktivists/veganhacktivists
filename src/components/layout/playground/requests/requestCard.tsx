@@ -8,7 +8,6 @@ import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
 } from '../../../../../prisma/constants';
-import { ContentButton } from '../../yearInReview/contentButton';
 
 import { DarkButton, GreyButton } from 'components/decoration/buttons';
 import { readableTimeDiff } from 'lib/helpers/date';
@@ -83,7 +82,7 @@ const PlaygroundRequestCard: React.FC<
     () => (budget ? formatCurrency(budget.quantity.toNumber()) : null),
     [budget]
   );
-  const { data: session, status: sessionStatus } = useSession();
+  const { data: session } = useSession();
   const canEdit =
     session?.user?.role === 'Admin' || requester?.id === session?.user?.id;
 
