@@ -28,7 +28,9 @@ const requestsRouter = t.router({
       const id = typeof input === 'object' ? input.id : input;
       const extended = typeof input === 'object' ? input.extended : false;
       if (!id) {
-        return;
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+        });
       }
       try {
         return getRequestById(id, user, extended);
