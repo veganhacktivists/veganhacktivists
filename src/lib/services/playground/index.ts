@@ -54,8 +54,19 @@ export const getPlaygroundRequests = async ({
 
 export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
-  user?: Session['user']
+  user?: Session['user'],
+  extended = false
 ) => {
+  let ownRequest = false;
+  if (extended) {
+    const authorizedRequest = await prisma.playgroundRequest.findFirst({
+      where: {
+        id,
+        requesterId: user?.id,
+      },
+    });
+    ownRequest = !!authorizedRequest;
+  }
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
@@ -75,9 +86,11 @@ export const getRequestById = async (
       status: true,
       updatedAt: true,
       website: true,
-      providedEmail: user?.role === UserRole.Admin,
+      providedEmail: user?.role === UserRole.Admin || ownRequest,
+      calendlyUrl: user?.role === UserRole.Admin || ownRequest,
+      phone: user?.role === UserRole.Admin || ownRequest,
       requester:
-        user?.role === UserRole.Admin
+        user?.role === UserRole.Admin || ownRequest
           ? true
           : {
               select: {
@@ -160,7 +173,7 @@ export const updateRequest = async ({
   });
   if (
     !oldRequest ||
-    (oldRequest?.requesterId !== requesterId && role !== 'Admin')
+    (oldRequest?.requesterId !== requesterId && role !== UserRole.Admin)
   ) {
     return null;
   }

@@ -12,6 +12,10 @@ export const paginationSchema = z.object({
 });
 
 export const getRequestByIdSchema = z.string().cuid();
+export const getRequestByIdExtendedSchema = z.object({
+  id: getRequestByIdSchema.optional(),
+  extended: z.boolean().optional().default(false),
+});
 
 const requestFilterSchema = z.object({
   categories: z

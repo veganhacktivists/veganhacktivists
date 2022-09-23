@@ -8,6 +8,7 @@ import {
 } from 'lib/services/playground';
 import {
   getPlaygroundRequestsSchema,
+  getRequestByIdExtendedSchema,
   getRequestByIdSchema,
   submitRequestSchema,
 } from 'lib/services/playground/schemas';
@@ -22,13 +23,15 @@ const requestsRouter = t.router({
       return await getPlaygroundRequests(input);
     }),
   getRequest: baseProcedure
-    .input(getRequestByIdSchema.optional())
+    .input(getRequestByIdSchema.or(getRequestByIdExtendedSchema).optional())
     .query(({ input, ctx: { user } }) => {
-      if (!input) {
+      const id = typeof input === 'object' ? input.id : input;
+      const extended = typeof input === 'object' ? input.extended : false;
+      if (!id) {
         return;
       }
       try {
-        return getRequestById(input, user);
+        return getRequestById(id, user, extended);
       } catch {
         throw new TRPCError({
           code: 'NOT_FOUND',

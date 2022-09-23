@@ -4,7 +4,11 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import {
+  BudgetType,
+  PlaygroundRequestCategory,
+  UserRole,
+} from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 
@@ -86,22 +90,24 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm,
+    defaultValues: session?.user?.role === UserRole.Admin ? storedForm : {},
     resolver: zodResolver(submitRequestSchemaClient),
   });
 
   const [isFree, setIsFree] = useState(false);
 
-  const { data: request } = trpc.playground.getRequest.useQuery(requestId, {
-    enabled: !!requestId,
-  });
+  const { data: request } = trpc.playground.getRequest.useQuery(
+    { id: requestId, extended: true },
+    {
+      enabled: !!requestId,
+    }
+  );
 
   useEffect(() => {
     if (request && sessionStatus !== 'loading' && !requestLoaded) {
       if (
         !session?.user ||
-        (session?.user?.role !== 'Admin' &&
-          request.requesterId !== session?.user?.id)
+        (session?.user?.role !== 'Admin' && !request.isRequestedByCurrentUser)
       ) {
         void router.push('/playground');
         return;
@@ -192,7 +198,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   useOnce(
     () => {
-      if (!session?.user) return;
+      if (!session?.user || requestId) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
@@ -214,13 +220,15 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   useOnce(
     () => {
-      Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if (value && !watch(key as any)) {
+      if (!requestId) {
+        Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          setValue(key as any, value);
-        }
-      });
+          if (value && !watch(key as any)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            setValue(key as any, value);
+          }
+        });
+      }
     },
     {
       enabled:
