@@ -4,8 +4,13 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import {
+  BudgetType,
+  PlaygroundRequestCategory,
+  UserRole,
+} from '@prisma/client';
 import Link from 'next/link';
+import { DateTime } from 'luxon';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -54,7 +59,11 @@ const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
 type FormInput = z.input<typeof submitRequestSchemaClient>;
 type FormOutput = z.infer<typeof submitRequestSchemaClient>;
 
-const SubmitRequestForm: React.FC = () => {
+interface SubmitRequestFormParam {
+  requestId?: string;
+}
+
+const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
 
   const { budget: storedBudget, ...storedForm } =
@@ -65,6 +74,7 @@ const SubmitRequestForm: React.FC = () => {
   );
 
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [requestLoaded, setRequestLoaded] = useState(false);
   const onModalClose = useCallback(() => {
     setIsSignInModalOpen(false);
   }, []);
@@ -80,11 +90,72 @@ const SubmitRequestForm: React.FC = () => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm,
+    defaultValues: session?.user?.role === UserRole.Admin ? storedForm : {},
     resolver: zodResolver(submitRequestSchemaClient),
   });
 
   const [isFree, setIsFree] = useState(false);
+
+  const { data: request } = trpc.playground.getRequest.useQuery(
+    { id: requestId, extended: true },
+    {
+      enabled: !!requestId,
+    }
+  );
+
+  useEffect(() => {
+    if (request && sessionStatus !== 'loading' && !requestLoaded) {
+      if (
+        !session?.user ||
+        (session?.user?.role !== 'Admin' && !request.isRequestedByCurrentUser)
+      ) {
+        void router.push('/playground');
+        return;
+      }
+      const skills = request.requiredSkills.join(', ');
+      type RequestFormData = Pick<
+        typeof request,
+        | 'providedEmail'
+        | 'name'
+        | 'phone'
+        | 'website'
+        | 'calendlyUrl'
+        | 'title'
+        | 'category'
+        | 'description'
+        | 'estimatedTimeDays'
+      >;
+      const requestData: RequestFormData = {
+        ...request,
+      };
+      const formData: Partial<z.infer<typeof submitRequestSchemaClient>> = {
+        ...requestData,
+        dueDate: request?.dueDate
+          ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+              'yyyy-LL-dd'
+            ) as unknown as Date)
+          : undefined,
+        budget: request?.budget
+          ? {
+              type: request?.budget.type,
+              quantity: request?.budget?.quantity.toNumber(),
+            }
+          : undefined,
+        phone: request?.phone ?? undefined,
+        organization: request?.organization ?? undefined,
+        requiredSkills: skills,
+      };
+      Object.keys(formData).forEach((keystring) => {
+        const key = keystring as keyof typeof formData;
+        setValue(key, formData[key]);
+      });
+      if (formData.budget?.type) {
+        setIsFree(false);
+        setValue('budget.type', formData.budget?.type);
+      }
+      setRequestLoaded(true);
+    }
+  }, [request, setValue, session, router, sessionStatus, requestLoaded]);
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
@@ -127,7 +198,7 @@ const SubmitRequestForm: React.FC = () => {
 
   useOnce(
     () => {
-      if (!session?.user) return;
+      if (!session?.user || requestId) return;
       const { name, email } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
@@ -149,13 +220,15 @@ const SubmitRequestForm: React.FC = () => {
 
   useOnce(
     () => {
-      Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if (value && !watch(key as any)) {
+      if (!requestId) {
+        Object.entries(lastSubmittedRequest!).forEach(([key, value]) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          setValue(key as any, value);
-        }
-      });
+          if (value && !watch(key as any)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            setValue(key as any, value);
+          }
+        });
+      }
     },
     {
       enabled:
@@ -176,6 +249,12 @@ const SubmitRequestForm: React.FC = () => {
 
   const mutate = useCallback<typeof mutateAsync>(
     (params) => {
+      if (requestId) {
+        params = {
+          id: requestId,
+          ...params,
+        };
+      }
       return toast.promise(mutateAsync(params), {
         pending: 'Submitting...',
         success: 'Your application has been submitted!',
@@ -183,7 +262,7 @@ const SubmitRequestForm: React.FC = () => {
           "There's been an error submitting your application. Please try again later.",
       });
     },
-    [mutateAsync]
+    [mutateAsync, requestId]
   );
 
   const onSubmit = useCallback(
@@ -504,7 +583,13 @@ const SubmitRequestForm: React.FC = () => {
           disabled={isLoading || isSuccess}
           type="submit"
         >
-          {isLoading ? <Spinner /> : 'Submit My Request'}
+          {isLoading ? (
+            <Spinner />
+          ) : !requestId ? (
+            'Submit My Request'
+          ) : (
+            'Save changes'
+          )}
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="request" />

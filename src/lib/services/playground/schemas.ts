@@ -12,6 +12,10 @@ export const paginationSchema = z.object({
 });
 
 export const getRequestByIdSchema = z.string().cuid();
+export const getRequestByIdExtendedSchema = z.object({
+  id: getRequestByIdSchema.optional(),
+  extended: z.boolean().optional().default(false),
+});
 
 const requestFilterSchema = z.object({
   categories: z
@@ -84,6 +88,7 @@ const budgetSchema = z.object({
 });
 
 export const submitRequestSchema = z.object({
+  id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().optional(),

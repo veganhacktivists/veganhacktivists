@@ -4,12 +4,13 @@ import { Status, UserRole } from '@prisma/client';
 import prisma from 'lib/db/prisma';
 import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
 
-import type { applyToRequestSchema, submitRequestSchema } from './schemas';
-import type { Session } from 'next-auth';
 import type {
+  applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
+  submitRequestSchema,
 } from './schemas';
+import type { Session } from 'next-auth';
 import type { z } from 'zod';
 
 export const getPlaygroundRequests = async ({
@@ -53,8 +54,19 @@ export const getPlaygroundRequests = async ({
 
 export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
-  user?: Session['user']
+  user?: Session['user'],
+  extended = false
 ) => {
+  let ownRequest = false;
+  if (extended) {
+    const authorizedRequest = await prisma.playgroundRequest.findFirst({
+      where: {
+        id,
+        requesterId: user?.id,
+      },
+    });
+    ownRequest = !!authorizedRequest;
+  }
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
@@ -74,9 +86,11 @@ export const getRequestById = async (
       status: true,
       updatedAt: true,
       website: true,
-      providedEmail: user?.role === UserRole.Admin,
+      providedEmail: user?.role === UserRole.Admin || ownRequest,
+      calendlyUrl: user?.role === UserRole.Admin || ownRequest,
+      phone: user?.role === UserRole.Admin || ownRequest,
       requester:
-        user?.role === UserRole.Admin
+        user?.role === UserRole.Admin || ownRequest
           ? true
           : {
               select: {
@@ -137,6 +151,67 @@ export const applyToHelp = async (
   }
 
   return newRequest;
+};
+
+export const updateRequest = async ({
+  id,
+  budget,
+  requesterId,
+  role,
+  ...params
+}: z.infer<typeof submitRequestSchema> & {
+  requesterId: string;
+  role: string;
+}) => {
+  const oldRequest = await prisma.playgroundRequest.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      budget: true,
+    },
+  });
+  if (
+    !oldRequest ||
+    (oldRequest?.requesterId !== requesterId && role !== UserRole.Admin)
+  ) {
+    return null;
+  }
+  let operation;
+  if (oldRequest && budget) {
+    if (oldRequest.budget) {
+      operation = {
+        update: {
+          ...budget,
+        },
+      };
+    } else {
+      operation = {
+        create: {
+          ...budget,
+        },
+      };
+    }
+  } else {
+    operation = {
+      delete: !!oldRequest?.budget,
+    };
+  }
+
+  return await prisma.playgroundRequest.update({
+    where: {
+      id: id,
+    },
+    data: {
+      ...params,
+      budget: {
+        ...operation,
+      },
+    },
+    include: {
+      budget: true,
+    },
+  });
 };
 
 export const submitRequest = async ({
