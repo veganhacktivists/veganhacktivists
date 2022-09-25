@@ -28,12 +28,12 @@ const Social: React.FC = () => {
         <YoutubeButton href="https://www.youtube.com/c/VeganHacktivists" />
       </div>
       <div className="pt-10 text-center">
-        <ExternalLinkButton href="https://www.patreon.com/veganhacktivists">
+        <ExternalLinkButton href="https://veganhacktivists.org/support">
           <div className="font-serif italic text-xl capitalize">
-            Support us on
+            Support our work
           </div>
           <div className="text-4xl uppercase font-mono font-semibold">
-            Patreon
+            Donate
           </div>
         </ExternalLinkButton>
       </div>
