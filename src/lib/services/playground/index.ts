@@ -1,8 +1,11 @@
 import { TRPCError } from '@trpc/server';
 import { Status, UserRole } from '@prisma/client';
 
+import { OUR_EMAIL_TO } from '../../mail/router';
+import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
+
 import prisma from 'lib/db/prisma';
-import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
+import emailClient from 'lib/mail';
 
 import type {
   applyToRequestSchema,
@@ -141,7 +144,7 @@ export const applyToHelp = async (
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
-      to: OUR_EMAIL,
+      to: OUR_EMAIL_TO,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Application',
       html: `A new applicant has applied to help in Playground!
@@ -240,7 +243,7 @@ export const submitRequest = async ({
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
-      to: OUR_EMAIL,
+      to: OUR_EMAIL_TO,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Request',
       html: `A new Request has been submitted to Playground for review!

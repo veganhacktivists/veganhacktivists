@@ -1,6 +1,15 @@
 import { doesContainKeywords } from 'lib/helpers/strings';
 
-export const OUR_EMAIL = process.env.EMAIL_TO!;
+export const OUR_EMAIL_FROM =
+  process.env.EMAIL_FROM ?? 'hello@veganhacktivists.org';
+export const OUR_EMAIL_TO =
+  process.env.EMAIL_TO ?? 'hello@veganhacktivists.org';
+export const OUR_EMAIL_FROM_FORMATTED =
+  `Vegan Hacktivists <${OUR_EMAIL_FROM}>` as const;
+export const PLAYGROUND_EMAIL =
+  process.env.EMAIL_PLAYGROUND ?? 'playground@veganhacktivists.org';
+export const PLAYGROUND_EMAIL_FORMATTED =
+  `VH Playground <${PLAYGROUND_EMAIL}>` as const;
 
 const projectSpecificEmails: Record<string, (string | string[])[]> = {
   [process.env.EMAIL_TO_AVOCADO!]: [],

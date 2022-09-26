@@ -3,10 +3,11 @@ import { TRPCError } from '@trpc/server';
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
+import { OUR_EMAIL_TO, PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
 
 import prisma from 'lib/db/prisma';
 import { sendDiscordMessage } from 'lib/discord';
-import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
+import emailClient from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 import { getListFromEnv } from 'lib/helpers/env';
 import { postPlaygroundRequestOnReddit } from 'lib/reddit';
@@ -151,7 +152,7 @@ export const setApplicationStatus = ({
           updatedApplication.providedEmail,
           updatedApplication.request.providedEmail,
         ],
-        cc: OUR_EMAIL,
+        cc: OUR_EMAIL_TO,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
 
         html: `Hi ${updatedApplication.request.name},

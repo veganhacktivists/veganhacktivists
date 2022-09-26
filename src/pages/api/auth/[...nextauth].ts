@@ -3,8 +3,9 @@ import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
 import { verificationMail } from '../../../components/layout/mail/emailTemplates';
+import { OUR_EMAIL_FROM_FORMATTED } from '../../../lib/mail/router';
 
-import emailClient, { OUR_EMAIL_FORMATTED } from 'lib/mail';
+import emailClient from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
@@ -17,7 +18,7 @@ const sendVerificationRequest = async (
   const { host } = new URL(url);
   await emailClient.sendMail({
     to: identifier,
-    from: OUR_EMAIL_FORMATTED,
+    from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
     text: verificationMail(host, url, true),
     html: verificationMail(host, url),
@@ -33,7 +34,7 @@ export const nextAuthOptions: NextAuthOptions = {
     EmailProvider({
       name: 'magic link',
       server: process.env.EMAIL_SERVER_URL,
-      from: OUR_EMAIL_FORMATTED,
+      from: OUR_EMAIL_FROM_FORMATTED,
       sendVerificationRequest,
     }),
   ],
