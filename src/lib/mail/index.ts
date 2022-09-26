@@ -4,6 +4,8 @@ import nodemailer from 'nodemailer';
 
 import { firstLetterUppercase } from '../helpers/strings';
 
+import { OUR_EMAIL_FROM_FORMATTED } from './router';
+
 import type { Transporter } from 'nodemailer';
 import type {
   MailgunMessageData,
@@ -31,7 +33,7 @@ class EmailClient {
         const data = options as Email;
         return await this.mg.messages.create(DOMAIN, {
           ...data,
-          from: data.from ?? OUR_EMAIL_FORMATTED,
+          from: data.from ?? OUR_EMAIL_FROM_FORMATTED,
         });
       };
     }
@@ -54,12 +56,6 @@ export const createFormattedMessage: (
     })
     .join('<br/>');
 };
-
-export const OUR_EMAIL = 'hello@veganhacktivists.org' as const;
-export const OUR_EMAIL_FORMATTED = `Vegan Hacktivists <${OUR_EMAIL}>` as const;
-export const PLAYGROUND_EMAIL = 'playground@veganhacktivists.org' as const;
-export const PLAYGROUND_EMAIL_FORMATTED =
-  `VH Playground <${PLAYGROUND_EMAIL}>` as const;
 
 const emailClient = new EmailClient(
   new Mailgun(formData).client({

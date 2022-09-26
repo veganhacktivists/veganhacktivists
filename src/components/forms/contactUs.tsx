@@ -13,6 +13,7 @@ import TextArea from './inputs/textArea';
 import TextInput from './inputs/textInput';
 import Label from './inputs/label';
 import SelectInput from './inputs/selectInput';
+import { useFAQDetect } from 'hooks/useFAQDetect';
 
 const SERVICES = ['website', 'project', 'funding', 'advice'] as const;
 
@@ -25,6 +26,7 @@ interface ContactUsSubmission {
 
 const ContactUsForm: React.FC = () => {
   const { pageThatErrored, clearErrorData } = useErrorStore();
+  const { onMessageChange, suggestions } = useFAQDetect();
 
   const {
     control,
@@ -126,8 +128,17 @@ const ContactUsForm: React.FC = () => {
             error={errors.message?.message}
             {...register('message')}
             defaultValue={defaultErrorMessage}
+            onChange={onMessageChange}
           />
         </div>
+        {suggestions.map((suggestion, i) => (
+          <div
+            className="text-left border-l-8 border-l-yellow bg-white p-4"
+            key={i}
+          >
+            {suggestion}
+          </div>
+        ))}
         <div className="pt-5 pb-10">
           <DarkButton
             type="submit"
