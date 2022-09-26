@@ -154,7 +154,6 @@ const JOB_ROLES: JobRoleProps[] = [
         Produce original and well-written content for a variety of medium—our
         blog, newsletter, social media, software copy, and more.
         <br />
-        <br />
       </>
     ),
   },
