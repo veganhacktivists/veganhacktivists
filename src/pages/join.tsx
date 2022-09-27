@@ -137,7 +137,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Craft our voice and brand though social media, whether it&apos;s through
+        Craft our voice and brand on social media, whether it&apos;s through
         developing content strategy, analyzing engagement data, or interacting
         with followers.
       </>
@@ -153,7 +153,6 @@ const JOB_ROLES: JobRoleProps[] = [
       <>
         Produce original and well-written content for a variety of medium—our
         blog, newsletter, social media, software copy, and more.
-        <br />
       </>
     ),
   },
