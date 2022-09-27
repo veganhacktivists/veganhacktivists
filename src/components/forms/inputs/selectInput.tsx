@@ -67,7 +67,7 @@ const SelectInput = <T,>({
   });
 
   const getStyles = function (): StylesConfig<OptionType<T>, false> {
-    if (props.theme === 'dark') {
+    if (props.theme === 'data') {
       return {
         placeholder: (provided) => ({
           ...provided,

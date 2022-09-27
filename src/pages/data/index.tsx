@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { NextSeo } from 'next-seo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
@@ -9,13 +8,12 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faPatreon } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link';
 
 import Circle from '../../components/decoration/circle';
 import CustomImage from '../../components/decoration/customImage';
 import Label from '../../components/forms/inputs/label';
-import Link from 'next/link';
 import SelectInput from '../../components/forms/inputs/selectInput';
-
 import getThemeColor from '../../lib/helpers/theme';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
@@ -60,8 +58,7 @@ const Hero: React.FC = () => (
 
 const Data: React.FC = () => {
   const [dataDisplayed, displayData] = useState(false);
-  const test: Function = (option) => {
-    console.log(option);
+  const changeProject = () => {
     displayData(true);
   };
   const DataUI: React.FC = () => {
@@ -73,19 +70,29 @@ const Data: React.FC = () => {
         >
           <div className="w-full mb-4">
             <Label className="text-white" name="project" />
-            <SelectInput theme="data" name="project" />
+            <SelectInput
+              theme="data"
+              name="project"
+              current={null}
+              options={[]}
+            />
           </div>
           <div className="w-full mb-4">
             <Label className="text-white" name="date-range">
               Date range
             </Label>
-            <SelectInput theme="data" name="date-range" />
+            <SelectInput
+              theme="data"
+              name="date-range"
+              current={null}
+              options={[]}
+            />
           </div>
           <div className="w-full mb-4">
             <Label className="text-white" name="bot">
               Select bot
             </Label>
-            <SelectInput theme="data" name="bot" />
+            <SelectInput theme="data" name="bot" current={null} options={[]} />
           </div>
           <div className="w-full">
             <p className="mb-2 text-white font-bold text-left block">
@@ -357,17 +364,14 @@ const Data: React.FC = () => {
                 </Link>
                 , we aim to increase the impact of our projects by building
                 tools to help us both collect and utilize data.
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 We also strongly believe sharing this data will lead others to
                 increasing their own impact as-well.
               </p>
               <div className="w-full mb-10 lg:mb-36 ">
                 <SelectInput
                   theme="dark"
-                  onChange={(option) => {
-                    test(option);
-                  }}
                   options={[
                     { value: 'project-1', label: 'Project 1' },
                     { value: 'project-2', label: 'Project 2' },
@@ -375,6 +379,8 @@ const Data: React.FC = () => {
                   ]}
                   placeholder={'Select A Project'}
                   name="project"
+                  current={null}
+                  onChange={changeProject}
                 />
               </div>
             </div>
