@@ -18,7 +18,7 @@ import getThemeColor from '../../lib/helpers/theme';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import roundLogo from '../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
-
+import SquareField from '../../components/decoration/squares';
 import type { StaticImageData } from 'next/image';
 
 const Logo: React.FC = () => (
@@ -61,6 +61,25 @@ const Data: React.FC = () => {
   const changeProject = () => {
     displayData(true);
   };
+
+  const dataSquares = {
+    top: [{ color: 'orange', size: 10, right: 0, top: 0 }],
+    middleTop: [
+      { color: 'yellow', size: 5, right: 0, bottom: 0 },
+      { color: 'green', size: 7, left: 0, bottom: 0 },
+    ],
+    middleBottom: [
+      { color: 'pink', size: 5, right: 5, bottom: 0 },
+      { color: 'yellow', size: 4, left: 2, top: 0 },
+    ],
+    bottom: [
+      { color: 'yellow', size: 16, left: 0, bottom: 16 },
+      { color: 'yellow', size: 16, left: 16, bottom: 0 },
+      { color: 'pink', size: 24, right: 0, bottom: 0 },
+      { color: 'white', size: 10, right: 24, bottom: 0 },
+    ],
+  };
+
   const DataUI: React.FC = () => {
     return (
       <div className="flex mx-auto flex-wrap md:flex-nowrap items-start">
@@ -312,24 +331,13 @@ const Data: React.FC = () => {
   const Landing: React.FC = () => {
     return (
       <div className="relative">
+        <SquareField squares={dataSquares.top} />
         <div className="flex lg:flex-row flex-col relative">
-          {/*Desktop Only Squares*/}
-          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-0 left-0" />
-          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-16 left-0" />
-          <div className="hidden lg:inline z-20 bg-yellow w-16 h-16 absolute bottom-0 left-16" />
-          <div className="hidden lg:inline z-20 bg-pink w-24 h-24 absolute bottom-0 right-0" />
-          <div className="hidden lg:inline z-20 bg-white w-10 h-10 absolute bottom-0 right-24" />
-          {/*Desktop & Mobile Square*/}
-          <div className="z-20 bg-orange w-5 lg:w-10 h-5 lg:h-10 absolute top-0 right-0" />
           <div
             id="imgCon"
             className="w-full sm:h-96 h-48 relative lg:static lg:h-auto lg:flex lg:justify-end lg:order-1 lg:w-1/2"
           >
             <Hero />
-            {/*Mobile Only Squares*/}
-            <div className="lg:hidden inline z-20 bg-yellow w-5 h-5 absolute bottom-0 right-0" />
-            <div className="lg:hidden inline z-20 bg-green w-7 h-7 absolute bottom-0 left-0" />
-
             <div className="z-10 absolute inset-0 pointer-events-none overflow-hidden">
               <Circle
                 color="#BCBCBC"
@@ -347,14 +355,18 @@ const Data: React.FC = () => {
               />
             </div>
           </div>
+          <SquareField
+            squares={dataSquares.middleTop}
+            className="lg:hidden inline"
+          />
           <div
             id="textCon"
             className="z-20 relative w-full bg-white lg:bg-white/0 flex lg:justify-end px-5 lg:w-1/2"
           >
-            {/*Mobile Only Squares*/}
-            <div className="lg:hidden inline z-20 bg-pink w-6 h-6 absolute top-0 right-5" />
-            <div className="lg:hidden inline z-20 bg-yellow w-4 h-4 absolute top-0 left-7" />
-
+            <SquareField
+              squares={dataSquares.middleBottom}
+              className="lg:hidden inline"
+            />
             <div className="flex flex-col w-full lg:max-w-xl">
               <Tagline />
               <p className="text-2xl lg:text-left mb-10">
@@ -369,7 +381,7 @@ const Data: React.FC = () => {
                 We also strongly believe sharing this data will lead others to
                 increasing their own impact as-well.
               </p>
-              <div className="w-full mb-10 lg:mb-36 ">
+              <div className="w-full mb-10 lg:mb-36">
                 <SelectInput
                   theme="dark"
                   options={[
@@ -386,6 +398,7 @@ const Data: React.FC = () => {
             </div>
           </div>
         </div>
+        <SquareField squares={dataSquares.bottom} className="hidden lg:block" />
       </div>
     );
   };
