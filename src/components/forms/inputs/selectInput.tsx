@@ -66,98 +66,50 @@ const SelectInput = <T,>({
     },
   });
 
-  const getStyles = function (): StylesConfig<OptionType<T>, false> {
-    if (props.theme === 'data') {
-      return {
-        placeholder: (provided) => ({
-          ...provided,
-          color: '#a1a1aa',
-        }),
-        control: (provided) => ({
-          ...provided,
-          minHeight: height,
-          height,
-          borderWidth: error ? 2 : 1,
-          borderColor: error ? red : 'white',
-          boxSizing: 'content-box',
-          fontSize: '1.25rem',
-          backgroundColor: 'transparent',
-        }),
-        valueContainer: (provided) => ({
-          ...provided,
-          padding: '0 6px',
-        }),
-        input: (provided) => ({
-          ...provided,
-          margin: '0px',
-        }),
-        dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
-          ...provided,
-          color: lighterGrey,
-          transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          '&:hover': {
-            color: lightGrey,
-          },
-          '&:active': {
-            color: grey,
-          },
-        }),
-        indicatorsContainer: (provided) => ({
-          ...provided,
-        }),
-        menu: (provided) => ({
-          ...provided,
-          marginTop: 4,
-          'z-index': '11',
-        }),
-        menuList: (provided) => ({ ...provided, padding: 0 }),
-      };
-    } else {
-      return {
-        placeholder: (provided) => ({
-          ...provided,
-          color: '#a1a1aa',
-        }),
-        control: (provided) => ({
-          ...provided,
-          minHeight: height,
-          height,
-          borderWidth: error ? 2 : 1,
-          borderColor: error ? red : grey,
-          boxSizing: 'content-box',
-          fontSize: '1.25rem',
-        }),
-        valueContainer: (provided) => ({
-          ...provided,
-          padding: '0 6px',
-        }),
-        input: (provided) => ({
-          ...provided,
-          margin: '0px',
-        }),
-        dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
-          ...provided,
-          color: lighterGrey,
-          transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          '&:hover': {
-            color: lightGrey,
-          },
-          '&:active': {
-            color: grey,
-          },
-        }),
-        indicatorsContainer: (provided) => ({
-          ...provided,
-          backgroundColor: grey,
-        }),
-        menu: (provided) => ({
-          ...provided,
-          marginTop: 4,
-          'z-index': '11',
-        }),
-        menuList: (provided) => ({ ...provided, padding: 0 }),
-      };
-    }
+  const styles: StylesConfig<OptionType<T>, false> = {
+    placeholder: (provided) => ({
+      ...provided,
+      color: '#a1a1aa',
+    }),
+    control: (provided) => ({
+      ...provided,
+      minHeight: height,
+      height,
+      borderWidth: error ? 2 : 1,
+      borderColor: error ? red : props.theme === 'data' ? 'white' : grey,
+      boxSizing: 'content-box',
+      fontSize: '1.25rem',
+      backgroundColor: props.theme === 'data' ? 'transparent' : 'white',
+    }),
+    valueContainer: (provided) => ({
+      ...provided,
+      padding: '0 6px',
+    }),
+    input: (provided) => ({
+      ...provided,
+      margin: '0px',
+    }),
+    dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
+      ...provided,
+      color: lighterGrey,
+      transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      '&:hover': {
+        color: lightGrey,
+      },
+      '&:active': {
+        color: grey,
+      },
+    }),
+    indicatorsContainer: (provided) => ({
+      ...provided,
+      backgroundColor: props.theme !== 'data' ? grey : '',
+    }),
+    menu: (provided) => ({
+      ...provided,
+      marginTop: 4,
+      'z-index': '11',
+    }),
+    menuList: (provided) => ({ ...provided, padding: 0 }),
   };
 
   const classes = classNames(className, 'text-left');
@@ -166,7 +118,7 @@ const SelectInput = <T,>({
     ...props,
     onChange,
     value: rendered ? current : undefined,
-    styles: getStyles(),
+    styles,
     theme,
     id: props.id || props.name,
     instanceId: props.id || props.name,
