@@ -35,6 +35,8 @@ const grey = getThemeColor('grey');
 const lightGrey = getThemeColor('grey-light');
 const lighterGrey = getThemeColor('grey-lighter');
 const red = getThemeColor('red');
+const green = getThemeColor('green');
+const greenDark = getThemeColor('green-dark');
 
 const SelectInput = <T,>({
   error,
@@ -66,98 +68,93 @@ const SelectInput = <T,>({
     },
   });
 
-  const getStyles = function (): StylesConfig<OptionType<T>, false> {
-    if (props.theme === 'data') {
-      return {
-        placeholder: (provided) => ({
-          ...provided,
-          color: '#a1a1aa',
-        }),
-        control: (provided) => ({
-          ...provided,
-          minHeight: height,
-          height,
-          borderWidth: error ? 2 : 1,
-          borderColor: error ? red : 'white',
-          boxSizing: 'content-box',
-          fontSize: '1.25rem',
-          backgroundColor: 'transparent',
-        }),
-        valueContainer: (provided) => ({
-          ...provided,
-          padding: '0 6px',
-        }),
-        input: (provided) => ({
-          ...provided,
-          margin: '0px',
-        }),
-        dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
-          ...provided,
-          color: lighterGrey,
-          transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          '&:hover': {
-            color: lightGrey,
-          },
-          '&:active': {
-            color: grey,
-          },
-        }),
-        indicatorsContainer: (provided) => ({
-          ...provided,
-        }),
-        menu: (provided) => ({
-          ...provided,
-          marginTop: 4,
-          'z-index': '11',
-        }),
-        menuList: (provided) => ({ ...provided, padding: 0 }),
-      };
-    } else {
-      return {
-        placeholder: (provided) => ({
-          ...provided,
-          color: '#a1a1aa',
-        }),
-        control: (provided) => ({
-          ...provided,
-          minHeight: height,
-          height,
-          borderWidth: error ? 2 : 1,
-          borderColor: error ? red : grey,
-          boxSizing: 'content-box',
-          fontSize: '1.25rem',
-        }),
-        valueContainer: (provided) => ({
-          ...provided,
-          padding: '0 6px',
-        }),
-        input: (provided) => ({
-          ...provided,
-          margin: '0px',
-        }),
-        dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
-          ...provided,
-          color: lighterGrey,
-          transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          '&:hover': {
-            color: lightGrey,
-          },
-          '&:active': {
-            color: grey,
-          },
-        }),
-        indicatorsContainer: (provided) => ({
-          ...provided,
-          backgroundColor: grey,
-        }),
-        menu: (provided) => ({
-          ...provided,
-          marginTop: 4,
-          'z-index': '11',
-        }),
-        menuList: (provided) => ({ ...provided, padding: 0 }),
-      };
-    }
+  const styles: StylesConfig<OptionType<T>, false> = {
+    control: (provided, { selectProps: { menuIsOpen } }) => ({
+      ...provided,
+      background:
+        props.theme === 'data'
+          ? 'transparent'
+          : props.theme === 'dark'
+          ? `linear-gradient(to right, ${green}, 50%, ${grey} 50%)`
+          : 'white',
+      backgroundPosition: menuIsOpen ? '0' : 'right',
+      '&:hover': {
+        backgroundPosition:
+          props.theme === 'dark' ? '0' : provided.backgroundPosition,
+      },
+      backgroundSize:
+        props.theme === 'dark' ? '250% 100%' : provided.backgroundSize,
+      borderColor: error ? red : props.theme === 'data' ? 'white' : grey,
+      borderLeft:
+        props.theme === 'dark' ? `8px solid ${green}` : provided.borderLeft,
+      borderWidth: error ? 2 : props.theme === 'dark' ? '0' : 1,
+      boxShadow: props.theme === 'dark' ? 'none' : provided.boxShadow,
+      boxSizing: 'content-box',
+      fontSize: '1.25rem',
+      fontWeight: props.theme === 'dark' ? '600' : provided.fontWeight,
+      height,
+      minHeight: height,
+      transition: 'background-position 400ms linear',
+    }),
+    dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
+      ...provided,
+      color: props.theme === 'dark' ? 'white' : lighterGrey,
+      transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 200ms ease-in-out',
+      '&:hover': {
+        color: props.theme === 'dark' ? 'white' : lightGrey,
+      },
+      '&:active': {
+        color: props.theme === 'dark' ? 'white' : grey,
+      },
+    }),
+    indicatorsContainer: (provided) => ({
+      ...provided,
+      backgroundColor:
+        props.theme === 'dark'
+          ? 'transparent'
+          : props.theme !== 'data'
+          ? grey
+          : provided.backgroundColor,
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: props.theme === 'dark' ? 'white' : provided.color,
+      margin: '0px',
+    }),
+    menu: (provided) => ({
+      ...provided,
+      background: props.theme === 'dark' ? green : provided.background,
+      color: props.theme === 'dark' ? 'white' : provided.color,
+      marginTop: 4,
+      'z-index': '11',
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      padding: 0,
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: props.theme === 'dark' ? 'white' : provided.color,
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor:
+        props.theme === 'dark'
+          ? state.isFocused
+            ? greenDark
+            : provided.backgroundColor
+          : provided.backgroundColor,
+      transition: 'background-color 200ms ease-in-out',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: props.theme === 'dark' ? 'white' : '#a1a1aa',
+    }),
+    valueContainer: (provided) => ({
+      ...provided,
+      padding: '0 6px',
+    }),
   };
 
   const classes = classNames(className, 'text-left');
@@ -166,7 +163,7 @@ const SelectInput = <T,>({
     ...props,
     onChange,
     value: rendered ? current : undefined,
-    styles: getStyles(),
+    styles,
     theme,
     id: props.id || props.name,
     instanceId: props.id || props.name,
