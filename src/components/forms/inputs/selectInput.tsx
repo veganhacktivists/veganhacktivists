@@ -35,6 +35,8 @@ const grey = getThemeColor('grey');
 const lightGrey = getThemeColor('grey-light');
 const lighterGrey = getThemeColor('grey-lighter');
 const red = getThemeColor('red');
+const green = getThemeColor('green');
+const greenDark = getThemeColor('green-dark');
 
 const SelectInput = <T,>({
   error,
@@ -67,49 +69,94 @@ const SelectInput = <T,>({
   });
 
   const styles: StylesConfig<OptionType<T>, false> = {
-    placeholder: (provided) => ({
+    control: (provided, { selectProps: { menuIsOpen } }) => ({
       ...provided,
-      color: '#a1a1aa',
-    }),
-    control: (provided) => ({
-      ...provided,
-      minHeight: height,
-      height,
-      borderWidth: error ? 2 : 1,
+      background:
+        props.theme === 'data'
+          ? 'transparent'
+          : props.theme === 'greyIntoGreen'
+          ? `linear-gradient(to right, ${green}, 50%, ${grey} 50%)`
+          : 'white',
+      backgroundPosition: menuIsOpen ? '0' : 'right',
+      '&:hover': {
+        backgroundPosition:
+          props.theme === 'greyIntoGreen' ? '0' : provided.backgroundPosition,
+      },
+      backgroundSize:
+        props.theme === 'greyIntoGreen' ? '250% 100%' : provided.backgroundSize,
       borderColor: error ? red : props.theme === 'data' ? 'white' : grey,
+      borderLeft:
+        props.theme === 'greyIntoGreen'
+          ? `8px solid ${green}`
+          : provided.borderLeft,
+      borderWidth: error ? 2 : props.theme === 'greyIntoGreen' ? '0' : 1,
+      boxShadow: props.theme === 'greyIntoGreen' ? 'none' : provided.boxShadow,
       boxSizing: 'content-box',
       fontSize: '1.25rem',
-      backgroundColor: props.theme === 'data' ? 'transparent' : 'white',
+      fontWeight: props.theme === 'greyIntoGreen' ? '600' : provided.fontWeight,
+      height,
+      minHeight: height,
+      transition: 'background-position 400ms linear',
+    }),
+    dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
+      ...provided,
+      color: props.theme === 'greyIntoGreen' ? 'white' : lighterGrey,
+      transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 200ms ease-in-out',
+      '&:hover': {
+        color: props.theme === 'greyIntoGreen' ? 'white' : lightGrey,
+      },
+      '&:active': {
+        color: props.theme === 'greyIntoGreen' ? 'white' : grey,
+      },
+    }),
+    indicatorsContainer: (provided) => ({
+      ...provided,
+      backgroundColor:
+        props.theme === 'greyIntoGreen'
+          ? 'transparent'
+          : props.theme !== 'data'
+          ? grey
+          : provided.backgroundColor,
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+      margin: '0px',
+    }),
+    menu: (provided) => ({
+      ...provided,
+      background: props.theme === 'greyIntoGreen' ? green : provided.background,
+      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+      marginTop: 4,
+      'z-index': '11',
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      padding: 0,
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor:
+        props.theme === 'greyIntoGreen'
+          ? state.isFocused
+            ? greenDark
+            : provided.backgroundColor
+          : provided.backgroundColor,
+      transition: 'background-color 200ms ease-in-out',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: props.theme === 'greyIntoGreen' ? 'white' : '#a1a1aa',
     }),
     valueContainer: (provided) => ({
       ...provided,
       padding: '0 6px',
     }),
-    input: (provided) => ({
-      ...provided,
-      margin: '0px',
-    }),
-    dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
-      ...provided,
-      color: lighterGrey,
-      transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-      '&:hover': {
-        color: lightGrey,
-      },
-      '&:active': {
-        color: grey,
-      },
-    }),
-    indicatorsContainer: (provided) => ({
-      ...provided,
-      backgroundColor: props.theme !== 'data' ? grey : '',
-    }),
-    menu: (provided) => ({
-      ...provided,
-      marginTop: 4,
-      'z-index': '11',
-    }),
-    menuList: (provided) => ({ ...provided, padding: 0 }),
   };
 
   const classes = classNames(className, 'text-left');

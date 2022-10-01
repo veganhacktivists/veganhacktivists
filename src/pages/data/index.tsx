@@ -383,7 +383,8 @@ const Data: React.FC = () => {
               </p>
               <div className="w-full mb-10 lg:mb-36">
                 <SelectInput
-                  theme="dark"
+                  theme="greyIntoGreen"
+                  className="font-mono"
                   options={[
                     { value: 'project-1', label: 'Project 1' },
                     { value: 'project-2', label: 'Project 2' },
