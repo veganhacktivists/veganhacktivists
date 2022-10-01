@@ -424,11 +424,17 @@ export interface ITeamMemberFields {
   /** description */
   description?: Document | undefined;
 
+  /** bio */
+  bio?: Document | undefined;
+
   /** isTeamLeader */
   isTeamLeader: boolean;
 
   /** isInactive */
   isInactive: boolean;
+
+  /** isCoreMember */
+  isCoreMember: boolean;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {
