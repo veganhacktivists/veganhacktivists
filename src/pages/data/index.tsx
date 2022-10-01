@@ -14,12 +14,10 @@ import Circle from '../../components/decoration/circle';
 import CustomImage from '../../components/decoration/customImage';
 import Label from '../../components/forms/inputs/label';
 import SelectInput from '../../components/forms/inputs/selectInput';
-import getThemeColor from '../../lib/helpers/theme';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import roundLogo from '../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
 import SquareField from '../../components/decoration/squares';
-import type { StaticImageData } from 'next/image';
 
 const Logo: React.FC = () => (
   <div className="pt-10 md:pt-0 mt-20">
@@ -383,7 +381,7 @@ const Data: React.FC = () => {
               </p>
               <div className="w-full mb-10 lg:mb-36">
                 <SelectInput
-                  theme="greyIntoGreen"
+                  theme="dark"
                   className="font-mono"
                   options={[
                     { value: 'project-1', label: 'Project 1' },

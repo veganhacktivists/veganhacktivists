@@ -74,46 +74,44 @@ const SelectInput = <T,>({
       background:
         props.theme === 'data'
           ? 'transparent'
-          : props.theme === 'greyIntoGreen'
+          : props.theme === 'dark'
           ? `linear-gradient(to right, ${green}, 50%, ${grey} 50%)`
           : 'white',
       backgroundPosition: menuIsOpen ? '0' : 'right',
       '&:hover': {
         backgroundPosition:
-          props.theme === 'greyIntoGreen' ? '0' : provided.backgroundPosition,
+          props.theme === 'dark' ? '0' : provided.backgroundPosition,
       },
       backgroundSize:
-        props.theme === 'greyIntoGreen' ? '250% 100%' : provided.backgroundSize,
+        props.theme === 'dark' ? '250% 100%' : provided.backgroundSize,
       borderColor: error ? red : props.theme === 'data' ? 'white' : grey,
       borderLeft:
-        props.theme === 'greyIntoGreen'
-          ? `8px solid ${green}`
-          : provided.borderLeft,
-      borderWidth: error ? 2 : props.theme === 'greyIntoGreen' ? '0' : 1,
-      boxShadow: props.theme === 'greyIntoGreen' ? 'none' : provided.boxShadow,
+        props.theme === 'dark' ? `8px solid ${green}` : provided.borderLeft,
+      borderWidth: error ? 2 : props.theme === 'dark' ? '0' : 1,
+      boxShadow: props.theme === 'dark' ? 'none' : provided.boxShadow,
       boxSizing: 'content-box',
       fontSize: '1.25rem',
-      fontWeight: props.theme === 'greyIntoGreen' ? '600' : provided.fontWeight,
+      fontWeight: props.theme === 'dark' ? '600' : provided.fontWeight,
       height,
       minHeight: height,
       transition: 'background-position 400ms linear',
     }),
     dropdownIndicator: (provided, { selectProps: { menuIsOpen } }) => ({
       ...provided,
-      color: props.theme === 'greyIntoGreen' ? 'white' : lighterGrey,
+      color: props.theme === 'dark' ? 'white' : lighterGrey,
       transform: menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
       transition: 'transform 200ms ease-in-out',
       '&:hover': {
-        color: props.theme === 'greyIntoGreen' ? 'white' : lightGrey,
+        color: props.theme === 'dark' ? 'white' : lightGrey,
       },
       '&:active': {
-        color: props.theme === 'greyIntoGreen' ? 'white' : grey,
+        color: props.theme === 'dark' ? 'white' : grey,
       },
     }),
     indicatorsContainer: (provided) => ({
       ...provided,
       backgroundColor:
-        props.theme === 'greyIntoGreen'
+        props.theme === 'dark'
           ? 'transparent'
           : props.theme !== 'data'
           ? grey
@@ -121,13 +119,13 @@ const SelectInput = <T,>({
     }),
     input: (provided) => ({
       ...provided,
-      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+      color: props.theme === 'dark' ? 'white' : provided.color,
       margin: '0px',
     }),
     menu: (provided) => ({
       ...provided,
-      background: props.theme === 'greyIntoGreen' ? green : provided.background,
-      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+      background: props.theme === 'dark' ? green : provided.background,
+      color: props.theme === 'dark' ? 'white' : provided.color,
       marginTop: 4,
       'z-index': '11',
     }),
@@ -137,12 +135,12 @@ const SelectInput = <T,>({
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
-      color: props.theme === 'greyIntoGreen' ? 'white' : provided.color,
+      color: props.theme === 'dark' ? 'white' : provided.color,
     }),
     option: (provided, state) => ({
       ...provided,
       backgroundColor:
-        props.theme === 'greyIntoGreen'
+        props.theme === 'dark'
           ? state.isFocused
             ? greenDark
             : provided.backgroundColor
@@ -151,7 +149,7 @@ const SelectInput = <T,>({
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: props.theme === 'greyIntoGreen' ? 'white' : '#a1a1aa',
+      color: props.theme === 'dark' ? 'white' : '#a1a1aa',
     }),
     valueContainer: (provided) => ({
       ...provided,
