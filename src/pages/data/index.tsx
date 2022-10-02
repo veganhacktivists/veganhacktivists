@@ -64,6 +64,16 @@ const Data: React.FC = () => {
       ],
     },
     data: {
+      overview: {
+        top: [
+          { color: 'gray-background', size: 4, right: 0, top: 0 },
+          { color: 'gray-background', size: 4, right: 4, top: 4 },
+        ],
+        bottom: [
+          { color: 'gray-background', size: 4, left: 0, bottom: 0 },
+          { color: 'gray-background', size: 3, right: 0, bottom: 0 },
+        ],
+      },
       bottom: [{ color: 'gray-darker', size: 16, left: 0, bottom: 0 }],
     },
   };
@@ -159,6 +169,7 @@ const Data: React.FC = () => {
                 />
                 <h1 className="text-left ml-3">Data overview</h1>
               </div>
+              <SquareField squares={dataSquares.data.overview.top} />
               <div className="relative bg-white flex-wrap w-full flex p-4">
                 <div className="pr-4 mb-6 lg:mb-0 lg:w-1/4 w-1/2 lg:border-r-2 border-gray-light border-solid">
                   <div className="flex justify-center">
@@ -215,11 +226,8 @@ const Data: React.FC = () => {
                   </div>
                   <p className=" lg:text-xl">New followers</p>
                 </div>
-                <div className="hidden md:inline bg-grey-background w-4 h-4 absolute bottom-0 left-0" />
-                <div className="hidden md:inline bg-grey-background w-3 h-3 absolute bottom-0 right-0" />
-                <div className="hidden md:inline bg-grey-background w-4 h-4 absolute top-0 right-0" />
-                <div className="hidden md:inline bg-grey-background w-3 h-3 absolute top-4 right-4" />
               </div>
+              <SquareField squares={dataSquares.data.overview.bottom} />
             </div>
             <div id="number-of-retweets" className=" w-full mb-8">
               <div className="data-heading flex items-center mb-3">
