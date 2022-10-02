@@ -5,9 +5,6 @@ import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faPatreon } from '@fortawesome/free-brands-svg-icons';
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 
 import Circle from '../../components/decoration/circle';
@@ -16,19 +13,7 @@ import Label from '../../components/forms/inputs/label';
 import SelectInput from '../../components/forms/inputs/selectInput';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
-import roundLogo from '../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
 import SquareField from '../../components/decoration/squares';
-
-const Logo: React.FC = () => (
-  <div className="pt-10 md:pt-0 mt-20">
-    <CustomImage
-      src={roundLogo}
-      alt="VH Round Logo"
-      width={roundLogo.width * 0.5}
-      height={roundLogo.height * 0.5}
-    />
-  </div>
-);
 
 const Tagline: React.FC = () => (
   <div className="lg:pt-10 md:pt-0">
@@ -151,39 +136,7 @@ const Data: React.FC = () => {
                 Nº of retweets
               </Label>
             </div>
-            <div className="social-media mt-3 hidden md:inline">
-              <Logo />
-              <p className="text-white mt-2 mb-3">Contact or feedback?</p>
-              <a
-                className="text-white p-3 text-center transition duration-500 hover:text-gray-light"
-                href="https://www.instagram.com/veganhacktivists/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Follow us on Instagram"
-              >
-                <FontAwesomeIcon icon={faInstagram} fixedWidth />
-              </a>
-              <a
-                className="text-white p-3 text-center transition duration-500 hover:text-gray-light"
-                href="https://www.patreon.com/veganhacktivists"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Support us on Patreon!"
-              >
-                <FontAwesomeIcon icon={faPatreon} fixedWidth />
-              </a>
-              <a
-                className="text-white p-3 text-center transition duration-500 hover:text-gray-light"
-                href="https://www.youtube.com/c/VeganHacktivists"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Subscribe to our Youtube channel!"
-              >
-                <FontAwesomeIcon icon={faYoutube} fixedWidth />
-              </a>
-            </div>
           </div>
-          <div className="bg-yellow w-10 h-10 absolute bottom-0 right-0 hidden md:inline" />
         </div>
         <div id="data" className=" w-full p-5">
           <div id="data-overview" className=" w-full mb-8">
