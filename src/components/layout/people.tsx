@@ -32,6 +32,7 @@ const PeopleButtons: React.FC = () => {
   return (
     <div className="flex flex-wrap justify-center mt-10 mb-5">
       <NavButton href="/people/team">OUR TEAM</NavButton>
+      <NavButton href="/people/volunteers">VOLUNTEERS</NavButton>
       <NavButton href="/people/advisors">OUR ADVISORS</NavButton>
       <NavButton href="/people/partners">OUR PARTNERS</NavButton>
     </div>
