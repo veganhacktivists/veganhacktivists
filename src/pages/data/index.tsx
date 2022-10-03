@@ -20,8 +20,6 @@ const Tagline: React.FC = () => (
     <CustomImage
       src={heroTagline}
       alt="More data, better impact, for the animals"
-      width={heroTagline.width}
-      height={heroTagline.height}
     />
   </div>
 );
