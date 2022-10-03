@@ -31,6 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
       filters: {
         exists: {
           team: true,
+          isCoreMember: true,
         },
         ne: {
           isInactive: true,
