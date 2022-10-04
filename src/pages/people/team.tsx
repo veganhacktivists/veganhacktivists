@@ -13,6 +13,7 @@ import { useHash } from '../../hooks/useHash';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
 import CustomImage from '../../components/decoration/customImage';
+import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
 
@@ -51,96 +52,57 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   member,
   teamColor,
 }) => {
-  const { name, team, position, image, isTeamLeader, socialLinks } =
+  const { name, team, position, bio, image, isTeamLeader, socialLinks } =
     member.fields;
   const { name: teamName } = team!.fields;
+  // const {  }
 
   return (
-    <div className="w-64">
-      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
-        {image && (
-          <div className="relative w-full filter grayscale group-hover:grayscale-0">
-            <ContentfulImage
-              downloadWidth={500}
-              image={image}
-              alt={name}
-              priority={isTeamLeader}
-            />
-            <div
-              className={
-                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
-              }
-              style={{
-                backgroundColor: teamColor,
-              }}
-            />
-          </div>
-        )}
-        <div
-          style={{ backgroundColor: teamColor }}
-          className={'absolute w-8 h-8'}
-        />
-      </div>
-      <div className="font-bold">{name}</div>
-      <div>
-        <span className="mx-1">{position};</span>
-        <div style={{ color: teamColor }} className="font-bold uppercase">
-          {teamName}
-        </div>
-      </div>
-      {socialLinks && (
-        <div className="mt-2">
-          <SocialLinks
-            socialLinks={socialLinks.fields}
-            className="justify-center"
+    <div className="flex flex-row">
+      <div className="flex-none w-64 h-64">
+        <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
+          {image && (
+            <div className="relative w-full filter grayscale group-hover:grayscale-0">
+              <ContentfulImage
+                downloadWidth={500}
+                image={image}
+                alt={name}
+                priority={isTeamLeader}
+              />
+              <div
+                className={
+                  'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
+                }
+                style={{
+                  backgroundColor: teamColor,
+                }}
+              />
+            </div>
+          )}
+          <div
+            style={{ backgroundColor: teamColor }}
+            className={'absolute w-8 h-8'}
           />
         </div>
-      )}
-    </div>
-  );
-};
-
-const TeamSelector: React.FC<{
-  teams: ITeam[];
-  selectedTeam: string | null;
-}> = ({ teams, selectedTeam }) => {
-  const [hovered, setHovered] = useState<string | null>();
-
-  const getBackgroundColor = (slug: string, color: string) => {
-    if (selectedTeam === slug || hovered === slug) {
-      return color;
-    }
-    return undefined;
-  };
-
-  return (
-    <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
-      {teams
-        .map((t) => t.fields)
-        .map(({ name, color, icon, sprite, slug }) => (
-          <Link key={slug} href={{ hash: slug }}>
-            <a
-              style={{ backgroundColor: getBackgroundColor(slug, color) }}
-              className={'w-20 h-20 flex-grow-0 transition-colors'}
-              onPointerEnter={() => setHovered(slug)}
-              onPointerLeave={() =>
-                setHovered((curr) => (curr === slug ? null : curr))
-              }
-            >
-              {sprite ? (
-                <ContentfulImage
-                  image={sprite}
-                  alt={name}
-                  width={75}
-                  height={75}
-                  priority
-                />
-              ) : (
-                <div className="text-4xl">{icon}</div>
-              )}
-            </a>
-          </Link>
-        ))}
+      </div>
+      <div className="grow justify text-left mx-6">
+        <div className="text-xl font-bold">{name}</div>
+        <div>
+          <span className="font-bold uppercase text-gray-400">{position}</span>
+          <span className="mx-1 text-gray-400">&bull;</span>
+          <span style={{ color: teamColor }} className="font-bold uppercase">
+            {teamName}
+          </span>
+          <div className="mt-2 text-sm">
+            <RichText document={bio} />
+          </div>
+        </div>
+        {socialLinks && (
+          <div>
+            <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -161,16 +123,14 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 
   return (
     <div className="md:mx-auto md:w-4/6">
-      <div className="flex flex-wrap justify-center">
-        {members.map((m) => (
-          <div className="m-5" key={m.sys.id}>
-            <TeamMemberCard
-              member={m}
-              teamColor={colorMap[m.fields.team!.fields.name]}
-            />
-          </div>
-        ))}
-      </div>
+      {members.map((m) => (
+        <div className="m-5" key={m.sys.id}>
+          <TeamMemberCard
+            member={m}
+            teamColor={colorMap[m.fields.team!.fields.name]}
+          />
+        </div>
+      ))}
     </div>
   );
 };
@@ -243,14 +203,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
   return (
     <>
       <NextSeo title="Our Team" />
-      <FirstSubSection header="Our team">
-        We&apos;re so grateful to have so many passionate vegan volunteers with
-        us supporting the movement! Each team below is run independently from
-        each other and are assigned to different projects or organizations.{' '}
-        <b>Please click one of the icons below!</b>
-      </FirstSubSection>
       <div className="m-10">
-        <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
           <div className="mt-10 flex justify-center">
