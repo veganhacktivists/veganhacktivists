@@ -48,63 +48,100 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
-  member,
-  teamColor,
-}) => {
-  const { name, team, position, bio, image, isTeamLeader, socialLinks } =
-    member.fields;
-  const { name: teamName } = team!.fields;
-  // const {  }
+const TeamMemberCardPhoto: React.FC<{
+  member: ITeamMember;
+  teamColor: string;
+}> = ({ member, teamColor }) => {
+  const { name, image, isTeamLeader } = member.fields;
 
   return (
-    <div className="flex flex-row">
-      <div className="flex-none w-64 h-64">
-        <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
-          {image && (
-            <div className="relative w-full filter grayscale group-hover:grayscale-0">
-              <ContentfulImage
-                downloadWidth={500}
-                image={image}
-                alt={name}
-                priority={isTeamLeader}
-              />
-              <div
-                className={
-                  'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
-                }
-                style={{
-                  backgroundColor: teamColor,
-                }}
-              />
-            </div>
-          )}
-          <div
-            style={{ backgroundColor: teamColor }}
-            className={'absolute w-8 h-8'}
-          />
-        </div>
-      </div>
-      <div className="grow justify text-left mx-6">
-        <div className="text-xl font-bold">{name}</div>
-        <div>
-          <span className="font-bold uppercase text-gray-400">{position}</span>
-          <span className="mx-1 text-gray-400">&bull;</span>
-          <span style={{ color: teamColor }} className="font-bold uppercase">
-            {teamName}
-          </span>
-          <div className="mt-2 text-sm">
-            <RichText document={bio} />
-          </div>
-        </div>
-        {socialLinks && (
-          <div>
-            <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
+    <div className="flex-none mx-4 w-64 h-64">
+      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
+        {image && (
+          <div className="relative w-full filter grayscale group-hover:grayscale-0">
+            <ContentfulImage
+              downloadWidth={500}
+              image={image}
+              alt={name}
+              priority={isTeamLeader}
+            />
+            <div
+              className={
+                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
+              }
+              style={{
+                backgroundColor: teamColor,
+              }}
+            />
           </div>
         )}
+        <div
+          style={{ backgroundColor: teamColor }}
+          className={'absolute w-8 h-8'}
+        />
       </div>
     </div>
   );
+};
+
+const TeamMemberCardBody: React.FC<{
+  member: ITeamMember;
+  teamColor: string;
+}> = ({ member, teamColor }) => {
+  const { name, team, position, bio, socialLinks } = member.fields;
+  const { name: teamName } = team!.fields;
+
+  return (
+    <div className="grow shrink lg:text-left mx-4 justify-center lg:justify-start">
+      <div className="text-xl font-bold text-grey">{name}</div>
+      <div>
+        <span className="font-bold uppercase text-grey-light">{position}</span>
+        <span className="mx-1 text-grey-light">&bull;</span>
+        <span style={{ color: teamColor }} className="font-bold uppercase">
+          {teamName}
+        </span>
+        <div className="mt-2 text-sm">
+          <RichText document={bio} />
+        </div>
+      </div>
+      {socialLinks && (
+        <div>
+          <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const TeamMemberCard: React.FC<{
+  member: ITeamMember;
+  teamColor: string;
+  showPhotoFirst: boolean;
+  showDividerBelow: boolean;
+}> = ({ member, teamColor, showPhotoFirst, showDividerBelow }) => {
+  if (showPhotoFirst) {
+    return (
+      <div
+        className={`flex flex-wrap lg:flex-nowrap justify-center lg:justify-start pb-8 mb-0 border-grey-light ${
+          showDividerBelow ? 'border-b-2' : ''
+        }`}
+      >
+        <TeamMemberCardPhoto member={member} teamColor={teamColor} />
+        <TeamMemberCardBody member={member} teamColor={teamColor} />
+      </div>
+    );
+  } else {
+    return (
+      <div
+        className={`flex flex-wrap-reverse lg:flex-nowrap justify-center lg:justify-start pb-8 mb-0 border-grey-light ${
+          showDividerBelow ? 'border-b-2' : ''
+        }`}
+      >
+        <TeamMemberCardBody member={member} teamColor={teamColor} />
+        <TeamMemberCardPhoto member={member} teamColor={teamColor} />
+      </div>
+    );
+  }
 };
 
 const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
@@ -123,11 +160,13 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 
   return (
     <div className="md:mx-auto md:w-4/6">
-      {members.map((m) => (
+      {members.map((m, index) => (
         <div className="m-5" key={m.sys.id}>
           <TeamMemberCard
             member={m}
             teamColor={colorMap[m.fields.team!.fields.name]}
+            showPhotoFirst={!(index % 2)}
+            showDividerBelow={index + 1 < members.length}
           />
         </div>
       ))}
