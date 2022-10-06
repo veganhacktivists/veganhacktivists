@@ -81,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative mx-auto text-2xl text-white md:w-1/2">
-          Building for the animal protection movement since 2019.
+          Building for the animal protection movement since 2019
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
