@@ -17,8 +17,8 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
           <b className="text-5xl font-mono">BLOG</b>
         </p>
         <p className="pb-16">
-          We regularly post project updates, announcements, interviews, and
-          other fun stuff here! Thanks for reading!
+          Read our blog post for project updates, announcements, 
+          interviews, guest editorials, and much more. 
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-2 gap-y-4 lg:px-32 px-4">

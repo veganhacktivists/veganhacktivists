@@ -13,10 +13,9 @@ const JoinTheTeam: React.FC = () => {
         </p>
         <CustomImage src={teamIcons} alt="Compassion, Creativity, Code" />
         <p className="pb-5 mt-4 text-white">
-          Are you a developer, designer, writer, or other creative professional
-          wanting to use skills for the animals? We&apos;re always looking for
-          more vegan activist volunteers to join our team! If you&apos;re
-          interested and have the time to spare, click to see our positions.
+          Are you a developer, designer, writer, or a creative professional
+          interested in applying your digital skills for the animals? Learn more
+          about our team members and view our openings below.
         </p>
         <div className="flex justify-center flex-wrap">
           <LightButton

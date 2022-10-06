@@ -70,11 +70,11 @@ const GrantsCallToAction: React.FC = () => {
           image={beeImage}
           boxicon={beeIcon}
           backgroundColor="white"
-          title="Apply for a $1000 VH seed grant"
-          button={{ content: <>Apply&nbsp;now!</>, href: '/grants' }}
+          title="Apply for a seed grant"
+          button={{ content: <>Apply&nbsp;Now</>, href: '/grants' }}
         >
-          We&apos;re excited to offer grants for oustanding, and effective,
-          animal rights activism!
+          We offer grants for impactful and effective work in animal 
+          advocacy and activism.
         </Info>
         <Info
           image={impactReviewImage}
@@ -87,7 +87,7 @@ const GrantsCallToAction: React.FC = () => {
           }}
         >
           Read our annual impact review and see what we&apos;ve accomplished
-          last year!
+          last year.
         </Info>
       </div>
     </div>
