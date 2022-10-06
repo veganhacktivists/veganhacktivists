@@ -174,15 +174,15 @@ model PlaygroundRequest {
 }
 
 model DataDashboardData {
-  id                   String              @id @default(cuid()) @db.VarChar(30)
-  timestamp            DateTime            @default(now())
+  id                   String               @id @default(cuid()) @db.VarChar(30)
+  timestamp            DateTime             @default(now())
   category             String?
   subcategory          String?
   graphId              String
-  value                DataDashboardValue? @relation(fields: [dataDashboardValueId], references: [id])
-  dataDashboardValueId String?             @db.VarChar(30)
-  DataDashboardGraph   DataDashboardGraph  @relation(fields: [dataDashboardGraphId], references: [id])
-  dataDashboardGraphId String              @db.VarChar(30)
+  values               DataDashboardValue[]
+  dataDashboardValueId String?              @db.VarChar(30)
+  DataDashboardGraph   DataDashboardGraph   @relation(fields: [dataDashboardGraphId], references: [id])
+  dataDashboardGraphId String               @db.VarChar(30)
 }
 
 enum DashboardValueType {
@@ -191,10 +191,11 @@ enum DashboardValueType {
 }
 
 model DataDashboardValue {
-  id                String              @id @default(cuid()) @db.VarChar(30)
-  key               DashboardValueType
-  value             String?
-  DataDashboardData DataDashboardData[]
+  id                  String             @id @default(cuid()) @db.VarChar(30)
+  key                 DashboardValueType
+  value               String?
+  DataDashboardData   DataDashboardData? @relation(fields: [dataDashboardDataId], references: [id])
+  dataDashboardDataId String?            @db.VarChar(30)
 }
 
 model DataDashboardGraph {
