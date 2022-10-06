@@ -73,8 +73,8 @@ const GrantsCallToAction: React.FC = () => {
           title="Apply for a seed grant"
           button={{ content: <>Apply&nbsp;Now</>, href: '/grants' }}
         >
-          We offer grants for impactful and effective work in animal 
-          advocacy and activism.
+          We offer grants for impactful and effective work in animal advocacy
+          and activism.
         </Info>
         <Info
           image={impactReviewImage}

@@ -108,10 +108,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         </p>
         <p className="pb-5">
           We are a global community of passionate animal advocates offering our
-          skills in building technology for the animal protection movement through{' '}
-          <b>design, development, and data</b>.
-          As capacity builders, we deliver innovative and quality services at no
-          cost to advocates and organizations.
+          skills in building technology for the animal protection movement
+          through <b>design, development, and data</b>. As capacity builders, we
+          deliver innovative and quality services at no cost to advocates and
+          organizations.
         </p>
         <p className="pb-5">
           Our team is composed of highly-skilled and professional software
@@ -183,8 +183,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           </p>
           <p>
             Every project we release is <b>100% free for everyone</b>. We
-            believe in accessibility and transparency, and our projects
-            reflect those values.
+            believe in accessibility and transparency, and our projects reflect
+            those values.
           </p>
           <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
             {featuredProjects.map((project) => (
