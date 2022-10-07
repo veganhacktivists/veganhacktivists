@@ -15,6 +15,287 @@ import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import SquareField from '../../components/decoration/squares';
 
+import LineChart from './lineChart';
+
+import type { LineChartData } from './lineChart';
+
+/* TODO: Remove hardcoded data */
+const dataDashboardGraph = {
+  id: '5m5v',
+  label: '5 Minutes 5 Vegans',
+  data: [
+    {
+      id: 'click_0',
+      timestamp: '2021-11-15',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 90,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 90,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-11-21',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 15,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 15,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-11-28',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 50,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 50,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-05',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 60,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 60,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-12',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 80,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 80,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-19',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 70,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 70,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-25',
+      category: 'English Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 60,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 60,
+        },
+      ],
+    },
+    // German Bot Data
+    {
+      id: 'click_0',
+      timestamp: '2021-11-15',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 40,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 40,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-11-21',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 50,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 50,
+        },
+      ],
+    },
+    {
+      id: '0',
+      timestamp: '2021-11-28',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 90,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 90,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-05',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 95,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 95,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-12',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 100,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 100,
+        },
+      ],
+    },
+    {
+      id: 'click_0',
+      timestamp: '2021-12-19',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 50,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 50,
+        },
+      ],
+    },
+    {
+      id: '0',
+      timestamp: '2021-12-25',
+      category: 'German Bot',
+      values: [
+        {
+          id: '0',
+          key: 'clicks',
+          value: 90,
+        },
+        {
+          id: '1',
+          key: 'comments',
+          value: 90,
+        },
+      ],
+    },
+  ],
+};
+
+const englishClicks: LineChartData = {
+  id: 'English Bot',
+  color: '#DD3E2B',
+  data: dataDashboardGraph.data
+    .filter((d) => d.category == 'English Bot')
+    .map((d) => {
+      {
+        return {
+          x: d.timestamp,
+          y: d.values.filter((d) => d.key == 'clicks')[0].value,
+        };
+      }
+    }),
+};
+
+const germanClicks: LineChartData = {
+  id: 'German Bot',
+  color: '#7F3C97',
+  data: dataDashboardGraph.data
+    .filter((d) => d.category == 'German Bot')
+    .map((d) => {
+      {
+        return {
+          x: d.timestamp,
+          y: d.values.filter((d) => d.key == 'clicks')[0].value,
+        };
+      }
+    }),
+};
+
 const Tagline: React.FC = () => (
   <div className="lg:pt-10 md:pt-0">
     <CustomImage
@@ -241,7 +522,12 @@ const Data: React.FC = () => {
                 <div className="flex bg-gray-dark h-3">
                   <div className="bg-orange h-full w-10" />
                 </div>
-                <div className="h-28 bg-white" />
+                <div className="h-[28rem] bg-white">
+                  <LineChart
+                    data={[englishClicks, germanClicks]}
+                    yLabel="Number of retweets"
+                  />
+                </div>
               </div>
             </div>
             <div id="number-of-replies" className=" w-full mb-8">
