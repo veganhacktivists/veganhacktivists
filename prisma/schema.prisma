@@ -178,7 +178,7 @@ model DataDashboardData {
   timestamp              DateTime              @default(now())
   category               String?
   subcategory            String?
-  graphId                String
+  projectId              String
   values                 DataDashboardValue[]
   dataDashboardValueId   String?               @db.VarChar(30)
   DataDashboardProject   DataDashboardProject? @relation(fields: [dataDashboardProjectId], references: [id])
