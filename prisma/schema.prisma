@@ -198,6 +198,6 @@ model DataDashboardValue {
 
 model DataDashboardProject {
   id    String              @id @default(cuid()) @db.VarChar(30)
-  label String
+  label String              @unique
   data  DataDashboardData[]
 }
