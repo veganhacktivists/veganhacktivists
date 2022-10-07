@@ -7,6 +7,7 @@ import {
   TimePerWeek,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
+import { DateTime } from 'luxon';
 
 import type { Prisma } from '@prisma/client';
 
@@ -143,6 +144,78 @@ const seedApplications = async (n: number = NUMBER) => {
   console.log('Seeded', count, 'applications');
 };
 
+const seedDataDashboardProjects = async () => {
+  const projects: string[] = [
+    '5 minutes 5 vegans',
+    'dominion.org',
+    'vegans of reddit',
+  ];
+  const projectEntries: Prisma.DataDashboardProjectCreateManyInput[] =
+    projects.map((project) => {
+      return {
+        label: project,
+      };
+    });
+  const { count } = await prisma.dataDashboardProject.createMany({
+    data: projectEntries,
+  });
+  console.log('Seeded', count, 'data-dashboard projects');
+};
+
+const seedDataDashboardData = async (n: number) => {
+  const projects = await prisma.dataDashboardProject.findMany();
+  let dataCounter = 0;
+  for (const project of projects) {
+    const dataList: { id: string }[] = [];
+    for (let i = 0; i < n; i++) {
+      const values: Prisma.DataDashboardValueCreateManyInput[] = [
+        {
+          key: 'clicks',
+          value: faker.datatype.number({ min: 0, max: 200 }).toString(),
+        },
+        {
+          key: 'comments',
+          value: faker.datatype.number({ min: 0, max: 200 }).toString(),
+        },
+      ];
+      const data: Prisma.DataDashboardDataCreateInput = {
+        timestamp: faker.datatype.datetime({
+          min: DateTime.now().minus({ days: 30 }).toUnixInteger(),
+          max: DateTime.now().toUnixInteger(),
+        }),
+        values: {
+          createMany: {
+            data: values,
+          },
+        },
+      };
+      const { id: dataId } = await prisma.dataDashboardData.create({
+        data: data,
+      });
+      dataList.push({ id: dataId });
+      dataCounter++;
+    }
+    await prisma.dataDashboardProject.update({
+      where: {
+        id: project.id,
+      },
+      data: {
+        data: {
+          connect: dataList,
+        },
+      },
+    });
+  }
+
+  console.log('Seeded', dataCounter, 'data-dashboard data entries');
+  console.log('Seeded', dataCounter * 2, 'data-dashboard data values');
+};
+
+const seedDataDashboard = async () => {
+  await seedDataDashboardProjects();
+  await seedDataDashboardData(20);
+};
+
 const cleanup = async () => {
   await prisma.discordMessage.deleteMany();
   await prisma.playgroundApplication.deleteMany();
@@ -152,6 +225,9 @@ const cleanup = async () => {
       emailVerified: null,
     },
   });
+  await prisma.dataDashboardValue.deleteMany();
+  await prisma.dataDashboardData.deleteMany();
+  await prisma.dataDashboardProject.deleteMany();
 };
 
 async function main() {
@@ -159,6 +235,7 @@ async function main() {
   await seedUsers();
   await seedRequests();
   await seedApplications(NUMBER / 10);
+  await seedDataDashboard();
 }
 
 main()
