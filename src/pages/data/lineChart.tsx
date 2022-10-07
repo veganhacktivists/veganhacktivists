@@ -64,27 +64,33 @@ const LineChart: React.FC<LineChartProps> = ({ data, xLabel, yLabel }) => {
           tickPadding: 20,
         }}
         pointLabelYOffset={-12}
-        legends={[
-          {
-            anchor: 'bottom-left',
-            direction: 'column',
-            translateX: -20,
-            translateY: 120,
-            itemDirection: 'left-to-right',
-            itemWidth: 200,
-            itemHeight: 25,
-            symbolSize: 8,
-            symbolShape: 'circle',
-            effects: [
-              {
-                on: 'hover',
-                style: {
-                  itemOpacity: 0.8,
-                },
+        legends={data.map((d, index) => ({
+          data: [
+            {
+              id: d.id,
+              color: d.color,
+              label: d.id,
+            },
+          ],
+          anchor: 'bottom-left',
+          direction: 'column',
+          translateX: -20,
+          translateY: 100 + index * 20,
+          itemDirection: 'left-to-right',
+          itemWidth: 200,
+          itemHeight: 25,
+          itemTextColor: d.color,
+          symbolSize: 8,
+          symbolShape: 'circle',
+          effects: [
+            {
+              on: 'hover',
+              style: {
+                itemOpacity: 0.8,
               },
-            ],
-          },
-        ]}
+            },
+          ],
+        }))}
         useMesh
         tooltip={({ point }) => {
           const { serieId, data, color } = point;
