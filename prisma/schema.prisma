@@ -179,7 +179,6 @@ model DataDashboardData {
   category               String?
   subcategory            String?
   values                 DataDashboardValue[]
-  dataDashboardValueId   String?               @db.VarChar(30)
   DataDashboardProject   DataDashboardProject? @relation(fields: [dataDashboardProjectId], references: [id])
   dataDashboardProjectId String?               @db.VarChar(30)
 }
