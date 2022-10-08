@@ -88,16 +88,19 @@ const TeamMemberCardBody: React.FC<{
 
   return (
     <div className="grow shrink lg:text-left justify-center lg:justify-start">
-      <div className="text-xl font-bold text-grey">{name}</div>
+      <div className="text-2xl font-bold text-grey">{name}</div>
       <div>
-        <span className="font-bold uppercase text-grey text-opacity-80">
+        <span className="font-bold text-lg uppercase text-grey text-opacity-80">
           {position}
         </span>
-        <span className="mx-1 text-grey-light">&bull;</span>
-        <span style={{ color: teamColor }} className="font-bold uppercase">
+        <span className="mx-1 text-lg text-grey-light">&bull;</span>
+        <span
+          style={{ color: teamColor }}
+          className="font-bold text-lg uppercase"
+        >
           {teamName}
         </span>
-        <div className="mt-2 text-justify lg:text-left text-sm">
+        <div className="mt-2 text-justify lg:text-left">
           {bio && <RichText document={bio} />}
         </div>
       </div>
