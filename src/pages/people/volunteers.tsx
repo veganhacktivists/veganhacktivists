@@ -1,15 +1,18 @@
 import { NextSeo } from 'next-seo';
+import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
+import { WhiteButton } from '../../components/decoration/buttons';
 import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
+import { useHash } from '../../hooks/useHash';
 import shuffle from '../../lib/helpers/shuffle';
+import useViewMore from '../../hooks/useViewMore';
 import CustomImage from '../../components/decoration/customImage';
-import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
 
@@ -24,12 +27,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const teamMembers = await getContents<ITeamFields>({
     contentType: 'teamMember',
     query: {
-      isCoreMember: true,
+      isCoreMember: false,
       type: 'team',
       filters: {
         exists: {
           team: true,
-          isCoreMember: true,
         },
         ne: {
           isInactive: true,
@@ -45,14 +47,16 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const TeamMemberCardPhoto: React.FC<{
-  member: ITeamMember;
-  teamColor: string;
-}> = ({ member, teamColor }) => {
-  const { name, image, isTeamLeader } = member.fields;
+const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
+  member,
+  teamColor,
+}) => {
+  const { name, team, position, image, isTeamLeader, socialLinks } =
+    member.fields;
+  const { name: teamName } = team!.fields;
 
   return (
-    <div className="flex-none w-64 h-64">
+    <div className="w-64">
       <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
           <div className="relative w-full filter grayscale group-hover:grayscale-0">
@@ -77,70 +81,68 @@ const TeamMemberCardPhoto: React.FC<{
           className={'absolute w-8 h-8'}
         />
       </div>
-    </div>
-  );
-};
-
-const TeamMemberCardBody: React.FC<{
-  member: ITeamMember;
-  teamColor: string;
-}> = ({ member, teamColor }) => {
-  const { name, team, position, bio, socialLinks } = member.fields;
-  const { name: teamName } = team!.fields;
-
-  return (
-    <div className="grow shrink lg:text-left justify-center lg:justify-start">
-      <div className="text-xl font-bold text-grey">{name}</div>
+      <div className="font-bold">{name}</div>
       <div>
-        <span className="font-bold uppercase text-grey text-opacity-80">
-          {position}
-        </span>
-        <span className="mx-1 text-grey-light">&bull;</span>
-        <span style={{ color: teamColor }} className="font-bold uppercase">
+        <span className="mx-1">{position}</span>
+        <div style={{ color: teamColor }} className="font-bold uppercase">
           {teamName}
-        </span>
-        <div className="mt-2 text-justify lg:text-left text-sm">
-          {bio && <RichText document={bio} />}
         </div>
       </div>
       {socialLinks && (
-        <div>
-          <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
+        <div className="mt-2">
+          <SocialLinks
+            socialLinks={socialLinks.fields}
+            className="justify-center"
+          />
         </div>
       )}
     </div>
   );
 };
 
-const TeamMemberCard: React.FC<{
-  member: ITeamMember;
-  teamColor: string;
-  showPhotoFirst: boolean;
-  showDividerBelow: boolean;
-}> = ({ member, teamColor, showPhotoFirst, showDividerBelow }) => {
-  if (showPhotoFirst) {
-    return (
-      <div
-        className={`flex flex-col lg:flex-row flex-wrap items-center gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8 mb-0 border-grey-light border-opacity-40 ${
-          showDividerBelow ? 'border-b-2' : ''
-        }`}
-      >
-        <TeamMemberCardPhoto member={member} teamColor={teamColor} />
-        <TeamMemberCardBody member={member} teamColor={teamColor} />
-      </div>
-    );
-  } else {
-    return (
-      <div
-        className={`flex flex-col-reverse lg:flex-row items-center flex-wrap-reverse gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8  mb-0 border-grey-light border-opacity-40 ${
-          showDividerBelow ? 'border-b-2' : ''
-        }`}
-      >
-        <TeamMemberCardBody member={member} teamColor={teamColor} />
-        <TeamMemberCardPhoto member={member} teamColor={teamColor} />
-      </div>
-    );
-  }
+const TeamSelector: React.FC<{
+  teams: ITeam[];
+  selectedTeam: string | null;
+}> = ({ teams, selectedTeam }) => {
+  const [hovered, setHovered] = useState<string | null>();
+
+  const getBackgroundColor = (slug: string, color: string) => {
+    if (selectedTeam === slug || hovered === slug) {
+      return color;
+    }
+    return undefined;
+  };
+
+  return (
+    <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
+      {teams
+        .map((t) => t.fields)
+        .map(({ name, color, icon, sprite, slug }) => (
+          <Link key={slug} href={{ hash: slug }}>
+            <a
+              style={{ backgroundColor: getBackgroundColor(slug, color) }}
+              className={'w-20 h-20 flex-grow-0 transition-colors'}
+              onPointerEnter={() => setHovered(slug)}
+              onPointerLeave={() =>
+                setHovered((curr) => (curr === slug ? null : curr))
+              }
+            >
+              {sprite ? (
+                <ContentfulImage
+                  image={sprite}
+                  alt={name}
+                  width={75}
+                  height={75}
+                  priority
+                />
+              ) : (
+                <div className="text-4xl">{icon}</div>
+              )}
+            </a>
+          </Link>
+        ))}
+    </div>
+  );
 };
 
 const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
@@ -159,18 +161,40 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 
   return (
     <div className="md:mx-auto md:w-4/6">
-      {members.map((m, index) => (
-        <div className="m-5" key={m.sys.id}>
-          <TeamMemberCard
-            member={m}
-            teamColor={colorMap[m.fields.team!.fields.name]}
-            showPhotoFirst={!(index % 2)}
-            showDividerBelow={index + 1 < members.length}
-          />
-        </div>
-      ))}
+      <div className="flex flex-wrap justify-center">
+        {members.map((m) => (
+          <div className="m-5" key={m.sys.id}>
+            <TeamMemberCard
+              member={m}
+              teamColor={colorMap[m.fields.team!.fields.name]}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
+};
+
+const useFilteredMembers = (
+  allMembers: ITeamMember[],
+  selectedTeam: string | null,
+  pageSize: number,
+  pageNumber: number
+) => {
+  return useMemo(() => {
+    const filteredByTeam = selectedTeam
+      ? allMembers.filter((p) => {
+          return p.fields.team?.fields.slug === selectedTeam;
+        })
+      : allMembers;
+
+    const paged = filteredByTeam.slice(0, pageSize * pageNumber);
+
+    return {
+      members: paged,
+      totalMembers: filteredByTeam.length,
+    };
+  }, [allMembers, selectedTeam, pageSize, pageNumber]);
 };
 
 const TEAM_SQUARES = [
@@ -186,10 +210,27 @@ interface TeamProps {
 }
 
 const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
-  const [members, setMembers] = useState<ITeamMember[]>([]);
+  const [team] = useHash();
+
+  const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
+  const [shuffledTeamMembers, setShuffledTeamMembers] = useState<ITeamMember[]>(
+    []
+  );
+
+  const { pageNumber, pageSize, viewMore } = useViewMore();
+  const { members, totalMembers } = useFilteredMembers(
+    shuffledTeamMembers,
+    team,
+    pageSize,
+    pageNumber
+  );
 
   useEffect(() => {
-    setMembers([
+    setShuffledTeams(shuffle(teams));
+  }, [teams]);
+
+  useEffect(() => {
+    setShuffledTeamMembers([
       ...shuffle<ITeamMember>(
         teamMembers.filter((member) => member.fields.isTeamLeader)
       ),
@@ -201,9 +242,26 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
 
   return (
     <>
-      <NextSeo title="Our Team" />
+      <NextSeo title="Our Volunteers" />
+      <FirstSubSection header="Our volunteers">
+        We&apos;re so grateful to have so many passionate vegan volunteers with
+        us supporting the movement! Each team below is run independently from
+        each other and are assigned to different projects or organizations.{' '}
+        <b>Please click one of the icons below!</b>
+      </FirstSubSection>
       <div className="m-10">
+        <TeamSelector selectedTeam={team} teams={shuffledTeams} />
         <MemberList members={members} teams={teams} />
+        {members.length < totalMembers && (
+          <div className="mt-10 flex justify-center">
+            <WhiteButton
+              className="content-center font-mono text-2xl"
+              onClick={() => viewMore()}
+            >
+              Load more
+            </WhiteButton>
+          </div>
+        )}
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="px-10 pt-16 pb-10 bg-gray-background">
