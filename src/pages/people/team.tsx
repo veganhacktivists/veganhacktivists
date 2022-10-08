@@ -121,7 +121,7 @@ const TeamMemberCard: React.FC<{
   if (showPhotoFirst) {
     return (
       <div
-        className={`flex flex-col lg:flex-row flex-wrap items-center gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8 mb-0 border-grey-light border-opacity-40 ${
+        className={`flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8 mb-0 border-grey-light border-opacity-40 ${
           showDividerBelow ? 'border-b-2' : ''
         }`}
       >
@@ -132,7 +132,7 @@ const TeamMemberCard: React.FC<{
   } else {
     return (
       <div
-        className={`flex flex-col-reverse lg:flex-row items-center flex-wrap-reverse gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8  mb-0 border-grey-light border-opacity-40 ${
+        className={`flex flex-col-reverse lg:flex-row items-center lg:items-start flex-wrap-reverse gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8  mb-0 border-grey-light border-opacity-40 ${
           showDividerBelow ? 'border-b-2' : ''
         }`}
       >
