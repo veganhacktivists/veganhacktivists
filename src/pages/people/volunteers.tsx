@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const teamMembers = await getContents<ITeamFields>({
     contentType: 'teamMember',
     query: {
+      isCoreMember: false,
       type: 'team',
       filters: {
         exists: {
@@ -34,7 +35,6 @@ export const getStaticProps: GetStaticProps = async () => {
         },
         ne: {
           isInactive: true,
-          isCoreMember: true,
         },
       },
     },

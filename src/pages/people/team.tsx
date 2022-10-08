@@ -1,17 +1,13 @@
 import { NextSeo } from 'next-seo';
-import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
-import { WhiteButton } from '../../components/decoration/buttons';
 import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import { useHash } from '../../hooks/useHash';
 import shuffle from '../../lib/helpers/shuffle';
-import useViewMore from '../../hooks/useViewMore';
 import CustomImage from '../../components/decoration/customImage';
 import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
@@ -28,6 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const teamMembers = await getContents<ITeamFields>({
     contentType: 'teamMember',
     query: {
+      isCoreMember: true,
       type: 'team',
       filters: {
         exists: {
@@ -55,7 +52,7 @@ const TeamMemberCardPhoto: React.FC<{
   const { name, image, isTeamLeader } = member.fields;
 
   return (
-    <div className="flex-none mx-4 w-64 h-64">
+    <div className="flex-none w-64 h-64">
       <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
           <div className="relative w-full filter grayscale group-hover:grayscale-0">
@@ -92,16 +89,18 @@ const TeamMemberCardBody: React.FC<{
   const { name: teamName } = team!.fields;
 
   return (
-    <div className="grow shrink lg:text-left mx-4 justify-center lg:justify-start">
+    <div className="grow shrink lg:text-left justify-center lg:justify-start">
       <div className="text-xl font-bold text-grey">{name}</div>
       <div>
-        <span className="font-bold uppercase text-grey-light">{position}</span>
+        <span className="font-bold uppercase text-grey text-opacity-80">
+          {position}
+        </span>
         <span className="mx-1 text-grey-light">&bull;</span>
         <span style={{ color: teamColor }} className="font-bold uppercase">
           {teamName}
         </span>
-        <div className="mt-2 text-sm">
-          <RichText document={bio} />
+        <div className="mt-2 text-justify lg:text-left text-sm">
+          {bio && <RichText document={bio} />}
         </div>
       </div>
       {socialLinks && (
@@ -122,7 +121,7 @@ const TeamMemberCard: React.FC<{
   if (showPhotoFirst) {
     return (
       <div
-        className={`flex flex-wrap lg:flex-nowrap justify-center lg:justify-start pb-8 mb-0 border-grey-light ${
+        className={`flex flex-col lg:flex-row flex-wrap items-center gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8 mb-0 border-grey-light border-opacity-40 ${
           showDividerBelow ? 'border-b-2' : ''
         }`}
       >
@@ -133,7 +132,7 @@ const TeamMemberCard: React.FC<{
   } else {
     return (
       <div
-        className={`flex flex-wrap-reverse lg:flex-nowrap justify-center lg:justify-start pb-8 mb-0 border-grey-light ${
+        className={`flex flex-col-reverse lg:flex-row items-center flex-wrap-reverse gap-4 lg:gap-8 lg:flex-nowrap justify-center lg:justify-start pb-12 pt-8 lg:pt-0 lg:pb-8  mb-0 border-grey-light border-opacity-40 ${
           showDividerBelow ? 'border-b-2' : ''
         }`}
       >
@@ -174,28 +173,6 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   );
 };
 
-const useFilteredMembers = (
-  allMembers: ITeamMember[],
-  selectedTeam: string | null,
-  pageSize: number,
-  pageNumber: number
-) => {
-  return useMemo(() => {
-    const filteredByTeam = selectedTeam
-      ? allMembers.filter((p) => {
-          return p.fields.team?.fields.slug === selectedTeam;
-        })
-      : allMembers;
-
-    const paged = filteredByTeam.slice(0, pageSize * pageNumber);
-
-    return {
-      members: paged,
-      totalMembers: filteredByTeam.length,
-    };
-  }, [allMembers, selectedTeam, pageSize, pageNumber]);
-};
-
 const TEAM_SQUARES = [
   { color: 'grey-light', size: 16, left: 0, bottom: 0 },
   { color: 'grey-lighter', size: 16, left: 16, top: 0 },
@@ -209,27 +186,10 @@ interface TeamProps {
 }
 
 const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
-  const [team] = useHash();
-
-  const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
-  const [shuffledTeamMembers, setShuffledTeamMembers] = useState<ITeamMember[]>(
-    []
-  );
-
-  const { pageNumber, pageSize, viewMore } = useViewMore();
-  const { members, totalMembers } = useFilteredMembers(
-    shuffledTeamMembers,
-    team,
-    pageSize,
-    pageNumber
-  );
+  const [members, setMembers] = useState<ITeamMember[]>([]);
 
   useEffect(() => {
-    setShuffledTeams(shuffle(teams));
-  }, [teams]);
-
-  useEffect(() => {
-    setShuffledTeamMembers([
+    setMembers([
       ...shuffle<ITeamMember>(
         teamMembers.filter((member) => member.fields.isTeamLeader)
       ),
@@ -244,16 +204,6 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       <NextSeo title="Our Team" />
       <div className="m-10">
         <MemberList members={members} teams={teams} />
-        {members.length < totalMembers && (
-          <div className="mt-10 flex justify-center">
-            <WhiteButton
-              className="content-center font-mono text-2xl"
-              onClick={() => viewMore()}
-            >
-              Load more
-            </WhiteButton>
-          </div>
-        )}
       </div>
       <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
       <div className="px-10 pt-16 pb-10 bg-gray-background">
