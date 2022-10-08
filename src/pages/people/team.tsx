@@ -55,7 +55,7 @@ const TeamMemberCardPhoto: React.FC<{
     <div className="flex-none w-64 h-64">
       <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
-          <div className="relative w-full filter grayscale group-hover:grayscale-0">
+          <div className="relative w-full filter">
             <ContentfulImage
               downloadWidth={500}
               image={image}
@@ -63,9 +63,7 @@ const TeamMemberCardPhoto: React.FC<{
               priority={isTeamLeader}
             />
             <div
-              className={
-                'left-0 top-0 w-full h-full absolute opacity-0 group-hover:opacity-10'
-              }
+              className={'left-0 top-0 w-full h-full absolute opacity-0'}
               style={{
                 backgroundColor: teamColor,
               }}
