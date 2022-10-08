@@ -83,7 +83,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
       </div>
       <div className="font-bold">{name}</div>
       <div>
-        <span className="mx-1">{position};</span>
+        <span className="mx-1">{position}</span>
         <div style={{ color: teamColor }} className="font-bold uppercase">
           {teamName}
         </div>
