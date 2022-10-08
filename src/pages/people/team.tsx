@@ -21,7 +21,7 @@ import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
   const teams = await getActiveTeams();
-  const teamMembers = await getContents<ITeamFields>({
+  const members = await getContents<ITeamFields>({
     contentType: 'teamMember',
     query: {
       isCoreMember: true,
@@ -36,11 +36,11 @@ export const getStaticProps: GetStaticProps = async () => {
         },
       },
     },
-    other: { order: 'fields.isTeamLeader' },
+    other: { order: 'fields.prio' },
   });
 
   return {
-    props: { teams, teamMembers },
+    props: { teams, members },
     revalidate: 480,
   };
 };
@@ -182,23 +182,10 @@ const TEAM_SQUARES = [
 
 interface TeamProps {
   teams: ITeam[];
-  teamMembers: ITeamMember[];
+  members: ITeamMember[];
 }
 
-const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
-  const [members, setMembers] = useState<ITeamMember[]>([]);
-
-  useEffect(() => {
-    setMembers([
-      ...shuffle<ITeamMember>(
-        teamMembers.filter((member) => member.fields.isTeamLeader)
-      ),
-      ...shuffle<ITeamMember>(
-        teamMembers.filter((member) => !member.fields.isTeamLeader)
-      ),
-    ]);
-  }, [teamMembers]);
-
+const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
   return (
     <>
       <NextSeo title="Our Team" />
