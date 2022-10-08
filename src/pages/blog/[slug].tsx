@@ -125,7 +125,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
           title,
           type: 'article',
           article: {
-            authors: [author.fields.name],
+            authors: [author?.fields?.name],
             modifiedTime: blog.sys.updatedAt,
             publishedTime: date.toISOString(),
             tags: blog.fields.tags?.map((tag) => tag.fields.name),
