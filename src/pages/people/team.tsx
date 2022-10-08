@@ -104,7 +104,7 @@ const TeamMemberCardBody: React.FC<{
         </div>
       </div>
       {socialLinks && (
-        <div>
+        <div className={'mt-6'}>
           <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
         </div>
       )}
