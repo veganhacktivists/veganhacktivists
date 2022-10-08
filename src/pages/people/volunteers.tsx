@@ -23,7 +23,9 @@ import type { ITeam } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teams = await getActiveTeams();
+  const teams = (await getActiveTeams()).filter((entry) => {
+    return entry.fields.slug !== 'sweet-potato';
+  });
   const teamMembers = await getContents<ITeamFields>({
     contentType: 'teamMember',
     query: {

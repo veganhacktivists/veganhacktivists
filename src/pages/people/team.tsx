@@ -7,7 +7,6 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import shuffle from '../../lib/helpers/shuffle';
 import CustomImage from '../../components/decoration/customImage';
 import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
