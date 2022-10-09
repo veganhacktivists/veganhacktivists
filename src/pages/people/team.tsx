@@ -80,25 +80,39 @@ const TeamMemberCardPhoto: React.FC<{
 
 const TeamMemberCardBody: React.FC<{
   member: ITeamMember;
-  teamColor: string;
-}> = ({ member, teamColor }) => {
+}> = ({ member }) => {
   const { name, team, position, bio, socialLinks } = member.fields;
-  const { name: teamName } = team!.fields;
+  const { name: teamName, sprite: teamSprite } = team!.fields;
 
   return (
     <div className="grow shrink lg:text-left justify-center lg:justify-start">
-      <div className="text-2xl font-bold text-grey">{name}</div>
+      <div className="text-2xl mb-[-6px] font-bold text-grey">{name}</div>
       <div>
-        <span className="font-bold text-lg uppercase text-grey text-opacity-80">
-          {position}
-        </span>
-        <span className="mx-1 text-lg text-grey-light">&bull;</span>
-        <span
-          style={{ color: teamColor }}
-          className="font-bold text-lg uppercase"
+        <div
+          className={
+            'flex flex-row justify-center lg:justify-start items-center'
+          }
         >
-          {teamName}
-        </span>
+          <span className="flex flex-col lg:flex-row items-center">
+            <span className="font-bold float-left text-lg uppercase text-grey text-opacity-80">
+              {position}
+            </span>
+            <span className="mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative">
+              &bull;
+            </span>
+            <div className={'ml-[-2px] float-left'}>
+              {teamSprite && (
+                <ContentfulImage
+                  image={teamSprite}
+                  alt={teamName}
+                  width={'40'}
+                  height={'40'}
+                  priority
+                />
+              )}
+            </div>
+          </span>
+        </div>
         <div className="mt-2 text-justify lg:text-left">
           {bio && <RichText document={bio} />}
         </div>
@@ -126,7 +140,7 @@ const TeamMemberCard: React.FC<{
         }`}
       >
         <TeamMemberCardPhoto member={member} teamColor={teamColor} />
-        <TeamMemberCardBody member={member} teamColor={teamColor} />
+        <TeamMemberCardBody member={member} />
       </div>
     );
   } else {
@@ -136,7 +150,7 @@ const TeamMemberCard: React.FC<{
           showDividerBelow ? 'border-b-2' : ''
         }`}
       >
-        <TeamMemberCardBody member={member} teamColor={teamColor} />
+        <TeamMemberCardBody member={member} />
         <TeamMemberCardPhoto member={member} teamColor={teamColor} />
       </div>
     );
