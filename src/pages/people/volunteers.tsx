@@ -15,6 +15,7 @@ import useViewMore from '../../hooks/useViewMore';
 import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
+import { useTeamStore } from '../../lib/stores/teamStore';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamFields } from '../../types/generated/contentful';
@@ -214,7 +215,7 @@ interface TeamProps {
 const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
   const [team] = useHash();
 
-  const [shuffledTeams, setShuffledTeams] = useState<ITeam[]>([]);
+  const teamStore = useTeamStore();
   const [shuffledTeamMembers, setShuffledTeamMembers] = useState<ITeamMember[]>(
     []
   );
@@ -228,8 +229,10 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
   );
 
   useEffect(() => {
-    setShuffledTeams(shuffle(teams));
-  }, [teams]);
+    if (teamStore.teamOrder.length <= 0) {
+      teamStore.setTeamOrder(shuffle(teams));
+    }
+  }, [teamStore, teams]);
 
   useEffect(() => {
     setShuffledTeamMembers([
@@ -252,7 +255,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         <b>Please click one of the icons below!</b>
       </FirstSubSection>
       <div className="m-10">
-        <TeamSelector selectedTeam={team} teams={shuffledTeams} />
+        <TeamSelector selectedTeam={team} teams={teamStore.teamOrder} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
           <div className="mt-10 flex justify-center">
