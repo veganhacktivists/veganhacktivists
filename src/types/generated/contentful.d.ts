@@ -435,6 +435,9 @@ export interface ITeamMemberFields {
 
   /** isCoreMember */
   isCoreMember: boolean;
+
+  /** prio */
+  prio?: number | undefined;
 }
 
 export interface ITeamMember extends Entry<ITeamMemberFields> {
