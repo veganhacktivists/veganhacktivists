@@ -18,6 +18,7 @@ interface HeroProps extends React.PropsWithChildren {
     image: StaticImageData;
     imageWidth?: number;
     alt: string;
+    biggerOnMobile?: boolean;
   };
   alignment: 'right' | 'left' | 'center';
   imageAlignment?: 'right' | 'left' | 'center';
@@ -28,7 +29,7 @@ interface HeroProps extends React.PropsWithChildren {
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
   backgroundImageProps = {},
-  tagline,
+  tagline = { biggerOnMobile: false },
   alignment,
   imageAlignment = 'center',
   children,
@@ -50,7 +51,8 @@ const Hero: React.FC<HeroProps> = ({
     'flex',
     'flex-col',
     'justify-center',
-    'w-1/2',
+    'md:w-1/2',
+    !tagline.biggerOnMobile ? 'w-1/2' : 'w-3/4',
     'z-10',
     { 'py-10 xl:mt-0': main },
     classNameMapping?.content
