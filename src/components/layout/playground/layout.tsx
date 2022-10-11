@@ -144,7 +144,7 @@ const PlaygroundStat: React.FC<{
   return (
     <div className="flex flex-col justify-center gap-5 mx-auto lg:flex-row place-items-center w-fit">
       <CustomImage src={icon} alt="" />
-      <div className="w-1/2 font-mono text-center lg:text-left text-grey">
+      <div className="w-3/4 lg:w-1/2 font-mono text-center lg:text-left text-grey">
         <div className="text-3xl font-bold leading-none">
           {value ?? <Spinner />}
         </div>
@@ -163,7 +163,7 @@ const PlaygroundStats: React.FC = () => {
   });
   return (
     <div>
-      <div className="grid justify-center mx-auto mt-16 mb-16 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 w-fit">
+      <div className="grid justify-center mx-auto mt-8 md:mt-24 mb-8 md:mb-16 grid-cols-2 md:grid-cols-4 gap-y-5 w-fit">
         <PlaygroundStat
           label="Open requests"
           icon={resumeIcon}
