@@ -69,6 +69,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
               : 'Volunteer for the Animals',
             image: isSupportPage ? submitTagline : volunteerTagline,
             imageWidth: 380,
+            biggerOnMobile: true,
           }}
           alignment="left"
           imageAlignment="right"
