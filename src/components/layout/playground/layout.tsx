@@ -71,6 +71,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
             imageWidth: 380,
           }}
           alignment="left"
+          imageAlignment="right"
           classNameMapping={{
             container: 'bg-center',
           }}
