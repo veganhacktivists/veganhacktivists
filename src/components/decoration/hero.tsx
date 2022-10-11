@@ -20,6 +20,7 @@ interface HeroProps extends React.PropsWithChildren {
     alt: string;
   };
   alignment: 'right' | 'left' | 'center';
+  imageAlignment?: 'right' | 'left' | 'center';
   classNameMapping?: HeroClassNames;
   main?: boolean;
 }
@@ -29,6 +30,7 @@ const Hero: React.FC<HeroProps> = ({
   backgroundImageProps = {},
   tagline,
   alignment,
+  imageAlignment = 'center',
   children,
   classNameMapping,
   main = false,
@@ -74,7 +76,15 @@ const Hero: React.FC<HeroProps> = ({
         src={imageBackground}
         layout="fill"
         objectFit="cover"
-        objectPosition={main ? 'top' : 'center'}
+        objectPosition={
+          main
+            ? 'top'
+            : imageAlignment === 'left'
+            ? 'left'
+            : imageAlignment === 'right'
+            ? 'right'
+            : 'center'
+        }
         priority
         {...backgroundImageProps}
       />
