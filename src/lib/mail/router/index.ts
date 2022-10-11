@@ -14,7 +14,7 @@ export const PLAYGROUND_EMAIL_FORMATTED =
 const projectSpecificEmails: Record<string, (string | string[])[]> = {
   [process.env.EMAIL_TO_AVOCADO!]: [],
   [process.env.EMAIL_TO_BANANA!]: [['vegan', 'bootcamp']],
-  [process.env.EMAIL_TO_CARROT!]: ['5m5v', ['minutes', 'vegans']],
+  [process.env.EMAIL_TO_CARROT!]: ['5m5v', ['minutes', 'vegans'], ['watch', 'dominion'], 'watchdominion'],
   [process.env.EMAIL_TO_CHEATSHEET!]: ['cheatsheet'],
   [process.env.EMAIL_TO_STRAWBERRY!]: [
     'animalsupportbot',
