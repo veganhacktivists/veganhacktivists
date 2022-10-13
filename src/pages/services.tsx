@@ -95,7 +95,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Advice',
     content:
-      "Our advisory and core teams have a plethora of experience in tech, design, and animal protection. We'll happily advise any individual or organization, whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions.",
+      "Our advisory and core teams have a plethora of experience in tech, design, nonprofit management, and more. We'll happily advise any individual or organization, whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions.",
     icon: adviceIcon,
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',
