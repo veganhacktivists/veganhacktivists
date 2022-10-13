@@ -18,9 +18,11 @@ import { trpc } from '../../lib/client/trpc';
 
 import LineChart from './lineChart';
 
+import type { DataDashboardData, DataDashboardValue } from '@prisma/client';
 import type { LineChartData } from './lineChart';
 
 /* TODO: Remove hardcoded data */
+/*
 const dataDashboardGraph = {
   id: '5m5v',
   label: '5 Minutes 5 Vegans',
@@ -296,6 +298,7 @@ const germanClicks: LineChartData = {
       }
     }),
 };
+*/
 
 const Tagline: React.FC = () => (
   <div className="lg:pt-10 md:pt-0">
@@ -320,6 +323,7 @@ const Hero: React.FC = () => (
 );
 
 const Data: React.FC = () => {
+  // TODO: Fetch based on actual selected project
   const { data } = trpc.data.getDataDashboardProject.useQuery(
     '5 minutes 5 vegans',
     {
@@ -328,6 +332,33 @@ const Data: React.FC = () => {
       // enabled: false,
     }
   );
+
+  // TODO: Correctly parametrize and filter by Category
+  const getLineChartData = (
+    data: (DataDashboardData & { values: DataDashboardValue[] })[] | undefined,
+    value: string,
+    color: string
+  ): LineChartData => ({
+    id: 'Category 1',
+    color,
+    data:
+      data
+        // Filter out data with no timestamp
+        ?.filter((d) => d.timestamp)
+        .map((d) => {
+          {
+            return {
+              x: d.timestamp,
+              // Set value as 0 if it is missing
+              y: d.values.find((d) => d.key == value)?.value ?? '0',
+            };
+          }
+        })
+        .sort((a, b) => (a.x > b.x ? 1 : -1)) ?? [],
+  });
+
+  const clicks = getLineChartData(data?.data, 'clicks', '#DD3E2B');
+  const comments = getLineChartData(data?.data, 'comments', '#7F3C97');
 
   const [dataDisplayed, displayData] = useState(false);
   const changeProject = () => {
@@ -533,10 +564,7 @@ const Data: React.FC = () => {
                   <div className="bg-orange h-full w-10" />
                 </div>
                 <div className="h-[28rem] bg-white">
-                  <LineChart
-                    data={[englishClicks, germanClicks]}
-                    yLabel="Number of retweets"
-                  />
+                  <LineChart data={[clicks]} yLabel="Number of clicks" />
                 </div>
               </div>
             </div>
@@ -553,7 +581,9 @@ const Data: React.FC = () => {
                 <div className="flex bg-gray-dark h-3">
                   <div className="bg-purple h-full w-10" />
                 </div>
-                <div className="h-28 bg-white" />
+                <div className="h-[28rem] bg-white">
+                  <LineChart data={[comments]} yLabel="Number of comments" />
+                </div>
               </div>
             </div>
             <div id="user-engagement-replies" className=" w-full mb-8">

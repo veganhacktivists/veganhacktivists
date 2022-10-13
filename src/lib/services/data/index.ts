@@ -13,6 +13,7 @@ export const getDataDashboardProject = async (
       label,
     },
     select: {
+      id: true,
       label: true,
       data: {
         select: {

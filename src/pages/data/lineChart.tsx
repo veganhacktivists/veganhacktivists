@@ -5,8 +5,8 @@ export interface LineChartData {
   readonly id: string;
   readonly color: string;
   readonly data: {
-    readonly x: string;
-    readonly y: number;
+    readonly x: Date;
+    readonly y: string;
   }[];
 }
 
