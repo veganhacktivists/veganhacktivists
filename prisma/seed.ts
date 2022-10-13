@@ -179,10 +179,9 @@ const seedDataDashboardData = async (n: number) => {
         },
       ];
       const data: Prisma.DataDashboardDataCreateInput = {
-        timestamp: faker.datatype.datetime({
-          min: DateTime.now().minus({ days: 30 }).toUnixInteger(),
-          max: DateTime.now().toUnixInteger(),
-        }),
+        timestamp: new Date(
+          DateTime.fromISO(faker.date.recent(365).toISOString()).toISODate()
+        ),
         values: {
           createMany: {
             data: values,
