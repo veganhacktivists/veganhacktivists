@@ -46,7 +46,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Websites',
     content:
-      "If you're an independent activist, small business, or organization with little to no funding, you're the ones we want to help. We support advocates that have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves.",
+      "If you're an independent activist or organization with little to no funding, you're the ones we want to help. We support advocates that have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves.",
     icon: webIcon,
     iconBgColor: 'magenta',
     iconAccentColor: 'red',
