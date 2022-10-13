@@ -14,6 +14,7 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import SquareField from '../../components/decoration/squares';
+import { trpc } from '../../lib/client/trpc';
 
 import LineChart from './lineChart';
 
@@ -319,6 +320,15 @@ const Hero: React.FC = () => (
 );
 
 const Data: React.FC = () => {
+  const { data } = trpc.data.getDataDashboardProject.useQuery(
+    '5 minutes 5 vegans',
+    {
+      staleTime: 10000,
+      trpc: { ssr: false },
+      // enabled: false,
+    }
+  );
+
   const [dataDisplayed, displayData] = useState(false);
   const changeProject = () => {
     displayData(true);
