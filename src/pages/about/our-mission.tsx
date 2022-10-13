@@ -15,10 +15,10 @@ const OurMission: PageWithLayout = () => {
     <>
       <NextSeo title="Our Mission" />
       <FirstSubSection header="Our mission">
-        Our mission is to build new, data-driven, disruptive, and innovative
+        Our mission is to build data-driven, disruptive, and innovative
         projects to help see an end to animal exploitation. We believe the
-        animal protection movement has five fundamental areas it can improve on
-        that we aim to solve through the work that we do.
+        animal protection movement has five fundamental area for improvement,
+        ones that we aim to solve through our work.
       </FirstSubSection>
       <div className="pb-10 m-10">
         <div className="pb-5">
@@ -31,39 +31,37 @@ const OurMission: PageWithLayout = () => {
         </div>
         <div>
           <SubSection header="1. We need more data in our movement.">
-            We can’t realistically track or be confident that the projects and
-            organizations out there right now are as effective as they can be.
-            We strongly believe this is the largest issue in growing our
-            movement, and so we aim to build, utilize, and gather data through
-            our projects and network – and then share that data.
+            To determine effectiveness in projects, campaigns, and our work
+            as a whole, meaningful data needs to be tracked and collected.  
+            We strongly believe that a data-driven movement will accelerate 
+            and elevate our work, which is why we believe in gathering and 
+            analyzing data, as well as making it accessible to others.
           </SubSection>
           <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
-            growing and improving our movements’ effectiveness. Competition puts
-            healthy pressure on other organizations and projects to keep
-            building, improving, and innovating – and gives them more data on
-            what works, and what doesn’t work.
+            improving our movement's effectiveness. Competition applies healthy 
+            pressure on organizations and projects to keep improving and 
+            iterating – and this gives us more information on what works.
           </SubSection>
           <SubSection header="3. We need to be more innovative.">
-            We believe the movement has a lot of room and potential to be more
-            innovative in its approaches. We promote, both through our work and
-            our advisory program, to think outside of the box, to make
-            innovation a core consideration of every part of the building
-            process.
+            We believe the movement has the potential to be more innovative in 
+            its approaches. We promote outside-the-box thinking and make
+            innovation a core consideration of every part of our work and our 
+            processes.
           </SubSection>
           <SubSection header="4. And we need to start collaborating.">
-            We aim to help organizations and activists connect and collaborate
-            in more meaningful ways. We need to utilize our networks with the
-            idea of supporting our shared goals, whether that means sharing
-            data, helping allocate resources and people, or general support in
-            organizational challenges.
+            We aim to help organizations and individuals connect and collaborate
+            in more meaningful ways. We need to leverage our knowledge and network 
+            with each other to support our shared goals, whether that means 
+            sharing research or data, resources, or generally supporting each other
+            overcome organizational challenges.
           </SubSection>
           <SubSection header="5. Finally, we need more vegans to become active.">
             Only a tiny percentage of the world is vegan, and a fraction within
-            are active. Many organizations focus on converting vegans whether
-            through health, environmental, or ethical reasons. We believe we can
-            also be effective by creating tools to help, inspire, and motivate
-            more vegans to become activists.
+            are active. Many organizations encourage non-vegans to adopt veganism 
+            through health, environmental, or ethical reasons. We believe that we 
+            can also be effective by creating tools to help, inspire, and motivate
+            more vegans to become advocates for the animals.
           </SubSection>
         </div>
       </div>

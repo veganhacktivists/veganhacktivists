@@ -75,8 +75,9 @@ const Playground: PageWithLayout = ({}) => {
       <NextSeo title="Requests" />
       <div>
         <SectionHeader header={['View pending', 'requests']}>
-          View a list of requests below to find volunteer or paid opportunities
-          to help the animals! Are you a vegan advocate or organization?{' '}
+          Check out the requests below to find volunteer or paid opportunities
+          to help the animals. Are you an individual or organization seeking 
+          support for your work?{' '}
           <CustomLink className="font-bold" href="/playground/submit">
             Submit a request
           </CustomLink>{' '}
@@ -154,9 +155,9 @@ const Playground: PageWithLayout = ({}) => {
           </div>
 
           <div className="px-10 pt-4 pb-4 mx-auto text-xl md:w-1/2">
-            If you are a vegan individual or organization that needs help with
-            your work in helping the animals, you can apply for free support
-            from Playground!
+            If you are an individual or organization that needs help with
+            your work in helping the animals, you can apply to receive free 
+            support from our Playground community. 
           </div>
           <LightButton href="/playground/submit" className="mx-auto w-fit">
             Submit your request

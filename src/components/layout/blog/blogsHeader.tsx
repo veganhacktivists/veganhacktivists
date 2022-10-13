@@ -57,9 +57,8 @@ const BlogsHeader: React.FC<HeaderProps> = ({
           <CustomImage src={roundLogo} alt="" />
         </div>
         <div className="text-2xl px-16 font-mono">
-          This is the official blog for the VH! We regularly post project
-          updates, announcements, interviews, and other fun stuff here. Thanks
-          for reading!
+          Welcome to our official blog.  We regularly post news, annnouncements,
+          project updates, interviews, editorials, and more. Stay tuned!
         </div>
       </div>
       <div className="bg-grey-dark mt-10">
