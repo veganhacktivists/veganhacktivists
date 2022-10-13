@@ -58,9 +58,9 @@ const ProjectsLayout: Layout = ({ children }) => {
           <p className="my-5 text-xl">
             <b>We&apos;re all ears!</b> We&apos;d love to hear your ideas for
             projects that can help empower the animal protection movement. We
-            consider each project sent to us, and determine how we can help you 
-            actualize your idea. Whether you are seeking a team to build from 
-            beginning to end, or simply looking for advice to get started, get 
+            consider each project sent to us, and determine how we can help you
+            actualize your idea. Whether you are seeking a team to build from
+            beginning to end, or simply looking for advice to get started, get
             in touch with us.
           </p>
           <div className="font-semibold md:flex md:justify-start">
