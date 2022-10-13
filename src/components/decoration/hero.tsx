@@ -29,7 +29,7 @@ interface HeroProps extends React.PropsWithChildren {
 const Hero: React.FC<HeroProps> = ({
   imageBackground,
   backgroundImageProps = {},
-  tagline = { biggerOnMobile: false },
+  tagline,
   alignment,
   imageAlignment = 'center',
   children,
@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({
     'flex-col',
     'justify-center',
     'md:w-1/2',
-    !tagline.biggerOnMobile ? 'w-1/2' : 'w-3/4',
+    tagline?.biggerOnMobile ? 'w-3/4' : 'w-1/2',
     'z-10',
     { 'py-10 xl:mt-0': main },
     classNameMapping?.content
