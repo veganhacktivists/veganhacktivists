@@ -16,289 +16,14 @@ import heroTagline from '../../../public/images/data/hero-tagline.png';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
 
-import LineChart from './lineChart';
+import TimeSeriesLineChart from './charts/timeSeriesLineChart';
 
-import type { DataDashboardData, DataDashboardValue } from '@prisma/client';
-import type { LineChartData } from './lineChart';
-
-/* TODO: Remove hardcoded data */
-/*
-const dataDashboardGraph = {
-  id: '5m5v',
-  label: '5 Minutes 5 Vegans',
-  data: [
-    {
-      id: 'click_0',
-      timestamp: '2021-11-15',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 90,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 90,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-11-21',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 15,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 15,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-11-28',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 50,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 50,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-05',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 60,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 60,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-12',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 80,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 80,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-19',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 70,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 70,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-25',
-      category: 'English Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 60,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 60,
-        },
-      ],
-    },
-    // German Bot Data
-    {
-      id: 'click_0',
-      timestamp: '2021-11-15',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 40,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 40,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-11-21',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 50,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 50,
-        },
-      ],
-    },
-    {
-      id: '0',
-      timestamp: '2021-11-28',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 90,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 90,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-05',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 95,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 95,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-12',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 100,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 100,
-        },
-      ],
-    },
-    {
-      id: 'click_0',
-      timestamp: '2021-12-19',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 50,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 50,
-        },
-      ],
-    },
-    {
-      id: '0',
-      timestamp: '2021-12-25',
-      category: 'German Bot',
-      values: [
-        {
-          id: '0',
-          key: 'clicks',
-          value: 90,
-        },
-        {
-          id: '1',
-          key: 'comments',
-          value: 90,
-        },
-      ],
-    },
-  ],
-};
-
-const englishClicks: LineChartData = {
-  id: 'English Bot',
-  color: '#DD3E2B',
-  data: dataDashboardGraph.data
-    .filter((d) => d.category == 'English Bot')
-    .map((d) => {
-      {
-        return {
-          x: d.timestamp,
-          y: d.values.filter((d) => d.key == 'clicks')[0].value,
-        };
-      }
-    }),
-};
-
-const germanClicks: LineChartData = {
-  id: 'German Bot',
-  color: '#7F3C97',
-  data: dataDashboardGraph.data
-    .filter((d) => d.category == 'German Bot')
-    .map((d) => {
-      {
-        return {
-          x: d.timestamp,
-          y: d.values.filter((d) => d.key == 'clicks')[0].value,
-        };
-      }
-    }),
-};
-*/
+import type {
+  DataDashboardProject,
+  DataDashboardData,
+  DataDashboardValue,
+} from '@prisma/client';
+import type { TimeSeriesData } from './charts/timeSeriesLineChart';
 
 const Tagline: React.FC = () => (
   <div className="lg:pt-10 md:pt-0">
@@ -333,16 +58,33 @@ const Data: React.FC = () => {
     }
   );
 
+  /** Type representing a DataDashboardProject filled with data recursively filled with values. */
+  type FilledDataDashboardProject = DataDashboardProject & {
+    data: (DataDashboardData & { values: DataDashboardValue[] })[];
+  };
+
   // TODO: Correctly parametrize and filter by Category
+  /**
+   * Function to get a time series for a line chart
+   * @param data {FilledDataDashboardProject} The project from which the data is fetched
+   * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks)
+   * @param id {string}: The ID of the time series which will even function as the label
+   * @param color: The color to represent the time series as a line in the chart
+   *
+   * @return {TimeSeriesData} A complete time series
+   */
   const getLineChartData = (
-    data: (DataDashboardData & { values: DataDashboardValue[] })[] | undefined,
+    data: FilledDataDashboardProject | undefined,
     value: string,
+    id: string,
     color: string
-  ): LineChartData => ({
-    id: 'Category 1',
+  ): TimeSeriesData => ({
+    id,
     color,
     data:
-      data
+      data?.data
+        // Filter out data which has a different category than the given one
+        // .filter((d) => d.category === category)
         // Filter out data with no timestamp
         ?.filter((d) => d.timestamp)
         .map((d) => {
@@ -350,15 +92,16 @@ const Data: React.FC = () => {
             return {
               x: d.timestamp,
               // Set value as 0 if it is missing
-              y: d.values.find((d) => d.key == value)?.value ?? '0',
+              y: d.values.find((d) => d.key === value)?.value ?? '0',
             };
           }
         })
+        // Sort the data points by increasing timestamp order
         .sort((a, b) => (a.x > b.x ? 1 : -1)) ?? [],
   });
 
-  const clicks = getLineChartData(data?.data, 'clicks', '#DD3E2B');
-  const comments = getLineChartData(data?.data, 'comments', '#7F3C97');
+  const clicks = getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B');
+  const comments = getLineChartData(data, 'comments', 'Comments', '#7F3C97');
 
   const [dataDisplayed, displayData] = useState(false);
   const changeProject = () => {
@@ -564,7 +307,10 @@ const Data: React.FC = () => {
                   <div className="bg-orange h-full w-10" />
                 </div>
                 <div className="h-[28rem] bg-white">
-                  <LineChart data={[clicks]} yLabel="Number of clicks" />
+                  <TimeSeriesLineChart
+                    data={[clicks, comments]}
+                    yLabel="Number of clicks"
+                  />
                 </div>
               </div>
             </div>
@@ -582,7 +328,10 @@ const Data: React.FC = () => {
                   <div className="bg-purple h-full w-10" />
                 </div>
                 <div className="h-[28rem] bg-white">
-                  <LineChart data={[comments]} yLabel="Number of comments" />
+                  <TimeSeriesLineChart
+                    data={[comments]}
+                    yLabel="Number of comments"
+                  />
                 </div>
               </div>
             </div>

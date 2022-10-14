@@ -12,20 +12,10 @@ export const getDataDashboardProject = async (
     where: {
       label,
     },
-    select: {
-      id: true,
-      label: true,
+    include: {
       data: {
-        select: {
-          timestamp: true,
-          category: true,
-          subcategory: true,
-          values: {
-            select: {
-              key: true,
-              value: true,
-            },
-          },
+        include: {
+          values: true,
         },
       },
     },
