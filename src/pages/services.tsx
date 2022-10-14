@@ -199,7 +199,7 @@ const Services: React.FC = () => (
     />
     <div className="px-10 pt-10 bg-grey-background md:px-0">
       <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
-        If you&apos;d like to discuss any of service offerings, please use our
+        If you&apos;d like to discuss any of our service offerings, please use our
         contact form to get in touch. We do our best to promptly respond to
         every inquiry.
       </div>
