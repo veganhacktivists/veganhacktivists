@@ -197,7 +197,7 @@ const Projects: PageWithLayout<ProjectsProps> = ({
       <NextSeo title="Projects" />
       <FirstSubSection header="Our projects">
         We&apos;re constantly working on new projects and maintaining existing
-        ones, whether they're in-house or in support of other organizations.
+        ones, whether they&apos;re in-house or in support of other organizations.
         Learn more about our work, with details about each project over the
         years.
       </FirstSubSection>
