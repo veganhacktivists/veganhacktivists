@@ -19,45 +19,48 @@ type PerkProps = React.PropsWithChildren<{
 const PERKS: PerkProps[] = [
   {
     image: squarespaceImage,
-    title: 'SquareSpace website subscription',
+    title: 'Squarespace Website Subscription',
     children: (
       <>
-        <div>Valued at around $200, we&apos;ll pay for the first year!</div>
-        <div>You own it - we&apos;ll help you design and maintain it!</div>
+        <div>
+          Valued at $200, we cover the subscription cost for the first year.
+        </div>
+        <div>You own it, and we help you design and maintain it.</div>
         <div>Easy to update with little to no experience.</div>
       </>
     ),
   },
   {
     image: designerImage,
-    title: 'Professional design creation',
+    title: 'Design Creation',
     children: (
       <>
-        We&apos;ll design your group or project a new logo, or give your
-        existing designs a facelift. This includes social media elements like
-        banners, posts, icons and more.
+        Depending on your needs, we design (or redesign) the branding and logo
+        for your organization or project. We also provide digital assets, such
+        as banners, icons, and any custom elements, for social media and your
+        website.
       </>
     ),
   },
   {
     image: contentImage,
-    title: 'Professional content creation',
+    title: 'Content Development',
     children: (
       <>
-        We can help with any written content creation, including checking your
-        existing content, grammar, spelling, and the creation of content that
-        helps with promoting your work.
+        We help craft any public-facing messages, including website copy. We
+        offer our writing and editing skills at any stage of the process: from
+        initial brainstorming to reviewing copy that helps promote your work.
       </>
     ),
   },
   {
     image: callImage,
-    title: 'Monthly advisory calls',
+    title: 'Monthly Advisory Check-ins',
     children: (
       <>
-        A 30 minute per month zoom call to help advise you and your team. Advice
-        includes technology, marketing, strategy and other organizational
-        subjects.
+        A monthly 30-minute Zoom call to help advise you and your team. Topics
+        include but are not limited to technology, marketing, strategy, and
+        other aspects of your organization&apos;s growth and development.
       </>
     ),
   },
@@ -91,7 +94,7 @@ const GrantsPerks: React.FC = () => {
         alt="Heart icon"
       />
       <h3 className="p-4 mt-12 mb-10 text-4xl font-semibold md:p-0">
-        In addition to $1000 in seed funding, VH Grants include:
+        In addition to $1,000 in seed funding, VH Grants include:
       </h3>
 
       <div className="text-center md:text-left">
