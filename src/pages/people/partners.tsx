@@ -96,9 +96,8 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
     <>
       <NextSeo title="Our Partners" />
       <FirstSubSection header="Our partners">
-        Here are our fantastic partners whom we support and are supported by.
-        Take a look at them below, visit them, and support the amazing work they
-        do!
+        Here are partner organizations that we support and are supported by.
+        Take a look to learn more about the amazing work they do!
       </FirstSubSection>
       <div className="m-10 mb-36">
         <PartnerList partners={partners} />
@@ -112,12 +111,12 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
           alt="Our community"
         />
         <FirstSubSection header="Our community">
-          We’re not just volunteers, but we’re a community. We know each other
-          personally, we play games together, talk about our lives, meet up in
-          person at events, and share daily. A strong community is not only key
-          for a volunteer organization, it’s vital to keeping us happy, healthy,
-          and active for the animals. Interested in joining? Scroll down!
-        </FirstSubSection>
+          We are more than a group of volunteers; we are a community tethered
+          by shared values and invested in a vision of a better world for 
+          animals. We believe in a community-first approach: one that is 
+          supportive, growth-oriented, and accountable to each other. If this 
+          resonates with you, scroll down to learn more.
+       </FirstSubSection>
       </div>
     </>
   );
