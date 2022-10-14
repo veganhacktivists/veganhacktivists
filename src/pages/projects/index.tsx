@@ -196,10 +196,10 @@ const Projects: PageWithLayout<ProjectsProps> = ({
     <>
       <NextSeo title="Projects" />
       <FirstSubSection header="Our projects">
-        We&apos;re constantly working on new projects every month, whether
-        they&apos;re ideas of our own or supporting organizations and activists
-        that reach out to us. Below is a list of our work, and which of our
-        teams worked on it.
+        We&apos;re constantly working on new projects and maintaining existing
+        ones, whether they&apos;re in-house or in support of other
+        organizations. Learn more about our work, with details about each
+        project over the years.
       </FirstSubSection>
       <YearSelector
         years={projectYears}
