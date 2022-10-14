@@ -82,7 +82,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Funding',
     content:
-      "We offer up to $1,000 USD in seed funding grants for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.",
+      "We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.",
     icon: fundingIcon,
 
     iconBgColor: 'yellow',
