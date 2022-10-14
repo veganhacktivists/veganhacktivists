@@ -1,4 +1,4 @@
-import { FAQService } from '../service';
+import type { FAQService } from '../service';
 
 const service: FAQService = {
   keywords: [['vegan', 'linguist']],
