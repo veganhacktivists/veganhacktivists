@@ -100,7 +100,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',
     button: {
-      text: 'Ask for advice, contact us',
+      text: 'Contact us for advice,
       href: '#contact-us',
     },
   },
