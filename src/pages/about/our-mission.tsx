@@ -34,7 +34,7 @@ const OurMission: PageWithLayout = () => {
             To determine effectiveness in projects, campaigns, and our work as a
             whole, meaningful data needs to be tracked and collected. We
             strongly believe that a data-driven movement will accelerate and
-            elevate our work, which is why we believe in gathering and analyzing
+            elevate our work, which is why we prioritize identifying, gathering, and analyzing
             data, as well as making it accessible to others.
           </SubSection>
           <SubSection header="2. We need more competition, too.">
