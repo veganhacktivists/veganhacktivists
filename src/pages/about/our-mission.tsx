@@ -39,7 +39,7 @@ const OurMission: PageWithLayout = () => {
           </SubSection>
           <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
-            improving our movement's effectiveness. Competition applies healthy
+            improving our movement&apos;s effectiveness. Competition applies healthy
             pressure on organizations and projects to keep improving and
             iterating – and this gives us more information on what works.
           </SubSection>
