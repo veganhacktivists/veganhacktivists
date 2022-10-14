@@ -18,16 +18,13 @@ import { pixelHeart } from '../../images/separators';
 import { useTeamStore } from '../../lib/stores/teamStore';
 
 import type PageWithLayout from '../../types/persistentLayout';
-import type { ITeamFields } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
+import type { ITeamMemberFields } from '../../types/generated/contentful';
 import type { ITeam } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teams = (await getActiveTeams()).filter((entry) => {
-    return entry.fields.slug !== 'sweet-potato';
-  });
-  const teamMembers = await getContents<ITeamFields>({
+  const teamMembers = await getContents<ITeamMemberFields>({
     contentType: 'teamMember',
     query: {
       isCoreMember: false,
@@ -42,6 +39,15 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
     other: { order: 'fields.isTeamLeader' },
+  });
+
+  const activeTeamSlugs = new Set();
+  teamMembers.forEach((teamMember) => {
+    activeTeamSlugs.add(teamMember.fields.team?.fields.slug);
+  });
+
+  const teams = (await getActiveTeams()).filter((entry) => {
+    return activeTeamSlugs.has(entry.fields.slug);
   });
 
   return {
