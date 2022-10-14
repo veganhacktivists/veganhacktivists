@@ -111,12 +111,12 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
           alt="Our community"
         />
         <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered
-          by shared values and invested in a vision of a better world for 
-          animals. We believe in a community-first approach: one that is 
-          supportive, growth-oriented, and accountable to each other. If this 
-          resonates with you, scroll down to learn more.
-       </FirstSubSection>
+          We are more than a group of volunteers; we are a community tethered by
+          shared values and invested in a vision of a better world for animals.
+          We believe in a community-first approach: one that is supportive,
+          growth-oriented, and accountable to each other. If this resonates with
+          you, scroll down to learn more.
+        </FirstSubSection>
       </div>
     </>
   );

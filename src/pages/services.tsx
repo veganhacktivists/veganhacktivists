@@ -82,7 +82,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Funding',
     content:
-      "We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.",
+      'We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.',
     icon: fundingIcon,
 
     iconBgColor: 'yellow',
@@ -95,7 +95,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Advice',
     content:
-      "Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising.",
+      'Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising.',
     icon: adviceIcon,
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',

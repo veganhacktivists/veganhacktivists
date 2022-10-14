@@ -60,8 +60,8 @@ const ProjectsLayout: Layout = ({ children }) => {
             projects that can help empower the animal protection movement. We
             consider each project sent to us, and determine how we can help you
             actualize your idea. Whether you are seeking a team to build from
-            start to finish, or looking for advice to get your project off the ground, get
-            in touch with us.
+            start to finish, or looking for advice to get your project off the
+            ground, get in touch with us.
           </p>
           <div className="font-semibold md:flex md:justify-start">
             <LightButton href={{ pathname: '/services', hash: 'contact-us' }}>

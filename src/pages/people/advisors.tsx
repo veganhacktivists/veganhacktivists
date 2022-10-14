@@ -67,9 +67,9 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
     <>
       <NextSeo title="Our Advisors" />
       <FirstSubSection header="Our advisors">
-        We are incredibly thankful for our team of experienced advisors
-        who provide guidance and direction to the organization, its 
-        strategy, and projects.
+        We are incredibly thankful for our team of experienced advisors who
+        provide guidance and direction to the organization, its strategy, and
+        projects.
       </FirstSubSection>
       <div className="mx-auto my-10 lg:w-2/3">
         <div className="grid justify-center md:grid-cols-3 ">
@@ -89,11 +89,11 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
           alt="Our community"
         />
         <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered
-          by shared values and invested in a vision of a better world for 
-          animals. We believe in a community-first approach: one that is 
-          supportive, growth-oriented, and accountable to each other. If this 
-          resonates with you, scroll down to learn more.
+          We are more than a group of volunteers; we are a community tethered by
+          shared values and invested in a vision of a better world for animals.
+          We believe in a community-first approach: one that is supportive,
+          growth-oriented, and accountable to each other. If this resonates with
+          you, scroll down to learn more.
         </FirstSubSection>
       </div>
     </>

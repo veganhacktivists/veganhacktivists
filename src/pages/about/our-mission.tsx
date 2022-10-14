@@ -17,8 +17,8 @@ const OurMission: PageWithLayout = () => {
       <FirstSubSection header="Our mission">
         Our mission is to build data-driven, disruptive, and innovative projects
         to help see an end to animal exploitation. We believe the animal
-        protection movement has five fundamental area for improvement, which
-        we aim to solve through our work.
+        protection movement has five fundamental area for improvement, which we
+        aim to solve through our work.
       </FirstSubSection>
       <div className="pb-10 m-10">
         <div className="pb-5">
@@ -34,13 +34,13 @@ const OurMission: PageWithLayout = () => {
             To determine effectiveness in projects, campaigns, and our work as a
             whole, meaningful data needs to be tracked and collected. We
             strongly believe that a data-driven movement will accelerate and
-            elevate our work, which is why we prioritize identifying, gathering, and analyzing
-            data, as well as making it accessible to others.
+            elevate our work, which is why we prioritize identifying, gathering,
+            and analyzing data, as well as making it accessible to others.
           </SubSection>
           <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
-            improving our movement&apos;s effectiveness. Competition applies healthy
-            pressure on organizations and projects to keep improving and
+            improving our movement&apos;s effectiveness. Competition applies
+            healthy pressure on organizations and projects to keep improving and
             iterating – and this gives us more information on what works.
           </SubSection>
           <SubSection header="3. We need to be more innovative.">

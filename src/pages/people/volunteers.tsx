@@ -249,9 +249,9 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
     <>
       <NextSeo title="Our Volunteers" />
       <FirstSubSection header="Our volunteers">
-        Our volunteer community is at the heart of our organization, and enables 
-        us to build innovative projects and contribute to the movement in 
-        meaningful ways. Our teams work independently on specific projects and 
+        Our volunteer community is at the heart of our organization, and enables
+        us to build innovative projects and contribute to the movement in
+        meaningful ways. Our teams work independently on specific projects and
         collaboratively with each other and those who serve in the movement.
         <b>Click on an icon to meet the volunteers in each team!</b>
       </FirstSubSection>
@@ -278,11 +278,11 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
           alt="Our community"
         />
         <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered
-          by shared values and invested in a vision of a better world for 
-          animals. We believe in a community-first approach: one that is 
-          supportive, growth-oriented, and accountable to each other. If this 
-          resonates with you, scroll down to learn more.
+          We are more than a group of volunteers; we are a community tethered by
+          shared values and invested in a vision of a better world for animals.
+          We believe in a community-first approach: one that is supportive,
+          growth-oriented, and accountable to each other. If this resonates with
+          you, scroll down to learn more.
         </FirstSubSection>
       </div>
     </>
