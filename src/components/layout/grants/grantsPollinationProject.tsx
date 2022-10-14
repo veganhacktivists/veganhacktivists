@@ -15,15 +15,15 @@ const GrantsPollinationProject: React.FC = () => {
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
-            Our grant program is generously funded by The Pollination Project.
-            After your application is reviewed by us we&apos;ll forward your
-            application for further review directly to them, so keep an eye out
-            on your inbox!
+            Our grant program is generously funded by The Pollination Project
+            (TPP). After reviewing and approving your application, we forward
+            your application to TPP for further review, so keep an eye out on
+            your inbox!
           </p>
           <p className="mt-4">
-            If your primary focus isn&apos;t factory farming you may still be
-            eligible for a grant directly from The Pollination Project. We
-            encourage you to apply directly instead!
+            If your primary focus does not address farmed animals, you may still
+            be eligible for a grant directly from TPP. We encourage you to apply
+            through their website.
           </p>
           <LightButton
             className="mt-6 font-mono text-md font-semibold inline-block uppercase"
