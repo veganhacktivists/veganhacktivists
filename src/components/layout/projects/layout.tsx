@@ -57,10 +57,11 @@ const ProjectsLayout: Layout = ({ children }) => {
         >
           <p className="my-5 text-xl">
             <b>We&apos;re all ears!</b> We&apos;d love to hear your ideas for
-            projects that can help empower the animal rights movement, if we
-            like it, we&apos;ll build it! While we do get a lot of project
-            suggestions every month, we do consider every single one. If you
-            rather build it yourself and want advice, no problem - get in touch!
+            projects that can help empower the animal protection movement. We
+            consider each project sent to us, and determine how we can help you
+            actualize your idea. Whether you are seeking a team to build from
+            start to finish, or looking for advice to get your project off the ground, get
+            in touch with us.
           </p>
           <div className="font-semibold md:flex md:justify-start">
             <LightButton href={{ pathname: '/services', hash: 'contact-us' }}>
