@@ -1,14 +1,11 @@
-import {
-  ChangeEvent,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
 import { useDebounce } from './useDebounce';
 
 import faqServices from 'lib/faq/services';
 import { doesContainKeywords } from 'lib/helpers/strings';
+
+import type { ChangeEvent, ReactNode } from 'react';
 
 export const useFAQDetect = () => {
   const [message, setMessage] = useState('');
