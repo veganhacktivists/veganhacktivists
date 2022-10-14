@@ -67,9 +67,9 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
     <>
       <NextSeo title="Our Advisors" />
       <FirstSubSection header="Our advisors">
-        We&apos;re so incredibly thankful to have a team of experienced advisors
-        that support us! Advisors lend thier experience by providing valuable
-        personal feedback for our projects and organization.
+        We are incredibly thankful for our team of experienced advisors
+        who provide guidance and direction to the organization, its 
+        strategy, and projects.
       </FirstSubSection>
       <div className="mx-auto my-10 lg:w-2/3">
         <div className="grid justify-center md:grid-cols-3 ">
@@ -89,11 +89,11 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
           alt="Our community"
         />
         <FirstSubSection header="Our community">
-          We’re not just volunteers, but we’re a community. We know each other
-          personally, we play games together, talk about our lives, meet up in
-          person at events, and share daily. A strong community is not only key
-          for a volunteer organization, it’s vital to keeping us happy, healthy,
-          and active for the animals. Interested in joining? Scroll down!
+          We are more than a group of volunteers; we are a community tethered
+          by shared values and invested in a vision of a better world for 
+          animals. We believe in a community-first approach: one that is 
+          supportive, growth-oriented, and accountable to each other. If this 
+          resonates with you, scroll down to learn more.
         </FirstSubSection>
       </div>
     </>
