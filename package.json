@@ -28,6 +28,8 @@
     "@hookform/resolvers": "^2.9.7",
     "@mailchimp/mailchimp_marketing": "^3.0.78",
     "@next-auth/prisma-adapter": "^1.0.4",
+    "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "@prisma/client": "4.3.1",
     "@react-spring/web": "^9.5.2",
     "@tailwindcss/line-clamp": "^0.4.2",
