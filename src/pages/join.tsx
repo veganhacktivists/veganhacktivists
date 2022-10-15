@@ -225,7 +225,7 @@ const Join: React.FC = () => (
     </div>
     <JoinPlayground />
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-    <div className="h-[500px] py-20 px-5 relative">
+    <div className="lg:h-[500px] py-16 lg:py-20 px-5 relative">
       <h2 className="text-4xl font-modo font-bold mb-10">
         High Priority Positions
       </h2>
@@ -256,7 +256,7 @@ const Join: React.FC = () => (
         {PRIORITY_ROLES.map((role) => (
           <div
             key={role.title}
-            className="w-[400px] lg:w-[320px] xl:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] "
+            className="w-[400px] lg:w-[320px] xl:w-[375px] first-of-type:lg:mt-[-260px] lg:mt-[-260px] "
           >
             <PriorityRole key={role.title} {...role} />
           </div>
