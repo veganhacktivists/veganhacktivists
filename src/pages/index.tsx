@@ -81,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative mx-auto text-2xl text-white md:w-1/2">
-          Building for the animal protection movement since 2019.
+          Building for the animal protection movement since 2019
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">Learn More</LightButton>
@@ -108,10 +108,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         </p>
         <p className="pb-5">
           We are a global community of passionate animal advocates offering our
-          skills in building technology for the animal protection movement{' '}
-          <b>through design, development, and data. </b>
-          As capacity builders, we deliver innovative and quality services at no
-          cost to advocates and organizations.
+          skills in building technology for the animal protection movement
+          through <b>design, development, and data</b>. As capacity builders, we
+          deliver innovative and quality services at no cost to advocates and
+          organizations.
         </p>
         <p className="pb-5">
           Our team is composed of highly-skilled and professional software
@@ -125,11 +125,6 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           with individuals and organizations to offer web development, branding,
           and advisory services.
         </p>
-        <div className="relative mx-auto mt-10 md:w-1/3">
-          <DarkButton href="/about/our-mission" className="font-mono">
-            Our Mission
-          </DarkButton>
-        </div>
       </div>
       <Sprite image={cow} />
       <SquareField
@@ -163,7 +158,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <div className="py-2">
             <YoutubeVideo id="jaW8n1pd97U" />
           </div>
-          <div>Watch our other videos by clicking the button below!</div>
+          <div>Watch our videos to learn more about us and our work:</div>
           <div className="mx-auto w-fit">
             <LightButton
               className=""
@@ -187,9 +182,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             <b className="font-mono text-5xl">PROJECTS</b>
           </p>
           <p>
-            Every project we release is <b>100% free for everyone</b>, we
-            don&apos;t do premium versions, advertisments, or sell user data
-            what-so-ever.
+            Every project we release is <b>100% free for everyone</b>. We
+            believe in accessibility and transparency, and our projects reflect
+            those values.
           </p>
           <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
             {featuredProjects.map((project) => (
