@@ -1,12 +1,18 @@
 import { baseProcedure } from '../../procedures';
-import { getDataDashboardProjectByLabelSchema } from '../../../lib/services/data/schemas';
-import { getDataDashboardProject } from '../../../lib/services/data';
+import { getDataDashboardProjectByIdSchema } from '../../../lib/services/data/schemas';
+import {
+  getDataDashboardProject,
+  getDataDashboardProjects,
+} from '../../../lib/services/data';
 
 import { t } from 'server/trpc';
 
 const dataRouter = t.router({
+  getDataDashboardProjects: baseProcedure.query(async () => {
+    return await getDataDashboardProjects();
+  }),
   getDataDashboardProject: baseProcedure
-    .input(getDataDashboardProjectByLabelSchema)
+    .input(getDataDashboardProjectByIdSchema)
     .query(async ({ input }) => {
       return await getDataDashboardProject(input);
     }),

@@ -1,3 +1,3 @@
 import { z } from 'zod';
 
-export const getDataDashboardProjectByLabelSchema = z.string();
+export const getDataDashboardProjectByIdSchema = z.optional(z.string().cuid());
