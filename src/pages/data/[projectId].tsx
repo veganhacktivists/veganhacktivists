@@ -1,5 +1,4 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
@@ -14,13 +13,15 @@ import { trpc } from '../../lib/client/trpc';
 
 import TimeSeriesLineChart from './charts/timeSeriesLineChart';
 
+import { projectDescriptions } from 'components/layout/yearInReview/2021/featuredProjects';
+
+import type { GetStaticPaths, GetStaticProps } from 'next';
 import type {
   DataDashboardProject,
   DataDashboardData,
   DataDashboardValue,
 } from '@prisma/client';
 import type { TimeSeriesData } from './charts/timeSeriesLineChart';
-import { projectDescriptions } from 'components/layout/yearInReview/2021/featuredProjects';
 
 const Data: React.FC = ({ project }) => {
   // TODO: Fetch based on actual selected project
