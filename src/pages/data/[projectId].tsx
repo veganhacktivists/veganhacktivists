@@ -79,23 +79,6 @@ const Data: React.FC = ({ project }) => {
   const comments = getLineChartData(data, 'comments', 'Comments', '#7F3C97');
 
   const dataSquares = {
-    landing: {
-      top: [{ color: 'orange', size: 10, right: 0, top: 0 }],
-      middleTop: [
-        { color: 'yellow', size: 5, right: 0, bottom: 0 },
-        { color: 'green', size: 7, left: 0, bottom: 0 },
-      ],
-      middleBottom: [
-        { color: 'pink', size: 5, right: 5, bottom: 0 },
-        { color: 'yellow', size: 4, left: 2, top: 0 },
-      ],
-      bottom: [
-        { color: 'yellow', size: 16, left: 0, bottom: 16 },
-        { color: 'yellow', size: 16, left: 16, bottom: 0 },
-        { color: 'pink', size: 24, right: 0, bottom: 0 },
-        { color: 'white', size: 10, right: 24, bottom: 0 },
-      ],
-    },
     data: {
       overview: {
         top: [

@@ -60,19 +60,6 @@ const Data: React.FC = () => {
         { color: 'white', size: 10, right: 24, bottom: 0 },
       ],
     },
-    data: {
-      overview: {
-        top: [
-          { color: 'gray-background', size: 4, right: 0, top: 0 },
-          { color: 'gray-background', size: 4, right: 4, top: 4 },
-        ],
-        bottom: [
-          { color: 'gray-background', size: 4, left: 0, bottom: 0 },
-          { color: 'gray-background', size: 3, right: 0, bottom: 0 },
-        ],
-      },
-      bottom: [{ color: 'gray-darker', size: 16, left: 0, bottom: 0 }],
-    },
   };
 
   return (
