@@ -11,19 +11,17 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
 
+import TimeSeriesLineChart from './charts/timeSeriesLineChart';
+
 import type { GetStaticPaths, GetStaticProps } from 'next';
+import type {
+  DataDashboardProject,
+  DataDashboardData,
+  DataDashboardValue,
+} from '@prisma/client';
+import type { TimeSeriesData } from './charts/timeSeriesLineChart';
 
-// import TimeSeriesLineChart from './charts/timeSeriesLineChart';
-
-// import type {
-//   DataDashboardProject,
-//   DataDashboardData,
-//   DataDashboardValue,
-// } from '@prisma/client';
-// import type { TimeSeriesData } from './charts/timeSeriesLineChart';
-// import { projectDescriptions } from 'components/layout/yearInReview/2021/featuredProjects';
-
-const Data: React.FC = () => {
+const DataProject: React.FC = () => {
   // TODO: Fetch based on actual selected project
   const { data } = trpc.data.getDataDashboardProject.useQuery(
     '5 minutes 5 vegans',
@@ -35,9 +33,9 @@ const Data: React.FC = () => {
   );
 
   /** Type representing a DataDashboardProject filled with data recursively filled with values. */
-  // type FilledDataDashboardProject = DataDashboardProject & {
-  //   data: (DataDashboardData & { values: DataDashboardValue[] })[];
-  // };
+  type FilledDataDashboardProject = DataDashboardProject & {
+    data: (DataDashboardData & { values: DataDashboardValue[] })[];
+  };
 
   // TODO: Correctly parametrize and filter by Category
   /**
@@ -49,35 +47,35 @@ const Data: React.FC = () => {
    *
    * @return {TimeSeriesData} A complete time series
    */
-  // const getLineChartData = (
-  //   data: FilledDataDashboardProject | undefined,
-  //   value: string,
-  //   id: string,
-  //   color: string
-  // ): TimeSeriesData => ({
-  //   id,
-  //   color,
-  //   data:
-  //     data?.data
-  //       // Filter out data which has a different category than the given one
-  //       // .filter((d) => d.category === category)
-  //       // Filter out data with no timestamp
-  //       ?.filter((d) => d.timestamp)
-  //       .map((d) => {
-  //         {
-  //           return {
-  //             x: d.timestamp,
-  //             // Set value as 0 if it is missing
-  //             y: d.values.find((d) => d.key === value)?.value ?? '0',
-  //           };
-  //         }
-  //       })
-  //       // Sort the data points by increasing timestamp order
-  //       .sort((a, b) => (a.x > b.x ? 1 : -1)) ?? [],
-  // });
+  const getLineChartData = (
+    data: FilledDataDashboardProject | undefined,
+    value: string,
+    id: string,
+    color: string
+  ): TimeSeriesData => ({
+    id,
+    color,
+    data:
+      data?.data
+        // Filter out data which has a different category than the given one
+        // .filter((d) => d.category === category)
+        // Filter out data with no timestamp
+        ?.filter((d) => d.timestamp)
+        .map((d) => {
+          {
+            return {
+              x: d.timestamp,
+              // Set value as 0 if it is missing
+              y: d.values.find((d) => d.key === value)?.value ?? '0',
+            };
+          }
+        })
+        // Sort the data points by increasing timestamp order
+        .sort((a, b) => (a.x > b.x ? 1 : -1)) ?? [],
+  });
 
-  // const clicks = getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B');
-  // const comments = getLineChartData(data, 'comments', 'Comments', '#7F3C97');
+  const clicks = getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B');
+  const comments = getLineChartData(data, 'comments', 'Comments', '#7F3C97');
 
   const dataSquares = {
     data: {
@@ -261,10 +259,10 @@ const Data: React.FC = () => {
                   <div className="bg-orange h-full w-10" />
                 </div>
                 <div className="h-[28rem] bg-white">
-                  {/* <TimeSeriesLineChart
+                  <TimeSeriesLineChart
                     data={[clicks, comments]}
                     yLabel="Number of clicks"
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
@@ -376,4 +374,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Data;
+export default DataProject;
