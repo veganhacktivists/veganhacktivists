@@ -22,7 +22,7 @@ export interface TimeSeriesData {
 /** Proptypes of `TimeSeriesLineChart` */
 interface TimeSeriesLineChartProps {
   /** Array of `TimeSeriesData` to represent */
-  readonly data: TimeSeriesData[];
+  readonly data?: TimeSeriesData[];
   /** Optional string representing the label of the x axis */
   readonly xLabel?: string;
   /** String representing the label of the x axis */
@@ -42,14 +42,13 @@ const TimeSeriesLineChart: React.FC<TimeSeriesLineChartProps> = ({
   return (
     <div className="md:mx-20 mx-0 h-full">
       <ResponsiveLine
-        data={data}
+        data={data ?? []}
         colors={(d: TimeSeriesData) => d.color}
         margin={{ top: 95, right: 50, bottom: 160, left: 50 }}
         theme={{
           fontFamily: 'PT Sans',
           fontSize: 14,
         }}
-        animate
         lineWidth={3}
         xScale={{
           type: 'time',
@@ -64,6 +63,7 @@ const TimeSeriesLineChart: React.FC<TimeSeriesLineChartProps> = ({
         axisBottom={{
           tickSize: 0,
           tickPadding: 5,
+          tickValues: 'every 1 months',
           format: (d: Date) => <XTickTimeSeriesLabel timestamp={d} />,
         }}
         axisLeft={{
@@ -71,7 +71,7 @@ const TimeSeriesLineChart: React.FC<TimeSeriesLineChartProps> = ({
           tickPadding: 20,
         }}
         pointLabelYOffset={-12}
-        legends={data.map((d, index) => ({
+        legends={data?.map((d, index) => ({
           data: [
             {
               id: d.id,
@@ -106,6 +106,7 @@ const TimeSeriesLineChart: React.FC<TimeSeriesLineChartProps> = ({
             yLabel={yLabel}
           />
         )}
+        animate={true}
       />
     </div>
   );

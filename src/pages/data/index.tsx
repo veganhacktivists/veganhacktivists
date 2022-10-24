@@ -9,6 +9,7 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import SquareField from '../../components/decoration/squares';
+import { trpc } from '../../lib/client/trpc';
 
 import type { OptionType } from '../../components/forms/inputs/selectInput';
 
@@ -36,11 +37,22 @@ const Hero: React.FC = () => (
 
 const Data: React.FC = () => {
   const router = useRouter();
+
   async function selectProject(selectedProject: OptionType<string> | null) {
     if (selectedProject) {
       await router.push(`/data/${selectedProject.value}`);
     }
   }
+
+  // Fetch all projects
+  const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
+    undefined,
+    {
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const dataSquares = {
     landing: {
@@ -120,11 +132,12 @@ const Data: React.FC = () => {
                 <SelectInput
                   theme="dark"
                   className="font-mono"
-                  options={[
-                    { value: 'project-1', label: 'Project 1' },
-                    { value: 'project-2', label: 'Project 2' },
-                    { value: 'project-3', label: 'Project 3' },
-                  ]}
+                  options={
+                    projects?.map((project) => ({
+                      value: project.id,
+                      label: project.label,
+                    })) ?? []
+                  }
                   placeholder={'Select A Project'}
                   name="project"
                   current={null}

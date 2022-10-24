@@ -29,6 +29,7 @@ interface SelectInputProps<T>
   placeholder?: string;
   showError?: boolean;
   theme?: string;
+  optionsEditable?: boolean;
 }
 
 const grey = getThemeColor('grey');
@@ -46,6 +47,7 @@ const SelectInput = <T,>({
   onChange,
   creatable = false,
   ref,
+  optionsEditable,
   ...props
 }: SelectInputProps<T> & { ref?: Ref<StateManagedSelect> }) => {
   const [allOptions, setAllOptions] = useState(options);
@@ -54,6 +56,12 @@ const SelectInput = <T,>({
   useEffect(() => {
     setRendered(true);
   }, []);
+
+  useEffect(() => {
+    if (optionsEditable) {
+      setAllOptions(options);
+    }
+  }, [options]);
 
   const height = '44px';
 
