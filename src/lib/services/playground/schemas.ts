@@ -113,9 +113,7 @@ export const submitRequestSchema = z.object({
   ),
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
-  dueDate: z
-    .date()
-    .min(new Date(), { message: 'Due date must be in the future' }),
+  dueDate: z.union([z.date(), z.string()]),
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()

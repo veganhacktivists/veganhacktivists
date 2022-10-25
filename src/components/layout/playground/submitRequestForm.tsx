@@ -150,6 +150,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         setIsFree(false);
         setValue('budget.type', formData.budget?.type);
       }
+      if (!formData.dueDate) {
+        setValue('dueDate', 'None');
+      }
       setRequestLoaded(true);
     }
   }, [request, setValue, session, router, sessionStatus, requestLoaded]);
@@ -531,11 +534,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
-          showRequiredMark
           {...myRegister('dueDate', {
             valueAsDate: true,
+            required: false,
           })}
-          error={errors.dueDate?.message}
         >
           Due date for task
         </TextInput>
