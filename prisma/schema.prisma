@@ -158,7 +158,7 @@ model PlaygroundRequest {
   title             String                    @db.VarChar(200)
   requiredSkills    String[]                  @default([])
   description       String                    @db.Text
-  dueDate           DateTime                  @db.Date
+  dueDate           DateTime?                 @db.Date
   estimatedTimeDays Int
   requesterId       String
   status            Status                    @default(Pending)

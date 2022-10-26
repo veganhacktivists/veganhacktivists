@@ -113,7 +113,7 @@ export const submitRequestSchema = z.object({
   ),
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
-  dueDate: z.union([z.date(), z.string()]),
+  dueDate: z.date().optional(),
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
@@ -136,6 +136,10 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
   })
 );
+
+export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
+  dueDate: z.string().optional(),
+});
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
