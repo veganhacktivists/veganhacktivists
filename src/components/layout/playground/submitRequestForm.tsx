@@ -537,6 +537,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
+          error={errors.dueDate?.message}
           {...myRegister('dueDate', { required: false })}
         >
           Due date for task

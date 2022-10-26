@@ -138,7 +138,11 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
 );
 
 export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
-  dueDate: z.string().optional(),
+  dueDate: z
+    .string()
+    .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+      message: 'Due date must be in the future',
+    }),
 });
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
