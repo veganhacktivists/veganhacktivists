@@ -4,7 +4,6 @@ import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
 import Label from '../../components/forms/inputs/label';
@@ -12,7 +11,10 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
 import prisma from '../../lib/db/prisma';
+import DateRangeSelectInput from '../../components/layout/data/dateRangeSelectInput';
+import useReactPath from '../../hooks/useReactPath';
 
+import type { DateRange } from '../../components/layout/data/dateRangeSelectInput';
 import type { OptionType } from '../../components/forms/inputs/selectInput';
 import type {
   GetStaticPaths,
@@ -24,10 +26,10 @@ import type {
   DataDashboardData,
   DataDashboardValue,
 } from '@prisma/client';
-import type { TimeSeriesData } from './charts/timeSeriesLineChart';
+import type { TimeSeriesData } from '../../components/layout/data/charts/timeSeriesLineChart';
 
 const TimeSeriesLineChart = dynamic(
-  () => import('./charts/timeSeriesLineChart'),
+  () => import('../../components/layout/data/charts/timeSeriesLineChart'),
   {
     ssr: false,
   }
@@ -38,20 +40,33 @@ type FilledDataDashboardProject = DataDashboardProject & {
   data: (DataDashboardData & { values: DataDashboardValue[] })[];
 };
 
-/** Interface representing a Range object. */
-interface Range {
-  begin: Date;
-  end: Date;
-}
-
-const getRangeLabel = (range: Range) =>
-  `${range.begin.toLocaleDateString('en-us', {
-    month: 'short',
-    day: 'numeric',
-  })}-${range.end.toLocaleDateString('en-us', {
-    month: 'short',
-    day: 'numeric',
-  })}`;
+/**
+ * Function that computes the lower bound of a date range according to a given "date range id".
+ * @param dateRange {DateRange | undefined} The id of a date range from which the lower date bound is computed.
+ * @return {Date | null} The lower date bound if it exist.
+ */
+const getDateRangeMinimum = (dateRange: DateRange | undefined): Date | null => {
+  switch (dateRange) {
+    case '7d':
+      return new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    case '30d':
+      return new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    case '60d':
+      return new Date(Date.now() - 60 * 24 * 60 * 60 * 1000);
+    case '90d':
+      return new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+    case '6m':
+      const date = new Date();
+      date.setMonth(date.getMonth() - 6);
+      return date;
+    case 'YTD':
+      return new Date(new Date().getFullYear(), 0, 1);
+    case 'All time':
+      return null;
+    default:
+      return null;
+  }
+};
 
 // TODO: filter by category
 /**
@@ -60,7 +75,7 @@ const getRangeLabel = (range: Range) =>
  * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks)
  * @param id {string}: The ID of the time series which will even function as the label
  * @param color {string}: The color to represent the time series as a line in the chart
- * @param range {Range}: The range to display the data
+ * @param dateRange {Range}: The range to display the data
  *
  * @return {TimeSeriesData} A complete time series
  */
@@ -69,29 +84,32 @@ const getLineChartData = (
   value: string,
   id: string,
   color: string,
-  range?: Range
-): TimeSeriesData => ({
-  id,
-  color,
-  data:
-    data?.data
-      // Filter out data which has a different category than the given one
-      // .filter((d) => d.category === category)
-      // Filter out data with no timestamp
-      ?.filter((d) => d.timestamp)
-      .map((d) => {
-        {
-          return {
-            x: d.timestamp,
-            // Set value as 0 if it is missing
-            y: d.values.find((d) => d.key === value)?.value ?? '0',
-          };
-        }
-      })
-      // Filter the data just in the provided range
-      .filter((d) => (range ? d.x >= range.begin && d.x <= range.end : true)) ??
-    [],
-});
+  dateRange?: DateRange
+): TimeSeriesData => {
+  const minimumDate = getDateRangeMinimum(dateRange);
+
+  return {
+    id,
+    color,
+    data:
+      data?.data
+        // Filter out data which has a different category than the given one
+        // .filter((d) => d.category === category)
+        // Filter out data with no timestamp
+        ?.filter((d) => d.timestamp)
+        .map((d) => {
+          {
+            return {
+              x: d.timestamp,
+              // Set value as 0 if it is missing
+              y: d.values.find((d) => d.key === value)?.value ?? '0',
+            };
+          }
+        })
+        // Filter the data just in the provided range
+        .filter((d) => (minimumDate ? d.x >= minimumDate : true)) ?? [],
+  };
+};
 
 const dataSquares = {
   data: {
@@ -109,71 +127,67 @@ const dataSquares = {
   },
 };
 
+/**
+ * Component of the data page of a project
+ * @type {React.FC<InferGetStaticPropsType<typeof getStaticProps>>}
+ * @return {React.ReactElement} A data page of a project
+ */
 const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  projects,
   projectId,
 }) => {
-  const router = useRouter();
-
-  const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
-    undefined,
-    {
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    }
+  const pathname = useReactPath();
+  const [localProjectId, setLocalProjectId] = useState<string>(
+    projectId as string
   );
+  const [project, setProject] = useState<FilledDataDashboardProject>();
+  const [timeSeriesData, setTimeSeriesData] = useState<TimeSeriesData[]>();
+  const [dateRange, setDateRange] = useState<DateRange>('30d');
 
-  const { data } = trpc.data.getDataDashboardProject.useQuery(
-    projectId as string,
-    {
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    }
-  );
-  // Sort the data by timestamp in an increasing order
-  data?.data.sort((a, b) => (a.timestamp > b.timestamp ? 1 : -1));
+  const { data } = trpc.data.getDataDashboardProject.useQuery(localProjectId);
 
-  const [range, setRange] = useState<Range>();
-  const [rangeOptions, setRangeOptions] = useState<OptionType<Range>[]>([]);
-
-  const [clicks, setClicks] = useState<TimeSeriesData>(
-    getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B', range)
-  );
-  const [comments, setComments] = useState<TimeSeriesData>(
-    getLineChartData(data, 'comments', 'Comments', '#7F3C97', range)
-  );
-
+  /**
+   * Effect to update the local project state once data changes.
+   * Note: the data-points are sorted by increasing order.
+   * */
   useEffect(() => {
-    setClicks(getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B', range));
-    setComments(
-      getLineChartData(data, 'comments', 'Comments', '#7F3C97', range)
-    );
-  }, [range]);
-
-  useEffect(() => {
-    if (!data) return;
-
-    const sortedTimestamps = data.data.map((d) => d.timestamp);
-    const r = {
-      begin: sortedTimestamps[0],
-      end: sortedTimestamps[sortedTimestamps.length - 1],
-    };
-    const r1 = {
-      begin: sortedTimestamps[Math.round(sortedTimestamps.length / 4)],
-      end: sortedTimestamps[Math.round((sortedTimestamps.length * 3) / 4)],
-    };
-    const rangeOptions = [
-      { value: r, label: getRangeLabel(r) },
-      { value: r1, label: getRangeLabel(r1) },
-    ];
-    setRange(r);
-    setRangeOptions(rangeOptions);
+    if (data) {
+      data.data.sort((a, b) => (a.timestamp > b.timestamp ? 1 : -1));
+      setProject(data);
+    }
   }, [data]);
 
-  const selectProject = async (selectedProject: OptionType<string> | null) => {
+  /** Effect to change the projectId when a "popstate" is triggered by changes in the history of the window. */
+  useEffect(() => {
+    if (pathname) {
+      const newProjectId = pathname.split('/').at(-1);
+      if (newProjectId) {
+        setLocalProjectId(newProjectId);
+      }
+    }
+  }, [pathname]);
+
+  /** Effect to update the time series data to show in the line chart once the project or the date range change. */
+  useEffect(() => {
+    setTimeSeriesData([
+      getLineChartData(project, 'clicks', 'Clicks', '#DD3E2B', dateRange),
+      getLineChartData(project, 'comments', 'Comments', '#7F3C97', dateRange),
+    ]);
+  }, [dateRange, project]);
+
+  /**
+   * Callback to push a new path in the history and update the `projectId` state according to a selected project.
+   * The id of the selected project will be inserted as a parameter of the new path.
+   * @param selectedProject {OptionType<string> | null>} The project from which the id is extracted
+   */
+  const selectProject = (selectedProject: OptionType<string> | null) => {
     if (selectedProject) {
-      await router.replace(`/data/${selectedProject.value}`);
+      window.history.pushState(
+        { path: `/data/${selectedProject.value}` },
+        '',
+        `/data/${selectedProject.value}`
+      );
+      setLocalProjectId(selectedProject.value);
     }
   };
 
@@ -189,9 +203,11 @@ const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             <SelectInput
               theme="data"
               name="project"
-              current={data ? { label: data.label, value: data.id } : null}
+              current={
+                project ? { label: project.label, value: project.id } : null
+              }
               options={
-                projects?.map((p) => ({
+                (projects as DataDashboardProject[])?.map((p) => ({
                   value: p.id,
                   label: p.label,
                 })) ?? []
@@ -200,22 +216,9 @@ const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             />
           </div>
           <div className="w-full mb-4">
-            <Label className="text-white" name="date-range">
-              Date range
-            </Label>
-            <SelectInput
-              theme="data"
-              name="date-range"
-              optionsEditable
-              current={
-                range ? { value: range, label: getRangeLabel(range) } : null
-              }
-              options={rangeOptions ?? []}
-              onChange={(option) => {
-                if (option) {
-                  setRange(option?.value);
-                }
-              }}
+            <DateRangeSelectInput
+              dateRange={dateRange}
+              setDateRange={setDateRange}
             />
           </div>
           <div className="w-full mb-4">
@@ -351,8 +354,9 @@ const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               </div>
               <div className="h-[28rem] bg-white">
                 <TimeSeriesLineChart
-                  data={[clicks, comments]}
+                  data={timeSeriesData}
                   yLabel="Number of clicks"
+                  dateRange={dateRange}
                 />
               </div>
             </div>
@@ -372,8 +376,9 @@ const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               </div>
               <div className="h-[28rem] bg-white">
                 <TimeSeriesLineChart
-                  data={[clicks]}
+                  data={timeSeriesData?.length ? [timeSeriesData[0]] : []}
                   yLabel="Number of comments"
+                  dateRange={dateRange}
                 />
               </div>
             </div>
@@ -431,7 +436,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: projects.map((project) => ({
       params: {
         projectId: project.id,
-        label: project.label,
       },
     })),
     fallback: false,
@@ -442,7 +446,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const projectId = context.params?.projectId as string;
 
   // Prefetch
-  await prisma.dataDashboardProject.findMany({
+  const projects = await prisma.dataDashboardProject.findMany({
     select: {
       id: true,
       label: true,
@@ -463,7 +467,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      projectId: projectId,
+      projects: projects ?? [],
+      projectId,
     },
     revalidate: 10,
   };

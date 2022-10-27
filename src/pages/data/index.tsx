@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -37,9 +37,12 @@ const Hero: React.FC = () => (
 
 const Data: React.FC = () => {
   const router = useRouter();
+  const [selctedProject, setSelectedProject] =
+    useState<null | OptionType<string>>(null);
 
   async function selectProject(selectedProject: OptionType<string> | null) {
     if (selectedProject) {
+      setSelectedProject(selectedProject);
       await router.push(`/data/${selectedProject.value}`);
     }
   }
@@ -140,7 +143,7 @@ const Data: React.FC = () => {
                   }
                   placeholder={'Select A Project'}
                   name="project"
-                  current={null}
+                  current={selctedProject}
                   onChange={selectProject}
                 />
               </div>
