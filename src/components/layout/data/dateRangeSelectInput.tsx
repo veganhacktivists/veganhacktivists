@@ -50,7 +50,6 @@ const DateRangeSelectInput: React.FC<DateRangeSelectInputProps> = ({
       <SelectInput
         theme="data"
         name="date-range"
-        optionsEditable
         current={dateRangeOptions.find((d) => d.value == dateRange) ?? null}
         options={dateRangeOptions ?? []}
         onChange={(option) => {

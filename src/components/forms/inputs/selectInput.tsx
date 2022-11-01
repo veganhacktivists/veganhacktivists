@@ -3,7 +3,6 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import React from 'react';
 import classNames from 'classnames';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 
 import getThemeColor from '../../../lib/helpers/theme';
 
@@ -29,7 +28,6 @@ interface SelectInputProps<T>
   placeholder?: string;
   showError?: boolean;
   theme?: string;
-  optionsEditable?: boolean;
 }
 
 const grey = getThemeColor('grey');
@@ -47,7 +45,6 @@ const SelectInput = <T,>({
   onChange,
   creatable = false,
   ref,
-  optionsEditable,
   ...props
 }: SelectInputProps<T> & { ref?: Ref<StateManagedSelect> }) => {
   const [allOptions, setAllOptions] = useState(options);
@@ -56,12 +53,6 @@ const SelectInput = <T,>({
   useEffect(() => {
     setRendered(true);
   }, []);
-
-  useEffect(() => {
-    if (optionsEditable) {
-      setAllOptions(options);
-    }
-  }, [options]);
 
   const height = '44px';
 
