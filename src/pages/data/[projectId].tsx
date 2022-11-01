@@ -5,12 +5,12 @@ import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 
 import Label from '../../components/forms/inputs/label';
 import SelectInput from '../../components/forms/inputs/selectInput';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
-import prisma from '../../lib/db/prisma';
 import DateRangeSelectInput, {
   dateRangeAttributes,
 } from '../../components/layout/data/dateRangeSelectInput';
@@ -18,11 +18,6 @@ import useReactPath from '../../hooks/useReactPath';
 
 import type { DateRange } from '../../components/layout/data/dateRangeSelectInput';
 import type { OptionType } from '../../components/forms/inputs/selectInput';
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from 'next';
 import type {
   DataDashboardProject,
   DataDashboardData,
@@ -105,22 +100,35 @@ const dataSquares = {
 
 /**
  * Component of the data page of a project
- * @type {React.FC<InferGetStaticPropsType<typeof getStaticProps>>}
+ * @type {React.FC}
  * @return {React.ReactElement} A data page of a project
  */
-const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  projects,
-  projectId,
-}) => {
+const DataProject: React.FC = () => {
+  const router = useRouter();
   const pathname = useReactPath();
   const [localProjectId, setLocalProjectId] = useState<string>(
-    projectId as string
+    router.query.projectId as string
   );
   const [project, setProject] = useState<FilledDataDashboardProject>();
   const [timeSeriesData, setTimeSeriesData] = useState<TimeSeriesData[]>();
   const [dateRange, setDateRange] = useState<DateRange>('30d');
 
-  const { data } = trpc.data.getDataDashboardProject.useQuery(localProjectId);
+  const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
+    undefined,
+    {
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const { data } = trpc.data.getDataDashboardProject.useQuery(localProjectId, {
+    keepPreviousData: true,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
 
   /**
    * Effect to update the local project state once data changes.
@@ -399,55 +407,6 @@ const DataProject: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
       />
     </div>
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await prisma.dataDashboardProject.findMany({
-    select: {
-      id: true,
-      label: true,
-    },
-  });
-  return {
-    paths: projects.map((project) => ({
-      params: {
-        projectId: project.id,
-      },
-    })),
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const projectId = context.params?.projectId as string;
-
-  // Prefetch
-  const projects = await prisma.dataDashboardProject.findMany({
-    select: {
-      id: true,
-      label: true,
-    },
-  });
-  await prisma.dataDashboardProject.findFirst({
-    where: {
-      id: projectId,
-    },
-    include: {
-      data: {
-        include: {
-          values: true,
-        },
-      },
-    },
-  });
-
-  return {
-    props: {
-      projects: projects ?? [],
-      projectId,
-    },
-    revalidate: 10,
-  };
 };
 
 export default DataProject;

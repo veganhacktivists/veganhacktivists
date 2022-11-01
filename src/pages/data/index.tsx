@@ -51,6 +51,7 @@ const Data: React.FC = () => {
   const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
     undefined,
     {
+      keepPreviousData: true,
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
