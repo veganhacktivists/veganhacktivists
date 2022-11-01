@@ -11,7 +11,9 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
 import prisma from '../../lib/db/prisma';
-import DateRangeSelectInput from '../../components/layout/data/dateRangeSelectInput';
+import DateRangeSelectInput, {
+  dateRangeAttributes,
+} from '../../components/layout/data/dateRangeSelectInput';
 import useReactPath from '../../hooks/useReactPath';
 
 import type { DateRange } from '../../components/layout/data/dateRangeSelectInput';
@@ -40,34 +42,6 @@ type FilledDataDashboardProject = DataDashboardProject & {
   data: (DataDashboardData & { values: DataDashboardValue[] })[];
 };
 
-/**
- * Function that computes the lower bound of a date range according to a given "date range id".
- * @param dateRange {DateRange | undefined} The id of a date range from which the lower date bound is computed.
- * @return {Date | null} The lower date bound if it exist.
- */
-const getDateRangeMinimum = (dateRange: DateRange | undefined): Date | null => {
-  switch (dateRange) {
-    case '7d':
-      return new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-    case '30d':
-      return new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-    case '60d':
-      return new Date(Date.now() - 60 * 24 * 60 * 60 * 1000);
-    case '90d':
-      return new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
-    case '6m':
-      const date = new Date();
-      date.setMonth(date.getMonth() - 6);
-      return date;
-    case 'YTD':
-      return new Date(new Date().getFullYear(), 0, 1);
-    case 'All time':
-      return null;
-    default:
-      return null;
-  }
-};
-
 // TODO: filter by category
 /**
  * Function to get a time series for a line chart
@@ -86,7 +60,9 @@ const getLineChartData = (
   color: string,
   dateRange?: DateRange
 ): TimeSeriesData => {
-  const minimumDate = getDateRangeMinimum(dateRange);
+  const minimumDate = dateRange
+    ? dateRangeAttributes[dateRange].min
+    : undefined;
 
   return {
     id,

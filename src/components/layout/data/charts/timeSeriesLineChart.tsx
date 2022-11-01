@@ -1,6 +1,8 @@
 import { ResponsiveLine } from '@nivo/line';
 import React from 'react';
 
+import { dateRangeAttributes } from '../dateRangeSelectInput';
+
 import XTickTimeSeriesLabel from './xTickTimeSeriesLabel';
 import TimeSeriesTooltip from './timeSeriesTooltip';
 
@@ -16,34 +18,6 @@ import type { DateRange } from '../dateRangeSelectInput';
 const assertDataIsCorrect = (
   data: TimeSeriesData[] | undefined
 ): data is TimeSeriesData[] => !!data?.filter((d) => d?.data?.length).length;
-
-/**
- * Function that returns the x-ticks intervals of the graph according to a selected date interval range.
- * @param dateRange {DateRange} The date interval range.
- * @return {string | undefined} The x-ticks interval.
- */
-const getDateRangeTicksInterval = (
-  dateRange: DateRange
-): string | undefined => {
-  switch (dateRange) {
-    case '7d':
-      return 'every 1 days';
-    case '30d':
-      return 'every 5 days';
-    case '60d':
-      return 'every 10 days';
-    case '90d':
-      return 'every 15 days';
-    case '6m':
-      return 'every 1 months';
-    case 'YTD':
-      return 'every 1 months';
-    case 'All time':
-      return undefined;
-    default:
-      return undefined;
-  }
-};
 
 /** Interface describing a time series data structure which extends the `Serie` interface */
 export interface TimeSeriesData extends Serie {
@@ -109,7 +83,7 @@ const TimeSeriesLineChart: React.FC<TimeSeriesLineChartProps> = ({
             tickSize: 0,
             tickPadding: 5,
             format: (d: Date) => <XTickTimeSeriesLabel timestamp={d} />,
-            tickValues: getDateRangeTicksInterval(dateRange),
+            tickValues: dateRangeAttributes[dateRange].ticksSpec,
           }}
           axisLeft={{
             tickSize: 0,
