@@ -14,6 +14,16 @@ import SelectInput from '../../components/forms/inputs/selectInput';
 import hero from '../../../public/images/data/VH-goat-hero.jpg';
 import heroTagline from '../../../public/images/data/hero-tagline.png';
 import SquareField from '../../components/decoration/squares';
+import { trpc } from '../../lib/client/trpc';
+
+import TimeSeriesLineChart from './charts/timeSeriesLineChart';
+
+import type {
+  DataDashboardProject,
+  DataDashboardData,
+  DataDashboardValue,
+} from '@prisma/client';
+import type { TimeSeriesData } from './charts/timeSeriesLineChart';
 
 const Tagline: React.FC = () => (
   <div className="lg:pt-10 md:pt-0">
@@ -38,6 +48,61 @@ const Hero: React.FC = () => (
 );
 
 const Data: React.FC = () => {
+  // TODO: Fetch based on actual selected project
+  const { data } = trpc.data.getDataDashboardProject.useQuery(
+    '5 minutes 5 vegans',
+    {
+      staleTime: 10000,
+      trpc: { ssr: false },
+      // enabled: false,
+    }
+  );
+
+  /** Type representing a DataDashboardProject filled with data recursively filled with values. */
+  type FilledDataDashboardProject = DataDashboardProject & {
+    data: (DataDashboardData & { values: DataDashboardValue[] })[];
+  };
+
+  // TODO: Correctly parametrize and filter by Category
+  /**
+   * Function to get a time series for a line chart
+   * @param data {FilledDataDashboardProject} The project from which the data is fetched
+   * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks)
+   * @param id {string}: The ID of the time series which will even function as the label
+   * @param color: The color to represent the time series as a line in the chart
+   *
+   * @return {TimeSeriesData} A complete time series
+   */
+  const getLineChartData = (
+    data: FilledDataDashboardProject | undefined,
+    value: string,
+    id: string,
+    color: string
+  ): TimeSeriesData => ({
+    id,
+    color,
+    data:
+      data?.data
+        // Filter out data which has a different category than the given one
+        // .filter((d) => d.category === category)
+        // Filter out data with no timestamp
+        ?.filter((d) => d.timestamp)
+        .map((d) => {
+          {
+            return {
+              x: d.timestamp,
+              // Set value as 0 if it is missing
+              y: d.values.find((d) => d.key === value)?.value ?? '0',
+            };
+          }
+        })
+        // Sort the data points by increasing timestamp order
+        .sort((a, b) => (a.x > b.x ? 1 : -1)) ?? [],
+  });
+
+  const clicks = getLineChartData(data, 'clicks', 'Clicks', '#DD3E2B');
+  const comments = getLineChartData(data, 'comments', 'Comments', '#7F3C97');
+
   const [dataDisplayed, displayData] = useState(false);
   const changeProject = () => {
     displayData(true);
@@ -241,7 +306,12 @@ const Data: React.FC = () => {
                 <div className="flex bg-gray-dark h-3">
                   <div className="bg-orange h-full w-10" />
                 </div>
-                <div className="h-28 bg-white" />
+                <div className="h-[28rem] bg-white">
+                  <TimeSeriesLineChart
+                    data={[clicks, comments]}
+                    yLabel="Number of clicks"
+                  />
+                </div>
               </div>
             </div>
             <div id="number-of-replies" className=" w-full mb-8">
@@ -257,7 +327,12 @@ const Data: React.FC = () => {
                 <div className="flex bg-gray-dark h-3">
                   <div className="bg-purple h-full w-10" />
                 </div>
-                <div className="h-28 bg-white" />
+                <div className="h-[28rem] bg-white">
+                  <TimeSeriesLineChart
+                    data={[comments]}
+                    yLabel="Number of comments"
+                  />
+                </div>
               </div>
             </div>
             <div id="user-engagement-replies" className=" w-full mb-8">

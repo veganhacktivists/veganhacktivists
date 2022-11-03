@@ -172,3 +172,32 @@ model PlaygroundRequest {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model DataDashboardData {
+  id                     String                @id @default(cuid()) @db.VarChar(30)
+  timestamp              DateTime              @default(now())
+  category               String?
+  subcategory            String?
+  values                 DataDashboardValue[]
+  DataDashboardProject   DataDashboardProject? @relation(fields: [dataDashboardProjectId], references: [id])
+  dataDashboardProjectId String?               @db.VarChar(30)
+}
+
+enum DashboardValueType {
+  clicks
+  comments
+}
+
+model DataDashboardValue {
+  id                  String             @id @default(cuid()) @db.VarChar(30)
+  key                 DashboardValueType
+  value               String?
+  DataDashboardData   DataDashboardData? @relation(fields: [dataDashboardDataId], references: [id])
+  dataDashboardDataId String?            @db.VarChar(30)
+}
+
+model DataDashboardProject {
+  id    String              @id @default(cuid()) @db.VarChar(30)
+  label String              @unique
+  data  DataDashboardData[]
+}

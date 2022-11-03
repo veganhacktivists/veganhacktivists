@@ -18,16 +18,13 @@ import { pixelHeart } from '../../images/separators';
 import { useTeamStore } from '../../lib/stores/teamStore';
 
 import type PageWithLayout from '../../types/persistentLayout';
-import type { ITeamFields } from '../../types/generated/contentful';
 import type { ITeamMember } from '../../types/generated/contentful';
+import type { ITeamMemberFields } from '../../types/generated/contentful';
 import type { ITeam } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teams = (await getActiveTeams()).filter((entry) => {
-    return entry.fields.slug !== 'sweet-potato';
-  });
-  const teamMembers = await getContents<ITeamFields>({
+  const teamMembers = await getContents<ITeamMemberFields>({
     contentType: 'teamMember',
     query: {
       isCoreMember: false,
@@ -42,6 +39,15 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
     other: { order: 'fields.isTeamLeader' },
+  });
+
+  const activeTeamSlugs = new Set();
+  teamMembers.forEach((teamMember) => {
+    activeTeamSlugs.add(teamMember.fields.team?.fields.slug);
+  });
+
+  const teams = (await getActiveTeams()).filter((entry) => {
+    return activeTeamSlugs.has(entry.fields.slug);
   });
 
   return {
@@ -251,8 +257,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       <FirstSubSection header="Our volunteers">
         Our volunteer community is at the heart of our organization, and enables
         us to build innovative projects and contribute to the movement in
-        meaningful ways. Our teams work independently on specific projects and
-        collaboratively with each other and those who serve in the movement.
+        meaningful ways.{' '}
         <b>Click on an icon to meet the volunteers in each team!</b>
       </FirstSubSection>
       <div className="m-10">

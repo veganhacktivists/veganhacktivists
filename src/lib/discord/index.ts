@@ -14,6 +14,7 @@ const createClient = () => {
 };
 
 const discord = discordGlobal.discord || createClient();
+let timestamp: number;
 
 discord.on('ready', () => {
   // eslint-disable-next-line no-console
@@ -27,6 +28,12 @@ export const getDiscordChannel = async (id: string) => {
 export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
+  }
+  if (!timestamp || timestamp + 60 * 60 * 1000 < Date.now()) {
+    timestamp = Date.now();
+    discord.guilds.cache.clear();
+    // eslint-disable-next-line no-console
+    console.info('Discord guild cache cleared!');
   }
   const cachedServer = discord.guilds.cache.get(id);
 

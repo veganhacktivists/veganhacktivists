@@ -180,10 +180,10 @@ const Services: React.FC = () => (
         />
 
         <div className="px-3 text-center text-grey-darker md:w-2/3">
-          We do on ocassion offer paid services for activists and/or
-          organizations that need dedicated or priority speed support. If you
-          fit that criteria, please contact us below. Our pricing is based on
-          your budget and is discounted for non-profits.
+          Given our capacity and your organizational needs, we may consider
+          taking on paid projects that need dedicated or priority support. If
+          this is your situation, please contact us below and we will explore
+          how best to scope the work to fit within your budget.
         </div>
       </div>
     </div>
@@ -199,9 +199,9 @@ const Services: React.FC = () => (
     />
     <div className="px-10 pt-10 bg-grey-background md:px-0">
       <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
-        If you&apos;d like to talk about any of these services, please use our
-        contact form to get in touch! We do our best to respond to every email
-        within 48 hours.
+        If you&apos;d like to discuss any of our service offerings, please use
+        our our contact form to get in touch. We do our best to promptly respond
+        to every inquiry.
       </div>
       <ContactUsForm />
     </div>

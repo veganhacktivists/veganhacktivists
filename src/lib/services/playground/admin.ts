@@ -389,12 +389,15 @@ export const setRequestStatus = async ({
   }
 
   const shouldPost =
+    process.env.NODE_ENV === 'production' &&
     request.discordMessages.length === 0 &&
     request.status === Status.Pending &&
     status === Status.Accepted;
 
   const shouldNotifyDenial =
-    request.status === Status.Pending && status === Status.Rejected;
+    process.env.NODE_ENV === 'production' &&
+    request.status === Status.Pending &&
+    status === Status.Rejected;
 
   let discordMessages: Message[] = [];
   let redditSubmissions: Submission[] = [];
