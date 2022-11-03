@@ -33,7 +33,11 @@ const faqEntries = [
     children: (
       <>
         <p>
-          If you&apos;re an organization or animal advocate, click on
+          If you&apos;re an organization or advocate dedicated to improving or
+          saving the lives of animals, we want to support your work.
+        </p>
+        <p>
+          If you have a specific project or operational need in mind, click on
           &ldquo;Submit a request&rdquo; and fill out the form to let us know
           exactly what you need help with. We&apos;ll review your request to
           make sure it fits our community standards, and then approve or decline
@@ -87,15 +91,20 @@ const faqEntries = [
     ),
   },
   {
-    title: "I'd rather get support from the VH team, is that possible?",
+    title: 'Is it possible to get support from the VH team?',
     children: (
       <>
         <p>
-          Unfortunately, our core team of developers, designers, and specialists
-          have both internal and external projects that they&apos;re dedicating
-          their time toward. Playground was designed to increase our capacity by
-          leveraging our network of vegan volunteers who are enthusiastic to
-          help.
+          Playground is designed to increase our capacity by leveraging our vast
+          network of skilled volunteers who are enthusiastic to contribute to
+          the movement. Currently, VH&apos;s core team of developers, designers,
+          and specialists are dedicated to various priority projects. Given that
+          we review each request on Playground, we will reach out if we believe
+          that your needs can be met by our core team. Please take a look at our{' '}
+          <CustomLink href="https://veganhacktivists.org/services">
+            service offerings
+          </CustomLink>{' '}
+          to learn more about VH&apos;s areas of specialty.
         </p>
       </>
     ),
@@ -126,8 +135,8 @@ const faqEntries = [
           <CustomLink href={JOIN_PLAYGROUND_URL}>
             Playground Discord server
           </CustomLink>{' '}
-          - all new requests get posted there. Turn on notifications to get
-          alerts whenever a new request comes in. You can also chat with other
+          to view the latest requests. Turn on notifications to get alerts
+          whenever a new request comes in. You can also chat with other
           volunteers, discuss your experiences, and get support from the
           Playground community. We look forward to seeing you soon!
         </p>
