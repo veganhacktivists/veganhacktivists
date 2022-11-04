@@ -64,7 +64,9 @@ export const sendDiscordMessage = async ({
   const channel = await getDiscordChannel(channelId);
   if (!channel || channel.type !== ChannelType.GuildText) {
     throw new Error(
-      `Channel ${channelId} not found or is not a a valid text channel`
+      `Channel ${channelId} not found or is not a a valid text channel. Got ${JSON.stringify(
+        channel
+      )}`
     );
   }
   return await channel.send(options);
