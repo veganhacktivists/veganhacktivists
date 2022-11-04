@@ -17,7 +17,12 @@ const LeftSide: React.FC = () => {
   const isRootPage = pathname === '/';
 
   return (
-    <div className="flex items-center flex-shrink p-7 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max">
+    <div
+      className={classNames(
+        'flex items-center flex-shrink p-7 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max',
+        { 'p-7': isRootPage, 'p-5': !isRootPage }
+      )}
+    >
       {/* root */}
       <Link href="/">
         <a className={classNames({ hidden: !isRootPage })}>
