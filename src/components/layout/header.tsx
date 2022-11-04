@@ -5,10 +5,11 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 import CustomImage from '../decoration/customImage';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
-import logoBig from '../../../public/images/VH-logo-web-white.png';
+import logoBig from '../../../public/images/VH_Logo_Loop.json';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -16,17 +17,18 @@ const LeftSide: React.FC = () => {
   const isRootPage = pathname === '/';
 
   return (
-    <div className="flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max">
+    <div className="flex items-center flex-shrink p-7 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max">
       {/* root */}
       <Link href="/">
         <a className={classNames({ hidden: !isRootPage })}>
-          <CustomImage
+          <Player
+            autoplay
+            loop
             src={logoBig}
-            alt="Vegan Hacktivists Logo"
-            layout="intrinsic"
-            width={logoBig.width * ratio}
-            height={logoBig.height * ratio}
-            priority
+            style={{
+              width: `${272}px`,
+              height: `${99.1}px`,
+            }}
           />
         </a>
       </Link>
