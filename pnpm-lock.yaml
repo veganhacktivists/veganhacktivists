@@ -14,6 +14,7 @@ specifiers:
   "@fortawesome/free-solid-svg-icons": ^6.2.0
   "@fortawesome/react-fontawesome": ^0.2.0
   "@hookform/resolvers": ^2.9.7
+  "@lottiefiles/react-lottie-player": ^3.4.7
   "@mailchimp/mailchimp_marketing": ^3.0.78
   "@next-auth/prisma-adapter": ^1.0.4
   "@nivo/core": ^0.80.0
@@ -115,6 +116,7 @@ dependencies:
   "@fortawesome/free-solid-svg-icons": 6.2.0
   "@fortawesome/react-fontawesome": 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
   "@hookform/resolvers": 2.9.7_react-hook-form@7.34.2
+  "@lottiefiles/react-lottie-player": 3.4.7_react@18.2.0
   "@mailchimp/mailchimp_marketing": 3.0.78
   "@next-auth/prisma-adapter": 1.0.4_bwhncj256yar2zz55r2fl3abo4
   "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
@@ -162,7 +164,7 @@ dependencies:
   sharp: 0.31.0
   snoowrap: 1.23.0
   superjson: 1.9.1
-  tailwindcss: 3.1.8_ts-node@10.9.1
+  tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
   zod: 3.19.0
   zustand: 4.1.1_react@18.2.0
 
@@ -2494,6 +2496,18 @@ packages:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
 
+  /@lottiefiles/react-lottie-player/3.4.7_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-KqkwRiCQPDNzimsXnNSgeJjJlZQ6Fr9JE3OtZdOaGrXovZJ+zDeZNxIwxID8Up0eAdm4zJjudOSc5EJSiGw9RA==,
+      }
+    peerDependencies:
+      react: 16 - 18
+    dependencies:
+      lottie-web: 5.9.6
+      react: 18.2.0
+    dev: false
+
   /@mailchimp/mailchimp_marketing/3.0.78:
     resolution:
       {
@@ -3251,7 +3265,7 @@ packages:
     peerDependencies:
       tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
     dependencies:
-      tailwindcss: 3.1.8_ts-node@10.9.1
+      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
     dev: false
 
   /@tailwindcss/typography/0.5.7_tailwindcss@3.1.8:
@@ -3266,7 +3280,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.1.8_ts-node@10.9.1
+      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
     dev: true
 
   /@tanstack/query-core/4.2.3:
@@ -9497,6 +9511,13 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
+  /lottie-web/5.9.6:
+    resolution:
+      {
+        integrity: sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==,
+      }
+    dev: false
+
   /lower-case/1.1.4:
     resolution:
       {
@@ -12903,13 +12924,15 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /tailwindcss/3.1.8_ts-node@10.9.1:
+  /tailwindcss/3.1.8_57znarxsqwmnneadci5z5fd5gu:
     resolution:
       {
         integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==,
       }
     engines: { node: ">=12.13.0" }
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
