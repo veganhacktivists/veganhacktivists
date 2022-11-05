@@ -88,7 +88,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         )}
         {status === 'error' && (
           <>
-            <h1 className="text-2xl font-bold">This request has been taken</h1>
+            <h1 className="text-3xl text-red font-bold">This request has been taken</h1>
           </>
         )}
         {status === 'loading' && (
