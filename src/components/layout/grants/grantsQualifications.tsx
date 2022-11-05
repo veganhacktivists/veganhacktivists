@@ -60,9 +60,8 @@ const GrantsQualifications: React.FC = () => {
         <p className="mt-12 text-2xl font-thin">
           <i>
             <b>Don&apos;t meet the qualifications above?</b> You may still be
-            eligible for funding! Apply and we'll forward your application to
-            other potential funders.
-            
+            eligible for funding! Apply and we&apos;ll forward your application
+            to other potential funders.
           </i>
         </p>
         <p className="mt-10 mb-4 text-2xl">
