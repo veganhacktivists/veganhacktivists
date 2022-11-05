@@ -22,7 +22,7 @@ discord.on('ready', () => {
 });
 
 export const getDiscordChannel = async (id: string) => {
-  return discord.channels.cache.get(id) || (await discord.channels.fetch(id));
+  return await discord.channels.fetch(id);
 };
 
 export const getDiscordServer = async (id: string) => {
