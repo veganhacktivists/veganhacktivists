@@ -86,6 +86,11 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
             <RequestApplyForm request={request} />
           </>
         )}
+        {status === 'error' && (
+          <>
+            <h1 className="text-3xl text-red font-bold">This request has been taken</h1>
+          </>
+        )}
         {status === 'loading' && (
           <div>
             <Spinner />

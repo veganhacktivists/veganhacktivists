@@ -14,6 +14,7 @@ specifiers:
   "@fortawesome/free-solid-svg-icons": ^6.2.0
   "@fortawesome/react-fontawesome": ^0.2.0
   "@hookform/resolvers": ^2.9.7
+  "@lottiefiles/react-lottie-player": ^3.4.7
   "@mailchimp/mailchimp_marketing": ^3.0.78
   "@next-auth/prisma-adapter": ^1.0.4
   "@nivo/core": ^0.80.0
@@ -115,6 +116,7 @@ dependencies:
   "@fortawesome/free-solid-svg-icons": 6.2.0
   "@fortawesome/react-fontawesome": 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
   "@hookform/resolvers": 2.9.7_react-hook-form@7.34.2
+  "@lottiefiles/react-lottie-player": 3.4.7_react@18.2.0
   "@mailchimp/mailchimp_marketing": 3.0.78
   "@next-auth/prisma-adapter": 1.0.4_bwhncj256yar2zz55r2fl3abo4
   "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
@@ -2503,6 +2505,18 @@ packages:
     dependencies:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
+
+  /@lottiefiles/react-lottie-player/3.4.7_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-KqkwRiCQPDNzimsXnNSgeJjJlZQ6Fr9JE3OtZdOaGrXovZJ+zDeZNxIwxID8Up0eAdm4zJjudOSc5EJSiGw9RA==,
+      }
+    peerDependencies:
+      react: 16 - 18
+    dependencies:
+      lottie-web: 5.9.6
+      react: 18.2.0
+    dev: false
 
   /@mailchimp/mailchimp_marketing/3.0.78:
     resolution:
@@ -9517,6 +9531,13 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+
+  /lottie-web/5.9.6:
+    resolution:
+      {
+        integrity: sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==,
+      }
+    dev: false
 
   /lower-case/1.1.4:
     resolution:
