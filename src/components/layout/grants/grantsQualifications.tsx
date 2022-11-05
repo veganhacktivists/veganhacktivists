@@ -57,22 +57,15 @@ const GrantsQualifications: React.FC = () => {
           have worked on and contributed to grassroots campaigns and/or
           projects, in a paid or volunteer capacity.
         </GrantsQualificationsStep>
-        <p className="mt-12 text-2xl font-thin mb-10">
+        <p className="mt-12 text-2xl font-thin">
           <i>
             <b>Don&apos;t meet the qualifications above?</b> You may still be
-            eligible for funding. Please apply directly with The Pollination
-            Project.
+            eligible for funding! Apply and we'll forward your application to
+            other potential funders.
+            
           </i>
         </p>
-        <div className="flex justify-center">
-          <LightButton
-            href="https://thepollinationproject.org/pre-screen-quiz/"
-            className="font-semibold content-center m-5 font-mono md:w-96"
-          >
-            Apply For A Grant With TPP
-          </LightButton>
-        </div>
-        <p className="mt-10 text-2xl">
+        <p className="mt-10 mb-4 text-2xl">
           <b>
             If you meet the qualifications, fill out the application form below.
           </b>
