@@ -19,8 +19,7 @@ const LeftSide: React.FC = () => {
   return (
     <div
       className={classNames(
-        'flex items-center flex-shrink p-7 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max',
-        { 'p-7': isRootPage, 'p-5': !isRootPage }
+        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
       )}
     >
       {/* root */}
@@ -31,8 +30,8 @@ const LeftSide: React.FC = () => {
             loop
             src={logoBig}
             style={{
-              width: `${272}px`,
-              height: `${99.1}px`,
+              width: '343px',
+              height: '113.5px',
             }}
           />
         </a>
