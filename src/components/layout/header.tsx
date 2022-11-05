@@ -30,8 +30,8 @@ const LeftSide: React.FC = () => {
             loop
             src={logoBig}
             style={{
-              width: '343px',
-              height: '113.5px',
+              maxWidth: '344px',
+              maxHeight: '113.5px',
             }}
           />
         </a>
