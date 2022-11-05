@@ -8,7 +8,7 @@ interface ContentfulImageProps
   image: Asset;
   alt: string;
   ratio?: number;
-  downloadWidth?: number;
+  downloadwidth?: number;
   thumbnail?: boolean;
 }
 

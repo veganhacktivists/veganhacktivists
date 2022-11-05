@@ -56,7 +56,7 @@ const TeamMemberCardPhoto: React.FC<{
         {image && (
           <div className="relative w-full filter">
             <ContentfulImage
-              downloadWidth={500}
+              downloadwidth={500}
               image={image}
               alt={name}
               priority={isTeamLeader}
