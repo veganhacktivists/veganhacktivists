@@ -20,6 +20,11 @@ const nextConfig = {
       exclude: ['error', 'info', 'warn'],
     },
   },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+    localeDetection: true,
+  },
   redirects() {
     return [
       {
