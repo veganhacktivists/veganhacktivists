@@ -70,7 +70,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
         {image && (
           <div className="relative w-full filter grayscale group-hover:grayscale-0">
             <ContentfulImage
-              downloadWidth={500}
+              downloadwidth={500}
               image={image}
               alt={name}
               priority={isTeamLeader}

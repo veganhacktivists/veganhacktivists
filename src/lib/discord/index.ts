@@ -1,6 +1,6 @@
 import { ChannelType, Client, GatewayIntentBits } from 'discord.js';
 
-import type { Message, MessageOptions } from 'discord.js';
+import type { Message, MessageCreateOptions } from 'discord.js';
 
 const discordGlobal = global as typeof global & {
   discord?: Client;
@@ -14,7 +14,6 @@ const createClient = () => {
 };
 
 const discord = discordGlobal.discord || createClient();
-let timestamp: number;
 
 discord.on('ready', () => {
   // eslint-disable-next-line no-console
@@ -28,12 +27,6 @@ export const getDiscordChannel = async (id: string) => {
 export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
-  }
-  if (!timestamp || timestamp + 60 * 60 * 1000 < Date.now()) {
-    timestamp = Date.now();
-    discord.guilds.cache.clear();
-    // eslint-disable-next-line no-console
-    console.info('Discord guild cache cleared!');
   }
   const cachedServer = discord.guilds.cache.get(id);
 
@@ -53,7 +46,7 @@ export const sendDiscordMessage = async ({
   ...options
 }: {
   channelId?: string;
-} & MessageOptions) => {
+} & MessageCreateOptions) => {
   if (!channelId) {
     throw new Error(
       `ChannelId is required, got ${
@@ -64,7 +57,9 @@ export const sendDiscordMessage = async ({
   const channel = await getDiscordChannel(channelId);
   if (!channel || channel.type !== ChannelType.GuildText) {
     throw new Error(
-      `Channel ${channelId} not found or is not a a valid text channel`
+      `Channel ${channelId} not found or is not a a valid text channel. Got ${JSON.stringify(
+        channel
+      )}`
     );
   }
   return await channel.send(options);
