@@ -64,7 +64,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   }, [request]);
 
   const dueDateFormatted = useMemo(() => {
-    return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
+    if (request.dueDate !== null) {
+      //If dueDate was set to a valid date, format it into a string
+      return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
+    } else {
+      //Else a dueDate wasn't set for this request, so return null so the lack of a dueDate can be visualised
+      return null;
+    }
   }, [request]);
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -143,7 +149,12 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
-          <Field title="Due date">{dueDateFormatted}</Field>
+          {/*If the due date isn't set, hide the field*/}
+          {dueDateFormatted ? (
+            <Field title="Due date">{dueDateFormatted}</Field>
+          ) : (
+            ''
+          )}
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
