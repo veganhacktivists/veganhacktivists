@@ -148,7 +148,7 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'red',
     squareColor: '#c61f45',
     title: 'Writers',
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    href: 'https://forms.gle/RAhPpLyxpYcTNPpQ7',
     description: (
       <>
         Produce original and well-written content for a variety of medium—our
