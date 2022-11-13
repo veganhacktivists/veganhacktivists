@@ -20,8 +20,8 @@ const sendVerificationRequest = async (
     to: identifier,
     from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
-    text: verificationMail(host, url, true),
-    html: verificationMail(host, url),
+    text: verificationMail(url, true),
+    html: verificationMail(url),
   });
 };
 

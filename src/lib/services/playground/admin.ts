@@ -4,6 +4,12 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import { OUR_EMAIL_TO, PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
+import {
+  playgroundApplicatantIntroductionEmail,
+  playgroundApplicationDenialEmail,
+  playgroundRequestApprovalEmail,
+  playgroundRequestDenialEmail,
+} from '../../../components/layout/mail/emailTemplates';
 
 import prisma from 'lib/db/prisma';
 import { sendDiscordMessage } from 'lib/discord';
@@ -153,54 +159,17 @@ export const setApplicationStatus = ({
           updatedApplication.request.providedEmail,
         ],
         cc: OUR_EMAIL_TO,
+        from: PLAYGROUND_EMAIL_FORMATTED,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
-
-        html: `Hi ${updatedApplication.request.name},
-<br />
-<br />
-We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
-          updatedApplication.request.title
-        }&rdquo;!
-<br />
-<br />
-Meet the person (cc&apos;ed to this email) below that applied to help with your request!
-<br />
-<br />
-<b>Name:</b> ${updatedApplication.name}
-<br />
-<br />
-${optionalMessageParts}
-<br />
-<br />
-<b>Note:</b> They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
-<br />
-<br />
-<b>What&apos;s next?</b>
-<br />
-<br />
-We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
-          updatedApplication.request.name
-        }&apos;s Calendy link <a href="${
-          // TODO: sanitize this and all the other data?
-          updatedApplication.request.calendlyUrl
-        }">here</a>${
-          updatedApplication.calendlyUrl
-            ? ` or ${updatedApplication.name}&apos;s Calendy link <a href="${updatedApplication.calendlyUrl}">here</a>`
-            : ''
-        }.
-<br />
-<br />
-Is someone not responding at all? Or are you having any other issues? Email us to let us know!
-<br />
-<br />
-<i>Note that while we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers.</i>
-<br />
-<br />
-Thank you so much for helping the animals, and for using Playground!
-<br />
-<br />
-<b>Vegan Hacktivists</b>
-`,
+        text: playgroundApplicatantIntroductionEmail(
+          updatedApplication,
+          optionalMessageParts,
+          true
+        ),
+        html: playgroundApplicatantIntroductionEmail(
+          updatedApplication,
+          optionalMessageParts
+        ),
       });
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
@@ -208,19 +177,8 @@ Thank you so much for helping the animals, and for using Playground!
         from: PLAYGROUND_EMAIL_FORMATTED,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
-        html: `Thanks so much for submitting your request to support with Playground!
-<br />
-<br />
-Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.
-<br />
-<br />
-To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
-<br />
-<br />
-If you have any specific questions feel free to contact us here. In the meantime, check out <a href="https://veganhacktivists.org/playground/requests">other pending requests</a>!
-<br />
-<br />
-Thank you so much for considering VH: Playground for your activism!`,
+        text: playgroundApplicationDenialEmail(true),
+        html: playgroundApplicationDenialEmail(),
       });
     }
 
@@ -476,15 +434,8 @@ const sendAcceptedEmail = (request: PlaygroundRequest) => {
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'Your request is now live on Playground!',
-    html: `Your request is now live on Playground!
-<br /><br />
-Hey ${request.name}!
-<br /><br />
-Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="https://veganhacktivists.org/playground/request/${request.id}">clicking this link</a>.
-<br /><br />
-Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="https://veganhacktivists.org/playground#faq">in this page</a>.
-<br /><br />
-Thank you so much!`,
+    text: playgroundRequestApprovalEmail(request, true),
+    html: playgroundRequestApprovalEmail(request),
   });
 };
 
@@ -496,15 +447,7 @@ const sendDenialEmail = (request: PlaygroundRequest) => {
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'Thanks so much for submitting your request to Playground!',
-    html: `Thanks so much for submitting your request to Playground!
-<br />
-<br />
-Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.
-<br />
-<br />
-If you have any specific questions, or believe this was a mistake, feel free to contact us here.
-<br />
-<br />
-Thank you so much for considering VH: Playground for your request!`,
+    text: playgroundRequestDenialEmail(true),
+    html: playgroundRequestDenialEmail(),
   });
 };

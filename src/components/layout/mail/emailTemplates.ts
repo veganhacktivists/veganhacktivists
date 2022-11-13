@@ -1,50 +1,298 @@
 import mjml2html from 'mjml';
 
-const mail = (host: string, url: string, body: string) => {
+import type { PlaygroundApplication, PlaygroundRequest } from '@prisma/client';
+
+const host =
+  process.env.NODE_ENV === 'production'
+    ? 'veganhacktivists.org'
+    : 'localhost:3000';
+const url =
+  process.env.NODE_ENV === 'production' ? 'https' + host : 'http://' + host;
+const mail = (body: string) => {
   const header = `
-    <mj-section background-color="#161919">
-      <mj-image alt="Vegan Hacktivists" src="https://veganhacktivists.org/images/VH-logo-web-white.png"></mj-image>
+    <mj-section background-color="#fff" padding="0px">
+      <mj-column>
+        <mj-image padding="0px" alt="Vegan Hacktivists" src="${url}/images/email/VH-email-logo.gif"></mj-image>
+      </mj-column>
     </mj-section>
   `;
   const footer = `
-    <mj-section>
-      <mj-text color="#ffffff" font-size="13px" align="center">© 2022 Vegan Hacktivists. All rights reserved.</mj-text>
+    <mj-section background-color="#fff" padding="0px">
+      <mj-column>
+        <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer.png"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#161919" padding="0px 40px">
+      <mj-column>
+        <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-fruits.png"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#161919">
+      <mj-text color="#ffffff" font-style="italic" font-size="12px" align="center">© 2022 Vegan Hacktivists. All rights reserved.</mj-text>
+      <mj-spacer height="20px" />
+      <mj-text color="#ffffff" font-size="12px" align="center"><b>Our mailing address is:</b><br/>
+Vegan Hacktivists<br/>
+Da Costastraat 12<br/>
+AMSTERDAM, Noord-Holland 1053 ZB<br/>
+Netherlands</mj-text>
+    </mj-section>
+    <mj-section background-color="#161919" padding="0px 100px">
+      <mj-spacer height="5px" />
+      <mj-column>
+        <mj-image href="https://instagram.com/VeganHacktivists" width="30px" padding="5px" alt="IG" src="${url}/images/email/social-instagram.png"></mj-image>
+      </mj-column>
+      <mj-column>
+        <mj-image href="https://www.youtube.com/channel/UCCQtxGjnbbUwmSMOpvQz3Eg" width="30px" padding="5px" alt="YT" src="${url}/images/email/social-youtube.png"></mj-image>
+      </mj-column>
+      <mj-column>
+        <mj-image href="https://veganhacktivists.org/" width="30px" padding="5px" alt="HP" src="${url}/images/email/social-website.png"></mj-image>
+      </mj-column>
+      <mj-column>
+        <mj-image href="mailto:hello@veganhacktivists.org" width="30px" padding="5px" alt="@" src="${url}/images/email/social-email.png"></mj-image>
+      </mj-column>
+      <mj-spacer height="20px" />
     </mj-section>
   `;
   return `
     <mjml>
       <mj-head>
+        <mj-font name="Roboto" href="https://fonts.googleapis.com/css2?family=Roboto" />
         <mj-attributes>
-          <mj-text align="left" font-family="-apple-system,BlinkMacSystemFont,Segoe UI, Roboto, Helvetica, Arial" font-size="16px" color="#161919"/>
-          <mj-button border-left="10px solid #64BC46" background-color="#292929" href="${url}" border-radius="0px" font-family="Rajdhani, monospace" font-size="18px" color="#ffffff" />
+          <mj-text align="center" font-family="Roboto, Helvetica, -apple-system,BlinkMacSystemFont,Segoe UI, Arial" line-height="1.5" font-size="16px" color="#161919"/>
+          <mj-button border-left="10px solid #64BC46" background-color="#292929" border-radius="0px" font-family="Arial" font-weight="bold" font-size="16px" color="#ffffff" />
         </mj-attributes>
       </mj-head>
-      <mj-body background-color="#161919">
+      <mj-body background-color="#DDDDDD">
+      <mj-spacer height="10px" />
         ${header}
-        ${body}
+        <mj-section background-color="#ffffff">
+          <mj-column>
+            ${body}
+          </mj-column>
+        </mj-section>
         ${footer}
+      <mj-spacer height="10px" />
       </mj-body>
     </mjml>
 `;
 };
 
-export const verificationMail = (
-  host: string,
-  url: string,
-  textonly = false
-) => {
+export const verificationMail = (url: string, textonly = false) => {
   if (textonly) {
     return `Sign in to ${host}\n${url}\n\n`;
   }
   const body = `
-    <mj-section background-color="#ffffff">
-      <mj-column>
-        <mj-text font-weight="bold">Hey there!</mj-text>
-        <mj-text>Someone tried to login to ${host} with your email address.<br>If this was you, you're able to login here:</mj-text>
-        <mj-button>Login</mj-button>
-        <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
-      </mj-column>
-    </mj-section>
+    <mj-text font-weight="bold">Hey there!</mj-text>
+    <mj-text>Someone tried to login to ${host} with your email address.<br>If this was you, you're able to login here:</mj-text>
+    <mj-button href="${url}">Login</mj-button>
+    <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
   `;
-  return mjml2html(mail(host, url, body)).html ?? '';
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const grantRequestEmail = (body: string, textonly = false) => {
+  if (textonly) {
+    return body;
+  }
+  const html = `
+    <mj-text font-weight="bold">Grant request</mj-text>
+    <mj-text>${body}</mj-text>
+  `;
+  return mjml2html(mail(html)).html ?? '';
+};
+export const contactUsEmail = (body: string, textonly = false) => {
+  if (textonly) {
+    return body;
+  }
+  const html = `
+    <mj-text>${body}</mj-text>
+  `;
+  return mjml2html(mail(html)).html ?? '';
+};
+
+export const playgroundRequestApplicationEmail = (textonly = false) => {
+  if (textonly) {
+    return `A new applicant has applied to help in Playground!
+      <br/><br/>
+      Please <a href="${url}/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`;
+  }
+  const body = `
+    <mj-text>A new applicant has applied to help in Playground!</mj-text>
+    <mj-button href="${url}/playground/admin/applications">Click here</mj-button>
+    <mj-text>to review the applicant's request to help in Playground.</mj-text>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const playgroundReviewRequestEmail = (textonly = false) => {
+  if (textonly) {
+    return `A new Request has been submitted to Playground for review!
+    <br/><br/>
+    Please <a href="${url}/playground/admin">click here</a> to review the request submitted to Playground.`;
+  }
+  const body = `
+    <mj-text>A new Request has been submitted to Playground for review!</mj-text>
+    <mj-button href="${url}/playground/admin">Click here</mj-button>
+    <mj-text>to review the request submitted to Playground.</mj-text>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const playgroundApplicatantIntroductionEmail = (
+  application: PlaygroundApplication & { request: PlaygroundRequest },
+  optionalMessageParts: string,
+  textonly = false
+) => {
+  if (textonly) {
+    return `Hi ${application.request.name},
+<br />
+<br />
+We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
+      application.request.title
+    }&rdquo;!
+<br />
+<br />
+Meet the person (cc&apos;ed to this email) below that applied to help with your request!
+<br />
+<br />
+<b>Name:</b> ${application.name}
+<br />
+<br />
+${optionalMessageParts}
+<br />
+<br />
+<b>Note:</b> They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.
+<br />
+<br />
+<b>What&apos;s next?</b>
+<br />
+<br />
+We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
+      application.request.name
+    }&apos;s Calendy link <a href="${
+      // TODO: sanitize this and all the other data?
+      application.request.calendlyUrl
+    }">here</a>${
+      application.calendlyUrl
+        ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+        : ''
+    }.
+<br />
+<br />
+Is someone not responding at all? Or are you having any other issues? Email us to let us know!
+<br />
+<br />
+<i>Note that while we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers.</i>
+<br />
+<br />
+Thank you so much for helping the animals, and for using Playground!
+<br />
+<br />
+<b>Vegan Hacktivists</b>
+`;
+  }
+  const body = `
+    <mj-text>Hi ${application.request.name},</mj-text>
+    <mj-text>
+      We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
+        application.request.title
+      }&rdquo;!</mj-text>
+    <mj-text>Meet the person (cc&apos;ed to this email) below that applied to help with your request!</mj-text>
+    <mj-text><b>Name:</b> ${application.name}</mj-text>
+    <mj-text>${optionalMessageParts}</mj-text>
+    <mj-text><b>Note:</b> They have agreed that if selected to help with this project that they will commit a reasonable amount of time that would be needed to help with this project, communicate any status updates and progress, and do their best to meet any deadlines you might have.</mj-text>
+    <mj-text><b>What&apos;s next?</b></mj-text>
+    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
+      application.request.name
+    }&apos;s Calendy link <a href="${
+    application.request.name
+  }&apos;s Calendy link <a href="${
+    // TODO: sanitize this and all the other data?
+    application.request.calendlyUrl
+  }">here</a>${
+    application.calendlyUrl
+      ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+      : ''
+  }.</mj-text>
+    <mj-text>Is someone not responding at all? Or are you having any other issues? Email us to let us know!</mj-text>
+    <mj-text><i>Note that while we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers.</i></mj-text>
+    <mj-text>Thank you so much for helping the animals, and for using Playground!</mj-text>
+    <mj-text><b>Vegan Hacktivists</b></mj-text>
+  }
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const playgroundApplicationDenialEmail = (textonly = false) => {
+  if (textonly) {
+    return `Thanks so much for submitting your request to support with Playground!
+<br />
+<br />
+Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.
+<br />
+<br />
+To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
+<br />
+<br />
+If you have any specific questions feel free to contact us <a href="${url}/contact">here</a>. In the meantime, check out <a href="${url}/playground/requests">other pending requests</a>!
+<br />
+<br />
+Thank you so much for considering VH: Playground for your activism!`;
+  }
+  const body = `
+    <mj-text>Thanks so much for submitting your request to support with Playground!</mj-text>
+    <mj-text>Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.</mj-text>
+    <mj-text>To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.</mj-text>
+    <mj-text>If you have any specific questions feel free to contact us <a href="${url}/contact">here</a>. In the meantime, check out <a href="${url}/playground/requests">other pending requests</a>!</mj-text>
+    <mj-text>Thank you so much for considering VH: Playground for your activism!</mj-text>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const playgroundRequestDenialEmail = (textonly = false) => {
+  if (textonly) {
+    return `Thanks so much for submitting your request to Playground!
+<br />
+<br />
+Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.
+<br />
+<br />
+If you have any specific questions, or believe this was a mistake, feel free to contact us <a href="${url}/contact">here</a>.
+<br />
+<br />
+Thank you so much for considering VH: Playground for your request!`;
+  }
+  const body = `
+    <mj-text>Thanks so much for submitting your request to Playground!</mj-text>
+    <mj-text>Unfortunately your request did not meet the relevant or quality standards needed to go live. Usually this means you didn't include enough details, but can also include other factors such as not being specifically a vegan request, being for-profit, etc.</mj-text>
+    <mj-text>If you have any specific questions, or believe this was a mistake, feel free to contact us <a href="${url}/contact">here</a>.</mj-text>
+    <mj-text>Thank you so much for considering VH: Playground for your request!</mj-text>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
+export const playgroundRequestApprovalEmail = (
+  request: PlaygroundRequest,
+  textonly = false
+) => {
+  if (textonly) {
+    return `
+   Your request is now live on Playground!
+<br /><br />
+Hey ${request.name}!
+<br /><br />
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.
+<br /><br />
+Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">in this page</a>.
+<br /><br />
+Thank you so much! `;
+  }
+  const body = `
+    <mj-text font-weight="bold">Your request is now live on Playground!</mj-text>
+    <mj-text>Hey ${request.name}!</mj-text>
+    <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.</mj-text>
+    <mj-text>Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">in this page</a>.</mj-text>
+    <mj-text>Thank you so much!</mj-text>
+  `;
+  return mjml2html(mail(body)).html ?? '';
 };
