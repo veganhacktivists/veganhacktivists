@@ -3,6 +3,10 @@ import { Status, UserRole } from '@prisma/client';
 
 import { OUR_EMAIL_TO } from '../../mail/router';
 import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
+import {
+  playgroundRequestApplicationEmail,
+  playgroundReviewRequestEmail,
+} from '../../../components/layout/mail/emailTemplates';
 
 import prisma from 'lib/db/prisma';
 import emailClient from 'lib/mail';
@@ -147,9 +151,8 @@ export const applyToHelp = async (
       to: OUR_EMAIL_TO,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Application',
-      html: `A new applicant has applied to help in Playground!
-      <br/><br/>
-      Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
+      text: playgroundRequestApplicationEmail(true),
+      html: playgroundRequestApplicationEmail(),
     });
   }
 
@@ -246,9 +249,8 @@ export const submitRequest = async ({
       to: OUR_EMAIL_TO,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Request',
-      html: `A new Request has been submitted to Playground for review!
-    <br/><br/>
-    Please <a href="https://veganhacktivists.org/playground/admin">click here</a> to review the request submitted to Playground.`,
+      text: playgroundReviewRequestEmail(true),
+      html: playgroundReviewRequestEmail(),
     });
   }
 
