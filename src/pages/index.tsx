@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
@@ -63,6 +63,8 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
+  const intl = useIntl();
+
   return (
     <>
       <NextSeo
@@ -74,7 +76,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'Compassion, Creativity, Code',
+          alt: intl.formatMessage({ id: 'page.index.section.stage.hero.alt' }),
         }}
         alignment="right"
         classNameMapping={{
@@ -82,10 +84,12 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative mx-auto text-2xl text-white md:w-1/2">
-          Building for the animal protection movement since 2019
+          <FormattedMessage id="page.index.section.stage.subline" />
         </div>
         <div className="relative mx-auto mt-10">
-          <LightButton href="/about">Learn More</LightButton>
+          <LightButton href="/about">
+            <FormattedMessage id="page.index.section.stage.cta" />
+          </LightButton>
         </div>
       </Hero>
       <SquareField
@@ -100,28 +104,37 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           alt="Compassion, Creativity, Code"
         />
         <p className="mb-16 text-grey-dark">
-          <span className="font-serif text-3xl italic font-semibold">
-            We are{' '}
-          </span>
-          <span className="font-mono text-5xl font-semibold">
-            VEGAN HACKTIVISTS
-          </span>
+          <FormattedMessage
+            id="page.index.section.introduction.headline"
+            values={{
+              left: (chunks) => (
+                <span className="font-serif text-3xl italic font-semibold">
+                  {chunks}{' '}
+                </span>
+              ),
+              right: (chunks) => (
+                <span className="font-mono text-5xl font-semibold">
+                  {chunks}
+                </span>
+              ),
+            }}
+          />
         </p>
         <p className="pb-5">
           <FormattedMessage
-            id="page.landing.introduction.paragraph1"
+            id="page.index.section.introduction.paragraph1"
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p className="pb-5">
           <FormattedMessage
-            id="page.landing.introduction.paragraph2"
+            id="page.index.section.introduction.paragraph2"
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p>
           <FormattedMessage
-            id="page.landing.introduction.paragraph3"
+            id="page.index.section.introduction.paragraph3"
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
@@ -153,18 +166,27 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
           <SectionHeader
             className="mb-2"
-            header={['Watch our', 'intro video']}
+            header={[
+              intl.formatMessage({
+                id: 'page.index.section.video.headline.leftpart',
+              }),
+              intl.formatMessage({
+                id: 'page.index.section.video.headline.rightpart',
+              }),
+            ]}
           />
           <div className="py-2">
             <YoutubeVideo id="jaW8n1pd97U" />
           </div>
-          <div>Watch our videos to learn more about us and our work:</div>
+          <div>
+            <FormattedMessage id="page.index.section.video.subline" />
+          </div>
           <div className="mx-auto w-fit">
             <LightButton
               className=""
               href="https://www.youtube.com/c/VeganHacktivists"
             >
-              Visit our channel
+              <FormattedMessage id="page.index.section.video.cta" />
             </LightButton>
           </div>
         </div>
@@ -176,15 +198,27 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <div className="bg-grey-background">
         <div className="content-center px-5 pt-16 mx-auto text-2xl md:w-1/2">
           <p className="pb-5 text-grey-dark">
-            <span className="font-serif text-3xl italic font-semibold">
-              Featured{' '}
-            </span>
-            <b className="font-mono text-5xl">PROJECTS</b>
+            <FormattedMessage
+              id="page.index.section.projects.headline"
+              values={{
+                left: (chunks) => (
+                  <span className="font-serif text-3xl italic font-semibold">
+                    {chunks}{' '}
+                  </span>
+                ),
+                right: (chunks) => (
+                  <b className="font-mono text-5xl">{chunks}</b>
+                ),
+              }}
+            />
           </p>
           <p>
-            Every project we release is <b>100% free for everyone</b>. We
-            believe in accessibility and transparency, and our projects reflect
-            those values.
+            <FormattedMessage
+              id="page.index.section.projects.paragraph"
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </p>
           <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
             {featuredProjects.map((project) => (
@@ -193,7 +227,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           </div>
           <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
             <DarkButton href="/projects" className="font-mono">
-              See All Projects
+              <FormattedMessage id="page.index.section.projects.cta" />
             </DarkButton>
           </div>
         </div>

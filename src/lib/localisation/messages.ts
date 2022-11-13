@@ -7,6 +7,6 @@ export const messages: Record<
   Localisations,
   Record<TranslationKeys, string>
 > = {
-  de,
+  // de,
   en,
 };
