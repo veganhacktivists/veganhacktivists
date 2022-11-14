@@ -7,7 +7,7 @@ const host =
     ? 'veganhacktivists.org'
     : 'localhost:3000';
 const url =
-  process.env.NODE_ENV === 'production' ? 'https' + host : 'http://' + host;
+  process.env.NODE_ENV === 'production' ? 'https://' + host : 'http://' + host;
 const mail = (body: string) => {
   const header = `
     <mj-section background-color="#fff" padding="0px">
