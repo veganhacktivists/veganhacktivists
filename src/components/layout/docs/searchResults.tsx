@@ -70,7 +70,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             >
               <Link
                 href={{
-                  pathname: '/docs/[category]/[section]',
+                  pathname: '/handbook/[category]/[section]',
                   query: {
                     category: item.category.slug,
                     section: item.section.fields.slug,

@@ -12,7 +12,7 @@ const handler: NextApiHandler<IDocsCategoryFields> = (req, res) => {
 
   res.setPreviewData({});
 
-  let url = `/docs/${category}`;
+  let url = `/handbook/${category}`;
 
   if (section) {
     url += `/${section}`;
