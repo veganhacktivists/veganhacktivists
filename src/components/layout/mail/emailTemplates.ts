@@ -274,17 +274,17 @@ export const playgroundRequestApprovalEmail = (
 <br /><br />
 Hey ${request.name}!
 <br /><br />
-Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.
 <br /><br />
-Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">in this page</a>.
+Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">over here</a>.
 <br /><br />
 Thank you so much! `;
   }
   const body = `
     <mj-text font-weight="bold">Your request is now live on Playground!</mj-text>
     <mj-text>Hey ${request.name}!</mj-text>
-    <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request to go live, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.</mj-text>
-    <mj-text>Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">in this page</a>.</mj-text>
+    <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.</mj-text>
+    <mj-text>Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">over here</a>.</mj-text>
     <mj-text>Thank you so much!</mj-text>
   `;
   return mjml2html(mail(body)).html ?? '';
