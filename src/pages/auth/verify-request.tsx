@@ -15,7 +15,7 @@ const VerifyRequest: NextPage = () => {
       </div>
       <div>
         <DarkButton
-          className="mx-auto w-fit"
+          className="mt-4 mx-auto w-fit"
           onClick={() => {
             back();
           }}
