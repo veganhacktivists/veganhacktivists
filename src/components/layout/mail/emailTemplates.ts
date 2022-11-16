@@ -83,8 +83,8 @@ export const verificationMail = (url: string, textonly = false) => {
   }
   const body = `
     <mj-text font-weight="bold">Hey there!</mj-text>
-    <mj-text>Someone tried to login to ${host} with your email address.<br>If this was you, you're able to login here:</mj-text>
-    <mj-button href="${url}">Login</mj-button>
+    <mj-text>Someone tried to login to Playground with your email address.<br>If this was you, you're able to login here:</mj-text>
+    <mj-button href="${url}">Click to login</mj-button>
     <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
   `;
   return mjml2html(mail(body)).html ?? '';
@@ -147,9 +147,8 @@ export const playgroundApplicatantIntroductionEmail = (
     return `Hi ${application.request.name},
 <br />
 <br />
-We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
-      application.request.title
-    }&rdquo;!
+We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${application.request.title
+      }&rdquo;!
 <br />
 <br />
 Meet the person (cc&apos;ed to this email) below that applied to your request!
@@ -167,16 +166,14 @@ ${optionalMessageParts}
 <b>What&apos;s next?</b>
 <br />
 <br />
-We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
-      application.request.name
-    }&apos;s Calendy link <a href="${
+We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${application.request.name
+      }&apos;s Calendy link <a href="${
       // TODO: sanitize this and all the other data?
       application.request.calendlyUrl
-    }">here</a>${
-      application.calendlyUrl
+      }">here</a>${application.calendlyUrl
         ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
         : ''
-    }.
+      }.
 <br />
 <br />
 <b>Important notice:</b>
@@ -194,26 +191,22 @@ Thank you so much for helping the animals, and for using Playground!
   const body = `
     <mj-text>Hi ${application.request.name},</mj-text>
     <mj-text>
-      We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
-        application.request.title
-      }&rdquo;!</mj-text>
+      We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${application.request.title
+    }&rdquo;!</mj-text>
     <mj-text>Meet the person (cc&apos;ed to this email) below that applied to your request!</mj-text>
     <mj-text><b>Name:</b> ${application.name}</mj-text>
     <mj-text>${optionalMessageParts}</mj-text>
     <mj-text><b>Note:</b> They have agreed to commit a reasonable amount of time to help with this request, communicate frequently, and do their best to meet deadlines.</mj-text>
     <mj-text><b>What&apos;s next?</b></mj-text>
-    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
-      application.request.name
+    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${application.request.name
+    }&apos;s Calendy link <a href="${application.request.name
     }&apos;s Calendy link <a href="${
-    application.request.name
-  }&apos;s Calendy link <a href="${
     // TODO: sanitize this and all the other data?
     application.request.calendlyUrl
-  }">here</a>${
-    application.calendlyUrl
+    }">here</a>${application.calendlyUrl
       ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
       : ''
-  }.</mj-text>
+    }.</mj-text>
     <mj-text><b>Important notice:</b></mj-text>
     <mj-text><i>While we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers. Is someone not responding at all? Or any other issues? Get in touch!</i></mj-text>
     <mj-text>Thank you so much for helping the animals, and for using Playground!</mj-text>
