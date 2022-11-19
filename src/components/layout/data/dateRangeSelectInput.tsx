@@ -16,16 +16,17 @@ export type DateRange =
   | 'All time';
 
 /** Object of an associative dictionary containing attributes for each date range ID type. */
-export const dateRangeAttributes: {
-  [_ in DateRange]: {
+export const dateRangeAttributes: Record<
+  DateRange,
+  {
     /** Label of the date range giving its full description. */
     label: string;
     /** Lower bound date of the date range (undefined if it does not exist). */
     min: Date | undefined;
     /** Tick values to assign to a line chart according to the given date range (e.g.: show a tick every day). */
     ticksSpec: string | undefined;
-  };
-} = {
+  }
+> = {
   '7d': {
     label: 'last 7 days',
     min: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),

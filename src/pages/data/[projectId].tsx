@@ -22,6 +22,7 @@ import type {
   DataDashboardProject,
   DataDashboardData,
   DataDashboardValue,
+  DashboardValueType,
 } from '@prisma/client';
 import type { TimeSeriesData } from '../../components/layout/data/charts/timeSeriesLineChart';
 
@@ -37,49 +38,51 @@ type FilledDataDashboardProject = DataDashboardProject & {
   data: (DataDashboardData & { values: DataDashboardValue[] })[];
 };
 
-// TODO: filter by category
 /**
  * Function to get a time series for a line chart
  * @param data {FilledDataDashboardProject} The project from which the data is fetched
  * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks)
- * @param id {string}: The ID of the time series which will even function as the label
- * @param color {string}: The color to represent the time series as a line in the chart
  * @param dateRange {Range}: The range to display the data
  *
- * @return {TimeSeriesData} A complete time series
+ * @return {TimeSeriesData[]} An array of time series divided by category
  */
 const getLineChartData = (
   data: FilledDataDashboardProject | undefined,
-  value: string,
-  id: string,
-  color: string,
-  dateRange?: DateRange
-): TimeSeriesData => {
+  value: DashboardValueType,
+  dateRange: DateRange
+): TimeSeriesData[] => {
   const minimumDate = dateRange
     ? dateRangeAttributes[dateRange].min
     : undefined;
 
-  return {
-    id,
-    color,
-    data:
-      data?.data
-        // Filter out data which has a different category than the given one
-        // .filter((d) => d.category === category)
-        // Filter out data with no timestamp
-        ?.filter((d) => d.timestamp)
-        .map((d) => {
-          {
-            return {
-              x: d.timestamp,
-              // Set value as 0 if it is missing
-              y: d.values.find((d) => d.key === value)?.value ?? '0',
-            };
-          }
-        })
-        // Filter the data just in the provided range
-        .filter((d) => (minimumDate ? d.x >= minimumDate : true)) ?? [],
-  };
+  const availableCategories = ['ENG', 'DE'];
+
+  return (
+    availableCategories
+      ?.map((c) => ({
+        id: `${categoryAttributes[c as Category].label} Bot`,
+        color: categoryAttributes[c as Category].color,
+        data:
+          data?.data
+            // Filter out data which has a different category than the given one
+            .filter((d) => d.category === c)
+            // Filter out data with no timestamp
+            ?.filter((d) => d.timestamp)
+            .map((d) => {
+              {
+                return {
+                  x: d.timestamp,
+                  // Set value as 0 if it is missing
+                  y: d.values.find((d) => d.key === value)?.value ?? '0',
+                };
+              }
+            })
+            // Filter the data just in the provided range
+            .filter((d) => (minimumDate ? d.x >= minimumDate : true)) ?? [],
+      }))
+      // Show categories with actual data
+      .filter((d) => d.data.length)
+  );
 };
 
 const dataSquares = {
@@ -98,6 +101,21 @@ const dataSquares = {
   },
 };
 
+// TODO: Replace with actual categories
+type Category = 'ENG' | 'DE';
+
+// TODO: Handle differently once data is fetched dynamically
+const categoryAttributes: Record<Category, { label: string; color: string }> = {
+  ENG: {
+    label: 'English',
+    color: '#DD3E2B',
+  },
+  DE: {
+    label: 'German',
+    color: '#7F3C97',
+  },
+};
+
 /**
  * Component of the data page of a project
  * @type {React.FC}
@@ -110,7 +128,29 @@ const DataProject: React.FC = () => {
     router.query.projectId as string
   );
   const [project, setProject] = useState<FilledDataDashboardProject>();
-  const [timeSeriesData, setTimeSeriesData] = useState<TimeSeriesData[]>();
+
+  // TODO: temporary enum for value types
+  enum ValueTypes {
+    clicks = 'clicks',
+    comments = 'comments',
+  }
+
+  /**
+   * Function to initialize the time series data structure.
+   * @return {Record<ValueTypes, TimeSeriesData[]>} The time series data structure.
+   */
+  const initializeTimeSeriesData = (): Record<ValueTypes, TimeSeriesData[]> => {
+    const timeSeriesData = {} as Record<ValueTypes, TimeSeriesData[]>;
+    Object.keys(ValueTypes).forEach((key) => {
+      timeSeriesData[key as ValueTypes] = [];
+    });
+    return timeSeriesData;
+  };
+
+  const [timeSeriesData, setTimeSeriesData] = useState<
+    Record<ValueTypes, TimeSeriesData[]>
+  >(initializeTimeSeriesData());
+
   const [dateRange, setDateRange] = useState<DateRange>('30d');
 
   const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
@@ -153,10 +193,15 @@ const DataProject: React.FC = () => {
 
   /** Effect to update the time series data to show in the line chart once the project or the date range change. */
   useEffect(() => {
-    setTimeSeriesData([
-      getLineChartData(project, 'clicks', 'Clicks', '#DD3E2B', dateRange),
-      getLineChartData(project, 'comments', 'Comments', '#7F3C97', dateRange),
-    ]);
+    setTimeSeriesData({
+      clicks: getLineChartData(
+        project,
+        'clicks',
+
+        dateRange
+      ),
+      comments: getLineChartData(project, 'comments', dateRange),
+    });
   }, [dateRange, project]);
 
   /**
@@ -338,7 +383,7 @@ const DataProject: React.FC = () => {
               </div>
               <div className="h-[28rem] bg-white">
                 <TimeSeriesLineChart
-                  data={timeSeriesData}
+                  data={timeSeriesData.clicks}
                   yLabel="Number of clicks"
                   dateRange={dateRange}
                 />
@@ -360,7 +405,7 @@ const DataProject: React.FC = () => {
               </div>
               <div className="h-[28rem] bg-white">
                 <TimeSeriesLineChart
-                  data={timeSeriesData?.length ? [timeSeriesData[0]] : []}
+                  data={timeSeriesData.comments}
                   yLabel="Number of comments"
                   dateRange={dateRange}
                 />

@@ -178,21 +178,26 @@ const seedDataDashboardData = async (n: number) => {
           value: faker.datatype.number({ min: 0, max: 200 }).toString(),
         },
       ];
-      const data: Prisma.DataDashboardDataCreateInput = {
-        timestamp: new Date(
-          DateTime.fromISO(faker.date.recent(365).toISOString()).toISODate()
-        ),
-        values: {
-          createMany: {
-            data: values,
+      const data: Prisma.DataDashboardDataCreateInput[] = ['ENG', 'DE'].map(
+        (d) => ({
+          timestamp: new Date(
+            DateTime.fromISO(faker.date.recent(365).toISOString()).toISODate()
+          ),
+          category: d,
+          values: {
+            createMany: {
+              data: values,
+            },
           },
-        },
-      };
-      const { id: dataId } = await prisma.dataDashboardData.create({
-        data: data,
-      });
-      dataList.push({ id: dataId });
-      dataCounter++;
+        })
+      );
+      for (const d of data) {
+        const { id: dataId } = await prisma.dataDashboardData.create({
+          data: d,
+        });
+        dataList.push({ id: dataId });
+        dataCounter++;
+      }
     }
     await prisma.dataDashboardProject.update({
       where: {
