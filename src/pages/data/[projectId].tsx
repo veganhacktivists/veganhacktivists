@@ -15,7 +15,11 @@ import DateRangeSelectInput, {
   dateRangeAttributes,
 } from '../../components/layout/data/dateRangeSelectInput';
 import useReactPath from '../../hooks/useReactPath';
+import CategorySelectInput, {
+  botAttributes,
+} from '../../components/layout/data/categorySelectInput';
 
+import type { Bot } from '../../components/layout/data/categorySelectInput';
 import type { DateRange } from '../../components/layout/data/dateRangeSelectInput';
 import type { OptionType } from '../../components/forms/inputs/selectInput';
 import type {
@@ -38,30 +42,75 @@ type FilledDataDashboardProject = DataDashboardProject & {
   data: (DataDashboardData & { values: DataDashboardValue[] })[];
 };
 
+/** Type representing a record containing attributes for each category. */
+type CategoryAttributes = Record<
+  string,
+  { readonly label: string; readonly color: string }
+>;
+
 /**
- * Function to get a time series for a line chart
- * @param data {FilledDataDashboardProject} The project from which the data is fetched
- * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks)
- * @param dateRange {Range}: The range to display the data
- *
- * @return {TimeSeriesData[]} An array of time series divided by category
+ * Function returning an object containing for each category (key) its attributes (e.g.: color, label)
+ * @param availableCategories {string[]} Array of available categories.
+ * @param currentCategoryAttributes {CategoryAttributes} Current category attributes
+ * @return {CategoryAttributes} The updated category attributes.
+ */
+const getCategoryAttributes = (
+  availableCategories: string[],
+  currentCategoryAttributes: CategoryAttributes
+) => {
+  const newCategoryAttributes: CategoryAttributes = {};
+
+  availableCategories
+    .sort((a, b) => (a > b ? 1 : -1))
+    .forEach((c) => {
+      if (currentCategoryAttributes[c]) {
+        newCategoryAttributes[c] = currentCategoryAttributes[c];
+      } else {
+        newCategoryAttributes[c] = {
+          label: botAttributes[c as Bot]?.label ?? c,
+          color:
+            botAttributes[c as Bot]?.color ??
+            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+        };
+      }
+    });
+
+  return newCategoryAttributes;
+};
+
+/**
+ * Function to get the time series of the given `category` for a line chart according to a certain `value`.
+ * @param data {FilledDataDashboardProject} The project from which the data is fetched.
+ * @param value {string}: The value to consider to build the time series (e.g.: comments; clicks).
+ * @param dateRange {Range}: The range to display the data.
+ * @param category {string} The category to display in the line chart (e.g.: ENG, DE). If 'All' is provided as a
+ * category all available categories are shown.
+ * @param categoryAttributes {CategoryAttributes} The current categories with their attributes.
+ * @return {TimeSeriesData[]} An array of time series divided by category.
  */
 const getLineChartData = (
   data: FilledDataDashboardProject | undefined,
   value: DashboardValueType,
-  dateRange: DateRange
+  dateRange: DateRange,
+  category: string,
+  categoryAttributes: CategoryAttributes
 ): TimeSeriesData[] => {
+  const availableCategories = Object.keys(categoryAttributes);
+
   const minimumDate = dateRange
     ? dateRangeAttributes[dateRange].min
     : undefined;
 
-  const availableCategories = ['ENG', 'DE'];
+  const selectedCategories =
+    category === 'All' ? availableCategories : [category];
 
   return (
-    availableCategories
+    selectedCategories
       ?.map((c) => ({
-        id: `${categoryAttributes[c as Category].label} Bot`,
-        color: categoryAttributes[c as Category].color,
+        id: `${categoryAttributes[c]?.label ?? c} Bot`,
+        color:
+          categoryAttributes[c]?.color ??
+          `#${Math.floor(Math.random() * 16777215).toString(16)}`,
         data:
           data?.data
             // Filter out data which has a different category than the given one
@@ -101,21 +150,6 @@ const dataSquares = {
   },
 };
 
-// TODO: Replace with actual categories
-type Category = 'ENG' | 'DE';
-
-// TODO: Handle differently once data is fetched dynamically
-const categoryAttributes: Record<Category, { label: string; color: string }> = {
-  ENG: {
-    label: 'English',
-    color: '#DD3E2B',
-  },
-  DE: {
-    label: 'German',
-    color: '#7F3C97',
-  },
-};
-
 /**
  * Component of the data page of a project
  * @type {React.FC}
@@ -152,6 +186,7 @@ const DataProject: React.FC = () => {
   >(initializeTimeSeriesData());
 
   const [dateRange, setDateRange] = useState<DateRange>('30d');
+  const [category, setCategory] = useState<string>('All');
 
   const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
     undefined,
@@ -170,6 +205,22 @@ const DataProject: React.FC = () => {
     refetchOnWindowFocus: false,
   });
 
+  const [availableCategories, setAvailableCategories] = useState<string[]>(
+    Array.from(
+      new Set(data?.data.filter((d) => d.category).map((d) => d.category))
+    ) as string[]
+  );
+
+  const [categoryAttributes, setCategoryAttributes] =
+    useState<CategoryAttributes>({});
+
+  /** Effect to set the category attributes once the available categories are updated. */
+  useEffect(() => {
+    setCategoryAttributes(
+      getCategoryAttributes(availableCategories, categoryAttributes)
+    );
+  }, [availableCategories]);
+
   /**
    * Effect to update the local project state once data changes.
    * Note: the data-points are sorted by increasing order.
@@ -178,6 +229,13 @@ const DataProject: React.FC = () => {
     if (data) {
       data.data.sort((a, b) => (a.timestamp > b.timestamp ? 1 : -1));
       setProject(data);
+      setCategory('All');
+
+      const newAvailableCategories = Array.from(
+        new Set(data?.data.filter((d) => d.category).map((d) => d.category))
+      );
+
+      setAvailableCategories(newAvailableCategories as string[]);
     }
   }, [data]);
 
@@ -191,18 +249,25 @@ const DataProject: React.FC = () => {
     }
   }, [pathname]);
 
-  /** Effect to update the time series data to show in the line chart once the project or the date range change. */
+  /** Effect to update the time series data to show in the line chart once user selections change (e.g.: date range). */
   useEffect(() => {
     setTimeSeriesData({
       clicks: getLineChartData(
         project,
         'clicks',
-
-        dateRange
+        dateRange,
+        category,
+        categoryAttributes
       ),
-      comments: getLineChartData(project, 'comments', dateRange),
+      comments: getLineChartData(
+        project,
+        'comments',
+        dateRange,
+        category,
+        categoryAttributes
+      ),
     });
-  }, [dateRange, project]);
+  }, [availableCategories, category, dateRange, project]);
 
   /**
    * Callback to push a new path in the history and update the `projectId` state according to a selected project.
@@ -251,10 +316,11 @@ const DataProject: React.FC = () => {
             />
           </div>
           <div className="w-full mb-4">
-            <Label className="text-white" name="bot">
-              Select bot
-            </Label>
-            <SelectInput theme="data" name="bot" current={null} options={[]} />
+            <CategorySelectInput
+              category={category}
+              setCategory={setCategory}
+              availableCategories={availableCategories}
+            />
           </div>
           <div className="w-full">
             <p className="mb-2 text-white font-bold text-left block">

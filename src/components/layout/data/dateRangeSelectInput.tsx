@@ -67,7 +67,7 @@ export const dateRangeAttributes: Record<
 /** Proptypes of `DateRangeSelectInput` */
 interface DateRangeSelectInputProps {
   /** The id of a date range */
-  readonly dateRange?: DateRange;
+  readonly dateRange: DateRange | undefined;
   /** Callback to set a new date range */
   readonly setDateRange: (dateRange: DateRange) => void;
 }
