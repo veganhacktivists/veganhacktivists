@@ -205,8 +205,6 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
       application.request.name
     }&apos;s Calendy link <a href="${
-    application.request.name
-  }&apos;s Calendy link <a href="${
     // TODO: sanitize this and all the other data?
     application.request.calendlyUrl
   }">here</a>${
