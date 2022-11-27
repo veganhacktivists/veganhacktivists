@@ -31,6 +31,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
+import type { User } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -158,7 +159,9 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           {session?.user?.role === UserRole.Admin && (
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
-              <Field title="Registered email">{request.requester.email}</Field>
+              <Field title="Registered email">
+                {(request.requester as User).email ?? ''}
+              </Field>
             </>
           )}
         </SubtleBorder>

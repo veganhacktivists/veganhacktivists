@@ -174,7 +174,7 @@ const PlaygroundRequestCard: React.FC<
               canEdit ? 'w-1/2' : ''
             }`}
           >
-            Read more / apply to help
+            Read more / apply
           </DarkButton>
           {canEdit && (
             <GreyButton

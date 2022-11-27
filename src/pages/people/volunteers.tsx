@@ -70,7 +70,7 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
         {image && (
           <div className="relative w-full filter grayscale group-hover:grayscale-0">
             <ContentfulImage
-              downloadWidth={500}
+              downloadwidth={500}
               image={image}
               alt={name}
               priority={isTeamLeader}
@@ -257,8 +257,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       <FirstSubSection header="Our volunteers">
         Our volunteer community is at the heart of our organization, and enables
         us to build innovative projects and contribute to the movement in
-        meaningful ways. Our teams work independently on specific projects and
-        collaboratively with each other and those who serve in the movement.
+        meaningful ways.{' '}
         <b>Click on an icon to meet the volunteers in each team!</b>
       </FirstSubSection>
       <div className="m-10">

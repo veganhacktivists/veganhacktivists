@@ -67,7 +67,7 @@ const DefaultLayout: React.FC<
     pathname: string;
   }>
 > = ({ pathname, children }) => {
-  if (pathname === '/docs' || pathname.startsWith('/docs/')) {
+  if (pathname === '/handbook' || pathname.startsWith('/handbook/')) {
     return (
       <>
         <Header />
