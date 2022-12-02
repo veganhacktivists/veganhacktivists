@@ -105,7 +105,7 @@ exports[`should render correctly 1`] = `
           >
             Our
           </span>
-           
+
           <span
             class="font-mono font-bold text-5xl uppercase text-grey"
           >
@@ -243,13 +243,13 @@ exports[`should render correctly 1`] = `
               We have a dedicated design team that can help you with your branding, logo, social media banners, icons, funding documents, website design, and more! Note that requests are free but accepted on a case-by-case basis, we encourage you to submit your request to us below!
             </p>
             <a
-              href="https://forms.gle/guiL6sLCJCDdy7Yy5"
+              href="https://veganhacktivists.org/playground"
               rel="noreferrer"
               target="_blank"
             >
               <div
                 class="p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring transition-all overflow-hidden text-white border-green max-w-sm transition-background-position duration-[400ms] ease-linear hover:!bg-left group-hover:!bg-left capitalize"
-                href="https://forms.gle/guiL6sLCJCDdy7Yy5"
+                href="https://veganhacktivists.org/playground"
                 style="background-size: 250% 100%; background-position: right;"
               >
                 Request a free design!
@@ -446,7 +446,7 @@ exports[`should render correctly 1`] = `
             <p
               class="mt-3 mb-7"
             >
-              We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! 
+              We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions!
             </p>
             <a
               href="/#contact-us"
