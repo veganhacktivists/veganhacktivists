@@ -5,13 +5,13 @@ import type { DurationUnits, DurationObjectUnits } from 'luxon';
 const DIFF_TIME_UNITS = ['years', 'months', 'weeks', 'days'];
 
 export const readableTimeDiff = (date: Date) => {
-  const now = DateTime.now();
-  const other = DateTime.fromJSDate(date);
+  const now = DateTime.now().startOf('day');
+  const other = DateTime.fromJSDate(date).startOf('day');
 
   const isPastDate = other.diff(now).milliseconds < 0;
 
-  const diffInDays = other.diffNow(['days']);
-  if (Math.abs(diffInDays.days) <= 1) {
+  //Handling DateTimes which have the same date
+  if (now.valueOf() === other.valueOf()) {
     return [null, null] as const;
   }
 
