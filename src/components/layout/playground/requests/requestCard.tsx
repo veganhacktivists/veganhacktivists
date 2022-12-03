@@ -71,14 +71,8 @@ const PlaygroundRequestCard: React.FC<
     [createdAt]
   );
 
-  const [timeUntilDue, isDue] = useMemo(() => {
-    if (dueDate !== null) {
-      //If dueDate was set to a valid date, calculate the time difference until that date
-      return readableTimeDiff(dueDate);
-    } else {
-      //Else a dueDate wasn't set for this request, and there is no valid timeUntilDue or isDue so they should be set to null so the lack of a dueDate can be visualised
-      return [null, null];
-    }
+  const [timeUntilDue, isDue, hasNoDue] = useMemo(() => {
+    return dueDate ? [...readableTimeDiff(dueDate), false] : [null, null, true];
   }, [dueDate]);
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
@@ -137,17 +131,13 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
-          {/*If the dueDate strings are null, return a custom "Due Date: None" <Li>, else insert a <Li> which says when the due date is */}
-          {timeUntilDue === null ? (
+          {hasNoDue ? (
             <Li title={'Due Date'} name={'Due Date'} category={category}>
               None
             </Li>
           ) : (
             <Li
-              title={`${
-                timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'
-              } ${timeUntilDue || ''}
-            ${timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}`}
+              title={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
               name={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
               category={category}
             >

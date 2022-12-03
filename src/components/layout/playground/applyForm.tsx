@@ -63,15 +63,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
-  const dueDateFormatted = useMemo(() => {
-    if (request.dueDate !== null) {
-      //If dueDate was set to a valid date, format it into a string
-      return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
-    } else {
-      //Else a dueDate wasn't set for this request, so return null so the lack of a dueDate can be visualised
-      return null;
-    }
-  }, [request]);
+  const [dueDateFormatted, timeUntilDue, isDue, hasNoDue] = useMemo(() => {
+    return request.dueDate
+      ? [
+          DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy'),
+          ...readableTimeDiff(request.dueDate),
+        ]
+      : [null, null, null, true];
+  }, [request.dueDate]);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [description, setDescription] = useState('');
@@ -149,11 +148,16 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
-          {/*If the due date isn't set, hide the field*/}
-          {dueDateFormatted ? (
-            <Field title="Due date">{dueDateFormatted}</Field>
+          {hasNoDue ? (
+            <Field title={'Due Date'}>None</Field>
           ) : (
-            ''
+            <Field
+              title={`${
+                dueDateFormatted ? (isDue ? 'Was due' : 'Due') : 'Due'
+              }`}
+            >
+              {timeUntilDue ? dueDateFormatted : 'Today'}
+            </Field>
           )}
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
