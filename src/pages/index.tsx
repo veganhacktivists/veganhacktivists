@@ -68,8 +68,14 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   return (
     <>
       <NextSeo
-        title="Vegan Hacktivists"
-        titleTemplate="%s | Compassion, Creativity, Code!"
+        title={intl.formatMessage({
+          id: 'page.index.next-seo.title',
+          defaultMessage: 'Vegan Hacktivists',
+        })}
+        titleTemplate={intl.formatMessage({
+          id: 'page.index.next-seo.title-template',
+          defaultMessage: '%s | Compassion, Creativity, Code!',
+        })}
       />
       <Hero
         main
