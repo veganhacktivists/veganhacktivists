@@ -94,7 +94,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             image={HeartLogo}
             title="Other"
             buttonText="contact us"
-            buttonHref="mailto:hello@veganhacktivists.org"
+            buttonHref="https://veganhacktivists.org/contact"
           >
             For larger donations (US tax-deductible)
           </DonationCard>
@@ -110,7 +110,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         gives us the most stability every month, but we also accept one-time
         donations via PayPal. If you would like to make a larger contribution of
         $1,000 or more (thank you!), please{' '}
-        <CustomLink href="mailto:hello@veganhacktivists.org">
+        <CustomLink href="https://veganhacktivists.org/contact">
           contact us
         </CustomLink>{' '}
         for other payment methods and tax deduction via our fiscal sponsor.

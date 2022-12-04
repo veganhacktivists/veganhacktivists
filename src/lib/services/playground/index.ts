@@ -1,7 +1,7 @@
 import { TRPCError } from '@trpc/server';
 import { Status, UserRole } from '@prisma/client';
 
-import { OUR_EMAIL_TO } from '../../mail/router';
+import { OUR_EMAIL_TO, PLAYGROUND_TO_CC } from '../../mail/router';
 import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
 import {
   playgroundRequestApplicationEmail,
@@ -247,6 +247,7 @@ export const submitRequest = async ({
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
       to: OUR_EMAIL_TO,
+      cc: PLAYGROUND_TO_CC,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Request',
       text: playgroundReviewRequestEmail(true),

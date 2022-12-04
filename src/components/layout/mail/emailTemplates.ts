@@ -202,9 +202,12 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text>${optionalMessageParts}</mj-text>
     <mj-text><b>Note:</b> They have agreed to commit a reasonable amount of time to help with this request, communicate frequently, and do their best to meet deadlines.</mj-text>
     <mj-text><b>What&apos;s next?</b></mj-text>
-    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
-      application.request.name
-    }&apos;s Calendy link <a href="${
+    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. ${
+      application.calendlyUrl
+        ? 'Both of you can do so by scheduling a call using'
+        : application.name + ' should do so by scheduling a call using'
+    }
+    ${application.request.name}&apos;s Calendy link <a href="${
     // TODO: sanitize this and all the other data?
     application.request.calendlyUrl
   }">here</a>${
