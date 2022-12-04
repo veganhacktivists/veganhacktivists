@@ -1,10 +1,36 @@
-# localisation
+# Localisation
 
 Translations are implemented with [react-intl](https://formatjs.io/docs/getting-started/installation/)
 
-## how to add localisations
+## How to use translations
 
-1. Add the localisation key to `next.config.js` `nextConfig.i18n.locales`
-2. Copy `src/localisation/en.json` to `{localisation key}.json`
-3. In `src/lib/localisation/index.d.ts` import the new localisation file and add the localisation key and translation keys to their respective types
-4. In `src/lib/localisation/messages.ts` import the new localisation file and add to the messages object
+[FormattedMessage](https://formatjs.io/docs/react-intl/components/#formattedmessage)
+
+```xml
+<FormattedMessage id="page.example.headline" defaultMessage="Example" />
+```
+
+[useIntl](https://formatjs.io/docs/react-intl/api/#useintl-hook)
+
+```typescript
+const intl = useIntl();
+intl.formatMessage({ id: "page.example.headline", defaultMessage: "Example" });
+```
+
+## Ids
+
+Ids are created from context kinds and names, starting with the root element of the component and ending with the translation target. Segments are concatenated with dots. Ids must be lowercase and written in kebab style. This is to avoid duplicate IDs and provide some context to translators.
+
+example for a headline on the index page:
+
+`page.index.section.projects.headline`
+
+## Scripts
+
+`pnpm translation:extract` finds new messages and extracts them into `/localisation/data/en.json`.  
+`pnpm translation:update` compares the defaultMessages in `FormattedMessage` and `intl.formatMessage` with previously extracted messages and updates the code where differences are found.
+
+## How to add new localisations
+
+1. In `src/lib/localisation/messages.ts` import the new localisation file and add to the messages object
+2. Enable by adding the localisation key to `next.config.js` `nextConfig.i18n.locales`

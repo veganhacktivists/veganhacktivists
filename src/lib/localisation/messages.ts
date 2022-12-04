@@ -1,12 +1,5 @@
-import de from '../../localisation/de.json';
-import en from '../../localisation/en.json';
+import en from '../../../localisation/data/compiled-en.json';
 
-import type { Localisations, TranslationKeys } from '.';
+import type { Localisations } from '.';
 
-export const messages: Record<
-  Localisations,
-  Record<TranslationKeys, string>
-> = {
-  // de,
-  en,
-};
+export const messages: Record<Localisations, Record<string, string>> = { en };

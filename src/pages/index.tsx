@@ -76,7 +76,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: intl.formatMessage({ id: 'page.index.section.stage.hero.alt' }),
+          alt: intl.formatMessage({
+            id: 'page.index.section.stage.hero.alt',
+            defaultMessage: 'Compassion, Creativity, Code',
+          }),
         }}
         alignment="right"
         classNameMapping={{
@@ -84,11 +87,17 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         }}
       >
         <div className="relative mx-auto text-2xl text-white md:w-1/2">
-          <FormattedMessage id="page.index.section.stage.subline" />
+          <FormattedMessage
+            id="page.index.section.stage.subline"
+            defaultMessage="Building for the animal protection movement since 2019"
+          />
         </div>
         <div className="relative mx-auto mt-10">
           <LightButton href="/about">
-            <FormattedMessage id="page.index.section.stage.cta" />
+            <FormattedMessage
+              id="page.index.section.stage.cta"
+              defaultMessage="Learn More"
+            />
           </LightButton>
         </div>
       </Hero>
@@ -106,6 +115,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="mb-16 text-grey-dark">
           <FormattedMessage
             id="page.index.section.introduction.headline"
+            defaultMessage="<left>We are</left><right>VEGAN HACKTIVISTS</right>"
             values={{
               left: (chunks) => (
                 <span className="font-serif text-3xl italic font-semibold">
@@ -123,18 +133,21 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="pb-5">
           <FormattedMessage
             id="page.index.section.introduction.paragraph1"
+            defaultMessage="We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p className="pb-5">
           <FormattedMessage
             id="page.index.section.introduction.paragraph2"
+            defaultMessage="Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p>
           <FormattedMessage
             id="page.index.section.introduction.paragraph3"
+            defaultMessage="Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
@@ -169,9 +182,11 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             header={[
               intl.formatMessage({
                 id: 'page.index.section.video.headline.leftpart',
+                defaultMessage: 'Watch our',
               }),
               intl.formatMessage({
                 id: 'page.index.section.video.headline.rightpart',
+                defaultMessage: 'intro video',
               }),
             ]}
           />
@@ -179,14 +194,20 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             <YoutubeVideo id="jaW8n1pd97U" />
           </div>
           <div>
-            <FormattedMessage id="page.index.section.video.subline" />
+            <FormattedMessage
+              id="page.index.section.video.subline"
+              defaultMessage="Watch our videos to learn more about us and our work:"
+            />
           </div>
           <div className="mx-auto w-fit">
             <LightButton
               className=""
               href="https://www.youtube.com/c/VeganHacktivists"
             >
-              <FormattedMessage id="page.index.section.video.cta" />
+              <FormattedMessage
+                id="page.index.section.video.cta"
+                defaultMessage="Visit our channel"
+              />
             </LightButton>
           </div>
         </div>
@@ -200,6 +221,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <p className="pb-5 text-grey-dark">
             <FormattedMessage
               id="page.index.section.projects.headline"
+              defaultMessage="<left>Featured</left><right>PROJECTS</right>"
               values={{
                 left: (chunks) => (
                   <span className="font-serif text-3xl italic font-semibold">
@@ -215,6 +237,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <p>
             <FormattedMessage
               id="page.index.section.projects.paragraph"
+              defaultMessage="Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
@@ -227,7 +250,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           </div>
           <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
             <DarkButton href="/projects" className="font-mono">
-              <FormattedMessage id="page.index.section.projects.cta" />
+              <FormattedMessage
+                id="page.index.section.projects.cta"
+                defaultMessage="See All Projects"
+              />
             </DarkButton>
           </div>
         </div>

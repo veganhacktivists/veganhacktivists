@@ -11,22 +11,34 @@ const JoinTheTeam: React.FC = () => {
       <div className="content-center mx-auto md:w-1/2 text-2xl pb-12">
         <p className="mb-12 text-grey-dark pt-16">
           <span className="text-5xl font-mono text-white">
-            <FormattedMessage id="section.join-the-team.headline" />
+            <FormattedMessage
+              id="section.join-the-team.headline"
+              defaultMessage="JOIN OUR TEAM"
+            />
           </span>
         </p>
         <CustomImage src={teamIcons} alt="Compassion, Creativity, Code" />
         <p className="pb-5 mt-4 text-white">
-          <FormattedMessage id="section.join-the-team.paragraph" />
+          <FormattedMessage
+            id="section.join-the-team.paragraph"
+            defaultMessage="Are you a developer, designer, writer, or a creative professional interested in applying your digital skills for the animals? Learn more about our team members and view our openings below."
+          />
         </p>
         <div className="flex justify-center flex-wrap">
           <LightButton
             href="/people/team"
             className="m-5 font-mono font-semibold"
           >
-            <FormattedMessage id="section.join-the-team.cta.meet-the-team" />
+            <FormattedMessage
+              id="section.join-the-team.cta.meet-the-team"
+              defaultMessage="Meet the Team"
+            />
           </LightButton>
           <LightButton href="/join" className="m-5 font-mono font-semibold">
-            <FormattedMessage id="section.join-the-team.cta.join" />
+            <FormattedMessage
+              id="section.join-the-team.cta.join"
+              defaultMessage="Apply to Join"
+            />
           </LightButton>
         </div>
       </div>

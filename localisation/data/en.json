@@ -1,0 +1,77 @@
+{
+  "page.index.section.introduction.headline": {
+    "defaultMessage": "<left>We are</left><right>VEGAN HACKTIVISTS</right>"
+  },
+  "page.index.section.introduction.paragraph1": {
+    "defaultMessage": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
+  },
+  "page.index.section.introduction.paragraph2": {
+    "defaultMessage": "Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
+  },
+  "page.index.section.introduction.paragraph3": {
+    "defaultMessage": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
+  },
+  "page.index.section.projects.cta": {
+    "defaultMessage": "See All Projects"
+  },
+  "page.index.section.projects.headline": {
+    "defaultMessage": "<left>Featured</left><right>PROJECTS</right>"
+  },
+  "page.index.section.projects.paragraph": {
+    "defaultMessage": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
+  },
+  "page.index.section.stage.cta": {
+    "defaultMessage": "Learn More"
+  },
+  "page.index.section.stage.hero.alt": {
+    "defaultMessage": "Compassion, Creativity, Code"
+  },
+  "page.index.section.stage.subline": {
+    "defaultMessage": "Building for the animal protection movement since 2019"
+  },
+  "page.index.section.video.cta": {
+    "defaultMessage": "Visit our channel"
+  },
+  "page.index.section.video.headline.leftpart": {
+    "defaultMessage": "Watch our"
+  },
+  "page.index.section.video.headline.rightpart": {
+    "defaultMessage": "intro video"
+  },
+  "page.index.section.video.subline": {
+    "defaultMessage": "Watch our videos to learn more about us and our work:"
+  },
+  "section.blog-teaser.cta": {
+    "defaultMessage": "See All Posts"
+  },
+  "section.blog-teaser.headline": {
+    "defaultMessage": "<left>On the</left><right>BLOG</right>"
+  },
+  "section.blog-teaser.paragraph": {
+    "defaultMessage": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."
+  },
+  "section.grants-cta.apply.cta": {
+    "defaultMessage": "Apply Now"
+  },
+  "section.grants-cta.apply.paragraph": {
+    "defaultMessage": "We offer grants for impactful and effective work in animal advocacy and activism."
+  },
+  "section.grants-cta.visit-year-review.cta": {
+    "defaultMessage": "See our impact"
+  },
+  "section.grants-cta.visit-year-review.paragraph": {
+    "defaultMessage": "Read our annual impact review and see what we've accomplished last year."
+  },
+  "section.join-the-team.cta.join": {
+    "defaultMessage": "Apply to Join"
+  },
+  "section.join-the-team.cta.meet-the-team": {
+    "defaultMessage": "Meet the Team"
+  },
+  "section.join-the-team.headline": {
+    "defaultMessage": "JOIN OUR TEAM"
+  },
+  "section.join-the-team.paragraph": {
+    "defaultMessage": "Are you a developer, designer, writer, or a creative professional interested in applying your digital skills for the animals? Learn more about our team members and view our openings below."
+  }
+}
