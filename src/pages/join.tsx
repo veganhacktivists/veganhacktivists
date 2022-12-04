@@ -225,7 +225,7 @@ const Join: React.FC = () => (
     </div>
     <JoinPlayground />
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-    <div className="h-[500px] py-20 px-5 relative">
+    <div className="lg:h-[500px] py-16 lg:py-20 px-5 relative pb-[300px]">
       <h2 className="text-4xl font-modo font-bold mb-10">
         High Priority Positions
       </h2>
