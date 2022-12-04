@@ -4,6 +4,7 @@ export const OUR_EMAIL_FROM =
   process.env.EMAIL_FROM ?? 'hello@veganhacktivists.org';
 export const OUR_EMAIL_TO =
   process.env.EMAIL_TO ?? 'hello@veganhacktivists.org';
+export const PLAYGROUND_TO_CC = process.env.EMAIL_TO_PLAYGROUND_CC ?? '';
 export const OUR_EMAIL_FROM_FORMATTED =
   `Vegan Hacktivists <${OUR_EMAIL_FROM}>` as const;
 export const PLAYGROUND_EMAIL =

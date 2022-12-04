@@ -4,11 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import {
-  BudgetType,
-  PlaygroundRequestCategory,
-  UserRole,
-} from '@prisma/client';
+import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 
@@ -91,7 +87,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: session?.user?.role === UserRole.Admin ? storedForm : {},
+    defaultValues: storedForm.id ? undefined : storedForm,
     resolver: zodResolver(submitRequestSchemaClient),
   });
 
