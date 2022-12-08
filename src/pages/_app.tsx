@@ -11,6 +11,7 @@ import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 import { trpc } from 'lib/client/trpc';
+import { LocalisationProvider } from 'lib/localisation/LocalisationProvider';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -54,8 +55,10 @@ const AppWrapper: React.FC<
   return (
     <SessionProvider session={session}>
       <CookiesProvider>
-        <DefaultSeo {...SEO} />
-        {children}
+        <LocalisationProvider>
+          <DefaultSeo {...SEO} />
+          {children}
+        </LocalisationProvider>
       </CookiesProvider>
     </SessionProvider>
   );

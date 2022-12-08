@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
@@ -71,10 +72,20 @@ const GrantsCallToAction: React.FC = () => {
           boxicon={beeIcon}
           backgroundColor="white"
           title="Apply for a seed grant"
-          button={{ content: <>Apply&nbsp;Now</>, href: '/grants' }}
+          button={{
+            content: (
+              <FormattedMessage
+                id="section.grants-cta.apply.cta"
+                defaultMessage="Apply Now"
+              />
+            ),
+            href: '/grants',
+          }}
         >
-          We offer grants for impactful and effective work in animal advocacy
-          and activism.
+          <FormattedMessage
+            id="section.grants-cta.apply.paragraph"
+            defaultMessage="We offer grants for impactful and effective work in animal advocacy and activism."
+          />
         </Info>
         <Info
           image={impactReviewImage}
@@ -82,12 +93,19 @@ const GrantsCallToAction: React.FC = () => {
           title="See our 2021 impact review"
           backgroundColor="grey-over-background"
           button={{
-            content: <>See&nbsp;our&nbsp;impact</>,
+            content: (
+              <FormattedMessage
+                id="section.grants-cta.visit-year-review.cta"
+                defaultMessage="See our impact"
+              />
+            ),
             href: '/year-in-review/2021',
           }}
         >
-          Read our annual impact review and see what we&apos;ve accomplished
-          last year.
+          <FormattedMessage
+            id="section.grants-cta.visit-year-review.paragraph"
+            defaultMessage="Read our annual impact review and see what we've accomplished last year."
+          />
         </Info>
       </div>
     </div>
