@@ -149,6 +149,7 @@ export const applyToHelp = async (
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
       to: OUR_EMAIL_TO,
+      cc: PLAYGROUND_TO_CC,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Application',
       text: playgroundRequestApplicationEmail(true),
