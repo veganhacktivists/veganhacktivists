@@ -61,7 +61,7 @@ function addNewTranslationsToCurrent(
     ) {
       // eslint-disable-next-line no-console
       console.error(
-        `defaultMessage of existing translation changed. Existing translation messages must set in ${defaultLocalisationPath}\n${id}\ncurrent: ${translations[id].defaultMessage}\nchanged: ${extractedTranslations[id].defaultMessage}`
+        `defaultMessage of existing translation changed. Existing translation messages must be set in ${defaultLocalisationPath}\n${id}\ncurrent: ${translations[id].defaultMessage}\nchanged: ${extractedTranslations[id].defaultMessage}`
       );
     }
     return translations;
