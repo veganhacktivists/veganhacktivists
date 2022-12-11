@@ -97,14 +97,14 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
 
       <Paragraph>
         We prefer a{' '}
-        <span className="font-bold">monthly donation via Patreon</span> as that
-        gives us the most stability every month, but we also accept one-time
-        donations via PayPal. If you would like to make a larger contribution of
-        $1,000 or more (thank you!), please{' '}
+        <span className="font-bold">monthly donation via Donorbox</span> as that
+        gives us the most stability, but we also appreciate one-time donations!
+        If you would like to make a larger contribution of $1,000 or more
+        (thanks!), please{' '}
         <CustomLink href="https://veganhacktivists.org/contact">
           contact us
         </CustomLink>{' '}
-        for other payment methods and tax deduction via our fiscal sponsor.
+        for tax deductible options via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="py-16 bg-grey-darker">
