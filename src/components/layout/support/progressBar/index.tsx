@@ -37,7 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             Needed to cover basic operational expenses
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={210000}
+            goalAmount={40000}
             previousAmount={15000}
             goalColor="yellow-orange"
             goalOrder={2}
@@ -46,8 +46,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             Needed to cover minimum salaries
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={40000}
-            previousAmount={210000}
+            goalAmount={185000}
+            previousAmount={40000}
             goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
@@ -55,13 +55,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             Marketing, subscriptions and trainings
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={85000}
-            previousAmount={40000}
+            goalAmount={210000}
+            previousAmount={185000}
             goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
-            Needed to provide stipends to volunteers
+            Needed for stipends to volunteers
           </PatreonGoal>
         </div>
       </div>

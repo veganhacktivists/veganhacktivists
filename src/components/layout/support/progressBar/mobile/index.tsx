@@ -17,39 +17,39 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
       <div className="md:hidden relative h-[600px] flex flex-row justify-center">
         <div className="flex flex-col-reverse h-full w-40">
           <PatreonGoal
-            goalAmount={1353}
+            goalAmount={15000}
             goalColor="yellow"
             goalOrder={1}
             totalAmount={goal}
           >
-            Needed to cover operational expenses
+            Needed to cover basic operational expenses
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={2500}
-            previousAmount={1353}
+            goalAmount={40000}
+            previousAmount={15000}
             goalColor="yellow-orange"
             goalOrder={2}
             totalAmount={goal}
           >
-            Can afford more useful services and tech
+            Marketing, subscriptions and trainings
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={3750}
-            previousAmount={2500}
+            goalAmount={185000}
+            previousAmount={40000}
             goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
           >
-            We can ramp up value and services offered
+            Needed for stipends to volunteers
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={5000}
-            previousAmount={3750}
+            goalAmount={210000}
+            previousAmount={185000}
             goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
-            Self-Sustainable Goal
+            Needed to cover minimum salaries
           </PatreonGoal>
         </div>
         <div className="h-full w-[15vw] bg-grey relative">
