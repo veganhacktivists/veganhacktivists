@@ -2,7 +2,6 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 
 import HeartLogo from '../../public/images/support/heart-icon.png';
-import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
@@ -20,6 +19,7 @@ import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
+import DonorBoxCard from '../components/layout/support/donorBoxCard';
 
 import type { GetStaticProps } from 'next';
 
@@ -79,16 +79,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           >
             For one-time, smaller donations
           </DonationCard>
-          <DonationCard
-            color="orange"
-            image={PatreonLogo}
-            title="Patreon"
-            buttonText="become a patron"
-            buttonHref="https://www.patreon.com/veganhacktivists"
-            large
-          >
-            Become a monthly supporter for as little as $5 a month
-          </DonationCard>
+          <DonorBoxCard color="orange" large />
           <DonationCard
             color="green"
             image={HeartLogo}
