@@ -1,5 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import HeartLogo from '../../public/images/support/heart-icon.png';
 import PatreonLogo from '../../public/images/support/patreon-logo.png';
@@ -41,14 +42,24 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
   patrons,
   patreonFunding,
 }) => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Support Us" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.support.next-seo.title',
+          defaultMessage: 'Support Us',
+        })}
+      />
       <Hero
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'You are their voice',
+          alt: intl.formatMessage({
+            id: 'page.support.section.hero.image-alt',
+            defaultMessage: 'You are their voice',
+          }),
         }}
         alignment="left"
       />
@@ -57,15 +68,22 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         className="hidden md:block"
       />
       <div className="px-10">
-        <PlainHeader header="Support Us">
-          With your gift, we can make a greater impact and change the world for
-          our animal friends.
+        <PlainHeader
+          header={intl.formatMessage({
+            id: 'page.support.section.support-us.header.title',
+            defaultMessage: 'Support Us',
+          })}
+        >
+          <FormattedMessage
+            id="page.support.section.support-us.header.content"
+            defaultMessage="With your gift, we can make a greater impact and change the world for our animal friends."
+          />
         </PlainHeader>
         <Paragraph>
-          We are a vegan volunteer team that builds technology for organizations
-          and individual activists in the animal protection movement. If you
-          believe in the work we do and would like to support us, please
-          consider making a donation.
+          <FormattedMessage
+            id="page.support.section.support-us.introduction"
+            defaultMessage="We are a vegan volunteer team that builds technology for organizations and individual activists in the animal protection movement. If you believe in the work we do and would like to support us, please consider making a donation."
+          />
         </Paragraph>
       </div>
       <div className="mx-auto my-16 md:w-fit">
@@ -73,30 +91,57 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           <DonationCard
             color="blue"
             image={PayPalLogo}
-            title="PayPal"
-            buttonText="donate"
+            title={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.0.title',
+              defaultMessage: 'PayPal',
+            })}
+            buttonText={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.0.button-label',
+              defaultMessage: 'donate',
+            })}
             buttonHref="https://paypal.me/davidvanbeveren"
           >
-            For one-time, smaller donations
+            <FormattedMessage
+              id="page.support.section.support-us.donation-card.0.content"
+              defaultMessage="For one-time, smaller donations"
+            />
           </DonationCard>
           <DonationCard
             color="orange"
             image={PatreonLogo}
-            title="Patreon"
-            buttonText="become a patron"
+            title={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.1.title',
+              defaultMessage: 'Patreon',
+            })}
+            buttonText={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.1.button-label',
+              defaultMessage: 'become a patron',
+            })}
             buttonHref="https://www.patreon.com/veganhacktivists"
             large
           >
-            Become a monthly supporter for as little as $5 a month
+            <FormattedMessage
+              id="page.support.section.support-us.donation-card.1.content"
+              defaultMessage="Become a monthly supporter for as little as $5 a month"
+            />
           </DonationCard>
           <DonationCard
             color="green"
             image={HeartLogo}
-            title="Other"
-            buttonText="contact us"
+            title={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.2.title',
+              defaultMessage: 'Other',
+            })}
+            buttonText={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.2.button-label',
+              defaultMessage: 'contact us',
+            })}
             buttonHref="mailto:hello@veganhacktivists.org"
           >
-            For larger donations (US tax-deductible)
+            <FormattedMessage
+              id="page.support.section.support-us.donation-card.2.content"
+              defaultMessage="For larger donations (US tax-deductible)"
+            />
           </DonationCard>
         </div>
         <div className="">

@@ -80,12 +80,7 @@ function updateFormattedMessageComponent(
         return;
       }
 
-      replaceDefaultValue(
-        idAttribute,
-        defaultMessageAttribute,
-        translations,
-        '"'
-      );
+      replaceDefaultValue(idAttribute, defaultMessageAttribute, translations);
     });
   });
 }
@@ -119,12 +114,7 @@ function updateUseIntlHook(translations: TranslationFileStructure) {
           return;
         }
 
-        replaceDefaultValue(
-          idProperty,
-          defaultMessageProperty,
-          translations,
-          "'"
-        );
+        replaceDefaultValue(idProperty, defaultMessageProperty, translations);
       });
   });
 }
@@ -132,13 +122,14 @@ function updateUseIntlHook(translations: TranslationFileStructure) {
 function replaceDefaultValue(
   idPropTuple: Node<ts.Node>[],
   defaultValuePropTuple: Node<ts.Node>[],
-  translations: TranslationFileStructure,
-  quotes: "'" | '"'
+  translations: TranslationFileStructure
 ) {
   const idNodeValue = idPropTuple?.[2].getText();
   const defaultMessageNodeValue = defaultValuePropTuple?.[2].getText();
 
   const idStringValue = idNodeValue?.slice(1, -1);
+
+  const quotes = idNodeValue.slice(0, 1);
 
   if (
     idStringValue &&
