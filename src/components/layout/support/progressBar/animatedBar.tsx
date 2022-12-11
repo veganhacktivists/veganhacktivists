@@ -39,7 +39,7 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
               </animated.h1>
             </div>
             <p className="w-full text-lg text-left text-white md:text-xl">
-              Currently fundraised
+              Current monthly Patreon donations
             </p>
           </div>
         </animated.div>

@@ -17,11 +17,11 @@ const TickMarks: React.FC = ({}) => {
       </div>
       <div className="h-[120%] absolute left-4 pl-2 bottom-[-10%] flex flex-col-reverse">
         <div className={tickLabelStyles}>&#36;0</div>
-        <div className={tickLabelStyles}>&#36;10,000</div>
-        <div className={tickLabelStyles}>&#36;50,000</div>
-        <div className={tickLabelStyles}>&#36;100,000</div>
-        <div className={tickLabelStyles}>&#36;250,000</div>
-        <div className={tickLabelStyles}>&#36;350,000</div>
+        <div className={tickLabelStyles}>&#36;1,000</div>
+        <div className={tickLabelStyles}>&#36;2,000</div>
+        <div className={tickLabelStyles}>&#36;3,000</div>
+        <div className={tickLabelStyles}>&#36;4,000</div>
+        <div className={tickLabelStyles}>&#36;5,000</div>
       </div>
     </div>
   );
