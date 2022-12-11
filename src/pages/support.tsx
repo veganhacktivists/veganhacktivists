@@ -58,15 +58,10 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       />
       <div className="px-10">
         <PlainHeader header="Support Us">
-          With your gift, we can make a greater impact and change the world for
-          our animal friends.
+          If you believe in the work we do and would like to support us, please
+          consider making a donation. With your gift, we can make a greater
+          impact and change the world for our animal friends.
         </PlainHeader>
-        <Paragraph>
-          We are a vegan volunteer team that builds technology for organizations
-          and individual activists in the animal protection movement. If you
-          believe in the work we do and would like to support us, please
-          consider making a donation.
-        </Paragraph>
       </div>
       <div className="mx-auto my-16 md:w-fit">
         <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
