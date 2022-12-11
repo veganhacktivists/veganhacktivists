@@ -43,7 +43,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             Needed for stipends to volunteers
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={210000}
+            goalAmount={350000}
             previousAmount={185000}
             goalColor="magenta"
             goalOrder={4}
