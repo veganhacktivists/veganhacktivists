@@ -118,17 +118,17 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="py-16 bg-grey-darker">
         <h2 className="mb-8 text-4xl font-bold text-white">
-          Monthly Patreon Goals
+          2023 Fundraising Campaign
         </h2>
         <Paragraph>
           <span className="text-white">
-            See our Patreon goals below, and help us grow and be more effective!
+            We&apos;re fundraising for our 2023 budget, help us get there!
           </span>
         </Paragraph>
-        <ProgressBar currentAmount={patreonFunding} goal={5000} />
+        <ProgressBar currentAmount={185000} goal={350000} />
         <div className="flex justify-center mt-16">
           <ExternalLinkButton
-            href="https://www.patreon.com/veganhacktivists"
+            href="https://veganhacktivists.org/contact"
             className="font-mono text-xl font-bold text-white"
             capitalize={false}
           >
