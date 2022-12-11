@@ -47,7 +47,7 @@ const DonorBoxCard: React.FC<DonorCardProps> = ({ image, color, large }) => {
       <div className="flex flex-grow">
         <Script src="https://donorbox.org/widget.js" {...scriptProps} />
         <DonorBoxIframe
-          src="https://donorbox.org/embed/vegan-hacktivists"
+          src="https://donorbox.org/embed/veganhacktivists"
           className={'min-h-[555px] border-gray-lighter border'}
           name="donorbox"
           scrolling={'no'}
