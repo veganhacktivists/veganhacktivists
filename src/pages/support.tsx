@@ -2,7 +2,6 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 
 import HeartLogo from '../../public/images/support/heart-icon.png';
-import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
@@ -20,6 +19,7 @@ import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
+import DonorBoxCard from '../components/layout/support/donorBoxCard';
 
 import type { GetStaticProps } from 'next';
 
@@ -58,15 +58,10 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       />
       <div className="px-10">
         <PlainHeader header="Support Us">
-          With your gift, we can make a greater impact and change the world for
-          our animal friends.
+          If you believe in the work we do and would like to support us, please
+          consider making a donation. With your gift, we can make a greater
+          impact and change the world for our animal friends.
         </PlainHeader>
-        <Paragraph>
-          We are a vegan volunteer team that builds technology for organizations
-          and individual activists in the animal protection movement. If you
-          believe in the work we do and would like to support us, please
-          consider making a donation.
-        </Paragraph>
       </div>
       <div className="mx-auto my-16 md:w-fit">
         <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
@@ -79,16 +74,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           >
             For one-time, smaller donations
           </DonationCard>
-          <DonationCard
-            color="orange"
-            image={PatreonLogo}
-            title="Patreon"
-            buttonText="become a patron"
-            buttonHref="https://www.patreon.com/veganhacktivists"
-            large
-          >
-            Become a monthly supporter for as little as $5 a month
-          </DonationCard>
+          <DonorBoxCard color="orange" large />
           <DonationCard
             color="green"
             image={HeartLogo}
@@ -106,14 +92,14 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
 
       <Paragraph>
         We prefer a{' '}
-        <span className="font-bold">monthly donation via Patreon</span> as that
-        gives us the most stability every month, but we also accept one-time
-        donations via PayPal. If you would like to make a larger contribution of
-        $1,000 or more (thank you!), please{' '}
+        <span className="font-bold">monthly donation via Donorbox</span> as that
+        gives us the most stability, but we also appreciate one-time donations!
+        If you would like to make a larger contribution of $1,000 or more
+        (thanks!), please{' '}
         <CustomLink href="https://veganhacktivists.org/contact">
           contact us
         </CustomLink>{' '}
-        for other payment methods and tax deduction via our fiscal sponsor.
+        for tax deductible options via our fiscal sponsor.
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="py-16 bg-grey-darker">
