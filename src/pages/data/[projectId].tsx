@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import { faChartPie } from '@fortawesome/free-solid-svg-icons';
-import { faChartBar } from '@fortawesome/free-solid-svg-icons';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
-import Label from '../../components/forms/inputs/label';
-import SelectInput from '../../components/forms/inputs/selectInput';
 import SquareField from '../../components/decoration/squares';
 import { trpc } from '../../lib/client/trpc';
-import DateRangeSelectInput, {
-  dateRangeAttributes,
-} from '../../components/layout/data/dateRangeSelectInput';
+import { dateRangeAttributes } from '../../components/layout/data/dateRangeSelectInput';
 import useReactPath from '../../hooks/useReactPath';
-import CategorySelectInput, {
-  botAttributes,
-} from '../../components/layout/data/categorySelectInput';
+import { botAttributes } from '../../components/layout/data/categorySelectInput';
+import DataOverview from '../../components/layout/data/dataOverview';
+import DataChartSection from '../../components/layout/data/dataChartSection';
+import DataOptionsSection from '../../components/layout/data/charts/dataOptionsSection';
 
 import type { Bot } from '../../components/layout/data/categorySelectInput';
 import type { DateRange } from '../../components/layout/data/dateRangeSelectInput';
@@ -30,15 +21,8 @@ import type {
 } from '@prisma/client';
 import type { TimeSeriesData } from '../../components/layout/data/charts/timeSeriesLineChart';
 
-const TimeSeriesLineChart = dynamic(
-  () => import('../../components/layout/data/charts/timeSeriesLineChart'),
-  {
-    ssr: false,
-  }
-);
-
 /** Type representing a DataDashboardProject filled with data recursively filled with values. */
-type FilledDataDashboardProject = DataDashboardProject & {
+export type FilledDataDashboardProject = DataDashboardProject & {
   data: (DataDashboardData & { values: DataDashboardValue[] })[];
 };
 
@@ -134,21 +118,9 @@ const getLineChartData = (
   );
 };
 
-const dataSquares = {
-  data: {
-    overview: {
-      top: [
-        { color: 'gray-background', size: 4, right: 0, top: 0 },
-        { color: 'gray-background', size: 4, right: 4, top: 4 },
-      ],
-      bottom: [
-        { color: 'gray-background', size: 4, left: 0, bottom: 0 },
-        { color: 'gray-background', size: 3, right: 0, bottom: 0 },
-      ],
-    },
-    bottom: [{ color: 'gray-darker', size: 16, left: 0, bottom: 0 }],
-  },
-};
+const dataSquaresBottom = [
+  { color: 'gray-darker', size: 16, left: 0, bottom: 0 },
+];
 
 /**
  * Component of the data page of a project
@@ -187,16 +159,6 @@ const DataProject: React.FC = () => {
 
   const [dateRange, setDateRange] = useState<DateRange>('30d');
   const [category, setCategory] = useState<string>('All');
-
-  const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
-    undefined,
-    {
-      keepPreviousData: true,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    }
-  );
 
   const { data } = trpc.data.getDataDashboardProject.useQuery(localProjectId, {
     keepPreviousData: true,
@@ -288,232 +250,28 @@ const DataProject: React.FC = () => {
   return (
     <div>
       <div className="flex mx-auto flex-wrap md:flex-nowrap">
-        <div
-          id="data-options"
-          className="flex flex-col w-full md:w-72 lg:w-80 bg-gray-dark p-5 relative"
-        >
-          <div className="w-full mb-4">
-            <Label className="text-white" name="project" />
-            <SelectInput
-              theme="data"
-              name="project"
-              current={
-                project ? { label: project.label, value: project.id } : null
-              }
-              options={
-                (projects as DataDashboardProject[])?.map((p) => ({
-                  value: p.id,
-                  label: p.label,
-                })) ?? []
-              }
-              onChange={selectProject}
-            />
-          </div>
-          <div className="w-full mb-4">
-            <DateRangeSelectInput
-              dateRange={dateRange}
-              setDateRange={setDateRange}
-            />
-          </div>
-          <div className="w-full mb-4">
-            <CategorySelectInput
-              category={category}
-              setCategory={setCategory}
-              availableCategories={availableCategories}
-            />
-          </div>
-          <div className="w-full">
-            <p className="mb-2 text-white font-bold text-left block">
-              Show / Hide
-            </p>
-            <div className="checkbox-container mb-3 flex items-center">
-              <input
-                className={
-                  'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-                }
-                type="checkbox"
-                name="engagement"
-              />
-              <Label className="text-white mb-0 ml-3" name="engagement">
-                User engagement
-              </Label>
-            </div>
-            <div className="checkbox-container mb-3 flex items-center">
-              <input
-                className={
-                  'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-                }
-                type="checkbox"
-                name="replies"
-              />
-              <Label className="text-white mb-0 ml-3" name="replies">
-                Nº of replies
-              </Label>
-            </div>
-            <div className="checkbox-container flex items-center">
-              <input
-                className={
-                  'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-                }
-                type="checkbox"
-                name="retweets"
-              />
-              <Label className="text-white mb-0 ml-3" name="retweets">
-                Nº of retweets
-              </Label>
-            </div>
-          </div>
-        </div>
+        <DataOptionsSection
+          category={category}
+          project={project}
+          selectProject={selectProject}
+          availableCategories={availableCategories}
+          dateRange={dateRange}
+          setCategory={setCategory}
+          setDateRange={setDateRange}
+        />
         <div id="data" className=" w-full p-5">
-          <div id="data-overview" className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                className="text-blue-dark"
-                icon={faChartSimple}
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">Data overview</h1>
-            </div>
-            <SquareField squares={dataSquares.data.overview.top} />
-            <div className="relative bg-white flex-wrap w-full flex p-4">
-              <div className="pr-4 mb-6 lg:mb-0 lg:w-1/4 w-1/2 lg:border-r-2 border-gray-light border-solid">
-                <div className="flex justify-center">
-                  <p className="font-mono font-semibold text-xl lg:text-4xl">
-                    125
-                  </p>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-green-dark -rotate-45 mt-1 lg:mt-2 ml-1 text-xl lg:text-2xl"
-                    fixedWidth
-                  />
-                </div>
-                <p className=" lg:text-xl">Total replies</p>
-              </div>
-              <div className="px-4 mb-6 lg:mb-0 lg:w-1/4 w-1/2 lg:border-r-2 border-gray-light border-solid">
-                <div className="flex justify-center">
-                  <p className="font-mono font-semibold text-xl lg:text-4xl">
-                    85
-                  </p>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-green-dark -rotate-45 mt-1 lg:mt-2 ml-1 text-xl lg:text-2xl"
-                    fixedWidth
-                  />
-                </div>
-                <p className=" lg:text-xl">Total retweets</p>
-              </div>
-              <div className="px-4 lg:w-1/4 w-1/2 lg:border-r-2 border-gray-light border-solid">
-                <div className="flex justify-center">
-                  <p className="font-mono font-semibold text-xl lg:text-4xl">
-                    78
-                  </p>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-green-dark -rotate-45 mt-1 lg:mt-2 ml-1 text-xl lg:text-2xl"
-                    fixedWidth
-                  />
-                </div>
-                <p className=" lg:text-xl">
-                  Average <span className="hidden lg:inline">number of</span>
-                  <span className="lg:hidden inline">#</span>&nbsp;likes
-                </p>
-              </div>
-              <div className="pl-4 lg:w-1/4 w-1/2">
-                <div className="flex justify-center">
-                  <p className="font-mono font-semibold text-xl lg:text-4xl">
-                    14
-                  </p>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-red-dark rotate-45 mt-1 lg:mt-2 ml-1 text-xl lg:text-2xl"
-                    fixedWidth
-                  />
-                </div>
-                <p className=" lg:text-xl">New followers</p>
-              </div>
-            </div>
-            <SquareField squares={dataSquares.data.overview.bottom} />
-          </div>
-          <div id="number-of-retweets" className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                icon={faChartPie}
-                className="text-orange"
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">Number of Retweets</h1>
-            </div>
-            <div>
-              <div className="flex bg-gray-dark h-3">
-                <div className="bg-orange h-full w-10" />
-              </div>
-              <div className="h-[28rem] bg-white">
-                <TimeSeriesLineChart
-                  data={timeSeriesData.clicks}
-                  yLabel="Number of clicks"
-                  dateRange={dateRange}
-                />
-              </div>
-            </div>
-          </div>
-          <div id="number-of-replies" className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                className="text-purple"
-                icon={faChartBar}
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">Number of Replies</h1>
-            </div>
-            <div>
-              <div className="flex bg-gray-dark h-3">
-                <div className="bg-purple h-full w-10" />
-              </div>
-              <div className="h-[28rem] bg-white">
-                <TimeSeriesLineChart
-                  data={timeSeriesData.comments}
-                  yLabel="Number of comments"
-                  dateRange={dateRange}
-                />
-              </div>
-            </div>
-          </div>
-          <div id="user-engagement-replies" className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                className="text-yellow"
-                icon={faChartBar}
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">User engagement - User replies</h1>
-            </div>
-            <div>
-              <div className="flex bg-gray-dark h-3">
-                <div className="bg-yellow h-full w-10" />
-              </div>
-              <div className="h-28 bg-white" />
-            </div>
-          </div>
-          <div id="user-engagement-likes" className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                className="text-green"
-                icon={faChartBar}
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">User engagement - Likes</h1>
-            </div>
-            <div>
-              <div className="flex bg-gray-dark h-3">
-                <div className="bg-green h-full w-10" />
-              </div>
-              <div className="h-28 bg-white" />
-            </div>
-          </div>
+          <DataOverview />
+          <DataChartSection
+            data={[
+              { name: 'comments', timeSeriesData: timeSeriesData.comments },
+              { name: 'clicks', timeSeriesData: timeSeriesData.clicks },
+            ]}
+            dateRange={dateRange}
+          />
         </div>
       </div>
       <SquareField
-        squares={dataSquares.data.bottom}
+        squares={dataSquaresBottom}
         className="hidden md:block z-20"
       />
     </div>
