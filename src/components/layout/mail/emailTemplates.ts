@@ -8,6 +8,7 @@ const host =
     : 'localhost:3000';
 const url =
   process.env.NODE_ENV === 'production' ? 'https://' + host : 'http://' + host;
+
 const mail = (body: string) => {
   const header = `
     <mj-section background-color="#fff" padding="0px">
@@ -90,6 +91,19 @@ export const verificationMail = (url: string, textonly = false) => {
   return mjml2html(mail(body)).html ?? '';
 };
 
+export const confirmSubmission = (url: string, textonly = false) => {
+  if (textonly) {
+    return `Sign in to submit your request. ${host}\n${url}\n\n`;
+  }
+  const body = `
+    <mj-text font-weight="bold">Hey there!</mj-text>
+    <mj-text>You're almost done!<br>To confirm your request, please click here:</mj-text>
+    <mj-button href="${url}">Click to submit</mj-button>
+    <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
 export const grantRequestEmail = (body: string, textonly = false) => {
   if (textonly) {
     return body;
@@ -100,6 +114,7 @@ export const grantRequestEmail = (body: string, textonly = false) => {
   `;
   return mjml2html(mail(html)).html ?? '';
 };
+
 export const contactUsEmail = (body: string, textonly = false) => {
   if (textonly) {
     return body;
