@@ -11,16 +11,29 @@ import type { OptionType } from '../../../forms/inputs/selectInput';
 import type { FilledDataDashboardProject } from '../../../../pages/data/[projectId]';
 import type { DataDashboardProject } from '@prisma/client';
 
+/** Proptypes of `DataOptionsSection`. */
 interface DataOptionsSectionProps {
+  /** The selected project. */
   readonly project: FilledDataDashboardProject | undefined;
+  /** Callback to select a new project. */
   readonly selectProject: (selectedProject: OptionType<string> | null) => void;
+  /** The selected category. */
   readonly category: string;
+  /** Callback to select a new category. */
   readonly setCategory: React.Dispatch<React.SetStateAction<string>>;
+  /** Selectable categories array. */
   readonly availableCategories: string[];
+  /** The selected date range. */
   readonly dateRange: DateRange;
+  /** Callback to select a new date range. */
   readonly setDateRange: React.Dispatch<React.SetStateAction<DateRange>>;
 }
 
+/**
+ * Component of the option selection section of the data page of a project
+ * @type {React.FC<DataOptionsSectionProps>}
+ * @return {React.ReactElement} The option selection section of the data page of a project
+ */
 const DataOptionsSection: React.FC<DataOptionsSectionProps> = ({
   project,
   selectProject,

@@ -15,6 +15,11 @@ const dataSquaresOverview = {
   ],
 };
 
+/**
+ * Component of the overview section of the data page of a project
+ * @type {React.FC}
+ * @return {React.ReactElement} The overview section of the data page of a project
+ */
 const DataOverview: React.FC = () => {
   return (
     <div id="data-overview" className=" w-full mb-8">

@@ -7,7 +7,9 @@ import { dateRangeAttributes } from '../../components/layout/data/dateRangeSelec
 import useReactPath from '../../hooks/useReactPath';
 import { botAttributes } from '../../components/layout/data/categorySelectInput';
 import DataOverview from '../../components/layout/data/dataOverview';
-import DataChartSection from '../../components/layout/data/dataChartSection';
+import DataChartSection, {
+  ValueTypes,
+} from '../../components/layout/data/dataChartSection';
 import DataOptionsSection from '../../components/layout/data/charts/dataOptionsSection';
 
 import type { Bot } from '../../components/layout/data/categorySelectInput';
@@ -135,12 +137,6 @@ const DataProject: React.FC = () => {
   );
   const [project, setProject] = useState<FilledDataDashboardProject>();
 
-  // TODO: temporary enum for value types
-  enum ValueTypes {
-    clicks = 'clicks',
-    comments = 'comments',
-  }
-
   /**
    * Function to initialize the time series data structure.
    * @return {Record<ValueTypes, TimeSeriesData[]>} The time series data structure.
@@ -213,22 +209,18 @@ const DataProject: React.FC = () => {
 
   /** Effect to update the time series data to show in the line chart once user selections change (e.g.: date range). */
   useEffect(() => {
-    setTimeSeriesData({
-      clicks: getLineChartData(
+    const newTimeSeriesData = {} as Record<ValueTypes, TimeSeriesData[]>;
+    Object.keys(ValueTypes).forEach((key) => {
+      newTimeSeriesData[key as ValueTypes] = getLineChartData(
         project,
-        'clicks',
+        key as ValueTypes,
         dateRange,
         category,
         categoryAttributes
-      ),
-      comments: getLineChartData(
-        project,
-        'comments',
-        dateRange,
-        category,
-        categoryAttributes
-      ),
+      );
     });
+
+    setTimeSeriesData(newTimeSeriesData);
   }, [availableCategories, category, dateRange, project]);
 
   /**
@@ -261,13 +253,7 @@ const DataProject: React.FC = () => {
         />
         <div id="data" className=" w-full p-5">
           <DataOverview />
-          <DataChartSection
-            data={[
-              { name: 'comments', timeSeriesData: timeSeriesData.comments },
-              { name: 'clicks', timeSeriesData: timeSeriesData.clicks },
-            ]}
-            dateRange={dateRange}
-          />
+          <DataChartSection data={timeSeriesData} dateRange={dateRange} />
         </div>
       </div>
       <SquareField
