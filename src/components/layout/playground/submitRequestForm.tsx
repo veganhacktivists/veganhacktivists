@@ -126,23 +126,24 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       const requestData: RequestFormData = {
         ...request,
       };
-      const formData: Partial<z.infer<typeof submitRequestSchemaClient>> = {
-        ...requestData,
-        dueDate: request?.dueDate
-          ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-              'yyyy-LL-dd'
-            ) as unknown as Date)
-          : undefined,
-        budget: request?.budget
-          ? {
-              type: request?.budget.type,
-              quantity: request?.budget?.quantity.toNumber(),
-            }
-          : undefined,
-        phone: request?.phone ?? undefined,
-        organization: request?.organization ?? undefined,
-        requiredSkills: skills,
-      };
+      const formData: Partial<z.infer<typeof verifyRequestFormRequestSchema>> =
+        {
+          ...requestData,
+          dueDate: request?.dueDate
+            ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+                'yyyy-LL-dd'
+              )
+            : '',
+          budget: request?.budget
+            ? {
+                type: request?.budget.type,
+                quantity: request?.budget?.quantity.toNumber(),
+              }
+            : undefined,
+          phone: request?.phone ?? undefined,
+          organization: request?.organization ?? undefined,
+          requiredSkills: skills,
+        };
       Object.keys(formData).forEach((keystring) => {
         const key = keystring as keyof typeof formData;
         setValue(key, formData[key]);
