@@ -142,70 +142,74 @@ const AdminPage: NextPage = () => {
                     )}
                   </b>
                 )}
-                <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
-                  <LightButton
-                    className="w-full"
-                    disabled={
-                      isMutationLoading || request.status === Status.Accepted
-                    }
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to accept '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Accepted' });
-                      }
-                    }}
-                  >
-                    Accept
-                  </LightButton>
-                  <DenyButton
-                    className="w-full text-xl text-white"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to reject '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Rejected' });
-                      }
-                    }}
-                  >
-                    Deny
-                  </DenyButton>
-                  <ExternalLinkButton
-                    className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to delete '${request.title}'?`
-                        )
-                      ) {
-                        mutateDelete({ id: request.id });
-                      }
-                    }}
-                  >
-                    🤫 Delete
-                  </ExternalLinkButton>
-                  <GreenButton
-                    className="w-full px-2 text-xl"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to complete '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: Status.Completed });
-                      }
-                    }}
-                  >
-                    🎉 Mark as completed
-                  </GreenButton>
-                </div>
+                {request.status !== Status.Completed ? (
+                  <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
+                    {request.status !== Status.Accepted ? (
+                      <>
+                        <LightButton
+                          className="w-full"
+                          disabled={isMutationLoading}
+                          onClick={() => {
+                            if (
+                              confirm(
+                                `Are you sure you want to accept '${request.title}'?`
+                              )
+                            ) {
+                              mutate({ id: request.id, status: 'Accepted' });
+                            }
+                          }}
+                        >
+                          Accept
+                        </LightButton>
+                        <DenyButton
+                          className="w-full text-xl text-white"
+                          disabled={isMutationLoading}
+                          onClick={() => {
+                            if (
+                              confirm(
+                                `Are you sure you want to reject '${request.title}'?`
+                              )
+                            ) {
+                              mutate({ id: request.id, status: 'Rejected' });
+                            }
+                          }}
+                        >
+                          Deny
+                        </DenyButton>{' '}
+                      </>
+                    ) : null}
+                    <ExternalLinkButton
+                      className="w-full px-2 text-xl text-white"
+                      disabled={isDeletionLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to delete '${request.title}'?`
+                          )
+                        ) {
+                          mutateDelete({ id: request.id });
+                        }
+                      }}
+                    >
+                      🤫 Delete
+                    </ExternalLinkButton>
+                    <GreenButton
+                      className="w-full px-2 text-xl"
+                      disabled={isMutationLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to complete '${request.title}'?`
+                          )
+                        ) {
+                          mutate({ id: request.id, status: Status.Completed });
+                        }
+                      }}
+                    >
+                      🎉 Mark as completed
+                    </GreenButton>
+                  </div>
+                ) : null}
               </PlaygroundRequestCard>
             </div>
           ))}
