@@ -257,7 +257,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       if (params.dueDate) {
         params.dueDate = new Date(params.dueDate);
       } else {
-        params.dueDate = undefined;
+        params.dueDate = null;
       }
       return toast.promise(mutateAsync(params), {
         pending: 'Submitting...',
