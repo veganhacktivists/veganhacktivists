@@ -376,7 +376,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <TextInput
           showRequiredMark
-          className="flex flex-col justify-end md:col-span-3"
+          className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
           {...myRegister('providedEmail')}
           placeholder="name@example.com"
