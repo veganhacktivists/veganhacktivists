@@ -45,7 +45,10 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
       retry: 1,
       onError: () => {
         toast.error('The request could not be found');
-        void router.push('/playground', undefined, { shallow: true });
+        setTimeout(
+          () => void router.push('/playground', undefined, { shallow: true }),
+          5000
+        );
       },
     }
   );
@@ -95,7 +98,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         )}
         {status === 'loading' && (
           <div>
-            <Spinner />^
+            <Spinner />
           </div>
         )}
       </div>
