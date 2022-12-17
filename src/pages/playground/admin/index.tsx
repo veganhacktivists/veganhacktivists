@@ -86,7 +86,7 @@ const AdminPage: NextPage = () => {
             setStatusFilter(status);
           }}
         >
-          {status} requests
+          {status === 'Accepted' ? 'Live' : status} requests
         </OutlineButton>
       );
     },
