@@ -5,6 +5,7 @@ import SelectInput from '../../../forms/inputs/selectInput';
 import DateRangeSelectInput from '../dateRangeSelectInput';
 import CategorySelectInput from '../categorySelectInput';
 import { trpc } from '../../../../lib/client/trpc';
+import { ValueTypes } from '../dataChartSection';
 
 import type { DateRange } from '../dateRangeSelectInput';
 import type { OptionType } from '../../../forms/inputs/selectInput';
@@ -27,6 +28,12 @@ interface DataOptionsSectionProps {
   readonly dateRange: DateRange;
   /** Callback to select a new date range. */
   readonly setDateRange: React.Dispatch<React.SetStateAction<DateRange>>;
+  /** The charts to show. */
+  readonly shownCharts: Record<ValueTypes, boolean>;
+  /** Callback to select the charts to show. */
+  readonly setShownCharts: React.Dispatch<
+    React.SetStateAction<Record<ValueTypes, boolean>>
+  >;
 }
 
 /**
@@ -42,6 +49,8 @@ const DataOptionsSection: React.FC<DataOptionsSectionProps> = ({
   availableCategories,
   dateRange,
   setDateRange,
+  shownCharts,
+  setShownCharts,
 }) => {
   const { data: projects } = trpc.data.getDataDashboardProjects.useQuery(
     undefined,
@@ -88,42 +97,34 @@ const DataOptionsSection: React.FC<DataOptionsSectionProps> = ({
       </div>
       <div className="w-full">
         <p className="mb-2 text-white font-bold text-left block">Show / Hide</p>
-        <div className="checkbox-container mb-3 flex items-center">
-          <input
-            className={
-              'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-            }
-            type="checkbox"
-            name="engagement"
-          />
-          <Label className="text-white mb-0 ml-3" name="engagement">
-            User engagement
-          </Label>
-        </div>
-        <div className="checkbox-container mb-3 flex items-center">
-          <input
-            className={
-              'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-            }
-            type="checkbox"
-            name="replies"
-          />
-          <Label className="text-white mb-0 ml-3" name="replies">
-            Nº of replies
-          </Label>
-        </div>
-        <div className="checkbox-container flex items-center">
-          <input
-            className={
-              'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
-            }
-            type="checkbox"
-            name="retweets"
-          />
-          <Label className="text-white mb-0 ml-3" name="retweets">
-            Nº of retweets
-          </Label>
-        </div>
+        {Object.keys(ValueTypes).map((valueName) => (
+          <div
+            key={`${valueName}-checkbox-div`}
+            className="checkbox-container mb-3 flex items-center"
+          >
+            <input
+              className={
+                'h-6 w-6 block focus:!ring-0 appearance-none checked:bg-green-dark active:bg-green-dark border-white border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-white before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto'
+              }
+              type="checkbox"
+              name={valueName}
+              checked={shownCharts[valueName as ValueTypes]}
+              onChange={(e) => {
+                const newShownCharts = { ...shownCharts };
+                newShownCharts[valueName as ValueTypes] = e.target.checked;
+                setShownCharts(newShownCharts);
+              }}
+            />
+            <Label className="text-white mb-0 ml-3" name={valueName}>
+              {
+                // Uppercase first character of each word
+                valueName.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
+                  letter.toUpperCase()
+                )
+              }
+            </Label>
+          </div>
+        ))}
       </div>
     </div>
   );

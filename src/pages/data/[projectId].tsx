@@ -156,6 +156,22 @@ const DataProject: React.FC = () => {
   const [dateRange, setDateRange] = useState<DateRange>('30d');
   const [category, setCategory] = useState<string>('All');
 
+  /**
+   * Function to initialize the shown charts record.
+   * @return {Record<ValueTypes, boolean>} The shown chart data structure.
+   */
+  const initializeShownCharts = (): Record<ValueTypes, boolean> => {
+    const shownCharts = {} as Record<ValueTypes, boolean>;
+    Object.keys(ValueTypes).forEach((key) => {
+      shownCharts[key as ValueTypes] = true;
+    });
+    return shownCharts;
+  };
+
+  const [shownCharts, setShownCharts] = useState<Record<ValueTypes, boolean>>(
+    initializeShownCharts()
+  );
+
   const { data } = trpc.data.getDataDashboardProject.useQuery(localProjectId, {
     keepPreviousData: true,
     refetchOnMount: false,
@@ -241,7 +257,7 @@ const DataProject: React.FC = () => {
 
   return (
     <div>
-      <div className="flex mx-auto flex-wrap md:flex-nowrap">
+      <div className="flex mx-auto flex-wrap md:flex-nowrap md:min-h-[40rem]">
         <DataOptionsSection
           category={category}
           project={project}
@@ -250,10 +266,16 @@ const DataProject: React.FC = () => {
           dateRange={dateRange}
           setCategory={setCategory}
           setDateRange={setDateRange}
+          setShownCharts={setShownCharts}
+          shownCharts={shownCharts}
         />
         <div id="data" className=" w-full p-5">
           <DataOverview />
-          <DataChartSection data={timeSeriesData} dateRange={dateRange} />
+          <DataChartSection
+            data={timeSeriesData}
+            dateRange={dateRange}
+            shownCharts={shownCharts}
+          />
         </div>
       </div>
       <SquareField

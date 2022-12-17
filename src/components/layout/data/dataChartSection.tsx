@@ -60,6 +60,8 @@ interface DataChartSectionProps {
   readonly data: Record<ValueTypes, TimeSeriesData[]>;
   /** The selected date range. */
   readonly dateRange: DateRange;
+  /** The charts to show. */
+  readonly shownCharts: Record<ValueTypes, boolean>;
 }
 
 /**
@@ -70,47 +72,50 @@ interface DataChartSectionProps {
 const DataChartSection: React.FC<DataChartSectionProps> = ({
   data,
   dateRange,
+  shownCharts,
 }) => {
   return (
     <>
-      {Object.keys(data).map((dataName) => {
-        const timeSeriesData = data[dataName as ValueTypes];
-        const dataColor = getDataColor(dataName);
-        const iconClassname = `text-${dataColor}`;
-        const decorationClassname = `bg-${dataColor} h-full w-10`;
+      {Object.keys(data)
+        .filter((dataName) => shownCharts[dataName as ValueTypes])
+        .map((dataName) => {
+          const timeSeriesData = data[dataName as ValueTypes];
+          const dataColor = getDataColor(dataName);
+          const iconClassname = `text-${dataColor}`;
+          const decorationClassname = `bg-${dataColor} h-full w-10`;
 
-        // Uppercase first character of each word
-        const dataPrettyName = dataName.replace(
-          /(^\w{1})|(\s+\w{1})/g,
-          (letter) => letter.toUpperCase()
-        );
-        return (
-          <div key={`${dataName}-div`} className=" w-full mb-8">
-            <div className="data-heading flex items-center mb-3">
-              <FontAwesomeIcon
-                icon={getDataIcon(dataName)}
-                className={iconClassname}
-                fixedWidth
-              />
-              <h1 className="text-left ml-3">
-                {`Number of ${dataPrettyName}`}
-              </h1>
-            </div>
-            <div>
-              <div className="flex bg-gray-dark h-3">
-                <div className={decorationClassname} />
-              </div>
-              <div className="h-[28rem] bg-white">
-                <TimeSeriesLineChart
-                  data={timeSeriesData}
-                  yLabel={`Number of ${dataPrettyName}`}
-                  dateRange={dateRange}
+          // Uppercase first character of each word
+          const dataPrettyName = dataName.replace(
+            /(^\w{1})|(\s+\w{1})/g,
+            (letter) => letter.toUpperCase()
+          );
+          return (
+            <div key={`${dataName}-div`} className=" w-full mb-8">
+              <div className="data-heading flex items-center mb-3">
+                <FontAwesomeIcon
+                  icon={getDataIcon(dataName)}
+                  className={iconClassname}
+                  fixedWidth
                 />
+                <h1 className="text-left ml-3">
+                  {`Number of ${dataPrettyName}`}
+                </h1>
+              </div>
+              <div>
+                <div className="flex bg-gray-dark h-3">
+                  <div className={decorationClassname} />
+                </div>
+                <div className="h-[28rem] bg-white">
+                  <TimeSeriesLineChart
+                    data={timeSeriesData}
+                    yLabel={`Number of ${dataPrettyName}`}
+                    dateRange={dateRange}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </>
   );
 };
