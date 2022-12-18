@@ -20,6 +20,7 @@ import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
   request: trpc['playground']['getAllRequests']['output'][number];
+  disabled?: boolean;
 }
 
 const Li: React.FC<
@@ -64,6 +65,7 @@ const PlaygroundRequestCard: React.FC<
     budget,
     dueDate,
   },
+  disabled = false,
   children,
 }) => {
   const [timeSinceCreated] = useMemo(
@@ -173,6 +175,7 @@ const PlaygroundRequestCard: React.FC<
             className={`text-center text-md flex-grow ${
               canEdit ? 'w-1/2' : ''
             }`}
+            disabled={disabled}
           >
             Read more / apply
           </DarkButton>
@@ -183,6 +186,7 @@ const PlaygroundRequestCard: React.FC<
                 query: { id },
               }}
               className="flex-grow w-1/2 text-md text-center"
+              disabled={disabled}
             >
               Edit request
             </GreyButton>

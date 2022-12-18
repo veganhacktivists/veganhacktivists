@@ -11,6 +11,7 @@ import {
   LightButton,
   LogoutButton,
   OutlineButton,
+  BlueButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
@@ -132,7 +133,10 @@ const AdminPage: NextPage = () => {
         >
           {data.map((request) => (
             <div key={request.id}>
-              <PlaygroundRequestCard request={request}>
+              <PlaygroundRequestCard
+                request={request}
+                disabled={isMutationLoading || isDeletionLoading}
+              >
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
                   <b>
@@ -179,21 +183,12 @@ const AdminPage: NextPage = () => {
                   >
                     Deny
                   </DenyButton>
-                  <ExternalLinkButton
-                    className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to delete '${request.title}'?`
-                        )
-                      ) {
-                        mutateDelete({ id: request.id });
-                      }
-                    }}
+                  <BlueButton
+                    className="w-full px-2 text-xl"
+                    disabled={isMutationLoading}
                   >
-                    🤫 Delete
-                  </ExternalLinkButton>
+                    🔁 Repost request
+                  </BlueButton>
                   <GreenButton
                     className="w-full px-2 text-xl"
                     disabled={isMutationLoading}
@@ -209,6 +204,21 @@ const AdminPage: NextPage = () => {
                   >
                     🎉 Mark as completed
                   </GreenButton>
+                  <ExternalLinkButton
+                    className="w-full px-2 text-xl text-white"
+                    disabled={isDeletionLoading || isMutationLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to delete '${request.title}'?`
+                        )
+                      ) {
+                        mutateDelete({ id: request.id });
+                      }
+                    }}
+                  >
+                    🤫 Delete
+                  </ExternalLinkButton>
                 </div>
               </PlaygroundRequestCard>
             </div>
