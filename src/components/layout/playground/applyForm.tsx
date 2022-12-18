@@ -148,17 +148,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
-          {hasNoDue ? (
-            <Field title={'Due Date'}>None</Field>
-          ) : (
-            <Field
-              title={`${
-                dueDateFormatted ? (isDue ? 'Was due' : 'Due') : 'Due'
-              }`}
-            >
-              {timeUntilDue ? dueDateFormatted : 'Today'}
-            </Field>
-          )}
+          <Field
+            title={`${
+              hasNoDue ? 'Due Date' : dueDateFormatted ? (isDue ? 'Was due' : 'Due') : 'Due'
+            }`}
+          >
+            {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
+          </Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
