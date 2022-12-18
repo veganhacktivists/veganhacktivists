@@ -177,7 +177,7 @@ const PlaygroundRequestCard: React.FC<
               canEdit ? 'w-1/2' : ''
             }`}
           >
-                        {`Read more${
+            {`Read more${
               session?.user?.role !== 'Admin' &&
               requester?.id !== session?.user?.id
                 ? ' / apply'
