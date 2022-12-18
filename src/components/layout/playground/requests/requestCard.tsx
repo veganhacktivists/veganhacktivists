@@ -131,20 +131,14 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
-          {hasNoDue ? (
-            <Li title={'Due Date'} name={'Due Date'} category={category}>
-              None
-            </Li>
-          ) : (
             <Li
-              title={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
-              name={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
+              title={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
+              name={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
               category={category}
             >
-              {timeUntilDue}
-              {timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}
+              {hasNoDue ? 'None' : timeUntilDue}
+              {!hasNoDue ? (timeUntilDue ? (isDue ? ' ago' : '') : 'Today') : ''}
             </Li>
-          )}
           <Li
             name="Organization"
             title={organization || undefined}
