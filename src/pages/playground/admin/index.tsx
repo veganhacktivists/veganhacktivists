@@ -64,12 +64,16 @@ const AdminPage: NextPage = () => {
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.playground.admin.setRequestStatus.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
     trpc.playground.admin.deleteRequest.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
