@@ -73,10 +73,9 @@ const PlaygroundRequestCard: React.FC<
     [createdAt]
   );
 
-  const [timeUntilDue, isDue] = useMemo(
-    () => readableTimeDiff(dueDate),
-    [dueDate]
-  );
+  const [timeUntilDue, isDue, hasNoDue] = useMemo(() => {
+    return dueDate ? [...readableTimeDiff(dueDate), false] : [null, null, true];
+  }, [dueDate]);
 
   const categoryColor = useMemo(() => CATEGORY_COLORS[category], [category]);
 
@@ -135,17 +134,14 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
-          <Li
-            title={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'} ${
-              timeUntilDue || ''
-            }
-            ${timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}`}
-            name={`${timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
-            category={category}
-          >
-            {timeUntilDue}
-            {timeUntilDue ? (isDue ? ' ago' : '') : 'Today'}
-          </Li>
+            <Li
+              title={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
+              name={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
+              category={category}
+            >
+              {hasNoDue ? 'None' : timeUntilDue}
+              {!hasNoDue ? (timeUntilDue ? (isDue ? ' ago' : '') : 'Today') : ''}
+            </Li>
           <Li
             name="Organization"
             title={organization || undefined}
