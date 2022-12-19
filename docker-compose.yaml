@@ -1,33 +1,6 @@
 # this is a development compose, so don't ever use this to make deployments!
 version: "3.8"
 services:
-  veganhacktivists:
-    depends_on:
-      - db
-    build:
-      network: host
-      context: .
-      dockerfile: docker/Dockerfile.dev
-      args:
-        CF_DELIVERY_ACCESS_TOKEN: ${CF_DELIVERY_ACCESS_TOKEN}
-        CF_ENVIRONMENT: ${CF_ENVIRONMENT}
-        CF_PREVIEW_ACCESS_TOKEN: ${CF_PREVIEW_ACCESS_TOKEN}
-        CF_SPACE_ID: ${CF_SPACE_ID}
-        DATABASE_URL: ${DATABASE_URL}
-        EMAIL_SERVER_URL: ${EMAIL_SERVER_URL}
-        GOOGLE_TAG_MANAGER_CONTAINER_ID: ${GOOGLE_TAG_MANAGER_CONTAINER_ID}
-        MAILCHIMP_AUDIENCE_ID: ${MAILCHIMP_AUDIENCE_ID}
-        NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-        PATREON_ACCESS_TOKEN: ${PATREON_ACCESS_TOKEN}
-        PATREON_CAMPAIGN_ID: ${PATREON_CAMPAIGN_ID}
-    env_file:
-      - .env
-    ports:
-      - 3000:3000
-    volumes:
-      - ./:/app
-      - /app/node_modules
-      - /app/.next
   db:
     image: postgres:14
     restart: always
@@ -36,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
   smtp:

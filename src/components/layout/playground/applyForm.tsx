@@ -377,6 +377,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Interested in applying to help with this project?
         </div>
         <TextInput
+          showRequiredMark
           className="col-span-full"
           error={errors.name?.message}
           {...myRegister('name')}
@@ -386,7 +387,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <TextInput
           showRequiredMark
-          className="flex flex-col justify-end md:col-span-3"
+          className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
           {...myRegister('providedEmail')}
           placeholder="name@example.com"
