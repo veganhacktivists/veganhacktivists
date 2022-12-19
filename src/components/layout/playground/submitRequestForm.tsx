@@ -53,6 +53,13 @@ const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
   { label: BudgetType.Monthly, value: BudgetType.Monthly },
 ];
 
+// use prisma to fix any type
+const NUM_VOLUNTEERS_OPTIONS: OptionType<any>[] = [
+  { label: BudgetType.Fixed, value: BudgetType.Fixed },
+  { label: BudgetType.Hourly, value: BudgetType.Hourly },
+  { label: BudgetType.Monthly, value: BudgetType.Monthly },
+];
+
 type FormInput = z.input<typeof submitRequestSchemaClient>;
 type FormOutput = z.infer<typeof submitRequestSchemaClient>;
 
@@ -450,6 +457,72 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             options={IS_FREE_OPTIONS}
           />
         </div>
+
+        {isFree && (
+          <Controller
+            name="numVolunteers"
+            control={control}
+            render={({ field: { value, onChange } }) => {
+              return (
+                <>
+                  <div className="lg:col-span-2 col-span-full">
+                    <Label name="Multiple?" showRequiredMark />
+                    <SelectInput
+                      current={
+                        NUM_VOLUNTEERS_OPTIONS?.find(
+                          (o) => o.value === value?.type
+                        ) || null
+                      }
+                      error={(errors.budget?.type as FieldError)?.message}
+                      options={NUM_VOLUNTEERS_OPTIONS}
+                      onChange={(option) => {
+                        onChange(
+                          option?.value
+                            ? { ...value, type: option.value }
+                            : null
+                        );
+                        setFormData((state) => ({
+                          budget: { ...state.budget, type: option?.value },
+                        }));
+                      }}
+                    />
+                  </div>
+                  {!!value?.type && (
+                    <div key="budget.quantity" className="lg:col-span-2">
+                      <TextInput
+                        className="col-span-2"
+                        placeholder="Budget"
+                        type="number"
+                        inputMode="numeric"
+                        step={50}
+                        min={0}
+                        showRequiredMark
+                        value={value?.quantity}
+                        onChange={(e) => {
+                          const quantity = e.currentTarget.valueAsNumber;
+                          onChange({
+                            ...value,
+                            quantity,
+                          });
+                          setFormData({
+                            budget: {
+                              ...value,
+                              quantity,
+                            },
+                          });
+                        }}
+                        error={errors.budget?.message}
+                      >
+                        Enter budget in USD$
+                      </TextInput>
+                    </div>
+                  )}
+                </>
+              );
+            }}
+          />
+        )}
+
         {!isFree && (
           <Controller
             name="budget"

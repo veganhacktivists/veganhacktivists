@@ -98,6 +98,12 @@ model Budget {
   request PlaygroundRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
 }
 
+enum BudgetType {
+  Fixed
+  Hourly
+  Monthly
+}
+
 model PlaygroundApplication {
   id                   String      @id @default(cuid()) @db.VarChar(30)
   providedEmail        String
