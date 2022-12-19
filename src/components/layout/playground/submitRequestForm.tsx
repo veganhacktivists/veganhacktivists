@@ -26,14 +26,15 @@ import {
 import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
-import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
+import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 
+import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import type { z } from 'zod';
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError } from 'react-hook-form';
 import type { RefCallback } from 'react';
-import type { z } from 'zod';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   value: cat as PlaygroundRequestCategory,
@@ -88,7 +89,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     watch,
   } = useForm<FormInput>({
     defaultValues: storedForm.id ? undefined : storedForm,
-    resolver: zodResolver(submitRequestSchemaClient),
+    resolver: zodResolver(verifyRequestFormRequestSchema),
   });
 
   const [isFree, setIsFree] = useState(false);
@@ -125,23 +126,24 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       const requestData: RequestFormData = {
         ...request,
       };
-      const formData: Partial<z.infer<typeof submitRequestSchemaClient>> = {
-        ...requestData,
-        dueDate: request?.dueDate
-          ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-              'yyyy-LL-dd'
-            ) as unknown as Date)
-          : undefined,
-        budget: request?.budget
-          ? {
-              type: request?.budget.type,
-              quantity: request?.budget?.quantity.toNumber(),
-            }
-          : undefined,
-        phone: request?.phone ?? undefined,
-        organization: request?.organization ?? undefined,
-        requiredSkills: skills,
-      };
+      const formData: Partial<z.infer<typeof verifyRequestFormRequestSchema>> =
+        {
+          ...requestData,
+          dueDate: request?.dueDate
+            ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+                'yyyy-LL-dd'
+              )
+            : '',
+          budget: request?.budget
+            ? {
+                type: request?.budget.type,
+                quantity: request?.budget?.quantity.toNumber(),
+              }
+            : undefined,
+          phone: request?.phone ?? undefined,
+          organization: request?.organization ?? undefined,
+          requiredSkills: skills,
+        };
       Object.keys(formData).forEach((keystring) => {
         const key = keystring as keyof typeof formData;
         setValue(key, formData[key]);
@@ -251,6 +253,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           id: requestId,
           ...params,
         };
+      }
+      if (params.dueDate) {
+        params.dueDate = new Date(params.dueDate);
+      } else {
+        params.dueDate = null;
       }
       return toast.promise(mutateAsync(params), {
         pending: 'Submitting...',
@@ -531,11 +538,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
-          showRequiredMark
-          {...myRegister('dueDate', {
-            valueAsDate: true,
-          })}
           error={errors.dueDate?.message}
+          {...myRegister('dueDate', { required: false })}
         >
           Due date for task
         </TextInput>
