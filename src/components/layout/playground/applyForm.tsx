@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek } from '@prisma/client';
+import { TimePerWeek, UserRole } from '@prisma/client';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -31,6 +31,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
+import type { User } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -56,14 +57,20 @@ interface RequestProps {
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
+  const { data: session } = useSession();
   const timeSinceCreated = useMemo(() => {
     if (!request) return null;
     return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
-  const dueDateFormatted = useMemo(() => {
-    return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
-  }, [request]);
+  const [dueDateFormatted, timeUntilDue, isDue, hasNoDue] = useMemo(() => {
+    return request.dueDate
+      ? [
+          DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy'),
+          ...readableTimeDiff(request.dueDate),
+        ]
+      : [null, null, null, true];
+  }, [request.dueDate]);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [description, setDescription] = useState('');
@@ -141,7 +148,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
-          <Field title="Due date">{dueDateFormatted}</Field>
+          <Field
+            title={`${
+              hasNoDue ? 'Due Date' : dueDateFormatted ? (isDue ? 'Was due' : 'Due') : 'Due'
+            }`}
+          >
+            {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
+          </Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
@@ -154,6 +167,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
+          {session?.user?.role === UserRole.Admin && (
+            <>
+              <Field title="Provided email">{request.providedEmail}</Field>
+              <Field title="Registered email">
+                {(request.requester as User).email ?? ''}
+              </Field>
+            </>
+          )}
         </SubtleBorder>
       </div>
       <div className="font-serif italic text-left text-grey-light">
@@ -356,6 +377,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Interested in applying to help with this project?
         </div>
         <TextInput
+          showRequiredMark
           className="col-span-full"
           error={errors.name?.message}
           {...myRegister('name')}
@@ -365,7 +387,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <TextInput
           showRequiredMark
-          className="flex flex-col justify-end md:col-span-3"
+          className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
           {...myRegister('providedEmail')}
           placeholder="name@example.com"

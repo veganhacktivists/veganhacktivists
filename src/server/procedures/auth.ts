@@ -1,4 +1,5 @@
 import { TRPCError } from '@trpc/server';
+import { UserRole } from '@prisma/client';
 
 import { baseProcedure } from '.';
 
@@ -20,7 +21,7 @@ export const protectedProcedure = baseProcedure.use(
 
 export const adminProcedure = protectedProcedure.use(
   t.middleware(async ({ ctx, next }) => {
-    if (ctx.user?.role !== 'Admin') {
+    if (ctx.user?.role !== UserRole.Admin) {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 

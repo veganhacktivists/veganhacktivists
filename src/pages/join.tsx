@@ -137,7 +137,7 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Craft our voice and brand though social media, whether it&apos;s through
+        Craft our voice and brand on social media, whether it&apos;s through
         developing content strategy, analyzing engagement data, or interacting
         with followers.
       </>
@@ -148,13 +148,11 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'red',
     squareColor: '#c61f45',
     title: 'Writers',
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    href: 'https://forms.gle/RAhPpLyxpYcTNPpQ7',
     description: (
       <>
         Produce original and well-written content for a variety of medium—our
         blog, newsletter, social media, software copy, and more.
-        <br />
-        <br />
       </>
     ),
   },
@@ -227,7 +225,7 @@ const Join: React.FC = () => (
     </div>
     <JoinPlayground />
     <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-    <div className="h-[500px] py-20 px-5 relative">
+    <div className="lg:h-[500px] py-16 lg:py-20 px-5 relative pb-[300px]">
       <h2 className="text-4xl font-modo font-bold mb-10">
         High Priority Positions
       </h2>

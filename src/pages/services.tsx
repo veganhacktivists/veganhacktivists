@@ -46,61 +46,61 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Websites',
     content:
-      "If you're a small vegan activist, organization, or business with little to no funding, you're the ones we want to help succeed the most! In many cases we support folks that either can't pay for website design, development or have little knowledge or time to build it themselves.",
+      "If you're an independent activist or organization with little to no funding, you're the ones we want to help! We support advocates who have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves.",
     icon: webIcon,
     iconBgColor: 'magenta',
     iconAccentColor: 'red',
     button: {
-      text: 'Apply for a free website!',
+      text: 'Apply for a free website',
       href: 'https://veganhacktivists.org/playground',
     },
   },
   {
     title: 'Design',
     content:
-      'We have a dedicated design team that can help you with your branding, logo, social media banners, icons, funding documents, website design, and more! Note that requests are free but accepted on a case-by-case basis, we encourage you to submit your request to us below!',
+      "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence.",
     icon: designIcon,
     iconBgColor: 'yellow-dark',
     iconAccentColor: 'yellow-orange',
     button: {
-      text: 'Request a free design!',
-      href: 'https://forms.gle/guiL6sLCJCDdy7Yy5',
+      text: 'Apply for free design support',
+      href: 'https://veganhacktivists.org/playground',
     },
   },
   {
     title: 'Projects',
     content:
-      "Do you have an idea that would help bring us closer to a vegan world? App? Book? Movie? Song? Activism? Event? Content? Let us know, we'll help get you the resources you need to get your idea off the ground, or if we really love the idea, we'll help build it for you, free!",
+      "Do you have an idea that would help bring us closer to a vegan world? Whether it's an app, event, or media that you are interested in producing, we'll help get the resources you need to get your idea off the ground. If the concept is aligned with our work, we'd be happy to explore partnerships.",
     icon: projectIcon,
     iconBgColor: 'green',
     iconAccentColor: 'green-dark',
     button: {
-      text: "Let's chat about your idea!",
+      text: "Let's chat about your idea",
       href: '#contact-us',
     },
   },
   {
     title: 'Funding',
     content:
-      "We're very happy to be able to offer up to $1000 USD in seed funding grants for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.",
+      'We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.',
     icon: fundingIcon,
 
     iconBgColor: 'yellow',
     iconAccentColor: 'yellow-dark',
     button: {
-      text: 'Learn about our grant program!',
+      text: 'Learn about our grant program',
       href: '/grants',
     },
   },
   {
     title: 'Advice',
     content:
-      "We have several advisors with a wide range of experience that can help! We'll happily advise any vegan activist or organization - whether that be for your technology, organizational structure, strategy, marketing, grant requests, and more! Feel free to get in touch with questions! ",
+      'Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising.',
     icon: adviceIcon,
     iconBgColor: 'orange',
     iconAccentColor: 'orange-dark',
     button: {
-      text: 'Ask for advice, contact us!',
+      text: 'Contact us for advice',
       href: '#contact-us',
     },
   },
@@ -156,12 +156,10 @@ const Services: React.FC = () => (
         className="hidden md:block"
       />
       <FirstSubSection header="Our services">
-        Aside from building our own projects, we also serve the greater
-        community! If you’re an animal rights activist, organization, or just a
-        vegan who needs help - let us know! Please keep in mind that while all
-        of our services are free this unfortunately means we have to be
-        selective with who we can help with our limited resources. Ask us either
-        way!
+        As capacity builders, we offer our skills and services to the animal
+        protection movement. From development and design to content creation,
+        volunteers, and operational advice, we&apos;re here to help elevate your
+        work for the animals.
       </FirstSubSection>
       <div className="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20">
         {SERVICE_BLOCKS.map((service, index) => (
@@ -182,10 +180,10 @@ const Services: React.FC = () => (
         />
 
         <div className="px-3 text-center text-grey-darker md:w-2/3">
-          We do on ocassion offer paid services for activists and/or
-          organizations that need dedicated or priority speed support. If you
-          fit that criteria, please contact us below. Our pricing is based on
-          your budget and is discounted for non-profits.
+          Given our capacity and your organizational needs, we may consider
+          taking on paid projects that need dedicated or priority support. If
+          this is your situation, please contact us below and we will explore
+          how best to scope the work to fit within your budget.
         </div>
       </div>
     </div>
@@ -201,9 +199,9 @@ const Services: React.FC = () => (
     />
     <div className="px-10 pt-10 bg-grey-background md:px-0">
       <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
-        If you&apos;d like to talk about any of these services, please use our
-        contact form to get in touch! We do our best to respond to every email
-        within 48 hours.
+        If you&apos;d like to discuss any of our service offerings, please use
+        our our contact form to get in touch. We do our best to promptly respond
+        to every inquiry.
       </div>
       <ContactUsForm />
     </div>

@@ -1,28 +1,31 @@
 import { TRPCError } from '@trpc/server';
-import { Status } from '@prisma/client';
+import { Status, UserRole } from '@prisma/client';
+
+import { OUR_EMAIL_TO, PLAYGROUND_TO_CC } from '../../mail/router';
+import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
+import {
+  playgroundRequestApplicationEmail,
+  playgroundReviewRequestEmail,
+} from '../../../components/layout/mail/emailTemplates';
 
 import prisma from 'lib/db/prisma';
-import emailClient, { OUR_EMAIL, PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail';
+import emailClient from 'lib/mail';
 
-import type { applyToRequestSchema, submitRequestSchema } from './schemas';
-import type { Session } from 'next-auth';
 import type {
+  applyToRequestSchema,
   getPlaygroundRequestsSchema,
   getRequestByIdSchema,
+  submitRequestSchema,
 } from './schemas';
+import type { Session } from 'next-auth';
 import type { z } from 'zod';
 
 export const getPlaygroundRequests = async ({
-  sort,
+  sort: orderBy,
   categories,
   isPaidRequest,
   ...params
 }: z.infer<typeof getPlaygroundRequestsSchema>) => {
-  const orderBy = sort
-    ? Object.entries(sort).map(([key, value]) => ({
-        [key]: value,
-      }))
-    : undefined;
   const requests = await prisma.playgroundRequest.findMany({
     include: {
       requester: {
@@ -58,15 +61,49 @@ export const getPlaygroundRequests = async ({
 
 export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
-  user?: Session['user']
+  user?: Session['user'],
+  extended = false
 ) => {
+  let ownRequest = false;
+  if (extended) {
+    const authorizedRequest = await prisma.playgroundRequest.findFirst({
+      where: {
+        id,
+        requesterId: user?.id,
+      },
+    });
+    ownRequest = !!authorizedRequest;
+  }
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
-      status: user?.role === 'Admin' ? undefined : Status.Accepted,
+      status: user?.role === UserRole.Admin ? undefined : Status.Accepted,
     },
-    include: {
-      requester: true,
+    select: {
+      category: true,
+      createdAt: true,
+      dueDate: true,
+      description: true,
+      id: true,
+      estimatedTimeDays: true,
+      name: true,
+      organization: true,
+      requiredSkills: true,
+      title: true,
+      status: true,
+      updatedAt: true,
+      website: true,
+      providedEmail: user?.role === UserRole.Admin || ownRequest,
+      calendlyUrl: user?.role === UserRole.Admin || ownRequest,
+      phone: user?.role === UserRole.Admin || ownRequest,
+      requester:
+        user?.role === UserRole.Admin || ownRequest
+          ? true
+          : {
+              select: {
+                id: true,
+              },
+            },
       budget: true,
       _count: {
         select: {
@@ -111,16 +148,77 @@ export const applyToHelp = async (
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
-      to: OUR_EMAIL,
+      to: OUR_EMAIL_TO,
+      cc: PLAYGROUND_TO_CC,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Application',
-      html: `A new applicant has applied to help in Playground!
-      <br/><br/>
-      Please <a href="https://veganhacktivists.org/playground/admin/applications">click here</a> to review the applicant's request to help in Playground.`,
+      text: playgroundRequestApplicationEmail(true),
+      html: playgroundRequestApplicationEmail(),
     });
   }
 
   return newRequest;
+};
+
+export const updateRequest = async ({
+  id,
+  budget,
+  requesterId,
+  role,
+  ...params
+}: z.infer<typeof submitRequestSchema> & {
+  requesterId: string;
+  role: string;
+}) => {
+  const oldRequest = await prisma.playgroundRequest.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      budget: true,
+    },
+  });
+  if (
+    !oldRequest ||
+    (oldRequest?.requesterId !== requesterId && role !== UserRole.Admin)
+  ) {
+    return null;
+  }
+  let operation;
+  if (oldRequest && budget) {
+    if (oldRequest.budget) {
+      operation = {
+        update: {
+          ...budget,
+        },
+      };
+    } else {
+      operation = {
+        create: {
+          ...budget,
+        },
+      };
+    }
+  } else {
+    operation = {
+      delete: !!oldRequest?.budget,
+    };
+  }
+
+  return await prisma.playgroundRequest.update({
+    where: {
+      id: id,
+    },
+    data: {
+      ...params,
+      budget: {
+        ...operation,
+      },
+    },
+    include: {
+      budget: true,
+    },
+  });
 };
 
 export const submitRequest = async ({
@@ -149,12 +247,12 @@ export const submitRequest = async ({
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
-      to: OUR_EMAIL,
+      to: OUR_EMAIL_TO,
+      cc: PLAYGROUND_TO_CC,
       from: PLAYGROUND_EMAIL_FORMATTED,
       subject: 'New Playground Request',
-      html: `A new Request has been submitted to Playground for review!
-    <br/><br/>
-    Please <a href="https://veganhacktivists.org/playground/admin">click here</a> to review the request submitted to Playground.`,
+      text: playgroundReviewRequestEmail(true),
+      html: playgroundReviewRequestEmail(),
     });
   }
 

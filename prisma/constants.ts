@@ -14,7 +14,6 @@ export const CATEGORY_COLORS: Record<
   Researcher: getThemeColor('orange'),
   Security: getThemeColor('purple'),
   Social: getThemeColor('yellow-orange'),
-  Translator: getThemeColor('yellow'),
   Writer: getThemeColor('grey'),
   Other: getThemeColor('grey-light'),
 };
@@ -25,7 +24,6 @@ export const CATEGORY_LABELS: Record<PlaygroundRequestCategory, string> = {
   Writer: 'Writer',
   Editor: 'Editor',
   Researcher: 'Researcher',
-  Translator: 'Translator',
   Marketer: 'Marketer',
   Social: 'Social',
   DataScientist: 'Data Scientist',
@@ -39,7 +37,6 @@ export const CATEGORY_DESCRIPTION: Record<PlaygroundRequestCategory, string> = {
   Writer: 'posts, interviews, guides, documentation, etc',
   Editor: 'videos, producing, editing, animator, sound, etc',
   Researcher: 'conducting studies, writing reports, etc',
-  Translator: 'translating content, videos, websites, etc',
   Marketer: 'promotions, advertising, campaigns, seo, etc',
   Social: 'managing social accounts on insta, twit, etc',
   DataScientist: 'analyzing data, finding patterns, graphs, etc',

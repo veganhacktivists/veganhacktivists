@@ -12,6 +12,10 @@ export const paginationSchema = z.object({
 });
 
 export const getRequestByIdSchema = z.string().cuid();
+export const getRequestByIdExtendedSchema = z.object({
+  id: getRequestByIdSchema.optional(),
+  extended: z.boolean().optional().default(false),
+});
 
 const requestFilterSchema = z.object({
   categories: z
@@ -84,6 +88,7 @@ const budgetSchema = z.object({
 });
 
 export const submitRequestSchema = z.object({
+  id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().optional(),
@@ -108,9 +113,7 @@ export const submitRequestSchema = z.object({
   ),
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
-  dueDate: z
-    .date()
-    .min(new Date(), { message: 'Due date must be in the future' }),
+  dueDate: z.date().optional().nullable(),
   estimatedTimeDays: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
@@ -133,6 +136,14 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
   })
 );
+
+export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
+  dueDate: z
+    .string()
+    .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+      message: 'Due date must be in the future',
+    }),
+});
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 

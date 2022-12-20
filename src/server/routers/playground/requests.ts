@@ -4,9 +4,11 @@ import {
   getPlaygroundRequests,
   getRequestById,
   submitRequest,
+  updateRequest,
 } from 'lib/services/playground';
 import {
   getPlaygroundRequestsSchema,
+  getRequestByIdExtendedSchema,
   getRequestByIdSchema,
   submitRequestSchema,
 } from 'lib/services/playground/schemas';
@@ -21,10 +23,17 @@ const requestsRouter = t.router({
       return await getPlaygroundRequests(input);
     }),
   getRequest: baseProcedure
-    .input(getRequestByIdSchema)
+    .input(getRequestByIdSchema.or(getRequestByIdExtendedSchema).optional())
     .query(({ input, ctx: { user } }) => {
+      const id = typeof input === 'object' ? input.id : input;
+      const extended = typeof input === 'object' ? input.extended : false;
+      if (!id) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+        });
+      }
       try {
-        return getRequestById(input, user);
+        return getRequestById(id, user, extended);
       } catch {
         throw new TRPCError({
           code: 'NOT_FOUND',
@@ -36,6 +45,13 @@ const requestsRouter = t.router({
   submitRequest: protectedProcedure
     .input(submitRequestSchema)
     .mutation(({ input, ctx }) => {
+      if (input.id) {
+        return updateRequest({
+          ...input,
+          requesterId: ctx.user.id,
+          role: ctx.user.role,
+        });
+      }
       return submitRequest({
         ...input,
         requesterId: ctx.user.id,

@@ -59,7 +59,7 @@ const AdminPage: NextPage = ({}) => {
                 href={{ pathname: '/playground/admin', query: { status } }}
                 key={status}
               >
-                {status} requests
+                {status === 'Accepted' ? 'Live' : status} requests
               </OutlineButton>
             ))}
           <OutlineButton

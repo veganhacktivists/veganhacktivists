@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 import classNames from 'classnames';
+import { UserRole } from '@prisma/client';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
@@ -68,8 +69,10 @@ const PlaygroundLayout: Layout = ({ children }) => {
               : 'Volunteer for the Animals',
             image: isSupportPage ? submitTagline : volunteerTagline,
             imageWidth: 380,
+            biggerOnMobile: true,
           }}
           alignment="left"
+          imageAlignment="right"
           classNameMapping={{
             container: 'bg-center',
           }}
@@ -143,7 +146,7 @@ const PlaygroundStat: React.FC<{
   return (
     <div className="flex flex-col justify-center gap-5 mx-auto lg:flex-row place-items-center w-fit">
       <CustomImage src={icon} alt="" />
-      <div className="w-1/2 font-mono text-center lg:text-left text-grey">
+      <div className="w-3/4 lg:w-1/2 font-mono text-center lg:text-left text-grey">
         <div className="text-3xl font-bold leading-none">
           {value ?? <Spinner />}
         </div>
@@ -162,9 +165,9 @@ const PlaygroundStats: React.FC = () => {
   });
   return (
     <div>
-      <div className="grid justify-center mx-auto mt-16 mb-16 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 w-fit">
+      <div className="grid justify-center mx-auto mt-8 md:mt-24 mb-8 md:mb-16 grid-cols-2 md:grid-cols-4 gap-y-5 w-fit">
         <PlaygroundStat
-          label="Requests opened"
+          label="Open requests"
           icon={resumeIcon}
           value={data?.requestsOpen}
         />
@@ -217,11 +220,15 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
             >
               Submit a request
             </OutlineButton>
-            {status === 'authenticated' && session.user?.role === 'Admin' && (
-              <DarkButton className="w-full uppercase" href="/playground/admin">
-                Admin
-              </DarkButton>
-            )}
+            {status === 'authenticated' &&
+              session.user?.role === UserRole.Admin && (
+                <DarkButton
+                  className="w-full uppercase"
+                  href="/playground/admin"
+                >
+                  Admin
+                </DarkButton>
+              )}
           </div>
         </div>
 

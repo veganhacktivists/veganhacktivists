@@ -52,27 +52,22 @@ const GrantsQualifications: React.FC = () => {
           deprivation, fear, and pain every year.
         </GrantsQualificationsStep>
         <GrantsQualificationsStep step="2">
-          <b> You must have </b> some prior animal rights or other types of
-          activism experience. We&apos;re looking for people who&apos;ve run or
-          contributed to projects, or with volunteer history.
+          <b> You must have </b> prior activism experience, whether in animal
+          rights or other social movements. We&apos;re looking for people who
+          have worked on and contributed to grassroots campaigns and/or
+          projects, in a paid or volunteer capacity.
         </GrantsQualificationsStep>
-        <p className="mt-12 text-2xl font-thin mb-10">
+        <p className="mt-12 text-2xl font-thin">
           <i>
-            <b>Don&apos;t meet the two qualifications above?</b> That&apos;s
-            okay! You may still be eligible for funding. Please apply directly
-            with the Pollination Project.
+            <b>Don&apos;t meet the qualifications above?</b> You may still be
+            eligible for funding! Apply and we&apos;ll forward your application
+            to other potential funders.
           </i>
         </p>
-        <div className="flex justify-center">
-          <LightButton
-            href="https://thepollinationproject.org/pre-screen-quiz/"
-            className="font-semibold content-center m-5 font-mono md:w-96"
-          >
-            Apply&nbsp;directly&nbsp;instead
-          </LightButton>
-        </div>
-        <p className="mt-10 text-2xl">
-          <b>Otherwise, please continue below to fill out the form with us!</b>
+        <p className="mt-10 mb-4 text-2xl">
+          <b>
+            If you meet the qualifications, fill out the application form below.
+          </b>
         </p>
       </div>
     </div>

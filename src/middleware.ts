@@ -1,8 +1,9 @@
+import { UserRole } from '@prisma/client';
 import { withAuth } from 'next-auth/middleware';
 
 const middleware = withAuth({
   callbacks: {
-    authorized: ({ token }) => token?.role === 'Admin',
+    authorized: ({ token }) => token?.role === UserRole.Admin,
   },
 });
 

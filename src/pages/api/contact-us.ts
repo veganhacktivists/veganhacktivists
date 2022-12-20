@@ -1,7 +1,10 @@
 import HttpCodes from 'http-status-codes';
 
-import emailClient, { createFormattedMessage, OUR_EMAIL } from '../../lib/mail';
+import emailClient, { createFormattedMessage } from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
+import { contactUsEmail } from '../../components/layout/mail/emailTemplates';
+
+import { determineEmailRecipients, OUR_EMAIL_TO } from 'lib/mail/router';
 
 import type { NextApiHandler } from 'next';
 
@@ -25,15 +28,27 @@ const handler: NextApiHandler = async (req, res) => {
 
   try {
     await emailClient.sendMail({
-      to: OUR_EMAIL,
+      to: OUR_EMAIL_TO,
+      cc: determineEmailRecipients(message).join(','),
       from: email,
       subject: `Contact about ${service} from ${name}`,
-      html: createFormattedMessage({
-        name,
-        email,
-        service,
-        message,
-      }),
+      text: contactUsEmail(
+        createFormattedMessage({
+          name,
+          email,
+          service,
+          message,
+        }),
+        true
+      ),
+      html: contactUsEmail(
+        createFormattedMessage({
+          name,
+          email,
+          service,
+          message,
+        })
+      ),
     });
   } catch (e: unknown) {
     return res.status((e as Response).status).json({});

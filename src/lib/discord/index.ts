@@ -1,6 +1,6 @@
 import { ChannelType, Client, GatewayIntentBits } from 'discord.js';
 
-import type { Message, MessageOptions } from 'discord.js';
+import type { Message, MessageCreateOptions } from 'discord.js';
 
 const discordGlobal = global as typeof global & {
   discord?: Client;
@@ -46,7 +46,7 @@ export const sendDiscordMessage = async ({
   ...options
 }: {
   channelId?: string;
-} & MessageOptions) => {
+} & MessageCreateOptions) => {
   if (!channelId) {
     throw new Error(
       `ChannelId is required, got ${
@@ -57,7 +57,9 @@ export const sendDiscordMessage = async ({
   const channel = await getDiscordChannel(channelId);
   if (!channel || channel.type !== ChannelType.GuildText) {
     throw new Error(
-      `Channel ${channelId} not found or is not a a valid text channel`
+      `Channel ${channelId} not found or is not a a valid text channel. Got ${JSON.stringify(
+        channel
+      )}`
     );
   }
   return await channel.send(options);

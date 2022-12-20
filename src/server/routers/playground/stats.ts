@@ -19,7 +19,7 @@ const statsRouter = t.router({
       await Promise.all([
         prisma.playgroundRequest.count({
           where: {
-            status: { in: [Status.Accepted, Status.Pending, Status.Completed] },
+            status: Status.Accepted,
           },
         }),
         prisma.playgroundRequest.count({

@@ -39,7 +39,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
         setLeft(parseFloat(position.get()));
       }, delay);
     }
-  }, [float, floating, delay, position]);
+  }, [float, delay, position]);
 
   return (
     <div
