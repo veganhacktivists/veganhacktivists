@@ -40,6 +40,11 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const hostUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'localhost:3000'
+    : process.env.VERCEL_URL;
+
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
   openGraph: {
@@ -48,7 +53,7 @@ const SEO: DefaultSeoProps = {
       "We're a diverse community of passionate vegan activists from all around the world, volunteering our time and skills towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.",
     images: [
       {
-        url: logoBig.src,
+        url: `${hostUrl!}${logoBig.src}`,
         width: 800,
         height: 800,
         alt: 'Vegan Hacktivists Logo',
