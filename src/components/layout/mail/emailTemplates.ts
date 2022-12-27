@@ -91,7 +91,7 @@ export const verificationMail = (url: string, textonly = false) => {
   return mjml2html(mail(body)).html ?? '';
 };
 
-export const verifyRequest = (url: string, textonly = false) => {
+export const verifyRequestEmail = (url: string, textonly = false) => {
   if (textonly) {
     return `Sign in to verify your request. ${host}\n${url}\n\n`;
   }
