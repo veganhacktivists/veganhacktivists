@@ -91,14 +91,14 @@ export const verificationMail = (url: string, textonly = false) => {
   return mjml2html(mail(body)).html ?? '';
 };
 
-export const confirmSubmission = (url: string, textonly = false) => {
+export const verifyRequest = (url: string, textonly = false) => {
   if (textonly) {
-    return `Sign in to submit your request. ${host}\n${url}\n\n`;
+    return `Sign in to verify your request. ${host}\n${url}\n\n`;
   }
   const body = `
     <mj-text font-weight="bold">Hey there!</mj-text>
-    <mj-text>You're almost done!<br>To confirm your request, please click here:</mj-text>
-    <mj-button href="${url}">Click to submit</mj-button>
+    <mj-text>You're almost done!<br>To verify your request, please click here:</mj-text>
+    <mj-button href="${url}">Click to verify</mj-button>
     <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
   `;
   return mjml2html(mail(body)).html ?? '';
