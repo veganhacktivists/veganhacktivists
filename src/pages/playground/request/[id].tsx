@@ -26,6 +26,7 @@ const idSchema = z.string().cuid({ message: 'The request ID is invalid' });
 const PlaygroundRequest: PageWithLayout = ({}) => {
   const router = useRouter();
   const session = useSession();
+
   useOnce(
     async () => {
       const data = idSchema.safeParse(router.query.id);
@@ -43,12 +44,15 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
     router.query.id as string,
     {
       retry: 1,
-      onError: () => {
-        toast.error('The request could not be found');
-        setTimeout(
-          () => void router.push('/playground', undefined, { shallow: true }),
-          5000
-        );
+      onError: (e) => {
+        if (e.message === 'NOT_FOUND') {
+          toast.error('The request could not be found', {
+            // in development this will fire instantly, due to a bug with "reactStrictMode"
+            onClose: async () => {
+              await router.push('/playground', undefined, { shallow: true });
+            },
+          });
+        }
       },
     }
   );
