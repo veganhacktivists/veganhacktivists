@@ -47,10 +47,9 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
       onError: (e) => {
         if (e.message === 'NOT_FOUND') {
           toast.error('The request could not be found', {
-            // in development this will fire instantly, due to a bug with "reactStrictMode"
-            onClose: async () => {
-              await router.push('/playground', undefined, { shallow: true });
-            },
+            onClose: () =>
+              // in development this will fire instantly, due to a bug with "reactStrictMode"
+              router.push('/playground', undefined, { shallow: true }),
           });
         }
       },
