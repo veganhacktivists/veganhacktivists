@@ -150,7 +150,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
           <Field
             title={`${
-              hasNoDue ? 'Due Date' : dueDateFormatted ? (isDue ? 'Was due' : 'Due') : 'Due'
+              hasNoDue
+                ? 'Due Date'
+                : dueDateFormatted
+                ? isDue
+                  ? 'Was due'
+                  : 'Due'
+                : 'Due'
             }`}
           >
             {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
