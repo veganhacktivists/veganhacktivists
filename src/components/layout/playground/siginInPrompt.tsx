@@ -12,6 +12,7 @@ import { DarkButton } from 'components/decoration/buttons';
 
 interface SignInPromptProps {
   email: string;
+  type: 'request' | 'application';
   isOpen: boolean;
   onClose: () => void;
   submitOnVerify?: boolean;
@@ -25,6 +26,7 @@ const resolver = zodResolver(signInSchema);
 
 const SignInPrompt: React.FC<SignInPromptProps> = ({
   email,
+  type = 'application',
   isOpen,
   onClose,
   submitOnVerify = false,
@@ -79,8 +81,13 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
     <Modal isOpen={isOpen} onClose={handleClose}>
       <div className="p-10 bg-grey-background">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>Just one more thing</div>
-          <div>You need to verify your email before applying</div>
+          <div className="mb-5">
+            <div className="font-bold">Just one more thing</div>
+            <div>
+              Before submitting your {type}, please verify your email address,
+              so we can reach out to you.
+            </div>
+          </div>
           <div className="flex flex-col gap-5">
             <TextInput
               error={errors.email?.message}

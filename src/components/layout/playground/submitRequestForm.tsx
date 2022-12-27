@@ -594,6 +594,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         isOpen={isSignInModalOpen}
         onClose={onModalClose}
         email={watch('providedEmail')}
+        type="request"
         submitOnVerify
       />
     </div>
