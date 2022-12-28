@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
 
 import useOnce from '../hooks/useOnce';
+import logoBig from '../../public/images/VH_Logo_Crest_Tagline_Gray.png';
 
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
@@ -43,6 +44,16 @@ const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
   openGraph: {
     url: 'https://veganhacktivists.org',
+    description:
+      "We're a diverse community of passionate vegan activists from all around the world, volunteering our time and skills towards the animal protection movement. We build free technology and offer free services with the goal of reducing or stopping the mass amounts of suffering caused by factory farming.",
+    images: [
+      {
+        url: `https://veganhacktivists.org${logoBig.src}`,
+        width: 800,
+        height: 800,
+        alt: 'Vegan Hacktivists Logo',
+      },
+    ],
   },
   twitter: {
     cardType: 'summary_large_image',
