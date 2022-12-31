@@ -207,6 +207,15 @@ export const updateRequest = async ({
     };
   }
 
+  await prisma.user.update({
+    where: {
+      id: requesterId,
+    },
+    data: {
+      name: params.name,
+    },
+  });
+
   return await prisma.playgroundRequest.update({
     where: {
       id: id,
