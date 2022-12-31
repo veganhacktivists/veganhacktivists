@@ -341,8 +341,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         <TextInput
           className="lg:col-span-3 col-span-full"
           placeholder="Phone"
+          showRequiredMark
           type="tel"
-          {...myRegister('phone', { required: false })}
+          {...myRegister('phone', { required: 'The phone is required' })}
           error={errors.phone?.message}
         />
         <TextInput

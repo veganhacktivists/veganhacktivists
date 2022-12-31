@@ -94,7 +94,7 @@ export const submitRequestSchema = z.object({
   id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
   providedEmail: z.string().trim().email(),
-  phone: z.string().trim().optional(),
+  phone: z.string().trim().min(1, { message: 'This value is required' }),
   organization: z.string().trim().optional(),
   website: z
     .string()
