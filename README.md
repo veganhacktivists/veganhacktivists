@@ -20,6 +20,7 @@ Because this team is so new we still have to document all of this somewhere, so 
     - [Setting up the database](#setting-up-the-database)
     - [Installing the dependencies](#installing-the-dependencies)
     - [Migrate and seed the database](#migrate-and-seed-the-database)
+    - [Gain access to admin pages](#gain-access-to-admin-pages)
     - [Coding conventions and guidelines](#coding-conventions-and-guidelines)
     - [Configuring your editor](#configuring-your-editor)
   - [Grab a card](#grab-a-card)
@@ -59,7 +60,7 @@ docker compose down
 
 ### Setting up the SMTP-Server
 
-The `docker-compose.yml` also inclues a smtp service, which is providing a simple smtp server without authentification accessible under port 2525.
+Running the smtp server is only necessary if you wish to login which can be useful for accessing admin functionality (see [Gain access to admin pages](#gain-access-to-admin-pages)). The `docker-compose.yml` inclues a smtp service, which is providing a simple smtp server without authentification accessible under port 2525.
 
 ```bash
 docker compose up -d smtp
@@ -113,7 +114,7 @@ authentication is working with magic links.
 
 Start your development server and navigate to [http://localhost:3000/auth/signin](http://localhost:3000/auth/signin) and fill in a valid e-mail address. You'll receive a confirmation link you'll have to click.
 
-Afterwards you need to use a database tool of your choice to connect to the postgresql database.
+Afterwards you need to use a database tool of your choice to connect to the postgresql database. You can also use `pnpm prisma studio` to access the database.
 
 Looking at the users table you should see your email address under the last create users. Now change the field Role from User to Admin.
 After changing your role you need to [log-out](http://localhost:3000/auth/signout) and [log-in](http://localhost:3000/auth/signin) again to renew your permissions.
