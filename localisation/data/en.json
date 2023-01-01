@@ -304,5 +304,74 @@
   },
   "page.support.section.support-us.introduction": {
     "defaultMessage": "We are a vegan volunteer team that builds technology for organizations and individual activists in the animal protection movement. If you believe in the work we do and would like to support us, please consider making a donation."
+  },
+  "page.support.section.donation-goals.cta-label": {
+    "defaultMessage": "Donate Now"
+  },
+  "page.support.section.donation-goals.introduction": {
+    "defaultMessage": "See our Patreon goals below, and help us grow and be more effective!"
+  },
+  "page.support.section.donation-goals.title": {
+    "defaultMessage": "Monthly Patreon Goals"
+  },
+  "page.support.section.support-us.subtitle": {
+    "defaultMessage": "We prefer a <bold>monthly donation via Patreon</bold> as that gives us the most stability every month, but we also accept one-time donations via PayPal. If you would like to make a larger contribution of $1,000 or more (thank you!), please <contact-link>contact us</contact-link> for other payment methods and tax deduction via our fiscal sponsor."
+  },
+  "page.support.section.thank-you.introduction": {
+    "defaultMessage": "We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
+  },
+  "page.support.section.thank-you.title": {
+    "defaultMessage": "Thank You"
+  },
+  "section.crypto-donation.copy-wallet.button.label": {
+    "defaultMessage": "Copy"
+  },
+  "section.crypto-donation.headline": {
+    "defaultMessage": "We accept cryptocurrency!"
+  },
+  "section.crypto-donation.introduction": {
+    "defaultMessage": "Click the QR code to view it enlarged, or copy the code to your clipboard."
+  },
+  "section.crypto-donation.notification.copy.error": {
+    "defaultMessage": "Something went wrong copying the code, please select and copy it manually"
+  },
+  "section.crypto-donation.notification.copy.success": {
+    "defaultMessage": "Code succesfully copied!"
+  },
+  "section.crypto-donation.subline": {
+    "defaultMessage": "Want to send something else? <contact-link>Contact us!</contact-link>"
+  },
+  "section.support-progess-bar.current.label": {
+    "defaultMessage": "Current monthly Patreon donations"
+  },
+  "section.support-progess-bar.goal.0.label": {
+    "defaultMessage": "Needed to cover basic operational expenses"
+  },
+  "section.support-progess-bar.goal.1.label": {
+    "defaultMessage": "We can utilize more useful services and tech"
+  },
+  "section.support-progess-bar.goal.2.label": {
+    "defaultMessage": "We can ramp up value and services offered"
+  },
+  "section.support-progess-bar.goal.3.label": {
+    "defaultMessage": "Self-Sustainable Goal"
+  },
+  "section.support-progess-bar.mobile.current.label": {
+    "defaultMessage": "Current monthly Patreon donations"
+  },
+  "section.support-progess-bar.mobile.goal.0.label": {
+    "defaultMessage": "Needed to cover operational expenses"
+  },
+  "section.support-progess-bar.mobile.goal.1.label": {
+    "defaultMessage": "Can afford more useful services and tech"
+  },
+  "section.support-progess-bar.mobile.goal.2.label": {
+    "defaultMessage": "We can ramp up value and services offered"
+  },
+  "section.support-progess-bar.mobile.goal.3.label": {
+    "defaultMessage": "Self-Sustainable Goal"
+  },
+  "section.crypto-donation.overlay.label": {
+    "defaultMessage": "Donate {currencyName}"
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../../decoration/squares';
 
@@ -22,7 +23,10 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             goalOrder={1}
             totalAmount={goal}
           >
-            Needed to cover operational expenses
+            <FormattedMessage
+              id="section.support-progess-bar.mobile.goal.0.label"
+              defaultMessage="Needed to cover operational expenses"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={2500}
@@ -31,7 +35,10 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             goalOrder={2}
             totalAmount={goal}
           >
-            Can afford more useful services and tech
+            <FormattedMessage
+              id="section.support-progess-bar.mobile.goal.1.label"
+              defaultMessage="Can afford more useful services and tech"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={3750}
@@ -40,7 +47,10 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             goalOrder={3}
             totalAmount={goal}
           >
-            We can ramp up value and services offered
+            <FormattedMessage
+              id="section.support-progess-bar.mobile.goal.2.label"
+              defaultMessage="We can ramp up value and services offered"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={5000}
@@ -49,7 +59,10 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             goalOrder={4}
             totalAmount={goal}
           >
-            Self-Sustainable Goal
+            <FormattedMessage
+              id="section.support-progess-bar.mobile.goal.3.label"
+              defaultMessage="Self-Sustainable Goal"
+            />
           </PatreonGoal>
         </div>
         <div className="h-full w-[15vw] bg-grey relative">

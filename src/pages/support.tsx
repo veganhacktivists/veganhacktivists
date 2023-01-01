@@ -150,24 +150,33 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       </div>
 
       <Paragraph>
-        We prefer a{' '}
-        <span className="font-bold">monthly donation via Patreon</span> as that
-        gives us the most stability every month, but we also accept one-time
-        donations via PayPal. If you would like to make a larger contribution of
-        $1,000 or more (thank you!), please{' '}
-        <CustomLink href="mailto:hello@veganhacktivists.org">
-          contact us
-        </CustomLink>{' '}
-        for other payment methods and tax deduction via our fiscal sponsor.
+        <FormattedMessage
+          id="page.support.section.support-us.subtitle"
+          defaultMessage="We prefer a <bold>monthly donation via Patreon</bold> as that gives us the most stability every month, but we also accept one-time donations via PayPal. If you would like to make a larger contribution of $1,000 or more (thank you!), please <contact-link>contact us</contact-link> for other payment methods and tax deduction via our fiscal sponsor."
+          values={{
+            bold: (chunks) => <span className="font-bold">{chunks}</span>,
+            'contact-link': (chunks) => (
+              <CustomLink href="mailto:hello@veganhacktivists.org">
+                {chunks}
+              </CustomLink>
+            ),
+          }}
+        />
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="py-16 bg-grey-darker">
         <h2 className="mb-8 text-4xl font-bold text-white">
-          Monthly Patreon Goals
+          <FormattedMessage
+            id="page.support.section.donation-goals.title"
+            defaultMessage="Monthly Patreon Goals"
+          />
         </h2>
         <Paragraph>
           <span className="text-white">
-            See our Patreon goals below, and help us grow and be more effective!
+            <FormattedMessage
+              id="page.support.section.donation-goals.introduction"
+              defaultMessage="See our Patreon goals below, and help us grow and be more effective!"
+            />
           </span>
         </Paragraph>
         <ProgressBar currentAmount={patreonFunding} goal={5000} />
@@ -177,7 +186,12 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             className="font-mono text-xl font-bold text-white"
             capitalize={false}
           >
-            <div className="px-4">Donate Now</div>
+            <div className="px-4">
+              <FormattedMessage
+                id="page.support.section.donation-goals.cta-label"
+                defaultMessage="Donate Now"
+              />
+            </div>
           </ExternalLinkButton>
         </div>
       </div>
@@ -197,12 +211,17 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           alt="Our community"
         />
 
-        <h2 className="mb-8 text-4xl font-bold">Thank You</h2>
+        <h2 className="mb-8 text-4xl font-bold">
+          <FormattedMessage
+            id="page.support.section.thank-you.title"
+            defaultMessage="Thank You"
+          />
+        </h2>
         <Paragraph>
-          We want to take a moment to thank the people below for their
-          support—for those who have awarded us grants or contributed donations,
-          whether one-time or recurring. We are grateful for your belief in our
-          vision and support for our work.
+          <FormattedMessage
+            id="page.support.section.thank-you.introduction"
+            defaultMessage="We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
+          />
         </Paragraph>
         <PatreonSupporters patrons={patrons} />
       </div>

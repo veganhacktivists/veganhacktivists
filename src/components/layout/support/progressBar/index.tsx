@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 
@@ -34,7 +35,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={1}
             totalAmount={goal}
           >
-            Needed to cover basic operational expenses
+            <FormattedMessage
+              id="section.support-progess-bar.goal.0.label"
+              defaultMessage="Needed to cover basic operational expenses"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={2500}
@@ -43,7 +47,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={2}
             totalAmount={goal}
           >
-            We can utilize more useful services and tech
+            <FormattedMessage
+              id="section.support-progess-bar.goal.1.label"
+              defaultMessage="We can utilize more useful services and tech"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={3750}
@@ -52,7 +59,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={3}
             totalAmount={goal}
           >
-            We can ramp up value and services offered
+            <FormattedMessage
+              id="section.support-progess-bar.goal.2.label"
+              defaultMessage="We can ramp up value and services offered"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={5000}
@@ -61,7 +71,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={4}
             totalAmount={goal}
           >
-            Self-Sustainable Goal
+            <FormattedMessage
+              id="section.support-progess-bar.goal.3.label"
+              defaultMessage="Self-Sustainable Goal"
+            />
           </PatreonGoal>
         </div>
       </div>
