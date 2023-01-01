@@ -32,12 +32,16 @@ const AdminPage: NextPage = ({}) => {
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
     trpc.playground.admin.deleteApplication.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.playground.admin.setApplicationStatus.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const isLoading = isMutationLoading || isDeletionLoading;
