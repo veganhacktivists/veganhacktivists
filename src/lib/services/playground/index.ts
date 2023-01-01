@@ -86,6 +86,7 @@ export const getRequestById = async (
       description: true,
       id: true,
       estimatedTimeDays: true,
+      neededVolunteers: true,
       name: true,
       organization: true,
       requiredSkills: true,

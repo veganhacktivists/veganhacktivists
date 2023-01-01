@@ -115,6 +115,7 @@ export const submitRequestSchema = z.object({
   budget: budgetSchema.optional(),
   dueDate: z.date().optional().nullable(),
   estimatedTimeDays: z.number().nonnegative().int(),
+  neededVolunteers: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
     .refine((x) => !!x)

@@ -65,6 +65,7 @@ const PlaygroundRequestCard: React.FC<
     budget,
     dueDate,
     status,
+    neededVolunteers,
   },
   children,
 }) => {
@@ -172,6 +173,15 @@ const PlaygroundRequestCard: React.FC<
           >
             {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
+          {session?.user?.role === 'Admin' && (
+            <Li
+              name="Needed volunteers"
+              title={`${neededVolunteers ?? '1'}`}
+              category={category}
+            >
+              {`${neededVolunteers ?? '1'}`}
+            </Li>
+          )}
         </ul>
         <div
           className={`${
