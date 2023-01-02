@@ -157,6 +157,7 @@ model PlaygroundRequest {
   calendlyUrl       String
   title             String                    @db.VarChar(200)
   requiredSkills    String[]                  @default([])
+  neededVolunteers  Int                       @default(1)
   description       String                    @db.Text
   dueDate           DateTime?                 @db.Date
   estimatedTimeDays Int

@@ -89,13 +89,13 @@ const PRIORITY_ROLES: PriorityRoleProps[] = [
     image: playgroundManagerLogo,
     color: 'black',
     squareColor: 'pink',
-    title: 'Playground Manager',
+    title: 'Ads Manager',
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
-        Support VH: Playground by hosting virtual events, connecting people with
-        opportunities, and engaging the Discord community. Candidate should have
-        a deep commitment to building an inclusive community.
+        Support our advertising efforts, including developing campaigns, manage
+        budgets, and analyzing metrics. Candidate should have a background in
+        marketing, media or advertising.
       </>
     ),
   },
