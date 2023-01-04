@@ -11,6 +11,7 @@ import {
   LightButton,
   LogoutButton,
   OutlineButton,
+  BlueButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
@@ -76,6 +77,13 @@ const AdminPage: NextPage = () => {
       },
     });
 
+  const { mutate: mutateRepost, isLoading: isRepostLoading } =
+    trpc.playground.admin.repostRequest.useMutation({
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
+    });
+
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const RequestFilterButton = useCallback(
@@ -96,6 +104,9 @@ const AdminPage: NextPage = () => {
     },
     [statusFilter]
   );
+
+  const isActionLoading =
+    isMutationLoading || isRepostLoading || isDeletionLoading;
 
   if (isLoading) {
     return <Spinner />;
@@ -132,7 +143,10 @@ const AdminPage: NextPage = () => {
         >
           {data.map((request) => (
             <div key={request.id}>
-              <PlaygroundRequestCard request={request}>
+              <PlaygroundRequestCard
+                request={request}
+                disabled={isActionLoading}
+              >
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
                   <b>
@@ -146,13 +160,12 @@ const AdminPage: NextPage = () => {
                     )}
                   </b>
                 )}
-
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   {request.status === Status.Pending ? (
                     <>
                       <LightButton
                         className="w-full"
-                        disabled={isMutationLoading}
+                        disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
@@ -167,7 +180,7 @@ const AdminPage: NextPage = () => {
                       </LightButton>
                       <DenyButton
                         className="w-full text-xl text-white"
-                        disabled={isMutationLoading}
+                        disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
@@ -181,26 +194,27 @@ const AdminPage: NextPage = () => {
                         Deny
                       </DenyButton>{' '}
                     </>
-                  ) : null}
-                  <ExternalLinkButton
-                    className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to delete '${request.title}'?`
-                        )
-                      ) {
-                        mutateDelete({ id: request.id });
-                      }
-                    }}
-                  >
-                    🤫 Delete
-                  </ExternalLinkButton>
+                  ) : (
+                    <BlueButton
+                      className="w-full px-2 text-xl"
+                      disabled={isActionLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to repost '${request.title}'?`
+                          )
+                        ) {
+                          mutateRepost({ id: request.id });
+                        }
+                      }}
+                    >
+                      🔁 Repost request
+                    </BlueButton>
+                  )}
                   {request.status !== Status.Completed ? (
                     <GreenButton
                       className="w-full px-2 text-xl"
-                      disabled={isMutationLoading}
+                      disabled={isActionLoading}
                       onClick={() => {
                         if (
                           confirm(
@@ -214,6 +228,21 @@ const AdminPage: NextPage = () => {
                       🎉 Mark as completed
                     </GreenButton>
                   ) : null}
+                  <ExternalLinkButton
+                    className="w-full px-2 text-xl text-white"
+                    disabled={isActionLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to delete '${request.title}'?`
+                        )
+                      ) {
+                        mutateDelete({ id: request.id });
+                      }
+                    }}
+                  >
+                    🤫 Delete
+                  </ExternalLinkButton>
                 </div>
               </PlaygroundRequestCard>
             </div>

@@ -164,6 +164,10 @@ export const deleteRequestSchema = z.object({
   id: z.string().cuid(),
 });
 
+export const repostRequestSchema = z.object({
+  id: z.string().cuid(),
+});
+
 export const setRequestStatusSchema = z.object({
   id: z.string().cuid(),
   status: z.nativeEnum(Status),
