@@ -66,7 +66,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </div>
           <LinkToBlog>
             <b
-              className="font-mono text-2xl font-semibold md:line-clamp-2"
+              className="font-mono text-2xl font-semibold md:line-clamp-2 break-words"
               title={title}
             >
               {title}

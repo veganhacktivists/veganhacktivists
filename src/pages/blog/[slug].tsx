@@ -156,7 +156,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
             )}
           </div>
           <div className="mt-20">
-            <h1 className="w-3/4 mx-auto text-5xl font-bold text-left">
+            <h1 className="w-3/4 mx-auto text-5xl font-bold text-left break-words">
               {title}
             </h1>
             <div className="md:divide-y divide-grey-light">

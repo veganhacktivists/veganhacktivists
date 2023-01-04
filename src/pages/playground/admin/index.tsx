@@ -98,7 +98,7 @@ const AdminPage: NextPage = () => {
             setStatusFilter(status);
           }}
         >
-          {status} requests
+          {status === 'Accepted' ? 'Live' : status} requests
         </OutlineButton>
       );
     },
@@ -140,12 +140,7 @@ const AdminPage: NextPage = () => {
         >
           {data.map((request) => (
             <div key={request.id}>
-              <PlaygroundRequestCard
-                request={request}
-                disabled={
-                  isMutationLoading || isDeletionLoading || isRepostLoading
-                }
-              >
+              <PlaygroundRequestCard request={request}>
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
                   <b>
@@ -160,73 +155,76 @@ const AdminPage: NextPage = () => {
                   </b>
                 )}
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
-                  <LightButton
-                    className="w-full"
-                    disabled={
-                      isMutationLoading || request.status === Status.Accepted
-                    }
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to accept '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Accepted' });
-                      }
-                    }}
-                  >
-                    Accept
-                  </LightButton>
-                  <DenyButton
-                    className="w-full text-xl text-white"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to reject '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Rejected' });
-                      }
-                    }}
-                  >
-                    Deny
-                  </DenyButton>
-                  <BlueButton
-                    className="w-full px-2 text-xl"
-                    disabled={isMutationLoading || isRepostLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to repost '${request.title}'?`
-                        )
-                      ) {
-                        mutateRepost({ id: request.id });
-                      }
-                    }}
-                  >
-                    🔁 Repost request
-                  </BlueButton>
-                  <GreenButton
-                    className="w-full px-2 text-xl"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to complete '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: Status.Completed });
-                      }
-                    }}
-                  >
-                    🎉 Mark as completed
-                  </GreenButton>
+                  {request.status === Status.Pending ? (
+                    <>
+                      <LightButton
+                        className="w-full"
+                        disabled={isMutationLoading}
+                        onClick={() => {
+                          if (
+                            confirm(
+                              `Are you sure you want to accept '${request.title}'?`
+                            )
+                          ) {
+                            mutate({ id: request.id, status: 'Accepted' });
+                          }
+                        }}
+                      >
+                        Accept
+                      </LightButton>
+                      <DenyButton
+                        className="w-full text-xl text-white"
+                        disabled={isMutationLoading}
+                        onClick={() => {
+                          if (
+                            confirm(
+                              `Are you sure you want to reject '${request.title}'?`
+                            )
+                          ) {
+                            mutate({ id: request.id, status: 'Rejected' });
+                          }
+                        }}
+                      >
+                        Deny
+                      </DenyButton>{' '}
+                    </>
+                  ) : (
+                    <BlueButton
+                      className="w-full px-2 text-xl"
+                      disabled={isMutationLoading || isRepostLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to repost '${request.title}'?`
+                          )
+                        ) {
+                          mutateRepost({ id: request.id });
+                        }
+                      }}
+                    >
+                      🔁 Repost request
+                    </BlueButton>
+                  )}
+                  {request.status !== Status.Completed ? (
+                    <GreenButton
+                      className="w-full px-2 text-xl"
+                      disabled={isMutationLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to complete '${request.title}'?`
+                          )
+                        ) {
+                          mutate({ id: request.id, status: Status.Completed });
+                        }
+                      }}
+                    >
+                      🎉 Mark as completed
+                    </GreenButton>
+                  ) : null}
                   <ExternalLinkButton
                     className="w-full px-2 text-xl text-white"
-                    disabled={
-                      isDeletionLoading || isMutationLoading || isRepostLoading
-                    }
+                    disabled={isDeletionLoading}
                     onClick={() => {
                       if (
                         confirm(
