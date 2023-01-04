@@ -105,6 +105,9 @@ const AdminPage: NextPage = () => {
     [statusFilter]
   );
 
+  const isActionLoading =
+    isMutationLoading || isRepostLoading || isDeletionLoading;
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -140,7 +143,10 @@ const AdminPage: NextPage = () => {
         >
           {data.map((request) => (
             <div key={request.id}>
-              <PlaygroundRequestCard request={request}>
+              <PlaygroundRequestCard
+                request={request}
+                disabled={isActionLoading}
+              >
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
                   <b>
@@ -159,7 +165,7 @@ const AdminPage: NextPage = () => {
                     <>
                       <LightButton
                         className="w-full"
-                        disabled={isMutationLoading}
+                        disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
@@ -174,7 +180,7 @@ const AdminPage: NextPage = () => {
                       </LightButton>
                       <DenyButton
                         className="w-full text-xl text-white"
-                        disabled={isMutationLoading}
+                        disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
@@ -191,7 +197,7 @@ const AdminPage: NextPage = () => {
                   ) : (
                     <BlueButton
                       className="w-full px-2 text-xl"
-                      disabled={isMutationLoading || isRepostLoading}
+                      disabled={isActionLoading}
                       onClick={() => {
                         if (
                           confirm(
@@ -208,7 +214,7 @@ const AdminPage: NextPage = () => {
                   {request.status !== Status.Completed ? (
                     <GreenButton
                       className="w-full px-2 text-xl"
-                      disabled={isMutationLoading}
+                      disabled={isActionLoading}
                       onClick={() => {
                         if (
                           confirm(
@@ -224,7 +230,7 @@ const AdminPage: NextPage = () => {
                   ) : null}
                   <ExternalLinkButton
                     className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading}
+                    disabled={isActionLoading}
                     onClick={() => {
                       if (
                         confirm(
