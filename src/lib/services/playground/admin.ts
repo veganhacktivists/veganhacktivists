@@ -19,7 +19,7 @@ import { getListFromEnv } from 'lib/helpers/env';
 import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 
 import type { Submission } from 'snoowrap';
-import type { deleteRequestSchema } from './schemas';
+import type { deleteRequestSchema, repostRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
 import type { PlaygroundRequest, Prisma } from '@prisma/client';
 import type { z } from 'zod';
@@ -330,6 +330,81 @@ export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
     where: { id },
     data: { status: Status.Rejected },
   });
+
+export const repostRequest = async ({
+  id,
+}: z.infer<typeof repostRequestSchema>) => {
+  const request = await prisma.playgroundRequest.findUnique({
+    where: { id },
+  });
+  if (!request) {
+    throw new TRPCError({ code: 'NOT_FOUND' });
+  }
+  const shouldPost =
+    process.env.NODE_ENV === 'production' &&
+    (request.status === Status.Accepted ||
+      request.status === Status.Rejected ||
+      request.status === Status.Completed);
+  if (!shouldPost) {
+    return;
+  }
+  let discordMessages: Message[] = [];
+  let redditSubmissions: Submission[] = [];
+
+  try {
+    const updatedRequest = await prisma.$transaction(
+      async (prisma) => {
+        let updatedRequest = await prisma.playgroundRequest.update({
+          where: { id },
+          data: { status: 'Accepted' },
+          include: {
+            budget: {
+              select: {
+                quantity: true,
+                type: true,
+              },
+            },
+          },
+        });
+
+        redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
+        discordMessages = await postRequestOnDiscord(updatedRequest);
+        updatedRequest = await prisma.playgroundRequest.update({
+          where: { id },
+          include: { budget: true },
+          data: {
+            discordMessages: {
+              create: discordMessages.map((msg) => ({
+                channelId: msg.channelId,
+                messageId: msg.id,
+              })),
+            },
+          },
+        });
+        return updatedRequest;
+      },
+      { timeout: 30000 }
+    );
+    return updatedRequest;
+  } catch (e) {
+    try {
+      for await (const redditSubmission of redditSubmissions) {
+        await redditSubmission.delete().catch();
+      }
+      for await (const discordMessage of discordMessages) {
+        await discordMessage.delete().catch();
+      }
+    } finally {
+      const cause =
+        e instanceof Error
+          ? e
+          : typeof e === 'string'
+          ? new Error(e)
+          : new Error(JSON.stringify(e));
+      throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
+    }
+  }
+};
 
 export const setRequestStatus = async ({
   id,

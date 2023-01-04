@@ -77,6 +77,13 @@ const AdminPage: NextPage = () => {
       },
     });
 
+  const { mutate: mutateRepost, isLoading: isRepostLoading } =
+    trpc.playground.admin.repostRequest.useMutation({
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
+    });
+
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const RequestFilterButton = useCallback(
@@ -135,7 +142,9 @@ const AdminPage: NextPage = () => {
             <div key={request.id}>
               <PlaygroundRequestCard
                 request={request}
-                disabled={isMutationLoading || isDeletionLoading}
+                disabled={
+                  isMutationLoading || isDeletionLoading || isRepostLoading
+                }
               >
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
@@ -185,7 +194,16 @@ const AdminPage: NextPage = () => {
                   </DenyButton>
                   <BlueButton
                     className="w-full px-2 text-xl"
-                    disabled={isMutationLoading}
+                    disabled={isMutationLoading || isRepostLoading}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Are you sure you want to repost '${request.title}'?`
+                        )
+                      ) {
+                        mutateRepost({ id: request.id });
+                      }
+                    }}
                   >
                     🔁 Repost request
                   </BlueButton>
@@ -206,7 +224,9 @@ const AdminPage: NextPage = () => {
                   </GreenButton>
                   <ExternalLinkButton
                     className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading || isMutationLoading}
+                    disabled={
+                      isDeletionLoading || isMutationLoading || isRepostLoading
+                    }
                     onClick={() => {
                       if (
                         confirm(
