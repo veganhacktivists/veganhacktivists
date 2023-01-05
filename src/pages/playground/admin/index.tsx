@@ -208,7 +208,10 @@ const AdminPage: NextPage = () => {
                         }
                       }}
                     >
-                      🔁 Repost request
+                      🔁
+                      {request.status === Status.Accepted
+                        ? ' Push again'
+                        : ' Repost request'}
                     </BlueButton>
                   )}
                   {request.status !== Status.Completed ? (
