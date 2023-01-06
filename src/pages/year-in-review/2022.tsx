@@ -7,8 +7,8 @@ import FeedbackAndTesting from '../../components/layout/yearInReview/2022/feedba
 import CommunityGrowth from '../../components/layout/yearInReview/2022/communityGrowth';
 import AnimatedVideos from '../../components/layout/yearInReview/2022/animatedVideos';
 import Intro from '../../components/layout/yearInReview/2022/intro';
-import heroBackground from '../../../public/images/yearInReview/2021/2021-hero.jpg';
-import heroTagline from '../../../public/images/yearInReview/2021/2021-type.png';
+import heroBackground from '../../../public/images/yearInReview/2022/2022-hero.jpg';
+import heroTagline from '../../../public/images/yearInReview/2022/2022-type.png';
 import MinorChangesBigImpact from '../../components/layout/yearInReview/2022/minorChangesBigImpact';
 import DesignsForVeganOrgs from '../../components/layout/yearInReview/2022/designsForVeganOrgs';
 import FeaturedBlogPosts from '../../components/layout/yearInReview/2022/featuredBlogPosts';
@@ -23,6 +23,7 @@ import AdvisoryService from '../../components/layout/yearInReview/2022/advisoryS
 import ByTheNumbers from '../../components/layout/yearInReview/2022/byTheNumbers';
 import Playground from '../../components/layout/yearInReview/2022/playground';
 import MovingForward from '../../components/layout/yearInReview/2022/movingForward';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
 
 import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2022/featuredProjects';
 import type { GetStaticProps } from 'next';
@@ -150,6 +151,19 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
                 container: 'bg-center',
               }}
             />
+          }
+          customMainSection={
+            <FirstSubSection
+              header="Building up the movement"
+              firstWordsNum={0}
+            >
+              This year, we leaned into our role and strength as capacity
+              builders by expanding both our services and our professional
+              volunteer network. We saved the movement over half a million
+              dollars by serving over 120 organizations this year alone with our
+              tech, design and advisory services. And we&apos;re just getting
+              started!
+            </FirstSubSection>
           }
         />
 
