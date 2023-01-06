@@ -455,7 +455,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           {...myRegister('neededVolunteers', { valueAsNumber: true })}
           error={errors.neededVolunteers?.message}
         >
-          Needed volunteers
+          Volunteers required
         </TextInput>
         <div className="lg:col-span-2 col-span-full">
           <Label name="isFree" showRequiredMark>
