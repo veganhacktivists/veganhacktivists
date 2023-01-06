@@ -20,7 +20,7 @@ const YearInReviewButtons: React.FC = () => {
   return (
     <div>
       <div className="mb-10 pb-10 mt-10 flex justify-center flex-wrap">
-        {[2020, 2021].map((year) => (
+        {[2020, 2021, 2022].map((year) => (
           <YearButton key={year} year={year} />
         ))}
       </div>
@@ -31,6 +31,7 @@ const YearInReviewButtons: React.FC = () => {
 interface YearInReviewHeaderProps {
   year: number;
   hero: React.ReactNode;
+  customMainSection?: React.ReactNode;
 }
 
 const HERO_DECORATION_SQUARES = [
@@ -46,6 +47,7 @@ const HERO_DECORATION_SQUARES = [
 export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
   year,
   hero,
+  customMainSection,
 }) => {
   return (
     <div className="bg-grey-background">
@@ -54,15 +56,17 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
         squares={HERO_DECORATION_SQUARES}
         className="hidden md:block"
       />
-      <FirstSubSection
-        header={`Our ${year} year in review`}
-        firstWordsNum={2}
-        className="pt-5"
-      >
-        We&apos;re so happy to release our {year} Year in Review! Scroll down to
-        read all of our accomplishments thanks to your generous support, our
-        partners, and most of all our amazing volunteers.
-      </FirstSubSection>
+      {customMainSection ?? (
+        <FirstSubSection
+          header={`Our ${year} year in review`}
+          firstWordsNum={2}
+          className="pt-5"
+        >
+          We&apos;re so happy to release our {year} Year in Review! Scroll down
+          to read all of our accomplishments thanks to your generous support,
+          our partners, and most of all our amazing volunteers.
+        </FirstSubSection>
+      )}
       <YearInReviewButtons />
     </div>
   );
