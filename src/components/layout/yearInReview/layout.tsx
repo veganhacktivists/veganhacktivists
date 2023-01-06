@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { NavButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
@@ -16,10 +17,20 @@ const YearButton: React.FC<YearButtonProps> = ({ year }) => {
   );
 };
 
-const YearInReviewButtons: React.FC = () => {
+interface YearInReviewButtonProps {
+  currentYear: number;
+}
+
+const YearInReviewButtons: React.FC<YearInReviewButtonProps> = ({
+  currentYear,
+}) => {
   return (
     <div>
-      <div className="mb-10 pb-10 mt-10 flex justify-center flex-wrap">
+      <div
+        className={classNames('pb-10 flex justify-center flex-wrap', {
+          'mb-10': currentYear === 2020 || currentYear === 2021,
+        })}
+      >
         {[2020, 2021, 2022].map((year) => (
           <YearButton key={year} year={year} />
         ))}
@@ -67,7 +78,7 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
           our partners, and most of all our amazing volunteers.
         </FirstSubSection>
       )}
-      <YearInReviewButtons />
+      <YearInReviewButtons currentYear={year} />
     </div>
   );
 };

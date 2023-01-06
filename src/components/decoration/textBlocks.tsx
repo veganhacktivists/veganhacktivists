@@ -34,6 +34,8 @@ interface SectionHeaderProps
   > {
   header: string | string[];
   startWithBoldFont?: boolean;
+  stackEntries?: boolean;
+  newDesign?: boolean;
 }
 
 // TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
@@ -41,11 +43,15 @@ interface SectionHeaderProps
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   header,
   startWithBoldFont = false,
+  stackEntries = false,
+  newDesign = false,
   children,
   ...props
 }) => {
   const boldClasses = 'text-5xl md:text-6xl font-mono font-semibold uppercase';
-  const italicClasses = 'font-serif italic text-4xl';
+  const italicClasses = `font-serif italic text-4xl ${
+    newDesign ? 'font-bold' : ''
+  }`;
 
   return (
     <div {...props}>
@@ -60,6 +66,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
                     className={classNames({
                       [italicClasses]: italics,
                       [boldClasses]: !italics,
+                      'block leading-loose': stackEntries,
                     })}
                   >
                     {content}
