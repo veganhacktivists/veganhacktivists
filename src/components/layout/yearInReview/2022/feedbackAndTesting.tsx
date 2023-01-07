@@ -10,9 +10,9 @@ const FeedbackAndTesting: React.FC = () => {
     <>
       <SquareField
         squares={[
-          { size: 16, left: 0, bottom: 0, color: 'grey-background' },
-          { size: 16, right: 0, bottom: 0, color: 'grey-lighter' },
-          { size: 16, right: 0, top: 0, color: 'grey' },
+          { size: 16, right: 0, bottom: 0, color: 'grey-background' },
+          { size: 16, left: 0, bottom: 0, color: 'grey-light' },
+          { size: 16, left: 0, top: 0, color: 'grey' },
         ]}
         className="hidden md:block z-10"
       />

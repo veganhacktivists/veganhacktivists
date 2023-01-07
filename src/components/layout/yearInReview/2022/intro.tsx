@@ -1,83 +1,147 @@
-import CustomImage from '../../../decoration/customImage';
-import CustomLink from '../../../decoration/link';
-import { SubSection } from '../../../decoration/textBlocks';
+import AnimatedNumber from '../../../decoration/animatedNumber';
+import { SectionHeader } from '../../../decoration/textBlocks';
+import SectionContainer from '../sectionContainer';
 import { HighlightBlock } from '../highlightBlock';
-import avocadoIcon from '../../../../../public/images/people/teamIcons/icon-avo.png';
-import peachIcon from '../../../../../public/images/people/teamIcons/icon-peach.png';
-import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.png';
-import watermelonIcon from '../../../../../public/images/people/teamIcons/icon-wmelon.png';
-import sweetPotatoIcon from '../../../../../public/images/people/teamIcons/icon-spotato.png';
-import { pixelHeart } from '../../../../images/separators';
+
+import SquareField from 'components/decoration/squares';
 
 const Intro: React.FC = () => {
   return (
     <>
-      <CustomImage
-        src={pixelHeart}
-        height={pixelHeart.height / 3}
-        width={pixelHeart.width / 3}
-        alt=""
+      <SquareField
+        squares={[
+          { size: 16, right: 0, top: 0, color: 'grey-background' },
+          { size: 16, right: 0, bottom: 0, color: 'grey-light' },
+          { size: 16, left: 0, bottom: 0, color: 'white' },
+        ]}
+        className="hidden md:block z-10"
       />
-      <div className="px-5 mx-auto pb-10">
-        <SubSection
-          header="We explored and grew so much this year"
-          headerSize="3xl"
-          contentSize="2xl"
-        >
-          This year, we refined our goals and built projects that focused
-          primarily on filling existing gaps in our movement. We grew more
-          meaningful partnerships and we greatly improved our branding, design
-          team, and services offered. We&apos;re excited to show you what
-          we&apos;ve done below!
-        </SubSection>
-      </div>
-
-      <div>
-        <HighlightBlock
-          borderColor="magenta"
-          headerStart="We launched"
-          headerBold="8 new projects"
-          headerEnd="for the movement"
-        >
-          <b>Four of which were in-house projects.</b> We were also lucky enough
-          to work on projects with Sehati Animal Sanctuary, Animal Alliance
-          Asia, Vegan Japan Consulting, and many more.
-        </HighlightBlock>
-        <HighlightBlock
-          borderColor="yellow"
-          headerStart="We"
-          headerBold="expanded our advisory team"
-          headerEnd="of vegan experts"
-        >
-          <b>We&apos;re so thankful to have more advisors to lean on</b> such as
-          Katie from Animal Equality, Chris from APEX Advocacy, Tessa from the
-          Pollination Project, and Casey from Faunalytics. To browse more of our
-          advisors, <CustomLink href="/people/advisors">click here.</CustomLink>
-        </HighlightBlock>
-        <HighlightBlock
-          borderColor="green"
-          headerStart="We expanded with"
-          headerBold="5 new teams"
-          headerEnd="in just 6 months"
-        >
-          <b>More teams, more impact!</b> We&apos;re so happy to announce the
-          growth of our community with five new amazing teams. Please welcome
-          Team Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
-        </HighlightBlock>
-        <div className="flex flex-row md:w-1/3 mx-auto mb-20 mt-20">
-          {[
-            avocadoIcon,
-            peachIcon,
-            mangoIcon,
-            watermelonIcon,
-            sweetPotatoIcon,
-          ].map((icon) => (
-            <div key={icon.src}>
-              <CustomImage src={icon} alt={icon.src} height={250} width={250} />
+      <SectionContainer
+        header={
+          <SectionHeader
+            header={['Providing value through', 'Capacity-building services']}
+            stackEntries={true}
+            newDesign={true}
+            className="text-black"
+          />
+        }
+      >
+        <div className="flex flex-col md:flex-row flex-wrap w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-10">
+          <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
+            <AnimatedNumber
+              number={620}
+              className="text-left text-yellow-orange"
+              prefix={'$'}
+              suffix={'K'}
+            />
+            <div className="text-left">
+              Saved by organizations using our{' '}
+              <span className="text-yellow-orange font-bold">
+                free tech, design, and advisory services
+              </span>
             </div>
-          ))}
+          </div>
+          <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
+            <AnimatedNumber
+              number={715}
+              className="text-left text-magenta"
+              prefix={'$'}
+              suffix={'K'}
+            />
+            <div className="text-left">
+              Total value of{' '}
+              <span className="text-magenta font-bold">
+                technology built to date
+              </span>{' '}
+              for the animal protection movement
+            </div>
+          </div>
+          <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
+            <span className="text-left font-bold font-mono text-7xl md:text-8xl text-green">
+              $1.7M
+            </span>
+            <div className="text-left">
+              The cost for a company to deliver the{' '}
+              <span className="text-green font-bold">same output per year</span>
+            </div>
+          </div>
         </div>
-      </div>
+        <div className="w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
+          <div className="bg-grey-border bg-opacity-20 p-10 text-lg">
+            Amounts are in USD. Due to the nature of volunteer work, such as
+            location of volunteer / cost of living, experience, hours
+            contributed, hourly rate, and many other variables, these numbers
+            are both conservative and rough estimates.
+          </div>
+          <div>
+            <SquareField
+              squares={[
+                {
+                  top: 0,
+                  left: 0,
+                  color: '#d31679',
+                  size: 10,
+                },
+              ]}
+            />
+            <div className="bg-magenta flex flex-row flex-wrap p-12 px-2">
+              <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-8xl font-mono px-2 justify-center">
+                <span className="font-bold">9600+</span>{' '}
+                <span className="uppercase font-light">Hours</span>
+              </div>
+              <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-3xl font-serif italic font-bold  text-center md:text-left px-2 justify-center">
+                volunteered in 2022 for the animal protection movement
+              </div>
+            </div>
+          </div>
+          <SquareField
+            squares={[
+              {
+                bottom: 0,
+                right: 0,
+                color: '#d31679',
+                size: 10,
+              },
+            ]}
+          />
+        </div>
+        <div>
+          <HighlightBlock
+            borderColor="magenta"
+            headerStart="We partnered with"
+            headerBold="10 organizations"
+            headerEnd="for animal protection"
+          >
+            <b>We are immensely thankful</b> for the opportunity to partner and
+            collaborate with other organizations dedicated to animal protection
+            such as Sentient Media, Open Sanctuary, Animal Advocacy Careers, and
+            Animal Defense Partnerships, and others.
+          </HighlightBlock>
+          <HighlightBlock
+            borderColor="yellow"
+            headerStart="We expanded our"
+            headerBold="volunteer network"
+            headerEnd="to over 1500+ volunteers"
+          >
+            <b>Within our Playground community,</b> we&apos;ve been able to
+            expand our network of volunteers to 1500+ strong utilizing skills
+            like developers, designers, writers, editors, researchers,
+            marketers, data scientists, and many other roles.
+          </HighlightBlock>
+          <HighlightBlock
+            borderColor="green"
+            headerStart="Building"
+            headerBold="projects, research and community"
+            headerEnd="in 2022"
+          >
+            <b>Beyond building technology,</b> we work hard to find and fill
+            gaps in our movement wherever we see them. This includes building
+            our internal projects, but also launching our research study,
+            participating and attending various international conferences, and
+            investing in the growth of communities in-person and online.
+          </HighlightBlock>
+        </div>
+      </SectionContainer>
     </>
   );
 };
