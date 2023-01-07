@@ -3,7 +3,7 @@ import React from 'react';
 
 import Hero from '../../components/decoration/hero';
 import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
-import FeedbackAndTesting from '../../components/layout/yearInReview/2022/feedbackAndTesting';
+import MoreEffectiveTeams from '../../components/layout/yearInReview/2022/moreEffectiveTeams';
 import CommunityGrowth from '../../components/layout/yearInReview/2022/communityGrowth';
 import AnimatedVideos from '../../components/layout/yearInReview/2022/animatedVideos';
 import Intro from '../../components/layout/yearInReview/2022/intro';
@@ -168,7 +168,7 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
         />
 
         <Intro />
-        <FeedbackAndTesting />
+        <MoreEffectiveTeams />
         <CommunityGrowth />
         <AnimatedVideos />
         <MinorChangesBigImpact />
