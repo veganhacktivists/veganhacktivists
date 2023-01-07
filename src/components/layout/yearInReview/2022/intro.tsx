@@ -1,20 +1,21 @@
-import CustomImage from '../../../decoration/customImage';
-import CustomLink from '../../../decoration/link';
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import { HighlightBlock } from '../highlightBlock';
-import avocadoIcon from '../../../../../public/images/people/teamIcons/icon-avo.png';
-import peachIcon from '../../../../../public/images/people/teamIcons/icon-peach.png';
-import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.png';
-import watermelonIcon from '../../../../../public/images/people/teamIcons/icon-wmelon.png';
-import sweetPotatoIcon from '../../../../../public/images/people/teamIcons/icon-spotato.png';
 
 import SquareField from 'components/decoration/squares';
 
 const Intro: React.FC = () => {
   return (
     <>
+      <SquareField
+        squares={[
+          { size: 16, right: 0, top: 0, color: 'grey-background' },
+          { size: 16, right: 0, bottom: 0, color: 'grey-light' },
+          { size: 16, left: 0, bottom: 0, color: 'white' },
+        ]}
+        className="hidden md:block z-10"
+      />
       <SectionContainer
         header={
           <SectionHeader
@@ -107,54 +108,38 @@ const Intro: React.FC = () => {
         <div>
           <HighlightBlock
             borderColor="magenta"
-            headerStart="We launched"
-            headerBold="8 new projects"
-            headerEnd="for the movement"
+            headerStart="We partnered with"
+            headerBold="10 organizations"
+            headerEnd="for animal protection"
           >
-            <b>Four of which were in-house projects.</b> We were also lucky
-            enough to work on projects with Sehati Animal Sanctuary, Animal
-            Alliance Asia, Vegan Japan Consulting, and many more.
+            <b>We are immensely thankful</b> for the opportunity to partner and
+            collaborate with other organizations dedicated to animal protection
+            such as Sentient Media, Open Sanctuary, Animal Advocacy Careers, and
+            Animal Defense Partnerships, and others.
           </HighlightBlock>
           <HighlightBlock
             borderColor="yellow"
-            headerStart="We"
-            headerBold="expanded our advisory team"
-            headerEnd="of vegan experts"
+            headerStart="We expanded our"
+            headerBold="volunteer network"
+            headerEnd="to over 1500+ volunteers"
           >
-            <b>We&apos;re so thankful to have more advisors to lean on</b> such
-            as Katie from Animal Equality, Chris from APEX Advocacy, Tessa from
-            the Pollination Project, and Casey from Faunalytics. To browse more
-            of our advisors,{' '}
-            <CustomLink href="/people/advisors">click here.</CustomLink>
+            <b>Within our Playground community,</b> we&apos;ve been able to
+            expand our network of volunteers to 1500+ strong utilizing skills
+            like developers, designers, writers, editors, researchers,
+            marketers, data scientists, and many other roles.
           </HighlightBlock>
           <HighlightBlock
             borderColor="green"
-            headerStart="We expanded with"
-            headerBold="5 new teams"
-            headerEnd="in just 6 months"
+            headerStart="Building"
+            headerBold="projects, research and community"
+            headerEnd="in 2022"
           >
-            <b>More teams, more impact!</b> We&apos;re so happy to announce the
-            growth of our community with five new amazing teams. Please welcome
-            Team Avocado, Team Mango, Team Watermelon, and Team Sweet Potato.
+            <b>Beyond building technology,</b> we work hard to find and fill
+            gaps in our movement wherever we see them. This includes building
+            our internal projects, but also launching our research study,
+            participating and attending various international conferences, and
+            investing in the growth of communities in-person and online.
           </HighlightBlock>
-          <div className="flex flex-row md:w-1/3 mx-auto mb-20 mt-20">
-            {[
-              avocadoIcon,
-              peachIcon,
-              mangoIcon,
-              watermelonIcon,
-              sweetPotatoIcon,
-            ].map((icon) => (
-              <div key={icon.src}>
-                <CustomImage
-                  src={icon}
-                  alt={icon.src}
-                  height={250}
-                  width={250}
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </SectionContainer>
     </>
