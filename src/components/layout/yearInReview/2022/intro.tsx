@@ -10,6 +10,8 @@ import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.
 import watermelonIcon from '../../../../../public/images/people/teamIcons/icon-wmelon.png';
 import sweetPotatoIcon from '../../../../../public/images/people/teamIcons/icon-spotato.png';
 
+import SquareField from 'components/decoration/squares';
+
 const Intro: React.FC = () => {
   return (
     <>
@@ -62,6 +64,45 @@ const Intro: React.FC = () => {
               <span className="text-green font-bold">same output per year</span>
             </div>
           </div>
+        </div>
+        <div className="w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
+          <div className="bg-grey-border bg-opacity-20 p-10 text-lg">
+            Amounts are in USD. Due to the nature of volunteer work, such as
+            location of volunteer / cost of living, experience, hours
+            contributed, hourly rate, and many other variables, these numbers
+            are both conservative and rough estimates.
+          </div>
+          <div>
+            <SquareField
+              squares={[
+                {
+                  top: 0,
+                  left: 0,
+                  color: '#d31679',
+                  size: 10,
+                },
+              ]}
+            />
+            <div className="bg-magenta flex flex-row flex-wrap p-12 px-2">
+              <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-8xl font-mono px-2 justify-center">
+                <span className="font-bold">9600+</span>{' '}
+                <span className="uppercase font-light">Hours</span>
+              </div>
+              <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-3xl font-serif italic font-bold  text-center md:text-left px-2 justify-center">
+                volunteered in 2022 for the animal protection movement
+              </div>
+            </div>
+          </div>
+          <SquareField
+            squares={[
+              {
+                bottom: 0,
+                right: 0,
+                color: '#d31679',
+                size: 10,
+              },
+            ]}
+          />
         </div>
         <div>
           <HighlightBlock
