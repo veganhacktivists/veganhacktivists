@@ -25,6 +25,8 @@ import Playground from '../../components/layout/yearInReview/2022/playground';
 import MovingForward from '../../components/layout/yearInReview/2022/movingForward';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 
+import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInterviews';
+
 import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2022/featuredProjects';
 import type { GetStaticProps } from 'next';
 import type {
@@ -169,7 +171,17 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
 
         <Intro />
         <MoreEffectiveTeams />
-        <CommunityGrowth />
+        <FeaturedInterviews
+          interviews={[
+            'leaders-in-animal-protection-jo-anne-mcarthur',
+            'leaders-in-animal-protection-elly-nakajima',
+            'leaders-in-animal-protection-lauren-ornelas',
+            'leaders-in-animal-protection-aryenish-birdie',
+            'leaders-in-animal-protection-aj-dahiya',
+            'leaders-in-animal-protection-brooke-haggerty',
+          ]}
+        />
+        {/* <CommunityGrowth /> */}
         <AnimatedVideos />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
