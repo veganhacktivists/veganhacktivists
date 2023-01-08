@@ -26,6 +26,7 @@ import MovingForward from '../../components/layout/yearInReview/2022/movingForwa
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 
 import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInterviews';
+import GrantProgram from 'components/layout/yearInReview/2022/grantProgram';
 
 import type { FeaturedProjectsProps } from '../../components/layout/yearInReview/2022/featuredProjects';
 import type { GetStaticProps } from 'next';
@@ -181,7 +182,9 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
             'leaders-in-animal-protection-brooke-haggerty',
           ]}
         />
+        <GrantProgram />
         {/* <CommunityGrowth /> */}
+        <Playground />
         <AnimatedVideos />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
@@ -199,7 +202,6 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
         <AdvisoryService />
         <ByTheNumbers />
         {/* IdeaBoard */}
-        <Playground />
         <MovingForward />
       </div>
     </>
