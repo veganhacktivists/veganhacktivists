@@ -11,7 +11,7 @@ const VerifyRequest: NextPage = () => {
       <h1 className="mt-8 text-3xl font-bold">Check your email</h1>
 
       <div className="mt-4 text-xl">
-        A sign in link has been sent to your email address.
+        A link has been sent to your email address.
       </div>
       <div>
         <DarkButton
