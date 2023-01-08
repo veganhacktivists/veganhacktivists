@@ -35,7 +35,7 @@ const GrantProgram: React.FC = () => {
             },
           ]}
         />
-        <div className="flex flex-row flex-wrap pb-20 bg-grey-background">
+        <div className="flex flex-row flex-wrap bg-grey-background">
           <div className="w-full md:w-1/2 bg-grey-background pl-5">
             <div className="xl:w-2/3 ml-auto py-20">
               <div className="pr-5 xl:pr-20">

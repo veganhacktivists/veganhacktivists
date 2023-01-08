@@ -184,6 +184,7 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
         />
         <GrantProgram />
         {/* <CommunityGrowth /> */}
+        <Playground />
         <AnimatedVideos />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
@@ -201,7 +202,6 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
         <AdvisoryService />
         <ByTheNumbers />
         {/* IdeaBoard */}
-        <Playground />
         <MovingForward />
       </div>
     </>
