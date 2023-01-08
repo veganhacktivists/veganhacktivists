@@ -5,7 +5,6 @@ import Hero from '../../components/decoration/hero';
 import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
 import MoreEffectiveTeams from '../../components/layout/yearInReview/2022/moreEffectiveTeams';
 import CommunityGrowth from '../../components/layout/yearInReview/2022/communityGrowth';
-import AnimatedVideos from '../../components/layout/yearInReview/2022/animatedVideos';
 import Intro from '../../components/layout/yearInReview/2022/intro';
 import heroBackground from '../../../public/images/yearInReview/2022/2022-hero.jpg';
 import heroTagline from '../../../public/images/yearInReview/2022/2022-type.png';
@@ -22,6 +21,7 @@ import NewsletterLaunch from '../../components/layout/yearInReview/2022/newslett
 import AdvisoryService from '../../components/layout/yearInReview/2022/advisoryService';
 import ByTheNumbers from '../../components/layout/yearInReview/2022/byTheNumbers';
 import Playground from '../../components/layout/yearInReview/2022/playground';
+import NewVideos from '../../components/layout/yearInReview/2022/newVideos';
 import MovingForward from '../../components/layout/yearInReview/2022/movingForward';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 
@@ -185,7 +185,7 @@ const YearInReview2022: React.FC<YearInReviewProps> = ({
         <GrantProgram />
         {/* <CommunityGrowth /> */}
         <Playground />
-        <AnimatedVideos />
+        <NewVideos />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
         <FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
