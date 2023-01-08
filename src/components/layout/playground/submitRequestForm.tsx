@@ -122,6 +122,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         | 'category'
         | 'description'
         | 'estimatedTimeDays'
+        | 'neededVolunteers'
       >;
       const requestData: RequestFormData = {
         ...request,
@@ -429,7 +430,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           />
         </div>
         <TextInput
-          className="w-full col-span-full"
+          className="lg:col-span-4 w-full col-span-full"
           placeholder="Communication, ..."
           {...myRegister('requiredSkills', {
             required: 'Please select the skills required for the request',
@@ -442,6 +443,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             </p>
             <p className="font-thin">(separate by comma)</p>
           </div>
+        </TextInput>
+        <TextInput
+          placeholder="Volunteer amount"
+          showRequiredMark
+          className="lg:col-span-2 col-span-full"
+          type="number"
+          inputMode="numeric"
+          min={1}
+          defaultValue={1}
+          {...myRegister('neededVolunteers', { valueAsNumber: true })}
+          error={errors.neededVolunteers?.message}
+        >
+          Volunteers required
         </TextInput>
         <div className="lg:col-span-2 col-span-full">
           <Label name="isFree" showRequiredMark>

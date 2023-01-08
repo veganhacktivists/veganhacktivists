@@ -21,6 +21,7 @@ import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
   request: trpc['playground']['getAllRequests']['output'][number];
+  disabled?: boolean;
 }
 
 const Li: React.FC<
@@ -65,7 +66,9 @@ const PlaygroundRequestCard: React.FC<
     budget,
     dueDate,
     status,
+    neededVolunteers,
   },
+  disabled = false,
   children,
 }) => {
   const [timeSinceCreated] = useMemo(
@@ -134,14 +137,30 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
-            <Li
-              title={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
-              name={`${hasNoDue ? 'Due Date' : timeUntilDue ? (isDue ? 'Was due' : 'Due in') : 'Due'}`}
-              category={category}
-            >
-              {hasNoDue ? 'None' : timeUntilDue}
-              {!hasNoDue ? (timeUntilDue ? (isDue ? ' ago' : '') : 'Today') : ''}
-            </Li>
+          <Li
+            title={`${
+              hasNoDue
+                ? 'Due Date'
+                : timeUntilDue
+                ? isDue
+                  ? 'Was due'
+                  : 'Due in'
+                : 'Due'
+            }`}
+            name={`${
+              hasNoDue
+                ? 'Due Date'
+                : timeUntilDue
+                ? isDue
+                  ? 'Was due'
+                  : 'Due in'
+                : 'Due'
+            }`}
+            category={category}
+          >
+            {hasNoDue ? 'None' : timeUntilDue}
+            {!hasNoDue ? (timeUntilDue ? (isDue ? ' ago' : '') : 'Today') : ''}
+          </Li>
           <Li
             name="Organization"
             title={organization || undefined}
@@ -156,6 +175,15 @@ const PlaygroundRequestCard: React.FC<
           >
             {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
+          {session?.user?.role === 'Admin' && (
+            <Li
+              name="Needed volunteers"
+              title={`${neededVolunteers ?? '1'}`}
+              category={category}
+            >
+              {`${neededVolunteers ?? '1'}`}
+            </Li>
+          )}
         </ul>
         <div
           className={`${
@@ -172,6 +200,7 @@ const PlaygroundRequestCard: React.FC<
             className={`text-center text-md flex-grow ${
               canEdit ? 'w-1/2' : ''
             }`}
+            disabled={disabled}
           >
             {`Read more${
               session?.user?.role !== 'Admin' &&
@@ -187,6 +216,7 @@ const PlaygroundRequestCard: React.FC<
                 query: { id },
               }}
               className="flex-grow w-1/2 text-md text-center"
+              disabled={disabled}
             >
               Edit request
             </GreyButton>
