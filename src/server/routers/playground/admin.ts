@@ -5,6 +5,7 @@ import {
   deleteRequest,
   getPendingApplications,
   getRequests,
+  repostRequest,
   setApplicationStatus,
   setRequestStatus,
 } from 'lib/services/playground/admin';
@@ -12,6 +13,7 @@ import {
   deleteRequestSchema,
   getPendingApplicationsSchema,
   getRequestsAdminSchema,
+  repostRequestSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
 } from 'lib/services/playground/schemas';
@@ -55,6 +57,12 @@ const adminRouter = t.router({
     .mutation(async ({ input }) => {
       const request = await setRequestStatus(input);
 
+      return request;
+    }),
+  repostRequest: adminProcedure
+    .input(repostRequestSchema)
+    .mutation(async ({ input }) => {
+      const request = await repostRequest(input);
       return request;
     }),
 
