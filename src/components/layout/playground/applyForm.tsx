@@ -588,6 +588,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <ConfirmationModal isOpen={isSuccess} type="application" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
+        type="application"
         onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify
