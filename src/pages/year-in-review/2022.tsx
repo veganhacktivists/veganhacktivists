@@ -74,6 +74,7 @@ const YearInReview2022: React.FC = ({}) => {
         <Playground />
         <NewVideos />
         <AnimalRightsAdvocates />
+        <ByTheNumbers />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
         {/*<FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
@@ -88,7 +89,6 @@ const YearInReview2022: React.FC = ({}) => {
         <Partnerships />
         <NewsletterLaunch />
         <AdvisoryService />
-        <ByTheNumbers />
         {/* IdeaBoard */}
         <MovingForward />
       </div>

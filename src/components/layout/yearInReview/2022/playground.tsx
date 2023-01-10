@@ -1,6 +1,5 @@
 import React from 'react';
 
-import SectionContainer from '../sectionContainer';
 import PlaygroundImage from '../../../../../public/images/yearInReview/2022/playground.png';
 import PlaygroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.png';
 
@@ -16,7 +15,7 @@ const Playground: React.FC = () => {
           { top: 0, left: 0, color: 'grey', size: 16 },
         ]}
       />
-      <SectionContainer className="pb-0" color="grey-dark">
+      <div className="bg-grey-dark pt-20 px-5">
         <div className="flex flex-row flex-wrap-reverse">
           <div className="w-full md:w-1/2">
             <div className="flex xl:w-2/3 ml-auto md:pr-20 justify-center md:justify-left">
@@ -57,7 +56,7 @@ const Playground: React.FC = () => {
             </div>
           </div>
         </div>
-      </SectionContainer>
+      </div>
     </>
   );
 };
