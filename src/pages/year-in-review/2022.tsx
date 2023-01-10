@@ -21,6 +21,7 @@ import { FirstSubSection } from '../../components/decoration/textBlocks';
 import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInterviews';
 import GrantProgram from 'components/layout/yearInReview/2022/grantProgram';
 import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRightsAdvocates';
+import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
 
 const YearInReview2022: React.FC = ({}) => {
   return (
@@ -75,6 +76,7 @@ const YearInReview2022: React.FC = ({}) => {
         <NewVideos />
         <AnimalRightsAdvocates />
         <ByTheNumbers />
+        <StateOfData />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
         {/*<FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />

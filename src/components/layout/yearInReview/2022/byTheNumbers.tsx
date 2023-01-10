@@ -34,7 +34,7 @@ const ByTheNumbers: React.FC = () => {
         <div className="flex justify-center pb-10">
           <CustomImage alt="" src={NumberImage} />
         </div>
-        <span className="text-6xl font-bold">By the numbers</span>
+        <span className="text-6xl font-bold font-mono">By the numbers</span>
         <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pt-20 pb-10">
           <Number
             number={
