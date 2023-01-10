@@ -3,8 +3,9 @@ import Link from 'next/link';
 import React from 'react';
 
 import AnimatedNumber from '../../../decoration/animatedNumber';
-import { SectionHeader } from '../../../decoration/textBlocks';
-import SectionContainer from '../sectionContainer';
+import NumberImage from '../../../../../public/images/yearInReview/2022/numbers.png';
+
+import CustomImage from 'components/decoration/customImage';
 
 interface NumberProps extends React.PropsWithChildren {
   number: React.ReactNode;
@@ -29,12 +30,12 @@ const Number: React.FC<NumberProps> = ({
 const ByTheNumbers: React.FC = () => {
   return (
     <>
-      <SectionContainer
-        className="text-white uppercase"
-        color="grey-darker"
-        header={<SectionHeader header="By the numbers" startWithBoldFont />}
-      >
-        <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pb-10">
+      <div className="text-white uppercase pb-20 bg-black pt-20 px-5">
+        <div className="flex justify-center pb-10">
+          <CustomImage alt="" src={NumberImage} />
+        </div>
+        <span className="text-6xl font-bold font-mono">By the numbers</span>
+        <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pt-20 pb-10">
           <Number
             number={
               <AnimatedNumber
@@ -71,7 +72,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={500000} className="text-green" approx />
               }
             >
-              Unique page visits for <b>Vegan Bootcamp</b>
+              Unique page visits for <b>veganbootcamp.org</b>
             </Number>
 
             <Number
@@ -79,7 +80,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={21000} className="text-yellow" approx />
               }
             >
-              Total sign ups for <b>Vegan Bootcamp</b>
+              Total sign ups for <b>veganbootcamp.org</b>
             </Number>
             <Number
               number={
@@ -93,7 +94,7 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={134} className="text-yellow" approx />
               }
             >
-              New resources added to <b>Vegan Cheat Sheet</b>
+              New resources added to <b>vegancheatsheet.org</b>
             </Number>
 
             <Number
@@ -105,7 +106,7 @@ const ByTheNumbers: React.FC = () => {
                 />
               }
             >
-              Groups added to <b>Animal Rights Map</b>
+              Groups added to <b>animalrightsmap.org</b>
             </Number>
             <Number
               number={
@@ -116,7 +117,7 @@ const ByTheNumbers: React.FC = () => {
                 />
               }
             >
-              New comments made by our <b>Reddit bot</b>
+              New comments made by <b>our Reddit bot</b>
             </Number>
             <Number
               number={
@@ -135,14 +136,14 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={28} className="text-orange" approx />
               }
             >
-              <b>New blog posts</b> from our content team
+              <b>New blog posts</b> from our comms team
             </Number>
             <Number
               number={
                 <AnimatedNumber number={29} className="text-orange" approx />
               }
             >
-              <b>Grants requested</b> of us within the first 45 days
+              <b>Grants requested</b> from us within the first 45 days
             </Number>
             {/* <Number
               number={
@@ -153,7 +154,7 @@ const ByTheNumbers: React.FC = () => {
             </Number> */}
           </div>
         </div>
-      </SectionContainer>
+      </div>
     </>
   );
 };
