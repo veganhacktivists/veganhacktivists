@@ -10,8 +10,8 @@ const MovingForward: React.FC = () => {
       <SquareField
         className="hidden md:block"
         squares={[
-          { color: 'grey-light', left: 0, bottom: 0 },
-          { color: 'grey-light', right: 0, top: 0 },
+          { color: 'grey-dark', left: 0, bottom: 0 },
+          { color: 'grey-background', right: 0, top: 0 },
         ]}
       />
       <SectionContainer color="grey-darker" className="text-white">

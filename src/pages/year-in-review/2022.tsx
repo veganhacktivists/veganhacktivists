@@ -18,6 +18,7 @@ import NewVideos from '../../components/layout/yearInReview/2022/newVideos';
 import MovingForward from '../../components/layout/yearInReview/2022/movingForward';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 
+import SharingKnowledgeAndSupport from 'components/layout/yearInReview/2022/sharingKnowledgeAndSupport';
 import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInterviews';
 import GrantProgram from 'components/layout/yearInReview/2022/grantProgram';
 import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRightsAdvocates';
@@ -92,6 +93,7 @@ const YearInReview2022: React.FC = ({}) => {
         <NewsletterLaunch />
         <AdvisoryService />
         {/* IdeaBoard */}
+        <SharingKnowledgeAndSupport />
         <MovingForward />
       </div>
     </>
