@@ -8,6 +8,7 @@ import GrantFunded from '../../../../../public/images/yearInReview/2022/grant-fu
 import { SectionHeader } from 'components/decoration/textBlocks';
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
+import AnimatedNumber from 'components/decoration/animatedNumber';
 
 const GrantProgram: React.FC = () => {
   return (
@@ -69,7 +70,7 @@ const GrantProgram: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">
                   <span className="block text-8xl font-bold leading-[0.7]">
-                    97
+                    <AnimatedNumber number={97} />
                   </span>
                   <span className="text-3xl leading-[1.25rem]">Applicants</span>
                 </div>
@@ -80,7 +81,7 @@ const GrantProgram: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">
                   <span className="block text-8xl font-bold leading-[0.7]">
-                    $54,386
+                    <AnimatedNumber prefix="$" number={54386} />
                   </span>
                   <span className="text-3xl leading-[1.25rem]">Granted</span>
                 </div>
@@ -91,7 +92,7 @@ const GrantProgram: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">
                   <span className="block text-8xl font-bold leading-[0.7]">
-                    36
+                    <AnimatedNumber number={36} />
                   </span>
                   <span className="text-3xl leading-[1.25rem]">Funded</span>
                 </div>
