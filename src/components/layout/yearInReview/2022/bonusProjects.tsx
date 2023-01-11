@@ -36,7 +36,7 @@ const BonusProjects: React.FC = () => {
           <div className="xl:w-2/3 mx-auto mt-10">
             <div className="flex flex-col md:flex-row gap-10 lg:gap-20 pb-20">
               <div>
-                <div className="flex w-[420px] h-[420px] mx-auto md:mx-0">
+                <div className="flex md:w-[420px] md:h-[420px] max-w-[420px] max-h-[420px] mx-auto md:mx-0">
                   <CustomImage src={PitchFTA} alt="PitchFTA" />
                 </div>
               </div>
@@ -64,7 +64,7 @@ const BonusProjects: React.FC = () => {
             </div>
             <div className="flex flex-col md:flex-row gap-10 lg:gap-20">
               <div>
-                <div className="flex w-[420px] h-[420px] mx-auto md:mx-0">
+                <div className="flex md:w-[420px] max-w-[420px] max-h-[420px] md:h-[420px] mx-auto md:mx-0">
                   <CustomImage
                     src={WildAnimalSuffering}
                     alt="WildAnimalSuffering"
