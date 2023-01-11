@@ -9,44 +9,60 @@ interface Change {
 
 const changes: Change[] = [
   {
-    icon: '🍎',
-    text: 'Created guidelines around brand, design, and content',
-  },
-  {
-    icon: '🥝',
-    text: 'Incorporated new technologies including Docker, LaravelShift, Vue, Tailwind, React, Svelte, and more.',
-  },
-  {
-    icon: '🌽',
-    text: 'Introduced a system to collect regular feedback from our advisory board',
-  },
-  {
-    icon: '🥔',
-    text: 'Added three new courses to Vegan Bootcamp',
-  },
-  {
-    icon: '🌶️',
-    text: 'Streamlined our volunteer application process',
-  },
-  {
     icon: '🥒',
-    text: 'Presented Vegan Linguists at 2021 Animal Advocacy Conference Asia',
+    text: 'Designed a new UX process that drives project ideation from start to finish',
+  },
+  {
+    icon: '🍎',
+    text: 'Featured in interviews  by Our Hen House, Animal Justice Academy, and Vegan FTA',
   },
   {
     icon: '🍊',
-    text: 'Launched a community voting channel on our Discord server',
+    text: 'Participated in LEAD Conference, and presented at CARE Conference and AVA Summit',
   },
   {
-    icon: '🍋',
-    text: 'Leveraged external platforms, such as Reddit and Twitter, to promote our services',
+    icon: '🥦',
+    text: 'Utilized and launched a machine learning and artificial intelligence project',
+  },
+  {
+    icon: '🥥',
+    text: 'Created a Communications team that handles our content, social, and marketing strategy',
   },
   {
     icon: '🍍',
-    text: 'Added localization to projects for more accurate and clearer translations',
+    text: 'Expanded our services to support design requests (logo, branding, and identity)',
   },
   {
-    icon: '🍐',
-    text: 'Started hosting weekly office hours for our team to chat, work, and play',
+    icon: '🍇',
+    text: 'Created an animation team to showcase our work and as a service to others in the movement',
+  },
+  {
+    icon: '🍠',
+    text: 'Collaborated with various Reddit communities to prominently feature WatchDominion.org',
+  },
+  {
+    icon: '🍑',
+    text: 'Developed a DevOps team to manage our servers and technical infrastructure',
+  },
+  {
+    icon: '🥝',
+    text: 'Launched two new blog series, Leaders in Animal Protection and Byte Size',
+  },
+  {
+    icon: '🥬',
+    text: 'Created specialized roles, both among our core team and for platforms like Squarespace and Wordpress',
+  },
+  {
+    icon: '🌽',
+    text: 'Designed a book for Sentient Media and formed a partnership with its programs',
+  },
+  {
+    icon: '🌶️ ',
+    text: 'Connected Faunalytics, We Animals Media, Black Veg Society, and other organizations with volunteers',
+  },
+  {
+    icon: '🥔',
+    text: 'Welcomed new advisors, Andrea Gunn and Christopher Eubanks, to our advisory board',
   },
 ];
 
@@ -54,12 +70,7 @@ const MinorChangesBigImpact: React.FC = () => {
   return (
     <>
       <SquareField
-        squares={[
-          { color: 'black', size: 16, left: 0, bottom: 0 },
-          { color: 'grey', size: 16, left: 0, top: 0 },
-          { color: 'grey-light', size: 16, right: 0, bottom: 0 },
-          { color: 'grey', size: 16, right: 0, top: 0 },
-        ]}
+        squares={[{ color: 'grey', size: 16, right: 0, bottom: 0 }]}
         className="hidden md:block"
       />
       <SectionContainer
@@ -67,16 +78,19 @@ const MinorChangesBigImpact: React.FC = () => {
         color="grey-dark"
         className="text-white"
         header={
-          <SectionHeader header={['Minor changes with a', 'big impact']} />
+          <SectionHeader
+            newDesign={true}
+            header={['Minor changes with', 'big impact']}
+          />
         }
       >
-        <div className="mx-auto text-2xl md:w-2/3 space-y-3 mb-10">
+        <div className="mx-auto text-2xl md:w-2/3 space-y-3 mt-20 mb-20">
           {changes.map(({ icon, text }) => (
             <div
               key={icon}
-              className="flex flex-col md:flex-row gap-x-10 w-full justify-start"
+              className="flex flex-col md:flex-row gap-x-2 w-full justify-start"
             >
-              <div className="text-4xl">{icon}</div>
+              <div className="text-3xl">{icon}</div>
               <div className="md:text-left">{text}</div>
             </div>
           ))}
