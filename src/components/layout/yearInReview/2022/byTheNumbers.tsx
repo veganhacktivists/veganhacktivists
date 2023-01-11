@@ -40,110 +40,121 @@ const ByTheNumbers: React.FC = () => {
             number={
               <AnimatedNumber
                 className="text-7xl md:text-9xl text-magenta"
-                number={3e6}
-                approx
+                number={132800}
+                prefix="$"
               />
             }
           >
-            <b>Total unique page views</b> for all projects
+            <b>Total amount fundraised</b> for operational expenses
           </Number>
           <div className="flex flex-col md:flex-row flex-wrap mt-5">
             <Number
-              number={
-                <AnimatedNumber number={13100} className="text-green" approx />
-              }
+              number={<AnimatedNumber number={56623} className="text-green" />}
             >
-              Tweets by our <b>5 Minutes 5 Vegans</b> support bot
+              Emails successfully sent across all <b>newsletters</b>
             </Number>
             <Number
+              number={<AnimatedNumber number={2077} className="text-green" />}
+            >
+              Clicks from our newsletter <b>to our services</b>
+            </Number>
+            <Number
+              number={<AnimatedNumber number={2636} className="text-green" />}
+            >
+              <b>Volunteer applicants</b> for Vegan Hacktivists
+            </Number>
+
+            <Number
               number={
-                <AnimatedNumber number={93432} className="text-green" approx />
+                <AnimatedNumber number={133060} className="text-yellow" />
               }
             >
-              Clicks directing activists to orgs{' '}
-              <Link href="https://veganactivism.org">
+              Visitors to{' '}
+              <Link href="https://watchdominion.org">
                 <a>
-                  <b>veganactivism.org</b>
+                  <b>watchdominion.org</b>
+                </a>
+              </Link>
+            </Number>
+            <Number
+              number={<AnimatedNumber number={812} className="text-yellow" />}
+            >
+              Translators signed up on{' '}
+              <Link href="https://veganlinguists.org">
+                <a>
+                  <b>veganlinguists.org</b>
                 </a>
               </Link>
             </Number>
             <Number
               number={
-                <AnimatedNumber number={500000} className="text-green" approx />
+                <AnimatedNumber number={147382} className="text-yellow" />
               }
             >
-              Unique page visits for <b>veganbootcamp.org</b>
+              Words translated on{' '}
+              <Link href="https://veganlinguists.org">
+                <a>
+                  <b>veganlinguists.org</b>
+                </a>
+              </Link>
             </Number>
 
             <Number
               number={
-                <AnimatedNumber number={21000} className="text-yellow" approx />
+                <AnimatedNumber number={10823} className="text-orange-light" />
               }
             >
-              Total sign ups for <b>veganbootcamp.org</b>
+              Courses completed on{' '}
+              <Link href="https://veganbootcamp.org">
+                <a>
+                  <b>veganbootcamp.org</b>
+                </a>
+              </Link>
             </Number>
             <Number
               number={
-                <AnimatedNumber number={625} className="text-yellow" approx />
+                <AnimatedNumber number={18102} className="text-orange-light" />
               }
             >
-              New grassroots groups on <b>Activist Hub</b>
+              Users signed up on{' '}
+              <Link href="https://veganbootcamp.org">
+                <a>
+                  <b>veganbootcamp.org</b>
+                </a>
+              </Link>
             </Number>
             <Number
               number={
-                <AnimatedNumber number={134} className="text-yellow" approx />
+                <AnimatedNumber number={3025} className="text-orange-light" />
               }
             >
-              New resources added to <b>vegancheatsheet.org</b>
-            </Number>
-
-            <Number
-              number={
-                <AnimatedNumber
-                  number={95}
-                  className="text-orange-light"
-                  approx
-                />
-              }
-            >
-              Groups added to <b>animalrightsmap.org</b>
-            </Number>
-            <Number
-              number={
-                <AnimatedNumber
-                  number={103000}
-                  className="text-orange-light"
-                  approx
-                />
-              }
-            >
-              New comments made by <b>our Reddit bot</b>
-            </Number>
-            <Number
-              number={
-                <AnimatedNumber
-                  number={40}
-                  className="text-orange-light"
-                  approx
-                />
-              }
-            >
-              <b>New team members</b> have joined us
+              Activists signed up on{' '}
+              <Link href="https://activisthub.org">
+                <a>
+                  <b>activisthub.org</b>
+                </a>
+              </Link>
             </Number>
 
             <Number
-              number={
-                <AnimatedNumber number={28} className="text-orange" approx />
-              }
+              number={<AnimatedNumber number={754} className="text-orange" />}
             >
-              <b>New blog posts</b> from our comms team
+              Global events launched on{' '}
+              <Link href="https://activisthub.org">
+                <a>
+                  <b>activisthub.org</b>
+                </a>
+              </Link>
             </Number>
             <Number
-              number={
-                <AnimatedNumber number={29} className="text-orange" approx />
-              }
+              number={<AnimatedNumber number={15008} className="text-orange" />}
             >
-              <b>Grants requested</b> from us within the first 45 days
+              Actions performed by activists on{' '}
+              <Link href="https://activisthub.org">
+                <a>
+                  <b>activisthub.org</b>
+                </a>
+              </Link>
             </Number>
             {/* <Number
               number={
