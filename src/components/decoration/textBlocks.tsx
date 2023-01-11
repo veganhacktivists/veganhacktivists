@@ -50,8 +50,9 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   children,
   ...props
 }) => {
-  const boldClasses = 'text-5xl md:text-6xl font-mono font-semibold uppercase';
-  const italicClasses = `font-serif italic text-4xl ${
+  const boldClasses =
+    'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1 ';
+  const italicClasses = `font-serif italic text-4xl mx-1 ${
     newDesign ? 'font-bold' : ''
   }`;
   const alignClass = `text-${stackAlign}`;
