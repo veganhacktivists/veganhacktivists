@@ -70,7 +70,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
             </div>
             <div className="row-span-1 flex items-end xl:mb-[0.45rem]">
               <ImageWithCaption
-                bgColor="yellow"
+                bgColor="green"
                 image={james}
                 caption={'James Morgan at AVA Summit'}
                 subcaption={'Tech Innovation in Animal Protection'}
