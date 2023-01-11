@@ -97,9 +97,8 @@ export const verifyRequestEmail = (url: string, textonly = false) => {
   }
   const body = `
     <mj-text font-weight="bold">Hey there!</mj-text>
-    <mj-text>You're almost done!<br>To verify your request, please click here:</mj-text>
+    <mj-text>To complete the request, please verify your email address.<br/>You can do so by clicking on the button below:</mj-text>
     <mj-button href="${url}">Click to verify</mj-button>
-    <mj-text>Otherwise you can safely ignore this mail.</mj-texta>
   `;
   return mjml2html(mail(body)).html ?? '';
 };
