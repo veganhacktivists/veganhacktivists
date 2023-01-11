@@ -22,6 +22,7 @@ import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInte
 import GrantProgram from 'components/layout/yearInReview/2022/grantProgram';
 import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRightsAdvocates';
 import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
+import BonusProjects from 'components/layout/yearInReview/2022/bonusProjects';
 
 const YearInReview2022: React.FC = ({}) => {
   return (
@@ -77,6 +78,7 @@ const YearInReview2022: React.FC = ({}) => {
         <AnimalRightsAdvocates />
         <ByTheNumbers />
         <StateOfData />
+        <BonusProjects />
         <MinorChangesBigImpact />
         <DesignsForVeganOrgs />
         {/*<FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
