@@ -97,11 +97,7 @@ const MinorChangesBigImpact: React.FC = () => {
         </div>
       </SectionContainer>
       <SquareField
-        squares={[
-          { color: 'grey', size: 16, left: 0, top: 0 },
-          { color: 'grey-lighter', size: 16, right: 0, bottom: 0 },
-          { color: 'grey', size: 16, right: 0, top: 0 },
-        ]}
+        squares={[{ color: 'grey', size: 16, left: 0, top: 0 }]}
         className="hidden md:block"
       />
     </>

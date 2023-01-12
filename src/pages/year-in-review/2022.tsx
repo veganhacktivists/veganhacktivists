@@ -76,6 +76,7 @@ const YearInReview2022: React.FC = ({}) => {
         <StateOfData />
         <BonusProjects />
         <MinorChangesBigImpact />
+        <SharingKnowledgeAndSupport />
         <MovingForward />
       </div>
     </>

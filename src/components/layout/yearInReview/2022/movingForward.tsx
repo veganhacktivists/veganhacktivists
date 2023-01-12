@@ -1,8 +1,10 @@
-import { LightButton } from '../../../decoration/buttons';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
 import SquareField from '../../../decoration/squares';
 import { pixelPig } from '../../../../images/separators';
+import Sprite, { goat } from '../../../decoration/sprite';
+
+import { DarkButton } from 'components/decoration/buttons';
 
 const MovingForward: React.FC = () => {
   return (
@@ -10,12 +12,13 @@ const MovingForward: React.FC = () => {
       <SquareField
         className="hidden md:block"
         squares={[
-          { color: 'grey-dark', left: 0, bottom: 0 },
-          { color: 'grey-background', right: 0, top: 0 },
+          { color: 'white', left: 0, top: 0 },
+          { color: 'white', right: 0, top: 0 },
+          { color: 'grey-background', right: 0, bottom: 0 },
         ]}
       />
-      <SectionContainer color="grey-darker" className="text-white">
-        <div className="text-center md:w-3/4 mx-auto space-y-5">
+      <SectionContainer color="grey-background">
+        <div className="text-center text-xl md:w-3/4 pb-10 mx-auto space-y-5">
           <div>
             <div className="w-24 mx-auto mb-6">
               <CustomImage src={pixelPig} alt="" />
@@ -40,12 +43,15 @@ const MovingForward: React.FC = () => {
             with all of you.
           </p>
           <div className="w-min mx-auto pt-10 pb-10">
-            <LightButton href="/support" className="w-min px-5">
+            <DarkButton href="/support" className="w-min px-5">
               Support our work
-            </LightButton>
+            </DarkButton>
           </div>
         </div>
       </SectionContainer>
+      <div className="relative">
+        <Sprite image={goat} pixelsLeft={1} pixelsRight={1} />
+      </div>
     </>
   );
 };
