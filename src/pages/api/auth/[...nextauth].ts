@@ -21,17 +21,16 @@ const sendVerificationRequest = async (
   const { searchParams } = new URL(url);
   // the current url
   const callbackUrl = searchParams.get('callbackUrl');
+  const getMailBody = callbackUrl?.includes('signin')
+    ? verificationMail
+    : verifyRequestEmail;
 
   await emailClient.sendMail({
     to: identifier,
     from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
-    text: callbackUrl?.includes('signin')
-      ? verificationMail(url, true)
-      : verifyRequestEmail(url, true),
-    html: callbackUrl?.includes('signin')
-      ? verificationMail(url)
-      : verifyRequestEmail(url),
+    text: getMailBody(url, true),
+    html: getMailBody(url),
   });
 };
 
