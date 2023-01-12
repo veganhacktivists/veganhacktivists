@@ -26,7 +26,7 @@ const resolver = zodResolver(signInSchema);
 
 const SignInPrompt: React.FC<SignInPromptProps> = ({
   email,
-  type = 'application',
+  type,
   isOpen,
   onClose,
   submitOnVerify = false,
