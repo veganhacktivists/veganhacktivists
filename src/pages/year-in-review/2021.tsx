@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async () => {
       getContents<ITagFields>({
         contentType: 'tag',
         query: {
-          slug: 'meet-the-team',
+          slug: 'our-team',
         },
       }),
     ]);
