@@ -7,6 +7,7 @@ import ARADiscord from '../../../../../public/images/yearInReview/2022/ara-disco
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
+import { LightButton } from 'components/decoration/buttons';
 
 const AnimalRightsAdvocates: React.FC = () => {
   return (
@@ -61,6 +62,14 @@ const AnimalRightsAdvocates: React.FC = () => {
                 intersectionality, feminism, diversity, trans rights, and more
                 – a space where everyone is welcome.
               </span>
+              <div className="flex flex-col sm:flex-row justify-start md:justify-left mt-7 gap-10">
+                <LightButton href="https://discord.gg/animalrights">
+                  Join the Community
+                </LightButton>
+                <LightButton href="https://www.aramovement.org/">
+                  Visit Website
+                </LightButton>
+              </div>
             </div>
           </div>
           <div className="md:pl-5 w-1/3 collapse md:visible">

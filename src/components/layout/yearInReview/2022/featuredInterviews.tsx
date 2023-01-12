@@ -7,6 +7,7 @@ import SubtleBorder from 'components/decoration/subtleBorder';
 import BlogEntrySummary from 'components/layout/blog/blogEntrySummary';
 import { trpc } from 'lib/client/trpc';
 import { DarkButton } from 'components/decoration/buttons';
+import Spinner from 'components/decoration/spinner';
 
 interface FeaturedInterviewsProps {
   interviews: string[];
@@ -15,7 +16,11 @@ interface FeaturedInterviewsProps {
 const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
   interviews,
 }) => {
-  const { data: blogs } = trpc.blog.getBlogsBySlugs.useQuery(interviews, {
+  const {
+    data: blogs,
+    isLoading,
+    isError,
+  } = trpc.blog.getBlogsBySlugs.useQuery(interviews, {
     keepPreviousData: true,
   });
   return (
@@ -31,8 +36,16 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
           stories, words of wisdom, and their openness and candor in sharing
           their experiences with us — and hope you are too.
         </div>
+        {isLoading && !isError && (
+          <div>
+            <span className="block mb-1">Loading</span>
+            <Spinner />
+          </div>
+        )}
         <div className="grid md:grid-cols-3 md:gap-x-12 gap-y-10 xl:w-2/3 mx-auto auto-rows-min pb-20">
-          {blogs &&
+          {!isLoading &&
+            !isError &&
+            blogs &&
             blogs.map((blog) => {
               return (
                 <SubtleBorder

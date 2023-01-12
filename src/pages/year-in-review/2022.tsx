@@ -8,10 +8,6 @@ import Intro from '../../components/layout/yearInReview/2022/intro';
 import heroBackground from '../../../public/images/yearInReview/2022/2022-hero.jpg';
 import heroTagline from '../../../public/images/yearInReview/2022/2022-type.png';
 import MinorChangesBigImpact from '../../components/layout/yearInReview/2022/minorChangesBigImpact';
-import DesignsForVeganOrgs from '../../components/layout/yearInReview/2022/designsForVeganOrgs';
-import Partnerships from '../../components/layout/yearInReview/2022/partnerships';
-import NewsletterLaunch from '../../components/layout/yearInReview/2022/newsletterLaunch';
-import AdvisoryService from '../../components/layout/yearInReview/2022/advisoryService';
 import ByTheNumbers from '../../components/layout/yearInReview/2022/byTheNumbers';
 import Playground from '../../components/layout/yearInReview/2022/playground';
 import NewVideos from '../../components/layout/yearInReview/2022/newVideos';
@@ -23,6 +19,7 @@ import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInte
 import GrantProgram from 'components/layout/yearInReview/2022/grantProgram';
 import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRightsAdvocates';
 import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
+import BonusProjects from 'components/layout/yearInReview/2022/bonusProjects';
 
 const YearInReview2022: React.FC = ({}) => {
   return (
@@ -72,28 +69,13 @@ const YearInReview2022: React.FC = ({}) => {
           ]}
         />
         <GrantProgram />
-        {/* <CommunityGrowth /> */}
         <Playground />
         <NewVideos />
         <AnimalRightsAdvocates />
         <ByTheNumbers />
         <StateOfData />
+        <BonusProjects />
         <MinorChangesBigImpact />
-        <DesignsForVeganOrgs />
-        {/*<FeaturedBlogPosts featuredBlogPosts={featuredBlogPosts} />
-        <FeaturedProjects projects={featuredProjects} />
-        <Rebrand
-          kate={
-            featuredBlogPosts.find(
-              (post) => post.member.fields.name === 'Kate Rodman'
-            ) as BlogPostItem
-          }
-        />*/}
-        <Partnerships />
-        <NewsletterLaunch />
-        <AdvisoryService />
-        {/* IdeaBoard */}
-        <SharingKnowledgeAndSupport />
         <MovingForward />
       </div>
     </>
