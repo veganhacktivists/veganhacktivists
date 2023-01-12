@@ -11,6 +11,7 @@ import duck from '../../../../public/images/animated/sprite_duck.gif';
 import chicks from '../../../../public/images/animated/sprite_chicks.gif';
 import fishg from '../../../../public/images/animated/sprite_fish_green.gif';
 import fishb from '../../../../public/images/animated/sprite_fish_blue.gif';
+import rooster from '../../../../public/images/animated/sprite_rooster.gif';
 import useWindowSize from '../../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
 import CustomImage from '../customImage';
@@ -118,6 +119,6 @@ const Sprite: React.FC<SpriteProps> = ({
   );
 };
 
-export { cow, chicken, sheep, pig, chicks, goat, duck, fishg, fishb };
+export { cow, chicken, sheep, pig, chicks, goat, duck, fishg, fishb, rooster };
 
 export default Sprite;
