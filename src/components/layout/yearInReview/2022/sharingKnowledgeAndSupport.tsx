@@ -23,10 +23,7 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
 }) => {
   return (
     <div className={'flex flex-col'}>
-      <CustomImage
-        src={image}
-        alt="Vegan Hacktivist team at the Animal & Vegan Advocacy Summit"
-      />
+      <CustomImage src={image} alt={caption} />
       <div
         className={'text-left flex-x-grow flex-x-shrink flex flex-col h-auto'}
       >
