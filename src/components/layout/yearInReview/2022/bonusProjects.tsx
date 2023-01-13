@@ -53,9 +53,7 @@ const BonusProjects: React.FC = () => {
                   games, attending events, and participating in a scavenger hunt
                   to find QR codes at the conference — to earn votes.
                 </span>
-                <span className="text-3xl block font-bold uppercase">
-                  Featured
-                </span>
+                <span className="text-2xl block font-bold">Featured</span>
                 <span className="text-xl block">2022 AVA Summit</span>
                 <DarkButton className="mt-5 mx-auto md:mx-0">
                   PitchFTA.org
@@ -84,9 +82,7 @@ const BonusProjects: React.FC = () => {
                   Animal Ethics, Wild Animal Initiative, Rethink Priorities, for
                   lending their expertise for this project.
                 </span>
-                <span className="text-3xl block font-bold uppercase">
-                  Featured
-                </span>
+                <span className="text-2xl block font-bold">Featured</span>
                 <span className="text-xl block">80,000 Hours Website</span>
                 <span className="text-xl block">
                   Effective Altruism Newsletter

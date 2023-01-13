@@ -149,7 +149,7 @@ const ByTheNumbers: React.FC = () => {
             <Number
               number={<AnimatedNumber number={15008} className="text-orange" />}
             >
-              Actions performed by activists on{' '}
+              Actions performed on{' '}
               <Link href="https://activisthub.org">
                 <a>
                   <b>activisthub.org</b>
