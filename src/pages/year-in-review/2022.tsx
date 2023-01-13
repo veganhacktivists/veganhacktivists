@@ -31,6 +31,7 @@ const YearInReview2022: React.FC = ({}) => {
           hero={
             <Hero
               imageBackground={heroBackground}
+              imageAlignment="right"
               tagline={{
                 image: heroTagline,
                 alt: '2022 year in review',

@@ -70,7 +70,8 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
                     className={classNames({
                       [italicClasses]: italics,
                       [boldClasses]: !italics,
-                      'block leading-loose': stackEntries,
+                      'block leading-11': stackEntries,
+                      'pt-2': stackEntries && !italics,
                       [alignClass]: stackEntries,
                     })}
                   >

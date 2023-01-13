@@ -28,9 +28,13 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
         className={'text-left flex-x-grow flex-x-shrink flex flex-col h-auto'}
       >
         <div className={`bg-${bgColor} items-center`}>
-          <div className="p-5">
-            <span className="font-bold block">{caption}</span>
-            <span className="italic">{subcaption}</span>
+          <div className="p-5 md:p-3 lg:p-5">
+            <span className="font-bold text-xl leading-5 md:text-lg md:leading-4 lg:text-xl lg:leading-5 block pb-2">
+              {caption}
+            </span>
+            <span className="italic text-lg leading-5 md:text-base md:leading-4 lg:text-lg lg:leading-5 block">
+              {subcaption}
+            </span>
           </div>
         </div>
       </div>
@@ -58,7 +62,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
         </div>
         <div className="xl:w-2/3 mx-auto mt-20">
           <div className="flex flex-col md:flex-row gap-5 pb-20">
-            <div className="flex flex-col flex-1 min-w-[29%] xl:min-w-[31%] gap-5 justify-between">
+            <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-5 justify-between">
               <div className="flex ">
                 <ImageWithCaption
                   bgColor="yellow"
