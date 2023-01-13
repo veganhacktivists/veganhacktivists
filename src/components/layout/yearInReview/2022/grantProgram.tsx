@@ -56,8 +56,9 @@ const GrantProgram: React.FC = () => {
                   2022 looked like for the program:
                 </div>
                 <div className="text-xl text-left p-5 bg-grey-lighter">
-                  Additionally, we&apos;ve facilitated another{' '}
-                  <b>$50,000 in recommended funding</b> to individuals.
+                  Additionally, our endorsement of individuals and organizations
+                  helped secure <b>$70,000 in recommended funding</b> through
+                  other programs to those recipients.
                 </div>
               </div>
             </div>
