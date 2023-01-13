@@ -1,7 +1,8 @@
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
-import { HighlightBlock } from '../highlightBlock';
+
+import { HighlightBlock } from './highlightBlock';
 
 import SquareField from 'components/decoration/squares';
 
@@ -66,7 +67,7 @@ const Intro: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
+        <div className="xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
           <div className="bg-grey-border bg-opacity-20 p-10 text-lg">
             Amounts are in USD. Due to the nature of volunteer work, such as
             location of volunteer / cost of living, experience, hours
@@ -119,9 +120,9 @@ const Intro: React.FC = () => {
           </HighlightBlock>
           <HighlightBlock
             borderColor="yellow"
-            headerStart="We expanded our"
-            headerBold="volunteer network"
-            headerEnd="to over 1500+ volunteers"
+            headerStart="We expanded our network by over"
+            headerBold="1500+ volunteers"
+            headerEnd=""
           >
             <b>Within our Playground community,</b> we&apos;ve been able to
             expand our network of volunteers to 1500+ strong utilizing skills
@@ -135,10 +136,10 @@ const Intro: React.FC = () => {
             headerEnd="in 2022"
           >
             <b>Beyond building technology,</b> we work hard to find and fill
-            gaps in our movement wherever we see them. This includes building
-            our internal projects, but also launching our research study,
-            participating and attending various international conferences, and
-            investing in the growth of communities in-person and online.
+            gaps in our movement. This not only includes building our projects,
+            but also launching our research study, participating in various
+            international conferences, and investing in the growth of
+            communities.
           </HighlightBlock>
         </div>
       </SectionContainer>

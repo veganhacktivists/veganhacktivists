@@ -79,11 +79,11 @@ const GrantsCallToAction: React.FC = () => {
         <Info
           image={impactReviewImage}
           boxicon={pixelFlower}
-          title="See our 2021 impact review"
+          title="See our 2022 impact review"
           backgroundColor="grey-over-background"
           button={{
             content: <>See&nbsp;our&nbsp;impact</>,
-            href: '/year-in-review/2021',
+            href: '/year-in-review/2022',
           }}
         >
           Read our annual impact review and see what we&apos;ve accomplished
