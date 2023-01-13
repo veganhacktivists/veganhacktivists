@@ -119,9 +119,9 @@ const Intro: React.FC = () => {
           </HighlightBlock>
           <HighlightBlock
             borderColor="yellow"
-            headerStart="We expanded our"
-            headerBold="volunteer network"
-            headerEnd="to over 1500+ volunteers"
+            headerStart="We expanded our network by over"
+            headerBold="1500+ volunteers"
+            headerEnd=""
           >
             <b>Within our Playground community,</b> we&apos;ve been able to
             expand our network of volunteers to 1500+ strong utilizing skills
