@@ -5,6 +5,7 @@ import PlaygroundLogo from '../../../../../public/images/playground/VH_Playgroun
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
+import { LightButton } from 'components/decoration/buttons';
 
 const Playground: React.FC = () => {
   return (
@@ -18,19 +19,19 @@ const Playground: React.FC = () => {
       <div className="bg-grey-dark pt-20 px-5">
         <div className="flex flex-row flex-wrap-reverse">
           <div className="w-full md:w-1/2">
-            <div className="flex xl:w-2/3 ml-auto md:pr-20 justify-center md:justify-left">
+            <div className="flex collapse w-0 2xl:visible 2xl:w-2/3 ml-auto md:pr-20 justify-center items-end h-full md:justify-left">
               <CustomImage
                 alt="VeganHacktivists Playground"
                 src={PlaygroundImage}
               />
             </div>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="xl:w-2/3">
+          <div className="w-full 2xl:w-1/2">
+            <div className="xl:mx-auto xl:w-2/3">
               <div className="flex pb-10">
                 <CustomImage alt="VH Playground Logo" src={PlaygroundLogo} />
               </div>
-              <div className="text-white text-left pb-10 md:pb-5">
+              <div className="text-white text-left">
                 <span className="block white text-6xl font-bold font-mono uppercase pb-5">
                   New & improved
                 </span>
@@ -52,6 +53,9 @@ const Playground: React.FC = () => {
                   also include data scientists, videographers, marketers,
                   security experts, researchers, and many more roles.
                 </span>
+                <div className="flex mt-10 pb-20">
+                  <LightButton href={'/playground'}>Get support</LightButton>
+                </div>
               </div>
             </div>
           </div>

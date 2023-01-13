@@ -49,7 +49,7 @@ const GrantProgram: React.FC = () => {
                   newDesign={true}
                   stackAlign="left"
                 />
-                <div className="text-xl text-left pt-5 pb-20">
+                <div className="text-xl text-left pt-5 pb-10">
                   Last year, we announced a partnership with{' '}
                   <b>The Pollination Project</b> to offer seed funding to
                   individuals and burgeoning organizations. Here&apos;s what
@@ -66,7 +66,7 @@ const GrantProgram: React.FC = () => {
           <div className="w-full md:w-1/2 bg-yellow pr-5">
             <div className="flex justify-center h-full flex-col gap-10 pl-5 xl:pl-20 py-20">
               <div className="flex flex-row sm:gap-10">
-                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-[115px] h-[115px] bg-yellow-dark">
+                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-0 sm:w-[115px] md:w-0 lg:w-[115px] h-[115px] bg-yellow-dark">
                   <CustomImage alt="grant applicants" src={GrantApplicants} />
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">
@@ -77,7 +77,7 @@ const GrantProgram: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-row sm:gap-10">
-                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-[115px] h-[115px] bg-yellow-dark">
+                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-0 sm:w-[115px] md:w-0 lg:w-[115px] h-[115px] bg-yellow-dark">
                   <CustomImage alt="grant granted" src={GrantGranted} />
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">
@@ -88,7 +88,7 @@ const GrantProgram: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-row sm:gap-10">
-                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-[115px] h-[115px] bg-yellow-dark">
+                <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-0 sm:w-[115px] md:w-0 lg:w-[115px] h-[115px] bg-yellow-dark">
                   <CustomImage alt="grant funded" src={GrantFunded} />
                 </div>
                 <div className="flex flex-col justify-evenly font-mono text-left">

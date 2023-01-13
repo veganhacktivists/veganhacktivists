@@ -55,9 +55,14 @@ const BonusProjects: React.FC = () => {
                 </span>
                 <span className="text-2xl block font-bold">Featured</span>
                 <span className="text-xl block">2022 AVA Summit</span>
-                <DarkButton className="mt-5 mx-auto md:mx-0">
-                  PitchFTA.org
-                </DarkButton>
+                <div className="flex">
+                  <DarkButton
+                    href="https://pitchfta.org"
+                    className="mt-5 mx-auto md:mx-0 !normal-case"
+                  >
+                    PitchFTA.org
+                  </DarkButton>
+                </div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row gap-10 lg:gap-20">
@@ -90,9 +95,14 @@ const BonusProjects: React.FC = () => {
                 <span className="text-xl block">
                   Animal Charity Evaluators Newsletter
                 </span>
-                <DarkButton className="mt-5 mx-auto md:mx-0">
-                  WildAnimalSuffering.org
-                </DarkButton>
+                <div className="flex">
+                  <DarkButton
+                    href="https://wildanimalsuffering.org"
+                    className="mt-5 mx-auto md:mx-0 !normal-case"
+                  >
+                    WildAnimalSuffering.org
+                  </DarkButton>
+                </div>
               </div>
             </div>
           </div>
