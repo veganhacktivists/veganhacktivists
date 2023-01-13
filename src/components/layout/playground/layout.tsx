@@ -10,6 +10,7 @@ import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
 import submitTagline from '../../../../public/images/playground/getsupport.svg';
 import volunteerTagline from '../../../../public/images/playground/volunteer.svg';
 import discord from '../../../../public/images/yearInReview/2021/discord.png';
+import animalAdvocacyCareers from '../../../../public/images/playground/animal-advocacy-careers.png';
 import SquareField from '../../decoration/squares';
 import checkmarkIcon from '../../../../public/images/playground/icons/checkmark.svg';
 import heartIcon from '../../../../public/images/playground/icons/heart.svg';
@@ -83,6 +84,48 @@ const PlaygroundLayout: Layout = ({ children }) => {
         />
       </div>
       {children}
+      <div className="py-10 px-5 md:px-0">
+        <div className="flex flex-col sm:flex-row flex-grow md:w-2/3 2xl:w-1/2 mx-auto gap-10">
+          <div className="w-full sm:w-1/2 flex flex-grow">
+            {/*<div className="flex flex-grow">
+                <div className="flex bg-orange-light flex-grow w-full p-10">
+                  <div className="w-full">
+                    <CustomImage alt="Animal Advocacy Careers" src={animalAdvocacyCareers}/>
+                  </div>
+                </div>
+              </div>*/}
+            <div className="relative w-full max-w-[500px]">
+              <SquareField
+                squares={[
+                  { color: 'orange-light', top: 0, right: 0, size: 10 },
+                ]}
+              />
+              <div className="bg-yellow-orange p-10 2xl:p-20">
+                <CustomImage
+                  layout="responsive"
+                  alt="Animal Advocacy Careers"
+                  src={animalAdvocacyCareers}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-full sm:w-1/2">
+            <div className="text-left">
+              <span className="block text-3xl font-bold font-mono pb-5">
+                Looking for a job or career in animal advocacy?
+              </span>
+              <span className="block text-xl">
+                Check out Animal Advocacy&apos;s job board which connects you to
+                exciting animal nonprofit jobs with high potential for helping
+                animals.
+              </span>
+              <div className="flex mt-5">
+                <DarkButton>Explore Careers</DarkButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <FaqSection
         design={
           router.pathname === '/playground/submit'
