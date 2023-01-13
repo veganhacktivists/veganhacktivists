@@ -58,7 +58,7 @@ const changes: Change[] = [
   },
   {
     icon: '🌶️ ',
-    text: 'Connected Faunalytics, We Animals Media, Black Veg Society, and other organizations with volunteers',
+    text: 'Connected Faunalytics, We Animals Media, Black Veg Society, and 20+ others with volunteers',
   },
   {
     icon: '🥔',
