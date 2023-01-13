@@ -135,10 +135,10 @@ const Intro: React.FC = () => {
             headerEnd="in 2022"
           >
             <b>Beyond building technology,</b> we work hard to find and fill
-            gaps in our movement wherever we see them. This includes building
-            our internal projects, but also launching our research study,
-            participating and attending various international conferences, and
-            investing in the growth of communities in-person and online.
+            gaps in our movement. This not only includes building our projects,
+            but also launching our research study, participating in various
+            international conferences, and investing in the growth of
+            communities.
           </HighlightBlock>
         </div>
       </SectionContainer>
