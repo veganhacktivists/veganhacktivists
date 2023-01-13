@@ -62,7 +62,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
         </div>
         <div className="xl:w-2/3 mx-auto mt-20">
           <div className="flex flex-col md:flex-row gap-5 pb-20">
-            <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] gap-5 md:gap-1 lg:gap-5 justify-between">
+            <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-5 justify-between">
               <div className="flex ">
                 <ImageWithCaption
                   bgColor="yellow"
