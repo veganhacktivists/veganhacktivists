@@ -84,7 +84,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
         />
       </div>
       {children}
-      <div className="py-10 px-5 md:px-0">
+      <div className="py-20 px-5 md:px-0">
         <div className="flex flex-col sm:flex-row flex-grow md:w-2/3 2xl:w-1/2 mx-auto gap-10">
           <div className="w-full sm:w-1/2 flex flex-grow">
             {/*<div className="flex flex-grow">

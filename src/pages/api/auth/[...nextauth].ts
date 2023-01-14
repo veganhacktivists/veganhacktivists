@@ -2,7 +2,10 @@ import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-import { verificationMail } from '../../../components/layout/mail/emailTemplates';
+import {
+  verificationMail,
+  verifyRequestEmail,
+} from '../../../components/layout/mail/emailTemplates';
 import { OUR_EMAIL_FROM_FORMATTED } from '../../../lib/mail/router';
 
 import emailClient from 'lib/mail';
@@ -15,13 +18,19 @@ const sendVerificationRequest = async (
   params: SendVerificationRequestParams
 ) => {
   const { identifier, url } = params;
-  const { host } = new URL(url);
+  const { searchParams } = new URL(url);
+  // the current url
+  const callbackUrl = searchParams.get('callbackUrl');
+  const getMailBody = callbackUrl?.includes('signin')
+    ? verificationMail
+    : verifyRequestEmail;
+
   await emailClient.sendMail({
     to: identifier,
     from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
-    text: verificationMail(url, true),
-    html: verificationMail(url),
+    text: getMailBody(url, true),
+    html: getMailBody(url),
   });
 };
 

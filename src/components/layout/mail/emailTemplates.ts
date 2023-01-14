@@ -8,6 +8,7 @@ const host =
     : 'localhost:3000';
 const url =
   process.env.NODE_ENV === 'production' ? 'https://' + host : 'http://' + host;
+
 const mail = (body: string) => {
   const header = `
     <mj-section background-color="#fff" padding="0px">
@@ -90,6 +91,18 @@ export const verificationMail = (url: string, textonly = false) => {
   return mjml2html(mail(body)).html ?? '';
 };
 
+export const verifyRequestEmail = (url: string, textonly = false) => {
+  if (textonly) {
+    return `Sign in to verify your request. ${host}\n${url}\n\n`;
+  }
+  const body = `
+    <mj-text font-weight="bold">Hey there!</mj-text>
+    <mj-text>To complete the request, please verify your email address.<br/>You can do so by clicking on the button below:</mj-text>
+    <mj-button href="${url}">Click to verify</mj-button>
+  `;
+  return mjml2html(mail(body)).html ?? '';
+};
+
 export const grantRequestEmail = (body: string, textonly = false) => {
   if (textonly) {
     return body;
@@ -100,6 +113,7 @@ export const grantRequestEmail = (body: string, textonly = false) => {
   `;
   return mjml2html(mail(html)).html ?? '';
 };
+
 export const contactUsEmail = (body: string, textonly = false) => {
   if (textonly) {
     return body;
