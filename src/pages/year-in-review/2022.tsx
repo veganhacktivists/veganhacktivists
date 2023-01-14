@@ -36,9 +36,9 @@ const YearInReview2022: React.FC = ({}) => {
                 image: heroTagline,
                 alt: '2022 year in review',
               }}
-              alignment="left"
+              alignment="right"
               classNameMapping={{
-                container: 'bg-center',
+                container: 'bg-center sm:justify-start',
               }}
             />
           }
