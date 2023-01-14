@@ -87,13 +87,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
       <div className="py-20 px-5 md:px-0">
         <div className="flex flex-col sm:flex-row flex-grow md:w-2/3 2xl:w-1/2 mx-auto gap-10">
           <div className="w-full sm:w-1/2 flex flex-grow">
-            {/*<div className="flex flex-grow">
-                <div className="flex bg-orange-light flex-grow w-full p-10">
-                  <div className="w-full">
-                    <CustomImage alt="Animal Advocacy Careers" src={animalAdvocacyCareers}/>
-                  </div>
-                </div>
-              </div>*/}
             <div className="relative w-full max-w-[500px]">
               <SquareField
                 squares={[
