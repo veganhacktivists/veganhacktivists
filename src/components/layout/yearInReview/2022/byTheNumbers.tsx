@@ -37,15 +37,9 @@ const ByTheNumbers: React.FC = () => {
         <span className="text-6xl font-bold font-mono">By the numbers</span>
         <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pt-20 pb-10">
           <Number
-            number={
-              <AnimatedNumber
-                className="text-7xl md:text-9xl text-magenta"
-                number={132800}
-                prefix="$"
-              />
-            }
+            number={<AnimatedNumber number={2636} className="text-magenta" />}
           >
-            <b>Total amount fundraised</b> for operational expenses
+            <b>Volunteer applicants</b> for Vegan Hacktivists
           </Number>
           <div className="flex flex-col md:flex-row flex-wrap mt-5">
             <Number
@@ -59,11 +53,10 @@ const ByTheNumbers: React.FC = () => {
               Clicks from our newsletter <b>to our services</b>
             </Number>
             <Number
-              number={<AnimatedNumber number={2636} className="text-green" />}
+              number={<AnimatedNumber number={147} className="text-green" />}
             >
-              <b>Volunteer applicants</b> for Vegan Hacktivists
+              <b>Organizations suppported</b> by Vegan Hacktivists
             </Number>
-
             <Number
               number={
                 <AnimatedNumber number={133060} className="text-yellow" />
