@@ -62,7 +62,7 @@ const AnimalRightsAdvocates: React.FC = () => {
                 intersectionality, feminism, diversity, trans rights, and more
                 – a space where everyone is welcome.
               </span>
-              <div className="flex flex-col sm:flex-row justify-start md:justify-left mt-7 gap-10">
+              <div className="flex flex-col sm:flex-row justify-start md:justify-left mt-12 gap-10">
                 <LightButton href="https://discord.gg/animalrights">
                   Join the Community
                 </LightButton>
