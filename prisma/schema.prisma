@@ -83,6 +83,17 @@ enum TimePerWeek {
   TenPlus
 }
 
+enum Source {
+  SearchEngine
+  Reddit
+  SocialMediaPost
+  Email
+  Podcast
+  WordOfMouth
+  WebsiteOrBlog
+  None
+}
+
 enum BudgetType {
   Fixed
   Hourly
@@ -104,6 +115,7 @@ model PlaygroundApplication {
   applicantId          String
   name                 String
   availableTimePerWeek TimePerWeek
+  source               Source?
   portfolioLink        String
   twitterUrl           String?
   instagramUrl         String?

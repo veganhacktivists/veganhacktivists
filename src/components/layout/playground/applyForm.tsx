@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole } from '@prisma/client';
+import { TimePerWeek, UserRole, Source } from '@prisma/client';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -39,6 +39,17 @@ export const TimePerWeekLabel: Record<TimePerWeek, string> = {
   ThreeToFive: '3-5 hours/week',
   FiveToEight: '5-8 hours/week',
   TenPlus: '10+ hours/week',
+};
+
+export const SourceLabel: Record<Source, string> = {
+  SearchEngine: 'Search engine',
+  Reddit: 'Reddit',
+  SocialMediaPost: 'Another social media',
+  Email: 'Email',
+  Podcast: 'Podcast',
+  WordOfMouth: 'Word of mouth',
+  WebsiteOrBlog: 'Another website or blog',
+  None: 'None of the above',
 };
 
 const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
@@ -533,6 +544,33 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 options={Object.keys(TimePerWeek).map((time) => ({
                   value: time,
                   label: TimePerWeekLabel[time as TimePerWeek],
+                }))}
+              />
+            )}
+          />
+        </div>
+        <div className="col-span-full">
+          <Label error={errors.source?.message} name="source">
+            Where did you hear about Playground?
+          </Label>
+          <Controller
+            name="source"
+            control={control}
+            render={({ field: { value, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  value ? { value: value, label: SourceLabel[value] } : null
+                }
+                onChange={(value) => {
+                  setFormData({
+                    source: value?.value as Source,
+                  });
+                  onChange(value ? value.value : null);
+                }}
+                options={Object.keys(Source).map((source) => ({
+                  value: source,
+                  label: SourceLabel[source as Source],
                 }))}
               />
             )}

@@ -5,6 +5,7 @@ import {
   PrismaClient,
   Status,
   TimePerWeek,
+  Source,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -111,6 +112,7 @@ const seedApplications = async (n: number = NUMBER) => {
             createdAt: faker.date.soon(2, request.createdAt),
             applicantId: user.id,
             availableTimePerWeek: faker.helpers.objectValue(TimePerWeek),
+            source: faker.helpers.objectValue(Source),
             requestId: request.id,
             hasAppliedInThePast: faker.datatype.boolean(),
             isVegan: faker.datatype.boolean(),
