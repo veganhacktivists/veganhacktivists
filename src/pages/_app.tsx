@@ -4,6 +4,7 @@ import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
+import { useIntl } from 'react-intl';
 
 import useOnce from '../hooks/useOnce';
 
@@ -22,6 +23,7 @@ import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
 import type { AppProps } from 'next/app';
 import type { Session } from 'next-auth';
+import type { IntlShape } from 'react-intl';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom') as ReactDOM;
@@ -40,15 +42,20 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | Vegan Hacktivists',
+const getSeo = (intl: IntlShape): DefaultSeoProps => ({
+  titleTemplate: intl.formatMessage({
+    id: 'app.template.next-seo.default.titleTemplate',
+    defaultMessage: '%s | Vegan Hacktivists',
+  }),
   openGraph: {
     url: 'https://veganhacktivists.org',
   },
   twitter: {
     cardType: 'summary_large_image',
   },
-};
+});
+
+const AppDefaultSeo = () => <DefaultSeo {...getSeo(useIntl())} />;
 
 const AppWrapper: React.FC<
   React.PropsWithChildren<{ session: Session | null }>
@@ -57,7 +64,7 @@ const AppWrapper: React.FC<
     <SessionProvider session={session}>
       <CookiesProvider>
         <LocalisationProvider>
-          <DefaultSeo {...SEO} />
+          <AppDefaultSeo />
           {children}
         </LocalisationProvider>
       </CookiesProvider>

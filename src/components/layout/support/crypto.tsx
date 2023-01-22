@@ -2,6 +2,7 @@ import { faBitcoinSign } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCallback, useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 import QRCode from 'react-qr-code';
 import { toast } from 'react-toastify';
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
@@ -25,13 +26,21 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
   color,
   currencyName,
 }) => {
+  const intl = useIntl();
+
   const onCopy = useCallback(() => {
     void toast.promise(navigator.clipboard.writeText(code), {
-      success: 'Code succesfully copied!',
-      error:
-        'Something went wrong copying the code, please select and copy it manually',
+      success: intl.formatMessage({
+        id: 'section.crypto-donation.notification.copy.success',
+        defaultMessage: 'Code succesfully copied!',
+      }),
+      error: intl.formatMessage({
+        id: 'section.crypto-donation.notification.copy.error',
+        defaultMessage:
+          'Something went wrong copying the code, please select and copy it manually',
+      }),
     });
-  }, [code]);
+  }, [code, intl]);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -67,7 +76,10 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
             onClick={onCopy}
             className="flex flex-row justify-center px-4 py-2 text-2xl text-white cursor-pointer whitespace-nowrap w-min bg-green gap-x-2"
           >
-            Copy
+            <FormattedMessage
+              id="section.crypto-donation.copy-wallet.button.label"
+              defaultMessage="Copy"
+            />
           </button>
         </div>
       </div>
@@ -81,7 +93,13 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
           <div className="mx-auto text-center ms:w-full md:w-full">
             <div style={{ backgroundColor: color }} className="w-full">
               <div className="py-10 font-mono text-4xl font-bold text-white">
-                <div>Donate {currencyName}</div>
+                <div>
+                  <FormattedMessage
+                    id="section.crypto-donation.overlay.label"
+                    defaultMessage="Donate {currencyName}"
+                    values={{ currencyName }}
+                  />
+                </div>
                 <div className="mt-5">
                   <FontAwesomeIcon icon={icon} fixedWidth size="2x" />
                 </div>
@@ -111,11 +129,16 @@ const Crypto: React.FC = () => {
   return (
     <div className="py-5 mx-auto space-y-5 text-xl bg-grey-background">
       <h3 className="pt-5 font-mono text-3xl font-bold">
-        We accept cryptocurrency!
+        <FormattedMessage
+          id="section.crypto-donation.headline"
+          defaultMessage="We accept cryptocurrency!"
+        />
       </h3>
       <div>
-        Click the QR code to view it enlarged, or copy the code to your
-        clipboard.
+        <FormattedMessage
+          id="section.crypto-donation.introduction"
+          defaultMessage="Click the QR code to view it enlarged, or copy the code to your clipboard."
+        />
       </div>
       <div className="grid pb-2 mx-auto gap-y-5 md:px-10 lg:w-3/4">
         <CryptoWallet
@@ -132,10 +155,17 @@ const Crypto: React.FC = () => {
         />
       </div>
       <div className="pb-2">
-        Want to send something else?{' '}
-        <CustomLink className="font-bold" href="/contact">
-          Contact us!
-        </CustomLink>
+        <FormattedMessage
+          id="section.crypto-donation.subline"
+          defaultMessage="Want to send something else? <contact-link>Contact us!</contact-link>"
+          values={{
+            'contact-link': (chunks) => (
+              <CustomLink className="font-bold" href="/contact">
+                {chunks}
+              </CustomLink>
+            ),
+          }}
+        />
       </div>
     </div>
   );
