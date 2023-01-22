@@ -32,12 +32,6 @@
   "page.index.section.video.cta": {
     "defaultMessage": "Visit our channel"
   },
-  "page.index.section.video.headline.leftpart": {
-    "defaultMessage": "Watch our"
-  },
-  "page.index.section.video.headline.rightpart": {
-    "defaultMessage": "intro video"
-  },
   "page.index.section.video.subline": {
     "defaultMessage": "Watch our videos to learn more about us and our work:"
   },
@@ -196,5 +190,8 @@
   },
   "page.newsletter.next-seo.title": {
     "defaultMessage": "Our Newsletter"
+  },
+  "page.index.section.video.headline": {
+    "defaultMessage": "Watch our <b>intro video</b>"
   }
 }
