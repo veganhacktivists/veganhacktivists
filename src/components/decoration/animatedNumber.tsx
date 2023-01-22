@@ -10,8 +10,10 @@ const sizeRegex = /([a-z]{1,3}:)?text-[0-9][^\s]+/g;
 const AnimatedNumber: React.FC<{
   number: number;
   approx?: boolean;
+  prefix?: string;
+  suffix?: string;
   className?: string;
-}> = ({ number, className = '', approx = false }) => {
+}> = ({ number, className = '', approx = false, prefix, suffix }) => {
   const [onView, setOnView] = useState<boolean>(false);
 
   const prefersReducedMotion = useReduceMotion();
@@ -46,6 +48,7 @@ const AnimatedNumber: React.FC<{
         }}
       />
       <span className={classes} aria-label={`${number}`}>
+        {prefix}
         <animated.span>
           {interpolatedNumber.to((x) =>
             Math.floor(x)
@@ -53,6 +56,7 @@ const AnimatedNumber: React.FC<{
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
           )}
         </animated.span>
+        {suffix}
         {approx && <>~</>}
       </span>
     </>

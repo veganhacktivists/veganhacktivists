@@ -1,5 +1,7 @@
 import Snoowrap from 'snoowrap';
 
+import { CATEGORY_LABELS } from '../../../prisma/constants';
+
 import { getListFromEnv } from 'lib/helpers/env';
 
 import type { RequestWithBudget } from 'lib/services/playground/admin';
@@ -68,7 +70,12 @@ export const postPlaygroundRequestOnReddit = async (
     for await (const subreddit of subredditsToPost) {
       const submission = await r.submitSelfpost({
         subredditName: subreddit,
-        title: request.title,
+        title:
+          `(${
+            request.category === 'Other'
+              ? 'Volunteer'
+              : CATEGORY_LABELS[request.category]
+          } needed!) ` + request.title,
         text: message,
       });
 

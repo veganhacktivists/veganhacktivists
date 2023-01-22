@@ -11,11 +11,11 @@ const VerifyRequest: NextPage = () => {
       <h1 className="mt-8 text-3xl font-bold">Check your email</h1>
 
       <div className="mt-4 text-xl">
-        A sign in link has been sent to your email address.
+        Please follow the instructions we sent you.
       </div>
       <div>
         <DarkButton
-          className="mx-auto w-fit"
+          className="mt-4 mx-auto w-fit"
           onClick={() => {
             back();
           }}

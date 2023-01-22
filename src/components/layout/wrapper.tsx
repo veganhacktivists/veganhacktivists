@@ -41,7 +41,7 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
   const { asPath } = useRouter();
 
   const hideNewsletter =
-    error || asPath === '/docs' || asPath.startsWith('/docs/');
+    error || asPath === '/handbook' || asPath.startsWith('/handbook/');
 
   return (
     <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>

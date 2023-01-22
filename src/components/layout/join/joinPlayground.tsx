@@ -10,7 +10,7 @@ const JoinPlayground: React.FC = () => {
         squares={[{ size: 16, color: 'gray-light', right: 0, bottom: 0 }]}
         className="hidden md:block"
       />
-      <div className="pt-16 pb-20 text-xl text-white bg-grey-darker">
+      <div className="pt-16 pb-20 text-xl text-white bg-grey-darker px-5">
         <div className="mx-auto md:w-1/2">
           <h2 className="mb-8 font-mono text-6xl font-bold">
             Attention Developers!
@@ -24,7 +24,7 @@ const JoinPlayground: React.FC = () => {
               you&apos;re available.
             </p>
           </div>
-          <div className="relative mx-10 mt-10 md:mx-auto md:w-1/3">
+          <div className="relative mt-10 mx-auto md:w-64">
             <LightButton
               newTab
               href={JOIN_PLAYGROUND_URL}

@@ -36,7 +36,7 @@ const Documentation: React.FC<DocumentationProps> = ({
     <li>
       <Link
         href={{
-          pathname: '/docs/[category]/[section]',
+          pathname: '/handbook/[category]/[section]',
           query: { category: categorySlug, section: sectionSlug },
           hash: slug,
         }}
@@ -99,7 +99,7 @@ const Section: React.FC<SectionProps> = ({
     >
       <Link
         href={{
-          pathname: '/docs/[category]/[section]',
+          pathname: '/handbook/[category]/[section]',
           query: { category: categorySlug, section: slug },
         }}
       >

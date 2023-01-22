@@ -31,6 +31,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
+import type { User } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -62,9 +63,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
     return readableTimeDiff(request.createdAt)[0];
   }, [request]);
 
-  const dueDateFormatted = useMemo(() => {
-    return DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy');
-  }, [request]);
+  const [dueDateFormatted, timeUntilDue, isDue, hasNoDue] = useMemo(() => {
+    return request.dueDate
+      ? [
+          DateTime.fromJSDate(request.dueDate).toFormat('MMMM dd, yyyy'),
+          ...readableTimeDiff(request.dueDate),
+        ]
+      : [null, null, null, true];
+  }, [request.dueDate]);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [description, setDescription] = useState('');
@@ -142,7 +148,19 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         </div>
         <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
           <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
-          <Field title="Due date">{dueDateFormatted}</Field>
+          <Field
+            title={`${
+              hasNoDue
+                ? 'Due Date'
+                : dueDateFormatted
+                ? isDue
+                  ? 'Was due'
+                  : 'Due'
+                : 'Due'
+            }`}
+          >
+            {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
+          </Field>
           <Field title="Est. time required">
             {request.estimatedTimeDays} DAYS
           </Field>
@@ -158,7 +176,9 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           {session?.user?.role === UserRole.Admin && (
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
-              <Field title="Registered email">{request.requester.email}</Field>
+              <Field title="Registered email">
+                {(request.requester as User).email ?? ''}
+              </Field>
             </>
           )}
         </SubtleBorder>
@@ -363,6 +383,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Interested in applying to help with this project?
         </div>
         <TextInput
+          showRequiredMark
           className="col-span-full"
           error={errors.name?.message}
           {...myRegister('name')}
@@ -372,7 +393,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <TextInput
           showRequiredMark
-          className="flex flex-col justify-end md:col-span-3"
+          className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
           {...myRegister('providedEmail')}
           placeholder="name@example.com"
@@ -585,6 +606,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <ConfirmationModal isOpen={isSuccess} type="application" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
+        type="application"
         onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify
