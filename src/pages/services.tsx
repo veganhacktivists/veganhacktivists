@@ -86,7 +86,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.1.button-label',
         defaultMessage: 'Apply for free design support',
       }),
-      href: 'https://forms.gle/guiL6sLCJCDdy7Yy5',
+      href: 'https://veganhacktivists.org/playground',
     },
   },
   {

@@ -3,7 +3,6 @@ import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import HeartLogo from '../../public/images/support/heart-icon.png';
-import PatreonLogo from '../../public/images/support/patreon-logo.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
@@ -21,6 +20,7 @@ import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
+import DonorBoxCard from '../components/layout/support/donorBoxCard';
 
 import type { GetStaticProps } from 'next';
 
@@ -76,15 +76,9 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         >
           <FormattedMessage
             id="page.support.section.support-us.header.content"
-            defaultMessage="With your gift, we can make a greater impact and change the world for our animal friends."
+            defaultMessage="If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
           />
         </PlainHeader>
-        <Paragraph>
-          <FormattedMessage
-            id="page.support.section.support-us.introduction"
-            defaultMessage="We are a vegan volunteer team that builds technology for organizations and individual activists in the animal protection movement. If you believe in the work we do and would like to support us, please consider making a donation."
-          />
-        </Paragraph>
       </div>
       <div className="mx-auto my-16 md:w-fit">
         <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
@@ -106,25 +100,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
               defaultMessage="For one-time, smaller donations"
             />
           </DonationCard>
-          <DonationCard
-            color="orange"
-            image={PatreonLogo}
-            title={intl.formatMessage({
-              id: 'page.support.section.support-us.donation-card.1.title',
-              defaultMessage: 'Patreon',
-            })}
-            buttonText={intl.formatMessage({
-              id: 'page.support.section.support-us.donation-card.1.button-label',
-              defaultMessage: 'become a patron',
-            })}
-            buttonHref="https://www.patreon.com/veganhacktivists"
-            large
-          >
-            <FormattedMessage
-              id="page.support.section.support-us.donation-card.1.content"
-              defaultMessage="Become a monthly supporter for as little as $5 a month"
-            />
-          </DonationCard>
+          <DonorBoxCard color="orange" large />
           <DonationCard
             color="green"
             image={HeartLogo}
@@ -136,7 +112,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
               id: 'page.support.section.support-us.donation-card.2.button-label',
               defaultMessage: 'contact us',
             })}
-            buttonHref="mailto:hello@veganhacktivists.org"
+            buttonHref="https://veganhacktivists.org/contact"
           >
             <FormattedMessage
               id="page.support.section.support-us.donation-card.2.content"
@@ -152,7 +128,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       <Paragraph>
         <FormattedMessage
           id="page.support.section.support-us.subtitle"
-          defaultMessage="We prefer a <bold>monthly donation via Patreon</bold> as that gives us the most stability every month, but we also accept one-time donations via PayPal. If you would like to make a larger contribution of $1,000 or more (thank you!), please <contact-link>contact us</contact-link> for other payment methods and tax deduction via our fiscal sponsor."
+          defaultMessage="We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
           values={{
             bold: (chunks) => <span className="font-bold">{chunks}</span>,
             'contact-link': (chunks) => (

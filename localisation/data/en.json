@@ -32,12 +32,6 @@
   "page.index.section.video.cta": {
     "defaultMessage": "Visit our channel"
   },
-  "page.index.section.video.headline.leftpart": {
-    "defaultMessage": "Watch our"
-  },
-  "page.index.section.video.headline.rightpart": {
-    "defaultMessage": "intro video"
-  },
   "page.index.section.video.subline": {
     "defaultMessage": "Watch our videos to learn more about us and our work:"
   },
@@ -156,7 +150,7 @@
     "defaultMessage": "Manage and oversee grantwriting and fundraising pipeline. Candidate must exemplify strong organizational and writing skills, with excellent grammar and spelling."
   },
   "page.join.section.priority-roles.description.2": {
-    "defaultMessage": "Support VH: Playground by hosting virtual events, connecting people with opportunities, and engaging the Discord community. Candidate should have a deep commitment to building an inclusive community."
+    "defaultMessage": "Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
   },
   "page.join.section.priority-roles.title.0": {
     "defaultMessage": "Community Manager"
@@ -165,7 +159,7 @@
     "defaultMessage": "Grant Writer"
   },
   "page.join.section.priority-roles.title.2": {
-    "defaultMessage": "Playground Manager"
+    "defaultMessage": "Ads Manager"
   },
   "page.join.section.available-positions.headline": {
     "defaultMessage": "Available Positions"
@@ -196,6 +190,9 @@
   },
   "page.newsletter.next-seo.title": {
     "defaultMessage": "Our Newsletter"
+  },
+  "page.index.section.video.headline": {
+    "defaultMessage": "Watch our <b>intro video</b>"
   },
   "app.template.next-seo.default.titleTemplate": {
     "defaultMessage": "%s | Vegan Hacktivists"
@@ -297,7 +294,7 @@
     "defaultMessage": "Other"
   },
   "page.support.section.support-us.header.content": {
-    "defaultMessage": "With your gift, we can make a greater impact and change the world for our animal friends."
+    "defaultMessage": "If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
   },
   "page.support.section.support-us.header.title": {
     "defaultMessage": "Support Us"
@@ -315,7 +312,7 @@
     "defaultMessage": "Monthly Patreon Goals"
   },
   "page.support.section.support-us.subtitle": {
-    "defaultMessage": "We prefer a <bold>monthly donation via Patreon</bold> as that gives us the most stability every month, but we also accept one-time donations via PayPal. If you would like to make a larger contribution of $1,000 or more (thank you!), please <contact-link>contact us</contact-link> for other payment methods and tax deduction via our fiscal sponsor."
+    "defaultMessage": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
   },
   "page.support.section.thank-you.introduction": {
     "defaultMessage": "We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."

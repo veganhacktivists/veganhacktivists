@@ -67,7 +67,7 @@ const Docs: React.FC<DocsProps> = ({ categorySlug, firstSectionSlug }) => {
   const router = useRouter();
   useEffect(() => {
     void router.push({
-      pathname: '/docs/[category]/[section]',
+      pathname: '/handbook/[category]/[section]',
       query: { category: categorySlug, section: firstSectionSlug },
     });
   }, [categorySlug, firstSectionSlug, router]);

@@ -65,6 +65,11 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   const intl = useIntl();
 
+  const formattedVideoSectionHeadlineText = intl.formatMessage({
+    id: 'page.index.section.video.headline',
+    defaultMessage: 'Watch our <b>intro video</b>',
+  });
+
   return (
     <>
       <NextSeo
@@ -186,15 +191,13 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <SectionHeader
             className="mb-2"
             header={[
-              intl.formatMessage({
-                id: 'page.index.section.video.headline.leftpart',
-                defaultMessage: 'Watch our',
-              }),
-              intl.formatMessage({
-                id: 'page.index.section.video.headline.rightpart',
-                defaultMessage: 'intro video',
-              }),
+              ...formattedVideoSectionHeadlineText
+                .split(/<\/?b>/)
+                .filter(Boolean),
             ]}
+            startWithBoldFont={formattedVideoSectionHeadlineText.startsWith(
+              '<b>'
+            )}
           />
           <div className="py-2">
             <YoutubeVideo id="jaW8n1pd97U" />

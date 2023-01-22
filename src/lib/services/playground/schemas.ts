@@ -113,10 +113,9 @@ export const submitRequestSchema = z.object({
   ),
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
-  dueDate: z
-    .date()
-    .min(new Date(), { message: 'Due date must be in the future' }),
+  dueDate: z.date().optional().nullable(),
   estimatedTimeDays: z.number().nonnegative().int(),
+  neededVolunteers: z.number().nonnegative().int(),
   qualityAgreement: z
     .boolean()
     .refine((x) => !!x)
@@ -139,6 +138,14 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
   })
 );
 
+export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
+  dueDate: z
+    .string()
+    .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+      message: 'Due date must be in the future',
+    }),
+});
+
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
 export const getRequestsAdminSchema = z
@@ -154,6 +161,10 @@ export const setApplicationStatusSchema = z.object({
 });
 
 export const deleteRequestSchema = z.object({
+  id: z.string().cuid(),
+});
+
+export const repostRequestSchema = z.object({
   id: z.string().cuid(),
 });
 

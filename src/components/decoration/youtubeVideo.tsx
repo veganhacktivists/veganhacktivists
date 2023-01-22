@@ -8,7 +8,7 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ id, ...props }) => {
   return (
     <iframe
       className="w-full aspect-video"
-      src={`https://www.youtube.com/embed/${id}`}
+      src={`https://www.youtube-nocookie.com/embed/${id}`}
       seamless
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen

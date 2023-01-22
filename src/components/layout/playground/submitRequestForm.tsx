@@ -4,11 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import {
-  BudgetType,
-  PlaygroundRequestCategory,
-  UserRole,
-} from '@prisma/client';
+import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 
@@ -30,14 +26,15 @@ import {
 import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
-import { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
+import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 
+import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import type { z } from 'zod';
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError } from 'react-hook-form';
 import type { RefCallback } from 'react';
-import type { z } from 'zod';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   value: cat as PlaygroundRequestCategory,
@@ -91,8 +88,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: session?.user?.role === UserRole.Admin ? storedForm : {},
-    resolver: zodResolver(submitRequestSchemaClient),
+    defaultValues: storedForm.id ? undefined : storedForm,
+    resolver: zodResolver(verifyRequestFormRequestSchema),
   });
 
   const [isFree, setIsFree] = useState(false);
@@ -125,27 +122,29 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         | 'category'
         | 'description'
         | 'estimatedTimeDays'
+        | 'neededVolunteers'
       >;
       const requestData: RequestFormData = {
         ...request,
       };
-      const formData: Partial<z.infer<typeof submitRequestSchemaClient>> = {
-        ...requestData,
-        dueDate: request?.dueDate
-          ? (DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-              'yyyy-LL-dd'
-            ) as unknown as Date)
-          : undefined,
-        budget: request?.budget
-          ? {
-              type: request?.budget.type,
-              quantity: request?.budget?.quantity.toNumber(),
-            }
-          : undefined,
-        phone: request?.phone ?? undefined,
-        organization: request?.organization ?? undefined,
-        requiredSkills: skills,
-      };
+      const formData: Partial<z.infer<typeof verifyRequestFormRequestSchema>> =
+        {
+          ...requestData,
+          dueDate: request?.dueDate
+            ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+                'yyyy-LL-dd'
+              )
+            : '',
+          budget: request?.budget
+            ? {
+                type: request?.budget.type,
+                quantity: request?.budget?.quantity.toNumber(),
+              }
+            : undefined,
+          phone: request?.phone ?? undefined,
+          organization: request?.organization ?? undefined,
+          requiredSkills: skills,
+        };
       Object.keys(formData).forEach((keystring) => {
         const key = keystring as keyof typeof formData;
         setValue(key, formData[key]);
@@ -255,6 +254,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           id: requestId,
           ...params,
         };
+      }
+      if (params.dueDate) {
+        params.dueDate = new Date(params.dueDate);
+      } else {
+        params.dueDate = null;
       }
       return toast.promise(mutateAsync(params), {
         pending: 'Submitting...',
@@ -426,7 +430,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           />
         </div>
         <TextInput
-          className="w-full col-span-full"
+          className="lg:col-span-4 w-full col-span-full"
           placeholder="Communication, ..."
           {...myRegister('requiredSkills', {
             required: 'Please select the skills required for the request',
@@ -439,6 +443,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             </p>
             <p className="font-thin">(separate by comma)</p>
           </div>
+        </TextInput>
+        <TextInput
+          placeholder="Volunteer amount"
+          showRequiredMark
+          className="lg:col-span-2 col-span-full"
+          type="number"
+          inputMode="numeric"
+          min={1}
+          defaultValue={1}
+          {...myRegister('neededVolunteers', { valueAsNumber: true })}
+          error={errors.neededVolunteers?.message}
+        >
+          Volunteers required
         </TextInput>
         <div className="lg:col-span-2 col-span-full">
           <Label name="isFree" showRequiredMark>
@@ -535,11 +552,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           min={new Date().toISOString().split('T')[0]}
           type="date"
           placeholder="Due date"
-          showRequiredMark
-          {...myRegister('dueDate', {
-            valueAsDate: true,
-          })}
           error={errors.dueDate?.message}
+          {...myRegister('dueDate', { required: false })}
         >
           Due date for task
         </TextInput>
@@ -596,6 +610,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       <ConfirmationModal isOpen={isSuccess} type="request" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
+        type="request"
         onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify

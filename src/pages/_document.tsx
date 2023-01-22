@@ -14,18 +14,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* Fonts */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,400;1,500&family=PT+Sans:wght@400;700&family=Rajdhani:wght@300;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-
           <link
             rel="apple-touch-icon"
             sizes="180x180"

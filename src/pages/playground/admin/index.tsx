@@ -11,6 +11,7 @@ import {
   LightButton,
   LogoutButton,
   OutlineButton,
+  BlueButton,
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
@@ -64,12 +65,23 @@ const AdminPage: NextPage = () => {
 
   const { mutate, isLoading: isMutationLoading } =
     trpc.playground.admin.setRequestStatus.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
     trpc.playground.admin.deleteRequest.useMutation({
-      onSuccess: () => invalidateQuery,
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
+    });
+
+  const { mutate: mutateRepost, isLoading: isRepostLoading } =
+    trpc.playground.admin.repostRequest.useMutation({
+      onSuccess: async () => {
+        await invalidateQuery();
+      },
     });
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
@@ -86,12 +98,15 @@ const AdminPage: NextPage = () => {
             setStatusFilter(status);
           }}
         >
-          {status} requests
+          {status === 'Accepted' ? 'Live' : status} requests
         </OutlineButton>
       );
     },
     [statusFilter]
   );
+
+  const isActionLoading =
+    isMutationLoading || isRepostLoading || isDeletionLoading;
 
   if (isLoading) {
     return <Spinner />;
@@ -128,7 +143,10 @@ const AdminPage: NextPage = () => {
         >
           {data.map((request) => (
             <div key={request.id}>
-              <PlaygroundRequestCard request={request}>
+              <PlaygroundRequestCard
+                request={request}
+                disabled={isActionLoading}
+              >
                 <b>This request is {request.status}!</b>
                 {request.status === Status.Accepted && (
                   <b>
@@ -143,41 +161,79 @@ const AdminPage: NextPage = () => {
                   </b>
                 )}
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
-                  <LightButton
-                    className="w-full"
-                    disabled={
-                      isMutationLoading || request.status === Status.Accepted
-                    }
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to accept '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Accepted' });
-                      }
-                    }}
-                  >
-                    Accept
-                  </LightButton>
-                  <DenyButton
-                    className="w-full text-xl text-white"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to reject '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: 'Rejected' });
-                      }
-                    }}
-                  >
-                    Deny
-                  </DenyButton>
+                  {request.status === Status.Pending ? (
+                    <>
+                      <LightButton
+                        className="w-full"
+                        disabled={isActionLoading}
+                        onClick={() => {
+                          if (
+                            confirm(
+                              `Are you sure you want to accept '${request.title}'?`
+                            )
+                          ) {
+                            mutate({ id: request.id, status: 'Accepted' });
+                          }
+                        }}
+                      >
+                        Accept
+                      </LightButton>
+                      <DenyButton
+                        className="w-full text-xl text-white"
+                        disabled={isActionLoading}
+                        onClick={() => {
+                          if (
+                            confirm(
+                              `Are you sure you want to reject '${request.title}'?`
+                            )
+                          ) {
+                            mutate({ id: request.id, status: 'Rejected' });
+                          }
+                        }}
+                      >
+                        Deny
+                      </DenyButton>{' '}
+                    </>
+                  ) : (
+                    <BlueButton
+                      className="w-full px-2 text-xl"
+                      disabled={isActionLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to repost '${request.title}'?`
+                          )
+                        ) {
+                          mutateRepost({ id: request.id });
+                        }
+                      }}
+                    >
+                      🔁
+                      {request.status === Status.Accepted
+                        ? ' Push again'
+                        : ' Repost request'}
+                    </BlueButton>
+                  )}
+                  {request.status !== Status.Completed ? (
+                    <GreenButton
+                      className="w-full px-2 text-xl"
+                      disabled={isActionLoading}
+                      onClick={() => {
+                        if (
+                          confirm(
+                            `Are you sure you want to complete '${request.title}'?`
+                          )
+                        ) {
+                          mutate({ id: request.id, status: Status.Completed });
+                        }
+                      }}
+                    >
+                      🎉 Mark as completed
+                    </GreenButton>
+                  ) : null}
                   <ExternalLinkButton
                     className="w-full px-2 text-xl text-white"
-                    disabled={isDeletionLoading}
+                    disabled={isActionLoading}
                     onClick={() => {
                       if (
                         confirm(
@@ -190,21 +246,6 @@ const AdminPage: NextPage = () => {
                   >
                     🤫 Delete
                   </ExternalLinkButton>
-                  <GreenButton
-                    className="w-full px-2 text-xl"
-                    disabled={isMutationLoading}
-                    onClick={() => {
-                      if (
-                        confirm(
-                          `Are you sure you want to complete '${request.title}'?`
-                        )
-                      ) {
-                        mutate({ id: request.id, status: Status.Completed });
-                      }
-                    }}
-                  >
-                    🎉 Mark as completed
-                  </GreenButton>
                 </div>
               </PlaygroundRequestCard>
             </div>

@@ -112,13 +112,13 @@ const getPriorityRoleProps = (intl: IntlShape): PriorityRoleProps[] => [
     squareColor: 'pink',
     title: intl.formatMessage({
       id: 'page.join.section.priority-roles.title.2',
-      defaultMessage: 'Playground Manager',
+      defaultMessage: 'Ads Manager',
     }),
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
         id="page.join.section.priority-roles.description.2"
-        defaultMessage="Support VH: Playground by hosting virtual events, connecting people with opportunities, and engaging the Discord community. Candidate should have a deep commitment to building an inclusive community."
+        defaultMessage="Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
       />
     ),
   },
@@ -279,7 +279,7 @@ const Join: React.FC = () => {
       </div>
       <JoinPlayground />
       <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-      <div className="h-[500px] py-20 px-5 relative">
+      <div className="lg:h-[500px] py-16 lg:py-20 px-5 relative pb-[300px]">
         <h2 className="text-4xl font-modo font-bold mb-10">
           <FormattedMessage
             id="page.join.section.priority-positions.headline"

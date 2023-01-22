@@ -189,7 +189,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           href={
             prev
               ? {
-                  pathname: '/docs/[category]/[section]',
+                  pathname: '/handbook/[category]/[section]',
                   query: {
                     category: category.fields.slug,
                     section: prev.fields.slug,
@@ -207,7 +207,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           href={
             next
               ? {
-                  pathname: '/docs/[category]/[section]',
+                  pathname: '/handbook/[category]/[section]',
                   query: {
                     category: category.fields.slug,
                     section: next.fields.slug,

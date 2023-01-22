@@ -90,7 +90,7 @@ const GrantsCallToAction: React.FC = () => {
         <Info
           image={impactReviewImage}
           boxicon={pixelFlower}
-          title="See our 2021 impact review"
+          title="See our 2022 impact review"
           backgroundColor="grey-over-background"
           button={{
             content: (
@@ -99,7 +99,7 @@ const GrantsCallToAction: React.FC = () => {
                 defaultMessage="See our impact"
               />
             ),
-            href: '/year-in-review/2021',
+            href: '/year-in-review/2022',
           }}
         >
           <FormattedMessage

@@ -16,6 +16,7 @@ import { LocalisationProvider } from 'lib/localisation/LocalisationProvider';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import '../styles/fonts.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
@@ -77,7 +78,7 @@ const DefaultLayout: React.FC<
     pathname: string;
   }>
 > = ({ pathname, children }) => {
-  if (pathname === '/docs' || pathname.startsWith('/docs/')) {
+  if (pathname === '/handbook' || pathname.startsWith('/handbook/')) {
     return (
       <>
         <Header />
