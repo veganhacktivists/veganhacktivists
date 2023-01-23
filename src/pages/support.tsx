@@ -70,7 +70,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             image={PayPalLogo}
             title="PayPal"
             buttonText="donate"
-            buttonHref="https://paypal.me/davidvanbeveren"
+            buttonHref="https://paypal.me/veganhacktivists"
           >
             For one-time, smaller donations
           </DonationCard>
