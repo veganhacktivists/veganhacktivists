@@ -1,0 +1,374 @@
+{
+  "page.index.section.introduction.headline": {
+    "defaultMessage": "<left>Wir sind</left> <right>VEGAN HACKTIVISTS</right>"
+  },
+  "page.index.section.introduction.paragraph1": {
+    "defaultMessage": "Wir sind eine globale Gemeinschaft leidenschaftlicher Tierschützer, die ihre Fähigkeiten im Aufbau von Technologien für die Tierschutzbewegung durch <b>Design, Entwicklung und Daten</b> zur Verfügung stellen. Als Kapazitätsentwickler bieten wir innovative und hochwertige Dienstleistungen an, die für Tierschützer und Organisationen kostenlos sind."
+  },
+  "page.index.section.introduction.paragraph2": {
+    "defaultMessage": "Unser Team besteht aus hochqualifizierten und professionellen Software-Ingenieuren, Designern, Datenwissenschaftlern und Autoren von Inhalten. Wir nutzen unsere vielfältigen Erfahrungen und Fähigkeiten, um <b>datengesteuerte Projekte</b> zu entwerfen und zu entwickeln, die effektiv und experimentell sein sollen."
+  },
+  "page.index.section.introduction.paragraph3": {
+    "defaultMessage": "Mit unseren <b>Dienstleistungen zum Aufbau von Kapazitäten</b> leisten wir einen Beitrag zu dieser Bewegung. Wir nutzen unser umfangreiches Netzwerk von Freiwilligen und arbeiten mit Einzelpersonen und Organisationen zusammen, um Webentwicklung, Branding und Beratungsdienste anzubieten."
+  },
+  "page.index.section.projects.cta": {
+    "defaultMessage": "Alle Projekte anzeigen"
+  },
+  "page.index.section.projects.headline": {
+    "defaultMessage": "<left>Ausgewählte</left> <right>PROJEKTE</right>"
+  },
+  "page.index.section.projects.paragraph": {
+    "defaultMessage": "Jedes Projekt, das wir veröffentlichen, ist zu <b>100 % kostenlos für alle</b>. Wir glauben an Zugänglichkeit und Transparenz, und unsere Projekte spiegeln diese Werte wider."
+  },
+  "page.index.section.stage.cta": {
+    "defaultMessage": "Mehr erfahren"
+  },
+  "page.index.section.stage.hero.alt": {
+    "defaultMessage": "Mitgefühl, Kreativität, Code"
+  },
+  "page.index.section.stage.subline": {
+    "defaultMessage": "Bauen für die Tierschutzbewegung seit 2019"
+  },
+  "page.index.section.video.cta": {
+    "defaultMessage": "Besuchen Sie unseren Kanal"
+  },
+  "page.index.section.video.subline": {
+    "defaultMessage": "Sehen Sie sich unsere Videos an, um mehr über uns und unsere Arbeit zu erfahren:"
+  },
+  "section.blog-teaser.cta": {
+    "defaultMessage": "Alle Beiträge anzeigen"
+  },
+  "section.blog-teaser.headline": {
+    "defaultMessage": "<left>Auf dem</left> <right>BLOG</right>"
+  },
+  "section.blog-teaser.paragraph": {
+    "defaultMessage": "In unserem Blog finden Sie Projekt-Updates, Ankündigungen, Interviews, Gastbeiträge und vieles mehr."
+  },
+  "section.grants-cta.apply.cta": {
+    "defaultMessage": "Jetzt bewerben"
+  },
+  "section.grants-cta.apply.paragraph": {
+    "defaultMessage": "Wir bieten Zuschüsse für wirkungsvolle und effektive Arbeit im Bereich Tierschutz und Aktivismus."
+  },
+  "section.grants-cta.visit-year-review.cta": {
+    "defaultMessage": "Siehe unsere Auswirkungen"
+  },
+  "section.grants-cta.visit-year-review.paragraph": {
+    "defaultMessage": "Lesen Sie unseren jährlichen Wirkungsbericht und sehen Sie, was wir im vergangenen Jahr erreicht haben."
+  },
+  "section.join-the-team.cta.join": {
+    "defaultMessage": "Beitritt beantragen"
+  },
+  "section.join-the-team.cta.meet-the-team": {
+    "defaultMessage": "Treffen Sie das Team"
+  },
+  "section.join-the-team.headline": {
+    "defaultMessage": "UNSEREM TEAM BEITRETEN"
+  },
+  "section.join-the-team.paragraph": {
+    "defaultMessage": "Sind Sie ein Entwickler, Designer, Autor oder ein kreativer Profi, der seine digitalen Fähigkeiten für die Tiere einsetzen möchte? Erfahren Sie mehr über unsere Teammitglieder und sehen Sie sich unsere offenen Stellen an."
+  },
+  "page.contact.next-seo.title": {
+    "defaultMessage": "Kontakt"
+  },
+  "page.contact.section.get-in-contact.content": {
+    "defaultMessage": "Wenn Sie sich mit uns in Verbindung setzen möchten, verwenden Sie bitte unser Kontaktformular unten! Wir tun unser Bestes, um jede E-Mail innerhalb von 48 Stunden zu beantworten. Bitte stellen Sie sicher, dass Sie Ihren Spam-Ordner überprüfen!"
+  },
+  "page.contact.section.get-in-contact.headline": {
+    "defaultMessage": "Nehmen Sie Kontakt auf"
+  },
+  "page.index.next-seo.title": {
+    "defaultMessage": "Vegane Hacktivisten"
+  },
+  "page.index.next-seo.title-template": {
+    "defaultMessage": "%s | Mitgefühl, Kreativität, Code!"
+  },
+  "page.join.hero.image-alt": {
+    "defaultMessage": "Du bist ihre Stimme"
+  },
+  "page.join.next-seo.title": {
+    "defaultMessage": "Mitmachen"
+  },
+  "page.not-found.error-message": {
+    "defaultMessage": "Die von Ihnen angeforderte Seite ({asPath}) existiert nicht"
+  },
+  "page.not-found.next-seo.title": {
+    "defaultMessage": "Seite nicht gefunden"
+  },
+  "page.join.section.requirements": {
+    "defaultMessage": "Bekenntnis zu einer veganen Lebensweise"
+  },
+  "page.join.section.priority-roles.description.3": {
+    "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
+  },
+  "page.join.section.requirements.0": {
+    "defaultMessage": "Bekenntnis zu einer veganen Lebensweise"
+  },
+  "page.join.section.requirements.1": {
+    "defaultMessage": "Berufserfahrung in Ihrem Fachgebiet"
+  },
+  "page.join.section.requirements.2": {
+    "defaultMessage": "Portfolio, Lebenslauf oder Arbeitsergebnisse zum Nachweis der Erfahrung"
+  },
+  "page.join.section.requirements.3": {
+    "defaultMessage": "Fähigkeit, mindestens 5 Stunden pro Woche ehrenamtlich tätig zu sein"
+  },
+  "page.join.section.job-roles.description.0": {
+    "defaultMessage": "Schreiben Sie hochwertigen, sauberen Code für Projekte in verschiedenen Entwicklungsstadien. Wir verwenden Laravel für die meisten Projekte und erwarten, dass Sie mit PHP, JS und CSS vertraut sind oder daran interessiert sind, sich darin weiterzuentwickeln."
+  },
+  "page.join.section.job-roles.description.1": {
+    "defaultMessage": "Definieren Sie das Benutzererlebnis und die Benutzeroberfläche für unsere Projekte, indem Sie moderne, visuell ansprechende Webdesigns erstellen - von Wireframes und Mockups bis hin zum endgültigen Look and Feel der App."
+  },
+  "page.join.section.job-roles.description.2": {
+    "defaultMessage": "Gestalten Sie unsere Stimme und unsere Marke in den sozialen Medien, sei es durch die Entwicklung einer Inhaltsstrategie, die Analyse von Interaktionsdaten oder die Interaktion mit unseren Followern."
+  },
+  "page.join.section.job-roles.description.3": {
+    "defaultMessage": "Erstellen Sie originelle und gut geschriebene Inhalte für eine Vielzahl von Medien - unseren Blog, Newsletter, soziale Medien, Softwaretexte und mehr."
+  },
+  "page.join.section.job-roles.description.4": {
+    "defaultMessage": "Erstellen Sie hochwertige und innovative Designs, die Logo und Branding, Social Media Visuals und UI-Komponenten umfassen."
+  },
+  "page.join.section.job-roles.title.0": {
+    "defaultMessage": "Entwickler"
+  },
+  "page.join.section.job-roles.title.1": {
+    "defaultMessage": "UI-Designer"
+  },
+  "page.join.section.job-roles.title.2": {
+    "defaultMessage": "Manager für soziale Medien"
+  },
+  "page.join.section.job-roles.title.3": {
+    "defaultMessage": "Schriftsteller"
+  },
+  "page.join.section.job-roles.title.4": {
+    "defaultMessage": "Grafik-Designer"
+  },
+  "page.join.section.priority-roles.description.0": {
+    "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
+  },
+  "page.join.section.priority-roles.description.1": {
+    "defaultMessage": "Verwaltung und Beaufsichtigung der Zuschussvergabe und der Mittelbeschaffungspipeline. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
+  },
+  "page.join.section.priority-roles.description.2": {
+    "defaultMessage": "Unterstützung unserer Werbemaßnahmen, einschließlich der Entwicklung von Kampagnen, Verwaltung von Budgets und Analyse von Metriken. Die Bewerberin/der Bewerber sollte einen Hintergrund in den Bereichen Marketing, Medien oder Werbung haben."
+  },
+  "page.join.section.priority-roles.title.0": {
+    "defaultMessage": "Community Manager"
+  },
+  "page.join.section.priority-roles.title.1": {
+    "defaultMessage": "Grant Writer"
+  },
+  "page.join.section.priority-roles.title.2": {
+    "defaultMessage": "Anzeigenleiter"
+  },
+  "page.join.section.available-positions.headline": {
+    "defaultMessage": "Verfügbare Positionen"
+  },
+  "page.join.section.join-our-team.footer": {
+    "defaultMessage": "Unser Team nutzt Discord für die interne Kommunikation, Trello für den Projekt- und Aufgaben-Workflow, Figma für das Design und GitHub für die Code-Verwaltung und Zusammenarbeit."
+  },
+  "page.join.section.join-our-team.headline": {
+    "defaultMessage": "Werden Sie Mitglied unseres Teams"
+  },
+  "page.join.section.join-our-team.subline": {
+    "defaultMessage": "Wir wachsen! Wenn Sie an unseren Auftrag glauben und Tieren mit Hilfe von Technologie helfen wollen, kommen Sie zu uns. Auch wenn Sie nicht alle Qualifikationen erfüllen, möchten wir Sie ermutigen, sich trotzdem zu bewerben."
+  },
+  "page.join.section.other-roles.content": {
+    "defaultMessage": "Sie sehen keine Stelle, die Ihren Fähigkeiten entspricht? Nehmen Sie trotzdem Kontakt mit uns auf. Wir würden Sie gerne kennenlernen und freuen uns über Ihr Interesse, uns zu unterstützen!"
+  },
+  "page.join.section.other-roles.cta": {
+    "defaultMessage": "Jetzt bewerben"
+  },
+  "page.join.section.other-roles.headline": {
+    "defaultMessage": "Andere Talente &amp; Fachleute"
+  },
+  "page.join.section.priority-positions.headline": {
+    "defaultMessage": "Positionen mit hoher Priorität"
+  },
+  "page.join.section.priority-positions.subline": {
+    "defaultMessage": "Wir suchen aktiv nach qualifizierten Freiwilligen für die folgenden Aufgaben:"
+  },
+  "page.newsletter.next-seo.title": {
+    "defaultMessage": "Unser Newsletter"
+  },
+  "page.index.section.video.headline": {
+    "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
+  },
+  "app.template.next-seo.default.titleTemplate": {
+    "defaultMessage": "%s | Vegane Hacktivisten"
+  },
+  "page.services.next-seo.title": {
+    "defaultMessage": "Dienstleistungen"
+  },
+  "page.services.section.contact.content": {
+    "defaultMessage": "Wenn Sie mit uns über eines unserer Dienstleistungsangebote sprechen möchten, nutzen Sie bitte unser Kontaktformular, um sich mit uns in Verbindung zu setzen. Wir tun unser Bestes, um jede Anfrage umgehend zu beantworten."
+  },
+  "page.services.section.hero.image-alt": {
+    "defaultMessage": "Unterstützung der Tierschutz-Bewegung"
+  },
+  "page.services.section.our-services.content.0": {
+    "defaultMessage": "Als Kapazitätsaufbauer bieten wir der Tierschutzbewegung unsere Fähigkeiten und Dienstleistungen an. Von der Entwicklung und dem Design bis hin zur Erstellung von Inhalten, Freiwilligen und operativer Beratung - wir sind da, um Ihre Arbeit für die Tiere zu verbessern."
+  },
+  "page.services.section.our-services.content.1": {
+    "defaultMessage": "In Anbetracht unserer Kapazitäten und Ihrer organisatorischen Anforderungen können wir die Übernahme von bezahlten Projekten in Betracht ziehen, die spezielle oder vorrangige Unterstützung erfordern. Wenn dies auf Sie zutrifft, nehmen Sie bitte Kontakt mit uns auf, damit wir herausfinden können, wie wir die Arbeit so gestalten können, dass sie in Ihr Budget passt."
+  },
+  "page.services.section.our-services.header.text": {
+    "defaultMessage": "Unsere Dienstleistungen"
+  },
+  "page.services.section.service-block.0.button-label": {
+    "defaultMessage": "Beantragen Sie eine kostenlose Website"
+  },
+  "page.services.section.service-block.0.content": {
+    "defaultMessage": "Wenn Sie ein unabhängiger Aktivist oder eine Organisation mit wenig oder gar keinen finanziellen Mitteln sind, dann sind Sie diejenigen, denen wir helfen wollen! Wir unterstützen Aktivisten, die nur wenige Ressourcen für das Design und die Entwicklung einer Website haben und/oder nur über begrenzte Kenntnisse oder Zeit verfügen, um sie selbst zu erstellen."
+  },
+  "page.services.section.service-block.0.title": {
+    "defaultMessage": "Websites"
+  },
+  "page.services.section.service-block.1.button-label": {
+    "defaultMessage": "Beantragen Sie kostenlose Designunterstützung"
+  },
+  "page.services.section.service-block.1.content": {
+    "defaultMessage": "Wir haben ein engagiertes Team, das Sie bei der Gestaltung Ihrer Markenidentität, Ihres Logos, Ihrer Social-Media-Assets, Ihrer Website und vielem mehr unterstützt. Wir arbeiten eng mit Ihnen zusammen, um zu verstehen, wer Sie sind und was Ihre Bedürfnisse sind, damit wir Ihre digitale Präsenz optimal gestalten können."
+  },
+  "page.services.section.service-block.1.title": {
+    "defaultMessage": "Gestaltung"
+  },
+  "page.services.section.service-block.2.button-label": {
+    "defaultMessage": "Lassen Sie uns über Ihre Idee sprechen"
+  },
+  "page.services.section.service-block.2.content": {
+    "defaultMessage": "Haben Sie eine Idee, die uns einer veganen Welt näher bringen würde? Ganz gleich, ob es sich um eine App, eine Veranstaltung oder ein Medium handelt, an dessen Produktion Sie interessiert sind - wir helfen Ihnen, die Ressourcen zu beschaffen, die Sie benötigen, um Ihre Idee umzusetzen. Wenn das Konzept mit unserer Arbeit übereinstimmt, sind wir gerne bereit, Partnerschaften einzugehen."
+  },
+  "page.services.section.service-block.2.title": {
+    "defaultMessage": "Projekte"
+  },
+  "page.services.section.service-block.3.button-label": {
+    "defaultMessage": "Erfahren Sie mehr über unser Förderprogramm"
+  },
+  "page.services.section.service-block.3.content": {
+    "defaultMessage": "Wir bieten eine Anschubfinanzierung von bis zu $1.000 USD für effektiven Tierrechtsaktivismus! Wir suchen Einzelpersonen und Basisgruppen, deren Hauptziel es ist, das Leiden von nichtmenschlichen Nutztieren zu verringern."
+  },
+  "page.services.section.service-block.3.title": {
+    "defaultMessage": "Finanzierung"
+  },
+  "page.services.section.service-block.4.button-label": {
+    "defaultMessage": "Kontaktieren Sie uns für eine Beratung"
+  },
+  "page.services.section.service-block.4.content": {
+    "defaultMessage": "Die Mitglieder unseres Beratungs- und Kernteams verfügen über eine Fülle von Erfahrungen in den Bereichen Technik, Design und Non-Profit-Management. Wir freuen uns, Einzelpersonen und Organisationen nach bestem Wissen und Gewissen zu beraten, sei es in den Bereichen Technologie, Organisationsstrategie, Marketing oder Fundraising."
+  },
+  "page.services.section.service-block.4.title": {
+    "defaultMessage": "Beratung"
+  },
+  "page.support.next-seo.title": {
+    "defaultMessage": "Unterstützen Sie uns"
+  },
+  "page.support.section.hero.image-alt": {
+    "defaultMessage": "Du bist ihre Stimme"
+  },
+  "page.support.section.support-us.donation-card.0.button-label": {
+    "defaultMessage": "spenden"
+  },
+  "page.support.section.support-us.donation-card.0.content": {
+    "defaultMessage": "Für einmalige, kleinere Spenden"
+  },
+  "page.support.section.support-us.donation-card.0.title": {
+    "defaultMessage": "PayPal"
+  },
+  "page.support.section.support-us.donation-card.1.button-label": {
+    "defaultMessage": "Mäzen werden"
+  },
+  "page.support.section.support-us.donation-card.1.content": {
+    "defaultMessage": "Werden Sie monatlicher Unterstützer für nur 5 $ pro Monat"
+  },
+  "page.support.section.support-us.donation-card.1.title": {
+    "defaultMessage": "Patreon"
+  },
+  "page.support.section.support-us.donation-card.2.button-label": {
+    "defaultMessage": "Kontaktieren Sie uns"
+  },
+  "page.support.section.support-us.donation-card.2.content": {
+    "defaultMessage": "Für größere Spenden (in den USA von der Steuer absetzbar)"
+  },
+  "page.support.section.support-us.donation-card.2.title": {
+    "defaultMessage": "Andere"
+  },
+  "page.support.section.support-us.header.content": {
+    "defaultMessage": "Wenn Sie an unsere Arbeit glauben und uns unterstützen möchten, ziehen Sie bitte eine Spende in Betracht. Mit Ihrer Spende können wir eine größere Wirkung erzielen und die Welt für unsere tierischen Freunde verändern."
+  },
+  "page.support.section.support-us.header.title": {
+    "defaultMessage": "Unterstützen Sie uns"
+  },
+  "page.support.section.support-us.introduction": {
+    "defaultMessage": "Wir sind ein veganes, ehrenamtliches Team, das Technologie für Organisationen und einzelne Aktivisten der Tierschutzbewegung entwickelt. Wenn Sie an unsere Arbeit glauben und uns unterstützen möchten, ziehen Sie bitte eine Spende in Betracht."
+  },
+  "page.support.section.donation-goals.cta-label": {
+    "defaultMessage": "Jetzt spenden"
+  },
+  "page.support.section.donation-goals.introduction": {
+    "defaultMessage": "Sehen Sie sich unsere Patreon-Ziele unten an und helfen Sie uns, zu wachsen und effektiver zu werden!"
+  },
+  "page.support.section.donation-goals.title": {
+    "defaultMessage": "Monatliche Patreon-Ziele"
+  },
+  "page.support.section.support-us.subtitle": {
+    "defaultMessage": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>wenden Sie sich</contact-link> bitte <contact-link>an</contact-link> unseren steuerlichen Sponsor, um die steuerliche Absetzbarkeit zu erfragen."
+  },
+  "page.support.section.thank-you.introduction": {
+    "defaultMessage": "Wir möchten uns bei den nachstehenden Personen für ihre Unterstützung bedanken - bei denjenigen, die uns Zuschüsse gewährt oder einmalige oder wiederkehrende Spenden geleistet haben. Wir sind dankbar für Ihren Glauben an unsere Vision und Ihre Unterstützung für unsere Arbeit."
+  },
+  "page.support.section.thank-you.title": {
+    "defaultMessage": "Dankeschön"
+  },
+  "section.crypto-donation.copy-wallet.button.label": {
+    "defaultMessage": "Kopieren"
+  },
+  "section.crypto-donation.headline": {
+    "defaultMessage": "Wir akzeptieren Kryptowährungen!"
+  },
+  "section.crypto-donation.introduction": {
+    "defaultMessage": "Klicken Sie auf den QR-Code, um ihn vergrößert anzuzeigen, oder kopieren Sie den Code in Ihre Zwischenablage."
+  },
+  "section.crypto-donation.notification.copy.error": {
+    "defaultMessage": "Beim Kopieren des Codes ist etwas schief gelaufen, bitte wählen Sie ihn aus und kopieren Sie ihn manuell"
+  },
+  "section.crypto-donation.notification.copy.success": {
+    "defaultMessage": "Der Code wurde erfolgreich kopiert!"
+  },
+  "section.crypto-donation.subline": {
+    "defaultMessage": "Möchten Sie etwas anderes schicken? <contact-link>Kontaktieren Sie uns!</contact-link>"
+  },
+  "section.support-progess-bar.current.label": {
+    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
+  },
+  "section.support-progess-bar.goal.0.label": {
+    "defaultMessage": "Erforderlich zur Deckung der grundlegenden Betriebskosten"
+  },
+  "section.support-progess-bar.goal.1.label": {
+    "defaultMessage": "Wir können mehr nützliche Dienste und Technologien nutzen"
+  },
+  "section.support-progess-bar.goal.2.label": {
+    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
+  },
+  "section.support-progess-bar.goal.3.label": {
+    "defaultMessage": "Selbsttragendes Ziel"
+  },
+  "section.support-progess-bar.mobile.current.label": {
+    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
+  },
+  "section.support-progess-bar.mobile.goal.0.label": {
+    "defaultMessage": "Erforderlich zur Deckung der Betriebskosten"
+  },
+  "section.support-progess-bar.mobile.goal.1.label": {
+    "defaultMessage": "Kann sich mehr nützliche Dienstleistungen und Technik leisten"
+  },
+  "section.support-progess-bar.mobile.goal.2.label": {
+    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
+  },
+  "section.support-progess-bar.mobile.goal.3.label": {
+    "defaultMessage": "Selbsttragendes Ziel"
+  },
+  "section.crypto-donation.overlay.label": {
+    "defaultMessage": "Spenden Sie <ignore>{currencyName}</ignore>"
+  }
+}

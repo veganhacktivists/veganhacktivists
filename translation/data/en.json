@@ -1,6 +1,6 @@
 {
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>We are</left><right>VEGAN HACKTIVISTS</right>"
+    "defaultMessage": "<left>We are</left> <right>VEGAN HACKTIVISTS</right>"
   },
   "page.index.section.introduction.paragraph1": {
     "defaultMessage": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
@@ -15,7 +15,7 @@
     "defaultMessage": "See All Projects"
   },
   "page.index.section.projects.headline": {
-    "defaultMessage": "<left>Featured</left><right>PROJECTS</right>"
+    "defaultMessage": "<left>Featured</left> <right>PROJECTS</right>"
   },
   "page.index.section.projects.paragraph": {
     "defaultMessage": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
@@ -39,7 +39,7 @@
     "defaultMessage": "See All Posts"
   },
   "section.blog-teaser.headline": {
-    "defaultMessage": "<left>On the</left><right>BLOG</right>"
+    "defaultMessage": "<left>On the</left> <right>BLOG</right>"
   },
   "section.blog-teaser.paragraph": {
     "defaultMessage": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."
@@ -369,6 +369,6 @@
     "defaultMessage": "Self-Sustainable Goal"
   },
   "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Donate {currencyName}"
+    "defaultMessage": "Donate <ignore>{currencyName}</ignore>"
   }
 }

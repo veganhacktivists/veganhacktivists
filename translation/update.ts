@@ -5,7 +5,7 @@ import { Project, SyntaxKind } from 'ts-morph';
 import { isDefined } from '../src/lib/helpers/guards';
 
 import {
-  defaultLocalisationPath,
+  defaultTranslationPath,
   filesGlob,
   getTranslationsFromFile,
 } from './_util';
@@ -22,7 +22,7 @@ void main();
 
 async function main() {
   const currentTranslations = await getTranslationsFromFile(
-    defaultLocalisationPath
+    defaultTranslationPath
   );
 
   updateFormattedMessageComponent(currentTranslations);

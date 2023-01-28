@@ -6,16 +6,18 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "scripts": {
-    "postinstall": "test -f ./scripts/postinstall.sh && ./scripts/postinstall.sh || true",
+    "postinstall": "(test -f ./scripts/postinstall.sh && ./scripts/postinstall.sh || true) && pnpm translation:compile",
     "preinstall": "npx only-allow pnpm",
-    "dev": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
+    "dev": "pnpm translation:compile && NODE_OPTIONS='--inspect' next dev",
+    "build": "pnpm translation:compile && next build",
     "start": "next start",
     "lint": "next lint --dir . --report-unused-disable-directives warn",
     "test": "jest --watch",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts",
-    "translation:extract": "ts-node localisation/extract.ts",
-    "translation:update": "ts-node localisation/update.ts"
+    "translation:extract": "ts-node translation/extract.ts && pnpm translation:compile",
+    "translation:update": "ts-node translation/update.ts",
+    "translation:compile": "ts-node translation/compile.ts",
+    "translation:translate": "export $(cat .env | xargs) && ts-node translation/translate.ts && pnpm translation:compile"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
