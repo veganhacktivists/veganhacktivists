@@ -18,31 +18,31 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
       <div className="md:hidden relative h-[600px] flex flex-row justify-center">
         <div className="flex flex-col-reverse h-full w-40">
           <PatreonGoal
-            goalAmount={1353}
+            goalAmount={250}
             goalColor="yellow"
             goalOrder={1}
             totalAmount={goal}
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.0.label"
-              defaultMessage="Needed to cover operational expenses"
+              defaultMessage="This will cover some of our most basic needs!"
             />
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={2500}
-            previousAmount={1353}
+            goalAmount={500}
+            previousAmount={250}
             goalColor="yellow-orange"
             goalOrder={2}
             totalAmount={goal}
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.1.label"
-              defaultMessage="Can afford more useful services and tech"
+              defaultMessage="We can utilize more useful services and tech"
             />
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={3750}
-            previousAmount={2500}
+            goalAmount={750}
+            previousAmount={500}
             goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
@@ -53,15 +53,15 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
             />
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={5000}
-            previousAmount={3750}
+            goalAmount={1000}
+            previousAmount={750}
             goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.3.label"
-              defaultMessage="Self-Sustainable Goal"
+              defaultMessage="We've hit our monthly contribution goal, thanks!"
             />
           </PatreonGoal>
         </div>

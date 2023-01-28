@@ -6,7 +6,6 @@ import HeartLogo from '../../public/images/support/heart-icon.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
-import { ExternalLinkButton } from '../components/decoration/buttons';
 import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
 import Sprite, { chicken, pig } from '../components/decoration/sprite';
@@ -93,7 +92,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
               id: 'page.support.section.support-us.donation-card.0.button-label',
               defaultMessage: 'donate',
             })}
-            buttonHref="https://paypal.me/davidvanbeveren"
+            buttonHref="https://paypal.me/veganhacktivists"
           >
             <FormattedMessage
               id="page.support.section.support-us.donation-card.0.content"
@@ -144,32 +143,18 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         <h2 className="mb-8 text-4xl font-bold text-white">
           <FormattedMessage
             id="page.support.section.donation-goals.title"
-            defaultMessage="Monthly Patreon Goals"
+            defaultMessage="Monthly Supporter Goals"
           />
         </h2>
         <Paragraph>
           <span className="text-white">
             <FormattedMessage
               id="page.support.section.donation-goals.introduction"
-              defaultMessage="See our Patreon goals below, and help us grow and be more effective!"
+              defaultMessage="See our monthly supporter goals below, and help us grow and be more effective!"
             />
           </span>
         </Paragraph>
-        <ProgressBar currentAmount={patreonFunding} goal={5000} />
-        <div className="flex justify-center mt-16">
-          <ExternalLinkButton
-            href="https://www.patreon.com/veganhacktivists"
-            className="font-mono text-xl font-bold text-white"
-            capitalize={false}
-          >
-            <div className="px-4">
-              <FormattedMessage
-                id="page.support.section.donation-goals.cta-label"
-                defaultMessage="Donate Now"
-              />
-            </div>
-          </ExternalLinkButton>
-        </div>
+        <ProgressBar currentAmount={patreonFunding} goal={1000} />
       </div>
       <SquareField
         squares={[

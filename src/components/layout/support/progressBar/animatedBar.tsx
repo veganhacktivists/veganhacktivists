@@ -42,7 +42,7 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
             <p className="w-full text-lg text-left text-white md:text-xl">
               <FormattedMessage
                 id="section.support-progess-bar.current.label"
-                defaultMessage="Current monthly Patreon donations"
+                defaultMessage="Current monthly donations"
               />
             </p>
           </div>
