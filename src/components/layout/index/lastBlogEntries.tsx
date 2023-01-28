@@ -14,7 +14,7 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
         <p className="text-grey-dark pb-5">
           <FormattedMessage
             id="section.blog-teaser.headline"
-            defaultMessage="<left>On the</left><right>BLOG</right>"
+            defaultMessage="<left>On the</left> <right>BLOG</right>"
             values={{
               left: (chunks) => (
                 <span className="font-serif italic font-semibold text-3xl">

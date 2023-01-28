@@ -45,7 +45,7 @@ type AppPropsWithLayout = AppProps & {
 const getSeo = (intl: IntlShape): DefaultSeoProps => ({
   titleTemplate: intl.formatMessage({
     id: 'app.template.next-seo.default.titleTemplate',
-    defaultMessage: '%s | Vegan Hacktivists',
+    defaultMessage: '%s | <ignore>Vegan Hacktivists</ignore>',
   }),
   openGraph: {
     url: 'https://veganhacktivists.org',

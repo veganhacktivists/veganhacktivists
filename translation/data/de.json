@@ -1,6 +1,6 @@
 {
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>Wir sind</left> <right>VEGAN HACKTIVISTS</right>"
+    "defaultMessage": "<left>Wir sind</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
   },
   "page.index.section.introduction.paragraph1": {
     "defaultMessage": "Wir sind eine globale Gemeinschaft leidenschaftlicher Tierschützer, die ihre Fähigkeiten im Aufbau von Technologien für die Tierschutzbewegung durch <b>Design, Entwicklung und Daten</b> zur Verfügung stellen. Als Kapazitätsentwickler bieten wir innovative und hochwertige Dienstleistungen an, die für Tierschützer und Organisationen kostenlos sind."
@@ -24,7 +24,7 @@
     "defaultMessage": "Mehr erfahren"
   },
   "page.index.section.stage.hero.alt": {
-    "defaultMessage": "Mitgefühl, Kreativität, Code"
+    "defaultMessage": "<ignore>Compassion, Creativity, Code</ignore>"
   },
   "page.index.section.stage.subline": {
     "defaultMessage": "Bauen für die Tierschutzbewegung seit 2019"
@@ -78,10 +78,10 @@
     "defaultMessage": "Nehmen Sie Kontakt auf"
   },
   "page.index.next-seo.title": {
-    "defaultMessage": "Vegane Hacktivisten"
+    "defaultMessage": "<ignore>Vegan Hacktivists</ignore>"
   },
   "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | Mitgefühl, Kreativität, Code!"
+    "defaultMessage": "%s | <ignore>Compassion, Creativity, Code!</ignore>"
   },
   "page.join.hero.image-alt": {
     "defaultMessage": "Du bist ihre Stimme"
@@ -90,7 +90,7 @@
     "defaultMessage": "Mitmachen"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "Die von Ihnen angeforderte Seite ({asPath}) existiert nicht"
+    "defaultMessage": "Die von Ihnen angeforderte Seite (<ignore>{asPath}</ignore>) existiert nicht"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Seite nicht gefunden"
@@ -117,7 +117,7 @@
     "defaultMessage": "Schreiben Sie hochwertigen, sauberen Code für Projekte in verschiedenen Entwicklungsstadien. Wir verwenden Laravel für die meisten Projekte und erwarten, dass Sie mit PHP, JS und CSS vertraut sind oder daran interessiert sind, sich darin weiterzuentwickeln."
   },
   "page.join.section.job-roles.description.1": {
-    "defaultMessage": "Definieren Sie das Benutzererlebnis und die Benutzeroberfläche für unsere Projekte, indem Sie moderne, visuell ansprechende Webdesigns erstellen - von Wireframes und Mockups bis hin zum endgültigen Look and Feel der App."
+    "defaultMessage": "Definieren Sie das Nutzererlebnis und die Benutzeroberfläche für unsere Projekte, indem Sie moderne, visuell ansprechende Webdesigns erstellen - von Wireframes und Mockups bis hin zum endgültigen Look and Feel der App."
   },
   "page.join.section.job-roles.description.2": {
     "defaultMessage": "Gestalten Sie unsere Stimme und unsere Marke in den sozialen Medien, sei es durch die Entwicklung einer Inhaltsstrategie, die Analyse von Interaktionsdaten oder die Interaktion mit unseren Followern."
@@ -147,7 +147,7 @@
     "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
   },
   "page.join.section.priority-roles.description.1": {
-    "defaultMessage": "Verwaltung und Beaufsichtigung der Zuschussvergabe und der Mittelbeschaffungspipeline. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
+    "defaultMessage": "Verwaltung und Beaufsichtigung der Zuschussvergabe und des Fundraising. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
   },
   "page.join.section.priority-roles.description.2": {
     "defaultMessage": "Unterstützung unserer Werbemaßnahmen, einschließlich der Entwicklung von Kampagnen, Verwaltung von Budgets und Analyse von Metriken. Die Bewerberin/der Bewerber sollte einen Hintergrund in den Bereichen Marketing, Medien oder Werbung haben."
@@ -195,7 +195,7 @@
     "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
   },
   "app.template.next-seo.default.titleTemplate": {
-    "defaultMessage": "%s | Vegane Hacktivisten"
+    "defaultMessage": "%s | <ignore>Vegan Hacktivists</ignore>"
   },
   "page.services.next-seo.title": {
     "defaultMessage": "Dienstleistungen"

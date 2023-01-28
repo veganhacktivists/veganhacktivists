@@ -36,3 +36,9 @@ example for a headline on the index page:
 
 Add new translations by updating the array `nextConfig.i18n.locales` in `next.config.js`.  
 Translations will be generated in a pipeline job or by using the above scripts.
+
+## Ignore text/variables in messages during the translation process
+
+Wrap the part of the message in an `ignore` tag:  
+`Donate <ignore>{currencyName}</ignore>`  
+The ignore tag will exclude it from translation and keep the variable name.

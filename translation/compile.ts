@@ -1,6 +1,7 @@
 import { dirname, relative, resolve } from 'path';
+import { writeFile } from 'fs/promises';
 
-import { compileAndWrite } from '@formatjs/cli-lib';
+import { compile } from '@formatjs/cli-lib';
 import {
   IndentationText,
   Project,
@@ -8,8 +9,10 @@ import {
   StructureKind,
   SyntaxKind,
 } from 'ts-morph';
+import { z } from 'zod';
 
 import {
+  encoding,
   languages,
   repoDirectory,
   resolveCompiledTranslationFilePath,
@@ -18,12 +21,22 @@ import {
 
 void main();
 
+const stringRecordSchema = z.record(z.string(), z.string());
+
 function main() {
   return Promise.all(
     languages.map(async (l) => {
-      await compileAndWrite([resolveTranslationFilePath(l)], {
-        outFile: resolveCompiledTranslationFilePath(l),
-      });
+      const compiledMessages = await compile([resolveTranslationFilePath(l)]);
+
+      const updatedMessages = removeIgnoreTagsFromCompiledMessages(
+        stringRecordSchema.parse(JSON.parse(compiledMessages))
+      );
+
+      await writeFile(
+        resolveCompiledTranslationFilePath(l),
+        JSON.stringify(updatedMessages),
+        { encoding }
+      );
 
       await ensureTranslationFileUsage(l);
     })
@@ -73,4 +86,18 @@ async function ensureTranslationFileUsage(language: string) {
     });
 
   await project.save();
+}
+
+function removeIgnoreTagsFromCompiledMessages(
+  messages: Record<string, string>
+) {
+  for (const key in messages) {
+    messages[key] = removeIgnoreTags(messages[key]);
+  }
+
+  return messages;
+}
+
+function removeIgnoreTags(messageContent: string) {
+  return messageContent.replaceAll(/< *ignore *>(.*?)<\/ *ignore *>/g, '$1');
 }
