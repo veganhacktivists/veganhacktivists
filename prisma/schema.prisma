@@ -54,7 +54,6 @@ model User {
   accounts Account[]
   sessions Session[]
 
-  playgroundBlocked      Boolean                 @default(false)
   playgroudRequests      PlaygroundRequest[]
   playgroundApplications PlaygroundApplication[]
 
@@ -75,6 +74,7 @@ enum Status {
   Accepted
   Rejected
   Completed
+  Blocked
 }
 
 enum TimePerWeek {
