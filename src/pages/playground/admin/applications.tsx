@@ -5,6 +5,7 @@ import { NextSeo } from 'next-seo';
 
 import {
   DarkButton,
+  DenyButton,
   ExternalLinkButton,
   LogoutButton,
   OutlineButton,
@@ -118,7 +119,7 @@ const AdminPage: NextPage = ({}) => {
                               }
                             }}
                           >
-                            Accept
+                            ✔️ Accept
                           </DarkButton>
                           <ExternalLinkButton
                             className="w-full px-4 text-xl text-grey-dark"
@@ -133,7 +134,7 @@ const AdminPage: NextPage = ({}) => {
                               }
                             }}
                           >
-                            Deny
+                            ❌ Deny
                           </ExternalLinkButton>
                           <ExternalLinkButton
                             className="w-full"
@@ -150,6 +151,21 @@ const AdminPage: NextPage = ({}) => {
                           >
                             🤫 Delete
                           </ExternalLinkButton>
+                          <DenyButton
+                            className="w-full"
+                            disabled={isLoading}
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Are you sure you want to block ${app.name} from taking on future applications?`
+                                )
+                              ) {
+                                mutate({ id: app.id, status: 'Blocked' });
+                              }
+                            }}
+                          >
+                            ⛔ Block
+                          </DenyButton>
                         </div>
                       </ApplicationCard>
                     ))}
