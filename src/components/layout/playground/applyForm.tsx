@@ -371,7 +371,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
       await mutate(values);
     },
-    [sessionStatus, lastApplication?.status, mutate, reset, router]
+    [sessionStatus, mutate, reset]
   );
 
   useOnce(
