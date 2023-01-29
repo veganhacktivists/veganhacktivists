@@ -358,10 +358,19 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         reset(undefined, { keepValues: true });
         return;
       }
+      if (lastApplication?.status === 'Blocked') {
+        return toast.error(
+          'Please contact us before applying for more requests.',
+          {
+            onClose: () =>
+              router.push('/contact', undefined, { shallow: true }),
+          }
+        );
+      }
 
       await mutate(values);
     },
-    [mutate, reset, sessionStatus]
+    [sessionStatus, lastApplication?.status, mutate, reset, router]
   );
 
   useOnce(
