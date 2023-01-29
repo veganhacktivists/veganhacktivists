@@ -54,6 +54,7 @@ model User {
   accounts Account[]
   sessions Session[]
 
+  playgroundBlocked      Boolean                 @default(false)
   playgroudRequests      PlaygroundRequest[]
   playgroundApplications PlaygroundApplication[]
 
