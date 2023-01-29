@@ -1,17 +1,16 @@
-// Extract new localisations using 'formatjs extract'
+// Extract new translations using 'formatjs extract'
 
 import { promisify } from 'util';
 import { readFile, writeFile } from 'fs/promises';
 
-import { compileAndWrite, extract } from '@formatjs/cli-lib';
+import { extract } from '@formatjs/cli-lib';
 import { glob } from 'glob';
 
 import {
-  defaultLocalisationPath,
+  defaultTranslationPath,
   validationSchema,
   encoding,
   repoDirectory,
-  defaultCompiledLocalisationPath,
   filesGlob,
 } from './_util';
 
@@ -30,7 +29,7 @@ async function main() {
     JSON.parse(resultAsString)
   );
   const currentTranslations = await getTranslationsFromFile(
-    defaultLocalisationPath
+    defaultTranslationPath
   );
   const mergedTranslations = addNewTranslationsToCurrent(
     currentTranslations,
@@ -38,14 +37,10 @@ async function main() {
   );
 
   await writeFile(
-    defaultLocalisationPath,
+    defaultTranslationPath,
     JSON.stringify(mergedTranslations, undefined, 2),
     { encoding }
   );
-
-  await compileAndWrite([defaultLocalisationPath], {
-    outFile: defaultCompiledLocalisationPath,
-  });
 }
 
 function addNewTranslationsToCurrent(
@@ -61,7 +56,7 @@ function addNewTranslationsToCurrent(
     ) {
       // eslint-disable-next-line no-console
       console.error(
-        `defaultMessage of existing translation changed. Existing translation messages must be set in ${defaultLocalisationPath}\n${id}\ncurrent: ${translations[id].defaultMessage}\nchanged: ${extractedTranslations[id].defaultMessage}`
+        `defaultMessage of existing translation changed. Existing translation messages must be set in ${defaultTranslationPath}\n${id}\ncurrent: ${translations[id].defaultMessage}\nchanged: ${extractedTranslations[id].defaultMessage}`
       );
     }
     return translations;

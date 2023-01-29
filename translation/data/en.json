@@ -1,6 +1,6 @@
 {
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>We are</left><right>VEGAN HACKTIVISTS</right>"
+    "defaultMessage": "<left>We are</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
   },
   "page.index.section.introduction.paragraph1": {
     "defaultMessage": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
@@ -15,7 +15,7 @@
     "defaultMessage": "See All Projects"
   },
   "page.index.section.projects.headline": {
-    "defaultMessage": "<left>Featured</left><right>PROJECTS</right>"
+    "defaultMessage": "<left>Featured</left> <right>PROJECTS</right>"
   },
   "page.index.section.projects.paragraph": {
     "defaultMessage": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
@@ -24,7 +24,7 @@
     "defaultMessage": "Learn More"
   },
   "page.index.section.stage.hero.alt": {
-    "defaultMessage": "Compassion, Creativity, Code"
+    "defaultMessage": "<ignore>Compassion, Creativity, Code</ignore>"
   },
   "page.index.section.stage.subline": {
     "defaultMessage": "Building for the animal protection movement since 2019"
@@ -39,7 +39,7 @@
     "defaultMessage": "See All Posts"
   },
   "section.blog-teaser.headline": {
-    "defaultMessage": "<left>On the</left><right>BLOG</right>"
+    "defaultMessage": "<left>On the</left> <right>BLOG</right>"
   },
   "section.blog-teaser.paragraph": {
     "defaultMessage": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."
@@ -78,10 +78,10 @@
     "defaultMessage": "Get in contact"
   },
   "page.index.next-seo.title": {
-    "defaultMessage": "Vegan Hacktivists"
+    "defaultMessage": "<ignore>Vegan Hacktivists</ignore>"
   },
   "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | Compassion, Creativity, Code!"
+    "defaultMessage": "%s | <ignore>Compassion, Creativity, Code!</ignore>"
   },
   "page.join.hero.image-alt": {
     "defaultMessage": "You are their voice"
@@ -90,7 +90,7 @@
     "defaultMessage": "Join Us"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "The page you requested ({asPath}) does not exist"
+    "defaultMessage": "The page you requested (<ignore>{asPath}</ignore>) does not exist"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Page not found"
@@ -195,7 +195,7 @@
     "defaultMessage": "Watch our <b>intro video</b>"
   },
   "app.template.next-seo.default.titleTemplate": {
-    "defaultMessage": "%s | Vegan Hacktivists"
+    "defaultMessage": "%s | <ignore>Vegan Hacktivists</ignore>"
   },
   "page.services.next-seo.title": {
     "defaultMessage": "Services"
@@ -369,6 +369,6 @@
     "defaultMessage": "Self-Sustainable Goal"
   },
   "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Donate {currencyName}"
+    "defaultMessage": "Donate <ignore>{currencyName}</ignore>"
   }
 }

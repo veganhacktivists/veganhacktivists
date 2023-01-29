@@ -12,7 +12,7 @@ import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 import { trpc } from 'lib/client/trpc';
-import { LocalisationProvider } from 'lib/localisation/LocalisationProvider';
+import { TranslationProvider } from 'lib/translation/TranslationProvider';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -45,7 +45,7 @@ type AppPropsWithLayout = AppProps & {
 const getSeo = (intl: IntlShape): DefaultSeoProps => ({
   titleTemplate: intl.formatMessage({
     id: 'app.template.next-seo.default.titleTemplate',
-    defaultMessage: '%s | Vegan Hacktivists',
+    defaultMessage: '%s | <ignore>Vegan Hacktivists</ignore>',
   }),
   openGraph: {
     url: 'https://veganhacktivists.org',
@@ -63,10 +63,10 @@ const AppWrapper: React.FC<
   return (
     <SessionProvider session={session}>
       <CookiesProvider>
-        <LocalisationProvider>
+        <TranslationProvider>
           <AppDefaultSeo />
           {children}
-        </LocalisationProvider>
+        </TranslationProvider>
       </CookiesProvider>
     </SessionProvider>
   );

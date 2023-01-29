@@ -75,11 +75,11 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <NextSeo
         title={intl.formatMessage({
           id: 'page.index.next-seo.title',
-          defaultMessage: 'Vegan Hacktivists',
+          defaultMessage: '<ignore>Vegan Hacktivists</ignore>',
         })}
         titleTemplate={intl.formatMessage({
           id: 'page.index.next-seo.title-template',
-          defaultMessage: '%s | Compassion, Creativity, Code!',
+          defaultMessage: '%s | <ignore>Compassion, Creativity, Code!</ignore>',
         })}
       />
       <Hero
@@ -89,7 +89,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           image: heroTagline,
           alt: intl.formatMessage({
             id: 'page.index.section.stage.hero.alt',
-            defaultMessage: 'Compassion, Creativity, Code',
+            defaultMessage: '<ignore>Compassion, Creativity, Code</ignore>',
           }),
         }}
         alignment="right"
@@ -126,7 +126,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="mb-16 text-grey-dark">
           <FormattedMessage
             id="page.index.section.introduction.headline"
-            defaultMessage="<left>We are</left><right>VEGAN HACKTIVISTS</right>"
+            defaultMessage="<left>We are</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
             values={{
               left: (chunks) => (
                 <span className="font-serif text-3xl italic font-semibold">
@@ -230,7 +230,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <p className="pb-5 text-grey-dark">
             <FormattedMessage
               id="page.index.section.projects.headline"
-              defaultMessage="<left>Featured</left><right>PROJECTS</right>"
+              defaultMessage="<left>Featured</left> <right>PROJECTS</right>"
               values={{
                 left: (chunks) => (
                   <span className="font-serif text-3xl italic font-semibold">

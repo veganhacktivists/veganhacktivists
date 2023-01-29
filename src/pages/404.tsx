@@ -19,7 +19,8 @@ const NotFound: React.FC = () => {
       message: intl.formatMessage(
         {
           id: 'page.not-found.error-message',
-          defaultMessage: 'The page you requested ({asPath}) does not exist',
+          defaultMessage:
+            'The page you requested (<ignore>{asPath}</ignore>) does not exist',
         },
         { asPath }
       ),

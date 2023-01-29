@@ -118,6 +118,6 @@ module.exports = {
       files: ['__test__/**'],
       plugins: ['jest'],
       extends: ['plugin:jest/all'],
-    }
+    },
   ],
 };

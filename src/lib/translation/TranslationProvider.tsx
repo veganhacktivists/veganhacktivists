@@ -5,7 +5,7 @@ import { useLocale } from './useLocale';
 
 import type { PropsWithChildren } from 'react';
 
-export const LocalisationProvider = ({ children }: PropsWithChildren) => {
+export const TranslationProvider = ({ children }: PropsWithChildren) => {
   const locale = useLocale();
 
   return (
