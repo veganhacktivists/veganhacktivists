@@ -319,6 +319,16 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   useOnce(
     () => {
       if (!lastApplication) return;
+
+      if (lastApplication?.status === 'Blocked') {
+        return toast.error(
+          'Please contact us before applying for more requests.',
+          {
+            onClose: () =>
+              router.push('/contact', undefined, { shallow: true }),
+          }
+        );
+      }
       Object.entries(lastApplication).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
@@ -357,15 +367,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });
         return;
-      }
-      if (lastApplication?.status === 'Blocked') {
-        return toast.error(
-          'Please contact us before applying for more requests.',
-          {
-            onClose: () =>
-              router.push('/contact', undefined, { shallow: true }),
-          }
-        );
       }
 
       await mutate(values);
