@@ -91,11 +91,10 @@ async function ensureTranslationFileUsage(language: string) {
 function removeIgnoreTagsFromCompiledMessages(
   messages: Record<string, string>
 ) {
-  for (const key in messages) {
-    messages[key] = removeIgnoreTags(messages[key]);
-  }
-
-  return messages;
+  return Object.entries(messages).reduce(
+    (msgs, [key, msg]) => ({ ...msgs, [key]: removeIgnoreTags(msg) }),
+    {}
+  );
 }
 
 function removeIgnoreTags(messageContent: string) {

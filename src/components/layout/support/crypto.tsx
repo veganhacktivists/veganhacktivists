@@ -97,7 +97,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
                   <FormattedMessage
                     id="section.crypto-donation.overlay.label"
                     defaultMessage="Donate <ignore>{currencyName}</ignore>"
-                    values={{ currencyName, ignore: (chunks) => <>{chunks}</> }}
+                    values={{ currencyName }}
                   />
                 </div>
                 <div className="mt-5">
