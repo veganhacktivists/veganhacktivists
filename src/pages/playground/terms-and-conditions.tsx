@@ -46,9 +46,11 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
               <li>
                 <b>Website</b> refers to{' '}
-                <Link href={'https://www.veganhacktivists.org/playground'}>
-                  veganhacktivists.org/playground
-                </Link>
+                <span className="text-green">
+                  <Link href={'https://www.veganhacktivists.org/playground'}>
+                    veganhacktivists.org/playground
+                  </Link>
+                </span>
               </li>
             </ul>
           </SubSection>
@@ -137,13 +139,15 @@ const TermsAndConditions: PageWithLayout = () => {
               <li>
                 Give due credit on the work produced by volunteers, according to
                 the{' '}
-                <Link
-                  href={
-                    'https://wiki.creativecommons.org/wiki/best_practices_for_attribution'
-                  }
-                >
-                  Creative Commons Best Practices for Attribution.
-                </Link>
+                <span className="text-green">
+                  <Link
+                    href={
+                      'https://wiki.creativecommons.org/wiki/best_practices_for_attribution'
+                    }
+                  >
+                    Creative Commons Best Practices for Attribution.
+                  </Link>
+                </span>
               </li>
               <li>
                 Be mindful of the volunteer’s time and be reasonable with
