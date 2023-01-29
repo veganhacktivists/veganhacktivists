@@ -27,6 +27,13 @@ const Intro: React.FC = () => {
           />
         }
       >
+        <div className="md:w-2/3 mx-auto pb-10">
+          This year, we leaned into our role and strength as capacity builders
+          by expanding both our services and our professional volunteer network.
+          We saved the movement over half a million dollars by serving over 120
+          organizations this year alone with our tech, design and advisory
+          services. And we&apos;re just getting started!
+        </div>
         <div className="flex flex-col md:flex-row flex-wrap w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-10">
           <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
             <AnimatedNumber

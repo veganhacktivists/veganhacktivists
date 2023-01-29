@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PlaygroundImage from '../../../../../public/images/yearInReview/2022/playground.png';
-import PlaygroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.png';
+import PlaygroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.webp';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';

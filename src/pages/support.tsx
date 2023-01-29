@@ -70,7 +70,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             image={PayPalLogo}
             title="PayPal"
             buttonText="donate"
-            buttonHref="https://paypal.me/davidvanbeveren"
+            buttonHref="https://paypal.me/veganhacktivists"
           >
             For one-time, smaller donations
           </DonationCard>
@@ -104,23 +104,15 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <div className="py-16 bg-grey-darker">
         <h2 className="mb-8 text-4xl font-bold text-white">
-          Monthly Patreon Goals
+          Monthly Supporter Goals
         </h2>
         <Paragraph>
           <span className="text-white">
-            See our Patreon goals below, and help us grow and be more effective!
+            See our monthly supporter goals below, and help us grow and be more
+            effective!
           </span>
         </Paragraph>
-        <ProgressBar currentAmount={patreonFunding} goal={5000} />
-        <div className="flex justify-center mt-16">
-          <ExternalLinkButton
-            href="https://www.patreon.com/veganhacktivists"
-            className="font-mono text-xl font-bold text-white"
-            capitalize={false}
-          >
-            <div className="px-4">Donate Now</div>
-          </ExternalLinkButton>
-        </div>
+        <ProgressBar currentAmount={patreonFunding} goal={1000} />
       </div>
       <SquareField
         squares={[

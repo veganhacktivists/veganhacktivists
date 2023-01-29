@@ -30,7 +30,7 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
           <SectionHeader header={['Featured', 'interviews']} newDesign={true} />
         }
       >
-        <div className="text-xl md:w-2/3 mx-auto pb-32">
+        <div className="text-xl md:w-2/3 mx-auto pb-16">
           Earlier in the year, we had the honor of sitting down with diverse
           leaders in animal protection. We were inspired by their origin
           stories, words of wisdom, and their openness and candor in sharing

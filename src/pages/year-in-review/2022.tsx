@@ -31,29 +31,15 @@ const YearInReview2022: React.FC = ({}) => {
           hero={
             <Hero
               imageBackground={heroBackground}
-              imageAlignment="right"
               tagline={{
                 image: heroTagline,
                 alt: '2022 year in review',
               }}
-              alignment="right"
+              alignment="left"
               classNameMapping={{
-                container: 'bg-center sm:justify-start',
+                container: 'bg-center',
               }}
             />
-          }
-          customMainSection={
-            <FirstSubSection
-              header="Building up the movement"
-              firstWordsNum={0}
-            >
-              This year, we leaned into our role and strength as capacity
-              builders by expanding both our services and our professional
-              volunteer network. We saved the movement over half a million
-              dollars by serving over 120 organizations this year alone with our
-              tech, design and advisory services. And we&apos;re just getting
-              started!
-            </FirstSubSection>
           }
         />
 

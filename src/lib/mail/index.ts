@@ -61,6 +61,7 @@ const emailClient = new EmailClient(
   new Mailgun(formData).client({
     username: 'api',
     key: process.env.MAILGUN_API_KEY || '',
+    url: process.env.MAILGUN_URL,
   }),
   nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
