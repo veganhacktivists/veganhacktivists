@@ -116,10 +116,6 @@ export const submitRequestSchema = z.object({
   dueDate: z.date().optional().nullable(),
   estimatedTimeDays: z.number().nonnegative().int(),
   neededVolunteers: z.number().nonnegative().int(),
-  qualityAgreement: z
-    .boolean()
-    .refine((x) => !!x)
-    .transform(() => undefined),
   agreeToTerms: z
     .boolean()
     .refine((x) => !!x)
@@ -129,9 +125,6 @@ export const submitRequestSchema = z.object({
 export const submitRequestSchemaClient = submitRequestSchema.merge(
   z.object({
     requiredSkills: z.string().trim().min(1),
-
-    // Require both of these values to be true
-    qualityAgreement: z.boolean().refine((x) => !!x, { message: 'Required' }),
     agreeToTerms: z
       .boolean()
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
