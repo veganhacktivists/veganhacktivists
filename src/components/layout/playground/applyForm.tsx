@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole } from '@prisma/client';
+import { TimePerWeek, UserRole, Status } from '@prisma/client';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -320,7 +320,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     () => {
       if (!lastApplication) return;
 
-      if (lastApplication?.status === 'Blocked') {
+      if (Status.Blocked) {
         return toast.error(
           'Please contact us before applying for more requests.',
           {
