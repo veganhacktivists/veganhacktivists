@@ -320,15 +320,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     () => {
       if (!lastApplication) return;
 
-      if (Status.Blocked) {
-        return toast.error(
-          'Please contact us before applying for more requests.',
-          {
-            onClose: () =>
-              router.push('/contact', undefined, { shallow: true }),
-          }
-        );
-      }
       Object.entries(lastApplication).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
@@ -489,7 +480,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 <RadioButton
                   onChange={() => {
                     setFormData({ isVegan: true });
-
                     onChange(true);
                   }}
                   checked={value === true}
@@ -625,15 +615,43 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
+const AppicantBlocked: React.FC = () => {
+  return (
+    <>
+      <div className="text-3xl">⚠️</div>
+      <h1 className="text-3xl">
+        Please contact us before applying for more requests.
+      </h1>
+      <DarkButton className="w-fit m-auto mt-5" href="/contact">
+        Contact
+      </DarkButton>
+    </>
+  );
+};
+
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
+  const { data: session, status: sessionStatus } = useSession();
+  const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
+    trpc.playground.getLastUserApplication.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+    });
+
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
-      <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
-        <MainForm request={request} />
-      </div>
-      <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
-        <FormSidebar request={request} />
-      </div>
+      {lastApplication?.status === Status.Blocked ? (
+        <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+          <AppicantBlocked />
+        </div>
+      ) : (
+        <>
+          <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+            <MainForm request={request} />
+          </div>
+          <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
+            <FormSidebar request={request} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

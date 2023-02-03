@@ -105,7 +105,7 @@ const AdminPage: NextPage = ({}) => {
                   <div className="flex flex-col gap-5 divide-y">
                     {request.applications.map((app) => (
                       <ApplicationCard key={app.id} application={app}>
-                        <div className="flex flex-col gap-2 md:flex-row ">
+                        <div className="flex flex-col gap-2 md:flex-row">
                           <DarkButton
                             className="w-full"
                             disabled={isLoading}
@@ -160,7 +160,7 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to block ${app.name} from taking on future applications?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: 'Blocked' });
+                                mutate({ id: app.id, status: Status.Blocked });
                               }
                             }}
                           >
