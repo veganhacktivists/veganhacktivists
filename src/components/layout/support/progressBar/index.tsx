@@ -24,21 +24,21 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             ]}
             className="relative z-10"
           />
-          <AnimatedBar current={currentAmount} goal={5000} />
+          <AnimatedBar current={currentAmount} goal={1000} />
         </div>
         <TickMarks />
         <div className="flex flex-row items-end w-full">
           <PatreonGoal
-            goalAmount={1353}
+            goalAmount={250}
             goalColor="yellow"
             goalOrder={1}
             totalAmount={goal}
           >
-            Needed to cover basic operational expenses
+            This will cover some of our most basic needs!
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={2500}
-            previousAmount={1353}
+            goalAmount={500}
+            previousAmount={250}
             goalColor="yellow-orange"
             goalOrder={2}
             totalAmount={goal}
@@ -46,8 +46,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             We can utilize more useful services and tech
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={3750}
-            previousAmount={2500}
+            goalAmount={750}
+            previousAmount={500}
             goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
@@ -55,17 +55,17 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             We can ramp up value and services offered
           </PatreonGoal>
           <PatreonGoal
-            goalAmount={5000}
-            previousAmount={3750}
+            goalAmount={1000}
+            previousAmount={750}
             goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
-            Self-Sustainable Goal
+            We&apos;ve hit our monthly contribution goal, thanks!
           </PatreonGoal>
         </div>
       </div>
-      <MobileProgressBar currentAmount={currentAmount} goal={5000} />
+      <MobileProgressBar currentAmount={currentAmount} goal={1000} />
     </>
   );
 };

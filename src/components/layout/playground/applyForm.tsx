@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { TimePerWeek, UserRole, Source } from '@prisma/client';
+import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -622,7 +623,12 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
               error={errors.agreeToTerms?.message}
               {...field}
             >
-              I agree to the VH: Playground terms and conditions.
+              I agree to the{' '}
+              <span className="text-green">
+                <Link href={'/playground/terms-and-conditions'}>
+                  VH: Playground terms and conditions
+                </Link>
+              </span>
             </Checkbox>
           )}
         />
