@@ -87,8 +87,7 @@ enum Source {
   SearchEngine
   Reddit
   SocialMediaPost
-  Email
-  Podcast
+  EmailPodcastAds
   WordOfMouth
   WebsiteOrBlog
   None

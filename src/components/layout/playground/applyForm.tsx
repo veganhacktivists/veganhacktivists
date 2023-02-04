@@ -42,14 +42,13 @@ export const TimePerWeekLabel: Record<TimePerWeek, string> = {
 };
 
 export const SourceLabel: Record<Source, string> = {
-  SearchEngine: 'Search engine',
-  Reddit: 'Reddit',
-  SocialMediaPost: 'Another social media',
-  Email: 'Email',
-  Podcast: 'Podcast',
-  WordOfMouth: 'Word of mouth',
-  WebsiteOrBlog: 'Another website or blog',
-  None: 'None of the above',
+  SearchEngine: 'Google / searching',
+  Reddit: 'Reddit community',
+  SocialMediaPost: 'Social media posts',
+  EmailPodcastAds: 'Email / podcast / ads',
+  WordOfMouth: 'Friends, colleagues, family',
+  WebsiteOrBlog: 'A website, or blog post',
+  None: 'None of these',
 };
 
 const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
