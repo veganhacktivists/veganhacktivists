@@ -37,8 +37,7 @@ const sendVerificationRequest = async (
 export const nextAuthOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
-    strategy: 'database',
-    updateAge: 60 * 60,
+    strategy: 'jwt',
   },
   providers: [
     EmailProvider({
@@ -54,9 +53,33 @@ export const nextAuthOptions: NextAuthOptions = {
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    session: ({ session, user: { id, role, name, email } }) => {
-      session.user = { id, role, name, email };
+    jwt: async ({ token }) => {
+      const user = await prisma.user.findUnique({
+        where: {
+          id: token.sub,
+        },
+      });
 
+      if (user) {
+        token.role = user.role;
+        token.email = user.email;
+        token.name = user.name;
+        token.sub = user.id;
+      }
+
+      return token;
+    },
+    session: ({ session, token }) => {
+      if (session?.user) {
+        if (token.sub) {
+          session.user.id = token.sub;
+        }
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.role = token.role;
+      }
+
+      delete session.user?.image;
       return session;
     },
   },
