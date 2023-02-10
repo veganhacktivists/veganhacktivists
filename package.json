@@ -13,13 +13,13 @@
     "start": "next start",
     "lint": "next lint --dir . --report-unused-disable-directives warn",
     "test": "jest --watch",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
+    "contentful-typescript-codegen": "export $(grep -v '^#' .env | xargs -d '\n') && contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@floating-ui/react-dom-interactions": "^0.9.3",
-    "@formkit/auto-animate": "1.0.0-beta.3",
+    "@formkit/auto-animate": "1.0.0-beta.6",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",

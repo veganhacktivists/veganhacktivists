@@ -571,19 +571,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         <Checkbox
           labelPosition="right"
           className="col-span-full"
-          error={errors.qualityAgreement?.message}
-          {...myRegister('qualityAgreement')}
-          onChange={(checked) => {
-            setFormData({ qualityAgreement: checked });
-            setValue('qualityAgreement', checked);
-          }}
-        >
-          I understand that Vegan Hacktivists cannot guarantee the quality of
-          work done by our volunteers.
-        </Checkbox>
-        <Checkbox
-          labelPosition="right"
-          className="col-span-full"
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
           onChange={(checked) => {
@@ -591,7 +578,13 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             setValue('agreeToTerms', checked);
           }}
         >
-          I agree to the VH: Playground terms and conditions.
+          I agree to the{' '}
+          <span className="text-green">
+            <Link href={'/playground/terms-and-conditions'}>
+              VH: Playground terms and conditions
+            </Link>
+          </span>
+          .
         </Checkbox>
         <DarkButton
           className="mb-10 text-center w-fit md:w-72"
