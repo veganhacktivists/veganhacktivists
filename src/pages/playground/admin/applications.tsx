@@ -105,7 +105,7 @@ const AdminPage: NextPage = ({}) => {
                   <div className="flex flex-col gap-5 divide-y">
                     {request.applications.map((app) => (
                       <ApplicationCard key={app.id} application={app}>
-                        <div className="flex flex-col gap-2 md:flex-row">
+                        <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                           <DarkButton
                             className="w-full"
                             disabled={isLoading}
@@ -121,8 +121,8 @@ const AdminPage: NextPage = ({}) => {
                           >
                             ✔️ Accept
                           </DarkButton>
-                          <ExternalLinkButton
-                            className="w-full px-4 text-xl text-grey-dark"
+                          <DenyButton
+                            className="w-full"
                             disabled={isLoading}
                             onClick={() => {
                               if (
@@ -135,7 +135,7 @@ const AdminPage: NextPage = ({}) => {
                             }}
                           >
                             ❌ Deny
-                          </ExternalLinkButton>
+                          </DenyButton>
                           <ExternalLinkButton
                             className="w-full"
                             disabled={isLoading}
@@ -151,7 +151,7 @@ const AdminPage: NextPage = ({}) => {
                           >
                             🤫 Delete
                           </ExternalLinkButton>
-                          <DenyButton
+                          <ExternalLinkButton
                             className="w-full"
                             disabled={isLoading}
                             onClick={() => {
@@ -165,7 +165,7 @@ const AdminPage: NextPage = ({}) => {
                             }}
                           >
                             ⛔ Block
-                          </DenyButton>
+                          </ExternalLinkButton>
                         </div>
                       </ApplicationCard>
                     ))}
