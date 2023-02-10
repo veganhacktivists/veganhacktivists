@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { usePagination } from 'react-use-pagination';
+import { useCallback } from 'react';
 
 import useOnce from './useOnce';
 
@@ -33,57 +34,31 @@ export const useExtendedPagination = (props: ExtendedPaginationProps) => {
   /*
    * Is needed in order to not rerender on param change
    */
-  const changeHistoryParam = (key: string, value: string) => {
-    const url = window.location.toString();
-    const urlParts = url.split('?');
-    const base = urlParts[0];
-    let params: string[] = [];
-    if (urlParts[1] !== undefined) {
-      params = urlParts[1].split('&');
-    }
-    const paramList = [];
-    let found = false;
-    for (const param of params) {
-      const keyValue = param.split('=');
-      const newParam: { key: string; value: string } = {
-        key: keyValue[0],
-        value: keyValue[1],
-      };
-      if (keyValue[0] === key) {
-        newParam.value = value;
-        found = true;
-      }
-      paramList.push(newParam);
-    }
-    if (!found) {
-      const newParam = { key: key, value: value };
-      paramList.push(newParam);
-    }
-    let newUrl = base + '?';
-    let firstParam = true;
-    for (const param of paramList) {
-      if (!firstParam) {
-        newUrl += '&';
-      }
-      newUrl += param.key + '=' + param.value;
-      firstParam = false;
-    }
+  const changeHistoryParam = useCallback((key: string, value: string) => {
+    const url = new URL(window.location.toString());
+
+    url.searchParams.set(key, value);
+
+    const newUrl = url.toString();
+
     window.history.pushState({ path: newUrl }, '', newUrl);
-  };
-  const increasePageNumber = () => {
+  }, []);
+
+  const increasePageNumber = useCallback(() => {
     if (pagination.currentPage + 1 === pagination.totalPages) {
       return;
     }
     const newPageQuery: number = pagination.currentPage + 2;
     changeHistoryParam('page', newPageQuery.toString());
-  };
+  }, [changeHistoryParam, pagination.currentPage, pagination.totalPages]);
 
-  const decreasePageNumber = () => {
+  const decreasePageNumber = useCallback(() => {
     if (pagination.currentPage === 0) {
       return;
     }
     changeHistoryParam('page', pagination.currentPage.toString());
-  };
+  }, [changeHistoryParam, pagination.currentPage]);
+
   return {
     increasePageParam: increasePageNumber,
     decreasePageParam: decreasePageNumber,
