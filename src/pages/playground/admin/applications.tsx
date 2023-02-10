@@ -115,7 +115,7 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to accept ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: 'Accepted' });
+                                mutate({ id: app.id, status: Status.Accepted });
                               }
                             }}
                           >
@@ -130,7 +130,7 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to deny ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: 'Rejected' });
+                                mutate({ id: app.id, status: Status.Rejected });
                               }
                             }}
                           >
