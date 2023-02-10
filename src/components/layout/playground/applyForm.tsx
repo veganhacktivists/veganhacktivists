@@ -624,11 +624,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 const ApplicantBlocked: React.FC = () => {
   return (
     <>
-      <div className="text-3xl">⚠️</div>
-      <h1 className="text-3xl">
+      <div className="text-5xl">⚠️</div>
+      <h1 className="text-2xl my-5">
         Please contact us before applying for more requests.
       </h1>
-      <DarkButton className="w-fit m-auto mt-5" href="/contact">
+      <DarkButton className="w-fit m-auto" href="/contact">
         Contact
       </DarkButton>
     </>
@@ -636,8 +636,8 @@ const ApplicantBlocked: React.FC = () => {
 };
 
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
-  const { data: session, status: sessionStatus } = useSession();
-  const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
+  const { status: sessionStatus } = useSession();
+  const { data: lastApplication } =
     trpc.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
@@ -645,7 +645,7 @@ export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
       {lastApplication?.status === Status.Blocked ? (
-        <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+        <div className="max-w-lg mx-auto xl:max-w-sm">
           <ApplicantBlocked />
         </div>
       ) : (
