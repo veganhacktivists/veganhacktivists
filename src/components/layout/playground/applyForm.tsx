@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole, Source } from '@prisma/client';
+import { TimePerWeek, UserRole } from '@prisma/client';
 import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
@@ -32,7 +32,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { User } from '@prisma/client';
+import type { User, Source } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -568,9 +568,9 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                   });
                   onChange(value ? value.value : null);
                 }}
-                options={Object.keys(Source).map((source) => ({
-                  value: source,
-                  label: SourceLabel[source as Source],
+                options={Object.entries(SourceLabel).map(([value, label]) => ({
+                  value,
+                  label,
                 }))}
               />
             )}
