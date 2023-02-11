@@ -621,12 +621,12 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
-const ApplicantBlocked: React.FC = () => {
+const RequestApplicationBlocked: React.FC = () => {
   return (
     <>
       <div className="text-5xl">⚠️</div>
       <h1 className="text-2xl my-5">
-        Please contact us before applying for more requests.
+        Please contact us before submitting another application.
       </h1>
       <DarkButton className="w-fit m-auto" href="/contact">
         Contact
@@ -646,7 +646,7 @@ export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
       {lastApplication?.status === Status.Blocked ? (
         <div className="max-w-lg mx-auto xl:max-w-sm">
-          <ApplicantBlocked />
+          <RequestApplicationBlocked />
         </div>
       ) : (
         <>
