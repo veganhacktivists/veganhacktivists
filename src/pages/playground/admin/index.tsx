@@ -17,6 +17,7 @@ import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import Spinner from 'components/decoration/spinner';
 import useOnce from 'hooks/useOnce';
+import ApplicationCard from 'components/layout/playground/applicationCard';
 
 import type { NextPage } from 'next';
 
@@ -247,6 +248,23 @@ const AdminPage: NextPage = () => {
                     🤫 Delete
                   </ExternalLinkButton>
                 </div>
+                {statusFilter === Status.Completed &&
+                  request._count.applications > 0 && (
+                    <>
+                      <b>
+                        There are {request._count.applications} accepted
+                        applications for this request
+                      </b>
+                      <div className="pt-5 text-xl font-bold border-b">
+                        Applications
+                      </div>
+                      <div className="flex flex-col gap-5 divide-y">
+                        {request.applications.map((app) => (
+                          <ApplicationCard key={app.id} application={app} />
+                        ))}
+                      </div>
+                    </>
+                  )}
               </PlaygroundRequestCard>
             </div>
           ))}
