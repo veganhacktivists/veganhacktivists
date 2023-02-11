@@ -14,7 +14,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
 }) => {
   return (
     <div className="overflow-hidden py-2">
-      <div className="md:hidden relative h-[600px] flex flex-row justify-center">
+      <div className="md:hidden relative h-[650px] flex flex-row justify-center">
         <div className="flex flex-col-reverse h-full w-40">
           <PatreonGoal
             goalAmount={250}
