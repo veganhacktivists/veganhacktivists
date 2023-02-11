@@ -1,4 +1,6 @@
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
+import React from 'react';
 
 import PixelCow from '../../../public/images/VH_PixelCow.png';
 import CustomImage from '../../components/decoration/customImage';
@@ -11,14 +13,27 @@ import AboutLayout from '../../components/layout/about';
 import type PageWithLayout from '../../types/persistentLayout';
 
 const OurMission: PageWithLayout = () => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Our Mission" />
-      <FirstSubSection header="Our mission">
-        Our mission is to build data-driven, disruptive, and innovative projects
-        to help see an end to animal exploitation. We believe the animal
-        protection movement has five fundamental area for improvement, which we
-        aim to solve through our work.
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.about.our-mission.section.introduction.header',
+          defaultMessage: 'Our mission',
+        })}
+      />
+      {/* TODO: think about whether we could use xml based styling here */}
+      <FirstSubSection
+        header={intl.formatMessage({
+          id: 'page.about.our-mission.section.introduction.header',
+          defaultMessage: 'Our mission',
+        })}
+      >
+        <FormattedMessage
+          id="page.about.our-mission.section.introduction"
+          defaultMessage="Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental area for improvement, which we aim to solve through our work."
+        />
       </FirstSubSection>
       <div className="pb-10 m-10">
         <div className="pb-5">
@@ -31,11 +46,10 @@ const OurMission: PageWithLayout = () => {
         </div>
         <div>
           <SubSection header="1. We need more data in our movement.">
-            To determine effectiveness in projects, campaigns, and our work as a
-            whole, meaningful data needs to be tracked and collected. We
-            strongly believe that a data-driven movement will accelerate and
-            elevate our work, which is why we prioritize identifying, gathering,
-            and analyzing data, as well as making it accessible to others.
+            <FormattedMessage
+              id="page.about.our-mission.section.our-movement"
+              defaultMessage="To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
+            />
           </SubSection>
           <SubSection header="2. We need more competition, too.">
             We strongly believe competition is not only healthy but vital in
