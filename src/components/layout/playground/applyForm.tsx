@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole } from '@prisma/client';
+import { TimePerWeek, UserRole, Status } from '@prisma/client';
 import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
@@ -330,6 +330,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   useOnce(
     () => {
       if (!lastApplication) return;
+
       Object.entries(lastApplication).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
@@ -372,7 +373,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
       await mutate(values);
     },
-    [mutate, reset, sessionStatus]
+    [sessionStatus, mutate, reset]
   );
 
   useOnce(
@@ -490,7 +491,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 <RadioButton
                   onChange={() => {
                     setFormData({ isVegan: true });
-
                     onChange(true);
                   }}
                   checked={value === true}
@@ -658,15 +658,43 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
+const RequestApplicationBlocked: React.FC = () => {
+  return (
+    <>
+      <div className="text-5xl">⚠️</div>
+      <h1 className="text-2xl my-5">
+        Please contact us before submitting another application.
+      </h1>
+      <DarkButton className="w-fit m-auto" href="/contact">
+        Contact
+      </DarkButton>
+    </>
+  );
+};
+
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
+  const { status: sessionStatus } = useSession();
+  const { data: lastApplication } =
+    trpc.playground.getLastUserApplication.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+    });
+
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
-      <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
-        <MainForm request={request} />
-      </div>
-      <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
-        <FormSidebar request={request} />
-      </div>
+      {lastApplication?.status === Status.Blocked ? (
+        <div className="max-w-lg mx-auto xl:max-w-sm">
+          <RequestApplicationBlocked />
+        </div>
+      ) : (
+        <>
+          <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+            <MainForm request={request} />
+          </div>
+          <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
+            <FormSidebar request={request} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

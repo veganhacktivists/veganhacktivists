@@ -71,6 +71,18 @@ export const getRequests = async ({
               : (page - 1) * pageSize,
         }),
     include: {
+      applications: {
+        where: {
+          status: Status.Accepted,
+        },
+        include: {
+          applicant: {
+            select: {
+              email: true,
+            },
+          },
+        },
+      },
       requester: {
         select: {
           id: true,

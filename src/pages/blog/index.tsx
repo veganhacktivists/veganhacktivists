@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLongArrowAltLeft as leftArrow,
@@ -128,7 +128,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
     { enabled: router.isReady }
   );
 
-  const updateSearchParam = () => {
+  const updateSearchParam = useCallback(() => {
     void router.replace(
       {
         pathname: router.pathname,
@@ -140,18 +140,15 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       undefined,
       { shallow: true }
     );
-  };
+  }, [router, searchQuery]);
 
   const blogContainer = useRef<HTMLDivElement>(null);
 
-  const scrollUp = () => {
+  const scrollUp = useCallback(() => {
     if (!blogContainer.current) return;
 
-    window.scrollTo({
-      top: blogContainer.current.offsetTop,
-      behavior: 'smooth',
-    });
-  };
+    blogContainer.current.scrollIntoView({ behavior: 'auto' });
+  }, []);
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
@@ -214,13 +211,11 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
 
         <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
           <DarkButton
-            onClick={() => {
+            onClick={useCallback(() => {
               decreasePageParam();
               setPreviousPage();
-              setTimeout(() => {
-                scrollUp();
-              }, 1);
-            }}
+              scrollUp();
+            }, [decreasePageParam, scrollUp, setPreviousPage])}
             className="flex font-mono font-bold uppercase"
             disabled={!previousEnabled}
           >
@@ -230,13 +225,11 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             <span className="hidden pl-3 md:block">Previous</span>
           </DarkButton>
           <DarkButton
-            onClick={() => {
+            onClick={useCallback(() => {
               increasePageParam();
               setNextPage();
-              setTimeout(() => {
-                scrollUp();
-              }, 1);
-            }}
+              scrollUp();
+            }, [increasePageParam, scrollUp, setNextPage])}
             className="font-mono font-bold uppercase"
             disabled={!nextEnabled}
           >

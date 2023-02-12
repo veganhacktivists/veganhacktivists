@@ -45,16 +45,30 @@ type EmailDev = nodemailer.SendMailOptions;
 type Email = MailgunMessageData &
   Required<Pick<MailgunMessageData, 'html' | 'to' | 'subject'>>;
 
-export const createFormattedMessage: (
+export const createFormattedHTMLMessage: (
   data: Record<string, string>
 ) => string = (data) => {
   return Object.entries(data)
     .map(([field, value]) => {
-      return `<b>${firstLetterUppercase(field)}:</b><br/>${`${value}`
-        .split('\n')
-        .join('<br/>')}`;
+      field = firstLetterUppercase(field);
+      return `<b>${
+        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ') ?? field
+      }:</b> ${String(value).trim().split('\n').join('<br/>')}`;
     })
     .join('<br/>');
+};
+
+export const createFormattedTextMessage: (
+  data: Record<string, string>
+) => string = (data) => {
+  return Object.entries(data)
+    .map(([field, value]) => {
+      field = firstLetterUppercase(field);
+      return `${
+        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ') ?? field
+      }: ${String(value).trim()}`;
+    })
+    .join('\n');
 };
 
 const emailClient = new EmailClient(

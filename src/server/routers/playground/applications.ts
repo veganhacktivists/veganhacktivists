@@ -41,6 +41,7 @@ const applicationsRouter = t.router({
           isVegan: true,
           calendlyUrl: true,
           providedEmail: true,
+          status: true,
         },
         orderBy: {
           createdAt: 'desc',

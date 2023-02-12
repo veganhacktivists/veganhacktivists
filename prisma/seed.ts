@@ -122,6 +122,7 @@ const seedApplications = async (n: number = NUMBER) => {
               Status.Accepted,
               Status.Rejected,
               Status.Pending,
+              Status.Blocked,
             ]),
             calendlyUrl: faker.internet.url(),
             instagramUrl:
