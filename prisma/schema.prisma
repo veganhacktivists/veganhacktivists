@@ -74,6 +74,7 @@ enum Status {
   Accepted
   Rejected
   Completed
+  Blocked
 }
 
 enum TimePerWeek {
@@ -81,6 +82,16 @@ enum TimePerWeek {
   ThreeToFive
   FiveToEight
   TenPlus
+}
+
+enum Source {
+  SearchEngine
+  Reddit
+  SocialMediaPost
+  EmailPodcastAds
+  WordOfMouth
+  WebsiteOrBlog
+  None
 }
 
 enum BudgetType {
@@ -104,6 +115,7 @@ model PlaygroundApplication {
   applicantId          String
   name                 String
   availableTimePerWeek TimePerWeek
+  source               Source?
   portfolioLink        String
   twitterUrl           String?
   instagramUrl         String?

@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole } from '@prisma/client';
+import { TimePerWeek, UserRole, Status } from '@prisma/client';
 import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
@@ -32,7 +32,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { User } from '@prisma/client';
+import type { User, Source } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -40,6 +40,16 @@ export const TimePerWeekLabel: Record<TimePerWeek, string> = {
   ThreeToFive: '3-5 hours/week',
   FiveToEight: '5-8 hours/week',
   TenPlus: '10+ hours/week',
+};
+
+export const SourceLabel: Record<Source, string> = {
+  SearchEngine: 'Google / searching',
+  Reddit: 'Reddit community',
+  SocialMediaPost: 'Social media posts',
+  EmailPodcastAds: 'Email / podcast / ads',
+  WordOfMouth: 'Friends, colleagues, family',
+  WebsiteOrBlog: 'A website, or blog post',
+  None: 'None of these',
 };
 
 const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
@@ -320,6 +330,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   useOnce(
     () => {
       if (!lastApplication) return;
+
       Object.entries(lastApplication).forEach(([key, value]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
@@ -362,7 +373,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 
       await mutate(values);
     },
-    [mutate, reset, sessionStatus]
+    [sessionStatus, mutate, reset]
   );
 
   useOnce(
@@ -480,7 +491,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 <RadioButton
                   onChange={() => {
                     setFormData({ isVegan: true });
-
                     onChange(true);
                   }}
                   checked={value === true}
@@ -534,6 +544,33 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 options={Object.keys(TimePerWeek).map((time) => ({
                   value: time,
                   label: TimePerWeekLabel[time as TimePerWeek],
+                }))}
+              />
+            )}
+          />
+        </div>
+        <div className="col-span-full">
+          <Label error={errors.source?.message} name="source">
+            Where did you hear about Playground?
+          </Label>
+          <Controller
+            name="source"
+            control={control}
+            render={({ field: { value, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  value ? { value: value, label: SourceLabel[value] } : null
+                }
+                onChange={(value) => {
+                  setFormData({
+                    source: value?.value as Source,
+                  });
+                  onChange(value ? value.value : null);
+                }}
+                options={Object.entries(SourceLabel).map(([value, label]) => ({
+                  value,
+                  label,
                 }))}
               />
             )}
@@ -621,15 +658,43 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 };
 
+const RequestApplicationBlocked: React.FC = () => {
+  return (
+    <>
+      <div className="text-5xl">⚠️</div>
+      <h1 className="text-2xl my-5">
+        Please contact us before submitting another application.
+      </h1>
+      <DarkButton className="w-fit m-auto" href="/contact">
+        Contact
+      </DarkButton>
+    </>
+  );
+};
+
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
+  const { status: sessionStatus } = useSession();
+  const { data: lastApplication } =
+    trpc.playground.getLastUserApplication.useQuery(undefined, {
+      enabled: sessionStatus === 'authenticated',
+    });
+
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
-      <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
-        <MainForm request={request} />
-      </div>
-      <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
-        <FormSidebar request={request} />
-      </div>
+      {lastApplication?.status === Status.Blocked ? (
+        <div className="max-w-lg mx-auto xl:max-w-sm">
+          <RequestApplicationBlocked />
+        </div>
+      ) : (
+        <>
+          <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
+            <MainForm request={request} />
+          </div>
+          <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
+            <FormSidebar request={request} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

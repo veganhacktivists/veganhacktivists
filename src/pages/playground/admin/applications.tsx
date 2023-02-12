@@ -5,6 +5,7 @@ import { NextSeo } from 'next-seo';
 
 import {
   DarkButton,
+  DenyButton,
   ExternalLinkButton,
   LogoutButton,
   OutlineButton,
@@ -104,7 +105,7 @@ const AdminPage: NextPage = ({}) => {
                   <div className="flex flex-col gap-5 divide-y">
                     {request.applications.map((app) => (
                       <ApplicationCard key={app.id} application={app}>
-                        <div className="flex flex-col gap-2 md:flex-row ">
+                        <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                           <DarkButton
                             className="w-full"
                             disabled={isLoading}
@@ -114,14 +115,14 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to accept ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: 'Accepted' });
+                                mutate({ id: app.id, status: Status.Accepted });
                               }
                             }}
                           >
-                            Accept
+                            ✔️ Accept
                           </DarkButton>
-                          <ExternalLinkButton
-                            className="w-full px-4 text-xl text-grey-dark"
+                          <DenyButton
+                            className="w-full"
                             disabled={isLoading}
                             onClick={() => {
                               if (
@@ -129,12 +130,12 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to deny ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: 'Rejected' });
+                                mutate({ id: app.id, status: Status.Rejected });
                               }
                             }}
                           >
-                            Deny
-                          </ExternalLinkButton>
+                            ❌ Deny
+                          </DenyButton>
                           <ExternalLinkButton
                             className="w-full"
                             disabled={isLoading}
@@ -149,6 +150,21 @@ const AdminPage: NextPage = ({}) => {
                             }}
                           >
                             🤫 Delete
+                          </ExternalLinkButton>
+                          <ExternalLinkButton
+                            className="w-full"
+                            disabled={isLoading}
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Are you sure you want to block ${app.name} from taking on future applications?`
+                                )
+                              ) {
+                                mutate({ id: app.id, status: Status.Blocked });
+                              }
+                            }}
+                          >
+                            ⛔ Block
                           </ExternalLinkButton>
                         </div>
                       </ApplicationCard>
