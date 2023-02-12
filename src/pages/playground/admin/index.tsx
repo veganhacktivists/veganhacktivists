@@ -193,7 +193,7 @@ const AdminPage: NextPage = () => {
                         }}
                       >
                         Deny
-                      </DenyButton>{' '}
+                      </DenyButton>
                     </>
                   ) : (
                     <BlueButton
