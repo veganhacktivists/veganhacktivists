@@ -7,11 +7,11 @@ import type { NextPage } from 'next';
 const VerifyRequest: NextPage = () => {
   const { back } = useRouter();
   return (
-    <div>
-      <h1 className="mt-8 text-3xl font-bold">Check your email</h1>
-
-      <div className="mt-4 text-xl">
-        Please follow the instructions we sent you.
+    <div className="flex flex-col items-center m-10">
+      <h1 className="text-3xl font-bold">Check your email</h1>
+      <div className="mt-4 text-xl max-w-xl break-words">
+        Please follow the instructions we have sent you. If you are not seeing
+        the email in your inbox, please check your spam folder.
       </div>
       <div>
         <DarkButton
