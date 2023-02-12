@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
 
-import { TimePerWeekLabel } from './applyForm';
+import { TimePerWeekLabel, SourceLabel } from './applyForm';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
@@ -55,6 +55,7 @@ const ApplicationCard: React.FC<
         name="Available time per week"
         value={TimePerWeekLabel[app.availableTimePerWeek]}
       />
+      <Data name="Source" value={app.source ? SourceLabel[app.source] : null} />
       <Data name="Portfolio" value={app.portfolioLink} />
       <Data name="Calendly" value={app.calendlyUrl} />
       <Data name="Instagram" value={app.instagramUrl} />
