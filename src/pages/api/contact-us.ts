@@ -1,6 +1,9 @@
 import HttpCodes from 'http-status-codes';
 
-import emailClient, { createFormattedMessage } from '../../lib/mail';
+import emailClient, {
+  createFormattedHTMLMessage,
+  createFormattedTextMessage,
+} from '../../lib/mail';
 import { errorBody } from '../../lib/helpers/api';
 import { contactUsEmail } from '../../components/layout/mail/emailTemplates';
 
@@ -32,17 +35,14 @@ const handler: NextApiHandler = async (req, res) => {
       cc: determineEmailRecipients(message).join(','),
       from: email,
       subject: `Contact about ${service} from ${name}`,
-      text: contactUsEmail(
-        createFormattedMessage({
-          name,
-          email,
-          service,
-          message,
-        }),
-        true
-      ),
+      text: createFormattedTextMessage({
+        name,
+        email,
+        service,
+        message,
+      }),
       html: contactUsEmail(
-        createFormattedMessage({
+        createFormattedHTMLMessage({
           name,
           email,
           service,
