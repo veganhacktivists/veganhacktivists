@@ -1,4 +1,4 @@
-import { Status } from '@prisma/client';
+import { RequestStatus, ApplicationStatus } from '@prisma/client';
 
 import { t } from 'server/trpc';
 import { getDiscordServer } from 'lib/discord';
@@ -19,12 +19,12 @@ const statsRouter = t.router({
       await Promise.all([
         prisma.playgroundRequest.count({
           where: {
-            status: Status.Accepted,
+            status: RequestStatus.Accepted,
           },
         }),
         prisma.playgroundRequest.count({
           where: {
-            status: Status.Completed,
+            status: RequestStatus.Completed,
           },
         }),
         getDiscordServer(process.env.DISCORD_PLAYGROUND_SERVER_ID!).then(
@@ -34,7 +34,7 @@ const statsRouter = t.router({
 
     const acceptedApplications = await prisma.playgroundApplication.findMany({
       where: {
-        status: { in: [Status.Accepted, Status.Completed] },
+        status: ApplicationStatus.Accepted,
       },
       select: {
         availableTimePerWeek: true,

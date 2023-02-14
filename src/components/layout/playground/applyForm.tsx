@@ -8,7 +8,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole, Status } from '@prisma/client';
+import {
+  ApplicationStatus,
+  RequestStatus,
+  TimePerWeek,
+  UserRole,
+} from '@prisma/client';
 import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
@@ -109,11 +114,12 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   return (
     <div className="px-10 mb-5 md:px-40">
       <div className="flex flex-row justify-start gap-5">
-        {request.status !== 'Accepted' && (
+        {request.status !== RequestStatus.Accepted && (
           <div
             className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
-              'bg-red text-white': request.status === 'Rejected',
-              'bg-grey text-grey-light': request.status === 'Pending',
+              'bg-red text-white': request.status === RequestStatus.Rejected,
+              'bg-grey text-grey-light':
+                request.status === RequestStatus.Pending,
             })}
           >
             {request.status} request!
@@ -681,7 +687,7 @@ export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
 
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
-      {lastApplication?.status === Status.Blocked ? (
+      {lastApplication?.status === ApplicationStatus.Blocked ? (
         <div className="max-w-lg mx-auto xl:max-w-sm">
           <RequestApplicationBlocked />
         </div>

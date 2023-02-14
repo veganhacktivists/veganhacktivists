@@ -2,7 +2,7 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
-import { Status } from '@prisma/client';
+import { RequestStatus } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 
 import {
@@ -88,7 +88,7 @@ const PlaygroundRequestCard: React.FC<
   );
   const { data: session } = useSession();
   const canEdit =
-    status !== Status.Completed &&
+    status !== RequestStatus.Completed &&
     (session?.user?.role === 'Admin' || requester?.id === session?.user?.id);
 
   return (

@@ -1,4 +1,4 @@
-import { Status } from '@prisma/client';
+import { ApplicationStatus, RequestStatus } from '@prisma/client';
 import { z } from 'zod';
 
 import {
@@ -36,7 +36,7 @@ const adminRouter = t.router({
     .mutation(({ input: id, ctx: { prisma } }) =>
       prisma.playgroundApplication.update({
         where: { id },
-        data: { status: Status.Rejected },
+        data: { status: ApplicationStatus.Rejected },
       })
     ),
 
@@ -70,17 +70,17 @@ const adminRouter = t.router({
     ({ ctx: { prisma } }) => {
       return prisma.playgroundRequest.findMany({
         where: {
-          status: Status.Accepted,
+          status: RequestStatus.Accepted,
           applications: {
             some: {
-              status: Status.Pending,
+              status: ApplicationStatus.Pending,
             },
           },
         },
         include: {
           applications: {
             where: {
-              status: Status.Pending,
+              status: ApplicationStatus.Pending,
             },
             include: {
               applicant: {
@@ -106,7 +106,7 @@ const adminRouter = t.router({
             select: {
               applications: {
                 where: {
-                  status: Status.Accepted,
+                  status: ApplicationStatus.Accepted,
                 },
               },
             },

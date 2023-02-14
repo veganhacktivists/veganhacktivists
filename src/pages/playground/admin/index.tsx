@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { Status } from '@prisma/client';
+import { ApplicationStatus, RequestStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -21,16 +21,18 @@ import ApplicationCard from 'components/layout/playground/applicationCard';
 
 import type { NextPage } from 'next';
 
-const STATES_TO_HIDE: Status[] = [Status.Rejected];
+const STATES_TO_HIDE: RequestStatus[] = [RequestStatus.Rejected];
 
 const AdminPage: NextPage = () => {
   const utils = trpc.useContext();
   const router = useRouter();
-  const [statusFilter, setStatusFilter] = useState<Status>(Status.Pending);
+  const [statusFilter, setStatusFilter] = useState<RequestStatus>(
+    RequestStatus.Pending
+  );
 
   const readFromQuery = useOnce(
     () => {
-      const status = router.query.status as Status;
+      const status = router.query.status as RequestStatus;
       if (status) {
         setStatusFilter(status);
       }
@@ -40,7 +42,7 @@ const AdminPage: NextPage = () => {
 
   useOnce(
     () => {
-      Object.values(Status)
+      Object.values(RequestStatus)
         .filter(
           (status) =>
             status !== statusFilter && !STATES_TO_HIDE.includes(status)
@@ -88,7 +90,7 @@ const AdminPage: NextPage = () => {
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
   const RequestFilterButton = useCallback(
-    ({ status }: { status: Status }) => {
+    ({ status }: { status: RequestStatus }) => {
       return (
         <OutlineButton
           active={status === statusFilter}
@@ -99,7 +101,7 @@ const AdminPage: NextPage = () => {
             setStatusFilter(status);
           }}
         >
-          {status === 'Accepted' ? 'Live' : status} requests
+          {status === RequestStatus.Accepted ? 'Live' : status} requests
         </OutlineButton>
       );
     },
@@ -120,7 +122,7 @@ const AdminPage: NextPage = () => {
       <NextSeo title={`${statusFilter} Requests - Admin panel`} />
       <div>
         <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
-          {Object.values(Status)
+          {Object.values(RequestStatus)
             .filter((status) => !STATES_TO_HIDE.includes(status))
             .map((status) => (
               <RequestFilterButton key={status} status={status} />
@@ -149,7 +151,7 @@ const AdminPage: NextPage = () => {
                 disabled={isActionLoading}
               >
                 <b>This request is {request.status}!</b>
-                {request.status === Status.Accepted && (
+                {request.status === RequestStatus.Accepted && (
                   <b>
                     {request._count.applications > 0 ? (
                       <>
@@ -162,7 +164,7 @@ const AdminPage: NextPage = () => {
                   </b>
                 )}
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
-                  {request.status === Status.Pending ? (
+                  {request.status === RequestStatus.Pending ? (
                     <>
                       <LightButton
                         className="w-full"
@@ -173,7 +175,10 @@ const AdminPage: NextPage = () => {
                               `Are you sure you want to accept '${request.title}'?`
                             )
                           ) {
-                            mutate({ id: request.id, status: 'Accepted' });
+                            mutate({
+                              id: request.id,
+                              status: RequestStatus.Accepted,
+                            });
                           }
                         }}
                       >
@@ -188,7 +193,10 @@ const AdminPage: NextPage = () => {
                               `Are you sure you want to reject '${request.title}'?`
                             )
                           ) {
-                            mutate({ id: request.id, status: 'Rejected' });
+                            mutate({
+                              id: request.id,
+                              status: RequestStatus.Rejected,
+                            });
                           }
                         }}
                       >
@@ -210,12 +218,12 @@ const AdminPage: NextPage = () => {
                       }}
                     >
                       🔁
-                      {request.status === Status.Accepted
+                      {request.status === RequestStatus.Accepted
                         ? ' Push again'
                         : ' Repost request'}
                     </BlueButton>
                   )}
-                  {request.status !== Status.Completed ? (
+                  {request.status !== RequestStatus.Completed ? (
                     <GreenButton
                       className="w-full px-2 text-xl"
                       disabled={isActionLoading}
@@ -225,7 +233,10 @@ const AdminPage: NextPage = () => {
                             `Are you sure you want to complete '${request.title}'?`
                           )
                         ) {
-                          mutate({ id: request.id, status: Status.Completed });
+                          mutate({
+                            id: request.id,
+                            status: RequestStatus.Completed,
+                          });
                         }
                       }}
                     >
@@ -248,7 +259,7 @@ const AdminPage: NextPage = () => {
                     🤫 Delete
                   </ExternalLinkButton>
                 </div>
-                {statusFilter === Status.Completed &&
+                {statusFilter === RequestStatus.Completed &&
                   request._count.applications > 0 && (
                     <>
                       <b>

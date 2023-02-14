@@ -69,11 +69,17 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-enum Status {
+enum RequestStatus {
   Pending
   Accepted
   Rejected
   Completed
+}
+
+enum ApplicationStatus {
+  Pending
+  Accepted
+  Rejected
   Blocked
 }
 
@@ -125,7 +131,7 @@ model PlaygroundApplication {
   calendlyUrl          String?
   moreInfo             String
   requestId            String
-  status               Status      @default(Pending)
+  status               ApplicationStatus      @default(Pending)
 
   applicant User              @relation(fields: [applicantId], references: [id])
   request   PlaygroundRequest @relation(fields: [requestId], references: [id])
@@ -174,7 +180,7 @@ model PlaygroundRequest {
   dueDate           DateTime?                 @db.Date
   estimatedTimeDays Int
   requesterId       String
-  status            Status                    @default(Pending)
+  status            RequestStatus                    @default(Pending)
   category          PlaygroundRequestCategory
 
   discordMessages DiscordMessage[]

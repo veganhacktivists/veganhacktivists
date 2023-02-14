@@ -3,7 +3,8 @@ import {
   BudgetType,
   PlaygroundRequestCategory,
   PrismaClient,
-  Status,
+  RequestStatus,
+  ApplicationStatus,
   TimePerWeek,
   Source,
 } from '@prisma/client';
@@ -82,7 +83,7 @@ const seedRequests = async (n: number = NUMBER) => {
         phone: faker.phone.number(),
         organization: faker.company.name(),
         createdAt,
-        status: faker.helpers.objectValue(Status),
+        status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
       };
     });
@@ -118,12 +119,7 @@ const seedApplications = async (n: number = NUMBER) => {
             isVegan: faker.datatype.boolean(),
             name: user.name || faker.name.fullName(),
             providedEmail: user.email,
-            status: faker.helpers.arrayElement([
-              Status.Accepted,
-              Status.Rejected,
-              Status.Pending,
-              Status.Blocked,
-            ]),
+            status: faker.helpers.objectValue(ApplicationStatus),
             calendlyUrl: faker.internet.url(),
             instagramUrl:
               (faker.datatype.boolean() ? '@' : '') +
