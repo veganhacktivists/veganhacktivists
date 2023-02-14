@@ -231,7 +231,7 @@ const GrantsApplication: React.FC = () => {
           >
             Who is your target audience with this project?
             <div className="font-normal">
-              Do you target institutions, indivuiduals, or something else? How
+              Do you target institutions, individuals, or something else? How
               will targeting this group create change for farmed animals?
             </div>
           </TextArea>
@@ -255,7 +255,7 @@ const GrantsApplication: React.FC = () => {
               Please share with us any other organizations who will work on the
               proposed project in partnership with you. Please include any
               relationships your organization has with local, national and where
-              appropiate, international partners
+              appropriate, international partners
             </div>
           </TextArea>
         </FormSection>
