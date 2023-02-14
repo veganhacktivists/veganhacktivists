@@ -1,9 +1,10 @@
 import {
   BudgetType,
   PlaygroundRequestCategory,
-  Status,
   TimePerWeek,
   Source,
+  RequestStatus,
+  ApplicationStatus,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -145,14 +146,14 @@ export const getPendingApplicationsSchema = paginationSchema.optional();
 
 export const getRequestsAdminSchema = z
   .object({
-    status: z.nativeEnum(Status),
+    status: z.nativeEnum(RequestStatus),
     pagination: paginationSchema.optional(),
   })
   .partial();
 
 export const setApplicationStatusSchema = z.object({
   id: z.string().cuid(),
-  status: z.nativeEnum(Status),
+  status: z.nativeEnum(ApplicationStatus),
 });
 
 export const deleteRequestSchema = z.object({
@@ -165,5 +166,5 @@ export const repostRequestSchema = z.object({
 
 export const setRequestStatusSchema = z.object({
   id: z.string().cuid(),
-  status: z.nativeEnum(Status),
+  status: z.nativeEnum(RequestStatus),
 });

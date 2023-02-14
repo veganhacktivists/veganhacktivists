@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { Status, UserRole } from '@prisma/client';
+import { RequestStatus, UserRole } from '@prisma/client';
 
 import { OUR_EMAIL_TO, PLAYGROUND_TO_CC } from '../../mail/router';
 import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
@@ -51,7 +51,7 @@ export const getPlaygroundRequests = async ({
       category: {
         in: categories,
       },
-      status: Status.Accepted,
+      status: RequestStatus.Accepted,
     },
     orderBy,
   });
@@ -77,7 +77,8 @@ export const getRequestById = async (
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
-      status: user?.role === UserRole.Admin ? undefined : Status.Accepted,
+      status:
+        user?.role === UserRole.Admin ? undefined : RequestStatus.Accepted,
     },
     select: {
       category: true,

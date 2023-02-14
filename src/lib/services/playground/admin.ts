@@ -1,4 +1,8 @@
-import { PlaygroundRequestCategory, Status } from '@prisma/client';
+import {
+  ApplicationStatus,
+  PlaygroundRequestCategory,
+  RequestStatus,
+} from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
@@ -40,7 +44,7 @@ export const getPendingApplications = async (
   const applications = await prisma.playgroundApplication.findMany({
     where: {
       ...params,
-      status: Status.Pending,
+      status: ApplicationStatus.Pending,
     },
     include: {
       request: true,
@@ -73,7 +77,7 @@ export const getRequests = async ({
     include: {
       applications: {
         where: {
-          status: Status.Accepted,
+          status: ApplicationStatus.Accepted,
         },
         include: {
           applicant: {
@@ -99,7 +103,7 @@ export const getRequests = async ({
         select: {
           applications: {
             where: {
-              status: Status.Accepted,
+              status: ApplicationStatus.Accepted,
             },
           },
         },
@@ -142,13 +146,13 @@ export const setApplicationStatus = ({
 
     const shouldNotifyBoth =
       process.env.NODE_ENV === 'production' &&
-      application.status === Status.Pending &&
-      updatedApplication.status === Status.Accepted;
+      application.status === ApplicationStatus.Pending &&
+      updatedApplication.status === ApplicationStatus.Accepted;
 
     const shouldNotifyDenialToApplicant =
       process.env.NODE_ENV === 'production' &&
-      application.status === Status.Pending &&
-      updatedApplication.status === Status.Rejected;
+      application.status === ApplicationStatus.Pending &&
+      updatedApplication.status === ApplicationStatus.Rejected;
 
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
@@ -340,7 +344,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
 export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
   prisma.playgroundRequest.update({
     where: { id },
-    data: { status: Status.Rejected },
+    data: { status: RequestStatus.Rejected },
   });
 
 export const repostRequest = async ({
@@ -354,9 +358,9 @@ export const repostRequest = async ({
   }
   const shouldPost =
     process.env.NODE_ENV === 'production' &&
-    (request.status === Status.Accepted ||
-      request.status === Status.Rejected ||
-      request.status === Status.Completed);
+    (request.status === RequestStatus.Accepted ||
+      request.status === RequestStatus.Rejected ||
+      request.status === RequestStatus.Completed);
   if (!shouldPost) {
     return;
   }
@@ -436,13 +440,13 @@ export const setRequestStatus = async ({
   const shouldPost =
     process.env.NODE_ENV === 'production' &&
     request.discordMessages.length === 0 &&
-    request.status === Status.Pending &&
-    status === Status.Accepted;
+    request.status === RequestStatus.Pending &&
+    status === RequestStatus.Accepted;
 
   const shouldNotifyDenial =
     process.env.NODE_ENV === 'production' &&
-    request.status === Status.Pending &&
-    status === Status.Rejected;
+    request.status === RequestStatus.Pending &&
+    status === RequestStatus.Rejected;
 
   let discordMessages: Message[] = [];
   let redditSubmissions: Submission[] = [];
