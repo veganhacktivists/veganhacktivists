@@ -124,6 +124,63 @@ We are still figuring this out as we go, but for now we follow [these guidelines
 
 As for Git conventions, we try to follow the style guide as described [here](https://github.com/agis/git-style-guide).
 
+#### Commenting code
+
+#### What to comment?
+
+With typescript, commenting is quite different compared to javascript because data types are documented with the language already. So when writing code, we should focus on explaining decisions and motivations, rather than how or when to use this code block.  
+Often there are multiple ways to code something, the decision should be explained above the implementation.  
+Avoid unnecessary or redundant comments, such as those that simply restate the code.
+
+- Code blocks e.g. functions, including react components, and classes
+  - Explain the motivation for this code block and if available, reference the corresponding Trello card.
+  - If there are similar code blocks, write a short explanation what differentiates them and the necessity for the similar block.
+- Inside these code blocks
+  - Too complex or not easily understood code should not be written. If it is, explain why, and what this code should do.
+
+#### Format
+
+Use [TSDoc](https://tsdoc.org) as commenting style.
+
+#### Examples
+
+```typescript
+/**
+ * Because it is required in HTML email bodies, <br/> tags are used instead of line separators.
+ */
+export const createFormattedHTMLMessage: (
+  data: Record<string, string>
+) => string = (data) => {
+  return Object.entries(data)
+    .map(([field, value]) => {
+      field = firstLetterUppercase(field);
+      return `<b>${
+        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(" ") ?? field
+      }:</b> ${String(value).trim().split("\n").join("<br/>")}`;
+    })
+    .join("<br/>");
+};
+```
+
+```typescript
+/**
+ * What differentiates this from a useEffect call with empty dependencies is the option to enable/disable.
+ */
+const useOnce = (callback: () => void, options: UseOnceOptions = {}) => {
+  const { enabled = true } = options;
+  const isFirstRenderRef = useRef(true);
+
+  useEffect(() => {
+    if (!enabled || !isFirstRenderRef.current) return;
+
+    isFirstRenderRef.current = false;
+    callback();
+  }, [callback, enabled]);
+
+  return !isFirstRenderRef.current;
+};
+```
+
 ### Configuring your editor
 
 It is recommended to install [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), although the commit hooks will already take care of the formatting.
