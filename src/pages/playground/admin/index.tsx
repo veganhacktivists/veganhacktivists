@@ -259,7 +259,8 @@ const AdminPage: NextPage = () => {
                     🤫 Delete
                   </ExternalLinkButton>
                 </div>
-                {statusFilter === RequestStatus.Completed &&
+                {(statusFilter === RequestStatus.Completed ||
+                  statusFilter === RequestStatus.Accepted) &&
                   request._count.applications > 0 && (
                     <>
                       <b>
