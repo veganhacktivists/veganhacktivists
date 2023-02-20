@@ -189,6 +189,8 @@ model PlaygroundRequest {
   applications    PlaygroundApplication[]
   budget          Budget?
 
+  lastManuallyPushed DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
