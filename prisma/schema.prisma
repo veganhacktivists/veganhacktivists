@@ -168,7 +168,7 @@ model DiscordMessage {
 
 model PlaygroundRequest {
   id                String                    @id @default(cuid()) @db.VarChar(30)
-  phone             String
+  phone             String?
   name              String
   providedEmail     String
   organization      String?
