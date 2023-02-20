@@ -151,18 +151,6 @@ const AdminPage: NextPage = () => {
                 disabled={isActionLoading}
               >
                 <b>This request is {request.status}!</b>
-                {request.status === RequestStatus.Accepted && (
-                  <b>
-                    {request._count.applications > 0 ? (
-                      <>
-                        There are {request._count.applications} accepted
-                        applications for this request
-                      </>
-                    ) : (
-                      <>There are no accepted applications in this request</>
-                    )}
-                  </b>
-                )}
                 <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
                   {request.status === RequestStatus.Pending ? (
                     <>
