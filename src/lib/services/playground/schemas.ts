@@ -162,6 +162,7 @@ export const deleteRequestSchema = z.object({
 
 export const repostRequestSchema = z.object({
   id: z.string().cuid(),
+  lastManuallyPushed: z.date().optional().nullable(),
 });
 
 export const setRequestStatusSchema = z.object({

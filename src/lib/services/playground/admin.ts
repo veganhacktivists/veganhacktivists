@@ -349,6 +349,7 @@ export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
 
 export const repostRequest = async ({
   id,
+  lastManuallyPushed,
 }: z.infer<typeof repostRequestSchema>) => {
   const request = await prisma.playgroundRequest.findUnique({
     where: { id },
@@ -372,7 +373,7 @@ export const repostRequest = async ({
       async (prisma) => {
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          data: { status: 'Accepted' },
+          data: { status: RequestStatus.Accepted, lastManuallyPushed },
           include: {
             budget: {
               select: {

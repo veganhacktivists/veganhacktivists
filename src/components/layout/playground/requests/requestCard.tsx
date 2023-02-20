@@ -67,6 +67,7 @@ const PlaygroundRequestCard: React.FC<
     dueDate,
     status,
     neededVolunteers,
+    lastManuallyPushed,
   },
   disabled = false,
   children,
@@ -182,6 +183,19 @@ const PlaygroundRequestCard: React.FC<
               category={category}
             >
               {`${neededVolunteers ?? '1'}`}
+            </Li>
+          )}
+          {session?.user?.role === 'Admin' && (
+            <Li
+              name="Last manually pushed"
+              title={
+                lastManuallyPushed?.toLocaleString('en-US') ??
+                'This request was not yet pushed manually'
+              }
+              category={category}
+            >
+              {lastManuallyPushed?.toLocaleString('en-US') ??
+                'This request was not yet pushed manually'}
             </Li>
           )}
         </ul>

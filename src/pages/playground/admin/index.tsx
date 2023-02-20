@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { ApplicationStatus, RequestStatus } from '@prisma/client';
+import { RequestStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -201,7 +201,12 @@ const AdminPage: NextPage = () => {
                             `Are you sure you want to repost '${request.title}'?`
                           )
                         ) {
-                          mutateRepost({ id: request.id });
+                          mutateRepost({
+                            id: request.id,
+                            ...(request.status === RequestStatus.Accepted && {
+                              lastManuallyPushed: new Date(),
+                            }),
+                          });
                         }
                       }}
                     >
