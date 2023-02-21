@@ -186,40 +186,51 @@ export const updateRequest = async ({
   ) {
     return null;
   }
-  let operation;
-  if (oldRequest && budget) {
-    if (oldRequest.budget) {
-      operation = {
-        update: {
-          ...budget,
-        },
-      };
-    } else {
-      operation = {
-        create: {
-          ...budget,
-        },
-      };
-    }
-  } else {
-    operation = {
-      delete: !!oldRequest?.budget,
-    };
-  }
 
-  return await prisma.playgroundRequest.update({
-    where: {
-      id: id,
-    },
-    data: {
-      ...params,
-      budget: {
-        ...operation,
+  const shouldUpdate = oldRequest && budget && oldRequest.budget;
+  const shouldCreate = oldRequest && budget && !oldRequest.budget;
+  const shouldDelete = !shouldUpdate && !shouldCreate;
+
+  const operation = {
+    ...(shouldUpdate && {
+      update: {
+        ...budget,
       },
-    },
-    include: {
-      budget: true,
-    },
+    }),
+    ...(shouldCreate && {
+      create: {
+        ...budget,
+      },
+    }),
+    ...(shouldDelete && {
+      delete: !!oldRequest?.budget,
+    }),
+  };
+
+  return prisma.$transaction(async (prisma) => {
+    await prisma.user.update({
+      where: {
+        id: requesterId,
+      },
+      data: {
+        name: params.name,
+      },
+    });
+
+    return await prisma.playgroundRequest.update({
+      where: {
+        id: id,
+      },
+      data: {
+        ...params,
+        budget: {
+          ...operation,
+        },
+      },
+      include: {
+        budget: true,
+      },
+    });
   });
 };
 
