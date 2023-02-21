@@ -53,7 +53,13 @@ export const nextAuthOptions: NextAuthOptions = {
     verifyRequest: '/auth/verify-request',
   },
   callbacks: {
-    jwt: ({ token, user }) => {
+    jwt: async ({ token }) => {
+      const user = await prisma.user.findUnique({
+        where: {
+          id: token.sub,
+        },
+      });
+
       if (user) {
         token.role = user.role;
         token.email = user.email;
