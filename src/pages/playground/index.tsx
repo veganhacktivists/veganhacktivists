@@ -1,11 +1,13 @@
 import { NextSeo } from 'next-seo';
 import React, { useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { PlaygroundRequestCategory } from '@prisma/client';
 
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
@@ -23,9 +25,33 @@ import { trpc } from 'lib/client/trpc';
 import type PageWithLayout from 'types/persistentLayout';
 
 const Playground: PageWithLayout = ({}) => {
+  const router = useRouter();
+
+  const isCategories = (
+    value: string | string[] | undefined
+  ): value is trpc['playground']['getAllRequests']['input']['categories'] => {
+    if (value === undefined) {
+      return true;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((category) => {
+        if (!(category in PlaygroundRequestCategory)) return false;
+      });
+      return true;
+    }
+    return value in PlaygroundRequestCategory && true;
+  };
+
   const [filters, setFilters] = useState<
     trpc['playground']['getAllRequests']['input']
   >(() => ({
+    categories: isCategories(router.query.category)
+      ? router.query.category
+      : undefined,
+    isPaidRequest:
+      router.query.isPaidRequest !== undefined
+        ? router.query.isPaidRequest === 'true'
+        : undefined,
     sort: {
       createdAt: 'desc',
     },

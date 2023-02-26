@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import { PlaygroundRequestCategory } from '@prisma/client';
 import classNames from 'classnames';
 
@@ -256,6 +257,8 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
 }) => {
   const { sort, ...otherFilters } = filters;
 
+  const router = useRouter();
+
   return (
     <div
       className={classNames(
@@ -274,9 +277,27 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         </span>
         <FilterBy
           filters={otherFilters}
-          onFiltersChange={(newFilters) =>
-            onChange({ sort: filters.sort, ...newFilters })
-          }
+          onFiltersChange={(newFilters) => {
+            onChange({ sort: filters.sort, ...newFilters });
+            delete router.query['isPaidRequest'];
+            delete router.query['category'];
+            void router.push(
+              {
+                pathname: router.pathname,
+                query: {
+                  ...(newFilters.categories && {
+                    category: newFilters.categories,
+                  }),
+                  ...(typeof newFilters.isPaidRequest === 'boolean' && {
+                    isPaidRequest: newFilters.isPaidRequest,
+                  }),
+                  ...router.query,
+                },
+              },
+              undefined,
+              { shallow: true }
+            );
+          }}
         />
       </div>
       <div
