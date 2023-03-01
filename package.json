@@ -93,7 +93,7 @@
     "@types/mjml": "^4.7.0",
     "@types/node": "^18.11.9",
     "@types/nodemailer": "^6.4.6",
-    "@types/react": "18.0.18",
+    "@types/react": "18.0.28",
     "@types/react-gtm-module": "^2.0.1",
     "@types/react-highlight-words": "^0.16.4",
     "@types/react-modal": "^3.13.1",
