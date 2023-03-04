@@ -9,7 +9,7 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import { OUR_EMAIL_TO, PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
 import {
-  playgroundApplicatantIntroductionEmail,
+  playgroundApplicantIntroductionEmail,
   playgroundApplicationDenialEmail,
   playgroundRequestApprovalEmail,
   playgroundRequestDenialEmail,
@@ -177,12 +177,12 @@ export const setApplicationStatus = ({
         cc: OUR_EMAIL_TO,
         from: PLAYGROUND_EMAIL_FORMATTED,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
-        text: playgroundApplicatantIntroductionEmail(
+        text: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts,
           true
         ),
-        html: playgroundApplicatantIntroductionEmail(
+        html: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts
         ),

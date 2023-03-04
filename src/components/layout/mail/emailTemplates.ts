@@ -9,7 +9,9 @@ const host =
 const url =
   process.env.NODE_ENV === 'production' ? 'https://' + host : 'http://' + host;
 
-const mail = (body: string) => {
+const mail = (body: string, includeAACSection = false) => {
+  const footerPixelsBackgroundColor = includeAACSection ? '#ddd' : '#fff';
+
   const header = `
     <mj-section background-color="#fff" padding="0px">
       <mj-column>
@@ -17,8 +19,37 @@ const mail = (body: string) => {
       </mj-column>
     </mj-section>
   `;
+
+  const AACSection = `
+  <mj-section padding="0px" background-color="#fff">
+    <mj-column>
+      <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer-aac-pixels.png"></mj-image>
+    </mj-column>
+  </mj-section>
+  <mj-section padding="0px">
+    <mj-column>
+      <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer-aac-pixels-bottom.png"></mj-image>
+    </mj-column>
+  </mj-section>
+
+  <mj-section padding="20px 10px">
+    <mj-column background-color="#F7941D">
+      <mj-image height="100%" padding="40px" alt="Animal Advocacy Careers" src="${url}/images/playground/animal-advocacy-careers.png"></mj-image>
+    </mj-column>
+    <mj-column>
+        <mj-text align="left" font-weight="bold" padding-top="0px">
+          Looking for a job or career in animal advocacy?
+        </mj-text>
+        <mj-text align="left">
+          Check out Animal Advocacy&apos;s job board which connects you to exciting animal nonprofit jobs with high potential for helping animals.
+        </mj-text>
+        <mj-button padding-top="0px" padding-bottom="0px" align="left" href="https://www.animaladvocacycareers.org/?ref=veganhacktivists.org">Explore Careers</mj-button>
+    </mj-column>
+  </mj-section>
+`;
+
   const footer = `
-    <mj-section background-color="#fff" padding="0px">
+    <mj-section background-color="${footerPixelsBackgroundColor}" padding="0px">
       <mj-column>
         <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer.png"></mj-image>
       </mj-column>
@@ -65,13 +96,14 @@ Netherlands</mj-text>
       </mj-head>
       <mj-body background-color="#DDDDDD">
       <mj-spacer height="10px" />
-        ${header}
-        <mj-section background-color="#ffffff">
-          <mj-column>
-            ${body}
-          </mj-column>
-        </mj-section>
-        ${footer}
+      ${header}
+      <mj-section background-color="#ffffff">
+        <mj-column>
+          ${body}
+        </mj-column>
+      </mj-section>
+      ${includeAACSection ? AACSection : ''}
+      ${footer}
       <mj-spacer height="10px" />
       </mj-body>
     </mjml>
@@ -152,7 +184,7 @@ export const playgroundReviewRequestEmail = (textonly = false) => {
   return mjml2html(mail(body)).html ?? '';
 };
 
-export const playgroundApplicatantIntroductionEmail = (
+export const playgroundApplicantIntroductionEmail = (
   application: PlaygroundApplication & { request: PlaygroundRequest },
   optionalMessageParts: string,
   textonly = false
@@ -235,7 +267,7 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text><b>Vegan Hacktivists</b></mj-text>
   }
   `;
-  return mjml2html(mail(body)).html ?? '';
+  return mjml2html(mail(body, true)).html ?? '';
 };
 
 export const playgroundApplicationDenialEmail = (textonly = false) => {
@@ -261,7 +293,7 @@ Thank you so much for considering VH: Playground for your activism!`;
     <mj-text>If you have any specific questions feel free to contact us <a href="${url}/contact">here</a>. In the meantime, check out <a href="${url}/playground/requests">other pending requests</a>!</mj-text>
     <mj-text>Thank you so much for considering VH: Playground for your activism!</mj-text>
   `;
-  return mjml2html(mail(body)).html ?? '';
+  return mjml2html(mail(body, true)).html ?? '';
 };
 
 export const playgroundRequestDenialEmail = (textonly = false) => {
@@ -283,7 +315,7 @@ Thank you so much for considering VH: Playground for your request!`;
     <mj-text>If you have any specific questions, or believe this was a mistake, feel free to contact us <a href="${url}/contact">here</a>.</mj-text>
     <mj-text>Thank you so much for considering VH: Playground for your request!</mj-text>
   `;
-  return mjml2html(mail(body)).html ?? '';
+  return mjml2html(mail(body, true)).html ?? '';
 };
 
 export const playgroundRequestApprovalEmail = (
@@ -309,5 +341,5 @@ Thank you so much! `;
     <mj-text>Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">over here</a>.</mj-text>
     <mj-text>Thank you so much!</mj-text>
   `;
-  return mjml2html(mail(body)).html ?? '';
+  return mjml2html(mail(body, true)).html ?? '';
 };
