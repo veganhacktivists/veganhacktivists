@@ -113,7 +113,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
                 animals.
               </span>
               <div className="flex mt-5">
-                <DarkButton href="https://www.animaladvocacycareers.org/">
+                <DarkButton href="https://www.animaladvocacycareers.org/?ref=veganhacktivists.org">
                   Explore Careers
                 </DarkButton>
               </div>
