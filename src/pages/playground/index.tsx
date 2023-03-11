@@ -24,34 +24,26 @@ import { trpc } from 'lib/client/trpc';
 
 import type PageWithLayout from 'types/persistentLayout';
 
+const isValidPlaygroundRequestCategoryValue = (
+  value: string | string[] | undefined
+): value is PlaygroundRequestCategory[] => {
+  if (value === undefined) return false;
+  if (Array.isArray(value)) {
+    return value.some((category) => category in PlaygroundRequestCategory);
+  }
+  return value in PlaygroundRequestCategory;
+};
+
 const Playground: PageWithLayout = ({}) => {
   const router = useRouter();
-
-  const isCategories = (
-    value: string | string[] | undefined
-  ): value is trpc['playground']['getAllRequests']['input']['categories'] => {
-    if (value === undefined) {
-      return true;
-    }
-    if (Array.isArray(value)) {
-      value.forEach((category) => {
-        if (!(category in PlaygroundRequestCategory)) return false;
-      });
-      return true;
-    }
-    return value in PlaygroundRequestCategory && true;
-  };
 
   const [filters, setFilters] = useState<
     trpc['playground']['getAllRequests']['input']
   >(() => ({
-    categories: isCategories(router.query.category)
+    categories: isValidPlaygroundRequestCategoryValue(router.query.category)
       ? router.query.category
       : undefined,
-    isPaidRequest:
-      router.query.isPaidRequest !== undefined
-        ? router.query.isPaidRequest === 'true'
-        : undefined,
+    isPaidRequest: router.query.isPaidRequest === 'true',
     sort: {
       createdAt: 'desc',
     },
