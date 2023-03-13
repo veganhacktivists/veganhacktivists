@@ -257,8 +257,6 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
 }) => {
   const { sort, ...otherFilters } = filters;
 
-  const router = useRouter();
-
   return (
     <div
       className={classNames(
@@ -279,24 +277,6 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
           filters={otherFilters}
           onFiltersChange={(newFilters) => {
             onChange({ sort: filters.sort, ...newFilters });
-            delete router.query['isPaidRequest'];
-            delete router.query['category'];
-            void router.push(
-              {
-                pathname: router.pathname,
-                query: {
-                  ...(newFilters.categories && {
-                    category: newFilters.categories,
-                  }),
-                  ...(typeof newFilters.isPaidRequest === 'boolean' && {
-                    isPaidRequest: newFilters.isPaidRequest,
-                  }),
-                  ...router.query,
-                },
-              },
-              undefined,
-              { shallow: true }
-            );
           }}
         />
       </div>
