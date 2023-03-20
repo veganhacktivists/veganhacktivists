@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import { PlaygroundRequestCategory } from '@prisma/client';
 import classNames from 'classnames';
 
@@ -274,9 +275,9 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         </span>
         <FilterBy
           filters={otherFilters}
-          onFiltersChange={(newFilters) =>
-            onChange({ sort: filters.sort, ...newFilters })
-          }
+          onFiltersChange={(newFilters) => {
+            onChange({ sort: filters.sort, ...newFilters });
+          }}
         />
       </div>
       <div
