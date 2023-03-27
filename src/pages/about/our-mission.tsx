@@ -17,7 +17,7 @@ const OurMission: PageWithLayout = () => {
       <FirstSubSection header="Our mission">
         Our mission is to build data-driven, disruptive, and innovative projects
         to help see an end to animal exploitation. We believe the animal
-        protection movement has five fundamental area for improvement, which we
+        protection movement has five fundamental areas for improvement, which we
         aim to solve through our work.
       </FirstSubSection>
       <div className="pb-10 m-10">
