@@ -37,7 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
           >
             <FormattedMessage
               id="section.support-progess-bar.goal.0.label"
-              defaultMessage="This will cover some of our most basic needs!"
+              defaultMessage="Needed to cover basic operational expenses"
             />
           </PatreonGoal>
           <PatreonGoal
@@ -73,7 +73,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
           >
             <FormattedMessage
               id="section.support-progess-bar.goal.3.label"
-              defaultMessage="We've hit our monthly contribution goal, thanks!"
+              defaultMessage="Self-Sustainable Goal"
             />
           </PatreonGoal>
         </div>

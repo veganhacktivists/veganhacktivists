@@ -25,7 +25,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.0.label"
-              defaultMessage="This will cover some of our most basic needs!"
+              defaultMessage="Needed to cover operational expenses"
             />
           </PatreonGoal>
           <PatreonGoal
@@ -37,7 +37,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.1.label"
-              defaultMessage="We can utilize more useful services and tech"
+              defaultMessage="Can afford more useful services and tech"
             />
           </PatreonGoal>
           <PatreonGoal
@@ -61,7 +61,7 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
           >
             <FormattedMessage
               id="section.support-progess-bar.mobile.goal.3.label"
-              defaultMessage="We've hit our monthly contribution goal, thanks!"
+              defaultMessage="Self-Sustainable Goal"
             />
           </PatreonGoal>
         </div>

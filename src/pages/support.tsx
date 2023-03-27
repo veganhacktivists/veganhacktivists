@@ -143,14 +143,14 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         <h2 className="mb-8 text-4xl font-bold text-white">
           <FormattedMessage
             id="page.support.section.donation-goals.title"
-            defaultMessage="Monthly Supporter Goals"
+            defaultMessage="Monthly Patreon Goals"
           />
         </h2>
         <Paragraph>
           <span className="text-white">
             <FormattedMessage
               id="page.support.section.donation-goals.introduction"
-              defaultMessage="See our monthly supporter goals below, and help us grow and be more effective!"
+              defaultMessage="See our Patreon goals below, and help us grow and be more effective!"
             />
           </span>
         </Paragraph>
