@@ -31,6 +31,7 @@ specifiers:
   "@trpc/next": 10.0.0-proxy-alpha.74
   "@trpc/react": 10.0.0-proxy-alpha.74
   "@trpc/server": 10.0.0-proxy-alpha.74
+  "@types/bcryptjs": ^2.4.2
   "@types/crypto-js": ^4.1.1
   "@types/jest": ^29.2.3
   "@types/luxon": ^3.1.0
@@ -48,6 +49,7 @@ specifiers:
   "@typescript-eslint/parser": ^5.43.0
   autoprefixer: ^10.4.13
   axios: ^0.27.2
+  bcryptjs: ^2.4.3
   classnames: ^2.3.2
   contentful: ^9.2.11
   contentful-management: ^10.20.1
@@ -130,6 +132,7 @@ dependencies:
   "@trpc/react": 10.0.0-proxy-alpha.74_zon4rcf5bt6q6wn3smztcefmli
   "@trpc/server": 10.0.0-proxy-alpha.74
   axios: 0.27.2
+  bcryptjs: 2.4.3
   classnames: 2.3.2
   contentful: 9.2.11
   crypto-js: 4.1.1
@@ -180,6 +183,7 @@ devDependencies:
   "@testing-library/dom": 8.19.0
   "@testing-library/jest-dom": 5.16.5
   "@testing-library/react": 13.4.0_biqbaboplfbrettd7655fr4n2y
+  "@types/bcryptjs": 2.4.2
   "@types/crypto-js": 4.1.1
   "@types/jest": 29.2.3
   "@types/luxon": 3.1.0
@@ -3673,6 +3677,13 @@ packages:
       "@babel/types": 7.20.2
     dev: true
 
+  /@types/bcryptjs/2.4.2:
+    resolution:
+      {
+        integrity: sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==,
+      }
+    dev: true
+
   /@types/cookie/0.3.3:
     resolution:
       {
@@ -5064,6 +5075,13 @@ packages:
       }
     dependencies:
       tweetnacl: 0.14.5
+    dev: false
+
+  /bcryptjs/2.4.3:
+    resolution:
+      {
+        integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==,
+      }
     dev: false
 
   /big.js/5.2.2:
