@@ -91,6 +91,7 @@ export const getRequests = async ({
         select: {
           id: true,
           name: true,
+          email: true,
         },
       },
       budget: {
