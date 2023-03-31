@@ -94,6 +94,7 @@ const adminRouter = t.router({
             select: {
               id: true,
               name: true,
+              email: true,
             },
           },
           budget: {

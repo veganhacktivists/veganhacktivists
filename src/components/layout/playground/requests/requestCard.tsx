@@ -20,7 +20,9 @@ import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: trpc['playground']['getAllRequests']['output'][number];
+  request:
+    | trpc['playground']['getAllRequests']['output'][number]
+    | trpc['playground']['admin']['getRequests']['output'][number];
   disabled?: boolean;
 }
 
@@ -138,6 +140,15 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
+          {'email' in requester && (
+            <Li
+              name="Requestor email"
+              category={category}
+              title={requester.email || undefined}
+            >
+              {requester.email}
+            </Li>
+          )}
           <Li
             title={`${
               hasNoDue
