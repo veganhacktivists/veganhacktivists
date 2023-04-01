@@ -8,7 +8,7 @@ import {
   TimePerWeek,
   Source,
 } from '@prisma/client';
-import { faker } from '@faker-js/faker';
+import { AddressModule, faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
 
 import type { Prisma } from '@prisma/client';
@@ -28,7 +28,13 @@ const seedUsers = async (n: number = NUMBER) => {
       return {
         email: faker.internet.email(firstName, lastName),
         name,
-      };
+        role: 'User',
+      } as Prisma.UserCreateManyInput;
+    })
+    .concat({
+      email: 'talan25026@duiter.com',
+      name: 'Mats',
+      role: 'Admin',
     });
   const { count } = await prisma.user.createMany({ data: users });
   console.log('Seeded', count, 'users');
@@ -85,6 +91,10 @@ const seedRequests = async (n: number = NUMBER) => {
         createdAt,
         status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
+        lastManuallyPushed:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.3
+            ? faker.date.recent(30)
+            : undefined,
       };
     });
 
