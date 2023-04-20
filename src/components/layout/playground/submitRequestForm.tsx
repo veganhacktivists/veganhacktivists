@@ -63,6 +63,7 @@ interface SubmitRequestFormParam {
 
 const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
+  const utils = trpc.useContext();
 
   const { budget: storedBudget, ...storedForm } =
     usePlaygroundSubmitRequestStore((state) => state.form);
@@ -283,10 +284,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           keepValues: true,
         });
       }
-
       await mutate(values);
+      await utils.playground.getRequest.invalidate({ id: requestId });
     },
-    [mutate, reset, sessionStatus]
+    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest]
   );
 
   useOnce(
