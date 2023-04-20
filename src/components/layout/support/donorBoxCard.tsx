@@ -44,7 +44,7 @@ const DonorBoxCard: React.FC<DonorCardProps> = ({ image, color, large }) => {
           </div>
         </div>
       )}
-      <div className="flex flex-grow mb-[-1.75rem]">
+      <div className="flex flex-grow">
         <Script src="https://donorbox.org/widget.js" {...scriptProps} />
         <DonorBoxIframe
           src="https://donorbox.org/embed/veganhacktivists"
