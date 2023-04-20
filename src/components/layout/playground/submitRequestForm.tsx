@@ -99,10 +99,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     { id: requestId, extended: true },
     {
       enabled: !!requestId,
-      cacheTime: 0,
-      onSuccess: () => {
-        setRequestLoaded(true);
-      },
     }
   );
 
@@ -158,6 +154,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         setIsFree(false);
         setValue('budget.type', formData.budget?.type);
       }
+      setRequestLoaded(true);
     }
   }, [request, setValue, session, router, sessionStatus, requestLoaded]);
 
