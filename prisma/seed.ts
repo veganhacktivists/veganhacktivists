@@ -85,6 +85,10 @@ const seedRequests = async (n: number = NUMBER) => {
         createdAt,
         status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
+        lastManuallyPushed:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.3
+            ? faker.date.recent(30)
+            : undefined,
       };
     });
 

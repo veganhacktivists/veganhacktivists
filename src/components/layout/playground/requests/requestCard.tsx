@@ -20,7 +20,9 @@ import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: trpc['playground']['getAllRequests']['output'][number];
+  request:
+    | trpc['playground']['getAllRequests']['output'][number]
+    | trpc['playground']['admin']['getRequests']['output'][number];
   disabled?: boolean;
 }
 
@@ -37,7 +39,7 @@ const Li: React.FC<
     <li
       {...props}
       className={classNames(
-        'max-w-fit flex flex-row gap-2 justify-start items-center',
+        'max-w-fit flex flex-row gap-2 justify-start items-center break-words',
         className
       )}
     >
@@ -45,7 +47,7 @@ const Li: React.FC<
         style={{ backgroundColor: CATEGORY_COLORS[category] }}
         className="w-1.5 h-1.5 my-auto aspect-square"
       />
-      <span className="my-auto truncate h-min">
+      <span className="my-auto h-min">
         <b>{name}:</b> {children}
       </span>
     </li>
@@ -75,6 +77,11 @@ const PlaygroundRequestCard: React.FC<
   const [timeSinceCreated] = useMemo(
     () => readableTimeDiff(createdAt),
     [createdAt]
+  );
+
+  const timeSinceLastManuallyPushed = useMemo(
+    () => lastManuallyPushed && readableTimeDiff(lastManuallyPushed)[0],
+    [lastManuallyPushed]
   );
 
   const [timeUntilDue, isDue, hasNoDue] = useMemo(() => {
@@ -138,6 +145,16 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
+          {'email' in requester && (
+            <Li
+              className="break-all"
+              name="Requestor email"
+              category={category}
+              title={requester.email || undefined}
+            >
+              {requester.email}
+            </Li>
+          )}
           <Li
             title={`${
               hasNoDue
@@ -188,14 +205,10 @@ const PlaygroundRequestCard: React.FC<
           {session?.user?.role === 'Admin' && (
             <Li
               name="Last manually pushed"
-              title={
-                lastManuallyPushed?.toLocaleString('en-US') ??
-                'This request was not yet pushed manually'
-              }
+              title={timeSinceLastManuallyPushed ?? 'Never'}
               category={category}
             >
-              {lastManuallyPushed?.toLocaleString('en-US') ??
-                'This request was not yet pushed manually'}
+              {timeSinceLastManuallyPushed ?? 'Never'}
             </Li>
           )}
         </ul>

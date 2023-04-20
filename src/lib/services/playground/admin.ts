@@ -91,6 +91,7 @@ export const getRequests = async ({
         select: {
           id: true,
           name: true,
+          email: true,
         },
       },
       budget: {
@@ -156,15 +157,13 @@ export const setApplicationStatus = ({
 
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
-        (
-          [
-            ['Website / Portfolio', updatedApplication.portfolioLink],
-            ['Twitter', updatedApplication.twitterUrl],
-            ['Instagram', updatedApplication.instagramUrl],
-            ['LinkedIn', updatedApplication.linkedinUrl],
-            ['Message', updatedApplication.moreInfo],
-          ] as [string, string | null][]
-        ).filter(([, value]) => !!value) as [string, string][]
+        [
+          ['Website / Portfolio', updatedApplication.portfolioLink],
+          ['Twitter', updatedApplication.twitterUrl],
+          ['Instagram', updatedApplication.instagramUrl],
+          ['LinkedIn', updatedApplication.linkedinUrl],
+          ['Message', updatedApplication.moreInfo.replace(/\r?\n/g, '<br/>')],
+        ].filter(([, value]) => !!value) as [string, string][]
       )
         .map(([name, value]) => `<b>${name}:</b> ${value}`)
         .join('<br />');
