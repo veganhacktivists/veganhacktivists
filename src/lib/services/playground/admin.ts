@@ -454,9 +454,16 @@ export const setRequestStatus = async ({
   try {
     const updatedRequest = await prisma.$transaction(
       async (prisma) => {
+        const acceptedAt = status === RequestStatus.Accepted && {
+          acceptedAt: new Date(),
+        };
+
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          data: { status },
+          data: {
+            status,
+            ...acceptedAt,
+          },
           include: {
             budget: {
               select: {

@@ -11,10 +11,19 @@ import type { PlaygroundRequest } from '@prisma/client';
 const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
 
 export async function rejectOldRequestsWithoutApplicantsTask() {
+  const thirtyDaysAgo = new Date(Date.now() - THIRTY_DAYS_IN_MS);
+
   const oldRequests = await prisma.playgroundRequest.findMany({
     where: {
-      createdAt: {
-        lte: new Date(Date.now() - THIRTY_DAYS_IN_MS),
+      OR: {
+        acceptedAt: {
+          lte: thirtyDaysAgo,
+        },
+        // TODO: remove in >30days
+        // temporarily check updatedAt for backwards compatability
+        updatedAt: {
+          lte: thirtyDaysAgo,
+        },
       },
       status: {
         equals: RequestStatus.Accepted,
