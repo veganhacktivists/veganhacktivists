@@ -2,6 +2,7 @@ import HttpCodes from 'http-status-codes';
 import bcrypt from 'bcryptjs';
 
 import { errorBody } from 'lib/helpers/api';
+import { runHourlyTasks } from 'lib/cron/hour';
 
 import type { NextApiHandler } from 'next';
 
@@ -27,7 +28,7 @@ const handler: NextApiHandler = async function (req, res) {
 
   res.status(HttpCodes.OK).end();
 
-  // TODO: trigger scheduled tasks
+  runHourlyTasks();
 };
 
 export default handler;

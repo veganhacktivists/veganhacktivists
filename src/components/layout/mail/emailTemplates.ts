@@ -343,3 +343,28 @@ Thank you so much! `;
   `;
   return mjml2html(mail(body, true)).html ?? '';
 };
+
+export const playgroundRequestRejectedDueToInactivity = (
+  request: Pick<PlaygroundRequest, 'name' | 'title'>,
+  textonly = false
+) => {
+  if (textonly) {
+    return `
+Hey ${request.name}!
+<br /><br />
+We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.
+<br /><br />
+This can happen for multiple reasons, but most often times this happens because the requirements for this request were too high, the compensation was too low (if this was a paid request), or there just wasn't enough information included in your request to help volunteers make a proper decision to commit.
+<br /><br />
+We recommend you submit your request to Playground again with those factors in mind. Thank you!
+`;
+  }
+
+  const body = `
+    <mj-text>Hey ${request.name}!</mj-text>
+    <mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
+    <mj-text>This can happen for multiple reasons, but most often times this happens because the requirements for this request were too high, the compensation was too low (if this was a paid request), or there just wasn't enough information included in your request to help volunteers make a proper decision to commit.</mj-text>
+    <mj-text>We recommend you submit your request to Playground again with those factors in mind. Thank you!</mj-text>
+  `;
+  return mjml2html(mail(body, true)).html ?? '';
+};
