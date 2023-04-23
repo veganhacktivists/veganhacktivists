@@ -191,6 +191,8 @@ model PlaygroundRequest {
 
   lastManuallyPushed DateTime?
 
+  acceptedAt DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
