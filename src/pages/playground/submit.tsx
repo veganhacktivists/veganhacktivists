@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 import SquareField from '../../components/decoration/squares';
 
@@ -23,6 +24,7 @@ const Header: React.FC = () => {
 };
 
 const SubmitRequestPage: PageWithLayout = ({}) => {
+  const router = useRouter();
   return (
     <>
       <NextSeo title="Submit Your Request" />
@@ -35,7 +37,11 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
         ]}
         className="hidden md:block"
       />
-      <SubmitRequestForm />
+      <SubmitRequestForm
+        requestId={`${
+          typeof router?.query?.id === 'string' ? router.query.id : ''
+        }`}
+      />
     </>
   );
 };

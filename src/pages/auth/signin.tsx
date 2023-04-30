@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
+import { NavButton } from '../../components/decoration/buttons';
 
 import useOnce from 'hooks/useOnce';
 import Spinner from 'components/decoration/spinner';
@@ -67,10 +68,25 @@ const SignIn: NextPage = () => {
   }
 
   if (status === 'authenticated') {
-    return <div>You are already logged in?</div>;
+    if (
+      typeof router.query.callbackUrl === 'string' &&
+      router.query.callbackUrl
+    ) {
+      void router.push(router.query.callbackUrl);
+      return null;
+    }
+
+    return (
+      <div>
+        You are already logged in. No callbackUrl provided.
+        <NavButton href="/playground">Go to Playground</NavButton>
+      </div>
+    );
   }
 
-  if (!providers?.email) return null;
+  if (!providers?.email) {
+    return null;
+  }
 
   return (
     <div className="p-10 bg-grey-background">

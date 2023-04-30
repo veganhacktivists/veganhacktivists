@@ -345,26 +345,39 @@ Thank you so much! `;
 };
 
 export const playgroundRequestRejectedDueToInactivity = (
-  request: Pick<PlaygroundRequest, 'name' | 'title'>,
+  request: Pick<PlaygroundRequest, 'id' | 'name' | 'title'>,
   textonly = false
 ) => {
+  const createNewRequestUrl = `${url}/auth/signin?callbackUrl=${encodeURIComponent(
+    url
+  )}%2Fplayground%2Fsubmit%3Fid%3D${request.id}`;
+
   if (textonly) {
     return `
 Hey ${request.name}!
 <br /><br />
 We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.
 <br /><br />
-This can happen for multiple reasons, but most often times this happens because the requirements for this request were too high, the compensation was too low (if this was a paid request), or there just wasn't enough information included in your request to help volunteers make a proper decision to commit.
+We are sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests for support on Playground.
 <br /><br />
-We recommend you submit your request to Playground again with those factors in mind. Thank you!
+Please always make sure your requests include clear and enough information about the project you need help with and the role of the volunteer, the time commitment required, and please ensure the compensation is fair (if you are offering a financial contribution).
+<br /><br />
+If you'd like to resubmit the same request, you can use the link below to login and find a prefilled form with the information you provided us.
+<br /><br />
+If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.
+<br /><br />
+Resubmit your request: ${createNewRequestUrl}
 `;
   }
 
   const body = `
-    <mj-text>Hey ${request.name}!</mj-text>
-    <mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
-    <mj-text>This can happen for multiple reasons, but most often times this happens because the requirements for this request were too high, the compensation was too low (if this was a paid request), or there just wasn't enough information included in your request to help volunteers make a proper decision to commit.</mj-text>
-    <mj-text>We recommend you submit your request to Playground again with those factors in mind. Thank you!</mj-text>
-  `;
+<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
+<mj-text>We are sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests for support on Playground.</mj-text>
+<mj-text>Please always make sure your requests include clear and enough information about the project you need help with and the role of the volunteer, the time commitment required, and please ensure the compensation is fair (if you are offering a financial contribution).</mj-text>
+<mj-text>If you'd like to resubmit the same request, you can use the link below to login and find a prefilled form with the information you provided us.</mj-text>
+<mj-text>If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.</mj-text>
+<mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
+`;
   return mjml2html(mail(body, true)).html ?? '';
 };
