@@ -4,7 +4,10 @@ import prisma from '../../db/prisma';
 
 import { playgroundRequestRejectedDueToInactivity } from 'components/layout/mail/emailTemplates';
 import emailClient from 'lib/mail';
-import { PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail/router';
+import {
+  FLAVIA_EMAIL_FORMATTED,
+  PLAYGROUND_EMAIL_FORMATTED,
+} from 'lib/mail/router';
 
 import type { PlaygroundRequest } from '@prisma/client';
 
@@ -15,16 +18,20 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
 
   const oldRequests = await prisma.playgroundRequest.findMany({
     where: {
-      OR: {
-        acceptedAt: {
-          lte: thirtyDaysAgo,
+      OR: [
+        {
+          // TODO: remove in >30days
+          // temporarily check updatedAt for backwards compatability
+          updatedAt: {
+            lte: thirtyDaysAgo,
+          },
         },
-        // TODO: remove in >30days
-        // temporarily check updatedAt for backwards compatability
-        updatedAt: {
-          lte: thirtyDaysAgo,
+        {
+          acceptedAt: {
+            lte: thirtyDaysAgo,
+          },
         },
-      },
+      ],
       status: {
         equals: RequestStatus.Accepted,
       },
@@ -69,6 +76,7 @@ const sendAutomaticallyRejectedEmail = (
   return emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
+    cc: FLAVIA_EMAIL_FORMATTED,
     subject: 'Your request for help in "VH: Playground" has been closed!',
     text: playgroundRequestRejectedDueToInactivity(request, true),
     html: playgroundRequestRejectedDueToInactivity(request),

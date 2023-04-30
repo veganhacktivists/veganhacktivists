@@ -65,20 +65,25 @@ export const getRequestById = async (
   extended = false
 ) => {
   let ownRequest = false;
-  if (extended) {
+  if (extended && user) {
     const authorizedRequest = await prisma.playgroundRequest.findFirst({
       where: {
         id,
-        requesterId: user?.id,
+        requesterId: user.id,
       },
     });
     ownRequest = !!authorizedRequest;
   }
+
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
-      status:
-        user?.role === UserRole.Admin ? undefined : RequestStatus.Accepted,
+      status: {
+        in:
+          user?.role === UserRole.Admin
+            ? undefined
+            : [RequestStatus.Accepted, RequestStatus.Rejected],
+      },
     },
     select: {
       category: true,

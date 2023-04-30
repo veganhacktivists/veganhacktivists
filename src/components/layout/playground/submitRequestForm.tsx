@@ -4,7 +4,11 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import {
+  BudgetType,
+  PlaygroundRequestCategory,
+  RequestStatus,
+} from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 
@@ -30,8 +34,8 @@ import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequest
 import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 
-import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { z } from 'zod';
+import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError } from 'react-hook-form';
 import type { RefCallback } from 'react';
@@ -105,8 +109,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   useEffect(() => {
     if (request && sessionStatus !== 'loading' && !requestLoaded) {
       if (
-        !session?.user ||
-        (session?.user?.role !== 'Admin' && !request.isRequestedByCurrentUser)
+        request.status !== RequestStatus.Rejected &&
+        (!session?.user ||
+          (session?.user?.role !== 'Admin' &&
+            !request.isRequestedByCurrentUser))
       ) {
         void router.push('/playground');
         return;

@@ -11,6 +11,8 @@ export const PLAYGROUND_EMAIL =
   process.env.EMAIL_PLAYGROUND ?? 'playground@veganhacktivists.org';
 export const PLAYGROUND_EMAIL_FORMATTED =
   `VH Playground <${PLAYGROUND_EMAIL}>` as const;
+export const FLAVIA_EMAIL = 'flavia@veganhacktivists.org';
+export const FLAVIA_EMAIL_FORMATTED = `Flavia from "VH: Playground" <${FLAVIA_EMAIL}>`;
 
 const projectSpecificEmails: Record<string, (string | string[])[]> = {
   [process.env.EMAIL_TO_AVOCADO!]: [],
