@@ -358,11 +358,11 @@ Hey ${request.name}!
 <br /><br />
 We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.
 <br /><br />
-We are sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests for support on Playground.
+We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.
 <br /><br />
-Please always make sure your requests include clear and enough information about the project you need help with and the role of the volunteer, the time commitment required, and please ensure the compensation is fair (if you are offering a financial contribution).
+Please make sure your requests include clear information about your project and the tasks you need help, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.
 <br /><br />
-If you'd like to resubmit the same request, you can use the link below to login and find a prefilled form with the information you provided us.
+If you'd like to resubmit the same request, you can click below.
 <br /><br />
 If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.
 <br /><br />
@@ -373,11 +373,11 @@ Resubmit your request: ${createNewRequestUrl}
   const body = `
 <mj-text>Hey ${request.name}!</mj-text>
 <mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
-<mj-text>We are sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests for support on Playground.</mj-text>
-<mj-text>Please always make sure your requests include clear and enough information about the project you need help with and the role of the volunteer, the time commitment required, and please ensure the compensation is fair (if you are offering a financial contribution).</mj-text>
-<mj-text>If you'd like to resubmit the same request, you can use the link below to login and find a prefilled form with the information you provided us.</mj-text>
+<mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
+<mj-text>Please make sure your requests include clear information about your project and the tasks you need help, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
+<mj-text>If you'd like to resubmit the same request, you can click below.</mj-text>
 <mj-text>If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.</mj-text>
 <mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
 `;
-  return mjml2html(mail(body, true)).html ?? '';
+  return mjml2html(mail(body, false)).html ?? '';
 };
