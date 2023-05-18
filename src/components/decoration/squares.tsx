@@ -8,6 +8,7 @@ interface SquareFieldSquareProps extends SquareProps {
   right?: number;
   top?: number;
   bottom?: number;
+  className?: string;
 }
 
 interface SquareFieldProps {
@@ -56,7 +57,13 @@ const SquareField: React.FC<SquareFieldProps> = ({ squares, className }) => {
   return (
     <div className={classes}>
       {squares.map((squareFields, idx) => {
-        return <Square key={idx} {...squareFields} className="absolute" />;
+        return (
+          <Square
+            key={idx}
+            {...squareFields}
+            className={classNames(squareFields.className, 'absolute')}
+          />
+        );
       })}
     </div>
   );
