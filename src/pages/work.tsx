@@ -13,8 +13,23 @@ import GrantProgram from 'components/layout/work/grantProgram';
 import Playground from 'components/layout/work/playground';
 import SharingKnowledgeAndSupport from 'components/layout/work/sharingKnowledgeAndSupport';
 import LikeWhatYouSee from 'components/layout/work/likeWhatYouSee';
+import { getFeaturedProjects } from 'lib/cms/helpers';
 
-const Work: React.FC = ({}) => {
+import type { InferGetStaticPropsType } from 'next';
+
+export const getStaticProps = async () => {
+  const featuredProjects = await getFeaturedProjects();
+
+  return {
+    props: {
+      featuredProjects,
+    },
+  };
+};
+
+const Work = ({
+  featuredProjects,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <NextSeo title="Our Work" />
@@ -23,7 +38,7 @@ const Work: React.FC = ({}) => {
 
       <OurWork />
 
-      <FeaturedProjects />
+      <FeaturedProjects featuredProjects={featuredProjects} />
 
       <OtherProjects />
 
