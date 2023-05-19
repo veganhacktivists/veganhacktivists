@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import React from 'react';
 
 import useWindowSize from 'hooks/useWindowSize';
@@ -23,6 +23,15 @@ export const Carousel = ({
 
   const pages = Math.ceil(scrollWidth! / width!) || 0;
 
+  const getHandlePageChange = useCallback(
+    (newPage: number) => () => {
+      setCurrentPage(newPage);
+      const newScroll = (width! / 2) * newPage;
+      scrollRef.current!.scrollTo({ left: newScroll, behavior: 'smooth' });
+    },
+    [width]
+  );
+
   return (
     <div>
       <ul
@@ -41,7 +50,9 @@ export const Carousel = ({
         {Array(pages)
           .fill(true)
           .map((_, i) => (
-            <div
+            <button
+              onClick={getHandlePageChange(i)}
+              type="button"
               key={i}
               className={classNames(
                 'w-2 h-2 bg-white',
