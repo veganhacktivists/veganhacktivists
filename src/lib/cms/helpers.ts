@@ -6,6 +6,7 @@ import type {
   IBlogEntryFields,
   IDocsCategory,
   IDocsCategoryFields,
+  IProject,
   IProjectFields,
   ITeamFields,
 } from '../../types/generated/contentful';
@@ -72,9 +73,7 @@ export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
   return projects;
 };
 
-export const getFeaturedProjects: () => Promise<
-  Entry<IProjectFields>[]
-> = async () => {
+export const getFeaturedProjects = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
     query: {
@@ -86,7 +85,7 @@ export const getFeaturedProjects: () => Promise<
     },
   });
 
-  return projects;
+  return projects as IProject[];
 };
 
 export const getBlogEntries: (
