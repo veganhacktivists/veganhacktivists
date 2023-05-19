@@ -35,7 +35,7 @@ const OurWork: React.FC = () => {
             services.
           </p>
           TBD
-          <div className="relative mx-auto md:w-1/3">
+          <div className="relative mx-auto md:w-fit">
             <DarkButton href="/services" className="font-mono w-fit">
               Explore our services
             </DarkButton>
