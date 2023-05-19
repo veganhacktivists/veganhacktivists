@@ -25,10 +25,7 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
 
       <div className="relative w-full overflow-hidden text-2xl text-white bg-[#3D3D3D]">
         <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
-          <SectionHeader
-            className="mb-2"
-            header={['Other', 'PROJECTS', 'worth mentioning']}
-          />
+          <SectionHeader className="mb-2" header={['Other', 'projects']} />
           <ul className="flex flex-row overflow-x-auto gap-4">
             {projects.map(({ sys: { id }, fields: { name, image, url } }) => (
               <li key={id} className="w-64 aspect-square flex-shrink-0">
@@ -38,6 +35,15 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
               </li>
             ))}
           </ul>
+          <Carousel
+            items={projects.map(
+              ({ sys: { id }, fields: { name, image, url } }) => (
+                <Link key={id} href={url}>
+                  <ContentfulImage title={name} image={image} alt={name} />
+                </Link>
+              )
+            )}
+          />
         </div>
       </div>
     </>
