@@ -43,6 +43,26 @@ const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
   openGraph: {
     url: 'https://veganhacktivists.org',
+    images: [
+      {
+        url: 'https://veganhacktivists.org/images/VH_Logo_1024px.png',
+        alt: 'veganhacktivists.org Logo 1024',
+        height: 1024,
+        width: 1024,
+      },
+      {
+        url: 'https://veganhacktivists.org/images/VH_Logo_512px.png',
+        alt: 'veganhacktivists.org Logo 512',
+        height: 512,
+        width: 512,
+      },
+      {
+        url: 'https://veganhacktivists.org/images/VH_Logo_256px.png',
+        alt: 'veganhacktivists.org Logo 256',
+        height: 256,
+        width: 256,
+      },
+    ],
   },
   twitter: {
     cardType: 'summary_large_image',
