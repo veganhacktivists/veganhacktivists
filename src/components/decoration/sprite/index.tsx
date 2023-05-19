@@ -24,22 +24,21 @@ import type { StaticImageData } from 'next/image';
 interface SpriteProps {
   image: StaticImageData;
   secondsToTraverse?: number;
-  scale?: number;
   pixelsLeft?: number;
   pixelsRight?: number;
 }
 
 const pixelSize = 64;
+const scale = 0.5;
 
-const Sprite: React.FC<SpriteProps> = ({
+const Sprite = ({
   image,
   secondsToTraverse = 40,
-  scale = 0.5,
   pixelsLeft = 3,
   pixelsRight = 1,
-}) => {
-  const [reverse, setReverse] = useState<boolean>(false);
-  const [jumping, setJumping] = useState<boolean>(false);
+}: SpriteProps) => {
+  const [reverse, setReverse] = useState(false);
+  const [jumping, setJumping] = useState(false);
 
   const mdSize = useWindowBreakpoint('md');
 
@@ -49,7 +48,7 @@ const Sprite: React.FC<SpriteProps> = ({
 
   const initialPositionPx = isMdScreen ? 0 : pixelsLeft * pixelSize;
   const finalPositionPx = isMdScreen
-    ? width - image.width * scale
+    ? width - image.width * scale - 20
     : width - pixelsRight * pixelSize - 20 - image.width * scale;
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
@@ -85,10 +84,9 @@ const Sprite: React.FC<SpriteProps> = ({
         }}
       >
         <div
-          className={classNames(
-            'relative',
-            jumping ? cssAnimations.sprite : ''
-          )}
+          className={classNames('relative', {
+            [cssAnimations.sprite]: jumping,
+          })}
           onAnimationEnd={() => {
             setJumping(false);
           }}
