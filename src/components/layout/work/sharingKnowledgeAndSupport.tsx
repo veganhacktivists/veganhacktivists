@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import family from '../../../../public/images/yearInReview/2022/vh-family.jpg';
 import malina from '../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
 import james from '../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
@@ -7,41 +5,99 @@ import CustomImage from '../../decoration/customImage';
 import { SectionHeader } from '../../decoration/textBlocks';
 import SquareField from '../../decoration/squares';
 
-import Circle from 'components/decoration/circle';
-import getThemeColor from 'lib/helpers/theme';
+import { DarkButton } from 'components/decoration/buttons';
 
 import type { StaticImageData } from 'next/image';
 
-interface SectionContainerProps extends React.PropsWithChildren {
-  header?: React.ReactNode;
-  className?: string;
-  color?: string;
-  circles?: boolean;
-}
+const TOP_DECORATION_SQUARES = [
+  { color: '#292929', size: 16, right: 0, top: 0 },
+];
 
-const SectionContainer: React.FC<SectionContainerProps> = ({
-  children,
-  header,
-  className,
-  circles = false,
-  color,
-}) => {
-  const classes = classNames(className, 'pt-20 pb-10 px-5', {
-    relative: circles,
-  });
-  const backgroundColor = color ? getThemeColor(color) : 'inherit';
+const BOTTOM_DECORATION_SQUARES = [
+  {
+    left: 0,
+    bottom: 0,
+    color: '#DDDDDD',
+    size: 16,
+  },
+];
 
+const SharingKnowledgeAndSupport: React.FC = () => {
   return (
-    <div className={classes} style={{ backgroundColor }}>
-      {circles && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Circle xAlign="right" radius={30} opacity={0.1} />
-          <Circle yAlign="bottom" radius={34} opacity={0.2} />
+    <>
+      <SquareField
+        squares={TOP_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
+
+      <div className="xl:w-2/3 mx-auto mt-20 px-5">
+        <div className="flex flex-col md:flex-row justify-between">
+          <div>
+            <SectionHeader
+              header={['sharing our', 'knowledge & support']}
+              newDesign
+              stackAlign="left"
+              stackEntries
+            />
+
+            <div className="text-xl text-left md:w-4/5 pt-4 pb-10 md:pb-20 ml-2">
+              We’re often speaking at animal protection and EA related
+              conferences every year and around the world! Be sure to look out
+              for our booth or speakers, we’d love to meet you and see where we
+              might be able to support your work!
+            </div>
+          </div>
+
+          <div className="flex w-full md:w-fit flex-row items-center mb-8 md:mb-0">
+            <div className="w-full md:w-max">
+              <span className="font-bold block pb-2">
+                Follow us to see where we’ll be next!
+              </span>
+              <DarkButton
+                href="https://www.instagram.com/veganhacktivists/"
+                className="mb-4 md:mb-[10%]"
+              >
+                Instagram
+              </DarkButton>
+            </div>
+          </div>
         </div>
-      )}
-      <div className="pb-10">{header}</div>
-      <div>{children}</div>
-    </div>
+
+        <div className="flex flex-col md:flex-row gap-5 pb-20">
+          <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-5 justify-between">
+            <div className="flex">
+              <ImageWithCaption
+                bgColor="yellow"
+                image={malina}
+                caption={'Malina Tran at CARE Conference'}
+                subcaption={'Data & Tech in Animal Rights Activism'}
+              />
+            </div>
+            <div className="flex">
+              <ImageWithCaption
+                bgColor="green"
+                image={james}
+                caption={'James Morgan at AVA Summit'}
+                subcaption={'Tech Innovation in Animal Protection'}
+              />
+            </div>
+          </div>
+          <div className="flex flex-grow">
+            <div className="flex flex-grow items-center justify-end">
+              <CustomImage
+                src={family}
+                alt="Vegan Hacktivists team at the Animal & Vegan Advocacy Summit"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <SquareField
+        squares={BOTTOM_DECORATION_SQUARES}
+        className="hidden md:block"
+      />
+    </>
   );
 };
 
@@ -76,82 +132,6 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
         </div>
       </div>
     </div>
-  );
-};
-
-const TOP_DECORATION_SQUARES = [
-  { color: '#292929', size: 16, right: 0, top: 0 },
-];
-
-const BOTTOM_DECORATION_SQUARES = [
-  {
-    left: 0,
-    bottom: 0,
-    color: '#DDDDDD',
-    size: 16,
-  },
-];
-
-const SharingKnowledgeAndSupport: React.FC = () => {
-  return (
-    <>
-      <SquareField
-        squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-
-      <SectionContainer
-        header={
-          <SectionHeader
-            header={['Sharing', 'knowledge & support']}
-            newDesign={true}
-          />
-        }
-      >
-        <div className="text-xl md:w-2/3 xl:w-1/2 mx-auto">
-          This year, we were invited to speak at <b>CARE Conference</b> in
-          Warsaw, Poland and the first-ever <b>AVA Summit</b> in Washington, DC.
-          We spoke about our work for the animal protection movement and how
-          organizations and individuals could get involved with our services to
-          get the support they need.
-        </div>
-        <div className="xl:w-2/3 mx-auto mt-20">
-          <div className="flex flex-col md:flex-row gap-5 pb-20">
-            <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-5 justify-between">
-              <div className="flex ">
-                <ImageWithCaption
-                  bgColor="yellow"
-                  image={malina}
-                  caption={'Malina Tran at CARE Conference'}
-                  subcaption={'Data & Tech in Animal Rights Activism'}
-                />
-              </div>
-              <div className="flex ">
-                <ImageWithCaption
-                  bgColor="green"
-                  image={james}
-                  caption={'James Morgan at AVA Summit'}
-                  subcaption={'Tech Innovation in Animal Protection'}
-                />
-              </div>
-            </div>
-            <div className="flex  items-center">
-              <div className="flex">
-                <CustomImage
-                  src={family}
-                  alt="Vegan Hacktivist team at the Animal & Vegan Advocacy Summit"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionContainer>
-
-      <SquareField
-        squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
-      />
-    </>
   );
 };
 
