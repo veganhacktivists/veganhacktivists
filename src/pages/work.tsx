@@ -16,20 +16,22 @@ import LikeWhatYouSee from 'components/layout/work/likeWhatYouSee';
 import { getFeaturedProjects } from 'lib/cms/helpers';
 import { getContents } from 'lib/cms';
 
-import type { IProjectFields } from 'types/generated/contentful';
+import type { IProject, IProjectFields } from 'types/generated/contentful';
 import type { InferGetStaticPropsType } from 'next';
 
 export const getStaticProps = async () => {
-  const featuredProjects = await getFeaturedProjects();
-  const otherProjects = await getContents<IProjectFields>({
-    contentType: 'project',
-    query: {
-      isFeatured: false,
-    },
-    other: {
-      order: '-fields.date',
-    },
-  });
+  const [featuredProjects, otherProjects] = await Promise.all([
+    getFeaturedProjects(),
+    getContents<IProjectFields>({
+      contentType: 'project',
+      query: {
+        isFeatured: false,
+      },
+      other: {
+        order: '-fields.date',
+      },
+    }) as Promise<IProject[]>,
+  ]);
 
   return {
     props: {
