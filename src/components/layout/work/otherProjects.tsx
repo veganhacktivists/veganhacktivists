@@ -1,11 +1,21 @@
+import ContentfulImage from '../contentfulImage';
+
+import { Carousel } from 'components/decoration/carousel';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
+import Link from 'components/decoration/link';
+
+import type { IProject } from 'types/generated/contentful';
 
 const TOP_DECORATION_SQUARES = [
   { color: 'gray-background', size: 16, right: 0, top: 0 },
 ];
 
-const OtherProjects: React.FC = () => {
+interface OtherProjectsProps {
+  projects: IProject[];
+}
+
+const OtherProjects = ({ projects }: OtherProjectsProps) => {
   return (
     <>
       <SquareField
@@ -19,7 +29,15 @@ const OtherProjects: React.FC = () => {
             className="mb-2"
             header={['Other', 'PROJECTS', 'worth mentioning']}
           />
-          TBD
+          <ul className="flex flex-row overflow-x-auto gap-4">
+            {projects.map(({ sys: { id }, fields: { name, image, url } }) => (
+              <li key={id} className="w-64 aspect-square flex-shrink-0">
+                <Link href={url}>
+                  <ContentfulImage title={name} image={image} alt={name} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
