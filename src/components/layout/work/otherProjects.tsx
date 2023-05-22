@@ -30,7 +30,12 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
             items={projects.map(
               ({ sys: { id }, fields: { name, image, url } }) => (
                 <Link key={id} href={url}>
-                  <ContentfulImage title={name} image={image} alt={name} />
+                  <ContentfulImage
+                    layout="responsive"
+                    title={name}
+                    image={image}
+                    alt={name}
+                  />
                 </Link>
               )
             )}

@@ -57,7 +57,7 @@ export const Carousel = ({
   );
 
   return (
-    <div>
+    <div className="space-y-3">
       <ul
         ref={scrollRef}
         className={classNames('overflow-hidden gap-4', className, {
