@@ -3,7 +3,6 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import React from 'react';
 import classNames from 'classnames';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 
 import getThemeColor from '../../../lib/helpers/theme';
 
@@ -25,6 +24,7 @@ interface SelectInputProps<T>
   error?: string;
   options: OptionType<T>[];
   creatable?: boolean;
+  updatable?: boolean;
   onChange?: (value: OptionType<T> | null) => void;
   placeholder?: string;
   showError?: boolean;
@@ -45,6 +45,7 @@ const SelectInput = <T,>({
   options,
   onChange,
   creatable = false,
+  updatable = false,
   ref,
   ...props
 }: SelectInputProps<T> & { ref?: Ref<StateManagedSelect> }) => {
@@ -54,6 +55,12 @@ const SelectInput = <T,>({
   useEffect(() => {
     setRendered(true);
   }, []);
+
+  useEffect(() => {
+    if (updatable) {
+      setAllOptions(options);
+    }
+  }, [options]);
 
   const height = '44px';
 
