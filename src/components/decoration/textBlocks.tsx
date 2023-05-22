@@ -59,7 +59,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div {...props}>
-      <h2>
+      <h2 aria-label={Array.isArray(header) ? header.join(' ') : header}>
         {Array.isArray(header) ? (
           <div>
             {header.map((content, i) => {
