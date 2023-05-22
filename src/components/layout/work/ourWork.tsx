@@ -20,6 +20,18 @@ const BOTTOM_DECORATION_SQUARES = [
   { color: 'gray-background', size: 16, left: 0, bottom: 0 },
 ];
 
+const items = Array(10)
+  .fill(true)
+  .map((_, i) => (
+    <CustomImage
+      key={i}
+      height={200}
+      width={300}
+      src="https://picsum.photos/300/200"
+      alt="random"
+    />
+  ));
+
 const OurWork: React.FC = () => {
   return (
     <>
@@ -38,19 +50,7 @@ const OurWork: React.FC = () => {
               services.
             </p>
           </div>
-          <AutoScroll
-            items={Array(10)
-              .fill(true)
-              .map((_, i) => (
-                <CustomImage
-                  key={i}
-                  height={200}
-                  width={300}
-                  src="https://picsum.photos/300/200"
-                  alt="random"
-                />
-              ))}
-          />
+          <AutoScroll items={items} />
           <div className="relative mx-auto md:w-fit">
             <DarkButton href="/services" className="font-mono w-fit">
               Explore our services
