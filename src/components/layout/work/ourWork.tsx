@@ -1,4 +1,6 @@
+import { AutoScroll } from 'components/decoration/autoscroll';
 import { DarkButton } from 'components/decoration/buttons';
+import CustomImage from 'components/decoration/customImage';
 import Sprite, { goat } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
@@ -27,14 +29,28 @@ const OurWork: React.FC = () => {
       />
 
       <div className="relative w-full overflow-hidden text-2xl bg-white">
-        <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
-          <SectionHeader className="mb-2" header={['Our', 'WORK']} />
-          <p>
-            We’ve worked with over <b>160+ organizations</b> in the animal
-            protection movement, through our development, design and advisory
-            services.
-          </p>
-          TBD
+        <div className="relative flex flex-col px-2 py-20 gap-y-8">
+          <div className="md:w-1/2 mx-auto">
+            <SectionHeader className="mb-2" header={['Our', 'WORK']} />
+            <p>
+              We’ve worked with over <b>160+ organizations</b> in the animal
+              protection movement, through our development, design and advisory
+              services.
+            </p>
+          </div>
+          <AutoScroll
+            items={Array(10)
+              .fill(true)
+              .map((_, i) => (
+                <CustomImage
+                  key={i}
+                  height={200}
+                  width={300}
+                  src="https://picsum.photos/300/200"
+                  alt="random"
+                />
+              ))}
+          />
           <div className="relative mx-auto md:w-fit">
             <DarkButton href="/services" className="font-mono w-fit">
               Explore our services

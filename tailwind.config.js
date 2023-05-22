@@ -77,6 +77,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        'infinite-scroll': 'scroll 25s linear infinite',
+      },
       dropShadow: {
         border: '2px 2px 4px rgba(0, 0, 0, 0.05)',
       },
