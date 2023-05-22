@@ -77,7 +77,7 @@ export const Carousel = ({
           </li>
         ))}
       </ul>
-      <div className="flex flex-row gap-3 justify-center items-center">
+      <div className="flex flex-row gap-3 justify-center items-center flex-wrap">
         {Array(pages)
           .fill(true)
           .map((_, i) => (
@@ -86,7 +86,7 @@ export const Carousel = ({
               type="button"
               key={i}
               className={classNames(
-                'w-3 h-3',
+                'w-3 h-3 flex-shrink-0',
                 currentPage === i
                   ? BUTTON_THEME_CLASSNAMES[theme]
                   : 'bg-[#737373]'
