@@ -40,31 +40,20 @@ export const Carousel = ({
 
   const pages = (Math.ceil(scrollWidth! / width!) || 0) + 1;
 
-  const getPageRange = useCallback(
-    (page: number) => {
-      const itemsPerPage = Math.floor(items.length / (scrollWidth! / width!));
-
-      const start = page * itemsPerPage;
-      const end = Math.min((page + 1) * itemsPerPage, items.length) - 1;
-      return [start, end];
-    },
-    [items.length, scrollWidth, width]
-  );
-
   const getHandlePageChange = useCallback(
     (newPage: number) => () => {
-      const [start] = getPageRange(newPage);
-      const item = listItemsRef.current[start];
+      const itemsPerPage = Math.floor(items.length / (scrollWidth! / width!));
+      const itemIndex = newPage * itemsPerPage;
+      const item = listItemsRef.current[itemIndex];
 
       item?.scrollIntoView({
         block: 'nearest',
         inline: 'start',
         behavior: 'smooth',
       });
-
       setCurrentPage(newPage);
     },
-    [getPageRange]
+    [items.length, scrollWidth, width]
   );
 
   return (
