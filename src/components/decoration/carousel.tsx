@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
 import useWindowSize from 'hooks/useWindowSize';
@@ -32,15 +32,39 @@ export const Carousel = ({
     scroll: { width: scrollWidth },
   } = useWindowSize(scrollRef);
 
-  const pages = Math.ceil(scrollWidth! / width!) || 0;
+  const listItemsRef = useRef<(HTMLLIElement | null)[]>([]);
+
+  useEffect(() => {
+    listItemsRef.current = listItemsRef.current.slice(0, items.length);
+  }, [items.length]);
+
+  const pages = (Math.ceil(scrollWidth! / width!) || 0) + 1;
+
+  const getPageRange = useCallback(
+    (page: number) => {
+      const itemsPerPage = Math.floor(items.length / (scrollWidth! / width!));
+
+      const start = page * itemsPerPage;
+      const end = Math.min((page + 1) * itemsPerPage, items.length) - 1;
+      return [start, end];
+    },
+    [items.length, scrollWidth, width]
+  );
 
   const getHandlePageChange = useCallback(
     (newPage: number) => () => {
+      const [start] = getPageRange(newPage);
+      const item = listItemsRef.current[start];
+
+      item?.scrollIntoView({
+        block: 'nearest',
+        inline: 'start',
+        behavior: 'smooth',
+      });
+
       setCurrentPage(newPage);
-      const newScroll = (width! / 2) * newPage;
-      scrollRef.current!.scrollTo({ left: newScroll, behavior: 'smooth' });
     },
-    [width]
+    [getPageRange]
   );
 
   return (
@@ -53,7 +77,13 @@ export const Carousel = ({
         })}
       >
         {items.map((item, i) => (
-          <li key={i} className="flex-shrink-0 w-64">
+          <li
+            key={i}
+            className="flex-shrink-0 w-64"
+            ref={(ref) => {
+              listItemsRef.current[i] = ref;
+            }}
+          >
             {item}
           </li>
         ))}
