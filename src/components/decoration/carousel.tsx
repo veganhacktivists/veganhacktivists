@@ -8,11 +8,22 @@ export interface CarouselProps {
   items: React.ReactNode[];
   layout?: 'horizontal' | 'grid';
   className?: string;
+  theme?: 'light' | 'dark';
 }
+
+const BUTTON_THEME_CLASSNAMES: Record<
+  NonNullable<CarouselProps['theme']>,
+  string
+> = {
+  light: 'bg-white',
+  dark: 'bg-dark-gray',
+};
+
 export const Carousel = ({
   items,
   className,
   layout = 'horizontal',
+  theme = 'light',
 }: CarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const scrollRef = useRef<HTMLUListElement>(null);
@@ -38,6 +49,7 @@ export const Carousel = ({
         ref={scrollRef}
         className={classNames('overflow-hidden gap-4', className, {
           'flex flex-row flex-nowrap': layout === 'horizontal',
+          'grid grid-rows-3 grid-flow-col': layout === 'grid',
         })}
       >
         {items.map((item, i) => (
@@ -55,8 +67,10 @@ export const Carousel = ({
               type="button"
               key={i}
               className={classNames(
-                'w-2 h-2 bg-white',
-                currentPage === i && 'bg-grey'
+                'w-3 h-3',
+                currentPage === i
+                  ? BUTTON_THEME_CLASSNAMES[theme]
+                  : 'bg-[#737373]'
               )}
             />
           ))}
