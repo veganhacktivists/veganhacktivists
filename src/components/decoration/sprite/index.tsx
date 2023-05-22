@@ -1,5 +1,5 @@
 import { useSpring, animated } from '@react-spring/web';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import chicken from '../../../../public/images/animated/sprite_chicken.gif';
@@ -53,14 +53,26 @@ const Sprite = ({
   const initialPosition = `${initialPositionPx}px`;
   const finalPosition = `${finalPositionPx}px`;
 
+  // When the screen size changes, reset the animation position to avoid it overflowing
+  const [reset, setReset] = useState(false);
+  useEffect(() => {
+    setReset(true);
+  }, [width]);
+  useEffect(() => {
+    if (reset) {
+      setReset(false);
+    }
+  }, [reset]);
+
   const spring = useSpring({
+    reset,
     from: {
       left: initialPosition,
     },
     to: {
       left: finalPosition,
     },
-    reverse: reverse,
+    reverse,
     onRest: () => {
       setReverse((reverse) => !reverse);
     },
