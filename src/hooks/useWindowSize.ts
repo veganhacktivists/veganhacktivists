@@ -11,7 +11,7 @@ interface Size {
 const useWindowSize = (elementRef?: RefObject<HTMLElement>): Size => {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState<Size>({
+  const [size, setSize] = useState<Size>({
     width: undefined,
     height: undefined,
     scroll: {
@@ -23,28 +23,29 @@ const useWindowSize = (elementRef?: RefObject<HTMLElement>): Size => {
   useEffect(() => {
     const element = elementRef?.current ?? window;
     const handleResize = () => {
-      setWindowSize({
+      setSize({
         width:
           'innerWidth' in element ? element.innerWidth : element.clientWidth,
         height:
           'innerHeight' in element ? element.innerHeight : element.clientHeight,
-        scroll:
-          'scrollWidth' in element
-            ? {
-                width: element.scrollWidth,
-                height: element.scrollHeight,
-              }
-            : { width: undefined, height: undefined },
+        scroll: {
+          width: 'scrollWidth' in element ? element.scrollWidth : undefined,
+          height: 'scrollHeight' in element ? element.scrollHeight : undefined,
+        },
       });
     };
 
     element.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
 
-    return () => element.removeEventListener('resize', handleResize);
+    return () => {
+      element.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [elementRef]);
 
-  return windowSize;
+  return size;
 };
 
 export default useWindowSize;
