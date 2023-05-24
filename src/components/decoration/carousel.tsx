@@ -91,21 +91,19 @@ export const Carousel = ({
         </ul>
       </div>
       <div className="flex flex-row gap-3 justify-center items-center flex-wrap">
-        {Array(numPages)
-          .fill(true)
-          .map((_, i) => (
-            <button
-              onClick={getHandlePageChange(i)}
-              type="button"
-              key={i}
-              className={classNames(
-                'w-3 h-3 flex-shrink-0',
-                currentPage === i
-                  ? BUTTON_THEME_CLASSNAMES[theme]
-                  : 'bg-[#737373]'
-              )}
-            />
-          ))}
+        {[...Array(numPages)].map((_, i) => (
+          <button
+            onClick={getHandlePageChange(i)}
+            type="button"
+            key={i}
+            className={classNames(
+              'w-3 h-3 flex-shrink-0',
+              currentPage === i
+                ? BUTTON_THEME_CLASSNAMES[theme]
+                : 'bg-[#737373]'
+            )}
+          />
+        ))}
       </div>
     </div>
   );
