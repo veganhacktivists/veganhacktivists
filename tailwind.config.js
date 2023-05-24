@@ -56,6 +56,11 @@ const colors = {
   },
 };
 
+colors.broccoli = colors.green.DEFAULT;
+colors.banana = colors.yellow.DEFAULT;
+colors.carrot = colors.orange.DEFAULT;
+colors.watermelon = colors.magenta.DEFAULT;
+
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
 colors.gray = colors.grey;
 colors.pink = colors.magenta;
