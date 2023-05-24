@@ -28,8 +28,8 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
           <SectionHeader className="mb-2" header={['Other', 'projects']} />
           <Carousel
             items={projects.map(
-              ({ sys: { id }, fields: { name, image, url } }) => (
-                <Link key={id} href={url}>
+              ({ sys: { id }, fields: { name, image, url, retiredInfo } }) => (
+                <Link key={id} href={retiredInfo?.fields?.archiveUrl ?? url}>
                   <ContentfulImage
                     layout="responsive"
                     title={name}
