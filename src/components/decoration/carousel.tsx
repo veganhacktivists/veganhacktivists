@@ -3,12 +3,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
 import useWindowSize from 'hooks/useWindowSize';
+import useWindowBreakpoint from 'hooks/useWindowBreakpoint';
 
 export interface CarouselProps {
   items: React.ReactNode[];
   layout?: 'horizontal' | 'grid';
   className?: string;
   theme?: 'light' | 'dark';
+  pageWidth?: number;
 }
 
 const BUTTON_THEME_CLASSNAMES: Record<
@@ -24,13 +26,20 @@ export const Carousel = ({
   className,
   layout = 'horizontal',
   theme = 'light',
+  pageWidth = 3,
 }: CarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const scrollRef = useRef<HTMLUListElement>(null);
-  const {
-    width,
-    scroll: { width: scrollWidth },
-  } = useWindowSize(scrollRef);
+
+  const { width = 1920 } = useWindowSize(scrollRef);
+  const mdBreakpoint = useWindowBreakpoint('md');
+
+  const isSmallScreen = width <= mdBreakpoint;
+
+  const itemsPerPage =
+    (isSmallScreen ? 1 : pageWidth) * (layout === 'grid' ? 3 : 1);
+
+  const numPages = Math.ceil(items.length / itemsPerPage);
 
   const listItemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -38,11 +47,8 @@ export const Carousel = ({
     listItemsRef.current = listItemsRef.current.slice(0, items.length);
   }, [items.length]);
 
-  const pages = (Math.ceil(scrollWidth! / width!) || 0) + 1;
-
   const getHandlePageChange = useCallback(
     (newPage: number) => () => {
-      const itemsPerPage = Math.floor(items.length / (scrollWidth! / width!));
       const itemIndex = newPage * itemsPerPage;
       const item = listItemsRef.current[itemIndex];
 
@@ -53,32 +59,39 @@ export const Carousel = ({
       });
       setCurrentPage(newPage);
     },
-    [items.length, scrollWidth, width]
+    [itemsPerPage]
   );
 
   return (
-    <div className="space-y-3 max-w-[50rem] mx-auto">
-      <ul
-        ref={scrollRef}
-        className={classNames('overflow-hidden gap-4', className, {
-          'flex flex-row flex-nowrap': layout === 'horizontal',
-          'grid grid-rows-3 grid-flow-col': layout === 'grid',
-        })}
-      >
-        {items.map((item, i) => (
-          <li
-            key={i}
-            className="flex-shrink-0 w-64"
-            ref={(ref) => {
-              listItemsRef.current[i] = ref;
-            }}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+    <div
+      className="space-y-3 mx-auto w-full"
+      style={{
+        maxWidth: `${16 * itemsPerPage + 1}rem`,
+      }}
+    >
+      <div className="">
+        <ul
+          ref={scrollRef}
+          className={classNames('overflow-hidden gap-4', className, {
+            'flex flex-row flex-nowrap': layout === 'horizontal',
+            'grid grid-rows-3 grid-flow-col': layout === 'grid',
+          })}
+        >
+          {items.map((item, i) => (
+            <li
+              key={i}
+              className="flex-shrink-0 w-64"
+              ref={(ref) => {
+                listItemsRef.current[i] = ref;
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="flex flex-row gap-3 justify-center items-center flex-wrap">
-        {Array(pages)
+        {Array(numPages)
           .fill(true)
           .map((_, i) => (
             <button
