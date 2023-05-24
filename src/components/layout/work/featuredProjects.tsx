@@ -131,7 +131,7 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
             Here are just a few of the projects we’ve built for the movement and
             in collaboration with other partners.
           </SectionHeader>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-x-14 mx-auto">
+          <ul className="grid grid-cols-1 lg:grid-cols-2 gap-y-20 gap-x-14 mx-auto">
             {featuredProjects.map((project) => (
               <li key={project.sys.id} className="even:mr-auto odd:ml-auto">
                 <ProjectCard project={project} />
