@@ -24,7 +24,7 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
       />
 
       <div className="relative w-full overflow-hidden text-2xl text-white bg-[#3D3D3D]">
-        <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
+        <div className="relative flex flex-col px-2 py-20 mx-auto lg:w-1/2 gap-y-8">
           <SectionHeader className="mb-2" header={['Other', 'projects']} />
           <Carousel
             items={projects.map(
