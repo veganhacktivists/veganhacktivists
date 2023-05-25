@@ -10,3 +10,7 @@ export const formatCurrency = (
   });
   return formatter.format(value);
 };
+
+export const formatNumber = (value: number | bigint) => {
+  return new Intl.NumberFormat('en-US').format(value);
+};

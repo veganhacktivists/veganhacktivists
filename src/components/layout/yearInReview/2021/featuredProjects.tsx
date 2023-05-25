@@ -5,11 +5,9 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 import { HighlightedProjects } from '../highlightedProjects';
 import SectionContainer from '../sectionContainer';
 
-import type { IProjectFields } from '../../../../types/generated/contentful';
+import { formatNumber } from 'lib/helpers/format';
 
-const formatNumber: (x: number) => string = (x) => {
-  return new Intl.NumberFormat('en-US').format(x);
-};
+import type { IProjectFields } from '../../../../types/generated/contentful';
 
 export const projectDescriptions: Record<string, React.ReactNode> = {
   'Activist Hub': (
