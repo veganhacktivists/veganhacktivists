@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PlaygroundImage from '../../../../../public/images/yearInReview/2022/playground.png';
-import PlaygroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.webp';
+import PlaygroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.png';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
@@ -28,7 +28,7 @@ const Playground: React.FC = () => {
           </div>
           <div className="w-full 2xl:w-1/2">
             <div className="xl:mx-auto xl:w-2/3">
-              <div className="flex pb-10">
+              <div className="flex pb-10 w-4/5">
                 <CustomImage alt="VH Playground Logo" src={PlaygroundLogo} />
               </div>
               <div className="text-white text-left">
