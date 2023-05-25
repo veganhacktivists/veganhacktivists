@@ -184,7 +184,7 @@ const PlaygroundStat: React.FC<{
   return (
     <div className="flex flex-col justify-center gap-5 mx-auto lg:flex-row place-items-center w-fit">
       <CustomImage src={icon} alt="" />
-      <div className="w-3/4 lg:w-1/2 font-mono text-center lg:text-left text-grey">
+      <div className="w-3/4 lg:w-1/2 font-mono text-center lg:text-left">
         <div className="text-3xl font-bold leading-none">
           {value ?? <Spinner />}
         </div>
@@ -196,36 +196,39 @@ const PlaygroundStat: React.FC<{
   );
 };
 
-const PlaygroundStats: React.FC = () => {
+export const PlaygroundStats = ({
+  skipOpenRequests = false,
+}: {
+  skipOpenRequests?: boolean;
+}) => {
   const { data } = trpc.playground.getPlaygroundStats.useQuery(undefined, {
     staleTime: 10000,
-    trpc: { ssr: false },
   });
   return (
-    <div>
-      <div className="grid justify-center mx-auto mt-8 md:mt-24 mb-8 md:mb-16 grid-cols-2 md:grid-cols-4 gap-y-5 w-fit">
+    <>
+      {!skipOpenRequests && (
         <PlaygroundStat
           label="Open requests"
           icon={resumeIcon}
           value={data?.requestsOpen}
         />
-        <PlaygroundStat
-          label="Requests supported"
-          value={data?.requestsSupported}
-          icon={checkmarkIcon}
-        />
-        <PlaygroundStat
-          label="Playground volunteers"
-          value={data?.numberOfVolunteers || undefined}
-          icon={heartIcon}
-        />
-        <PlaygroundStat
-          label="Hours volunteered"
-          value={data?.hoursVolunteered}
-          icon={clockIcon}
-        />
-      </div>
-    </div>
+      )}
+      <PlaygroundStat
+        label="Requests supported"
+        value={data?.requestsSupported}
+        icon={checkmarkIcon}
+      />
+      <PlaygroundStat
+        label="Playground volunteers"
+        value={data?.numberOfVolunteers || undefined}
+        icon={heartIcon}
+      />
+      <PlaygroundStat
+        label="Hours volunteered"
+        value={data?.hoursVolunteered}
+        icon={clockIcon}
+      />
+    </>
   );
 };
 
@@ -238,7 +241,9 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
     <PlaygroundLayout>
       <div>
         <div className="py-2 mb-20 bg-grey-background">
-          <PlaygroundStats />
+          <div className="grid justify-center mx-auto mt-8 md:mt-24 mb-8 md:mb-16 grid-cols-2 md:grid-cols-4 gap-y-5 w-fit text-gray">
+            <PlaygroundStats />
+          </div>
           <div className="flex flex-col justify-center w-2/3 gap-8 mx-auto my-10 md:flex-row">
             <OutlineButton
               capitalize={false}
