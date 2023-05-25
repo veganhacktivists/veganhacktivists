@@ -32,8 +32,10 @@ const DesignSamples: React.FC = () => {
           </p>
           TBD
           <div className="relative mx-auto md:w-1/3">
-            {/* TODO: href */}
-            <DarkButton className="font-mono">
+            <DarkButton
+              href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
+              className="font-mono"
+            >
               View our branding work
             </DarkButton>
           </div>
