@@ -1,9 +1,11 @@
 import React from 'react';
 
 import playgroundLogo from '../../../../public/images/playground/VH_Playground_Logo_Full.png';
+import { PlaygroundStats } from '../playground/layout';
 
 import SquareField from 'components/decoration/squares';
 import CustomImage from 'components/decoration/customImage';
+import { LightButton } from 'components/decoration/buttons';
 
 const TOP_DECORATION_SQUARES = [
   { color: '#454545', size: 16, left: 0, top: 0 },
@@ -34,11 +36,11 @@ const Playground: React.FC = () => {
       />
 
       <div className="bg-grey-dark text-white py-32 px-5">
-        <div className="md:w-1/3 mx-auto space-y-8">
+        <div className="md:w-1/2 mx-auto space-y-8">
           <div className="mx-auto w-3/4">
             <CustomImage src={playgroundLogo} alt="VH Playground" />
           </div>
-          <div className="text-lg space-y-3">
+          <div className="text-lg space-y-3 md:w-4/5 mx-auto">
             <p>
               Playground was our response to meet the overwhelming demand of
               tech and design support in our movement, while staying sustainable
@@ -53,6 +55,12 @@ const Playground: React.FC = () => {
               more.
             </p>
           </div>
+          <div className="flex flex-col md:flex-row mx-auto justify-center gap-5">
+            <PlaygroundStats skipOpenRequests />
+          </div>
+          <LightButton href="/playground" className="mx-auto w-full md:w-fit">
+            <span className="px-4">Get Support</span>
+          </LightButton>
         </div>
       </div>
 
