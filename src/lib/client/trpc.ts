@@ -56,7 +56,6 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
       },
     };
   },
-  ssr: true,
 });
 
 type HandleInferenceHelpers<
