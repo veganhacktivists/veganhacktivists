@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
-import useWindowSize from 'hooks/useWindowSize';
 import useWindowBreakpoint from 'hooks/useWindowBreakpoint';
+import useWindowSize from 'hooks/useWindowSize';
 
 export interface CarouselProps {
   items: React.ReactNode[];
@@ -23,14 +23,17 @@ export const Carousel = ({
   const [currentPage, setCurrentPage] = useState(0);
   const scrollRef = useRef<HTMLUListElement>(null);
 
-  const { width = 1920 } = useWindowSize(scrollRef);
+  const { width = 1920 } = useWindowSize();
+  const smBreakpoint = useWindowBreakpoint('sm');
   const mdBreakpoint = useWindowBreakpoint('md');
 
-  const isSmallScreen = width <= mdBreakpoint;
+  const isSmScreen = width <= smBreakpoint;
+  const isMdScreen = width <= mdBreakpoint;
 
   const numberOfRows = layout === 'grid' ? 3 : 1;
 
-  const itemsPerPage = (isSmallScreen ? 1 : pageWidth) * numberOfRows;
+  const itemsPerPage =
+    (isMdScreen ? (isSmScreen ? 1 : 2) : pageWidth) * numberOfRows;
 
   const numPages = Math.ceil(items.length / itemsPerPage);
 
