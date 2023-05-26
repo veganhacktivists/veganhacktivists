@@ -13,14 +13,6 @@ export interface CarouselProps {
   pageWidth?: number;
 }
 
-const BUTTON_THEME_CLASSNAMES: Record<
-  NonNullable<CarouselProps['theme']>,
-  string
-> = {
-  light: 'bg-white',
-  dark: 'bg-dark-gray',
-};
-
 export const Carousel = ({
   items,
   className,
@@ -99,7 +91,9 @@ export const Carousel = ({
             className={classNames(
               'w-3 h-3 flex-shrink-0',
               currentPage === i
-                ? BUTTON_THEME_CLASSNAMES[theme]
+                ? theme === 'light'
+                  ? 'bg-white'
+                  : 'bg-gray-dark'
                 : 'bg-[#737373]'
             )}
           />
