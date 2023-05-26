@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import adp from '../../../../public/images/work/designSamples/designs/VH_Design_ADP.png';
 import gyviGali from '../../../../public/images/work/designSamples/designs/VH_Design_Document_GyviGali.png';
@@ -76,8 +76,17 @@ const BOTTOM_DECORATION_SQUARES = [
 ];
 
 const DesignSamples: React.FC = () => {
-  const handleOpenImage = useCallback((image: typeof images[number][0]) => {},
-  []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<StaticImageData>();
+  const handleOpenImage = useCallback((image: typeof images[number][0]) => {
+    setIsModalOpen(true);
+    setCurrentImage(image);
+  }, []);
+
+  const handleModalClose = useCallback(() => {
+    setIsModalOpen(false);
+    setCurrentImage(undefined);
+  }, []);
 
   return (
     <>
@@ -114,11 +123,21 @@ const DesignSamples: React.FC = () => {
                 </button>
               ))}
             />
+            <Modal
+              isOpen={isModalOpen && !!currentImage}
+              onClose={handleModalClose}
+            >
+              {currentImage && (
+                <div>
+                  <CustomImage src={currentImage} alt="" />
+                </div>
+              )}
+            </Modal>
           </div>
           <div className="relative mx-auto md:w-1/3">
             <DarkButton
               href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
-              className="font-mono"
+              className="md:w-fit mx-auto"
             >
               View our branding work
             </DarkButton>
