@@ -1,9 +1,12 @@
 import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
+import { useThrottle } from 'rooks';
 
 import useWindowBreakpoint from 'hooks/useWindowBreakpoint';
 import useWindowSize from 'hooks/useWindowSize';
+
+import type { UIEventHandler } from 'react';
 
 export interface CarouselProps {
   items: React.ReactNode[];
@@ -21,7 +24,16 @@ export const Carousel = ({
   pageWidth = 3,
 }: CarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const scrollRef = useRef<HTMLUListElement>(null);
+  const handleScroll = useCallback<UIEventHandler<HTMLUListElement>>((e) => {
+    const target = e.target as HTMLUListElement;
+    const scrollLeft = target.scrollLeft;
+    const width = target.clientWidth;
+
+    // TODO: snap
+    const page = Math.round(scrollLeft / width);
+    setCurrentPage(page);
+  }, []);
+  const [debouncedHandleScroll] = useThrottle(handleScroll, 100);
 
   const { width = 1920 } = useWindowSize();
   const smBreakpoint = useWindowBreakpoint('sm');
@@ -51,9 +63,7 @@ export const Carousel = ({
       item?.scrollIntoView({
         block: 'nearest',
         inline: 'start',
-        behavior: 'smooth',
       });
-      setCurrentPage(newPage);
     },
     [itemsPerPage]
   );
@@ -65,27 +75,31 @@ export const Carousel = ({
         maxWidth: `${16 * (itemsPerPage / numberOfRows) + 1}rem`,
       }}
     >
-      <div className="">
-        <ul
-          ref={scrollRef}
-          className={classNames('overflow-hidden gap-4', className, {
+      <ul
+        onScroll={debouncedHandleScroll}
+        className={classNames(
+          'overflow-auto snap-x snap-mandatory gap-4 scroll-smooth',
+          className,
+          {
             'flex flex-row flex-nowrap': layout === 'horizontal',
             'grid grid-rows-3 grid-flow-col': layout === 'grid',
-          })}
-        >
-          {items.map((item, i) => (
-            <li
-              key={i}
-              className="flex-shrink-0 w-64"
-              ref={(ref) => {
-                listItemsRef.current[i] = ref;
-              }}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+          }
+        )}
+      >
+        {items.map((item, i) => (
+          <li
+            key={i}
+            className={classNames('flex-shrink-0 w-64', {
+              'snap-start': i % itemsPerPage === 0,
+            })}
+            ref={(ref) => {
+              listItemsRef.current[i] = ref;
+            }}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
       <div className="flex flex-row gap-3 justify-center items-center flex-wrap">
         {[...Array(numPages)].map((_, i) => (
           <button
