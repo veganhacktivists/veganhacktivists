@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import adp from '../../../../public/images/work/designSamples/designs/VH_Design_ADP.png';
 import gyviGali from '../../../../public/images/work/designSamples/designs/VH_Design_Document_GyviGali.png';
 import pbd from '../../../../public/images/work/designSamples/designs/VH_Design_PBD.png';
@@ -34,6 +36,7 @@ import thumb15 from '../../../../public/images/work/designSamples/thumbnails/VH_
 import thumb16 from '../../../../public/images/work/designSamples/thumbnails/VH_portfolio_16.png';
 import thumb17 from '../../../../public/images/work/designSamples/thumbnails/VH_portfolio_17.png';
 import thumb18 from '../../../../public/images/work/designSamples/thumbnails/VH_portfolio_18.png';
+import Modal from '../modal';
 
 import { SectionHeader } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
@@ -41,7 +44,9 @@ import { DarkButton } from 'components/decoration/buttons';
 import { Carousel } from 'components/decoration/carousel';
 import CustomImage from 'components/decoration/customImage';
 
-const images = [
+import type { StaticImageData } from 'next/image';
+
+const images: [image: StaticImageData, thumbnail: StaticImageData][] = [
   [adp, thumb1],
   [gyviGali, thumb2],
   [pbd, thumb3],
@@ -60,7 +65,7 @@ const images = [
   [sm, thumb16],
   [law, thumb17],
   [twvns, thumb18],
-] as const;
+];
 
 const TOP_DECORATION_SQUARES = [
   { color: '#3D3D3D', size: 16, left: 0, top: 0 },
@@ -71,6 +76,9 @@ const BOTTOM_DECORATION_SQUARES = [
 ];
 
 const DesignSamples: React.FC = () => {
+  const handleOpenImage = useCallback((image: typeof images[number][0]) => {},
+  []);
+
   return (
     <>
       <SquareField
@@ -79,7 +87,7 @@ const DesignSamples: React.FC = () => {
       />
 
       <div className="relative w-full overflow-hidden text-2xl bg-white">
-        <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
+        <div className="relative flex flex-col px-2 py-20 gap-y-8">
           <SectionHeader
             className="mb-2"
             header={['Check out our', 'DESIGN SAMPLES']}
@@ -90,13 +98,23 @@ const DesignSamples: React.FC = () => {
             to help vegan organizations look sharp, build trust, increase
             reputation, and unite people.
           </p>
-          <Carousel
-            layout="grid"
-            theme="dark"
-            items={images.map(([image, thumbnail]) => {
-              return <CustomImage key={thumbnail.src} src={thumbnail} alt="" />;
-            })}
-          />
+          <div>
+            <Carousel
+              layout="grid"
+              theme="dark"
+              items={images.map(([image, thumbnail]) => (
+                <button
+                  key={thumbnail.src}
+                  type="button"
+                  onClick={() => {
+                    handleOpenImage(image);
+                  }}
+                >
+                  <CustomImage src={thumbnail} alt="" />
+                </button>
+              ))}
+            />
+          </div>
           <div className="relative mx-auto md:w-1/3">
             <DarkButton
               href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"

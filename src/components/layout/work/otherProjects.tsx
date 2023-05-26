@@ -24,22 +24,27 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
       />
 
       <div className="relative w-full overflow-hidden text-2xl text-white bg-[#3D3D3D]">
-        <div className="relative flex flex-col px-2 py-20 mx-auto lg:w-1/2 gap-y-8">
+        <div className="relative flex flex-col px-2 py-20 gap-y-8">
           <SectionHeader className="mb-2" header={['Other', 'projects']} />
-          <Carousel
-            items={projects.map(
-              ({ sys: { id }, fields: { name, image, url, retiredInfo } }) => (
-                <Link key={id} href={retiredInfo?.fields?.archiveUrl ?? url}>
-                  <ContentfulImage
-                    layout="responsive"
-                    title={name}
-                    image={image}
-                    alt={name}
-                  />
-                </Link>
-              )
-            )}
-          />
+          <div className="lg:w-2/3 2xl:w-1/2 mx-auto">
+            <Carousel
+              items={projects.map(
+                ({
+                  sys: { id },
+                  fields: { name, image, url, retiredInfo },
+                }) => (
+                  <Link key={id} href={retiredInfo?.fields?.archiveUrl ?? url}>
+                    <ContentfulImage
+                      layout="responsive"
+                      title={name}
+                      image={image}
+                      alt={name}
+                    />
+                  </Link>
+                )
+              )}
+            />
+          </div>
         </div>
       </div>
     </>
