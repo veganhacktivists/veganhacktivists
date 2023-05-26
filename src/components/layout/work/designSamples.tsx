@@ -38,6 +38,8 @@ import thumb18 from '../../../../public/images/work/designSamples/thumbnails/VH_
 import { SectionHeader } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
 import { DarkButton } from 'components/decoration/buttons';
+import { Carousel } from 'components/decoration/carousel';
+import CustomImage from 'components/decoration/customImage';
 
 const images = [
   [adp, thumb1],
@@ -58,7 +60,7 @@ const images = [
   [sm, thumb16],
   [law, thumb17],
   [twvns, thumb18],
-];
+] as const;
 
 const TOP_DECORATION_SQUARES = [
   { color: '#3D3D3D', size: 16, left: 0, top: 0 },
@@ -83,12 +85,18 @@ const DesignSamples: React.FC = () => {
             header={['Check out our', 'DESIGN SAMPLES']}
           />
           <p>
-            Whether it’s branding, document design, web design, infographics, or
-            other high-impact areas of design, we’re here to help vegan
-            organizations look sharp, build trust, increase reputation, and
-            unite people.
+            Whether it&apos;s branding, document design, web design,
+            infographics, or other high-impact areas of design, we&apos;re here
+            to help vegan organizations look sharp, build trust, increase
+            reputation, and unite people.
           </p>
-          TBD
+          <Carousel
+            layout="grid"
+            theme="dark"
+            items={images.map(([image, thumbnail]) => {
+              return <CustomImage key={thumbnail.src} src={thumbnail} alt="" />;
+            })}
+          />
           <div className="relative mx-auto md:w-1/3">
             <DarkButton
               href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
