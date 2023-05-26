@@ -125,6 +125,7 @@ const DesignSamples: React.FC = () => {
             isOpen={isModalOpen && !!currentImage}
             onClose={handleModalClose}
           >
+            {/* TODO: image gallery */}
             {currentImage && (
               <div>
                 <CustomImage src={currentImage} alt="" />

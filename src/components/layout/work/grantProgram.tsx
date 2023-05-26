@@ -37,7 +37,7 @@ const GrantProgram: React.FC = () => {
                   header={['Our seed funding', 'GRANT PROGRAM']}
                   stackEntries={true}
                   newDesign={true}
-                  stackAlign="left"
+                  className="text-left"
                 />
                 <div className="text-xl text-left pt-5 pb-10">
                   Last year, we announced a partnership with The Pollination
