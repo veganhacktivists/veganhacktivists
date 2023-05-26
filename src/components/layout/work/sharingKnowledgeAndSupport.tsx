@@ -36,16 +36,14 @@ const SharingKnowledgeAndSupport: React.FC = () => {
             <SectionHeader
               header={['sharing our', 'knowledge & support']}
               newDesign
-              stackAlign="left"
+              rootClassName="text-left mx-auto text-center md:text-left"
               stackEntries
-            />
-
-            <div className="text-xl text-left md:w-4/5 pt-4 pb-10 md:pb-20 ml-2">
+            >
               We’re often speaking at animal protection and EA related
               conferences every year and around the world! Be sure to look out
               for our booth or speakers, we’d love to meet you and see where we
               might be able to support your work!
-            </div>
+            </SectionHeader>
           </div>
 
           <div className="flex w-full md:w-fit flex-row items-center mb-8 md:mb-0">
