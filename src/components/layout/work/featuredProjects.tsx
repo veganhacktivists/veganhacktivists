@@ -133,7 +133,10 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
           </SectionHeader>
           <ul className="grid xl:grid-cols-2 gap-y-20 gap-x-14 mx-auto justify-center">
             {featuredProjects.map((project) => (
-              <li key={project.sys.id} className="even:mr-auto odd:ml-auto">
+              <li
+                key={project.sys.id}
+                className="mx-auto lg:even:mr-auto lg:odd:ml-auto"
+              >
                 <ProjectCard project={project} />
               </li>
             ))}
