@@ -38,6 +38,7 @@ export const getStaticProps = async () => {
       featuredProjects,
       otherProjects,
     },
+    revalidate: 480,
   };
 };
 

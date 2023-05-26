@@ -36,32 +36,34 @@ interface SectionHeaderProps
   startWithBoldFont?: boolean;
   stackEntries?: boolean;
   newDesign?: boolean;
-  stackAlign?: string;
+  className?: string;
+  rootClassName?: string;
 }
 
 // TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
 // in the sorts of custom <H1> components
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
+export const SectionHeader = ({
   header,
   startWithBoldFont = false,
   stackEntries = false,
   newDesign = false,
-  stackAlign = 'center',
+  className,
+  rootClassName,
   children,
   ...props
-}) => {
+}: SectionHeaderProps) => {
   const boldClasses =
-    'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1 ';
-  const italicClasses = `font-serif italic text-4xl mx-1 ${
-    newDesign ? 'font-bold' : ''
-  }`;
-  const alignClass = `text-${stackAlign}`;
+    'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1';
+  const italicClasses = classNames(
+    'font-serif italic text-4xl mx-1',
+    newDesign && 'font-bold'
+  );
 
   return (
-    <div {...props}>
+    <div {...props} className={rootClassName}>
       <h2 aria-label={Array.isArray(header) ? header.join(' ') : header}>
         {Array.isArray(header) ? (
-          <div>
+          <div className={className}>
             {header.map((content, i) => {
               const italics = startWithBoldFont ? i % 2 === 1 : i % 2 === 0;
               return (
@@ -72,7 +74,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
                       [boldClasses]: !italics,
                       'block leading-11': stackEntries,
                       'pt-2': stackEntries && !italics,
-                      [alignClass]: stackEntries,
                     })}
                   >
                     {content}
@@ -88,9 +89,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           </span>
         )}
       </h2>
-      {children && (
-        <div className="mt-5 mb-20 md:w-1/2 mx-auto text-2xl">{children}</div>
-      )}
+      {children && <div className="mt-5 mb-20  text-2xl">{children}</div>}
     </div>
   );
 };
