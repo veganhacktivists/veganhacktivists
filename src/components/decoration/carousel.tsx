@@ -28,8 +28,9 @@ export const Carousel = ({
 
   const isSmallScreen = width <= mdBreakpoint;
 
-  const itemsPerPage =
-    (isSmallScreen ? 1 : pageWidth) * (layout === 'grid' ? 3 : 1);
+  const numberOfRows = layout === 'grid' ? 3 : 1;
+
+  const itemsPerPage = (isSmallScreen ? 1 : pageWidth) * numberOfRows;
 
   const numPages = Math.ceil(items.length / itemsPerPage);
 
@@ -58,7 +59,7 @@ export const Carousel = ({
     <div
       className="space-y-3 mx-auto w-full"
       style={{
-        maxWidth: `${16 * itemsPerPage + 1}rem`,
+        maxWidth: `${16 * (itemsPerPage / numberOfRows) + 1}rem`,
       }}
     >
       <div className="">
