@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
-import { useThrottle } from 'rooks';
 
 import useWindowBreakpoint from 'hooks/useWindowBreakpoint';
 import useWindowSize from 'hooks/useWindowSize';
@@ -11,14 +10,12 @@ import type { UIEventHandler } from 'react';
 export interface CarouselProps {
   items: React.ReactNode[];
   layout?: 'horizontal' | 'grid';
-  className?: string;
   theme?: 'light' | 'dark';
   pageWidth?: number;
 }
 
 export const Carousel = ({
   items,
-  className,
   layout = 'horizontal',
   theme = 'light',
   pageWidth = 3,
@@ -29,11 +26,9 @@ export const Carousel = ({
     const scrollLeft = target.scrollLeft;
     const width = target.clientWidth;
 
-    // TODO: snap
     const page = Math.round(scrollLeft / width);
     setCurrentPage(page);
   }, []);
-  const [debouncedHandleScroll] = useThrottle(handleScroll, 100);
 
   const { width = 1920 } = useWindowSize();
   const smBreakpoint = useWindowBreakpoint('sm');
@@ -76,10 +71,9 @@ export const Carousel = ({
       }}
     >
       <ul
-        onScroll={debouncedHandleScroll}
+        onScroll={handleScroll}
         className={classNames(
-          'overflow-auto snap-x snap-mandatory gap-4 scroll-smooth',
-          className,
+          'overflow-auto scrollbar-none snap-x snap-mandatory gap-4 scroll-smooth',
           {
             'flex flex-row flex-nowrap': layout === 'horizontal',
             'grid grid-rows-3 grid-flow-col': layout === 'grid',
