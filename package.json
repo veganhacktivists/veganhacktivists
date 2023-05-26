@@ -71,6 +71,7 @@
     "react-toastify": "^9.1.1",
     "react-use-pagination": "^2.0.1",
     "react-waypoint": "^10.3.0",
+    "rooks": "^7.14.1",
     "sass": "^1.56.1",
     "sharp": "^0.31.2",
     "snoowrap": "^1.23.0",
