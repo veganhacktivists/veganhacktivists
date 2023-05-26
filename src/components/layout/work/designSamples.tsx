@@ -100,40 +100,37 @@ const DesignSamples: React.FC = () => {
           <SectionHeader
             className="mb-2"
             header={['Check out our', 'DESIGN SAMPLES']}
-          />
-          <p>
+          >
             Whether it&apos;s branding, document design, web design,
             infographics, or other high-impact areas of design, we&apos;re here
             to help vegan organizations look sharp, build trust, increase
             reputation, and unite people.
-          </p>
-          <div>
-            <Carousel
-              layout="grid"
-              theme="dark"
-              items={images.map(([image, thumbnail]) => (
-                <button
-                  key={thumbnail.src}
-                  type="button"
-                  onClick={() => {
-                    handleOpenImage(image);
-                  }}
-                >
-                  <CustomImage src={thumbnail} alt="" />
-                </button>
-              ))}
-            />
-            <Modal
-              isOpen={isModalOpen && !!currentImage}
-              onClose={handleModalClose}
-            >
-              {currentImage && (
-                <div>
-                  <CustomImage src={currentImage} alt="" />
-                </div>
-              )}
-            </Modal>
-          </div>
+          </SectionHeader>
+          <Carousel
+            layout="grid"
+            theme="dark"
+            items={images.map(([image, thumbnail]) => (
+              <button
+                key={thumbnail.src}
+                type="button"
+                onClick={() => {
+                  handleOpenImage(image);
+                }}
+              >
+                <CustomImage src={thumbnail} alt="" />
+              </button>
+            ))}
+          />
+          <Modal
+            isOpen={isModalOpen && !!currentImage}
+            onClose={handleModalClose}
+          >
+            {currentImage && (
+              <div>
+                <CustomImage src={currentImage} alt="" />
+              </div>
+            )}
+          </Modal>
           <div className="relative mx-auto md:w-1/3">
             <DarkButton
               href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
