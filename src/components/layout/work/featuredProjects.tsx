@@ -62,10 +62,10 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
   return (
     <>
       <div className="flex flex-col justify-center md:justify-start md:flex-row gap-12">
-        <div className="aspect-square relative w-80 flex-shrink-0 mx-auto">
+        <div className="aspect-square relative w-64 2xl:w-80 flex-shrink-0 mx-auto">
           <ContentfulImage image={image} alt={name} />
         </div>
-        <div className="text-center md:text-left space-y-4 max-w-sm">
+        <div className="text-center md:text-left space-y-4 xl:max-w-sm">
           <h2 className="text-4xl font-bold">{name}</h2>
           <div>
             <span className="font-bold">
@@ -126,12 +126,12 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
       />
 
       <div className="relative w-full overflow-hidden text-2xl bg-grey-background">
-        <div className="relative px-2 py-20 mx-auto gap-y-8">
+        <div className="relative px-5 py-20 mx-auto gap-y-8">
           <SectionHeader className="mb-2" header={['Featured', 'PROJECTS']}>
             Here are just a few of the projects we’ve built for the movement and
             in collaboration with other partners.
           </SectionHeader>
-          <ul className="grid grid-cols-1 lg:grid-cols-2 gap-y-20 gap-x-14 mx-auto">
+          <ul className="grid xl:grid-cols-2 gap-y-20 gap-x-14 mx-auto justify-center">
             {featuredProjects.map((project) => (
               <li key={project.sys.id} className="even:mr-auto odd:ml-auto">
                 <ProjectCard project={project} />
