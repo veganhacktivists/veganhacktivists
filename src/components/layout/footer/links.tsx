@@ -18,7 +18,7 @@ const links: ILinks[] = [
     ],
   },
   { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Our Work', href: '/work' },
   {
     label: 'People',
     href: '/people',
