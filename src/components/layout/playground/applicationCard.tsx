@@ -40,6 +40,7 @@ const ApplicationCard: React.FC<
           <> &rArr; (logs in as {app.applicant.email})</>
         )}
       </div>
+      <Data name="Pronouns" value={app.pronouns} />
       <div>
         Applied {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
