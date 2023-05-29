@@ -190,6 +190,10 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
+          <Field title="Website">{request.website}</Field>
+          {request.organization && (
+            <Field title="Organization name">{request.organization}</Field>
+          )}
           {session?.user?.role === UserRole.Admin && (
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
