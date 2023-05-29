@@ -60,7 +60,7 @@ export const Carousel = ({
 
   return (
     <div
-      className="space-y-3 mx-auto w-full"
+      className="space-y-16 mx-auto w-full"
       style={{
         // (16rem w + 1rem gap) * items x - 1rem gap
         maxWidth: `${(16 + 1) * Math.ceil(itemsPerPage / numberOfRows) - 1}rem`,
@@ -90,14 +90,14 @@ export const Carousel = ({
           </li>
         ))}
       </ul>
-      <div className="flex flex-row gap-3 justify-center items-center flex-wrap">
+      <div className="flex flex-row gap-4 justify-center items-center flex-wrap">
         {[...Array(numPages)].map((_, i) => (
           <button
             onClick={getHandlePageChange(i)}
             type="button"
             key={i}
             className={classNames(
-              'w-3 h-3 flex-shrink-0',
+              'w-4 h-4 flex-shrink-0',
               currentPage === i
                 ? theme === 'light'
                   ? 'bg-white'
