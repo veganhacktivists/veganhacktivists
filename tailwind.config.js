@@ -88,8 +88,8 @@ module.exports = {
         },
       },
       animation: {
-        'infinite-scroll': 'scroll 60s linear infinite',
-        'infinite-scroll-reverse': 'scroll-reverse 60s linear infinite',
+        'infinite-scroll': 'scroll 120s linear infinite',
+        'infinite-scroll-reverse': 'scroll-reverse 120s linear infinite',
       },
       dropShadow: {
         border: '2px 2px 4px rgba(0, 0, 0, 0.05)',
