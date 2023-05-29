@@ -31,16 +31,11 @@ export const Carousel = ({
   }, []);
 
   const { width = 1920 } = useWindowSize();
-  const smBreakpoint = useWindowBreakpoint('sm');
-  const mdBreakpoint = useWindowBreakpoint('md');
 
-  const isSmScreen = width <= smBreakpoint;
-  const isMdScreen = width <= mdBreakpoint;
-
-  const numberOfRows = layout === 'grid' ? 3 : 1;
+  const numberOfRows = layout === 'grid' ? pageWidth : 1;
 
   const itemsPerPage =
-    (isMdScreen ? (isSmScreen ? 1 : 2) : pageWidth) * numberOfRows;
+    Math.min(Math.max(Math.floor(width / 256), 1), pageWidth) * numberOfRows;
 
   const numPages = Math.ceil(items.length / itemsPerPage);
 
