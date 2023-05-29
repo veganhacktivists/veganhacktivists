@@ -22,13 +22,13 @@ const OurCommunities: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="relative w-full overflow-hidden text-2xl text-white bg-[#292929] py-20">
+      <div className="relative w-full overflow-hidden text-2xl text-white bg-[#292929] py-20  px-5">
         <SectionHeader header={['Our', 'COMMUNITIES']}>
           We manage/run these large communities of passionate vegans and
           activists, helping us empower a new age of volunteers and activism
         </SectionHeader>
-        <div className="relative flex flex-col px-2 mx-auto md:w-1/2 gap-y-8">
-          <div className="grid grid-cols-1 xl:grid-cols-2 text-left gap-20 xl:gap-10 w-full">
+        <div className="relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 text-left gap-10 xl:gap-10 w-full">
             <div>
               <div>
                 <CustomImage src={reddit} alt="Reddit" />
