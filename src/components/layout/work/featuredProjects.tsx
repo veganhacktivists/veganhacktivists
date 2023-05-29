@@ -92,7 +92,7 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
               )}
             </span>
           </div>
-          <div>
+          <div className="text-lg">
             <RichText document={description} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
