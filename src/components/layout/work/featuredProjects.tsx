@@ -61,11 +61,11 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
 
   return (
     <>
-      <div className="flex flex-col justify-center md:justify-start md:flex-row gap-12">
-        <div className="aspect-square relative w-64 2xl:w-80 flex-shrink-0 mx-auto">
+      <div className="flex flex-col lg:max-xl:flex-row gap-4 md:justify-start">
+        <div className="aspect-square relative w-64 md:w-80 flex-shrink-0 text-center md:text-left mx-auto md:mr-auto">
           <ContentfulImage image={image} alt={name} />
         </div>
-        <div className="text-center md:text-left space-y-4 xl:max-w-sm">
+        <div className="space-y-4 xl:max-w-sm">
           <h2 className="text-4xl font-bold">{name}</h2>
           <div>
             <span className="font-bold">
@@ -133,7 +133,7 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
               and in collaboration with other partners.
             </p>
           </SectionHeader>
-          <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-20 gap-x-14 mx-auto md:w-3/4">
+          <ul className="grid grid-cols-1 xl:grid-cols-2 mx-auto w-fit gap-20 gap-y-20">
             {featuredProjects.map((project) => (
               <li
                 key={project.sys.id}
