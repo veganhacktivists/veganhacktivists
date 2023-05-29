@@ -26,6 +26,9 @@ export const getStaticProps = async () => {
       contentType: 'project',
       query: {
         isFeatured: false,
+        filters: {
+          exists: { retiredInfo: false },
+        },
       },
       other: {
         order: '-fields.date',
