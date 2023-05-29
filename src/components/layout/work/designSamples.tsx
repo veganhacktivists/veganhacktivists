@@ -97,17 +97,16 @@ const DesignSamples: React.FC = () => {
 
       <div className="relative w-full overflow-hidden text-xl bg-white">
         <div className="relative flex flex-col px-2 py-20 gap-y-8">
-          <SectionHeader
-            className="mb-2"
-            header={['Check out our', 'DESIGN SAMPLES']}
-          >
-            <p className="text-xl">
-              Whether it&apos;s branding, document design, web design,
-              infographics, or other high-impact areas of design, we&apos;re
-              here to help vegan organizations look sharp, build trust, increase
-              reputation, and unite people.
-            </p>
-          </SectionHeader>
+          <div className="md:w-1/2 mx-auto">
+            <SectionHeader header={['Check out our', 'DESIGN SAMPLES']}>
+              <p className="text-xl">
+                Whether it&apos;s branding, document design, web design,
+                infographics, or other high-impact areas of design, we&apos;re
+                here to help vegan organizations look sharp, build trust,
+                increase reputation, and unite people.
+              </p>
+            </SectionHeader>
+          </div>
           <Carousel
             layout="grid"
             theme="dark"
