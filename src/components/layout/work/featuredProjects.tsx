@@ -146,7 +146,7 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
         </div>
       </div>
 
-      <Sprite image={pig} pixelsLeft={1} pixelsRight={0} />
+      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
