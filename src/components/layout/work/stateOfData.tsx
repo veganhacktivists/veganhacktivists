@@ -34,38 +34,54 @@ const StateOfData: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div>
-        <div className="pb-20 pt-20 px-5">
-          <div className="xl:w-2/3 mx-auto">
-            <div className="flex justify-center pb-14">
-              <CustomImage alt="" src={DataImage} />
-            </div>
-            <span className="text-4xl block text-green font-bold uppercase font-mono pb-2">
-              Coming soon:
-            </span>
-            <span className="text-6xl block font-bold uppercase font-mono pb-2">
-              State of data & technology
-            </span>
-            <span className="text-4xl block font-bold italic font-serif">
-              In the movement
-            </span>
-            <span className="text-xl block pt-20">
-              During the second half of the year, we launched the
-              first-of-its-kind study on the state of data and technology in
-              animal protection. With support and partnership from Faunalytics
-              with the design of this study, our team of researchers are seeking
-              to understand what are the challenges and opportunities among
-              organizations working in various fields and industries within our
-              broad movement. The forthcoming report will provide
-              recommendations to stakeholders and help drive our organizational
-              roadmap.
-            </span>
-            <div className="flex flex-row flex-wrap md:flex-no-wrap justify-center gap-10 pt-20 pb-20">
-              <div className="bg-grey-background flex w-[305px] h-[305px] justify-center items-center p-5">
-                <CustomImage alt="Faunalytics" src={Faunalytics} />
+      <div className="md:w-2/3 mx-auto w-fit">
+        <div className="flex flex-col pb-20 pt-20 px-5 text-left">
+          <div className="pb-9 w-fit">
+            <CustomImage alt="" src={DataImage} />
+          </div>
+          <div className="text-4xl text-green font-bold uppercase font-mono pb-3">
+            Coming soon:
+          </div>
+          <div className="text-5xl md:text-6xl font-bold uppercase font-mono pb-2 lg:overflow-visible lg:whitespace-nowrap">
+            State of data & technology
+          </div>
+          <div className="text-4xl font-bold italic font-serif pb-8 md:pb-16">
+            in the movement
+          </div>
+          <div className="flex flex-col lg:flex-row items-center justify-start gap-5">
+            <div className="max-w-prose mr-auto md:mx-auto">
+              <div className="text-xl">
+                During the second half of the year, we launched the
+                first-of-its-kind study on the state of data and technology in
+                animal protection. With support and partnership from Faunalytics
+                with the design of this study, our team of researchers are
+                seeking to understand what are the challenges and opportunities
+                among organizations working in various fields and industries
+                within our broad movement. The forthcoming report will provide
+                recommendations to stakeholders and help drive our
+                organizational roadmap.
               </div>
-              <div className="bg-grey-background flex w-[305px] h-[305px] justify-center items-center p-5">
-                <CustomImage alt="Vegan Hacktivists" src={VHLogoWhiteBG} />
+            </div>
+            <div className="md:flex-shrink-0 w-fit mr-auto lg:mx-auto">
+              <div className="grid grid-cols-2 gap-5">
+                <div className="bg-grey-background aspect-square grid place-items-center w-full h-full max-w-[200px]">
+                  <div className="w-fit m-auto">
+                    <CustomImage
+                      alt="Faunalytics"
+                      src={Faunalytics}
+                      layout="intrinsic"
+                    />
+                  </div>
+                </div>
+                <div className="bg-grey-background aspect-square grid place-items-center w-full h-full max-w-[200px]">
+                  <div className="w-fit m-auto">
+                    <CustomImage
+                      alt="Vegan Hacktivists"
+                      src={VHLogoWhiteBG}
+                      layout="intrinsic"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
