@@ -149,6 +149,7 @@ export const applyToHelp = async (
       },
       data: {
         name: params.name,
+        pronouns: params.pronouns,
       },
     }),
   ]);

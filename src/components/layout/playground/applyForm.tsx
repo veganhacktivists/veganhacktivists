@@ -414,6 +414,14 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Name
         </TextInput>
         <TextInput
+          className="col-span-full"
+          error={errors.pronouns?.message}
+          {...myRegister('pronouns')}
+          placeholder="Your pronouns"
+        >
+          Pronouns
+        </TextInput>
+        <TextInput
           showRequiredMark
           className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}

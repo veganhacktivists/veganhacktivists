@@ -44,6 +44,7 @@ export const getPlaygroundRequestsSchema = requestFilterSchema
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
   name: z.string().min(1, { message: 'This value is required' }),
+  pronouns: z.string().optional(),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
   source: z.nativeEnum(Source).optional(),
   providedEmail: z.string().trim().email(),

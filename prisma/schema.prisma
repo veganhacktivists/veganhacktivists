@@ -48,6 +48,7 @@ model User {
   id            String    @id @default(cuid()) @db.VarChar(30)
   role          UserRole  @default(User)
   name          String?
+  pronouns      String?
   email         String    @unique
   emailVerified DateTime?
   image         String?
@@ -121,6 +122,7 @@ model PlaygroundApplication {
   providedEmail        String
   applicantId          String
   name                 String
+  pronouns             String?
   availableTimePerWeek TimePerWeek
   source               Source?
   portfolioLink        String
