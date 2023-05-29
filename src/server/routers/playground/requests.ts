@@ -53,7 +53,7 @@ const requestsRouter = t.router({
         });
       }
 
-      const request = await getRequestById(input.id);
+      const request = await getRequestById(input.id, ctx.user);
 
       if (request.status === RequestStatus.Rejected) {
         return submitRequest({
