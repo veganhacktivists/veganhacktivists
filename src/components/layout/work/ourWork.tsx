@@ -183,15 +183,14 @@ const OurWork: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="w-full text-2xl bg-white">
+      <div className="w-full bg-white">
         <div className="flex flex-col py-20 gap-y-8">
           <div className="md:w-1/2 mx-auto">
-            <SectionHeader className="mb-2" header={['Our', 'WORK']} />
-            <p>
+            <SectionHeader className="mb-2" header={['Our', 'WORK']}>
               We’ve worked with over <b>160+ organizations</b> in the animal
               protection movement, through our development, design and advisory
               services.
-            </p>
+            </SectionHeader>
           </div>
           <Autoscroll items={imageRows} />
           <div className="relative mx-auto md:w-fit">

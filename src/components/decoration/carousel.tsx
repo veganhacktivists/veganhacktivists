@@ -67,7 +67,8 @@ export const Carousel = ({
     <div
       className="space-y-3 mx-auto w-full"
       style={{
-        maxWidth: `${16 * (itemsPerPage / numberOfRows) + 1}rem`,
+        // (16rem w + 1rem gap) * items x - 1rem gap
+        maxWidth: `${(16 + 1) * Math.ceil(itemsPerPage / numberOfRows) - 1}rem`,
       }}
     >
       <ul

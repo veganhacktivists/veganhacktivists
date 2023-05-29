@@ -39,10 +39,12 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               rootClassName="text-left mx-auto text-center md:text-left"
               stackEntries
             >
-              We’re often speaking at animal protection and EA related
-              conferences every year and around the world! Be sure to look out
-              for our booth or speakers, we’d love to meet you and see where we
-              might be able to support your work!
+              <p className="text-xl">
+                We’re often speaking at animal protection and EA related
+                conferences every year and around the world! Be sure to look out
+                for our booth or speakers, we’d love to meet you and see where
+                we might be able to support your work!
+              </p>
             </SectionHeader>
           </div>
 

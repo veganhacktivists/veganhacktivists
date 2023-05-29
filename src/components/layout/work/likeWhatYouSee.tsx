@@ -13,7 +13,7 @@ const LikeWhatYouSee: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="relative w-full overflow-hidden text-2xl text-white bg-[#3D3D3D]">
+      <div className="relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]">
         <div className="relative flex flex-col items-center px-2 py-20 gap-y-8">
           <SectionHeader
             className="mb-2"
@@ -27,19 +27,23 @@ const LikeWhatYouSee: React.FC = () => {
           </div>
 
           <div className="w-full">
-            <div className="flex flex-col md:flex-row md:justify-around items-center max-w-screen-lg md:mx-auto gap-4">
-              <LightButton className="w-9/12 md:w-40" href="/donate">
-                Donate
-              </LightButton>
-              <LightButton className="w-9/12 md:w-40" href="/support">
-                Get support
-              </LightButton>
-              <LightButton className="w-9/12 md:w-40" href="/services">
-                Services
-              </LightButton>
-              <LightButton className="w-9/12 md:w-40" href="/contact">
-                Contact us
-              </LightButton>
+            <div className="flex flex-col sm:flex-row md:justify-around basis-0 flex-grow max-w-screen-lg md:mx-auto gap-4 w-fit mx-auto">
+              <div className="flex flex-col md:flex-row gap-4">
+                <LightButton className="w-full md:w-40" href="/donate">
+                  Donate
+                </LightButton>
+                <LightButton className="w-full md:w-40" href="/support">
+                  Get support
+                </LightButton>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4">
+                <LightButton className="w-full md:w-40" href="/services">
+                  Services
+                </LightButton>
+                <LightButton className="w-full md:w-40" href="/contact">
+                  Contact us
+                </LightButton>
+              </div>
             </div>
           </div>
         </div>

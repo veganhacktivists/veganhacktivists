@@ -38,12 +38,13 @@ const GrantProgram: React.FC = () => {
                   stackEntries={true}
                   newDesign={true}
                   className="text-left"
-                />
-                <div className="text-xl text-left pt-5 pb-10">
-                  Last year, we announced a partnership with The Pollination
-                  Project to offer seed funding to individuals and grassroots
-                  organizations. Here’s what we’ve accomplished to date.
-                </div>
+                >
+                  <p className="text-xl text-left">
+                    Last year, we announced a partnership with The Pollination
+                    Project to offer seed funding to individuals and grassroots
+                    organizations. Here’s what we’ve accomplished to date.
+                  </p>
+                </SectionHeader>
 
                 <div>
                   <DarkButton href="/grants" className="md:w-1/2">
