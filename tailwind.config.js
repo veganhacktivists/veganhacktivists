@@ -80,11 +80,16 @@ module.exports = {
       keyframes: {
         scroll: {
           '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'scroll-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
       },
       animation: {
-        'infinite-scroll': 'scroll 25s linear infinite',
+        'infinite-scroll': 'scroll 60s linear infinite',
+        'infinite-scroll-reverse': 'scroll-reverse 60s linear infinite',
       },
       dropShadow: {
         border: '2px 2px 4px rgba(0, 0, 0, 0.05)',
