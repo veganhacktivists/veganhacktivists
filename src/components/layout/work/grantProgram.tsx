@@ -27,7 +27,7 @@ const GrantProgram: React.FC = () => {
 
       <div>
         <div className="flex flex-row flex-wrap bg-grey-background">
-          <div className="w-full md:w-1/2 bg-grey-background pl-5">
+          <div className="w-full lg:w-2/5 xl:w-1/2 bg-grey-background pl-5">
             <div className="xl:w-2/3 ml-auto py-20">
               <div className="pr-5 xl:pr-20">
                 <div className="flex">
@@ -53,7 +53,7 @@ const GrantProgram: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 bg-yellow pr-5">
+          <div className="w-full lg:w-3/5 xl:w-1/2 bg-yellow pr-5">
             <div className="flex justify-center h-full flex-col gap-10 pl-5 xl:pl-20 py-20">
               <div className="flex flex-row sm:gap-10">
                 <div className="flex justify-center items-center collapse sm:visible md:collapse lg:visible w-0 sm:w-[115px] md:w-0 lg:w-[115px] h-[115px] bg-yellow-dark">
