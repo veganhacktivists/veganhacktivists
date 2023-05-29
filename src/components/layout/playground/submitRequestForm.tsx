@@ -395,14 +395,17 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"
-          showRequiredMark
           {...myRegister('title', {
             required: 'Please enter the title of the request',
           })}
           className="col-span-full"
           error={errors.title?.message}
         >
-          Title of Request
+          Title of Request<span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Make it short and clear e.g. “Looking for developer to update
+            Wordpress website” or “Logo design for new nonprofit”
+          </span>
         </TextInput>
         <div className="col-span-full">
           <div className="flex flex-col md:flex-row">
