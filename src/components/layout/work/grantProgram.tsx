@@ -29,9 +29,9 @@ const GrantProgram: React.FC = () => {
         <div className="flex flex-row flex-wrap bg-grey-background">
           <div className="w-full lg:w-2/5 xl:w-1/2 bg-grey-background pl-5">
             <div className="xl:w-2/3 ml-auto py-20">
-              <div className="pr-5 xl:pr-20">
+              <div className="pr-5 xl:pr-20 space-y-8">
                 <div className="flex">
-                  <CustomImage alt="bee" width={73} height={76} src={Bee} />
+                  <CustomImage alt="" width={73} height={76} src={Bee} />
                 </div>
                 <SectionHeader
                   header={['Our seed funding', 'GRANT PROGRAM']}
@@ -39,18 +39,18 @@ const GrantProgram: React.FC = () => {
                   newDesign={true}
                   className="text-left"
                 >
-                  <p className="text-xl text-left">
-                    Last year, we announced a partnership with The Pollination
-                    Project to offer seed funding to individuals and grassroots
-                    organizations. Here’s what we’ve accomplished to date.
-                  </p>
+                  <div className="space-y-10">
+                    <p className="text-xl text-left">
+                      Last year, we announced a partnership with The Pollination
+                      Project to offer seed funding to individuals and
+                      grassroots organizations. Here’s what we’ve accomplished
+                      to date.
+                    </p>
+                    <DarkButton href="/grants" className="w-full lg:w-1/2">
+                      Learn more
+                    </DarkButton>
+                  </div>
                 </SectionHeader>
-
-                <div>
-                  <DarkButton href="/grants" className="md:w-1/2">
-                    Learn more
-                  </DarkButton>
-                </div>
               </div>
             </div>
           </div>
