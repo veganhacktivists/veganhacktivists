@@ -36,11 +36,11 @@ const Playground: React.FC = () => {
       />
 
       <div className="bg-grey-dark text-white py-32 px-5">
-        <div className="md:w-1/2 mx-auto space-y-8">
+        <div className="w-3/4 md:w-1/2 mx-auto space-y-8">
           <div className="mx-auto w-3/4">
             <CustomImage src={playgroundLogo} alt="VH Playground" />
           </div>
-          <div className="text-lg space-y-3 md:w-4/5 mx-auto">
+          <div className="text-lg space-y-3 mx-auto">
             <p>
               Playground was our response to meet the overwhelming demand of
               tech and design support in our movement, while staying sustainable

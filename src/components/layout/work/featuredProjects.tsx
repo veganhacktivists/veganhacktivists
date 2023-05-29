@@ -125,11 +125,13 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
         className="hidden md:block"
       />
 
-      <div className="relative w-full overflow-hidden text-2xl bg-grey-background">
+      <div className="relative w-full overflow-hidden text-xl bg-grey-background">
         <div className="relative px-5 py-20 mx-auto gap-y-8">
           <SectionHeader className="mb-2" header={['Featured', 'PROJECTS']}>
-            Here are just a few of the projects we’ve built for the movement and
-            in collaboration with other partners.
+            <p className="text-xl">
+              Here are just a few of the projects we’ve built for the movement
+              and in collaboration with other partners.
+            </p>
           </SectionHeader>
           <ul className="grid xl:grid-cols-2 gap-y-20 gap-x-14 mx-auto justify-center">
             {featuredProjects.map((project) => (

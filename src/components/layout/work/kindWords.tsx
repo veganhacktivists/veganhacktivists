@@ -76,7 +76,7 @@ const quoteColors = [
 const KindWords: React.FC = () => {
   return (
     <>
-      <div className="relative w-full overflow-hidden text-2xl bg-white">
+      <div className="relative w-full overflow-hidden text-xl bg-white">
         <div className="relative flex flex-col px-2 py-20 mx-auto w-3/4 gap-y-8">
           <SectionHeader className="mb-2" header={['Some', 'KIND WORDS']} />
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-32 gap-y-20">
