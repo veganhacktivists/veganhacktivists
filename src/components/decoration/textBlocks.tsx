@@ -89,7 +89,7 @@ export const SectionHeader = ({
           </span>
         )}
       </h2>
-      {children && <div className="mt-5 mb-20  text-2xl">{children}</div>}
+      {children && <div className="mt-5 mb-20 text-2xl">{children}</div>}
     </div>
   );
 };
