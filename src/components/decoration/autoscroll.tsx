@@ -15,14 +15,14 @@ const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
     <div className="overflow-hidden">
       <div
         className={classNames(
-          'flex flex-row w-fit',
+          'flex flex-row w-fit gap-8',
           backwards
             ? 'animate-infinite-scroll-reverse'
             : 'animate-infinite-scroll'
         )}
       >
         {[...items, ...items].map((item, i) => (
-          <li key={i} className="w-80 flex-shrink-0">
+          <li key={i} className="w-60 flex-shrink-0">
             <div>{item}</div>
           </li>
         ))}
@@ -38,7 +38,7 @@ export const Autoscroll = ({ items }: AutoScrollProps) => {
   );
 
   return (
-    <ul className="grayscale">
+    <ul className="grayscale space-y-12">
       {rows.map((row, i) => (
         <AnimatedRow key={i} items={row} backwards={i % 2 === 0} />
       ))}
