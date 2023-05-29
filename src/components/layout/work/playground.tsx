@@ -55,7 +55,7 @@ const Playground: React.FC = () => {
               more.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row mx-auto justify-center gap-5">
+          <div className="flex flex-col md:flex-row mx-auto justify-center gap-5 py-6">
             <PlaygroundStats skipOpenRequests />
           </div>
           <LightButton href="/playground" className="mx-auto w-full md:w-fit">
