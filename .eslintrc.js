@@ -47,6 +47,13 @@ module.exports = {
           'object',
           'type',
         ],
+        pathGroups: [
+          {
+            pattern: '~images/**',
+            group: 'type',
+            position: 'after',
+          },
+        ],
         'newlines-between': 'always',
       },
     ],
@@ -118,6 +125,6 @@ module.exports = {
       files: ['__test__/**'],
       plugins: ['jest'],
       extends: ['plugin:jest/all'],
-    }
+    },
   ],
 };
