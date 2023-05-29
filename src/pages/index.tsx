@@ -192,8 +192,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             ))}
           </div>
           <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
-            <DarkButton href="/projects" className="font-mono">
-              See All Projects
+            <DarkButton href="/work" className="font-mono">
+              See Our Work
             </DarkButton>
           </div>
         </div>
