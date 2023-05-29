@@ -6,6 +6,7 @@ import { SectionHeader } from '../../decoration/textBlocks';
 import SquareField from '../../decoration/squares';
 
 import { DarkButton } from 'components/decoration/buttons';
+import CustomLink from 'components/decoration/link';
 
 import type { StaticImageData } from 'next/image';
 
@@ -39,32 +40,22 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               rootClassName="text-left mx-auto text-center md:text-left"
               stackEntries
             >
-              <p className="text-xl">
-                We’re often speaking at animal protection and EA related
+              <p className="text-xl max-w-prose">
+                We&apos;re often speaking at animal protection and EA related
                 conferences every year and around the world! Be sure to look out
-                for our booth or speakers, we’d love to meet you and see where
-                we might be able to support your work!
+                for our booth or speakers, we&apos;d love to meet you and see
+                where we might be able to support your work! Follow us on{' '}
+                <CustomLink href="https://instagram.com/veganhacktivists">
+                  Instagram
+                </CustomLink>{' '}
+                to see where we&apos;ll be next!
               </p>
             </SectionHeader>
           </div>
-
-          <div className="flex w-full md:w-fit flex-row items-center mb-8 md:mb-0">
-            <div className="w-full md:w-max">
-              <span className="font-bold block pb-2">
-                Follow us to see where we’ll be next!
-              </span>
-              <DarkButton
-                href="https://www.instagram.com/veganhacktivists/"
-                className="mb-4 md:mb-[10%]"
-              >
-                Instagram
-              </DarkButton>
-            </div>
-          </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-5 pb-20">
-          <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-5 justify-between">
+        <div className="flex flex-col md:flex-row gap-10 pb-20">
+          <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-10 justify-start md:justify-between">
             <div className="flex">
               <ImageWithCaption
                 bgColor="yellow"
