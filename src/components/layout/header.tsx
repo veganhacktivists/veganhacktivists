@@ -86,7 +86,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 const NavbarItems: React.FC = () => {
   return (
     <>
-      {['about', 'services', 'work', 'people', 'blog'].map((menuElem) => (
+      {['about', 'services', 'projects', 'people', 'blog'].map((menuElem) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
