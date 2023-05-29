@@ -1,6 +1,5 @@
 import Sprite, { cow } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
-import { SectionHeader } from 'components/decoration/textBlocks';
 import getThemeColor from 'lib/helpers/theme';
 
 const BOTTOM_DECORATION_SQUARES = [
@@ -78,7 +77,6 @@ const KindWords: React.FC = () => {
     <>
       <div className="relative w-full overflow-hidden text-xl bg-white">
         <div className="relative flex flex-col px-2 py-20 mx-auto w-3/4 gap-y-8">
-          <SectionHeader className="mb-2" header={['Some', 'KIND WORDS']} />
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-32 gap-y-20">
             {quotes.map((quote, i) => (
               <Quote key={quote.author} {...quote} color={quoteColors[i]} />
