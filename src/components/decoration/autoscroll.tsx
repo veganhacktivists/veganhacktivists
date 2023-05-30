@@ -22,7 +22,7 @@ const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
         )}
       >
         {[...items, ...items].map((item, i) => (
-          <li key={i} className="w-60 flex-shrink-0">
+          <li key={i} className="w-max max-w-[15rem] flex-shrink-0 last:mr-8">
             <div>{item}</div>
           </li>
         ))}
