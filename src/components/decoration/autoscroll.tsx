@@ -15,7 +15,7 @@ const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
     <div className="overflow-hidden">
       <div
         className={classNames(
-          'flex flex-row w-fit gap-8',
+          'flex flex-row w-fit gap-8 place-items-center',
           backwards
             ? 'animate-infinite-scroll-reverse'
             : 'animate-infinite-scroll'
