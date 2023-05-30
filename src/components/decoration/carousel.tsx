@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
-import useWindowBreakpoint from 'hooks/useWindowBreakpoint';
 import useWindowSize from 'hooks/useWindowSize';
 
 import type { UIEventHandler } from 'react';

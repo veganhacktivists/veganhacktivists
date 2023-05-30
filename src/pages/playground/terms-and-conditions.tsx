@@ -1,11 +1,8 @@
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 
-import PixelCow from '../../../public/images/VH_PixelCow.png';
-import CustomImage from '../../components/decoration/customImage';
 import {
   SubSection,
-  FirstSubSection,
   SectionHeader,
 } from '../../components/decoration/textBlocks';
 import SquareField from '../../components/decoration/squares';

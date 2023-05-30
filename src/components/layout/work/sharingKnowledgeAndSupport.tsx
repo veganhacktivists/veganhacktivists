@@ -5,7 +5,6 @@ import CustomImage from '../../decoration/customImage';
 import { SectionHeader } from '../../decoration/textBlocks';
 import SquareField from '../../decoration/squares';
 
-import { DarkButton } from 'components/decoration/buttons';
 import CustomLink from 'components/decoration/link';
 
 import type { StaticImageData } from 'next/image';
