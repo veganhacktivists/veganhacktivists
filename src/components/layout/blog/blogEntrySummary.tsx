@@ -24,8 +24,8 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
   const LinkToBlog: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <Link href={`/blog/${blog.fields.slug}`}>
-      <a aria-label={blog.fields.title}>{children}</a>
+    <Link href={`/blog/${blog.fields.slug}`} aria-label={blog.fields.title}>
+      {children}
     </Link>
   );
 
