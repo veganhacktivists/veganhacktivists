@@ -186,8 +186,8 @@ const OurWork: React.FC = () => {
       />
 
       <div className="w-full bg-white">
-        <div className="flex flex-col py-20 gap-y-8">
-          <div className="md:w-1/2 mx-auto">
+        <div className="flex flex-col py-20">
+          <div className="md:w-1/2 mx-auto -mb-10">
             <SectionHeader className="mb-2" header={['Our', 'WORK']}>
               We’ve worked with over <b>160+ organizations</b> in the animal
               protection movement, through our development, design and advisory
@@ -195,7 +195,7 @@ const OurWork: React.FC = () => {
             </SectionHeader>
           </div>
           <Autoscroll items={imageRows} />
-          <div className="relative mx-auto md:w-fit">
+          <div className="relative mx-auto md:w-fit mt-24">
             <DarkButton href="/services" className="font-mono w-fit">
               Explore our services
             </DarkButton>
