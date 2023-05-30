@@ -130,7 +130,7 @@ const DesignSamples: React.FC = () => {
             {/* TODO: image gallery */}
             {currentImage && (
               <div>
-                <CustomImage src={currentImage} alt="" />
+                <CustomImage placeholder="blur" src={currentImage} alt="" />
               </div>
             )}
           </Modal>
