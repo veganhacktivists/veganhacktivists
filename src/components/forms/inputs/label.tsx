@@ -17,6 +17,7 @@ const Label: React.FC<LabelProps> = ({
   className,
   ...props
 }) => {
+  if (!children || !name) return null;
   return (
     <label
       className={classNames('block mb-2 font-bold text-left', className)}
