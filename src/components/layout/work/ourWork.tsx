@@ -157,7 +157,9 @@ const imageRows = [...new Array(numberOfRows)].map((_, i) => {
   const itemsPerRow = Math.ceil(images.length / numberOfRows);
   return images
     .slice(i * itemsPerRow, (i + 1) * itemsPerRow)
-    .map((image) => <CustomImage key={image.src} src={image} alt="" />);
+    .map((image) => (
+      <CustomImage priority key={image.src} src={image} alt="" />
+    ));
 });
 
 const TOP_DECORATION_SQUARES = [
