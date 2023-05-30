@@ -6,7 +6,7 @@ import type { ImageProps } from 'next/legacy/image';
 
 export type CustomImageProps = ImageProps;
 
-const CustomImage = (props: ImageProps) => {
+const CustomImage = (props: CustomImageProps) => {
   return <Image loading="eager" {...props} />;
 };
 

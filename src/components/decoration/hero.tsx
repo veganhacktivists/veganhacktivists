@@ -5,6 +5,7 @@ import Circle from './circle';
 import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
 
+import type { CustomImageProps } from './customImage';
 import type { ImageProps, StaticImageData } from 'next/image';
 
 interface HeroClassNames {
@@ -14,7 +15,7 @@ interface HeroClassNames {
 }
 interface HeroProps extends React.PropsWithChildren {
   imageBackground: ImageProps['src'];
-  backgroundImageProps?: Partial<ImageProps>;
+  backgroundImageProps?: Partial<CustomImageProps>;
   tagline?: {
     image: StaticImageData;
     imageWidth?: number;
