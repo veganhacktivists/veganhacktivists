@@ -22,6 +22,7 @@ import { pixelHeart } from 'images/separators';
 import CustomLink from 'components/decoration/link';
 import { trpc } from 'lib/client/trpc';
 
+import type { TrpcInput } from 'lib/client/trpc';
 import type PageWithLayout from 'types/persistentLayout';
 
 const isValidPlaygroundRequestCategoryValue = (
@@ -40,7 +41,7 @@ const Playground: PageWithLayout = ({}) => {
   const router = useRouter();
 
   const [filters, setFilters] = useState<
-    trpc['playground']['getAllRequests']['input']
+    TrpcInput['playground']['getAllRequests']
   >(() => ({
     categories: isValidPlaygroundRequestCategoryValue(router.query.category)
       ? Array.isArray(router.query.category)
@@ -98,7 +99,7 @@ const Playground: PageWithLayout = ({}) => {
    * Updates the filters and adds them to the current URL as query strings
    */
   const updateFilterHandler = (
-    filters: trpc['playground']['getAllRequests']['input']
+    filters: TrpcInput['playground']['getAllRequests']
   ) => {
     delete router.query['isPaidRequest'];
     delete router.query['category'];

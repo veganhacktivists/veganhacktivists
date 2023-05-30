@@ -1,15 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
 import { Decimal } from 'decimal.js';
+import { httpBatchLink } from '@trpc/client';
 
+import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 import type { NextPageContext } from 'next';
-import type {
-  AnyRouter,
-  inferProcedureInput,
-  inferProcedureOutput,
-  Procedure,
-} from '@trpc/server';
 import type { AppRouter } from 'server/routers/_app';
 
 function getBaseUrl() {
@@ -41,42 +36,25 @@ superjson.registerCustom<Decimal, string>(
 
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
   config: ({ ctx }) => {
-    const url = `${getBaseUrl()}/api/trpc`;
     return {
-      url,
       transformer: superjson,
-      headers: () => {
-        if (ctx?.req) {
-          return {
-            ...ctx.req.headers,
-            'x-ssr': '1',
-          };
-        }
-        return {};
-      },
+      links: [
+        httpBatchLink({
+          url: `${getBaseUrl()}/api/trpc`,
+          headers: () => {
+            if (ctx?.req) {
+              return {
+                ...ctx.req.headers,
+                'x-ssr': '1',
+              };
+            }
+            return {};
+          },
+        }),
+      ],
     };
   },
 });
 
-type HandleInferenceHelpers<
-  TRouterOrProcedure extends AnyRouter | Procedure<any>
-> = TRouterOrProcedure extends AnyRouter
-  ? GetInferenceHelpers<TRouterOrProcedure>
-  : TRouterOrProcedure extends Procedure<any>
-  ? {
-      input: inferProcedureInput<TRouterOrProcedure>;
-      output: inferProcedureOutput<TRouterOrProcedure>;
-    }
-  : never;
-
-type GetInferenceHelpers<TRouter extends AnyRouter> = {
-  [TKey in keyof TRouter['_def']['record']]: HandleInferenceHelpers<
-    TRouter['_def']['record'][TKey]
-  >;
-};
-
-/**
- * This is a helper method to infer the output of a query resolver
- * @example type HelloOutput = trpc['hello']['output']
- */
-export type trpc = GetInferenceHelpers<AppRouter>;
+export type TrpcInput = inferRouterInputs<AppRouter>;
+export type TrpcOutput = inferRouterOutputs<AppRouter>;

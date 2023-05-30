@@ -12,10 +12,10 @@ import useOnce from '../../../../hooks/useOnce';
 
 import { GreyButton } from 'components/decoration/buttons';
 
+import type { TrpcInput } from 'lib/client/trpc';
 import type { Sorting } from 'lib/services/playground/schemas';
-import type { trpc } from 'lib/client/trpc';
 
-type Filters = trpc['playground']['getAllRequests']['input'];
+type Filters = TrpcInput['playground']['getAllRequests'];
 
 type FiltersWithoutSort = Omit<Filters, 'sort'>;
 interface RequestFiltersProps {
