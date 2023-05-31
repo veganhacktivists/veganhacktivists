@@ -26,25 +26,19 @@ const LikeWhatYouSee: React.FC = () => {
             use of our services!
           </div>
 
-          <div className="w-full">
-            <div className="flex flex-col sm:flex-row md:justify-around basis-0 flex-grow max-w-screen-lg md:mx-auto gap-4 w-fit mx-auto">
-              <div className="flex flex-col md:flex-row gap-4">
-                <LightButton className="w-full md:w-40" href="/donate">
-                  Donate
-                </LightButton>
-                <LightButton className="w-full md:w-40" href="/support">
-                  Get support
-                </LightButton>
-              </div>
-              <div className="flex flex-col md:flex-row gap-4">
-                <LightButton className="w-full md:w-40" href="/services">
-                  Services
-                </LightButton>
-                <LightButton className="w-full md:w-40" href="/contact">
-                  Contact us
-                </LightButton>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9">
+            <LightButton className="w-full md:w-40" href="/donate">
+              Donate
+            </LightButton>
+            <LightButton className="w-full md:w-40" href="/support">
+              Get support
+            </LightButton>
+            <LightButton className="w-full md:w-40" href="/services">
+              Services
+            </LightButton>
+            <LightButton className="w-full md:w-40" href="/contact">
+              Contact us
+            </LightButton>
           </div>
         </div>
       </div>
