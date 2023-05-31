@@ -133,7 +133,7 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
               and in collaboration with other partners.
             </p>
           </SectionHeader>
-          <ul className="grid grid-cols-1 xl:grid-cols-2 mx-auto w-fit gap-20 gap-y-20">
+          <ul className="grid grid-cols-1 xl:grid-cols-3 mx-auto w-fit gap-20 gap-y-20">
             {featuredProjects.map((project) => (
               <li
                 key={project.sys.id}
