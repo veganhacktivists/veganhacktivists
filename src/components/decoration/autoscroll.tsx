@@ -23,7 +23,9 @@ const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
       >
         {[...items, ...items].map((item, i) => (
           <li key={i} className="w-max max-w-[15rem] flex-shrink-0 last:mr-8">
-            <div>{item}</div>
+            <div className="grayscale hover:grayscale-0 transition-[filter] ease-out">
+              {item}
+            </div>
           </li>
         ))}
       </div>
@@ -38,7 +40,7 @@ export const Autoscroll = ({ items }: AutoScrollProps) => {
   );
 
   return (
-    <ul className="grayscale space-y-12">
+    <ul className="space-y-12">
       {rows.map((row, i) => (
         <AnimatedRow key={i} items={row} backwards={i % 2 === 0} />
       ))}
