@@ -3,12 +3,33 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
+import { Bitter, PT_Sans, Rajdhani } from 'next/font/google';
 
 import useErrorStore from '../../lib/stores/errorStore';
 import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 
 import NewsletterPopup from './newsletterPopup';
+
+const monoFont = Rajdhani({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-mono',
+});
+
+const sansFont = PT_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-sans',
+});
+
+const serifFont = Bitter({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500'],
+  variable: '--font-serif',
+});
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -27,7 +48,14 @@ const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
-      <div className="flex flex-col justify-between w-full min-h-screen">
+      <div
+        className={classNames(
+          'flex flex-col justify-between w-full min-h-screen font-sans',
+          monoFont.variable,
+          sansFont.variable,
+          serifFont.variable
+        )}
+      >
         {children}
       </div>
     </>
