@@ -109,6 +109,7 @@ const DesignSamples: React.FC = () => {
             </SectionHeader>
           </div>
           <Carousel
+            itemWidth={300}
             layout="grid"
             theme="dark"
             items={images.map(([image, thumbnail]) => (

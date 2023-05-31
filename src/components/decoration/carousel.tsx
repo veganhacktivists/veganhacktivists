@@ -11,6 +11,7 @@ export interface CarouselProps {
   layout?: 'horizontal' | 'grid';
   theme?: 'light' | 'dark';
   pageWidth?: number;
+  itemWidth?: number;
 }
 
 export const Carousel = ({
@@ -18,6 +19,7 @@ export const Carousel = ({
   layout = 'horizontal',
   theme = 'light',
   pageWidth = 3,
+  itemWidth = 256,
 }: CarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const handleScroll = useCallback<UIEventHandler<HTMLUListElement>>((e) => {
@@ -34,7 +36,8 @@ export const Carousel = ({
   const numberOfRows = layout === 'grid' ? pageWidth : 1;
 
   const itemsPerPage =
-    Math.min(Math.max(Math.floor(width / 256), 1), pageWidth) * numberOfRows;
+    Math.min(Math.max(Math.floor(width / itemWidth), 1), pageWidth) *
+    numberOfRows;
 
   const numPages = Math.ceil(items.length / itemsPerPage);
 
@@ -62,7 +65,9 @@ export const Carousel = ({
       className="space-y-16 mx-auto w-full"
       style={{
         // (16rem w + 1rem gap) * items x - 1rem gap
-        maxWidth: `${(16 + 1) * Math.ceil(itemsPerPage / numberOfRows) - 1}rem`,
+        maxWidth: `${
+          (itemWidth / 16 + 1) * Math.ceil(itemsPerPage / numberOfRows) - 1
+        }rem`,
       }}
     >
       <ul
@@ -78,9 +83,12 @@ export const Carousel = ({
         {items.map((item, i) => (
           <li
             key={i}
-            className={classNames('flex-shrink-0 w-64', {
+            className={classNames('flex-shrink-0', {
               'snap-start': i % itemsPerPage === 0,
             })}
+            style={{
+              width: itemWidth,
+            }}
             ref={(ref) => {
               listItemsRef.current[i] = ref;
             }}
