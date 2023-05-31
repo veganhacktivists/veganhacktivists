@@ -65,6 +65,11 @@ export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
 export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
+    query: {
+      filters: {
+        ne: { showInWebsite: false },
+      },
+    },
     other: {
       order: '-fields.date',
     },
@@ -78,6 +83,9 @@ export const getFeaturedProjects = async () => {
     contentType: 'project',
     query: {
       isFeatured: true,
+      filters: {
+        ne: { showInWebsite: false },
+      },
     },
     other: {
       order: '-fields.date',

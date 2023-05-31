@@ -27,6 +27,7 @@ export const getStaticProps = async () => {
       query: {
         isFeatured: false,
         filters: {
+          ne: { showInWebsite: false },
           exists: { retiredInfo: false },
         },
       },
