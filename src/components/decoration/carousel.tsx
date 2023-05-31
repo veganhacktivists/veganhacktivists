@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import React from 'react';
 
 import useWindowSize from 'hooks/useWindowSize';
@@ -22,14 +22,6 @@ export const Carousel = ({
   itemWidth = 256,
 }: CarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const handleScroll = useCallback<UIEventHandler<HTMLUListElement>>((e) => {
-    const target = e.target as HTMLUListElement;
-    const scrollLeft = target.scrollLeft;
-    const width = target.clientWidth;
-
-    const page = Math.round(scrollLeft / width);
-    setCurrentPage(page);
-  }, []);
 
   const { width = 1920 } = useWindowSize();
 
@@ -46,6 +38,27 @@ export const Carousel = ({
   useEffect(() => {
     listItemsRef.current = listItemsRef.current.slice(0, items.length);
   }, [items.length]);
+
+  const pageBreakpoints = useMemo(() => {
+    const pageWidth = (itemWidth + 16) * itemsPerPage;
+    return [...new Array(numPages)].map((_, i) => {
+      return pageWidth * i;
+    });
+  }, [itemWidth, itemsPerPage, numPages]);
+
+  const handleScroll = useCallback<UIEventHandler<HTMLUListElement>>(
+    (e) => {
+      const target = e.target as HTMLUListElement;
+      const scrollLeft = target.scrollLeft;
+
+      const page =
+        pageBreakpoints.findIndex((point) => scrollLeft <= point) ??
+        numPages - 1;
+
+      setCurrentPage(page);
+    },
+    [numPages, pageBreakpoints]
+  );
 
   const getHandlePageChange = useCallback(
     (newPage: number) => () => {
