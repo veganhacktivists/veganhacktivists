@@ -29,7 +29,7 @@ const WorkHero: React.FC = () => {
         }}
         alignment="left"
         classNameMapping={{
-          container: 'bg-center',
+          tagline: 'md:scale-75',
         }}
       />
 
