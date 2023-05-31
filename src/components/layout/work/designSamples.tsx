@@ -26,7 +26,7 @@ import reimagine from '~images/work/designSamples/designs/VH_Design_Document_Rei
 import sharpen from '~images/work/designSamples/designs/VH_Design_Sharpen.png';
 import clariteam from '~images/work/designSamples/designs/VH_Design_Clariteam.png';
 import sm from '~images/work/designSamples/designs/VH_Design_SM.jpg';
-import law from '~images/work/designSamples/designs/VH_Design_ADP.png';
+import law from '~images/work/designSamples/designs/VH_Design_AnimalLaw.png';
 import twvns from '~images/work/designSamples/designs/VH_Design_Document_TWVNS.jpg';
 import thumb1 from '~images/work/designSamples/thumbnails/VH_portfolio_1.png';
 import thumb2 from '~images/work/designSamples/thumbnails/VH_portfolio_2.png';
@@ -64,8 +64,8 @@ const images: [image: StaticImageData, thumbnail: StaticImageData][] = [
   [sharpen, thumb14],
   [clariteam, thumb15],
   [sm, thumb16],
-  [law, thumb17],
-  [twvns, thumb18],
+  [twvns, thumb17],
+  [law, thumb18],
 ];
 
 const TOP_DECORATION_SQUARES = [
