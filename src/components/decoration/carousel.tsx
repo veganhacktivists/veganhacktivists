@@ -100,6 +100,7 @@ export const Carousel = ({
       <div className="flex flex-row gap-4 justify-center items-center flex-wrap">
         {[...Array(numPages)].map((_, i) => (
           <button
+            aria-label={`Scroll to page ${i + 1}`}
             onClick={getHandlePageChange(i)}
             type="button"
             key={i}
