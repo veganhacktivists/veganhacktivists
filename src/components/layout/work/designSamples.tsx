@@ -127,6 +127,7 @@ const DesignSamples: React.FC = () => {
           <Modal
             isOpen={isModalOpen && !!currentImage}
             onClose={handleModalClose}
+            modalClassName="!w-5/6 md:!w-3/4 "
           >
             {/* TODO: image gallery */}
             {currentImage && (
