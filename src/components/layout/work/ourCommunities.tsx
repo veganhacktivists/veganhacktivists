@@ -1,10 +1,10 @@
-import reddit from '../../../../public/images/work/communities/reddit.png';
-import ara from '../../../../public/images/work/communities/ARA.png';
-
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import { formatNumber } from 'lib/helpers/format';
+
+import reddit from '~images/work/communities/reddit.png';
+import ara from '~images/work/communities/ARA.png';
 
 const TOP_DECORATION_SQUARES = [
   { color: '#454545', size: 16, left: 0, top: 0 },
@@ -13,6 +13,9 @@ const TOP_DECORATION_SQUARES = [
 const BOTTOM_DECORATION_SQUARES = [
   { color: '#454545', size: 16, right: 0, bottom: 0 },
 ];
+
+const redditLink = 'https://reddit.com/r/vegan';
+const discordLink = 'https://aramovement.org';
 
 const OurCommunities: React.FC = () => {
   return (
@@ -32,17 +35,28 @@ const OurCommunities: React.FC = () => {
         <div className="relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 text-left gap-10 xl:gap-10 w-full">
             <div>
-              <div>
+              <a href={redditLink} target="_blank" rel="noreferrer">
                 <CustomImage src={reddit} alt="Reddit" />
+              </a>
+
+              <div className="font-bold">
+                <a href={redditLink} target="_blank" rel="noreferrer">
+                  Vegans of Reddit
+                </a>
               </div>
-              <div className="font-bold">Vegans of Reddit</div>
               <div>{formatNumber(1200000)}+ members</div>
             </div>
             <div>
               <div>
-                <CustomImage src={ara} alt="Animal Rights Advocates" />
+                <a href={discordLink} target="_blank" rel="noreferrer">
+                  <CustomImage src={ara} alt="Animal Rights Advocates" />
+                </a>
               </div>
-              <div className="font-bold">Animal Rights Advocates</div>
+              <div className="font-bold">
+                <a href={discordLink} target="_blank" rel="noreferrer">
+                  Animal Rights Advocates
+                </a>
+              </div>
               <div>{formatNumber(25000)}+ members</div>
             </div>
           </div>
