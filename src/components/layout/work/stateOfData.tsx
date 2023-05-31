@@ -49,7 +49,7 @@ const StateOfData: React.FC = () => {
             in the movement
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-start gap-5">
-            <div className="max-w-prose mr-auto md:mx-auto">
+            <div className="max-w-prose mr-auto">
               <div className="text-xl">
                 During the second half of the year, we launched the
                 first-of-its-kind study on the state of data and technology in
