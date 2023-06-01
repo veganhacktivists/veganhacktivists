@@ -21,7 +21,7 @@ const LikeWhatYouSee: React.FC = () => {
             startWithBoldFont
           />
 
-          <div className="text-xl md:w-1/2 xl:w-1/2 mx-auto">
+          <div className="text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4">
             Get in touch if you’d like to volunteer, support our work, or make
             use of our services!
           </div>

@@ -43,7 +43,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
                 We&apos;re often speaking at animal protection and EA related
                 conferences every year and around the world! Be sure to look out
                 for our booth or speakers, we&apos;d love to meet you and see
-                where we might be able to support your work! Follow us on{' '}
+                where we might be able to support your work. Follow us on{' '}
                 <CustomLink href="https://instagram.com/veganhacktivists">
                   Instagram
                 </CustomLink>{' '}
