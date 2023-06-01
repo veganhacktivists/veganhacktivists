@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import classNames from 'classnames';
 
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.png';
@@ -186,7 +187,14 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             believe in accessibility and transparency, and our projects reflect
             those values.
           </p>
-          <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
+          <div
+            className={classNames(
+              'grid grid-cols-2 gap-4 pt-16 sm:grid-cols-2',
+              featuredProjects.length % 4 === 0
+                ? 'md:grid-cols-4'
+                : 'md:grid-cols-3'
+            )}
+          >
             {featuredProjects.map((project) => (
               <FeaturedProject key={project.sys.id} {...project.fields} />
             ))}
