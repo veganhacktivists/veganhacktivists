@@ -1,35 +1,15 @@
+'use client';
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from 'next/router';
-import classNames from 'classnames';
-import { Bitter, PT_Sans, Rajdhani } from 'next/font/google';
+import { usePathname } from 'next/navigation';
 
 import useErrorStore from '../../lib/stores/errorStore';
 import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 
 import NewsletterPopup from './newsletterPopup';
-
-const monoFont = Rajdhani({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-mono',
-});
-
-const sansFont = PT_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-sans',
-});
-
-const serifFont = Bitter({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  weight: ['400', '500'],
-  variable: '--font-serif',
-});
+import 'react-toastify/dist/ReactToastify.css';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -48,14 +28,7 @@ const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
-      <div
-        className={classNames(
-          'flex flex-col justify-between w-full min-h-screen font-sans',
-          monoFont.variable,
-          sansFont.variable,
-          serifFont.variable
-        )}
-      >
+      <div className="flex flex-col justify-between w-full min-h-screen font-sans">
         {children}
       </div>
     </>
@@ -66,10 +39,10 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   const error = useErrorStore((state) => state.error);
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   const hideNewsletter =
-    error || asPath === '/handbook' || asPath.startsWith('/handbook/');
+    error || pathname === '/handbook' || pathname?.startsWith('/handbook/');
 
   return (
     <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>

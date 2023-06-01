@@ -50,12 +50,8 @@ const Hero: React.FC<HeroProps> = ({
     classNameMapping?.container
   );
   const contentClasses = classNames(
-    'flex',
-    'flex-col',
-    'justify-center',
-    'md:w-1/2',
+    'flex flex-col justify-center md:w-1/2 z-10',
     tagline?.biggerOnMobile ? 'w-3/4' : 'w-1/2',
-    'z-10',
     { 'py-10 xl:mt-0': main },
     classNameMapping?.content
   );

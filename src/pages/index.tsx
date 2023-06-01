@@ -1,3 +1,4 @@
+'use client';
 import { NextSeo } from 'next-seo';
 import classNames from 'classnames';
 

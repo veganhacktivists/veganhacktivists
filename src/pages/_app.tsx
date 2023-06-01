@@ -4,6 +4,8 @@ import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
+import { Bitter, PT_Sans, Rajdhani } from 'next/font/google';
+import classNames from 'classnames';
 
 import useOnce from '../hooks/useOnce';
 
@@ -37,6 +39,25 @@ type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+const monoFont = Rajdhani({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-mono',
+});
+
+const sansFont = PT_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-sans',
+});
+
+const serifFont = Bitter({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500'],
+  variable: '--font-serif',
+});
 
 const SEO: DefaultSeoProps = {
   titleTemplate: '%s | Vegan Hacktivists',
@@ -98,9 +119,18 @@ const DefaultLayout: React.FC<
 
   return (
     <>
-      <Header />
-      <MainWrapper>{children}</MainWrapper>
-      <Footer />
+      <div
+        className={classNames(
+          'font-sans',
+          monoFont.variable,
+          sansFont.variable,
+          serifFont.variable
+        )}
+      >
+        <Header />
+        <MainWrapper>{children}</MainWrapper>
+        <Footer />
+      </div>
     </>
   );
 };
