@@ -58,7 +58,7 @@ const Playground: React.FC = () => {
           <div className="flex flex-col md:flex-row mx-auto justify-center gap-5 py-6">
             <PlaygroundStats skipOpenRequests />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 md:w-fit mx-auto gap-9">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:w-fit mx-auto gap-9 pt-4">
             <LightButton href="/playground" className="mx-auto w-full md:w-fit">
               <span className="px-4">Volunteer</span>
             </LightButton>
