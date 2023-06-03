@@ -64,6 +64,11 @@ const nextConfig = {
         destination: '/join',
         permanent: true,
       },
+      {
+        source: '/projects',
+        destination: '/work',
+        permanent: true,
+      },
     ];
   },
 };
