@@ -164,10 +164,11 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
             }).format(updatedAt)}
           </span>
           <span className="hidden md:inline"> | </span>
-          <Link href="/contact">
-            <a className="underline opacity-100 text-green hover:opacity-70">
-              Suggest Updates
-            </a>
+          <Link
+            href="/contact"
+            className="underline opacity-100 text-green hover:opacity-70"
+          >
+            Suggest Updates
           </Link>
         </div>
       </div>

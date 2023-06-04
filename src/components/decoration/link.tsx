@@ -31,8 +31,8 @@ const CustomLink: React.FC<LinkProps> = ({
       {children}
     </a>
   ) : (
-    <Link {...props} href={href}>
-      <a className={classes}>{children}</a>
+    <Link {...props} href={href} className={classes}>
+      {children}
     </Link>
   );
 };

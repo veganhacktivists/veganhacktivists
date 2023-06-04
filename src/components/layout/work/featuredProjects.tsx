@@ -81,12 +81,10 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
                     }}
                     scroll={true}
                   >
-                    <a>
-                      {team.fields.icon}{' '}
-                      <span style={{ color: team.fields.color }}>
-                        {team.fields.name}
-                      </span>
-                    </a>
+                    {team.fields.icon}{' '}
+                    <span style={{ color: team.fields.color }}>
+                      {team.fields.name}
+                    </span>
                   </Link>
                 </>
               )}

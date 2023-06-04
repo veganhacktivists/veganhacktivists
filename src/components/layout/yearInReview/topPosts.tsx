@@ -14,10 +14,12 @@ const TopPosts: React.FC<TopPostsProps> = ({ topPosts }) => {
       </h2>
       <div className="flex flex-col normal-case">
         {topPosts.map(({ title, slug }) => (
-          <Link key={slug} href={`/blog/${slug}`}>
-            <a className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate">
-              {title}
-            </a>
+          <Link
+            key={slug}
+            href={`/blog/${slug}`}
+            className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+          >
+            {title}
           </Link>
         ))}
       </div>

@@ -37,6 +37,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
+import type { TrpcOutput, TrpcInput } from 'lib/client/trpc';
 import type { User, Source } from '@prisma/client';
 import type { z } from 'zod';
 
@@ -69,7 +70,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: trpc['playground']['getRequest']['output'];
+  request: TrpcOutput['playground']['getRequest'];
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
@@ -281,7 +282,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     reset,
     control,
     watch,
-  } = useForm<trpc['playground']['apply']['input']>({
+  } = useForm<TrpcInput['playground']['apply']>({
     defaultValues: {
       ...storedForm,
       hasAppliedInThePast: request.userAlreadyApplied,
@@ -374,7 +375,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 
   const onSubmit = useCallback(
-    async (values: trpc['playground']['apply']['input']) => {
+    async (values: TrpcInput['playground']['apply']) => {
       if (sessionStatus !== 'authenticated') {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });

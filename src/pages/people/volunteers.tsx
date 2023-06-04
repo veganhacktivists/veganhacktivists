@@ -127,27 +127,27 @@ const TeamSelector: React.FC<{
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite, slug }) => (
-          <Link key={slug} href={{ hash: slug }}>
-            <a
-              style={{ backgroundColor: getBackgroundColor(slug, color) }}
-              className={'w-20 h-20 flex-grow-0 transition-colors'}
-              onPointerEnter={() => setHovered(slug)}
-              onPointerLeave={() =>
-                setHovered((curr) => (curr === slug ? null : curr))
-              }
-            >
-              {sprite ? (
-                <ContentfulImage
-                  image={sprite}
-                  alt={name}
-                  width={75}
-                  height={75}
-                  priority
-                />
-              ) : (
-                <div className="text-4xl">{icon}</div>
-              )}
-            </a>
+          <Link
+            key={slug}
+            href={{ hash: slug }}
+            style={{ backgroundColor: getBackgroundColor(slug, color) }}
+            className={'w-20 h-20 flex-grow-0 transition-colors'}
+            onPointerEnter={() => setHovered(slug)}
+            onPointerLeave={() =>
+              setHovered((curr) => (curr === slug ? null : curr))
+            }
+          >
+            {sprite ? (
+              <ContentfulImage
+                image={sprite}
+                alt={name}
+                width={75}
+                height={75}
+                priority
+              />
+            ) : (
+              <div className="text-4xl">{icon}</div>
+            )}
           </Link>
         ))}
     </div>

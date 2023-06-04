@@ -4,9 +4,10 @@ import React, { useMemo, useState } from 'react';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 import TextInput from '../../forms/inputs/textInput';
-import { FillBackground } from '../../decoration/buttons/utils';
 
 import SearchResults from './searchResults';
+
+import { DarkButton } from 'components/decoration/buttons';
 
 import type { IDocsCategoryFields } from '../../../types/generated/contentful';
 import type { SearchItem } from './searchResults';
@@ -54,14 +55,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
             value={searchTerm}
           />
         </div>
-        <FillBackground base="grey-dark" fill="green">
-          <button
-            type="button"
-            className="flex items-center justify-center h-12 w-14"
-          >
-            <FontAwesomeIcon icon={faSearch} size="lg" color="white" />
-          </button>
-        </FillBackground>
+        <DarkButton className="flex items-center justify-center h-12 w-14 !p-0 !border-none">
+          <FontAwesomeIcon icon={faSearch} size="lg" color="white" />
+        </DarkButton>
         <SearchResults
           className="absolute bg-white top-12"
           searchItems={searchItems}

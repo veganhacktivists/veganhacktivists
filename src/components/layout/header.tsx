@@ -1,7 +1,8 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-import { useRouter } from 'next/dist/client/router';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -13,41 +14,40 @@ import logoBig from '../../../public/images/VH_Logo_Loop.json';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const isRootPage = pathname === '/';
 
   return (
     <div
       className={classNames(
-        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
+        'z-20 flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
       )}
     >
       {/* root */}
-      <Link href="/">
-        <a className={classNames({ hidden: !isRootPage })}>
-          <Player
-            autoplay
-            loop
-            src={logoBig}
-            style={{
-              maxWidth: '344px',
-              maxHeight: '113.5px',
-            }}
-          />
-        </a>
+      <Link href="/" className={classNames({ hidden: !isRootPage })}>
+        <Player
+          autoplay
+          loop
+          src={logoBig}
+          style={{
+            maxWidth: '344px',
+            maxHeight: '113.5px',
+          }}
+        />
       </Link>
       {/* others */}
-      <Link href="/">
-        <a className={classNames('flex items-center', { hidden: isRootPage })}>
-          <CustomImage
-            src={logoOneLine}
-            alt="Vegan Hacktivists Logo"
-            layout="intrinsic"
-            width={logoOneLine.width * ratio}
-            height={logoOneLine.height * ratio}
-            priority
-          />
-        </a>
+      <Link
+        href="/"
+        className={classNames('flex items-center', { hidden: isRootPage })}
+      >
+        <CustomImage
+          src={logoOneLine}
+          alt="Vegan Hacktivists Logo"
+          layout="intrinsic"
+          width={logoOneLine.width * ratio}
+          height={logoOneLine.height * ratio}
+          priority
+        />
       </Link>
     </div>
   );
@@ -63,9 +63,9 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   href,
   className = '',
 }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
-  const active = pathname.startsWith(href);
+  const active = pathname?.startsWith(href);
 
   const classes = classNames(
     'p-5 py-6 transition duration-500 text-center whitespace-nowrap',
@@ -73,12 +73,10 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   );
 
   return (
-    <Link href={href} passHref>
-      <a className={classes}>
-        <code className={classNames({ 'border-b-[3px]': active })}>
-          {children}
-        </code>
-      </a>
+    <Link href={href} passHref className={classes}>
+      <code className={classNames({ 'border-b-[3px]': active })}>
+        {children}
+      </code>
     </Link>
   );
 };
@@ -127,27 +125,20 @@ const NavbarItems: React.FC = () => {
 };
 
 const RightSide: React.FC = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const menuInputCheckRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      if (!menuInputCheckRef.current) return;
-      menuInputCheckRef.current.checked = false;
-    };
-
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-    };
-  }, [router.events]);
+    if (!menuInputCheckRef.current) return;
+    menuInputCheckRef.current.checked = false;
+  }, [pathname]);
 
   const buttonMenuId = 'menu-button';
 
   return (
     <>
-      <div className="flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden">
+      <div className="z-20 flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden">
         <input
           type="checkbox"
           hidden
@@ -172,7 +163,7 @@ const RightSide: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap">
+      <div className="z-20 justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap">
         <NavbarItems />
       </div>
     </>
@@ -181,7 +172,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="z-20 flex w-full">
+    <nav className="flex w-full">
       <LeftSide />
       <RightSide />
     </nav>

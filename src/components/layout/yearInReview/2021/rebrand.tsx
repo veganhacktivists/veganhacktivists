@@ -44,13 +44,10 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
                   query: { slug: kate.blogEntry.fields.slug },
                 }}
                 scroll
+                className="font-bold"
+                style={{ color: kate.member.fields.team?.fields.color }}
               >
-                <a
-                  className="font-bold"
-                  style={{ color: kate.member.fields.team?.fields.color }}
-                >
-                  {kate.member.fields.name}
-                </a>
+                {kate.member.fields.name}
               </Link>
               , who&apos;s been at the heart of transforming the way we work and
               look at design here at VH.

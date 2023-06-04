@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
 
-import { FillBackground } from './utils';
+import { getButtonFillStyle } from './utils';
 
 import type {
   MouseEventHandler,
@@ -60,7 +60,10 @@ const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
   );
 };
 
-const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
+const BaseButton = React.forwardRef<
+  HTMLElement,
+  ButtonProps & { fillColor?: [from: string, to: string] }
+>(
   (
     {
       children,
@@ -68,11 +71,21 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
       capitalize = true,
       className = '',
       newTab = false,
+      fillColor,
+      style: _style,
       ...props
     },
     ref
   ) => {
-    const classes = classNames(className, 'block', { capitalize });
+    const classes = classNames(
+      className,
+      'block',
+      'transition-background-position duration-[400ms] ease-linear',
+      {
+        'hover:!bg-left group-hover:!bg-left': !props.disabled,
+      },
+      { capitalize }
+    );
 
     const isExternal = isExternalLink(props.href);
 
@@ -81,22 +94,31 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
       [isExternal, linkProps?.target, newTab]
     );
 
+    const style = useMemo(() => {
+      if (!fillColor) {
+        return _style;
+      }
+      const [from, to] = fillColor;
+      return { ..._style, ...getButtonFillStyle(from, to) };
+    }, [_style, fillColor]);
+
     return (
       <>
         {props.href ? (
-          <Link {...linkProps} href={props.href} passHref>
-            <a
-              {...(props as AnchorHTMLAttributes<unknown>)}
-              ref={ref as Ref<HTMLAnchorElement>}
-              className={classNames(
-                classes,
-                `${props.disabled ? 'bg-gray-light text-black' : ''}`
-              )}
-              target={openInNewTab ? '_blank' : undefined}
-              rel={openInNewTab ? 'noreferrer' : undefined}
-            >
-              {children}
-            </a>
+          <Link
+            {...linkProps}
+            href={props.href}
+            passHref
+            ref={ref as Ref<HTMLAnchorElement>}
+            className={classNames(
+              classes,
+              `${props.disabled ? 'bg-gray-light text-black' : ''}`
+            )}
+            target={openInNewTab ? '_blank' : undefined}
+            rel={openInNewTab ? 'noreferrer' : undefined}
+            style={style}
+          >
+            <span>{children}</span>
           </Link>
         ) : (
           <button
@@ -104,6 +126,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
             {...props}
             className={classes}
             ref={ref as Ref<HTMLButtonElement>}
+            style={style}
           >
             {children}
           </button>
@@ -120,43 +143,37 @@ const LightButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="green" disabled={props.disabled}>
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
-          primary ? 'border-pink' : '',
-          className
-        )}
-      >
-        {children}
-      </BaseButton>
-    </FillBackground>
+    <BaseButton
+      {...props}
+      fillColor={['white', 'green']}
+      className={classNames(
+        baseButtonClasses,
+        'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
+        primary ? 'border-pink' : '',
+        className
+      )}
+    >
+      {children}
+    </BaseButton>
   );
 };
 
 const DarkButton = React.forwardRef<HTMLElement, ButtonProps>(
   ({ children, active, className = '', ...props }, ref) => {
     return (
-      <FillBackground
-        disabled={props.disabled}
-        base={active ? 'magenta' : 'grey-dark'}
-        fill={active ? 'magenta' : 'green'}
+      <BaseButton
+        {...props}
+        fillColor={active ? ['magenta', 'magenta'] : ['grey-dark', 'green']}
+        ref={ref}
+        className={classNames(
+          baseButtonClasses,
+          'transition-all overflow-hidden text-white',
+          active ? 'border-pink' : 'border-green',
+          className
+        )}
       >
-        <BaseButton
-          {...props}
-          ref={ref}
-          className={classNames(
-            baseButtonClasses,
-            'transition-all overflow-hidden text-white',
-            active ? 'border-pink' : 'border-green',
-            className
-          )}
-        >
-          {children}
-        </BaseButton>
-      </FillBackground>
+        {children}
+      </BaseButton>
     );
   }
 );
@@ -164,24 +181,19 @@ const DarkButton = React.forwardRef<HTMLElement, ButtonProps>(
 const DenyButton = React.forwardRef<HTMLElement, ButtonProps>(
   ({ children, active, className = '', ...props }, ref) => {
     return (
-      <FillBackground
-        disabled={props.disabled}
-        base={active ? 'magenta' : 'grey-dark'}
-        fill={active ? 'magenta' : '#FF1B18'}
+      <BaseButton
+        {...props}
+        fillColor={active ? ['magenta', 'magenta'] : ['grey-dark', '#ff1b18']}
+        ref={ref}
+        className={classNames(
+          baseButtonClasses,
+          'transition-all overflow-hidden text-white',
+          active ? 'border-pink' : 'border-[#FF1B18]',
+          className
+        )}
       >
-        <BaseButton
-          {...props}
-          ref={ref}
-          className={classNames(
-            baseButtonClasses,
-            'transition-all overflow-hidden text-white',
-            active ? 'border-pink' : 'border-[#FF1B18]',
-            className
-          )}
-        >
-          {children}
-        </BaseButton>
-      </FillBackground>
+        {children}
+      </BaseButton>
     );
   }
 );
@@ -212,22 +224,17 @@ const GreenButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground
-      disabled={props.disabled}
-      base={primary ? 'fuchsia' : 'green'}
-      fill={primary ? 'pink' : 'green-dark'}
+    <BaseButton
+      {...props}
+      fillColor={primary ? ['fuchsia', 'pink'] : ['green', 'green-dark']}
+      className={classNames(
+        baseButtonClasses,
+        'text-white border-green-dark',
+        className
+      )}
     >
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          'text-white border-green-dark',
-          className
-        )}
-      >
-        {children}
-      </BaseButton>
-    </FillBackground>
+      {children}
+    </BaseButton>
   );
 };
 
@@ -237,18 +244,17 @@ const BlueButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground disabled={props.disabled} base={'blue'} fill={'blue-dark'}>
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          'text-white border-blue-dark',
-          className
-        )}
-      >
-        {children}
-      </BaseButton>
-    </FillBackground>
+    <BaseButton
+      {...props}
+      fillColor={['blue', 'blue-dark']}
+      className={classNames(
+        baseButtonClasses,
+        'text-white border-blue-dark',
+        className
+      )}
+    >
+      {children}
+    </BaseButton>
   );
 };
 
@@ -258,18 +264,17 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground disabled={props.disabled} base="magenta" fill="pink-dark">
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          className,
-          'py-2 border-l-8 border-pink-dark'
-        )}
-      >
-        {children}
-      </BaseButton>
-    </FillBackground>
+    <BaseButton
+      {...props}
+      fillColor={['magenta', 'pink-dark']}
+      className={classNames(
+        baseButtonClasses,
+        className,
+        'py-2 border-l-8 border-pink-dark'
+      )}
+    >
+      {children}
+    </BaseButton>
   );
 };
 
@@ -384,11 +389,9 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <FillBackground base="white" fill="green" disabled={props.disabled}>
-      <BaseButton {...props}>
-        <div className={classes}>{children}</div>
-      </BaseButton>
-    </FillBackground>
+    <BaseButton {...props} fillColor={['white', 'green']}>
+      <div className={classes}>{children}</div>
+    </BaseButton>
   );
 };
 
@@ -442,19 +445,18 @@ const LogoutButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="#FF1A18" disabled={props.disabled}>
-      <BaseButton
-        {...props}
-        className={classNames(
-          baseButtonClasses,
-          'text-grey-dark border-[#FF1A18] bg-w-x2 bg-white font-mono font-semibold',
-          primary ? 'border-pink' : '',
-          className
-        )}
-      >
-        {children}
-      </BaseButton>
-    </FillBackground>
+    <BaseButton
+      {...props}
+      fillColor={['white', '#ff1a18']}
+      className={classNames(
+        baseButtonClasses,
+        'text-grey-dark border-[#FF1A18] bg-w-x2 bg-white font-mono font-semibold',
+        primary ? 'border-pink' : '',
+        className
+      )}
+    >
+      {children}
+    </BaseButton>
   );
 };
 

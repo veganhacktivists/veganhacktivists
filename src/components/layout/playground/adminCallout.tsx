@@ -6,7 +6,9 @@ import TextInput from 'components/forms/inputs/textInput';
 import TextArea from 'components/forms/inputs/textArea';
 import { trpc } from 'lib/client/trpc';
 
-type SendMessageInput = trpc['discord']['sendMessage']['input'];
+import type { TrpcInput } from 'lib/client/trpc';
+
+type SendMessageInput = TrpcInput['discord']['sendMessage'];
 
 const AdminCallout: React.FC = () => {
   const { handleSubmit, register } = useForm<SendMessageInput>();

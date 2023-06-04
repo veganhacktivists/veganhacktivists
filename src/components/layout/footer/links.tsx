@@ -44,7 +44,13 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
   return (
     <li>
       <span className={classes}>
-        {href ? <Link href={href}>{label}</Link> : label}
+        {href ? (
+          <Link href={href} legacyBehavior>
+            {label}
+          </Link>
+        ) : (
+          label
+        )}
       </span>
       {links && (
         <ul>

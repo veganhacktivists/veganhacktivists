@@ -110,9 +110,9 @@ module.exports = {
     },
     colors,
     fontFamily: {
-      mono: ['Rajdhani', 'monospace'],
-      sans: 'PT Sans',
-      serif: 'Bitter',
+      mono: ['var(--font-mono)'],
+      sans: ['var(--font-sans)'],
+      serif: ['var(--font-serif)'],
     },
   },
   variants: {

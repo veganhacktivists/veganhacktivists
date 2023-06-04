@@ -5,6 +5,7 @@ import Circle from './circle';
 import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
 
+import type { CustomImageProps } from './customImage';
 import type { ImageProps, StaticImageData } from 'next/image';
 
 interface HeroClassNames {
@@ -14,7 +15,7 @@ interface HeroClassNames {
 }
 interface HeroProps extends React.PropsWithChildren {
   imageBackground: ImageProps['src'];
-  backgroundImageProps?: Partial<ImageProps>;
+  backgroundImageProps?: Partial<CustomImageProps>;
   tagline?: {
     image: StaticImageData;
     imageWidth?: number;
@@ -49,12 +50,8 @@ const Hero: React.FC<HeroProps> = ({
     classNameMapping?.container
   );
   const contentClasses = classNames(
-    'flex',
-    'flex-col',
-    'justify-center',
-    'md:w-1/2',
+    'flex flex-col justify-center md:w-1/2 z-10',
     tagline?.biggerOnMobile ? 'w-3/4' : 'w-1/2',
-    'z-10',
     { 'py-10 xl:mt-0': main },
     classNameMapping?.content
   );
