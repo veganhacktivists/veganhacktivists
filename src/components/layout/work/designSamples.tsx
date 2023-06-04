@@ -104,7 +104,8 @@ const DesignSamples: React.FC = () => {
                 Whether it&apos;s branding, document design, web design,
                 infographics, or other high-impact areas of design, we&apos;re
                 here to help vegan organizations look sharp, build trust,
-                increase reputation, and unite people.
+                increase reputation, and unite people. Here&apos;s a few
+                examples of what we&apos;ve done!
               </p>
             </SectionHeader>
           </div>
