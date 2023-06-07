@@ -45,7 +45,7 @@
     "contentful": "^9.2.11",
     "crypto-js": "^4.1.1",
     "decimal.js": "^10.4.2",
-    "discord.js": "14.6.0",
+    "discord.js": "14.11.0",
     "form-data": "^4.0.0",
     "fuse.js": "^6.6.2",
     "http-status-codes": "^2.2.0",
