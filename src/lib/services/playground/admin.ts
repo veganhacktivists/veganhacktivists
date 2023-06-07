@@ -274,7 +274,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
       .addFields([
         {
           name: 'Website',
-          value: hyperlink(request.website, correctedWebsite),
+          value: correctedWebsite,
         },
         {
           name: 'Compensation',
