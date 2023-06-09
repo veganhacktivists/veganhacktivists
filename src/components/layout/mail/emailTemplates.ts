@@ -207,13 +207,13 @@ Meet the person (cc&apos;ed to this email) below that applied to your request!
 ${optionalMessageParts}
 <br />
 <br />
-<b>Note:</b> They have agreed to commit a reasonable amount of time to help with this request, communicate frequently, and do their best to meet deadlines.
+<b>Note:</b> Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit time to help you, they are often juggling multiple commitments so please be patient.
 <br />
 <br />
 <b>What&apos;s next?</b>
 <br />
 <br />
-We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. Both of you can do so by scheduling a call using ${
+We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
       application.request.name
     }&apos;s Calendy link <a href="${
       // TODO: sanitize this and all the other data?
@@ -246,14 +246,11 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text>Meet the person (cc&apos;ed to this email) below that applied to your request!</mj-text>
     <mj-text><b>Name:</b> ${application.name}</mj-text>
     <mj-text>${optionalMessageParts}</mj-text>
-    <mj-text><b>Note:</b> They have agreed to commit a reasonable amount of time to help with this request, communicate frequently, and do their best to meet deadlines.</mj-text>
+    <mj-text><b>Note:</b> Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit time to help you, they are often juggling multiple commitments so please be patient.</mj-text>
     <mj-text><b>What&apos;s next?</b></mj-text>
-    <mj-text>We highly recommend either of you to schedule a call with the other as soon as possible to talk about expectations, needs, and the project. ${
-      application.calendlyUrl
-        ? 'Both of you can do so by scheduling a call using'
-        : application.name + ' should do so by scheduling a call using'
-    }
-    ${application.request.name}&apos;s Calendy link <a href="${
+    <mj-text>We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
+      application.request.name
+    }&apos;s Calendy link <a href="${
     // TODO: sanitize this and all the other data?
     application.request.calendlyUrl
   }">here</a>${
@@ -278,7 +275,7 @@ export const playgroundApplicationDenialEmail = (textonly = false) => {
 Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.
 <br />
 <br />
-To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.
+To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and have enough details to help us make an informed decision.
 <br />
 <br />
 If you have any specific questions feel free to contact us <a href="${url}/contact">here</a>. In the meantime, check out <a href="${url}/playground/requests">other pending requests</a>!
@@ -289,7 +286,7 @@ Thank you so much for considering VH: Playground for your activism!`;
   const body = `
     <mj-text>Thanks so much for submitting your request to support with Playground!</mj-text>
     <mj-text>Unfortunately someone else who applied to help with this request was chosen. Usually this just means that someone else who applied had more time to contribute or had more relevant qualifications for this specific request.</mj-text>
-    <mj-text>To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and has enough details to help us make an informed decision.</mj-text>
+    <mj-text>To help improve your chances to volunteer for future tasks, make sure that your application, resume/portfolio, and other materials are both up-to-date and have enough details to help us make an informed decision.</mj-text>
     <mj-text>If you have any specific questions feel free to contact us <a href="${url}/contact">here</a>. In the meantime, check out <a href="${url}/playground/requests">other pending requests</a>!</mj-text>
     <mj-text>Thank you so much for considering VH: Playground for your activism!</mj-text>
   `;
@@ -328,17 +325,17 @@ export const playgroundRequestApprovalEmail = (
 <br /><br />
 Hey ${request.name}!
 <br /><br />
-Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.
+Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>. Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit a reasonable amount of time to help you, they are often juggling multiple commitments so please be patient.
 <br /><br />
-Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">over here</a>.
+Playground is still growing! If you have any feedback or questions, feel free to reply to this email to get in touch, or visit our FAQ <a href="${url}/playground#faq">over here</a>.
 <br /><br />
 Thank you so much! `;
   }
   const body = `
     <mj-text font-weight="bold">Your request is now live on Playground!</mj-text>
     <mj-text>Hey ${request.name}!</mj-text>
-    <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>.</mj-text>
-    <mj-text>Note that Playground has just launched and is still growing, it may take longer than usual for requests to be fulfilled by our volunteer community - your patience is appreciated! If you have any questions, feel free to reply to this email for help, or visit our FAQ <a href="${url}/playground#faq">over here</a>.</mj-text>
+    <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>. Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit a reasonable amount of time to help you, they are often juggling multiple commitments so please be patient.</mj-text>
+    <mj-text>Playground is still growing! If you have any feedback or questions, feel free to reply to this email to get in touch, or visit our FAQ <a href="${url}/playground#faq">over here</a>.</mj-text>
     <mj-text>Thank you so much!</mj-text>
   `;
   return mjml2html(mail(body, true)).html ?? '';
@@ -360,7 +357,7 @@ We're sorry to inform you that due to inactivity, your request "${request.title}
 <br /><br />
 We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.
 <br /><br />
-Please make sure your requests include clear information about your project and the tasks you need help, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.
+Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.
 <br /><br />
 If you'd like to resubmit the same request, you can click below.
 <br /><br />
@@ -374,7 +371,45 @@ Resubmit your request: ${createNewRequestUrl}
 <mj-text>Hey ${request.name}!</mj-text>
 <mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
 <mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
-<mj-text>Please make sure your requests include clear information about your project and the tasks you need help, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
+<mj-text>Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
+<mj-text>If you'd like to resubmit the same request, you can click below.</mj-text>
+<mj-text>If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.</mj-text>
+<mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
+`;
+  return mjml2html(mail(body, false)).html ?? '';
+};
+
+export const playgroundRequestRejectedDueToInactivity = (
+  request: Pick<PlaygroundRequest, 'id' | 'name' | 'title'>,
+  textonly = false
+) => {
+  const createNewRequestUrl = `${url}/auth/signin?callbackUrl=${encodeURIComponent(
+    url
+  )}%2Fplayground%2Fsubmit%3Fid%3D${request.id}`;
+
+  if (textonly) {
+    return `
+Hey ${request.name}!
+<br /><br />
+We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.
+<br /><br />
+We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.
+<br /><br />
+Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.
+<br /><br />
+If you'd like to resubmit the same request, you can click below.
+<br /><br />
+If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.
+<br /><br />
+Resubmit your request: ${createNewRequestUrl}
+`;
+  }
+
+  const body = `
+<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
+<mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
+<mj-text>Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
 <mj-text>If you'd like to resubmit the same request, you can click below.</mj-text>
 <mj-text>If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.</mj-text>
 <mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
