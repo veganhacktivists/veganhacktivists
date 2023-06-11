@@ -242,13 +242,18 @@ export const updateRequest = async ({
 
 export const submitRequest = async ({
   budget,
+  requesterId,
   ...params
 }: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {
         ...params,
-        requesterId: params.requesterId,
+        requester: {
+          connect: {
+            id: requesterId,
+          },
+        },
         budget: {
           create: budget,
         },
@@ -256,7 +261,7 @@ export const submitRequest = async ({
     }),
     prisma.user.update({
       where: {
-        id: params.requesterId,
+        id: requesterId,
       },
       data: {
         name: params.name,

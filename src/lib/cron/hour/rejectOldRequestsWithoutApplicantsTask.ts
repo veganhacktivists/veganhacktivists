@@ -14,6 +14,9 @@ import type { PlaygroundRequest } from '@prisma/client';
 const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
 
 export async function rejectOldRequestsWithoutApplicantsTask() {
+  const startTimeStamp = Date.now();
+  console.info('enter rejectOldRequestsWithoutApplicantsTask', startTimeStamp);
+
   const thirtyDaysAgo = new Date(Date.now() - THIRTY_DAYS_IN_MS);
 
   const oldRequests = await prisma.playgroundRequest.findMany({
@@ -54,17 +57,35 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
   );
 
   oldRequestsWithoutApplications.forEach(async (request) => {
-    await sendAutomaticallyRejectedEmail(request);
+    try {
+      await sendAutomaticallyRejectedEmail(request);
+    } catch (error) {
+      console.error(
+        'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
+        request,
+        error
+      );
+    }
 
-    await prisma.playgroundRequest.update({
-      where: {
-        id: request.id,
-      },
-      data: {
-        status: RequestStatus.Rejected,
-      },
-    });
+    try {
+      await prisma.playgroundRequest.update({
+        where: {
+          id: request.id,
+        },
+        data: {
+          status: RequestStatus.Rejected,
+        },
+      });
+    } catch (error) {
+      console.error(
+        'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
+        request,
+        error
+      );
+    }
   });
+
+  console.info('exit rejectOldRequestsWithoutApplicantsTask', startTimeStamp);
 }
 
 const sendAutomaticallyRejectedEmail = (

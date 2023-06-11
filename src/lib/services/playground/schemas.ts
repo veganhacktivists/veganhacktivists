@@ -5,6 +5,7 @@ import {
   Source,
   RequestStatus,
   ApplicationStatus,
+  PlaygroundRequestOrganizationType,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -94,9 +95,12 @@ const budgetSchema = z.object({
 export const submitRequestSchema = z.object({
   id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
+  pronouns: z.string().trim().optional(),
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().min(1, { message: 'This value is required' }),
   organization: z.string().trim().optional(),
+  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType).optional(),
+  organizationDescription: z.string().trim().optional(),
   website: z
     .string()
     .trim()
@@ -118,7 +122,7 @@ export const submitRequestSchema = z.object({
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
   dueDate: z.date().optional().nullable(),
-  estimatedTimeDays: z.number().nonnegative().int(),
+  estimatedTimeDays: z.number().nonnegative().int().optional(),
   neededVolunteers: z.number().nonnegative().int(),
   agreeToTerms: z
     .boolean()
