@@ -28,6 +28,8 @@ const handler: NextApiHandler = async function (req, res) {
 
   res.status(HttpCodes.OK).end();
 
+  console.info('run scheduled tasks');
+
   runHourlyTasks();
 };
 

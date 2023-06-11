@@ -102,6 +102,11 @@ enum Source {
   None
 }
 
+enum PlaygroundRequestOrganizationType {
+  Activism
+  Profit
+}
+
 enum BudgetType {
   Fixed
   Hourly
@@ -169,34 +174,37 @@ model DiscordMessage {
 }
 
 model PlaygroundRequest {
-  id                String                    @id @default(cuid()) @db.VarChar(30)
-  phone             String?
-  name              String
-  providedEmail     String
-  organization      String?
-  website           String
-  calendlyUrl       String
-  title             String                    @db.VarChar(200)
-  requiredSkills    String[]                  @default([])
-  neededVolunteers  Int                       @default(1)
-  description       String                    @db.Text
-  dueDate           DateTime?                 @db.Date
-  estimatedTimeDays Int
-  requesterId       String
-  status            RequestStatus                    @default(Pending)
-  category          PlaygroundRequestCategory
+  id                      String                    @id @default(cuid()) @db.VarChar(30)
+  phone                   String?
+  name                    String
+  pronouns                String?
+  providedEmail           String
+  organization            String?
+  organizationType        PlaygroundRequestOrganizationType?
+  organizationDescription String?
+  website                 String
+  calendlyUrl             String
+  title                   String                    @db.VarChar(200)
+  requiredSkills          String[]                  @default([])
+  neededVolunteers        Int                       @default(1)
+  description             String                    @db.Text
+  dueDate                 DateTime?                 @db.Date
+  estimatedTimeDays       Int? // TODO: remvoe
+  requesterId             String
+  status                  RequestStatus             @default(Pending)
+  category                PlaygroundRequestCategory
 
-  discordMessages DiscordMessage[]
-  requester       User                    @relation(fields: [requesterId], references: [id])
-  applications    PlaygroundApplication[]
-  budget          Budget?
+  discordMessages         DiscordMessage[]
+  requester               User                      @relation(fields: [requesterId], references: [id])
+  applications            PlaygroundApplication[]
+  budget                  Budget?
 
-  lastManuallyPushed DateTime?
+  lastManuallyPushed      DateTime?
 
-  acceptedAt DateTime?
+  acceptedAt              DateTime?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
 }
 
 model DataDashboardData {

@@ -9,15 +9,28 @@ export const inputClassNames =
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   showRequiredMark?: boolean;
+  showLabel?: boolean;
 }
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ error, children, className, showRequiredMark, ...props }, ref) => {
+  (
+    {
+      error,
+      children,
+      className,
+      showRequiredMark,
+      showLabel = true,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div className={classNames(className, { hidden: props.hidden })}>
-        <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
-          {children}
-        </Label>
+        {showLabel && (
+          <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
+            {children}
+          </Label>
+        )}
         <input
           ref={ref}
           className={classNames(

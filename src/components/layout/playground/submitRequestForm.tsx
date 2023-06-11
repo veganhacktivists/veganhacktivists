@@ -34,6 +34,7 @@ import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequest
 import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 
+import type { PlaygroundRequestOrganizationType } from '@prisma/client';
 import type { z } from 'zod';
 import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
@@ -46,6 +47,12 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
     CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
   })`,
 }));
+
+const IS_NON_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
+  [
+    { label: 'Yes', value: 'Activism' },
+    { label: 'No', value: 'Profit' },
+  ];
 
 const IS_FREE_OPTIONS: OptionType<boolean>[] = [
   { label: 'Volunteer', value: true },
@@ -128,7 +135,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         | 'title'
         | 'category'
         | 'description'
-        | 'estimatedTimeDays'
         | 'neededVolunteers'
       >;
       const requestData: RequestFormData = {
@@ -336,6 +342,14 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         />
         <TextInput
           className="lg:col-span-3 col-span-full"
+          placeholder="they/them"
+          {...myRegister('pronouns')}
+          error={errors.pronouns?.message}
+        >
+          Pronouns
+        </TextInput>
+        <TextInput
+          className="col-span-full"
           placeholder="Email"
           showRequiredMark
           {...myRegister('providedEmail', {
@@ -359,6 +373,38 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           {...myRegister('organization', { required: false })}
           error={errors.organization?.message}
         />
+        <div className="lg:col-span-2 col-span-full">
+          <Label name="organizationType">
+            Is your organization for activism or profit?
+          </Label>
+
+          <Controller
+            name="organizationType"
+            control={control}
+            rules={{
+              required: 'Please select the best option for your organization',
+            }}
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
+                    (c) => c.value === current
+                  ) || null
+                }
+                error={errors.organizationType?.message}
+                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
+                onChange={(option) => {
+                  onChange(option?.value || null);
+                  setFormData({
+                    organizationType:
+                      option?.value as PlaygroundRequestOrganizationType,
+                  });
+                }}
+              />
+            )}
+          />
+        </div>
         <TextInput
           placeholder="www.website..."
           showRequiredMark
@@ -547,8 +593,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           />
         )}
         <TextArea
-          placeholder="Please describe the task and be as detailed as possible. The more detail your request has, the easier it is for both the volunteer and for us!"
-          showRequiredMark
           error={errors.description?.message}
           {...myRegister('description', {
             required: 'Issue description is required',
@@ -556,29 +600,46 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           style={{ resize: 'vertical' }}
           className="col-span-full"
         >
-          Describe your issue
+          Describe the project/task you need help with
+          <span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Please be as detailed as possible. The more detail your request has,
+            the easier it will be to find a volunteer.
+          </span>
         </TextArea>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          min={new Date().toISOString().split('T')[0]}
-          type="date"
-          placeholder="Due date"
-          error={errors.dueDate?.message}
-          {...myRegister('dueDate', { required: false })}
+        <TextArea
+          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
+          error={errors.organizationDescription?.message}
+          {...myRegister('organizationDescription', {
+            required: 'Organization description is required',
+          })}
+          style={{ resize: 'vertical' }}
+          className="col-span-full"
         >
-          Due date for task
-        </TextInput>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          type="number"
-          min={0}
-          placeholder="Days"
-          showRequiredMark
-          {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
-          error={errors.estimatedTimeDays?.message}
-        >
-          Estimated time <br className="sm:hidden" /> commitment
-        </TextInput>
+          About your organization
+        </TextArea>
+        <div className="col-span-full">
+          <Label name="dueDate">
+            Desired due date&nbsp;
+            <span className="font-thin">
+              Please be thoughtful about this, keep in mind that Playground
+              volunteers often have full-time jobs and they are helping in their
+              spare time.
+            </span>
+          </Label>
+          <div>
+            <TextInput
+              className="w-full lg:w-1/2"
+              min={new Date().toISOString().split('T')[0]}
+              type="date"
+              placeholder="Due date"
+              error={errors.dueDate?.message}
+              {...myRegister('dueDate', { required: false })}
+            >
+              {' '}
+            </TextInput>
+          </div>{' '}
+        </div>
         <Checkbox
           labelPosition="right"
           className="col-span-full"

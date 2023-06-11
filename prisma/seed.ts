@@ -7,6 +7,7 @@ import {
   ApplicationStatus,
   TimePerWeek,
   Source,
+  PlaygroundRequestOrganizationType,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -57,6 +58,11 @@ const seedRequests = async (n: number = NUMBER) => {
               },
             },
         name: faker.name.fullName(),
+        pronouns: faker.helpers.arrayElement([
+          'they/them',
+          'he/him',
+          'she/her',
+        ]),
         calendlyUrl: faker.internet.url(),
         category: faker.helpers.objectValue(PlaygroundRequestCategory),
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
@@ -82,6 +88,12 @@ const seedRequests = async (n: number = NUMBER) => {
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
         organization: faker.company.name(),
+        organizationType: faker.helpers.objectValue(
+          PlaygroundRequestOrganizationType
+        ),
+        organizationDescription: faker.lorem.paragraphs(
+          faker.datatype.number(5)
+        ),
         createdAt,
         status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
