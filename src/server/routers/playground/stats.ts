@@ -38,6 +38,7 @@ const statsRouter = t.router({
       },
       select: {
         availableTimePerWeek: true,
+        estimatedTimeDays: true,
         request: {
           select: {
             estimatedTimeDays: true,
@@ -47,9 +48,12 @@ const statsRouter = t.router({
     });
 
     const hoursVolunteered = acceptedApplications.reduce(
-      (acc, { availableTimePerWeek, request: { estimatedTimeDays } }) => {
+      (acc, { availableTimePerWeek, estimatedTimeDays, request }) => {
         const hours = averageWeeklyHoursPerValue[availableTimePerWeek];
-        return acc + (hours / 7) * estimatedTimeDays;
+        return (
+          acc +
+          (hours / 7) * (request.estimatedTimeDays ?? estimatedTimeDays ?? 0)
+        );
       },
       0
     );
