@@ -567,6 +567,22 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             )}
           />
         </div>
+        <TextInput
+          className="col-span-full"
+          type="number"
+          inputMode="numeric"
+          min={1}
+          placeholder="Days"
+          {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
+          error={errors.estimatedTimeDays?.message}
+        >
+          Estimated time commitment
+          <span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Please give a rough estimate of how long do you think this should
+            take
+          </span>
+        </TextInput>
         <div className="col-span-full">
           <Label error={errors.source?.message} name="source">
             Where did you hear about Playground?

@@ -129,6 +129,7 @@ model PlaygroundApplication {
   name                 String
   pronouns             String?
   availableTimePerWeek TimePerWeek
+  estimatedTimeDays    Int?
   source               Source?
   portfolioLink        String
   twitterUrl           String?

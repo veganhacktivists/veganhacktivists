@@ -47,6 +47,7 @@ export const applyToRequestSchema = z.object({
   name: z.string().min(1, { message: 'This value is required' }),
   pronouns: z.string().optional(),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
+  estimatedTimeDays: z.number().nonnegative().int(),
   source: z.nativeEnum(Source).optional(),
   providedEmail: z.string().trim().email(),
   portfolioLink: z
