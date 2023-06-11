@@ -140,7 +140,6 @@ export const applyToHelp = async (
     prisma.playgroundApplication.create({
       data: {
         ...params,
-        applicantId: params.applicantId,
       },
     }),
     prisma.user.update({
