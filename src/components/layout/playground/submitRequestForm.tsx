@@ -375,7 +375,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         />
         <div className="lg:col-span-2 col-span-full">
           <Label name="organizationType">
-            Is your organization for activism or profit?
+            Is your organization or activism for profit?
           </Label>
 
           <Controller
