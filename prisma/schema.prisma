@@ -164,6 +164,18 @@ enum PlaygroundRequestCategory {
   Other
 }
 
+enum PlaygroundRequestDesignRequestType {
+  Logo
+  SocialMedia
+  Branding
+  DonorDocuments
+  UserInterface
+  Illustration
+  Animation
+  Miscellaneous
+  Other
+}
+
 model DiscordMessage {
   messageId           String @db.Char(19)
   channelId           String @db.Char(19)
@@ -199,6 +211,11 @@ model PlaygroundRequest {
   requester               User                      @relation(fields: [requesterId], references: [id])
   applications            PlaygroundApplication[]
   budget                  Budget?
+
+  devRequestWebsiteExists Boolean?
+  devRequestWebsiteUrl    String?
+  designRequestType       PlaygroundRequestDesignRequestType?
+  designRequestCurrentDesignExists Boolean?
 
   lastManuallyPushed      DateTime?
 

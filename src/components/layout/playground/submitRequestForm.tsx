@@ -33,8 +33,12 @@ import ConfirmationModal from './confirmationModal';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
+import { useIsFirstRender } from 'hooks/useIsFirstRender';
 
-import type { PlaygroundRequestOrganizationType } from '@prisma/client';
+import type {
+  PlaygroundRequestDesignRequestType,
+  PlaygroundRequestOrganizationType,
+} from '@prisma/client';
 import type { z } from 'zod';
 import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
@@ -53,6 +57,29 @@ const IS_NON_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizati
     { label: 'Yes', value: 'Activism' },
     { label: 'No', value: 'Profit' },
   ];
+
+const DEV_REQUEST_WEBSITE_EXISTS_OPTIONS: OptionType<boolean>[] = [
+  { label: 'Yes', value: true },
+  { label: 'No', value: false },
+];
+
+const DESIGN_REQUEST_TYPE_OPTIONS: OptionType<PlaygroundRequestDesignRequestType>[] =
+  [
+    { label: 'Logo (New or Redesign)', value: 'Logo' },
+    { label: 'Social Media (Banners, etc)', value: 'SocialMedia' },
+    { label: 'Branding (Guides, advice, etc)', value: 'Branding' },
+    { label: 'Donor documents (Design, layout, etc)', value: 'DonorDocuments' },
+    { label: 'User Interface (UI/UX, etc)', value: 'UserInterface' },
+    { label: 'Illustration (Images, drawings)', value: 'Illustration' },
+    { label: 'Animation (Videos, etc)', value: 'Animation' },
+    { label: 'Miscellaneous (Icons, small changes)', value: 'Miscellaneous' },
+    { label: 'Other', value: 'Other' },
+  ];
+
+const DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS: OptionType<boolean>[] = [
+  { label: 'Yes', value: true },
+  { label: 'No', value: false },
+];
 
 const IS_FREE_OPTIONS: OptionType<boolean>[] = [
   { label: 'Volunteer', value: true },
@@ -324,6 +351,27 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('budget', undefined);
   }, [isFree, setValue]);
 
+  const requestCategory = watch('category');
+
+  // reset category specific values
+  useEffect(() => {
+    setValue('devRequestWebsiteExists', undefined);
+    setValue('devRequestWebsiteUrl', undefined);
+    setValue('designRequestType', undefined);
+    setValue('designRequestCurrentDesignExists', undefined);
+  }, [requestCategory]);
+
+  const isFirstRender = useIsFirstRender();
+
+  const requestCategoryToRequestDescriptionPlaceholderMap: Partial<
+    Record<PlaygroundRequestCategory, string>
+  > = {
+    Developer:
+      'Please outline what you require on your website (e.g. event calendar, blog, resources, donation buttons, etc). Make sure to  include what platform you would like to use, how many pages/how complex the website is, and whether you have the content ready.',
+    Designer:
+      'Please outline in detail what design you require help with. For example, if you want to redesign your logo, describe what you like/dislike about your current design. Consider also describing the personality of your brand and share if you have some examples of designs that you love.',
+  };
+
   return (
     <div className="px-10 bg-grey-background" id="contact-us">
       <form
@@ -491,13 +539,110 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                 onChange={(option) => {
                   onChange(option?.value || null);
                   setFormData({
-                    category: option?.value as PlaygroundRequestCategory,
+                    category: option?.value,
                   });
                 }}
               />
             )}
           />
         </div>
+        {!isFirstRender && requestCategory === 'Developer' && (
+          <>
+            <div className="md:col-span-2 col-span-full">
+              <Label name="devRequestWebsiteExists">
+                Do you have an existing website?
+              </Label>
+              <Controller
+                name="devRequestWebsiteExists"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DEV_REQUEST_WEBSITE_EXISTS_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.devRequestWebsiteExists?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        devRequestWebsiteExists: option?.value,
+                      });
+                    }}
+                    options={DEV_REQUEST_WEBSITE_EXISTS_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+            <TextInput
+              className="md:col-span-4 col-span-full"
+              placeholder="www.website…"
+              {...myRegister('devRequestWebsiteUrl', { required: false })}
+              error={errors.devRequestWebsiteUrl?.message}
+            >
+              What is the URL of the website you need help with?
+            </TextInput>
+          </>
+        )}
+        {!isFirstRender && requestCategory === 'Designer' && (
+          <>
+            <div className="md:col-span-4 col-span-full">
+              <Label name="designRequestType">
+                What type of design request is this?
+              </Label>
+              <Controller
+                name="designRequestType"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DESIGN_REQUEST_TYPE_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.designRequestType?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        designRequestType: option?.value,
+                      });
+                    }}
+                    options={DESIGN_REQUEST_TYPE_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+            <div className="md:col-span-2 col-span-full">
+              <Label name="designRequestCurrentDesignExists">
+                Do you have a current design?
+              </Label>
+              <Controller
+                name="designRequestCurrentDesignExists"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.designRequestCurrentDesignExists?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        designRequestCurrentDesignExists: option?.value,
+                      });
+                    }}
+                    options={DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+          </>
+        )}
         <TextInput
           className="lg:col-span-4 w-full col-span-full"
           placeholder="Communication, ..."
@@ -605,6 +750,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           />
         )}
         <TextArea
+          placeholder={
+            requestCategoryToRequestDescriptionPlaceholderMap[requestCategory]
+          }
           error={errors.description?.message}
           {...myRegister('description', {
             required: 'Issue description is required',

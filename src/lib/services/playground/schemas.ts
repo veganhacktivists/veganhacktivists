@@ -6,6 +6,7 @@ import {
   RequestStatus,
   ApplicationStatus,
   PlaygroundRequestOrganizationType,
+  PlaygroundRequestDesignRequestType,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -93,7 +94,29 @@ const budgetSchema = z.object({
   type: z.nativeEnum(BudgetType),
 });
 
-export const submitRequestSchema = z.object({
+const devRequestSchema = z.object({
+  category: z.literal(PlaygroundRequestCategory.Developer),
+  devRequestWebsiteExists: z.boolean().optional(),
+  devRequestWebsiteUrl: z.string().optional(),
+  designRequestType: z.undefined(),
+  designRequestCurrentDesignExists: z.undefined(),
+});
+
+const designRequestSchema = z.object({
+  category: z.literal(PlaygroundRequestCategory.Designer),
+  designRequestType: z
+    .nativeEnum(PlaygroundRequestDesignRequestType)
+    .optional(),
+  designRequestCurrentDesignExists: z.boolean().optional(),
+  devRequestWebsiteExists: z.undefined(),
+  devRequestWebsiteUrl: z.undefined(),
+});
+
+const otherRequestCategorySchema = z.object({
+  category: z.nativeEnum(PlaygroundRequestCategory),
+});
+
+const submitRequestSchemaBase = z.object({
   id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
   pronouns: z.string().trim().optional(),
@@ -129,9 +152,19 @@ export const submitRequestSchema = z.object({
     .boolean()
     .refine((x) => !!x)
     .transform(() => undefined),
+  devRequestWebsiteExists: z.boolean().optional(),
+  devRequestWebsiteUrl: z.string().optional(),
+  designRequestType: z
+    .nativeEnum(PlaygroundRequestDesignRequestType)
+    .optional(),
+  designRequestCurrentDesignExists: z.boolean().optional(),
 });
 
-export const submitRequestSchemaClient = submitRequestSchema.merge(
+export const submitRequestSchema = submitRequestSchemaBase.and(
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+);
+
+const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
   z.object({
     requiredSkills: z.string().trim().min(1),
     agreeToTerms: z
@@ -140,13 +173,18 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
   })
 );
 
-export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
-  dueDate: z
-    .string()
-    .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
-      message: 'Due date must be in the future',
-    }),
-});
+export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+);
+
+export const verifyRequestFormRequestSchema =
+  submitRequestSchemaClientBase.extend({
+    dueDate: z
+      .string()
+      .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+        message: 'Due date must be in the future',
+      }),
+  });
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
