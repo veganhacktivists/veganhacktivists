@@ -368,44 +368,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           error={errors.phone?.message}
         />
         <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Organization"
-          {...myRegister('organization', { required: false })}
-          error={errors.organization?.message}
-        />
-        <div className="lg:col-span-2 col-span-full">
-          <Label name="organizationType">
-            Is your organization or activism for profit?
-          </Label>
-
-          <Controller
-            name="organizationType"
-            control={control}
-            rules={{
-              required: 'Please select the best option for your organization',
-            }}
-            render={({ field: { value: current, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
-                    (c) => c.value === current
-                  ) || null
-                }
-                error={errors.organizationType?.message}
-                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
-                onChange={(option) => {
-                  onChange(option?.value || null);
-                  setFormData({
-                    organizationType:
-                      option?.value as PlaygroundRequestOrganizationType,
-                  });
-                }}
-              />
-            )}
-          />
-        </div>
-        <TextInput
           placeholder="www.website..."
           showRequiredMark
           {...myRegister('website', {
@@ -438,6 +400,56 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             <sup className="ml-1">?</sup>
           </ToolTip>
         </TextInput>
+        <div className="text-xl col-span-full">Organization Information</div>
+        <TextInput
+          className="col-span-full"
+          placeholder="Organization"
+          {...myRegister('organization', { required: false })}
+          error={errors.organization?.message}
+        />
+        <div className="col-span-full">
+          <Label name="organizationType">
+            Is your organization or activism for profit?
+          </Label>
+
+          <Controller
+            name="organizationType"
+            control={control}
+            rules={{
+              required: 'Please select the best option for your organization',
+            }}
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
+                    (c) => c.value === current
+                  ) || null
+                }
+                error={errors.organizationType?.message}
+                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
+                onChange={(option) => {
+                  onChange(option?.value || null);
+                  setFormData({
+                    organizationType:
+                      option?.value as PlaygroundRequestOrganizationType,
+                  });
+                }}
+              />
+            )}
+          />
+        </div>
+        <TextArea
+          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
+          error={errors.organizationDescription?.message}
+          {...myRegister('organizationDescription', {
+            required: 'Organization description is required',
+          })}
+          style={{ resize: 'vertical' }}
+          className="col-span-full"
+        >
+          About your organization
+        </TextArea>
         <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"
@@ -607,17 +619,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             the easier it will be to find a volunteer.
           </span>
         </TextArea>
-        <TextArea
-          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
-          error={errors.organizationDescription?.message}
-          {...myRegister('organizationDescription', {
-            required: 'Organization description is required',
-          })}
-          style={{ resize: 'vertical' }}
-          className="col-span-full"
-        >
-          About your organization
-        </TextArea>
         <div className="col-span-full">
           <Label name="dueDate">
             Desired due date&nbsp;
@@ -640,6 +641,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             </TextInput>
           </div>{' '}
         </div>
+
         <Checkbox
           labelPosition="right"
           className="col-span-full"
