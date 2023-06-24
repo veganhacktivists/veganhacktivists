@@ -185,7 +185,9 @@ export const playgroundReviewRequestEmail = (textonly = false) => {
 };
 
 export const playgroundApplicantIntroductionEmail = (
-  application: PlaygroundApplication & { request: PlaygroundRequest },
+  application: Pick<PlaygroundApplication, 'name' | 'calendlyUrl'> & {
+    request: Pick<PlaygroundRequest, 'name' | 'title' | 'calendlyUrl'>;
+  },
   optionalMessageParts: string,
   textonly = false
 ) => {
@@ -316,7 +318,7 @@ Thank you so much for considering VH: Playground for your request!`;
 };
 
 export const playgroundRequestApprovalEmail = (
-  request: PlaygroundRequest,
+  request: Pick<PlaygroundRequest, 'name' | 'id'>,
   textonly = false
 ) => {
   if (textonly) {
