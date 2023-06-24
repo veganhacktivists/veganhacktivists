@@ -524,7 +524,9 @@ export const setRequestStatus = async ({
   }
 };
 
-const sendAcceptedEmail = (request: PlaygroundRequest) => {
+const sendAcceptedEmail = (
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'id'>
+) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
@@ -537,7 +539,7 @@ const sendAcceptedEmail = (request: PlaygroundRequest) => {
   });
 };
 
-const sendDenialEmail = (request: PlaygroundRequest) => {
+const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
