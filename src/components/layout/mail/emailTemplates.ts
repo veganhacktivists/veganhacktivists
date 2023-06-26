@@ -10,7 +10,7 @@ const url =
   process.env.NODE_ENV === 'production' ? 'https://' + host : 'http://' + host;
 
 const mail = (body: string, includeAACSection = false) => {
-  const footerPixelsBackgroundColor = includeAACSection ? '#ddd' : '#fff';
+  const footerPixelsBackgroundColor = includeAACSection ? '#eee' : '#fff';
 
   const header = `
     <mj-section background-color="#fff" padding="0px">
@@ -21,18 +21,13 @@ const mail = (body: string, includeAACSection = false) => {
   `;
 
   const AACSection = `
-  <mj-section padding="0px" background-color="#fff">
-    <mj-column>
-      <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer-aac-pixels.png"></mj-image>
-    </mj-column>
-  </mj-section>
   <mj-section padding="0px">
     <mj-column>
-      <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-footer-aac-pixels-bottom.png"></mj-image>
+      <mj-image padding="0px" alt="-" src="${url}/images/email/VH-email-section-transition.png"></mj-image>
     </mj-column>
   </mj-section>
 
-  <mj-section padding="20px 10px">
+  <mj-section padding="20px 10px" background-color="#eee">
     <mj-column background-color="#F7941D">
       <mj-image height="100%" padding="40px" alt="Animal Advocacy Careers" src="${url}/images/playground/animal-advocacy-careers.png"></mj-image>
     </mj-column>
