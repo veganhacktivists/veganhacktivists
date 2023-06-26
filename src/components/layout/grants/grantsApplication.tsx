@@ -95,6 +95,19 @@ const GrantsApplication: React.FC = () => {
         <h3 className="mt-5 mb-10 font-mono text-4xl font-semibold">
           Application Form
         </h3>
+        <div className="max-w-screen-lg p-10 pt-5 mx-auto">
+          While AI assistance in crafting grant applications can be helpful,
+          we&apos;ve observed a trend of submissions dominated by AI-generated
+          content. We value authenticity and individuality in your applications—
+          <b>
+            our goal is to understand your unique vision, mission, and plans,
+            not to review AI-generated content.
+          </b>{' '}
+          Therefore, please ensure AI supports, not replaces, the work
+          you&apos;ve put into crafting your grant application with us.
+          Submissions that seem primarily AI-generated may be rejected outright.
+          Thank you for understanding!
+        </div>
         <FormSection section="A" sectionName="About you">
           <TextInput
             error={errors.name?.message}
