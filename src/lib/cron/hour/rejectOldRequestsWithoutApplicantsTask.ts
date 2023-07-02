@@ -48,7 +48,10 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
   const results = await Promise.all(
     oldRequestsWithoutApplications.map(async (request) => {
       try {
-        await sendAutomaticallyRejectedEmail(request);
+        const success = await sendAutomaticallyRejectedEmail(request);
+        if (!success) {
+          return false;
+        }
       } catch (error) {
         console.error(
           'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
@@ -93,13 +96,14 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
   );
 }
 
-const sendAutomaticallyRejectedEmail = (
+const sendAutomaticallyRejectedEmail = async (
   request: Pick<PlaygroundRequest, 'id' | 'name' | 'title' | 'providedEmail'>
 ) => {
   if (process.env.NODE_ENV !== 'production') {
-    return true;
+    return false;
   }
-  return emailClient.sendMail({
+
+  const result = await emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
     cc: FLAVIA_EMAIL_FORMATTED,
@@ -107,4 +111,6 @@ const sendAutomaticallyRejectedEmail = (
     text: playgroundRequestRejectedDueToInactivity(request, true),
     html: playgroundRequestRejectedDueToInactivity(request),
   });
+
+  return result === true;
 };

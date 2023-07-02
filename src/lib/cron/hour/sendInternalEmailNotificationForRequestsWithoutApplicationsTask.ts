@@ -54,7 +54,12 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   const results = await Promise.all(
     activeRequestsWithoutApplications.map(async (request) => {
       try {
-        await sendInternalEmailForRequestsWithoutApplications(request);
+        const success = await sendInternalEmailForRequestsWithoutApplications(
+          request
+        );
+        if (!success) {
+          return false;
+        }
       } catch (error) {
         console.error(
           'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
@@ -99,14 +104,14 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   );
 }
 
-const sendInternalEmailForRequestsWithoutApplications = (
+const sendInternalEmailForRequestsWithoutApplications = async (
   request: Pick<
     PlaygroundRequest,
     'id' | 'title' | 'description' | 'category' | 'acceptedAt' | 'createdAt'
   >
 ) => {
   if (process.env.NODE_ENV !== 'production') {
-    return true;
+    return false;
   }
 
   const sendToMap: Partial<Record<PlaygroundRequestCategory, string>> = {
@@ -115,17 +120,19 @@ const sendInternalEmailForRequestsWithoutApplications = (
   };
 
   if (!(request.category in sendToMap)) {
-    return;
+    return false;
   }
 
-  return emailClient.sendMail({
+  const result = await emailClient.sendMail({
     to: sendToMap[request.category],
     from: PLAYGROUND_EMAIL_FORMATTED,
-    subject: 'Reminder for unanswered playground request',
+    subject: 'Reminder for an unanswered playground request',
     text: playgroundInternalNotificationForRequestsWithoutApplications(
       request,
       true
     ),
     html: playgroundInternalNotificationForRequestsWithoutApplications(request),
   });
+
+  return result === true;
 };
