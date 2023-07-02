@@ -1,5 +1,7 @@
 import mjml2html from 'mjml';
 
+import { readableTimeDiff } from 'lib/helpers/date';
+
 import type { PlaygroundApplication, PlaygroundRequest } from '@prisma/client';
 
 const host =
@@ -374,4 +376,38 @@ Resubmit your request: ${createNewRequestUrl}
 <mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
 `;
   return mjml2html(mail(body, false)).html ?? '';
+};
+
+export const playgroundInternalNotificationForRequestsWithoutApplications = (
+  request: Pick<
+    PlaygroundRequest,
+    'id' | 'title' | 'description' | 'category' | 'acceptedAt' | 'createdAt'
+  >,
+  textonly = false
+) => {
+  const formattedDiff = readableTimeDiff(
+    request.acceptedAt ?? request.createdAt
+  )[0]!;
+
+  const viewRequestUrl = `${url}/playground/request/${request.id}`;
+
+  if (textonly) {
+    return `${request.category} playground request is unanswered for ${formattedDiff}
+<br />
+<br />
+${request.title}
+<br />
+${request.description}
+<br />
+<br />
+View request: ${viewRequestUrl}`;
+  }
+
+  const html = `
+<mj-text font-weight="bold">${request.category} playground request is unanswered for ${formattedDiff}</mj-text>
+<mj-text>${request.title}</mj-text>
+<mj-text>${request.description}</mj-text>
+<mj-button href="${viewRequestUrl}">View request</mj-button>
+  `;
+  return mjml2html(mail(html)).html ?? '';
 };

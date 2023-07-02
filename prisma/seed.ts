@@ -95,6 +95,10 @@ const seedRequests = async (n: number = NUMBER) => {
           faker.datatype.number(5)
         ),
         createdAt,
+        acceptedAt:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.5
+            ? faker.date.recent(40)
+            : undefined,
         status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
         lastManuallyPushed:

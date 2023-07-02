@@ -21,20 +21,9 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
 
   const oldRequests = await prisma.playgroundRequest.findMany({
     where: {
-      OR: [
-        {
-          // TODO: remove in >30days
-          // temporarily check updatedAt for backwards compatability
-          updatedAt: {
-            lte: thirtyDaysAgo,
-          },
-        },
-        {
-          acceptedAt: {
-            lte: thirtyDaysAgo,
-          },
-        },
-      ],
+      acceptedAt: {
+        lte: thirtyDaysAgo,
+      },
       status: {
         equals: RequestStatus.Accepted,
       },
@@ -56,36 +45,52 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
     (request) => !request._count.applications
   );
 
-  oldRequestsWithoutApplications.forEach(async (request) => {
-    try {
-      await sendAutomaticallyRejectedEmail(request);
-    } catch (error) {
-      console.error(
-        'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
-        request,
-        error
-      );
-    }
+  const results = await Promise.all(
+    oldRequestsWithoutApplications.map(async (request) => {
+      try {
+        await sendAutomaticallyRejectedEmail(request);
+      } catch (error) {
+        console.error(
+          'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
+          request,
+          error
+        );
 
-    try {
-      await prisma.playgroundRequest.update({
-        where: {
-          id: request.id,
-        },
-        data: {
-          status: RequestStatus.Rejected,
-        },
-      });
-    } catch (error) {
-      console.error(
-        'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
-        request,
-        error
-      );
-    }
-  });
+        return false;
+      }
 
-  console.info('exit rejectOldRequestsWithoutApplicantsTask', startTimeStamp);
+      try {
+        await prisma.playgroundRequest.update({
+          where: {
+            id: request.id,
+          },
+          data: {
+            status: RequestStatus.Rejected,
+          },
+        });
+
+        return true;
+      } catch (error) {
+        console.error(
+          'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
+          request,
+          error
+        );
+
+        return false;
+      }
+    })
+  );
+
+  const successfulRejections = results.filter(Boolean).length;
+  const failedRejections = results.length - successfulRejections;
+
+  console.info(
+    'exit rejectOldRequestsWithoutApplicantsTask',
+    `successfulRejections ${successfulRejections}`,
+    `failedRejections ${failedRejections}`,
+    startTimeStamp
+  );
 }
 
 const sendAutomaticallyRejectedEmail = (

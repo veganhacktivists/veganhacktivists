@@ -218,6 +218,7 @@ model PlaygroundRequest {
   designRequestCurrentDesignExists Boolean?
 
   lastManuallyPushed      DateTime?
+  noApplicationsNotificationEmailSent Boolean       @default(false)
 
   acceptedAt              DateTime?
 
