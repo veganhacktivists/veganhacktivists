@@ -146,7 +146,7 @@ const submitRequestSchemaBase = z.object({
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
   dueDate: z.date().optional().nullable(),
-  estimatedTimeDays: z.number().nonnegative().int().optional(),
+  estimatedTimeDays: z.number().nonnegative().int().nullish(),
   neededVolunteers: z.number().nonnegative().int(),
   agreeToTerms: z
     .boolean()
