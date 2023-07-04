@@ -54,20 +54,10 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
 
   const results = await Promise.all(
     activeRequestsWithoutApplications.map(async (request) => {
-      try {
-        const success = await sendInternalEmailForRequestsWithoutApplications(
-          request
-        );
-        if (!success) {
-          return false;
-        }
-      } catch (error) {
-        console.error(
-          'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
-          request,
-          error
-        );
-
+      const success = await sendInternalEmailForRequestsWithoutApplications(
+        request
+      );
+      if (!success) {
         return false;
       }
 
@@ -124,17 +114,29 @@ const sendInternalEmailForRequestsWithoutApplications = async (
     return false;
   }
 
-  const result = await emailClient.sendMail({
-    to: sendToMap[request.category],
-    from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: FLAVIA_EMAIL,
-    subject: 'Reminder for an unanswered playground request',
-    text: playgroundInternalNotificationForRequestsWithoutApplications(
-      request,
-      true
-    ),
-    html: playgroundInternalNotificationForRequestsWithoutApplications(request),
-  });
+  try {
+    await emailClient.sendMail({
+      to: sendToMap[request.category],
+      from: PLAYGROUND_EMAIL_FORMATTED,
+      cc: FLAVIA_EMAIL,
+      subject: 'Reminder for an unanswered playground request',
+      text: playgroundInternalNotificationForRequestsWithoutApplications(
+        request,
+        true
+      ),
+      html: playgroundInternalNotificationForRequestsWithoutApplications(
+        request
+      ),
+    });
 
-  return result === true;
+    return true;
+  } catch (error) {
+    console.error(
+      'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
+      request,
+      error
+    );
+
+    return false;
+  }
 };

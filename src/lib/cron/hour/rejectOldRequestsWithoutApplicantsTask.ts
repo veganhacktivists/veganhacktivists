@@ -47,18 +47,8 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
 
   const results = await Promise.all(
     oldRequestsWithoutApplications.map(async (request) => {
-      try {
-        const success = await sendAutomaticallyRejectedEmail(request);
-        if (!success) {
-          return false;
-        }
-      } catch (error) {
-        console.error(
-          'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
-          request,
-          error
-        );
-
+      const success = await sendAutomaticallyRejectedEmail(request);
+      if (!success) {
         return false;
       }
 
@@ -103,14 +93,24 @@ const sendAutomaticallyRejectedEmail = async (
     return false;
   }
 
-  const result = await emailClient.sendMail({
-    to: request.providedEmail,
-    from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: FLAVIA_EMAIL_FORMATTED,
-    subject: 'Your request for help in "VH: Playground" has been closed!',
-    text: playgroundRequestRejectedDueToInactivity(request, true),
-    html: playgroundRequestRejectedDueToInactivity(request),
-  });
+  try {
+    await emailClient.sendMail({
+      to: request.providedEmail,
+      from: PLAYGROUND_EMAIL_FORMATTED,
+      cc: FLAVIA_EMAIL_FORMATTED,
+      subject: 'Your request for help in "VH: Playground" has been closed!',
+      text: playgroundRequestRejectedDueToInactivity(request, true),
+      html: playgroundRequestRejectedDueToInactivity(request),
+    });
 
-  return result === true;
+    return true;
+  } catch (error) {
+    console.error(
+      'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
+      request,
+      error
+    );
+
+    return false;
+  }
 };
