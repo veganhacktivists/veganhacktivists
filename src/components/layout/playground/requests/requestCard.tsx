@@ -70,6 +70,10 @@ const PlaygroundRequestCard: React.FC<
     status,
     neededVolunteers,
     lastManuallyPushed,
+    designRequestCurrentDesignExists,
+    designRequestType,
+    devRequestWebsiteExists,
+    devRequestWebsiteUrl,
   },
   disabled = false,
   children,
@@ -193,23 +197,52 @@ const PlaygroundRequestCard: React.FC<
           >
             {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
+
           {session?.user?.role === 'Admin' && (
-            <Li
-              name="Needed volunteers"
-              title={`${neededVolunteers ?? '1'}`}
-              category={category}
-            >
-              {`${neededVolunteers ?? '1'}`}
-            </Li>
-          )}
-          {session?.user?.role === 'Admin' && (
-            <Li
-              name="Last manually pushed"
-              title={timeSinceLastManuallyPushed ?? 'Never'}
-              category={category}
-            >
-              {timeSinceLastManuallyPushed ?? 'Never'}
-            </Li>
+            <>
+              {designRequestCurrentDesignExists !== null && (
+                <Li name="Current design exists" category={category}>
+                  {designRequestCurrentDesignExists ? 'Yes' : 'No'}
+                </Li>
+              )}
+              {designRequestType && (
+                <Li
+                  name="Design request type"
+                  title={designRequestType}
+                  category={category}
+                >
+                  {designRequestType}
+                </Li>
+              )}
+              {devRequestWebsiteExists && (
+                <Li name="Website exists" category={category}>
+                  {devRequestWebsiteExists ? 'Yes' : 'No'}
+                </Li>
+              )}
+              {devRequestWebsiteUrl && (
+                <Li
+                  name="Concerned website url"
+                  title={devRequestWebsiteUrl}
+                  category={category}
+                >
+                  {devRequestWebsiteUrl}
+                </Li>
+              )}
+              <Li
+                name="Needed volunteers"
+                title={`${neededVolunteers ?? '1'}`}
+                category={category}
+              >
+                {`${neededVolunteers ?? '1'}`}
+              </Li>
+              <Li
+                name="Last manually pushed"
+                title={timeSinceLastManuallyPushed ?? 'Never'}
+                category={category}
+              >
+                {timeSinceLastManuallyPushed ?? 'Never'}
+              </Li>
+            </>
           )}
         </ul>
         <div

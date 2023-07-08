@@ -8,6 +8,7 @@ import {
   TimePerWeek,
   Source,
   PlaygroundRequestOrganizationType,
+  PlaygroundRequestDesignRequestType,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -31,6 +32,7 @@ const seedUsers = async (n: number = NUMBER) => {
         name,
       };
     });
+
   const { count } = await prisma.user.createMany({ data: users });
   console.log('Seeded', count, 'users');
 };
@@ -42,6 +44,7 @@ const seedRequests = async (n: number = NUMBER) => {
     .map(() => {
       const createdAt = faker.date.recent(14);
       const isFree = faker.datatype.boolean();
+      const category = faker.helpers.objectValue(PlaygroundRequestCategory);
       return {
         budget: isFree
           ? undefined
@@ -64,7 +67,7 @@ const seedRequests = async (n: number = NUMBER) => {
           'she/her',
         ]),
         calendlyUrl: faker.internet.url(),
-        category: faker.helpers.objectValue(PlaygroundRequestCategory),
+        category,
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
         description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(
           faker.datatype.number(5)
@@ -105,6 +108,16 @@ const seedRequests = async (n: number = NUMBER) => {
           faker.datatype.number({ min: 0, max: 1 }) > 0.3
             ? faker.date.recent(30)
             : undefined,
+        ...(category === 'Designer' && {
+          designRequestCurrentDesignExists: faker.datatype.boolean(),
+          designRequestType: faker.helpers.objectValue(
+            PlaygroundRequestDesignRequestType
+          ),
+        }),
+        ...(category === 'Developer' && {
+          devRequestWebsiteExists: faker.datatype.boolean(),
+          devRequestWebsiteUrl: faker.internet.url(),
+        }),
       };
     });
 
