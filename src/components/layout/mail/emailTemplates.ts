@@ -30,11 +30,11 @@ const mail = (body: string, includeAACSection = false) => {
   </mj-section>
 
   <mj-section padding="10px 25px" background-color="#eee">
-    <mj-column background-color="#F7941D" width="40%">
+    <mj-column background-color="#F7941D" width="40%" vertical-align="middle">
       <mj-image height="100%" padding="40px" alt="Animal Advocacy Careers" src="${url}/images/playground/animal-advocacy-careers.png"></mj-image>
     </mj-column>
-    <mj-column width="60%">
-        <mj-text align="left" font-weight="bold" padding-top="0px" padding-bottom="0px">
+    <mj-column width="60%" vertical-align="middle" padding-top="10px">
+        <mj-text align="left" font-weight="bold" padding-bottom="0px">
           Looking for a job or career in animal advocacy?
         </mj-text>
         <mj-text align="left">
