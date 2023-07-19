@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { RequestStatus } from '@prisma/client';
 import { useSession } from 'next-auth/react';
+import { PlaygroundRequestCategory } from '@prisma/client';
 
 import {
   CATEGORY_COLORS,
@@ -16,7 +17,6 @@ import SquareField from 'components/decoration/squares';
 import { formatCurrency } from 'lib/helpers/format';
 
 import type { trpc } from 'lib/client/trpc';
-import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
@@ -200,33 +200,33 @@ const PlaygroundRequestCard: React.FC<
 
           {session?.user?.role === 'Admin' && (
             <>
-              {designRequestCurrentDesignExists !== null && (
-                <Li name="Current design exists" category={category}>
-                  {designRequestCurrentDesignExists ? 'Yes' : 'No'}
-                </Li>
+              {category === PlaygroundRequestCategory.Designer && (
+                <>
+                  <Li name="Current design exists" category={category}>
+                    {designRequestCurrentDesignExists ? 'Yes' : 'No'}
+                  </Li>
+                  <Li
+                    name="Design request type"
+                    title={designRequestType ?? ''}
+                    category={category}
+                  >
+                    {designRequestType}
+                  </Li>
+                </>
               )}
-              {designRequestType && (
-                <Li
-                  name="Design request type"
-                  title={designRequestType}
-                  category={category}
-                >
-                  {designRequestType}
-                </Li>
-              )}
-              {devRequestWebsiteExists && (
-                <Li name="Website exists" category={category}>
-                  {devRequestWebsiteExists ? 'Yes' : 'No'}
-                </Li>
-              )}
-              {devRequestWebsiteUrl && (
-                <Li
-                  name="Concerned website url"
-                  title={devRequestWebsiteUrl}
-                  category={category}
-                >
-                  {devRequestWebsiteUrl}
-                </Li>
+              {category === PlaygroundRequestCategory.Developer && (
+                <>
+                  <Li name="Website exists" category={category}>
+                    {devRequestWebsiteExists ? 'Yes' : 'No'}
+                  </Li>
+                  <Li
+                    name="Concerned website url"
+                    title={devRequestWebsiteUrl ?? ''}
+                    category={category}
+                  >
+                    {devRequestWebsiteUrl}
+                  </Li>
+                </>
               )}
               <Li
                 name="Needed volunteers"

@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import {
   ApplicationStatus,
+  PlaygroundRequestCategory,
   RequestStatus,
   TimePerWeek,
   UserRole,
@@ -191,6 +192,26 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             )}
           </Field>
           <Field title="Website">{request.website}</Field>
+          {request.category === PlaygroundRequestCategory.Designer && (
+            <>
+              <Field title="Current design exists">
+                {request.designRequestCurrentDesignExists ? 'Yes' : 'No'}
+              </Field>
+              <Field title="Design request type">
+                {request.designRequestType}
+              </Field>
+            </>
+          )}
+          {request.category === PlaygroundRequestCategory.Developer && (
+            <>
+              <Field title="Website exists">
+                {request.devRequestWebsiteExists ? 'Yes' : 'No'}
+              </Field>
+              <Field title="Concerned website url">
+                {request.devRequestWebsiteUrl}
+              </Field>
+            </>
+          )}
           {request.organization && (
             <Field title="Organization name">{request.organization}</Field>
           )}
