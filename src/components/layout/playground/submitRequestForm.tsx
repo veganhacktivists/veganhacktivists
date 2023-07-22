@@ -495,6 +495,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           })}
           style={{ resize: 'vertical' }}
           className="col-span-full"
+          showRequiredMark
         >
           About your organization
         </TextArea>

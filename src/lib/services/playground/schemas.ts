@@ -124,7 +124,7 @@ const submitRequestSchemaBase = z.object({
   phone: z.string().trim().min(1, { message: 'This value is required' }),
   organization: z.string().trim().optional(),
   organizationType: z.nativeEnum(PlaygroundRequestOrganizationType).optional(),
-  organizationDescription: z.string().trim().optional(),
+  organizationDescription: z.string().trim().min(1),
   website: z
     .string()
     .trim()
