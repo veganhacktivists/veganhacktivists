@@ -9,7 +9,6 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import {
   FLAVIA_EMAIL,
-  FLAVIA_EMAIL_FORMATTED,
   OUR_EMAIL_TO,
   PLAYGROUND_EMAIL_FORMATTED,
 } from '../../mail/router';
@@ -139,12 +138,17 @@ export const setApplicationStatus = ({
       });
     }
 
+    const acceptedAt = status === ApplicationStatus.Accepted && {
+      acceptedAt: new Date(),
+    };
+
     const updatedApplication = await prisma.playgroundApplication.update({
       where: {
         id,
       },
       data: {
         status,
+        ...acceptedAt,
       },
       include: {
         request: true,
