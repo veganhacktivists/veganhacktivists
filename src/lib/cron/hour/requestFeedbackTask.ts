@@ -1,4 +1,4 @@
-import { ApplicationStatus } from '@prisma/client';
+import { ApplicationStatus, RequestStatus } from '@prisma/client';
 
 import prisma from '../../db/prisma';
 
@@ -27,6 +27,9 @@ export async function requestPlaygroundApplicantFeedbackTask() {
         },
         status: ApplicationStatus.Accepted,
         feedbackRequested: false,
+        request: {
+          status: RequestStatus.Accepted,
+        },
       },
       select: {
         id: true,
