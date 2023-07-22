@@ -194,9 +194,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               <Field title="Current design exists">
                 {request.designRequestCurrentDesignExists ? 'Yes' : 'No'}
               </Field>
-              <Field title="Design request type">
-                {request.designRequestType}
-              </Field>
+              {request.designRequestType && (
+                <Field title="Design request type">
+                  {request.designRequestType}
+                </Field>
+              )}
             </>
           )}
           {request.category === PlaygroundRequestCategory.Developer && (
@@ -204,9 +206,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               <Field title="Website exists">
                 {request.devRequestWebsiteExists ? 'Yes' : 'No'}
               </Field>
-              <Field title="Concerned website url">
-                {request.devRequestWebsiteUrl}
-              </Field>
+              {request.devRequestWebsiteUrl && (
+                <Field title="Concerned website url">
+                  {request.devRequestWebsiteUrl}
+                </Field>
+              )}
             </>
           )}
           {request.organization && (
