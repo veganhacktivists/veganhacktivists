@@ -125,15 +125,17 @@ const Playground: PageWithLayout = ({}) => {
     <>
       <NextSeo title="Requests" />
       <div>
-        <SectionHeader header={['View pending', 'requests']}>
-          Check out the requests below to find volunteer or paid opportunities
-          to help the animals. Are you an individual or organization seeking
-          support for your work?{' '}
-          <CustomLink className="font-bold" href="/playground/submit">
-            Submit a request
-          </CustomLink>{' '}
-          of your own!
-        </SectionHeader>
+        <div className="lg:mx-12 2xl:mx-44 xl:mx-36">
+          <SectionHeader header={['View pending', 'requests']}>
+            Check out the requests below to find volunteer or paid opportunities
+            to help the animals. Are you an individual or organization seeking
+            support for your work?{' '}
+            <CustomLink className="font-bold" href="/playground/submit">
+              Submit a request
+            </CustomLink>{' '}
+            of your own!
+          </SectionHeader>
+        </div>
         <div
           className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
           ref={requestContainer}
