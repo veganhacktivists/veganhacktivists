@@ -12,7 +12,7 @@ export const PLAYGROUND_EMAIL =
 export const PLAYGROUND_EMAIL_FORMATTED =
   `VH Playground <${PLAYGROUND_EMAIL}>` as const;
 export const FLAVIA_EMAIL = 'flavia@veganhacktivists.org';
-export const FLAVIA_EMAIL_FORMATTED = `Flavia from "VH: Playground" <${FLAVIA_EMAIL}>`;
+export const FLAVIA_EMAIL_FORMATTED = `Flavia <${FLAVIA_EMAIL}>`;
 export const KATE_EMAIL = 'kate@veganhacktivists.org';
 export const KATE_EMAIL_FORMATTED = `Kate <${KATE_EMAIL}>`;
 export const JAMES_EMAIL = 'james@veganhacktivists.org';

@@ -378,6 +378,40 @@ Resubmit your request: ${createNewRequestUrl}
   return mjml2html(mail(body, false)).html ?? '';
 };
 
+export const playgroundRequestCompletedSurvey = (
+  request: Pick<PlaygroundRequest, 'name' | 'title'>,
+  textonly = false
+) => {
+  const surveyUrl =
+    'https://docs.google.com/forms/d/e/1FAIpQLSc_FrluU7o0q4sUT4v8uTWkC6J2mi7b_h3x1pq6o5UqlBjI9Q/viewform';
+
+  if (textonly) {
+    return `Hey ${request.name}!
+<br /><br />
+We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with! 
+<br /><br />
+We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals. 
+<br /><br />
+Rest assured that your responses will remain confidential, and your personal information will not be shared with any third parties.
+<br /><br />
+Thank you for being an integral part of Playground's community, and we look forward to hearing from you.
+<br /><br />
+Survey: ${surveyUrl}
+<br /><br />
+Have a question? Contact us at hello@veganhacktivists.org.`;
+  }
+
+  const html = `
+<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with!</mj-text>
+<mj-text>We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals.</mj-text>
+<mj-text>Rest assured that your responses will remain confidential, and your personal information will not be shared with any third parties.</mj-text>
+<mj-text>Thank you for being an integral part of Playground's community, and we look forward to hearing from you.</mj-text>
+<mj-button href="${surveyUrl}">Survey</mj-button>
+<mj-text>Have a question? Contact us at hello@veganhacktivists.org.</mj-text>`;
+  return mjml2html(mail(html)).html ?? '';
+};
+
 export const playgroundInternalNotificationForRequestsWithoutApplications = (
   request: Pick<
     PlaygroundRequest,

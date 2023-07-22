@@ -7,11 +7,17 @@ import { TRPCError } from '@trpc/server';
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
-import { OUR_EMAIL_TO, PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
+import {
+  FLAVIA_EMAIL,
+  FLAVIA_EMAIL_FORMATTED,
+  OUR_EMAIL_TO,
+  PLAYGROUND_EMAIL_FORMATTED,
+} from '../../mail/router';
 import {
   playgroundApplicantIntroductionEmail,
   playgroundApplicationDenialEmail,
   playgroundRequestApprovalEmail,
+  playgroundRequestCompletedSurvey,
   playgroundRequestDenialEmail,
 } from '../../../components/layout/mail/emailTemplates';
 
@@ -448,6 +454,11 @@ export const setRequestStatus = async ({
     request.status === RequestStatus.Pending &&
     status === RequestStatus.Rejected;
 
+  const shouldConfirmCompletion =
+    process.env.NODE_ENV === 'production' &&
+    request.status === RequestStatus.Accepted &&
+    status === RequestStatus.Completed;
+
   let discordMessages: Message[] = [];
   let redditSubmissions: Submission[] = [];
 
@@ -502,6 +513,8 @@ export const setRequestStatus = async ({
       await sendAcceptedEmail(updatedRequest);
     } else if (shouldNotifyDenial) {
       await sendDenialEmail(updatedRequest);
+    } else if (shouldConfirmCompletion) {
+      await sendCompletionEmail(updatedRequest);
     }
     return updatedRequest;
   } catch (e) {
@@ -549,5 +562,21 @@ const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
     subject: 'Thanks so much for submitting your request to Playground!',
     text: playgroundRequestDenialEmail(true),
     html: playgroundRequestDenialEmail(),
+  });
+};
+
+const sendCompletionEmail = (
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'title'>
+) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return true;
+  }
+  return emailClient.sendMail({
+    to: request.providedEmail,
+    from: PLAYGROUND_EMAIL_FORMATTED,
+    cc: FLAVIA_EMAIL,
+    subject: 'Help Us Improve! Rate Your Experience with Playground',
+    text: playgroundRequestCompletedSurvey(request, true),
+    html: playgroundRequestCompletedSurvey(request),
   });
 };
