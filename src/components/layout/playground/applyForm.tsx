@@ -179,9 +179,6 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           >
             {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
           </Field>
-          <Field title="Est. time required">
-            {request.estimatedTimeDays} DAYS
-          </Field>
           <Field title="Compensation">
             {request.budget ? (
               <div>
