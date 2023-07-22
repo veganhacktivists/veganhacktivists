@@ -144,6 +144,7 @@ const seedApplications = async (n: number = NUMBER) => {
           const user = faker.helpers.arrayElement(users);
           return {
             createdAt: faker.date.soon(2, request.createdAt),
+            acceptedAt: faker.date.soon(2, request.createdAt),
             applicantId: user.id,
             availableTimePerWeek: faker.helpers.objectValue(TimePerWeek),
             source: faker.helpers.objectValue(Source),

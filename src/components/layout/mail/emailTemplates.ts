@@ -445,3 +445,47 @@ View request: ${viewRequestUrl}`;
   `;
   return mjml2html(mail(html)).html ?? '';
 };
+
+export const playgroundRequestFeedbackAboutVolunteerAfter1Week = (
+  request: Pick<PlaygroundRequest, 'name' | 'title' | 'providedEmail'>,
+  applicantName: string,
+  textonly = false
+) => {
+  const positiveFeedback =
+    'https://docs.google.com/forms/d/e/1FAIpQLSdyEH7tYlo1r3dC6ea8njsFY-gJnW-CBxn9wHr3-K88kSFY5Q/viewform';
+  const negativeFeedback =
+    'https://docs.google.com/forms/d/e/1FAIpQLSc0aQRvRY0pN6WeFuaR59OnjPH9vAIm2d6OSoDzhpbhP03FIg/viewform';
+
+  if (textonly) {
+    return `Hey ${request.name}!
+<br /><br />
+It’s been a week since we have connected you with a volunteer “${applicantName}” to help with your request "${request.title}" opened in "VH: Playground".
+<br /><br />
+Is this volunteer working out for you?
+<br /><br />
+Yes?: ${positiveFeedback}
+<br /><br />
+No?: ${negativeFeedback}
+<br /><br />
+Have a question? Contact us at hello@veganhacktivists.org.`;
+  }
+
+  const body = `
+<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>It’s been a week since we have connected you with a volunteer “${applicantName}” to help with your request "${request.title}" opened in "VH: Playground".</mj-text>
+<mj-text>Is this volunteer working out for you?</mj-text>
+<mj-table align="center" width="60px">
+  <tr>
+    <td>
+      <a target="_blank" href="${positiveFeedback}" style="display:inline-block;padding:0 15px 0 0;font-size:20px;margin:0;text-decoration:none;text-transform:none;mso-padding-alt:0px;border-radius:0px;">👍</a>
+    </td>
+    <td>
+      <a target="_blank" href="${negativeFeedback}" style="display:inline-block;padding:0 0 0 15px;font-size:20px;margin:0;text-decoration:none;text-transform:none;mso-padding-alt:0px;border-radius:0px;">👎</a>
+    </td>
+  </tr>
+</mj-table>
+<mj-text><b>Have a question? Contact us at hello@veganhacktivists.org.</b></mj-text>
+  }
+  `;
+  return mjml2html(mail(body, true)).html ?? '';
+};

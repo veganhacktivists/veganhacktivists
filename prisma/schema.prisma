@@ -145,6 +145,10 @@ model PlaygroundApplication {
   applicant User              @relation(fields: [applicantId], references: [id])
   request   PlaygroundRequest @relation(fields: [requestId], references: [id])
 
+  feedbackRequested    Boolean? @default(false)
+
+  acceptedAt           DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
