@@ -84,7 +84,6 @@ const sendFeedbackRequestEmail = (
   return emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: FLAVIA_EMAIL_FORMATTED,
     subject: 'Please let us know how it’s going with the Playground volunteer!',
     text: playgroundRequestFeedbackAboutVolunteerAfter1Week(
       request,
