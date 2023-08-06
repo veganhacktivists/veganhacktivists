@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 import { Autoscroll } from 'components/decoration/autoscroll';
 import { DarkButton } from 'components/decoration/buttons';
 import CustomImage from 'components/decoration/customImage';
@@ -188,22 +190,36 @@ const OurWork: React.FC = () => {
       <div className="w-full bg-white">
         <div className="flex flex-col py-20">
           <div className="md:w-1/2 mx-auto -mb-10 px-5">
+            {/* TODO: translate section header */}
             <SectionHeader className="mb-2" header={['Our', 'WORK']}>
-              We’ve worked with over <b>200+ organizations</b> in the animal
-              protection movement, through our development, design and advisory
-              services.
+              <FormattedMessage
+                id="page.our-work.section.our-work.section-header.content"
+                defaultMessage="We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services."
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </SectionHeader>
           </div>
           <Autoscroll items={imageRows} />
           <div className="mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5">
             <DarkButton href="/services" className="font-mono md:w-fit">
-              Explore our services
+              <FormattedMessage
+                id="page.our-work.section.our-work.cta.services"
+                defaultMessage="Explore our services"
+              />
             </DarkButton>
             <DarkButton href="/join" className="font-mono md:w-fit">
-              Volunteer with us
+              <FormattedMessage
+                id="page.our-work.section.our-work.cta.join"
+                defaultMessage="Volunteer with us"
+              />
             </DarkButton>
             <DarkButton href="/support" className="font-mono md:w-fit">
-              Support our work
+              <FormattedMessage
+                id="page.our-work.section.our-work.cta.support"
+                defaultMessage="Support our work"
+              />
             </DarkButton>
           </div>
         </div>

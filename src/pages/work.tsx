@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { useIntl } from 'react-intl';
 
 import WorkHero from 'components/layout/work/workHero';
 import OurWork from 'components/layout/work/ourWork';
@@ -50,9 +51,16 @@ const Work = ({
   featuredProjects,
   otherProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Our Work" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.work.next-seo.title',
+          defaultMessage: 'Our Work',
+        })}
+      />
 
       <WorkHero />
 

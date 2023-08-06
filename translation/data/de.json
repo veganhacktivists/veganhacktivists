@@ -370,5 +370,56 @@
   },
   "section.crypto-donation.overlay.label": {
     "defaultMessage": "Spenden Sie <no-localization>{currencyName}</no-localization>"
+  },
+  "section.contact-us-form.input-field.empty-error.email": {
+    "defaultMessage": "Die E-Mail ist erforderlich"
+  },
+  "section.contact-us-form.input-field.empty-error.name": {
+    "defaultMessage": "Bitte geben Sie einen Namen ein"
+  },
+  "section.contact-us-form.input-field.empty-error.service": {
+    "defaultMessage": "Wählen Sie eine Dienstleistung"
+  },
+  "section.contact-us-form.input-field.label.email": {
+    "defaultMessage": "E-Mail"
+  },
+  "section.contact-us-form.input-field.label.message": {
+    "defaultMessage": "Nachricht"
+  },
+  "section.contact-us-form.input-field.label.name": {
+    "defaultMessage": "Name"
+  },
+  "section.contact-us-form.input-field.label.service": {
+    "defaultMessage": "Dienstleistung"
+  },
+  "section.contact-us-form.input-field.pattern-error.email": {
+    "defaultMessage": "Bitte geben Sie eine gültige E-Mail ein"
+  },
+  "section.contact-us-form.submission.toast.error": {
+    "defaultMessage": "Bei der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten! Bitte versuchen Sie es später noch einmal"
+  },
+  "section.contact-us-form.submission.toast.pending": {
+    "defaultMessage": "Einreichen..."
+  },
+  "section.contact-us-form.submission.toast.success": {
+    "defaultMessage": "Ihre Anfrage wurde erfolgreich gesendet!"
+  },
+  "section.contact-us-form.submit-button.label": {
+    "defaultMessage": "Einreichen"
+  },
+  "page.our-work.section.our-work.cta.join": {
+    "defaultMessage": "Mitarbeiten"
+  },
+  "page.our-work.section.our-work.cta.services": {
+    "defaultMessage": "Unsere Dienstleistungen"
+  },
+  "page.our-work.section.our-work.cta.support": {
+    "defaultMessage": "Unterstützen Sie unsere Arbeit"
+  },
+  "page.our-work.section.our-work.section-header.content": {
+    "defaultMessage": "Durch unsere Entwicklungs-, Design- und Beratungsdienste haben wir mit <b>mehr als 200 Organisationen</b> in der Tierschutzbewegung zusammengearbeitet."
+  },
+  "page.work.next-seo.title": {
+    "defaultMessage": "Unsere Arbeit"
   }
 }

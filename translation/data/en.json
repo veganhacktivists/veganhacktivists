@@ -406,5 +406,20 @@
   },
   "section.contact-us-form.submit-button.label": {
     "defaultMessage": "Submit"
+  },
+  "page.our-work.section.our-work.cta.join": {
+    "defaultMessage": "Volunteer with us"
+  },
+  "page.our-work.section.our-work.cta.services": {
+    "defaultMessage": "Explore our services"
+  },
+  "page.our-work.section.our-work.cta.support": {
+    "defaultMessage": "Support our work"
+  },
+  "page.our-work.section.our-work.section-header.content": {
+    "defaultMessage": "We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services."
+  },
+  "page.work.next-seo.title": {
+    "defaultMessage": "Our Work"
   }
 }
