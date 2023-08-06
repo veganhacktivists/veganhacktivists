@@ -18,7 +18,7 @@
     "translation:extract": "ts-node translation/extract.ts && pnpm translation:compile",
     "translation:update": "ts-node translation/update.ts",
     "translation:compile": "ts-node translation/compile.ts",
-    "translation:translate": "export $(cat .env | xargs) && ts-node translation/translate.ts && pnpm translation:compile"
+    "translation:translate": "export $(grep -v '^#' .env | xargs -d '\n') && ts-node translation/translate.ts && pnpm translation:compile"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",

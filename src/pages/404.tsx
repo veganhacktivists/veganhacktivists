@@ -20,9 +20,9 @@ const NotFound: React.FC = () => {
         {
           id: 'page.not-found.error-message',
           defaultMessage:
-            'The page you requested (<no-localization>{asPath}</no-localization>) does not exist',
+            'The page you requested (<no-localization>{path}</no-localization>) does not exist',
         },
-        { asPath }
+        { path: asPath }
       ),
     }),
     [asPath, intl]

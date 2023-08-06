@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import useErrorStore from '../../lib/stores/errorStore';
@@ -28,6 +29,8 @@ interface ContactUsSubmission {
 const ContactUsForm: React.FC = () => {
   const { pageThatErrored, clearErrorData } = useErrorStore();
   const { onMessageChange, suggestions } = useFAQDetect();
+
+  const intl = useIntl();
 
   const {
     control,
@@ -58,10 +61,19 @@ const ContactUsForm: React.FC = () => {
 
       await toast
         .promise(submit, {
-          pending: 'Submitting...',
-          error:
-            'Something went wrong processing your submission! Please try again later',
-          success: 'Your request was sent successfully!',
+          pending: intl.formatMessage({
+            id: 'section.contact-us-form.submission.toast.pending',
+            defaultMessage: 'Submitting...',
+          }),
+          error: intl.formatMessage({
+            id: 'section.contact-us-form.submission.toast.error',
+            defaultMessage:
+              'Something went wrong processing your submission! Please try again later',
+          }),
+          success: intl.formatMessage({
+            id: 'section.contact-us-form.submission.toast.success',
+            defaultMessage: 'Your request was sent successfully!',
+          }),
         })
         .then(() => {
           reset();
@@ -70,7 +82,29 @@ const ContactUsForm: React.FC = () => {
           }, 5000);
         });
     },
-    [reload, reset]
+    [intl, reload, reset]
+  );
+
+  const inputLabels = useMemo(
+    () => ({
+      name: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.name',
+        defaultMessage: 'Name',
+      }),
+      email: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.email',
+        defaultMessage: 'Email',
+      }),
+      service: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.service',
+        defaultMessage: 'Service',
+      }),
+      message: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.message',
+        defaultMessage: 'Message',
+      }),
+    }),
+    [intl]
   );
 
   return (
@@ -78,8 +112,14 @@ const ContactUsForm: React.FC = () => {
       <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <TextInput
-            placeholder="Name"
-            {...register('name', { required: 'Please enter a name' })}
+            placeholder={inputLabels.name}
+            {...register('name', {
+              required: intl.formatMessage({
+                id: 'section.contact-us-form.input-field.empty-error.name',
+                defaultMessage: 'Please enter a name',
+              }),
+            })}
+            name={inputLabels.name}
             error={errors.name?.message}
           />
         </div>
@@ -87,22 +127,34 @@ const ContactUsForm: React.FC = () => {
           <TextInput
             placeholder="yourname@example.com"
             {...register('email', {
-              required: 'The email is required',
+              required: intl.formatMessage({
+                id: 'section.contact-us-form.input-field.empty-error.email',
+                defaultMessage: 'The email is required',
+              }),
               pattern: {
                 value:
                   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Please enter a valid email',
+                message: intl.formatMessage({
+                  id: 'section.contact-us-form.input-field.pattern-error.email',
+                  defaultMessage: 'Please enter a valid email',
+                }),
               },
             })}
+            name={inputLabels.email}
             error={errors.email?.message}
           />
         </div>
         <div>
-          <Label name="service" />
+          <Label name={inputLabels.service} />
           <Controller
             name="service"
             control={control}
-            rules={{ required: 'Select a service' }}
+            rules={{
+              required: intl.formatMessage({
+                id: 'section.contact-us-form.input-field.empty-error.service',
+                defaultMessage: 'Select a service',
+              }),
+            }}
             render={({ field: { value, onChange, ...field } }) => (
               <SelectInput
                 {...field}
@@ -128,6 +180,7 @@ const ContactUsForm: React.FC = () => {
           <TextArea
             error={errors.message?.message}
             {...register('message')}
+            name={inputLabels.message}
             defaultValue={defaultErrorMessage}
             onChange={onMessageChange}
           />
@@ -146,7 +199,14 @@ const ContactUsForm: React.FC = () => {
             disabled={isSubmitting || isSubmitSuccessful}
             className="px-10 w-52"
           >
-            {isSubmitting ? <Spinner /> : 'Submit'}
+            {isSubmitting ? (
+              <Spinner />
+            ) : (
+              <FormattedMessage
+                id="section.contact-us-form.submit-button.label"
+                defaultMessage="Submit"
+              />
+            )}
           </DarkButton>
         </div>
       </form>

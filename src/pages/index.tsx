@@ -104,7 +104,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <div className="relative mx-auto text-2xl text-white md:w-1/2">
           <FormattedMessage
             id="page.index.section.stage.subline"
-            defaultMessage="Building for the animal protection movement since 2019"
+            defaultMessage="<no-localization>Building for the animal protection movement since 2019</no-localization>"
           />
         </div>
         <div className="relative mx-auto mt-10">

@@ -27,7 +27,7 @@
     "defaultMessage": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
   "page.index.section.stage.subline": {
-    "defaultMessage": "Bauen für die Tierschutzbewegung seit 2019"
+    "defaultMessage": "<no-localization>Building for the animal protection movement since 2019</no-localization>"
   },
   "page.index.section.video.cta": {
     "defaultMessage": "Besuchen Sie unseren Kanal"
@@ -90,7 +90,7 @@
     "defaultMessage": "Mitmachen"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "Die von Ihnen angeforderte Seite (<no-localization>{asPath}</no-localization>) existiert nicht"
+    "defaultMessage": "Die von Ihnen angeforderte Seite (<no-localization>{path}</no-localization>) existiert nicht"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Seite nicht gefunden"

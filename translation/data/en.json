@@ -12,7 +12,7 @@
     "defaultMessage": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
   },
   "page.index.section.projects.cta": {
-    "defaultMessage": "See All Projects"
+    "defaultMessage": "See Our Work"
   },
   "page.index.section.projects.headline": {
     "defaultMessage": "<left>Featured</left> <right>PROJECTS</right>"
@@ -27,7 +27,7 @@
     "defaultMessage": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
   "page.index.section.stage.subline": {
-    "defaultMessage": "Building for the animal protection movement since 2019"
+    "defaultMessage": "<no-localization>Building for the animal protection movement since 2019</no-localization>"
   },
   "page.index.section.video.cta": {
     "defaultMessage": "Visit our channel"
@@ -90,7 +90,7 @@
     "defaultMessage": "Join Us"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "The page you requested (<no-localization>{asPath}</no-localization>) does not exist"
+    "defaultMessage": "The page you requested (<no-localization>{path}</no-localization>) does not exist"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Page not found"
@@ -339,10 +339,10 @@
     "defaultMessage": "Want to send something else? <contact-link>Contact us!</contact-link>"
   },
   "section.support-progess-bar.current.label": {
-    "defaultMessage": "Current monthly Patreon donations"
+    "defaultMessage": "Current monthly donations"
   },
   "section.support-progess-bar.goal.0.label": {
-    "defaultMessage": "Needed to cover basic operational expenses"
+    "defaultMessage": "This will cover some of our most basic needs!"
   },
   "section.support-progess-bar.goal.1.label": {
     "defaultMessage": "We can utilize more useful services and tech"
@@ -351,24 +351,60 @@
     "defaultMessage": "We can ramp up value and services offered"
   },
   "section.support-progess-bar.goal.3.label": {
-    "defaultMessage": "Self-Sustainable Goal"
+    "defaultMessage": "We've hit our monthly contribution goal, thanks!"
   },
   "section.support-progess-bar.mobile.current.label": {
-    "defaultMessage": "Current monthly Patreon donations"
+    "defaultMessage": "Current monthly donations"
   },
   "section.support-progess-bar.mobile.goal.0.label": {
-    "defaultMessage": "Needed to cover operational expenses"
+    "defaultMessage": "This will cover some of our most basic needs!"
   },
   "section.support-progess-bar.mobile.goal.1.label": {
-    "defaultMessage": "Can afford more useful services and tech"
+    "defaultMessage": "We can utilize more useful services and tech"
   },
   "section.support-progess-bar.mobile.goal.2.label": {
     "defaultMessage": "We can ramp up value and services offered"
   },
   "section.support-progess-bar.mobile.goal.3.label": {
-    "defaultMessage": "Self-Sustainable Goal"
+    "defaultMessage": "We've hit our monthly contribution goal, thanks!"
   },
   "section.crypto-donation.overlay.label": {
     "defaultMessage": "Donate <no-localization>{currencyName}</no-localization>"
+  },
+  "section.contact-us-form.input-field.empty-error.email": {
+    "defaultMessage": "The email is required"
+  },
+  "section.contact-us-form.input-field.empty-error.name": {
+    "defaultMessage": "Please enter a name"
+  },
+  "section.contact-us-form.input-field.empty-error.service": {
+    "defaultMessage": "Select a service"
+  },
+  "section.contact-us-form.input-field.label.email": {
+    "defaultMessage": "Email"
+  },
+  "section.contact-us-form.input-field.label.message": {
+    "defaultMessage": "Message"
+  },
+  "section.contact-us-form.input-field.label.name": {
+    "defaultMessage": "Name"
+  },
+  "section.contact-us-form.input-field.label.service": {
+    "defaultMessage": "Service"
+  },
+  "section.contact-us-form.input-field.pattern-error.email": {
+    "defaultMessage": "Please enter a valid email"
+  },
+  "section.contact-us-form.submission.toast.error": {
+    "defaultMessage": "Something went wrong processing your submission! Please try again later"
+  },
+  "section.contact-us-form.submission.toast.pending": {
+    "defaultMessage": "Submitting..."
+  },
+  "section.contact-us-form.submission.toast.success": {
+    "defaultMessage": "Your request was sent successfully!"
+  },
+  "section.contact-us-form.submit-button.label": {
+    "defaultMessage": "Submit"
   }
 }
