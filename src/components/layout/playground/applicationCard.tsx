@@ -40,6 +40,7 @@ const ApplicationCard: React.FC<
           <> &rArr; (logs in as {app.applicant.email})</>
         )}
       </div>
+      <Data name="Pronouns" value={app.pronouns} />
       <div>
         Applied {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
@@ -55,6 +56,7 @@ const ApplicationCard: React.FC<
         name="Available time per week"
         value={TimePerWeekLabel[app.availableTimePerWeek]}
       />
+      <Data name="Estimated Time in Days" value={app.estimatedTimeDays} />
       <Data name="Source" value={app.source ? SourceLabel[app.source] : null} />
       <Data name="Portfolio" value={app.portfolioLink} />
       <Data name="Calendly" value={app.calendlyUrl} />

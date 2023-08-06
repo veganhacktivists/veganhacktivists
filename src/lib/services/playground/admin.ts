@@ -1,13 +1,22 @@
-import { PlaygroundRequestCategory, Status } from '@prisma/client';
+import {
+  ApplicationStatus,
+  PlaygroundRequestCategory,
+  RequestStatus,
+} from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
-import { OUR_EMAIL_TO, PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
 import {
-  playgroundApplicatantIntroductionEmail,
+  FLAVIA_EMAIL,
+  OUR_EMAIL_TO,
+  PLAYGROUND_EMAIL_FORMATTED,
+} from '../../mail/router';
+import {
+  playgroundApplicantIntroductionEmail,
   playgroundApplicationDenialEmail,
   playgroundRequestApprovalEmail,
+  playgroundRequestCompletedSurvey,
   playgroundRequestDenialEmail,
 } from '../../../components/layout/mail/emailTemplates';
 
@@ -40,7 +49,7 @@ export const getPendingApplications = async (
   const applications = await prisma.playgroundApplication.findMany({
     where: {
       ...params,
-      status: Status.Pending,
+      status: ApplicationStatus.Pending,
     },
     include: {
       request: true,
@@ -73,7 +82,7 @@ export const getRequests = async ({
     include: {
       applications: {
         where: {
-          status: Status.Accepted,
+          status: ApplicationStatus.Accepted,
         },
         include: {
           applicant: {
@@ -87,6 +96,7 @@ export const getRequests = async ({
         select: {
           id: true,
           name: true,
+          email: true,
         },
       },
       budget: {
@@ -99,7 +109,7 @@ export const getRequests = async ({
         select: {
           applications: {
             where: {
-              status: Status.Accepted,
+              status: ApplicationStatus.Accepted,
             },
           },
         },
@@ -128,12 +138,17 @@ export const setApplicationStatus = ({
       });
     }
 
+    const acceptedAt = status === ApplicationStatus.Accepted && {
+      acceptedAt: new Date(),
+    };
+
     const updatedApplication = await prisma.playgroundApplication.update({
       where: {
         id,
       },
       data: {
         status,
+        ...acceptedAt,
       },
       include: {
         request: true,
@@ -142,25 +157,23 @@ export const setApplicationStatus = ({
 
     const shouldNotifyBoth =
       process.env.NODE_ENV === 'production' &&
-      application.status === Status.Pending &&
-      updatedApplication.status === Status.Accepted;
+      application.status === ApplicationStatus.Pending &&
+      updatedApplication.status === ApplicationStatus.Accepted;
 
     const shouldNotifyDenialToApplicant =
       process.env.NODE_ENV === 'production' &&
-      application.status === Status.Pending &&
-      updatedApplication.status === Status.Rejected;
+      application.status === ApplicationStatus.Pending &&
+      updatedApplication.status === ApplicationStatus.Rejected;
 
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
-        (
-          [
-            ['Website / Portfolio', updatedApplication.portfolioLink],
-            ['Twitter', updatedApplication.twitterUrl],
-            ['Instagram', updatedApplication.instagramUrl],
-            ['LinkedIn', updatedApplication.linkedinUrl],
-            ['Message', updatedApplication.moreInfo],
-          ] as [string, string | null][]
-        ).filter(([, value]) => !!value) as [string, string][]
+        [
+          ['Website / Portfolio', updatedApplication.portfolioLink],
+          ['Twitter', updatedApplication.twitterUrl],
+          ['Instagram', updatedApplication.instagramUrl],
+          ['LinkedIn', updatedApplication.linkedinUrl],
+          ['Message', updatedApplication.moreInfo.replace(/\r?\n/g, '<br/>')],
+        ].filter(([, value]) => !!value) as [string, string][]
       )
         .map(([name, value]) => `<b>${name}:</b> ${value}`)
         .join('<br />');
@@ -173,12 +186,12 @@ export const setApplicationStatus = ({
         cc: OUR_EMAIL_TO,
         from: PLAYGROUND_EMAIL_FORMATTED,
         subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
-        text: playgroundApplicatantIntroductionEmail(
+        text: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts,
           true
         ),
-        html: playgroundApplicatantIntroductionEmail(
+        html: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts
         ),
@@ -271,7 +284,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
       .addFields([
         {
           name: 'Website',
-          value: hyperlink(request.website, correctedWebsite),
+          value: correctedWebsite,
         },
         {
           name: 'Compensation',
@@ -340,11 +353,12 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
 export const deleteRequest = ({ id }: z.infer<typeof deleteRequestSchema>) =>
   prisma.playgroundRequest.update({
     where: { id },
-    data: { status: Status.Rejected },
+    data: { status: RequestStatus.Rejected },
   });
 
 export const repostRequest = async ({
   id,
+  lastManuallyPushed,
 }: z.infer<typeof repostRequestSchema>) => {
   const request = await prisma.playgroundRequest.findUnique({
     where: { id },
@@ -354,9 +368,9 @@ export const repostRequest = async ({
   }
   const shouldPost =
     process.env.NODE_ENV === 'production' &&
-    (request.status === Status.Accepted ||
-      request.status === Status.Rejected ||
-      request.status === Status.Completed);
+    (request.status === RequestStatus.Accepted ||
+      request.status === RequestStatus.Rejected ||
+      request.status === RequestStatus.Completed);
   if (!shouldPost) {
     return;
   }
@@ -368,7 +382,7 @@ export const repostRequest = async ({
       async (prisma) => {
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          data: { status: 'Accepted' },
+          data: { status: RequestStatus.Accepted, lastManuallyPushed },
           include: {
             budget: {
               select: {
@@ -436,13 +450,18 @@ export const setRequestStatus = async ({
   const shouldPost =
     process.env.NODE_ENV === 'production' &&
     request.discordMessages.length === 0 &&
-    request.status === Status.Pending &&
-    status === Status.Accepted;
+    request.status === RequestStatus.Pending &&
+    status === RequestStatus.Accepted;
 
   const shouldNotifyDenial =
     process.env.NODE_ENV === 'production' &&
-    request.status === Status.Pending &&
-    status === Status.Rejected;
+    request.status === RequestStatus.Pending &&
+    status === RequestStatus.Rejected;
+
+  const shouldConfirmCompletion =
+    process.env.NODE_ENV === 'production' &&
+    request.status === RequestStatus.Accepted &&
+    status === RequestStatus.Completed;
 
   let discordMessages: Message[] = [];
   let redditSubmissions: Submission[] = [];
@@ -450,9 +469,16 @@ export const setRequestStatus = async ({
   try {
     const updatedRequest = await prisma.$transaction(
       async (prisma) => {
+        const acceptedAt = status === RequestStatus.Accepted && {
+          acceptedAt: new Date(),
+        };
+
         let updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          data: { status },
+          data: {
+            status,
+            ...acceptedAt,
+          },
           include: {
             budget: {
               select: {
@@ -491,6 +517,8 @@ export const setRequestStatus = async ({
       await sendAcceptedEmail(updatedRequest);
     } else if (shouldNotifyDenial) {
       await sendDenialEmail(updatedRequest);
+    } else if (shouldConfirmCompletion) {
+      await sendCompletionEmail(updatedRequest);
     }
     return updatedRequest;
   } catch (e) {
@@ -513,7 +541,9 @@ export const setRequestStatus = async ({
   }
 };
 
-const sendAcceptedEmail = (request: PlaygroundRequest) => {
+const sendAcceptedEmail = (
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'id'>
+) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
@@ -526,7 +556,7 @@ const sendAcceptedEmail = (request: PlaygroundRequest) => {
   });
 };
 
-const sendDenialEmail = (request: PlaygroundRequest) => {
+const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
@@ -536,5 +566,21 @@ const sendDenialEmail = (request: PlaygroundRequest) => {
     subject: 'Thanks so much for submitting your request to Playground!',
     text: playgroundRequestDenialEmail(true),
     html: playgroundRequestDenialEmail(),
+  });
+};
+
+const sendCompletionEmail = (
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'title'>
+) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return true;
+  }
+  return emailClient.sendMail({
+    to: request.providedEmail,
+    from: PLAYGROUND_EMAIL_FORMATTED,
+    cc: FLAVIA_EMAIL,
+    subject: 'Help Us Improve! Rate Your Experience with Playground',
+    text: playgroundRequestCompletedSurvey(request, true),
+    html: playgroundRequestCompletedSurvey(request),
   });
 };

@@ -1,3 +1,4 @@
+import { RequestStatus } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 import {
@@ -44,17 +45,27 @@ const requestsRouter = t.router({
   // auth procedures
   submitRequest: protectedProcedure
     .input(submitRequestSchema)
-    .mutation(({ input, ctx }) => {
-      if (input.id) {
-        return updateRequest({
+    .mutation(async ({ input, ctx }) => {
+      if (!input.id) {
+        return submitRequest({
           ...input,
           requesterId: ctx.user.id,
-          role: ctx.user.role,
         });
       }
-      return submitRequest({
+
+      const request = await getRequestById(input.id, ctx.user);
+
+      if (request.status === RequestStatus.Rejected) {
+        return submitRequest({
+          ...input,
+          requesterId: ctx.user.id,
+        });
+      }
+
+      return updateRequest({
         ...input,
         requesterId: ctx.user.id,
+        role: ctx.user.role,
       });
     }),
   getLastUserRequest: protectedProcedure.query(

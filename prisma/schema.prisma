@@ -4,6 +4,7 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["interactiveTransactions", "filteredRelationCount"]
+  binaryTargets = ["native", "darwin"]
 }
 
 datasource db {
@@ -47,6 +48,7 @@ model User {
   id            String    @id @default(cuid()) @db.VarChar(30)
   role          UserRole  @default(User)
   name          String?
+  pronouns      String?
   email         String    @unique
   emailVerified DateTime?
   image         String?
@@ -69,11 +71,17 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-enum Status {
+enum RequestStatus {
   Pending
   Accepted
   Rejected
   Completed
+}
+
+enum ApplicationStatus {
+  Pending
+  Accepted
+  Rejected
   Blocked
 }
 
@@ -92,6 +100,11 @@ enum Source {
   WordOfMouth
   WebsiteOrBlog
   None
+}
+
+enum PlaygroundRequestOrganizationType {
+  Activism
+  Profit
 }
 
 enum BudgetType {
@@ -114,7 +127,9 @@ model PlaygroundApplication {
   providedEmail        String
   applicantId          String
   name                 String
+  pronouns             String?
   availableTimePerWeek TimePerWeek
+  estimatedTimeDays    Int?
   source               Source?
   portfolioLink        String
   twitterUrl           String?
@@ -125,10 +140,14 @@ model PlaygroundApplication {
   calendlyUrl          String?
   moreInfo             String
   requestId            String
-  status               Status      @default(Pending)
+  status               ApplicationStatus      @default(Pending)
 
   applicant User              @relation(fields: [applicantId], references: [id])
   request   PlaygroundRequest @relation(fields: [requestId], references: [id])
+
+  feedbackRequested    Boolean? @default(false)
+
+  acceptedAt           DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -149,6 +168,18 @@ enum PlaygroundRequestCategory {
   Other
 }
 
+enum PlaygroundRequestDesignRequestType {
+  Logo
+  SocialMedia
+  Branding
+  DonorDocuments
+  UserInterface
+  Illustration
+  Animation
+  Miscellaneous
+  Other
+}
+
 model DiscordMessage {
   messageId           String @db.Char(19)
   channelId           String @db.Char(19)
@@ -160,30 +191,43 @@ model DiscordMessage {
 }
 
 model PlaygroundRequest {
-  id                String                    @id @default(cuid()) @db.VarChar(30)
-  phone             String?
-  name              String
-  providedEmail     String
-  organization      String?
-  website           String
-  calendlyUrl       String
-  title             String                    @db.VarChar(200)
-  requiredSkills    String[]                  @default([])
-  neededVolunteers  Int                       @default(1)
-  description       String                    @db.Text
-  dueDate           DateTime?                 @db.Date
-  estimatedTimeDays Int
-  requesterId       String
-  status            Status                    @default(Pending)
-  category          PlaygroundRequestCategory
+  id                      String                    @id @default(cuid()) @db.VarChar(30)
+  phone                   String?
+  name                    String
+  pronouns                String?
+  providedEmail           String
+  organization            String?
+  organizationType        PlaygroundRequestOrganizationType?
+  organizationDescription String?
+  website                 String
+  calendlyUrl             String
+  title                   String                    @db.VarChar(200)
+  requiredSkills          String[]                  @default([])
+  neededVolunteers        Int                       @default(1)
+  description             String                    @db.Text
+  dueDate                 DateTime?                 @db.Date
+  estimatedTimeDays       Int? // TODO: remvoe
+  requesterId             String
+  status                  RequestStatus             @default(Pending)
+  category                PlaygroundRequestCategory
 
-  discordMessages DiscordMessage[]
-  requester       User                    @relation(fields: [requesterId], references: [id])
-  applications    PlaygroundApplication[]
-  budget          Budget?
+  discordMessages         DiscordMessage[]
+  requester               User                      @relation(fields: [requesterId], references: [id])
+  applications            PlaygroundApplication[]
+  budget                  Budget?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  devRequestWebsiteExists Boolean?
+  devRequestWebsiteUrl    String?
+  designRequestType       PlaygroundRequestDesignRequestType?
+  designRequestCurrentDesignExists Boolean?
+
+  lastManuallyPushed      DateTime?
+  noApplicationsNotificationEmailSent Boolean       @default(false)
+
+  acceptedAt              DateTime?
+
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
 }
 
 model DataDashboardData {

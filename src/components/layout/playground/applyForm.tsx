@@ -8,7 +8,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import { TimePerWeek, UserRole, Status } from '@prisma/client';
+import {
+  ApplicationStatus,
+  PlaygroundRequestCategory,
+  RequestStatus,
+  TimePerWeek,
+  UserRole,
+} from '@prisma/client';
 import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
@@ -109,11 +115,12 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   return (
     <div className="px-10 mb-5 md:px-40">
       <div className="flex flex-row justify-start gap-5">
-        {request.status !== 'Accepted' && (
+        {request.status !== RequestStatus.Accepted && (
           <div
             className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
-              'bg-red text-white': request.status === 'Rejected',
-              'bg-grey text-grey-light': request.status === 'Pending',
+              'bg-red text-white': request.status === RequestStatus.Rejected,
+              'bg-grey text-grey-light':
+                request.status === RequestStatus.Pending,
             })}
           >
             {request.status} request!
@@ -172,9 +179,6 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           >
             {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
           </Field>
-          <Field title="Est. time required">
-            {request.estimatedTimeDays} DAYS
-          </Field>
           <Field title="Compensation">
             {request.budget ? (
               <div>
@@ -184,6 +188,34 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
+          <Field title="Website">{request.website}</Field>
+          {request.category === PlaygroundRequestCategory.Designer && (
+            <>
+              <Field title="Current design exists">
+                {request.designRequestCurrentDesignExists ? 'Yes' : 'No'}
+              </Field>
+              {request.designRequestType && (
+                <Field title="Design request type">
+                  {request.designRequestType}
+                </Field>
+              )}
+            </>
+          )}
+          {request.category === PlaygroundRequestCategory.Developer && (
+            <>
+              <Field title="Website exists">
+                {request.devRequestWebsiteExists ? 'Yes' : 'No'}
+              </Field>
+              {request.devRequestWebsiteUrl && (
+                <Field title="Concerned website url">
+                  {request.devRequestWebsiteUrl}
+                </Field>
+              )}
+            </>
+          )}
+          {request.organization && (
+            <Field title="Organization name">{request.organization}</Field>
+          )}
           {session?.user?.role === UserRole.Admin && (
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
@@ -404,6 +436,14 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Name
         </TextInput>
         <TextInput
+          className="col-span-full"
+          error={errors.pronouns?.message}
+          {...myRegister('pronouns')}
+          placeholder="Your pronouns"
+        >
+          Pronouns
+        </TextInput>
+        <TextInput
           showRequiredMark
           className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
@@ -549,6 +589,22 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             )}
           />
         </div>
+        <TextInput
+          className="col-span-full"
+          type="number"
+          inputMode="numeric"
+          min={1}
+          placeholder="Days"
+          {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
+          error={errors.estimatedTimeDays?.message}
+        >
+          Estimated time commitment
+          <span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Please give a rough estimate of how long do you think this should
+            take
+          </span>
+        </TextInput>
         <div className="col-span-full">
           <Label error={errors.source?.message} name="source">
             Where did you hear about Playground?
@@ -681,7 +737,7 @@ export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
 
   return (
     <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
-      {lastApplication?.status === Status.Blocked ? (
+      {lastApplication?.status === ApplicationStatus.Blocked ? (
         <div className="max-w-lg mx-auto xl:max-w-sm">
           <RequestApplicationBlocked />
         </div>

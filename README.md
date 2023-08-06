@@ -20,6 +20,7 @@ Because this team is so new we still have to document all of this somewhere, so 
     - [Setting up the database](#setting-up-the-database)
     - [Installing the dependencies](#installing-the-dependencies)
     - [Migrate and seed the database](#migrate-and-seed-the-database)
+    - [Gain access to admin pages](#gain-access-to-admin-pages)
     - [Coding conventions and guidelines](#coding-conventions-and-guidelines)
     - [Configuring your editor](#configuring-your-editor)
   - [Grab a card](#grab-a-card)
@@ -59,7 +60,7 @@ docker compose down
 
 ### Setting up the SMTP-Server
 
-The `docker-compose.yml` also inclues a smtp service, which is providing a simple smtp server without authentification accessible under port 2525.
+Running the smtp server is only necessary if you wish to login which can be useful for accessing admin functionality (see [Gain access to admin pages](#gain-access-to-admin-pages)). The `docker-compose.yml` inclues a smtp service, which is providing a simple smtp server without authentification accessible under port 2525.
 
 ```bash
 docker compose up -d smtp
@@ -113,7 +114,7 @@ authentication is working with magic links.
 
 Start your development server and navigate to [http://localhost:3000/auth/signin](http://localhost:3000/auth/signin) and fill in a valid e-mail address. You'll receive a confirmation link you'll have to click.
 
-Afterwards you need to use a database tool of your choice to connect to the postgresql database.
+Afterwards you need to use a database tool of your choice to connect to the postgresql database. You can also use `pnpm prisma studio` to access the database.
 
 Looking at the users table you should see your email address under the last create users. Now change the field Role from User to Admin.
 After changing your role you need to [log-out](http://localhost:3000/auth/signout) and [log-in](http://localhost:3000/auth/signin) again to renew your permissions.
@@ -123,6 +124,63 @@ After changing your role you need to [log-out](http://localhost:3000/auth/signou
 We are still figuring this out as we go, but for now we follow [these guidelines for TypeScript](https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md) and [these conventions for React](https://github.com/basarat/typescript-book/blob/master/docs/jsx/react.md).
 
 As for Git conventions, we try to follow the style guide as described [here](https://github.com/agis/git-style-guide).
+
+#### Commenting code
+
+#### What to comment?
+
+With typescript, commenting is quite different compared to javascript because data types are documented with the language already. So when writing code, we should focus on explaining decisions and motivations, rather than how or when to use this code block.  
+Often there are multiple ways to code something, the decision should be explained above the implementation.  
+Avoid unnecessary or redundant comments, such as those that simply restate the code.
+
+- Code blocks e.g. functions, including react components, and classes
+  - Explain the motivation for this code block and if available, reference the corresponding Trello card.
+  - If there are similar code blocks, write a short explanation what differentiates them and the necessity for the similar block.
+- Inside these code blocks
+  - Too complex or not easily understood code should not be written. If it is, explain why, and what this code should do.
+
+#### Format
+
+Use [TSDoc](https://tsdoc.org) as commenting style.
+
+#### Examples
+
+```typescript
+/**
+ * Because it is required in HTML email bodies, <br/> tags are used instead of line separators.
+ */
+export const createFormattedHTMLMessage: (
+  data: Record<string, string>
+) => string = (data) => {
+  return Object.entries(data)
+    .map(([field, value]) => {
+      field = firstLetterUppercase(field);
+      return `<b>${
+        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(" ") ?? field
+      }:</b> ${String(value).trim().split("\n").join("<br/>")}`;
+    })
+    .join("<br/>");
+};
+```
+
+```typescript
+/**
+ * What differentiates this from a useEffect call with empty dependencies is the option to enable/disable.
+ */
+const useOnce = (callback: () => void, options: UseOnceOptions = {}) => {
+  const { enabled = true } = options;
+  const isFirstRenderRef = useRef(true);
+
+  useEffect(() => {
+    if (!enabled || !isFirstRenderRef.current) return;
+
+    isFirstRenderRef.current = false;
+    callback();
+  }, [callback, enabled]);
+
+  return !isFirstRenderRef.current;
+};
+```
 
 ### Configuring your editor
 

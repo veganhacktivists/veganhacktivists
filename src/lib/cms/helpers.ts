@@ -6,6 +6,7 @@ import type {
   IBlogEntryFields,
   IDocsCategory,
   IDocsCategoryFields,
+  IProject,
   IProjectFields,
   ITeamFields,
 } from '../../types/generated/contentful';
@@ -64,6 +65,11 @@ export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
 export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
+    query: {
+      filters: {
+        ne: { showInWebsite: false },
+      },
+    },
     other: {
       order: '-fields.date',
     },
@@ -72,13 +78,14 @@ export const getProjects: () => Promise<Entry<IProjectFields>[]> = async () => {
   return projects;
 };
 
-export const getFeaturedProjects: () => Promise<
-  Entry<IProjectFields>[]
-> = async () => {
+export const getFeaturedProjects = async () => {
   const projects = await getContents<IProjectFields>({
     contentType: 'project',
     query: {
       isFeatured: true,
+      filters: {
+        ne: { showInWebsite: false },
+      },
     },
     other: {
       order: '-fields.date',
@@ -86,7 +93,7 @@ export const getFeaturedProjects: () => Promise<
     },
   });
 
-  return projects;
+  return projects as IProject[];
 };
 
 export const getBlogEntries: (

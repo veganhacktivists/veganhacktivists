@@ -20,17 +20,29 @@ discord.on('ready', () => {
   console.info('Discord client ready!');
 });
 
-export const getDiscordChannel = async (id: string) => {
+const getDiscordChannel = async (id: string) => {
   return discord.channels.cache.get(id) || (await discord.channels.fetch(id));
 };
+
+const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
+
+/** Record<ServerCacheId, CacheInvalidationTimestamp | undefined> */
+const discordServerCache: Record<string, number | undefined> = {};
 
 export const getDiscordServer = async (id: string) => {
   if (!id) {
     throw new Error('No server ID provided');
   }
-  const cachedServer = discord.guilds.cache.get(id);
+  const cachedServer =
+    discordServerCache[id] !== undefined &&
+    discordServerCache[id]! <= Date.now()
+      ? undefined
+      : discord.guilds.cache.get(id);
 
   if (!cachedServer || !cachedServer.approximateMemberCount) {
+    discord.guilds.cache.delete(id);
+    discordServerCache[id] = Date.now() + DAY_IN_MILLISECONDS;
+
     return await discord.guilds.fetch({
       guild: id,
       withCounts: true,

@@ -1,11 +1,13 @@
 import { NextSeo } from 'next-seo';
 import React, { useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   faLongArrowAltLeft as leftArrow,
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { PlaygroundRequestCategory } from '@prisma/client';
 
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
@@ -22,10 +24,32 @@ import { trpc } from 'lib/client/trpc';
 
 import type PageWithLayout from 'types/persistentLayout';
 
+const isValidPlaygroundRequestCategoryValue = (
+  value: string | string[] | undefined
+): value is PlaygroundRequestCategory[] | PlaygroundRequestCategory => {
+  if (value === undefined) {
+    return false;
+  }
+  if (Array.isArray(value)) {
+    return value.some((category) => category in PlaygroundRequestCategory);
+  }
+  return value in PlaygroundRequestCategory;
+};
+
 const Playground: PageWithLayout = ({}) => {
+  const router = useRouter();
+
   const [filters, setFilters] = useState<
     trpc['playground']['getAllRequests']['input']
   >(() => ({
+    categories: isValidPlaygroundRequestCategoryValue(router.query.category)
+      ? Array.isArray(router.query.category)
+        ? router.query.category
+        : [router.query.category]
+      : undefined,
+    ...(router.query.isPaidRequest && {
+      isPaidRequest: router.query.isPaidRequest === 'true',
+    }),
     sort: {
       createdAt: 'desc',
     },
@@ -70,24 +94,53 @@ const Playground: PageWithLayout = ({}) => {
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
 
+  /**
+   * Updates the filters and adds them to the current URL as query strings
+   */
+  const updateFilterHandler = (
+    filters: trpc['playground']['getAllRequests']['input']
+  ) => {
+    delete router.query['isPaidRequest'];
+    delete router.query['category'];
+    void router.push(
+      {
+        pathname: router.pathname,
+        query: {
+          ...(filters.categories && {
+            category: filters.categories,
+          }),
+          ...(typeof filters.isPaidRequest === 'boolean' && {
+            isPaidRequest: filters.isPaidRequest,
+          }),
+          ...router.query,
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+    setFilters(filters);
+  };
+
   return (
     <>
       <NextSeo title="Requests" />
       <div>
-        <SectionHeader header={['View pending', 'requests']}>
-          Check out the requests below to find volunteer or paid opportunities
-          to help the animals. Are you an individual or organization seeking
-          support for your work?{' '}
-          <CustomLink className="font-bold" href="/playground/submit">
-            Submit a request
-          </CustomLink>{' '}
-          of your own!
-        </SectionHeader>
+        <div className="lg:mx-12 2xl:mx-44 xl:mx-36">
+          <SectionHeader header={['View pending', 'requests']}>
+            Check out the requests below to find volunteer or paid opportunities
+            to help the animals. Are you an individual or organization seeking
+            support for your work?{' '}
+            <CustomLink className="font-bold" href="/playground/submit">
+              Submit a request
+            </CustomLink>{' '}
+            of your own!
+          </SectionHeader>
+        </div>
         <div
           className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
           ref={requestContainer}
         >
-          <RequestFilters onChange={setFilters} filters={filters} />
+          <RequestFilters onChange={updateFilterHandler} filters={filters} />
           <div
             className="grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2"
             ref={animatedRef}

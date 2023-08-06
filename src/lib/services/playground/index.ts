@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { Status, UserRole } from '@prisma/client';
+import { RequestStatus, UserRole } from '@prisma/client';
 
 import { OUR_EMAIL_TO, PLAYGROUND_TO_CC } from '../../mail/router';
 import { PLAYGROUND_EMAIL_FORMATTED } from '../../mail/router';
@@ -51,7 +51,7 @@ export const getPlaygroundRequests = async ({
       category: {
         in: categories,
       },
-      status: Status.Accepted,
+      status: RequestStatus.Accepted,
     },
     orderBy,
   });
@@ -65,19 +65,25 @@ export const getRequestById = async (
   extended = false
 ) => {
   let ownRequest = false;
-  if (extended) {
+  if (extended && user) {
     const authorizedRequest = await prisma.playgroundRequest.findFirst({
       where: {
         id,
-        requesterId: user?.id,
+        requesterId: user.id,
       },
     });
     ownRequest = !!authorizedRequest;
   }
+
   const request = await prisma.playgroundRequest.findFirst({
     where: {
       id,
-      status: user?.role === UserRole.Admin ? undefined : Status.Accepted,
+      status: {
+        in:
+          user?.role === UserRole.Admin
+            ? undefined
+            : [RequestStatus.Accepted, RequestStatus.Rejected],
+      },
     },
     select: {
       category: true,
@@ -94,6 +100,10 @@ export const getRequestById = async (
       status: true,
       updatedAt: true,
       website: true,
+      designRequestCurrentDesignExists: true,
+      designRequestType: true,
+      devRequestWebsiteExists: true,
+      devRequestWebsiteUrl: true,
       providedEmail: user?.role === UserRole.Admin || ownRequest,
       calendlyUrl: user?.role === UserRole.Admin || ownRequest,
       phone: user?.role === UserRole.Admin || ownRequest,
@@ -134,7 +144,6 @@ export const applyToHelp = async (
     prisma.playgroundApplication.create({
       data: {
         ...params,
-        applicantId: params.applicantId,
       },
     }),
     prisma.user.update({
@@ -143,6 +152,7 @@ export const applyToHelp = async (
       },
       data: {
         name: params.name,
+        pronouns: params.pronouns,
       },
     }),
   ]);
@@ -185,52 +195,68 @@ export const updateRequest = async ({
   ) {
     return null;
   }
-  let operation;
-  if (oldRequest && budget) {
-    if (oldRequest.budget) {
-      operation = {
-        update: {
-          ...budget,
-        },
-      };
-    } else {
-      operation = {
-        create: {
-          ...budget,
-        },
-      };
-    }
-  } else {
-    operation = {
-      delete: !!oldRequest?.budget,
-    };
-  }
 
-  return await prisma.playgroundRequest.update({
-    where: {
-      id: id,
-    },
-    data: {
-      ...params,
-      budget: {
-        ...operation,
+  const shouldUpdate = oldRequest && budget && oldRequest.budget;
+  const shouldCreate = oldRequest && budget && !oldRequest.budget;
+  const shouldDelete = !shouldUpdate && !shouldCreate;
+
+  const operation = {
+    ...(shouldUpdate && {
+      update: {
+        ...budget,
       },
-    },
-    include: {
-      budget: true,
-    },
+    }),
+    ...(shouldCreate && {
+      create: {
+        ...budget,
+      },
+    }),
+    ...(shouldDelete && {
+      delete: !!oldRequest?.budget,
+    }),
+  };
+
+  return prisma.$transaction(async (prisma) => {
+    await prisma.user.update({
+      where: {
+        id: requesterId,
+      },
+      data: {
+        name: params.name,
+      },
+    });
+
+    return await prisma.playgroundRequest.update({
+      where: {
+        id: id,
+      },
+      data: {
+        ...params,
+        budget: {
+          ...operation,
+        },
+      },
+      include: {
+        budget: true,
+      },
+    });
   });
 };
 
 export const submitRequest = async ({
   budget,
+  requesterId,
   ...params
 }: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {
         ...params,
-        requesterId: params.requesterId,
+        requester: {
+          connect: {
+            id: requesterId,
+          },
+        },
         budget: {
           create: budget,
         },
@@ -238,7 +264,7 @@ export const submitRequest = async ({
     }),
     prisma.user.update({
       where: {
-        id: params.requesterId,
+        id: requesterId,
       },
       data: {
         name: params.name,

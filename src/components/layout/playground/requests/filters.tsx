@@ -274,9 +274,9 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
         </span>
         <FilterBy
           filters={otherFilters}
-          onFiltersChange={(newFilters) =>
-            onChange({ sort: filters.sort, ...newFilters })
-          }
+          onFiltersChange={(newFilters) => {
+            onChange({ sort: filters.sort, ...newFilters });
+          }}
         />
       </div>
       <div

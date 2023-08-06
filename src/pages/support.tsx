@@ -139,23 +139,6 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
         />
       </Paragraph>
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
-      <div className="py-16 bg-grey-darker">
-        <h2 className="mb-8 text-4xl font-bold text-white">
-          <FormattedMessage
-            id="page.support.section.donation-goals.title"
-            defaultMessage="Monthly Supporter Goals"
-          />
-        </h2>
-        <Paragraph>
-          <span className="text-white">
-            <FormattedMessage
-              id="page.support.section.donation-goals.introduction"
-              defaultMessage="See our monthly supporter goals below, and help us grow and be more effective!"
-            />
-          </span>
-        </Paragraph>
-        <ProgressBar currentAmount={patreonFunding} goal={1000} />
-      </div>
       <SquareField
         squares={[
           { color: 'gray-background', size: 16, bottom: 0, left: 0 },

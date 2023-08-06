@@ -1,3 +1,4 @@
 src/types/generated/*
+pnpm-lock.yaml
 .next/*
 public/images/*

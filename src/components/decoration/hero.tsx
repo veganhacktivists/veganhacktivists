@@ -10,6 +10,7 @@ import type { ImageProps, StaticImageData } from 'next/image';
 interface HeroClassNames {
   container?: string;
   content?: string;
+  tagline?: string;
 }
 interface HeroProps extends React.PropsWithChildren {
   imageBackground: ImageProps['src'];
@@ -93,7 +94,7 @@ const Hero: React.FC<HeroProps> = ({
       <h1 className={contentClasses}>
         {tagline && (
           <div
-            className={classNames({
+            className={classNames(classNameMapping?.tagline, {
               'ml-5 md:ml-56 xl:ml-36 2xl:ml-5 py-20 md:py-20 lg:py-20': !main,
             })}
           >

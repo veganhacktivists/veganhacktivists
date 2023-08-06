@@ -2,8 +2,9 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
-import { Status } from '@prisma/client';
+import { RequestStatus } from '@prisma/client';
 import { useSession } from 'next-auth/react';
+import { PlaygroundRequestCategory } from '@prisma/client';
 
 import {
   CATEGORY_COLORS,
@@ -16,11 +17,12 @@ import SquareField from 'components/decoration/squares';
 import { formatCurrency } from 'lib/helpers/format';
 
 import type { trpc } from 'lib/client/trpc';
-import type { PlaygroundRequestCategory } from '@prisma/client';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
-  request: trpc['playground']['getAllRequests']['output'][number];
+  request:
+    | trpc['playground']['getAllRequests']['output'][number]
+    | trpc['playground']['admin']['getRequests']['output'][number];
   disabled?: boolean;
 }
 
@@ -37,7 +39,7 @@ const Li: React.FC<
     <li
       {...props}
       className={classNames(
-        'max-w-fit flex flex-row gap-2 justify-start items-center',
+        'max-w-fit flex flex-row gap-2 justify-start items-center break-words',
         className
       )}
     >
@@ -45,7 +47,7 @@ const Li: React.FC<
         style={{ backgroundColor: CATEGORY_COLORS[category] }}
         className="w-1.5 h-1.5 my-auto aspect-square"
       />
-      <span className="my-auto truncate h-min">
+      <span className="my-auto h-min">
         <b>{name}:</b> {children}
       </span>
     </li>
@@ -67,6 +69,11 @@ const PlaygroundRequestCard: React.FC<
     dueDate,
     status,
     neededVolunteers,
+    lastManuallyPushed,
+    designRequestCurrentDesignExists,
+    designRequestType,
+    devRequestWebsiteExists,
+    devRequestWebsiteUrl,
   },
   disabled = false,
   children,
@@ -74,6 +81,11 @@ const PlaygroundRequestCard: React.FC<
   const [timeSinceCreated] = useMemo(
     () => readableTimeDiff(createdAt),
     [createdAt]
+  );
+
+  const timeSinceLastManuallyPushed = useMemo(
+    () => lastManuallyPushed && readableTimeDiff(lastManuallyPushed)[0],
+    [lastManuallyPushed]
   );
 
   const [timeUntilDue, isDue, hasNoDue] = useMemo(() => {
@@ -88,7 +100,7 @@ const PlaygroundRequestCard: React.FC<
   );
   const { data: session } = useSession();
   const canEdit =
-    status !== Status.Completed &&
+    status !== RequestStatus.Completed &&
     (session?.user?.role === 'Admin' || requester?.id === session?.user?.id);
 
   return (
@@ -137,6 +149,16 @@ const PlaygroundRequestCard: React.FC<
           >
             {requester.name}
           </Li>
+          {'email' in requester && (
+            <Li
+              className="break-all"
+              name="Requestor email"
+              category={category}
+              title={requester.email || undefined}
+            >
+              {requester.email}
+            </Li>
+          )}
           <Li
             title={`${
               hasNoDue
@@ -175,14 +197,52 @@ const PlaygroundRequestCard: React.FC<
           >
             {budget ? `${formattedBudget!} ${budget.type}` : 'Volunteer role'}
           </Li>
+
           {session?.user?.role === 'Admin' && (
-            <Li
-              name="Needed volunteers"
-              title={`${neededVolunteers ?? '1'}`}
-              category={category}
-            >
-              {`${neededVolunteers ?? '1'}`}
-            </Li>
+            <>
+              {category === PlaygroundRequestCategory.Designer && (
+                <>
+                  <Li name="Current design exists" category={category}>
+                    {designRequestCurrentDesignExists ? 'Yes' : 'No'}
+                  </Li>
+                  <Li
+                    name="Design request type"
+                    title={designRequestType ?? ''}
+                    category={category}
+                  >
+                    {designRequestType}
+                  </Li>
+                </>
+              )}
+              {category === PlaygroundRequestCategory.Developer && (
+                <>
+                  <Li name="Website exists" category={category}>
+                    {devRequestWebsiteExists ? 'Yes' : 'No'}
+                  </Li>
+                  <Li
+                    name="Concerned website url"
+                    title={devRequestWebsiteUrl ?? ''}
+                    category={category}
+                  >
+                    {devRequestWebsiteUrl}
+                  </Li>
+                </>
+              )}
+              <Li
+                name="Needed volunteers"
+                title={`${neededVolunteers ?? '1'}`}
+                category={category}
+              >
+                {`${neededVolunteers ?? '1'}`}
+              </Li>
+              <Li
+                name="Last manually pushed"
+                title={timeSinceLastManuallyPushed ?? 'Never'}
+                category={category}
+              >
+                {timeSinceLastManuallyPushed ?? 'Never'}
+              </Li>
+            </>
           )}
         </ul>
         <div

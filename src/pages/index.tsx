@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
@@ -252,16 +253,23 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
               }}
             />
           </p>
-          <div className="grid grid-cols-1 gap-4 pt-16 lg:grid-cols-4 lg:gap-4 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-4">
+          <div
+            className={classNames(
+              'grid grid-cols-2 gap-4 pt-16 sm:grid-cols-2',
+              featuredProjects.length % 4 === 0
+                ? 'md:grid-cols-4'
+                : 'md:grid-cols-3'
+            )}
+          >
             {featuredProjects.map((project) => (
               <FeaturedProject key={project.sys.id} {...project.fields} />
             ))}
           </div>
           <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
-            <DarkButton href="/projects" className="font-mono">
+            <DarkButton href="/work" className="font-mono">
               <FormattedMessage
                 id="page.index.section.projects.cta"
-                defaultMessage="See All Projects"
+                defaultMessage="See Our Work"
               />
             </DarkButton>
           </div>

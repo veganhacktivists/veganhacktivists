@@ -12,7 +12,6 @@ import ByTheNumbers from '../../components/layout/yearInReview/2022/byTheNumbers
 import Playground from '../../components/layout/yearInReview/2022/playground';
 import NewVideos from '../../components/layout/yearInReview/2022/newVideos';
 import MovingForward from '../../components/layout/yearInReview/2022/movingForward';
-import { FirstSubSection } from '../../components/decoration/textBlocks';
 
 import SharingKnowledgeAndSupport from 'components/layout/yearInReview/2022/sharingKnowledgeAndSupport';
 import FeaturedInterviews from 'components/layout/yearInReview/2022/featuredInterviews';

@@ -1,9 +1,12 @@
 import {
   BudgetType,
   PlaygroundRequestCategory,
-  Status,
   TimePerWeek,
   Source,
+  RequestStatus,
+  ApplicationStatus,
+  PlaygroundRequestOrganizationType,
+  PlaygroundRequestDesignRequestType,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -43,7 +46,9 @@ export const getPlaygroundRequestsSchema = requestFilterSchema
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
   name: z.string().min(1, { message: 'This value is required' }),
+  pronouns: z.string().optional(),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
+  estimatedTimeDays: z.number().nonnegative().int(),
   source: z.nativeEnum(Source).optional(),
   providedEmail: z.string().trim().email(),
   portfolioLink: z
@@ -89,12 +94,37 @@ const budgetSchema = z.object({
   type: z.nativeEnum(BudgetType),
 });
 
-export const submitRequestSchema = z.object({
+const devRequestSchema = z.object({
+  category: z.literal(PlaygroundRequestCategory.Developer),
+  devRequestWebsiteExists: z.boolean().optional(),
+  devRequestWebsiteUrl: z.string().optional(),
+  designRequestType: z.undefined(),
+  designRequestCurrentDesignExists: z.undefined(),
+});
+
+const designRequestSchema = z.object({
+  category: z.literal(PlaygroundRequestCategory.Designer),
+  designRequestType: z
+    .nativeEnum(PlaygroundRequestDesignRequestType)
+    .optional(),
+  designRequestCurrentDesignExists: z.boolean().optional(),
+  devRequestWebsiteExists: z.undefined(),
+  devRequestWebsiteUrl: z.undefined(),
+});
+
+const otherRequestCategorySchema = z.object({
+  category: z.nativeEnum(PlaygroundRequestCategory),
+});
+
+const submitRequestSchemaBase = z.object({
   id: z.string().cuid().optional(),
   name: z.string().trim().min(1, { message: 'This value is required' }),
+  pronouns: z.string().trim().optional(),
   providedEmail: z.string().trim().email(),
-  phone: z.string().trim().optional(),
+  phone: z.string().trim().min(1, { message: 'This value is required' }),
   organization: z.string().trim().optional(),
+  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType).optional(),
+  organizationDescription: z.string().trim().min(1),
   website: z
     .string()
     .trim()
@@ -116,15 +146,25 @@ export const submitRequestSchema = z.object({
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
   dueDate: z.date().optional().nullable(),
-  estimatedTimeDays: z.number().nonnegative().int(),
+  estimatedTimeDays: z.number().nonnegative().int().nullish(),
   neededVolunteers: z.number().nonnegative().int(),
   agreeToTerms: z
     .boolean()
     .refine((x) => !!x)
     .transform(() => undefined),
+  devRequestWebsiteExists: z.boolean().optional(),
+  devRequestWebsiteUrl: z.string().optional(),
+  designRequestType: z
+    .nativeEnum(PlaygroundRequestDesignRequestType)
+    .optional(),
+  designRequestCurrentDesignExists: z.boolean().optional(),
 });
 
-export const submitRequestSchemaClient = submitRequestSchema.merge(
+export const submitRequestSchema = submitRequestSchemaBase.and(
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+);
+
+const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
   z.object({
     requiredSkills: z.string().trim().min(1),
     agreeToTerms: z
@@ -133,26 +173,31 @@ export const submitRequestSchemaClient = submitRequestSchema.merge(
   })
 );
 
-export const verifyRequestFormRequestSchema = submitRequestSchemaClient.extend({
-  dueDate: z
-    .string()
-    .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
-      message: 'Due date must be in the future',
-    }),
-});
+export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+);
+
+export const verifyRequestFormRequestSchema =
+  submitRequestSchemaClientBase.extend({
+    dueDate: z
+      .string()
+      .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+        message: 'Due date must be in the future',
+      }),
+  });
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
 export const getRequestsAdminSchema = z
   .object({
-    status: z.nativeEnum(Status),
+    status: z.nativeEnum(RequestStatus),
     pagination: paginationSchema.optional(),
   })
   .partial();
 
 export const setApplicationStatusSchema = z.object({
   id: z.string().cuid(),
-  status: z.nativeEnum(Status),
+  status: z.nativeEnum(ApplicationStatus),
 });
 
 export const deleteRequestSchema = z.object({
@@ -161,9 +206,10 @@ export const deleteRequestSchema = z.object({
 
 export const repostRequestSchema = z.object({
   id: z.string().cuid(),
+  lastManuallyPushed: z.date().optional().nullable(),
 });
 
 export const setRequestStatusSchema = z.object({
   id: z.string().cuid(),
-  status: z.nativeEnum(Status),
+  status: z.nativeEnum(RequestStatus),
 });

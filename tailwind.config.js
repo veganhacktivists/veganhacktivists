@@ -56,6 +56,11 @@ const colors = {
   },
 };
 
+colors.broccoli = colors.green.DEFAULT;
+colors.banana = colors.yellow.DEFAULT;
+colors.carrot = colors.orange.DEFAULT;
+colors.watermelon = colors.magenta.DEFAULT;
+
 // Synonymous Colors (adds verbosity for spelling and ease of memory)
 colors.gray = colors.grey;
 colors.pink = colors.magenta;
@@ -72,6 +77,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'scroll-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
+      animation: {
+        'infinite-scroll': 'scroll 120s linear infinite',
+        'infinite-scroll-reverse': 'scroll-reverse 120s linear infinite',
+      },
       dropShadow: {
         border: '2px 2px 4px rgba(0, 0, 0, 0.05)',
       },
@@ -102,5 +121,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
+    require('tailwind-scrollbar'),
   ],
 };

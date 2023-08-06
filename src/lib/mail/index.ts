@@ -18,7 +18,7 @@ const DOMAIN = 'veganhacktivists.org';
 class EmailClient {
   private mg: MailgunClient;
   private nm: Transporter;
-  sendMail: (options: EmailDev | Email) => Promise<true | MessagesSendResult>;
+  sendMail: (options: EmailDev | Email) => Promise<MessagesSendResult>;
   constructor(mg: MailgunClient, nm: Transporter) {
     this.mg = mg;
     this.nm = nm;

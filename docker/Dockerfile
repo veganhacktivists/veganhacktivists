@@ -3,7 +3,7 @@ ARG NODE_VERSION=16.16.0
 FROM node:${NODE_VERSION}-alpine AS base
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
-ARG PNPM_VERSION=7.5.1
+ARG PNPM_VERSION=8.6.0
 
 RUN npm install --location=global pnpm@${PNPM_VERSION}
 RUN pnpm config set store-dir ./.pnpm-store

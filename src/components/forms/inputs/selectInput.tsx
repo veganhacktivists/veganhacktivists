@@ -3,7 +3,6 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import React from 'react';
 import classNames from 'classnames';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 
 import getThemeColor from '../../../lib/helpers/theme';
 

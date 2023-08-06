@@ -1,6 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useCallback } from 'react';
-import { Status } from '@prisma/client';
+import { ApplicationStatus, RequestStatus } from '@prisma/client';
 import { NextSeo } from 'next-seo';
 
 import {
@@ -57,14 +57,14 @@ const AdminPage: NextPage = ({}) => {
       <NextSeo title="Applications - Admin Panel" />
       <div>
         <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
-          {Object.values(Status)
-            .filter((status) => status !== 'Rejected')
+          {Object.values(RequestStatus)
+            .filter((status) => status !== RequestStatus.Rejected)
             .map((status) => (
               <OutlineButton
                 href={{ pathname: '/playground/admin', query: { status } }}
                 key={status}
               >
-                {status === 'Accepted' ? 'Live' : status} requests
+                {status === RequestStatus.Accepted ? 'Live' : status} requests
               </OutlineButton>
             ))}
           <OutlineButton
@@ -115,7 +115,10 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to accept ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: Status.Accepted });
+                                mutate({
+                                  id: app.id,
+                                  status: ApplicationStatus.Accepted,
+                                });
                               }
                             }}
                           >
@@ -130,7 +133,10 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to deny ${app.name}'s application?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: Status.Rejected });
+                                mutate({
+                                  id: app.id,
+                                  status: ApplicationStatus.Rejected,
+                                });
                               }
                             }}
                           >
@@ -160,7 +166,10 @@ const AdminPage: NextPage = ({}) => {
                                   `Are you sure you want to block ${app.name} from taking on future applications?`
                                 )
                               ) {
-                                mutate({ id: app.id, status: Status.Blocked });
+                                mutate({
+                                  id: app.id,
+                                  status: ApplicationStatus.Blocked,
+                                });
                               }
                             }}
                           >

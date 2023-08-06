@@ -219,6 +219,9 @@ export interface IProjectFields {
 
   /** Repo URL */
   repoUrl?: string | undefined;
+
+  /** Show in website */
+  showInWebsite: boolean;
 }
 
 export interface IProject extends Entry<IProjectFields> {
@@ -494,6 +497,22 @@ export type CONTENT_TYPE =
   | "team"
   | "teamMember"
   | "youtubeVideo";
+
+export type IEntry =
+  | IBlogEntry
+  | ICodeBlock
+  | IDocsCategory
+  | IDocsSection
+  | IDocumentation
+  | IMultipleValues
+  | IProject
+  | IRetiredProjectInfo
+  | ISingleValues
+  | ISocialLinks
+  | ITag
+  | ITeam
+  | ITeamMember
+  | IYoutubeVideo;
 
 export type LOCALE_CODE = "en-US";
 

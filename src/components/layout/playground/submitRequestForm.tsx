@@ -4,7 +4,11 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback, useState, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
-import { BudgetType, PlaygroundRequestCategory } from '@prisma/client';
+import {
+  BudgetType,
+  PlaygroundRequestCategory,
+  RequestStatus,
+} from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 
@@ -29,9 +33,14 @@ import ConfirmationModal from './confirmationModal';
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
+import { useIsFirstRender } from 'hooks/useIsFirstRender';
 
-import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import type {
+  PlaygroundRequestDesignRequestType,
+  PlaygroundRequestOrganizationType,
+} from '@prisma/client';
 import type { z } from 'zod';
+import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError } from 'react-hook-form';
 import type { RefCallback } from 'react';
@@ -42,6 +51,35 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
     CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
   })`,
 }));
+
+const IS_NON_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
+  [
+    { label: 'Yes', value: 'Activism' },
+    { label: 'No', value: 'Profit' },
+  ];
+
+const DEV_REQUEST_WEBSITE_EXISTS_OPTIONS: OptionType<boolean>[] = [
+  { label: 'Yes', value: true },
+  { label: 'No', value: false },
+];
+
+const DESIGN_REQUEST_TYPE_OPTIONS: OptionType<PlaygroundRequestDesignRequestType>[] =
+  [
+    { label: 'Logo (New or Redesign)', value: 'Logo' },
+    { label: 'Social Media (Banners, etc)', value: 'SocialMedia' },
+    { label: 'Branding (Guides, advice, etc)', value: 'Branding' },
+    { label: 'Donor documents (Design, layout, etc)', value: 'DonorDocuments' },
+    { label: 'User Interface (UI/UX, etc)', value: 'UserInterface' },
+    { label: 'Illustration (Images, drawings)', value: 'Illustration' },
+    { label: 'Animation (Videos, etc)', value: 'Animation' },
+    { label: 'Miscellaneous (Icons, small changes)', value: 'Miscellaneous' },
+    { label: 'Other', value: 'Other' },
+  ];
+
+const DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS: OptionType<boolean>[] = [
+  { label: 'Yes', value: true },
+  { label: 'No', value: false },
+];
 
 const IS_FREE_OPTIONS: OptionType<boolean>[] = [
   { label: 'Volunteer', value: true },
@@ -63,6 +101,7 @@ interface SubmitRequestFormParam {
 
 const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
+  const utils = trpc.useContext();
 
   const { budget: storedBudget, ...storedForm } =
     usePlaygroundSubmitRequestStore((state) => state.form);
@@ -104,8 +143,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   useEffect(() => {
     if (request && sessionStatus !== 'loading' && !requestLoaded) {
       if (
-        !session?.user ||
-        (session?.user?.role !== 'Admin' && !request.isRequestedByCurrentUser)
+        request.status !== RequestStatus.Rejected &&
+        (!session?.user ||
+          (session?.user?.role !== 'Admin' &&
+            !request.isRequestedByCurrentUser))
       ) {
         void router.push('/playground');
         return;
@@ -121,7 +162,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         | 'title'
         | 'category'
         | 'description'
-        | 'estimatedTimeDays'
         | 'neededVolunteers'
       >;
       const requestData: RequestFormData = {
@@ -283,10 +323,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           keepValues: true,
         });
       }
-
       await mutate(values);
+      await utils.playground.getRequest.invalidate({ id: requestId });
     },
-    [mutate, reset, sessionStatus]
+    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest]
   );
 
   useOnce(
@@ -311,6 +351,27 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('budget', undefined);
   }, [isFree, setValue]);
 
+  const requestCategory = watch('category');
+
+  // reset category specific values
+  useEffect(() => {
+    setValue('devRequestWebsiteExists', undefined);
+    setValue('devRequestWebsiteUrl', undefined);
+    setValue('designRequestType', undefined);
+    setValue('designRequestCurrentDesignExists', undefined);
+  }, [requestCategory]);
+
+  const isFirstRender = useIsFirstRender();
+
+  const requestCategoryToRequestDescriptionPlaceholderMap: Partial<
+    Record<PlaygroundRequestCategory, string>
+  > = {
+    Developer:
+      'Please outline what you require on your website (e.g. event calendar, blog, resources, donation buttons, etc). Make sure to  include what platform you would like to use, how many pages/how complex the website is, and whether you have the content ready.',
+    Designer:
+      'Please outline in detail what design you require help with. For example, if you want to redesign your logo, describe what you like/dislike about your current design. Consider also describing the personality of your brand and share if you have some examples of designs that you love.',
+  };
+
   return (
     <div className="px-10 bg-grey-background" id="contact-us">
       <form
@@ -329,6 +390,14 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         />
         <TextInput
           className="lg:col-span-3 col-span-full"
+          placeholder="they/them"
+          {...myRegister('pronouns')}
+          error={errors.pronouns?.message}
+        >
+          Pronouns
+        </TextInput>
+        <TextInput
+          className="col-span-full"
           placeholder="Email"
           showRequiredMark
           {...myRegister('providedEmail', {
@@ -341,15 +410,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         <TextInput
           className="lg:col-span-3 col-span-full"
           placeholder="Phone"
+          showRequiredMark
           type="tel"
-          {...myRegister('phone', { required: false })}
+          {...myRegister('phone', { required: 'The phone is required' })}
           error={errors.phone?.message}
-        />
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Organization"
-          {...myRegister('organization', { required: false })}
-          error={errors.organization?.message}
         />
         <TextInput
           placeholder="www.website..."
@@ -384,17 +448,71 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             <sup className="ml-1">?</sup>
           </ToolTip>
         </TextInput>
+        <div className="text-xl col-span-full">Organization Information</div>
+        <TextInput
+          className="col-span-full"
+          placeholder="Organization"
+          {...myRegister('organization', { required: false })}
+          error={errors.organization?.message}
+        />
+        <div className="col-span-full">
+          <Label name="organizationType">
+            Is your organization or activism for profit?
+          </Label>
+
+          <Controller
+            name="organizationType"
+            control={control}
+            rules={{
+              required: 'Please select the best option for your organization',
+            }}
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
+                    (c) => c.value === current
+                  ) || null
+                }
+                error={errors.organizationType?.message}
+                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
+                onChange={(option) => {
+                  onChange(option?.value || null);
+                  setFormData({
+                    organizationType:
+                      option?.value as PlaygroundRequestOrganizationType,
+                  });
+                }}
+              />
+            )}
+          />
+        </div>
+        <TextArea
+          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
+          error={errors.organizationDescription?.message}
+          {...myRegister('organizationDescription', {
+            required: 'Organization description is required',
+          })}
+          style={{ resize: 'vertical' }}
+          className="col-span-full"
+          showRequiredMark
+        >
+          About your organization
+        </TextArea>
         <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"
-          showRequiredMark
           {...myRegister('title', {
             required: 'Please enter the title of the request',
           })}
           className="col-span-full"
           error={errors.title?.message}
         >
-          Title of Request
+          Title of Request<span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Make it short and clear e.g. “Looking for developer to update
+            Wordpress website” or “Logo design for new nonprofit”
+          </span>
         </TextInput>
         <div className="col-span-full">
           <div className="flex flex-col md:flex-row">
@@ -422,13 +540,110 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                 onChange={(option) => {
                   onChange(option?.value || null);
                   setFormData({
-                    category: option?.value as PlaygroundRequestCategory,
+                    category: option?.value,
                   });
                 }}
               />
             )}
           />
         </div>
+        {!isFirstRender && requestCategory === 'Developer' && (
+          <>
+            <div className="md:col-span-2 col-span-full">
+              <Label name="devRequestWebsiteExists">
+                Do you have an existing website?
+              </Label>
+              <Controller
+                name="devRequestWebsiteExists"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DEV_REQUEST_WEBSITE_EXISTS_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.devRequestWebsiteExists?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        devRequestWebsiteExists: option?.value,
+                      });
+                    }}
+                    options={DEV_REQUEST_WEBSITE_EXISTS_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+            <TextInput
+              className="md:col-span-4 col-span-full"
+              placeholder="www.website…"
+              {...myRegister('devRequestWebsiteUrl', { required: false })}
+              error={errors.devRequestWebsiteUrl?.message}
+            >
+              What is the URL of the website you need help with?
+            </TextInput>
+          </>
+        )}
+        {!isFirstRender && requestCategory === 'Designer' && (
+          <>
+            <div className="md:col-span-4 col-span-full">
+              <Label name="designRequestType">
+                What type of design request is this?
+              </Label>
+              <Controller
+                name="designRequestType"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DESIGN_REQUEST_TYPE_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.designRequestType?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        designRequestType: option?.value,
+                      });
+                    }}
+                    options={DESIGN_REQUEST_TYPE_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+            <div className="md:col-span-2 col-span-full">
+              <Label name="designRequestCurrentDesignExists">
+                Do you have a current design?
+              </Label>
+              <Controller
+                name="designRequestCurrentDesignExists"
+                control={control}
+                render={({ field: { value: current, onChange, ...field } }) => (
+                  <SelectInput
+                    {...field}
+                    current={
+                      DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS.find(
+                        (c) => c.value === current
+                      ) || null
+                    }
+                    error={errors.designRequestCurrentDesignExists?.message}
+                    onChange={(option) => {
+                      onChange(option?.value ?? null);
+                      setFormData({
+                        designRequestCurrentDesignExists: option?.value,
+                      });
+                    }}
+                    options={DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS}
+                  />
+                )}
+              />
+            </div>
+          </>
+        )}
         <TextInput
           className="lg:col-span-4 w-full col-span-full"
           placeholder="Communication, ..."
@@ -536,8 +751,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           />
         )}
         <TextArea
-          placeholder="Please describe the task and be as detailed as possible. The more detail your request has, the easier it is for both the volunteer and for us!"
-          showRequiredMark
+          placeholder={
+            requestCategoryToRequestDescriptionPlaceholderMap[requestCategory]
+          }
           error={errors.description?.message}
           {...myRegister('description', {
             required: 'Issue description is required',
@@ -545,29 +761,36 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           style={{ resize: 'vertical' }}
           className="col-span-full"
         >
-          Describe your issue
+          Describe the project/task you need help with
+          <span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
+            Please be as detailed as possible. The more detail your request has,
+            the easier it will be to find a volunteer.
+          </span>
         </TextArea>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          min={new Date().toISOString().split('T')[0]}
-          type="date"
-          placeholder="Due date"
-          error={errors.dueDate?.message}
-          {...myRegister('dueDate', { required: false })}
-        >
-          Due date for task
-        </TextInput>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          type="number"
-          min={0}
-          placeholder="Days"
-          showRequiredMark
-          {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
-          error={errors.estimatedTimeDays?.message}
-        >
-          Estimated time <br className="sm:hidden" /> commitment
-        </TextInput>
+        <div className="col-span-full">
+          <Label name="dueDate">
+            Desired due date&nbsp;
+            <span className="font-thin">
+              Please be thoughtful about this, keep in mind that Playground
+              volunteers often have full-time jobs and they are helping in their
+              spare time.
+            </span>
+          </Label>
+          <div>
+            <TextInput
+              className="w-full lg:w-1/2"
+              min={new Date().toISOString().split('T')[0]}
+              type="date"
+              placeholder="Due date"
+              error={errors.dueDate?.message}
+              {...myRegister('dueDate', { required: false })}
+            >
+              {' '}
+            </TextInput>
+          </div>{' '}
+        </div>
+
         <Checkbox
           labelPosition="right"
           className="col-span-full"

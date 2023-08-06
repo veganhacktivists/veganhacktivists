@@ -3,9 +3,12 @@ import {
   BudgetType,
   PlaygroundRequestCategory,
   PrismaClient,
-  Status,
+  RequestStatus,
+  ApplicationStatus,
   TimePerWeek,
   Source,
+  PlaygroundRequestOrganizationType,
+  PlaygroundRequestDesignRequestType,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -29,6 +32,7 @@ const seedUsers = async (n: number = NUMBER) => {
         name,
       };
     });
+
   const { count } = await prisma.user.createMany({ data: users });
   console.log('Seeded', count, 'users');
 };
@@ -40,6 +44,7 @@ const seedRequests = async (n: number = NUMBER) => {
     .map(() => {
       const createdAt = faker.date.recent(14);
       const isFree = faker.datatype.boolean();
+      const category = faker.helpers.objectValue(PlaygroundRequestCategory);
       return {
         budget: isFree
           ? undefined
@@ -56,8 +61,13 @@ const seedRequests = async (n: number = NUMBER) => {
               },
             },
         name: faker.name.fullName(),
+        pronouns: faker.helpers.arrayElement([
+          'they/them',
+          'he/him',
+          'she/her',
+        ]),
         calendlyUrl: faker.internet.url(),
-        category: faker.helpers.objectValue(PlaygroundRequestCategory),
+        category,
         estimatedTimeDays: faker.datatype.number({ min: 1, max: 30 }),
         description: `${faker.hacker.phrase()} ${faker.lorem.paragraphs(
           faker.datatype.number(5)
@@ -81,9 +91,33 @@ const seedRequests = async (n: number = NUMBER) => {
         requesterId: faker.helpers.arrayElement(users).id,
         phone: faker.phone.number(),
         organization: faker.company.name(),
+        organizationType: faker.helpers.objectValue(
+          PlaygroundRequestOrganizationType
+        ),
+        organizationDescription: faker.lorem.paragraphs(
+          faker.datatype.number(5)
+        ),
         createdAt,
-        status: faker.helpers.objectValue(Status),
+        acceptedAt:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.5
+            ? faker.date.recent(40)
+            : undefined,
+        status: faker.helpers.objectValue(RequestStatus),
         providedEmail: faker.internet.email(),
+        lastManuallyPushed:
+          faker.datatype.number({ min: 0, max: 1 }) > 0.3
+            ? faker.date.recent(30)
+            : undefined,
+        ...(category === 'Designer' && {
+          designRequestCurrentDesignExists: faker.datatype.boolean(),
+          designRequestType: faker.helpers.objectValue(
+            PlaygroundRequestDesignRequestType
+          ),
+        }),
+        ...(category === 'Developer' && {
+          devRequestWebsiteExists: faker.datatype.boolean(),
+          devRequestWebsiteUrl: faker.internet.url(),
+        }),
       };
     });
 
@@ -110,6 +144,7 @@ const seedApplications = async (n: number = NUMBER) => {
           const user = faker.helpers.arrayElement(users);
           return {
             createdAt: faker.date.soon(2, request.createdAt),
+            acceptedAt: faker.date.soon(2, request.createdAt),
             applicantId: user.id,
             availableTimePerWeek: faker.helpers.objectValue(TimePerWeek),
             source: faker.helpers.objectValue(Source),
@@ -118,12 +153,7 @@ const seedApplications = async (n: number = NUMBER) => {
             isVegan: faker.datatype.boolean(),
             name: user.name || faker.name.fullName(),
             providedEmail: user.email,
-            status: faker.helpers.arrayElement([
-              Status.Accepted,
-              Status.Rejected,
-              Status.Pending,
-              Status.Blocked,
-            ]),
+            status: faker.helpers.objectValue(ApplicationStatus),
             calendlyUrl: faker.internet.url(),
             instagramUrl:
               (faker.datatype.boolean() ? '@' : '') +

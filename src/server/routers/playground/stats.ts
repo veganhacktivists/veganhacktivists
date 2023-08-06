@@ -1,4 +1,4 @@
-import { Status } from '@prisma/client';
+import { RequestStatus, ApplicationStatus } from '@prisma/client';
 
 import { t } from 'server/trpc';
 import { getDiscordServer } from 'lib/discord';
@@ -19,12 +19,12 @@ const statsRouter = t.router({
       await Promise.all([
         prisma.playgroundRequest.count({
           where: {
-            status: Status.Accepted,
+            status: RequestStatus.Accepted,
           },
         }),
         prisma.playgroundRequest.count({
           where: {
-            status: Status.Completed,
+            status: RequestStatus.Completed,
           },
         }),
         getDiscordServer(process.env.DISCORD_PLAYGROUND_SERVER_ID!).then(
@@ -34,10 +34,11 @@ const statsRouter = t.router({
 
     const acceptedApplications = await prisma.playgroundApplication.findMany({
       where: {
-        status: { in: [Status.Accepted, Status.Completed] },
+        status: ApplicationStatus.Accepted,
       },
       select: {
         availableTimePerWeek: true,
+        estimatedTimeDays: true,
         request: {
           select: {
             estimatedTimeDays: true,
@@ -47,9 +48,12 @@ const statsRouter = t.router({
     });
 
     const hoursVolunteered = acceptedApplications.reduce(
-      (acc, { availableTimePerWeek, request: { estimatedTimeDays } }) => {
+      (acc, { availableTimePerWeek, estimatedTimeDays, request }) => {
         const hours = averageWeeklyHoursPerValue[availableTimePerWeek];
-        return acc + (hours / 7) * estimatedTimeDays;
+        return (
+          acc +
+          (hours / 7) * (request.estimatedTimeDays ?? estimatedTimeDays ?? 0)
+        );
       },
       0
     );
