@@ -1,6 +1,6 @@
 {
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>We are</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
+    "defaultMessage": "<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
   },
   "page.index.section.introduction.paragraph1": {
     "defaultMessage": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
@@ -24,7 +24,7 @@
     "defaultMessage": "Learn More"
   },
   "page.index.section.stage.hero.alt": {
-    "defaultMessage": "<ignore>Compassion, Creativity, Code</ignore>"
+    "defaultMessage": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
   "page.index.section.stage.subline": {
     "defaultMessage": "Building for the animal protection movement since 2019"
@@ -78,10 +78,10 @@
     "defaultMessage": "Get in contact"
   },
   "page.index.next-seo.title": {
-    "defaultMessage": "<ignore>Vegan Hacktivists</ignore>"
+    "defaultMessage": "<no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | <ignore>Compassion, Creativity, Code!</ignore>"
+    "defaultMessage": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
   },
   "page.join.hero.image-alt": {
     "defaultMessage": "You are their voice"
@@ -90,7 +90,7 @@
     "defaultMessage": "Join Us"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "The page you requested (<ignore>{asPath}</ignore>) does not exist"
+    "defaultMessage": "The page you requested (<no-localization>{asPath}</no-localization>) does not exist"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Page not found"
@@ -195,7 +195,7 @@
     "defaultMessage": "Watch our <b>intro video</b>"
   },
   "app.template.next-seo.default.titleTemplate": {
-    "defaultMessage": "%s | <ignore>Vegan Hacktivists</ignore>"
+    "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.services.next-seo.title": {
     "defaultMessage": "Services"
@@ -369,6 +369,6 @@
     "defaultMessage": "Self-Sustainable Goal"
   },
   "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Donate <ignore>{currencyName}</ignore>"
+    "defaultMessage": "Donate <no-localization>{currencyName}</no-localization>"
   }
 }

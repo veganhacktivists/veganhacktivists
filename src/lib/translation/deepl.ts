@@ -42,7 +42,7 @@ export async function translate(
       source_lang: 'EN',
       tag_handling: 'xml',
       outline_detection: '0',
-      ignore_tags: 'ignore',
+      ignore_tags: 'no-localization',
     }).toString()}`,
     headers: {
       Authorization: `DeepL-Auth-Key ${apiToken}`,

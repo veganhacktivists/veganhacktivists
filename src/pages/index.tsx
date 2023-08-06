@@ -76,11 +76,13 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       <NextSeo
         title={intl.formatMessage({
           id: 'page.index.next-seo.title',
-          defaultMessage: '<ignore>Vegan Hacktivists</ignore>',
+          defaultMessage:
+            '<no-localization>Vegan Hacktivists</no-localization>',
         })}
         titleTemplate={intl.formatMessage({
           id: 'page.index.next-seo.title-template',
-          defaultMessage: '%s | <ignore>Compassion, Creativity, Code!</ignore>',
+          defaultMessage:
+            '%s | <no-localization>Compassion, Creativity, Code!</no-localization>',
         })}
       />
       <Hero
@@ -90,7 +92,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           image: heroTagline,
           alt: intl.formatMessage({
             id: 'page.index.section.stage.hero.alt',
-            defaultMessage: '<ignore>Compassion, Creativity, Code</ignore>',
+            defaultMessage:
+              '<no-localization>Compassion, Creativity, Code</no-localization>',
           }),
         }}
         alignment="right"
@@ -127,7 +130,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className="mb-16 text-grey-dark">
           <FormattedMessage
             id="page.index.section.introduction.headline"
-            defaultMessage="<left>We are</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
+            defaultMessage="<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
             values={{
               left: (chunks) => (
                 <span className="font-serif text-3xl italic font-semibold">

@@ -1,6 +1,6 @@
 {
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>Wir sind</left> <ignore><right>VEGAN HACKTIVISTS</right></ignore>"
+    "defaultMessage": "<left>Wir sind</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
   },
   "page.index.section.introduction.paragraph1": {
     "defaultMessage": "Wir sind eine globale Gemeinschaft leidenschaftlicher Tierschützer, die ihre Fähigkeiten im Aufbau von Technologien für die Tierschutzbewegung durch <b>Design, Entwicklung und Daten</b> zur Verfügung stellen. Als Kapazitätsentwickler bieten wir innovative und hochwertige Dienstleistungen an, die für Tierschützer und Organisationen kostenlos sind."
@@ -24,7 +24,7 @@
     "defaultMessage": "Mehr erfahren"
   },
   "page.index.section.stage.hero.alt": {
-    "defaultMessage": "<ignore>Compassion, Creativity, Code</ignore>"
+    "defaultMessage": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
   "page.index.section.stage.subline": {
     "defaultMessage": "Bauen für die Tierschutzbewegung seit 2019"
@@ -78,10 +78,10 @@
     "defaultMessage": "Nehmen Sie Kontakt auf"
   },
   "page.index.next-seo.title": {
-    "defaultMessage": "<ignore>Vegan Hacktivists</ignore>"
+    "defaultMessage": "<no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | <ignore>Compassion, Creativity, Code!</ignore>"
+    "defaultMessage": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
   },
   "page.join.hero.image-alt": {
     "defaultMessage": "Du bist ihre Stimme"
@@ -90,7 +90,7 @@
     "defaultMessage": "Mitmachen"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "Die von Ihnen angeforderte Seite (<ignore>{asPath}</ignore>) existiert nicht"
+    "defaultMessage": "Die von Ihnen angeforderte Seite (<no-localization>{asPath}</no-localization>) existiert nicht"
   },
   "page.not-found.next-seo.title": {
     "defaultMessage": "Seite nicht gefunden"
@@ -195,7 +195,7 @@
     "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
   },
   "app.template.next-seo.default.titleTemplate": {
-    "defaultMessage": "%s | <ignore>Vegan Hacktivists</ignore>"
+    "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.services.next-seo.title": {
     "defaultMessage": "Dienstleistungen"
@@ -369,6 +369,6 @@
     "defaultMessage": "Selbsttragendes Ziel"
   },
   "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Spenden Sie <ignore>{currencyName}</ignore>"
+    "defaultMessage": "Spenden Sie <no-localization>{currencyName}</no-localization>"
   }
 }

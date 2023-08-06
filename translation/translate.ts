@@ -1,5 +1,5 @@
 // translate untranslated messages from EN to languages specified in next.config.js
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, stat, writeFile } from 'fs/promises';
 
 import { translate } from '../src/lib/translation/deepl';
 
@@ -10,6 +10,8 @@ import {
   readTranslationFile,
   resolveTranslationFilePath,
 } from './_util';
+
+void translateLocalMessages();
 
 async function translateLocalMessages() {
   await ensureTranslationFileAvailability();
@@ -51,39 +53,31 @@ async function translateLocalMessages() {
   );
 }
 
+async function fileExists(path: string) {
+  try {
+    await stat(path);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function ensureTranslationFileAvailability() {
   await Promise.all(
     languages.map(async (language) => {
       const path = resolveTranslationFilePath(language);
 
-      try {
+      if (await fileExists(path)) {
         const content = await readFile(path, { encoding });
 
         if (content.length === 0) {
-          throw new Error('Empty File');
+          await writeFile(path, '{}', { encoding });
         }
 
         JSON.parse(content);
-      } catch (error) {
-        if (
-          error &&
-          typeof error === 'object' &&
-          (('code' in error &&
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore ts-node is dumb
-            error.code === 'ENOENT') ||
-            ('message' in error &&
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore ts-node is dumb
-              error.message === 'Empty File'))
-        ) {
-          await writeFile(path, '{}', { encoding });
-        } else {
-          throw error;
-        }
+      } else {
+        await writeFile(path, '{}', { encoding });
       }
     })
   );
 }
-
-void translateLocalMessages();

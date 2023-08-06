@@ -25,20 +25,22 @@ const stringRecordSchema = z.record(z.string(), z.string());
 
 function main() {
   return Promise.all(
-    languages.map(async (l) => {
-      const compiledMessages = await compile([resolveTranslationFilePath(l)]);
+    languages.map(async (lang) => {
+      const compiledMessages = await compile([
+        resolveTranslationFilePath(lang),
+      ]);
 
-      const updatedMessages = removeIgnoreTagsFromCompiledMessages(
+      const updatedMessages = removeTranslationIgnoreTagsFromCompiledMessages(
         stringRecordSchema.parse(JSON.parse(compiledMessages))
       );
 
       await writeFile(
-        resolveCompiledTranslationFilePath(l),
+        resolveCompiledTranslationFilePath(lang),
         JSON.stringify(updatedMessages),
         { encoding }
       );
 
-      await ensureTranslationFileUsage(l);
+      await ensureTranslationFileUsage(lang);
     })
   );
 }
@@ -88,15 +90,21 @@ async function ensureTranslationFileUsage(language: string) {
   await project.save();
 }
 
-function removeIgnoreTagsFromCompiledMessages(
+function removeTranslationIgnoreTagsFromCompiledMessages(
   messages: Record<string, string>
 ) {
   return Object.entries(messages).reduce(
-    (msgs, [key, msg]) => ({ ...msgs, [key]: removeIgnoreTags(msg) }),
+    (msgs, [key, msg]) => ({
+      ...msgs,
+      [key]: removeTranslationIgnoreTags(msg),
+    }),
     {}
   );
 }
 
-function removeIgnoreTags(messageContent: string) {
-  return messageContent.replaceAll(/< *ignore *>(.*?)<\/ *ignore *>/g, '$1');
+function removeTranslationIgnoreTags(messageContent: string) {
+  return messageContent.replaceAll(
+    /< *no-localization *>(.*?)<\/ *no-localization *>/g,
+    '$1'
+  );
 }

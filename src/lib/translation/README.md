@@ -39,6 +39,6 @@ Translations will be generated in a pipeline job or by using the above scripts.
 
 ## Ignore text/variables in messages during the translation process
 
-Wrap the part of the message in an `ignore` tag:  
-`Donate <ignore>{currencyName}</ignore>`  
-The ignore tag will exclude it from translation and keep the variable name.
+Wrap the part of the message in a `no-localization` tag:  
+`Donate <no-localization>{currencyName}</no-localization>`  
+The `no-localization` tag will exclude it from translation and keep the variable name.
