@@ -1,8 +1,7 @@
 // translate untranslated messages from EN to languages specified in next.config.js
 import { readFile, stat, writeFile } from 'fs/promises';
 
-import { translate } from '../src/lib/translation/deepl';
-
+import { translate } from './deepl';
 import {
   defaultLanguage,
   encoding,
