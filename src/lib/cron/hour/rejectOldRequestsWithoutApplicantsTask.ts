@@ -5,7 +5,7 @@ import prisma from '../../db/prisma';
 import { playgroundRequestRejectedDueToInactivity } from 'components/layout/mail/emailTemplates';
 import emailClient from 'lib/mail';
 import {
-  FLAVIA_EMAIL_FORMATTED,
+  JESS_EMAIL_FORMATTED,
   PLAYGROUND_EMAIL_FORMATTED,
 } from 'lib/mail/router';
 
@@ -97,7 +97,7 @@ const sendAutomaticallyRejectedEmail = async (
     await emailClient.sendMail({
       to: request.providedEmail,
       from: PLAYGROUND_EMAIL_FORMATTED,
-      cc: FLAVIA_EMAIL_FORMATTED,
+      cc: JESS_EMAIL_FORMATTED,
       subject: 'Your request for help in "VH: Playground" has been closed!',
       text: playgroundRequestRejectedDueToInactivity(request, true),
       html: playgroundRequestRejectedDueToInactivity(request),

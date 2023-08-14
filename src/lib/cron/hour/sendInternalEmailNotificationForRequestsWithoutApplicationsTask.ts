@@ -5,7 +5,7 @@ import prisma from '../../db/prisma';
 
 import { playgroundInternalNotificationForRequestsWithoutApplications } from 'components/layout/mail/emailTemplates';
 import {
-  FLAVIA_EMAIL,
+  JESS_EMAIL,
   JAMES_EMAIL,
   KATE_EMAIL,
   PLAYGROUND_EMAIL_FORMATTED,
@@ -118,7 +118,7 @@ const sendInternalEmailForRequestsWithoutApplications = async (
     await emailClient.sendMail({
       to: sendToMap[request.category],
       from: PLAYGROUND_EMAIL_FORMATTED,
-      cc: FLAVIA_EMAIL,
+      cc: JESS_EMAIL,
       subject: 'Reminder for an unanswered playground request',
       text: playgroundInternalNotificationForRequestsWithoutApplications(
         request,

@@ -8,7 +8,7 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import {
-  FLAVIA_EMAIL,
+  JESS_EMAIL,
   OUR_EMAIL_TO,
   PLAYGROUND_EMAIL_FORMATTED,
 } from '../../mail/router';
@@ -578,7 +578,7 @@ const sendCompletionEmail = (
   return emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: FLAVIA_EMAIL,
+    cc: JESS_EMAIL,
     subject: 'Help Us Improve! Rate Your Experience with Playground',
     text: playgroundRequestCompletedSurvey(request, true),
     html: playgroundRequestCompletedSurvey(request),
