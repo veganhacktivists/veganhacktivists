@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import ContentfulImage from '../contentfulImage';
 import ShareDialog from '../shareDialog';
@@ -129,8 +130,10 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
         <div className="relative px-5 py-20 mx-auto gap-y-8">
           <SectionHeader className="mb-2" header={['Featured', 'PROJECTS']}>
             <p className="text-xl">
-              Here are just a few of the projects we’ve built for the movement
-              and in collaboration with other partners.
+              <FormattedMessage
+                id="page.our-work.section.featured-projects.section-header.content"
+                defaultMessage="Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
+              />
             </p>
           </SectionHeader>
           <ul className="grid grid-cols-1 xl:grid-cols-3 mx-auto w-fit gap-20 gap-y-20">

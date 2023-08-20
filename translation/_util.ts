@@ -63,3 +63,16 @@ export async function readTranslationFile(
 
   return referenceTranslationFileContent;
 }
+
+export function validateTranslationId(id: string) {
+  return id.toLowerCase() === id && !id.includes(' ');
+}
+
+export function warnIfIdInvalid(id: string) {
+  if (!validateTranslationId(id)) {
+    console.warn(
+      'id must be lower cased in kebab-style and may not contain white spaces, invalid id:',
+      id
+    );
+  }
+}

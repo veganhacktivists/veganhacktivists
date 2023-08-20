@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Bee from '../../../../public/images/yearInReview/2022/bee.png';
 import GrantApplicants from '../../../../public/images/yearInReview/2022/grant-applicants.png';
@@ -41,13 +42,16 @@ const GrantProgram: React.FC = () => {
                 >
                   <div className="space-y-10">
                     <p className="text-xl text-left">
-                      Last year, we announced a partnership with The Pollination
-                      Project to offer seed funding to individuals and
-                      grassroots organizations. Here’s what we’ve accomplished
-                      to date.
+                      <FormattedMessage
+                        id="page.our-work.section.grant-program.section-header.content"
+                        defaultMessage="Last year, we announced a partnership with The Pollination Project to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
+                      />
                     </p>
                     <DarkButton href="/grants" className="w-full lg:w-1/2">
-                      Learn more
+                      <FormattedMessage
+                        id="page.our-work.section.grant-program.section-header.learn-more.cta-button.label"
+                        defaultMessage="Learn more"
+                      />
                     </DarkButton>
                   </div>
                 </SectionHeader>
@@ -64,7 +68,12 @@ const GrantProgram: React.FC = () => {
                   <span className="block text-8xl font-bold leading-[0.7]">
                     <AnimatedNumber number={149} />
                   </span>
-                  <span className="text-3xl leading-[1.25rem]">Applicants</span>
+                  <span className="text-3xl leading-[1.25rem]">
+                    <FormattedMessage
+                      id="page.our-work.section.grant-program.section-header.applicants.cta-button.label"
+                      defaultMessage="Applicants"
+                    />
+                  </span>
                 </div>
               </div>
               <div className="flex flex-row sm:gap-10">
@@ -76,7 +85,10 @@ const GrantProgram: React.FC = () => {
                     <AnimatedNumber prefix="$" number={72584} />
                   </span>
                   <span className="text-3xl leading-[1.25rem]">
-                    Seed Funding granted
+                    <FormattedMessage
+                      id="page.our-work.section.grant-program.seed-funding-granted"
+                      defaultMessage="Seed Funding granted"
+                    />
                   </span>
                 </div>
               </div>
@@ -89,7 +101,10 @@ const GrantProgram: React.FC = () => {
                     <AnimatedNumber prefix="$" number={170000} />
                   </span>
                   <span className="text-3xl leading-[1.25rem]">
-                    Funded by direct recommendation
+                    <FormattedMessage
+                      id="page.our-work.section.grant-program.funded-by-direct-recommendation"
+                      defaultMessage="Funded by direct recommendation"
+                    />
                   </span>
                 </div>
               </div>

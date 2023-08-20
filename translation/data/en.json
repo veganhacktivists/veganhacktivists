@@ -194,7 +194,7 @@
   "page.index.section.video.headline": {
     "defaultMessage": "Watch our <b>intro video</b>"
   },
-  "app.template.next-seo.default.titleTemplate": {
+  "app.template.next-seo.default.title-template": {
     "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.services.next-seo.title": {
@@ -421,5 +421,92 @@
   },
   "page.work.next-seo.title": {
     "defaultMessage": "Our Work"
+  },
+  "page.our-work.section.design-samples.cta-button.label": {
+    "defaultMessage": "View our branding work"
+  },
+  "page.our-work.section.design-samples.section-header.content": {
+    "defaultMessage": "Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
+  },
+  "page.our-work.section.featured-projects.section-header.content": {
+    "defaultMessage": "Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
+  },
+  "page.our-work.section.grant-program.funded-by-direct-recommendation": {
+    "defaultMessage": "Funded by direct recommendation"
+  },
+  "page.our-work.section.grant-program.section-header.applicants.cta-button.label": {
+    "defaultMessage": "Applicants"
+  },
+  "page.our-work.section.grant-program.section-header.content": {
+    "defaultMessage": "Last year, we announced a partnership with The Pollination Project to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
+  },
+  "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
+    "defaultMessage": "Learn more"
+  },
+  "page.our-work.section.grant-program.seed-funding-granted": {
+    "defaultMessage": "Seed Funding granted"
+  },
+  "page.our-work.section.hours-volunteered.cta-button.label": {
+    "defaultMessage": "volunteered in 2022 for the animal protection movement"
+  },
+  "page.our-work.section.kind-words[0].content": {
+    "defaultMessage": "What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others."
+  },
+  "page.our-work.section.kind-words[1].content": {
+    "defaultMessage": "I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates."
+  },
+  "page.our-work.section.kind-words[2].content": {
+    "defaultMessage": "Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in."
+  },
+  "page.our-work.section.kind-words[3].content": {
+    "defaultMessage": "Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism."
+  },
+  "page.our-work.section.like-what-you-see.contact.cta-button.label": {
+    "defaultMessage": "Contact us"
+  },
+  "page.our-work.section.like-what-you-see.donate.cta-button.label": {
+    "defaultMessage": "Donate"
+  },
+  "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
+    "defaultMessage": "Get support"
+  },
+  "page.our-work.section.like-what-you-see.introduction": {
+    "defaultMessage": "Get in touch if you’d like to volunteer, support our work, or make use of our services!"
+  },
+  "page.our-work.section.like-what-you-see.services.cta-button.label": {
+    "defaultMessage": "Services"
+  },
+  "page.our-work.section.our-communities.cta.ara": {
+    "defaultMessage": "Animal Rights Advocates"
+  },
+  "page.our-work.section.our-communities.cta.reddit": {
+    "defaultMessage": "Vegans of Reddit"
+  },
+  "page.our-work.section.our-communities.section-header.content": {
+    "defaultMessage": "We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism"
+  },
+  "page.our-work.section.playground.create-request.cta-button.label": {
+    "defaultMessage": "Get Support"
+  },
+  "page.our-work.section.playground.introduction": {
+    "defaultMessage": "<p>Playground was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
+  },
+  "page.our-work.section.playground.playground.cta-button.label": {
+    "defaultMessage": "Volunteer"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
+    "defaultMessage": "We're often speaking at animal protection and EA related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <link>Instagram</link> to see where we'll be next!"
+  },
+  "page.our-work.section.state-of-data.content": {
+    "defaultMessage": "During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
+  },
+  "page.our-work.section.state-of-data.headline": {
+    "defaultMessage": "<left>Coming soon:</left> <middle>State of data & technology</middle> <right>in the movement</right>"
+  },
+  "page.our-work.section.our-communities.member-count.ara": {
+    "defaultMessage": "<no-localization>{count}</no-localization> members"
+  },
+  "page.our-work.section.our-communities.member-count.reddit": {
+    "defaultMessage": "<no-localization>{count}</no-localization> members"
   }
 }

@@ -119,7 +119,7 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
             />
           </DonationCard>
         </div>
-        <div className="">
+        <div>
           <Crypto />
         </div>
       </div>

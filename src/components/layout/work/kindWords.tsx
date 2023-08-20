@@ -1,6 +1,10 @@
+import { useIntl } from 'react-intl';
+
 import Sprite, { cow } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import getThemeColor from 'lib/helpers/theme';
+
+import type { IntlShape } from 'react-intl';
 
 const BOTTOM_DECORATION_SQUARES = [
   {
@@ -17,11 +21,12 @@ const BOTTOM_DECORATION_SQUARES = [
   },
 ];
 
-type QuoteProps = React.PropsWithChildren<{
+interface QuoteProps {
   author: string;
   company: string;
   color?: string;
-}>;
+  children: string;
+}
 
 const Quote = ({ author, company, children, color }: QuoteProps) => {
   return (
@@ -38,30 +43,42 @@ const Quote = ({ author, company, children, color }: QuoteProps) => {
   );
 };
 
-const quotes: QuoteProps[] = [
+const getQuotes: (intl: IntlShape) => QuoteProps[] = (intl) => [
   {
     company: 'Mercy for Animals',
     author: 'Courtney Dillard',
-    children:
-      'What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others.',
+    children: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[0].content',
+      defaultMessage:
+        'What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others.',
+    }),
   },
   {
-    author: 'Ben Williamson',
-    company: 'Compassion In World Farming',
-    children:
-      'I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates.',
+    company: 'Ben Williamson',
+    author: 'Compassion In World Farming',
+    children: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[1].content',
+      defaultMessage:
+        'I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates.',
+    }),
   },
   {
     company: 'The Pollination Project',
     author: 'AJ Dahiya',
-    children:
-      'Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in.',
+    children: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[2].content',
+      defaultMessage:
+        'Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in.',
+    }),
   },
   {
     company: 'Faunalytics',
     author: 'Brooke Haggerty',
-    children:
-      'Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism.',
+    children: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[3].content',
+      defaultMessage:
+        'Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism.',
+    }),
   },
 ];
 
@@ -73,12 +90,14 @@ const quoteColors = [
 ];
 
 const KindWords: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <div className="relative w-full overflow-hidden text-xl bg-white pb-10">
         <div className="relative flex flex-col px-2 py-20 mx-auto w-3/4 gap-y-8">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-32 gap-y-20">
-            {quotes.map((quote, i) => (
+            {getQuotes(intl).map((quote, i) => (
               <Quote key={quote.author} {...quote} color={quoteColors[i]} />
             ))}
           </div>

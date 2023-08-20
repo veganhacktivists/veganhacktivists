@@ -12,6 +12,7 @@ import {
   encoding,
   repoDirectory,
   filesGlob,
+  warnIfIdInvalid,
 } from './_util';
 
 import type { TranslationFileStructure } from './_util';
@@ -48,6 +49,8 @@ function addNewTranslationsToCurrent(
   extractedTranslations: TranslationFileStructure
 ): TranslationFileStructure {
   return Object.keys(extractedTranslations).reduce((translations, id) => {
+    warnIfIdInvalid(id);
+
     if (!translations[id]) {
       translations[id] = extractedTranslations[id];
     } else if (

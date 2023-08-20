@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Modal from '../modal';
 
@@ -101,11 +102,10 @@ const DesignSamples: React.FC = () => {
           <div className="md:w-1/2 mx-auto">
             <SectionHeader header={['See our', 'branding work']}>
               <p className="text-xl">
-                Whether it&apos;s branding, document design, web design,
-                infographics, or other high-impact areas of design, we&apos;re
-                here to help vegan organizations look sharp, build trust,
-                increase reputation, and unite people. Here&apos;s a few
-                examples of what we&apos;ve done!
+                <FormattedMessage
+                  id="page.our-work.section.design-samples.section-header.content"
+                  defaultMessage="Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
+                />
               </p>
             </SectionHeader>
           </div>
@@ -142,7 +142,10 @@ const DesignSamples: React.FC = () => {
               href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
               className="md:w-fit mx-auto"
             >
-              View our branding work
+              <FormattedMessage
+                id="page.our-work.section.design-samples.cta-button.label"
+                defaultMessage="View our branding work"
+              />
             </DarkButton>
           </div>
         </div>

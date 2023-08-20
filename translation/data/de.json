@@ -194,7 +194,7 @@
   "page.index.section.video.headline": {
     "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
   },
-  "app.template.next-seo.default.titleTemplate": {
+  "app.template.next-seo.default.title-template": {
     "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.services.next-seo.title": {
@@ -421,5 +421,92 @@
   },
   "page.work.next-seo.title": {
     "defaultMessage": "Unsere Arbeit"
+  },
+  "page.our-work.section.design-samples.cta-button.label": {
+    "defaultMessage": "Unsere Branding-Arbeiten ansehen"
+  },
+  "page.our-work.section.design-samples.section-header.content": {
+    "defaultMessage": "Ob es sich um Branding, Dokumentendesign, Webdesign, Infografiken oder andere wirkungsvolle Designbereiche handelt, wir helfen veganen Organisationen, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen. Hier ein paar Beispiele für unsere Arbeit!"
+  },
+  "page.our-work.section.featured-projects.section-header.content": {
+    "defaultMessage": "Hier sind nur einige der Projekte, die wir für die Bewegung und in Zusammenarbeit mit anderen Partnern entwickelt haben."
+  },
+  "page.our-work.section.grant-program.funded-by-direct-recommendation": {
+    "defaultMessage": "Finanziert durch direkte Empfehlung"
+  },
+  "page.our-work.section.grant-program.section-header.applicants.cta-button.label": {
+    "defaultMessage": "Antragsteller"
+  },
+  "page.our-work.section.grant-program.section-header.content": {
+    "defaultMessage": "Letztes Jahr haben wir eine Partnerschaft mit dem Pollination Project angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
+  },
+  "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
+    "defaultMessage": "Mehr erfahren"
+  },
+  "page.our-work.section.grant-program.seed-funding-granted": {
+    "defaultMessage": "Anschubfinanzierung gewährt"
+  },
+  "page.our-work.section.hours-volunteered.cta-button.label": {
+    "defaultMessage": "hat sich 2022 freiwillig für den Tierschutz engagiert"
+  },
+  "page.our-work.section.kind-words[0].content": {
+    "defaultMessage": "Was mich an den Vegan Hacktivists am meisten beeindruckt, ist ihr hohes Maß an kritischem Denken in Bezug auf die Ideenfindung und ihre konsequente Durchsetzung. Dies hat zu mehreren hochwertigen Ergebnissen geführt, die ich nutzen konnte und anderen sehr empfehlen kann."
+  },
+  "page.our-work.section.kind-words[1].content": {
+    "defaultMessage": "Ich bin wirklich begeistert von dem Potenzial, das Vegan Hacktivists für die Tierschutzbewegung haben. Der Fortschritt ist voller Wendepunkte, und ich bin sicher, dass mindestens einer davon in einer technologischen Lösung liegt, die von dieser erfahrenen Gemeinschaft von Befürwortern angeboten wird."
+  },
+  "page.our-work.section.kind-words[2].content": {
+    "defaultMessage": "Vegan Hacktivists ist eine innovative Organisation, die Technologie einsetzt, um sich in großem Umfang für die Rechte und die Würde von Tieren einzusetzen. Sie haben unsere Organisation mit ihrem Fachwissen weit mehr als nur unterstützt. Ihre Arbeit ist äußerst notwendig und für die Zeit, in der wir leben, hochaktuell."
+  },
+  "page.our-work.section.kind-words[3].content": {
+    "defaultMessage": "Vegan Hacktivists ist ein verstecktes Juwel in der Tierschutzbewegung. Sie bauen Kapazitäten auf, um andere Tierschützer zu unterstützen. Wir hatten das Glück, ihre Hilfe bei mehreren Projekten hinter den Kulissen zu erhalten, und ich bin immer wieder beeindruckt von ihrer Leidenschaft und Professionalität."
+  },
+  "page.our-work.section.like-what-you-see.contact.cta-button.label": {
+    "defaultMessage": "Kontakt"
+  },
+  "page.our-work.section.like-what-you-see.donate.cta-button.label": {
+    "defaultMessage": "Spenden Sie"
+  },
+  "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
+    "defaultMessage": "Unterstützung erhalten"
+  },
+  "page.our-work.section.like-what-you-see.introduction": {
+    "defaultMessage": "Nehmen Sie Kontakt auf, wenn Sie sich ehrenamtlich engagieren, unsere Arbeit unterstützen oder unsere Dienste in Anspruch nehmen möchten!"
+  },
+  "page.our-work.section.like-what-you-see.services.cta-button.label": {
+    "defaultMessage": "Dienstleistungen"
+  },
+  "page.our-work.section.our-communities.cta.ara": {
+    "defaultMessage": "Tierrechtsverteidiger"
+  },
+  "page.our-work.section.our-communities.cta.reddit": {
+    "defaultMessage": "Veganer auf Reddit"
+  },
+  "page.our-work.section.our-communities.section-header.content": {
+    "defaultMessage": "Wir verwalten diese großen Gemeinschaften leidenschaftlicher Veganer und Aktivisten, die uns dabei helfen, ein neues Zeitalter von Freiwilligen und Aktivisten zu schaffen."
+  },
+  "page.our-work.section.playground.create-request.cta-button.label": {
+    "defaultMessage": "Unterstützung erhalten"
+  },
+  "page.our-work.section.playground.introduction": {
+    "defaultMessage": "<p>Playground war unsere Antwort auf die überwältigende Nachfrage nach technischer und gestalterischer Unterstützung in unserer Bewegung, während wir als Organisation mit begrenzten Kapazitäten nachhaltig bleiben wollten. Wir haben uns darauf konzentriert, den Prozess zu automatisieren, der Organisationen mit technischem, gestalterischem und anderem Unterstützungsbedarf mit qualifizierten Freiwilligen zusammenbringt.</p> <p>Diese Freiwilligen sind nicht nur in den Bereichen Design und Softwareentwicklung tätig, sondern auch in den Bereichen Datenwissenschaft, Videografie, Marketing, Sicherheit, Forschung und vielem mehr.</p>"
+  },
+  "page.our-work.section.playground.playground.cta-button.label": {
+    "defaultMessage": "Ehrenamtliche Mitarbeiterin"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
+    "defaultMessage": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und EA-Konferenzen in der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern. Wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <link>Instagram</link>, um zu sehen, wo wir als nächstes sein werden!"
+  },
+  "page.our-work.section.state-of-data.content": {
+    "defaultMessage": "In der zweiten Jahreshälfte haben wir die erste Studie über den Stand der Daten und Technologien im Tierschutz gestartet, die ihresgleichen sucht. Mit der Unterstützung und Partnerschaft von Faunalytics bei der Konzeption dieser Studie versucht unser Forscherteam zu verstehen, welche Herausforderungen und Chancen sich den Organisationen bieten, die in verschiedenen Bereichen und Branchen innerhalb unserer breiten Bewegung tätig sind. Der in Kürze erscheinende Bericht wird Empfehlungen für die Interessengruppen enthalten und dazu beitragen, unseren organisatorischen Fahrplan voranzutreiben."
+  },
+  "page.our-work.section.state-of-data.headline": {
+    "defaultMessage": "<left>Demnächst verfügbar:</left> <middle>Stand der Daten und Technologien</middle> <right>in der Bewegung</right>"
+  },
+  "page.our-work.section.our-communities.member-count.ara": {
+    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
+  },
+  "page.our-work.section.our-communities.member-count.reddit": {
+    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
   }
 }

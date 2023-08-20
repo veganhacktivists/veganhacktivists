@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 import { LightButton } from 'components/decoration/buttons';
 import Sprite, { duck } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
@@ -22,22 +24,36 @@ const LikeWhatYouSee: React.FC = () => {
           />
 
           <div className="text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4">
-            Get in touch if you’d like to volunteer, support our work, or make
-            use of our services!
+            <FormattedMessage
+              id="page.our-work.section.like-what-you-see.introduction"
+              defaultMessage="Get in touch if you’d like to volunteer, support our work, or make use of our services!"
+            />
           </div>
 
           <div className="grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9">
             <LightButton className="w-full md:w-40" href="/donate">
-              Donate
+              <FormattedMessage
+                id="page.our-work.section.like-what-you-see.donate.cta-button.label"
+                defaultMessage="Donate"
+              />
             </LightButton>
             <LightButton className="w-full md:w-40" href="/support">
-              Get support
+              <FormattedMessage
+                id="page.our-work.section.like-what-you-see.get-support.cta-button.label"
+                defaultMessage="Get support"
+              />
             </LightButton>
             <LightButton className="w-full md:w-40" href="/services">
-              Services
+              <FormattedMessage
+                id="page.our-work.section.like-what-you-see.services.cta-button.label"
+                defaultMessage="Services"
+              />
             </LightButton>
             <LightButton className="w-full md:w-40" href="/contact">
-              Contact us
+              <FormattedMessage
+                id="page.our-work.section.like-what-you-see.contact.cta-button.label"
+                defaultMessage="Contact us"
+              />
             </LightButton>
           </div>
         </div>

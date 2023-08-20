@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 import SquareField from 'components/decoration/squares';
 
 const TOP_DECORATION_SQUARES = [
@@ -34,7 +36,10 @@ const HoursVolunteered: React.FC = () => {
               <span className="uppercase font-light">Hours</span>
             </div>
             <div className="flex items-center flex-wrap max-w-lg mx-auto lg:mx-0 lg:max-w-[27rem] text-white text-3xl font-serif italic font-bold text-center lg:text-left px-2 justify-center">
-              volunteered in 2022 for the animal protection movement
+              <FormattedMessage
+                id="page.our-work.section.hours-volunteered.cta-button.label"
+                defaultMessage="volunteered in 2022 for the animal protection movement"
+              />
             </div>
           </div>
         </div>

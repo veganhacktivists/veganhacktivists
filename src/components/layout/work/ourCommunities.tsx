@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
@@ -18,6 +20,24 @@ const redditLink = 'https://reddit.com/r/vegan';
 const discordLink = 'https://aramovement.org';
 
 const OurCommunities: React.FC = () => {
+  const intl = useIntl();
+
+  const redditMembers = intl.formatMessage(
+    {
+      id: 'page.our-work.section.our-communities.member-count.reddit',
+      defaultMessage: '<no-localization>{count}</no-localization> members',
+    },
+    { count: formatNumber(1200000) + '+' }
+  );
+
+  const araMembers = intl.formatMessage(
+    {
+      id: 'page.our-work.section.our-communities.member-count.ara',
+      defaultMessage: '<no-localization>{count}</no-localization> members',
+    },
+    { count: formatNumber(25000) + '+' }
+  );
+
   return (
     <>
       <SquareField
@@ -28,8 +48,10 @@ const OurCommunities: React.FC = () => {
       <div className="relative w-full overflow-hidden text-xl text-white bg-[#292929] py-20  px-5">
         <SectionHeader header={['Our', 'COMMUNITIES']}>
           <p className="text-xl">
-            We manage these large communities of passionate vegans and
-            activists, helping us empower a new age of volunteers and activism
+            <FormattedMessage
+              id="page.our-work.section.our-communities.section-header.content"
+              defaultMessage="We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism"
+            />
           </p>
         </SectionHeader>
         <div className="relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8">
@@ -41,10 +63,13 @@ const OurCommunities: React.FC = () => {
 
               <div className="font-bold">
                 <a href={redditLink} target="_blank" rel="noreferrer">
-                  Vegans of Reddit
+                  <FormattedMessage
+                    id="page.our-work.section.our-communities.cta.reddit"
+                    defaultMessage="Vegans of Reddit"
+                  />
                 </a>
               </div>
-              <div>{formatNumber(1200000)}+ members</div>
+              <div>{redditMembers}</div>
             </div>
             <div>
               <div>
@@ -57,7 +82,7 @@ const OurCommunities: React.FC = () => {
                   Animal Rights Advocates
                 </a>
               </div>
-              <div>{formatNumber(25000)}+ members</div>
+              <div>{araMembers}</div>
             </div>
           </div>
         </div>
