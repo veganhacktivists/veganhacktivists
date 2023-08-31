@@ -24,7 +24,7 @@ const nextConfig = {
     return [
       {
         source: '/research',
-        destination: '/research.pdf',
+        destination: '/tech-and-data-in-the-movement.pdf',
         permanent: false,
       },
       {
