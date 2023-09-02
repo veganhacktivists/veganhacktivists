@@ -35,18 +35,19 @@ const StateOfData: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="md:w-2/3 mx-auto w-fit">
-        <div className="flex flex-col pb-20 pt-20 px-5 text-left">
+      <div className="mx-auto w-fit">
+        <div className="flex flex-col pb-20 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto">
           <div className="pb-9 w-fit">
             <CustomImage alt="" src={DataImage} />
           </div>
           <SectionHeader
-            header={['Read Our', 'Study on the State of Tech & Data']}
+            header={['Read Our', 'Tech & Data Study']}
             newDesign
-            rootClassName="text-left mx-auto mb-10 text-center lg:text-left"
+            stackEntries
+            rootClassName="text-left mx-auto text-center lg:text-left w-full"
           >
-            <div className="flex flex-col lg:flex-row items-center justify-start gap-10 lg:gap-5">
-              <div className="max-w-prose mr-auto space-y-10 lg:basis-1/2">
+            <div className="flex flex-col lg:flex-row items-center justify-start gap-20 mt-10 lg:mt-20">
+              <div className="max-w-prose space-y-10 lg:basis-[55%]">
                 <p className="text-xl">
                   We launched the first-of-its-kind study to understand how our
                   movement leverages technology. With guidance from Faunalytics
@@ -63,7 +64,7 @@ const StateOfData: React.FC = () => {
                   Read the report
                 </DarkButton>
               </div>
-              <div className="w-full block lg:basis-1/2">
+              <div className="w-full md:w-[50%] lg:w-full lg:basis-[45%]">
                 <CustomImage
                   alt="State of Tech And Data In The Movement"
                   src={TechAndDataInTheMovement}
