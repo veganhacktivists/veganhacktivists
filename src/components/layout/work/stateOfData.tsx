@@ -1,6 +1,5 @@
 import React from 'react';
 
-import DataImage from '../../../../public/images/yearInReview/2022/data.png';
 import TechAndDataInTheMovement from '../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
 
 import CustomImage from 'components/decoration/customImage';
@@ -37,14 +36,11 @@ const StateOfData: React.FC = () => {
 
       <div className="mx-auto w-fit">
         <div className="flex flex-col pb-20 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto">
-          <div className="pb-9 w-fit">
-            <CustomImage alt="" src={DataImage} />
-          </div>
           <SectionHeader
             header={['Read Our', 'Tech & Data Study']}
             newDesign
             stackEntries
-            rootClassName="text-left mx-auto text-center lg:text-left w-full"
+            rootClassName="text-left mx-auto text-center lg:text-left w-full mb-0"
           >
             <div className="flex flex-col lg:flex-row items-center justify-start gap-20 mt-10 lg:mt-20">
               <div className="max-w-prose space-y-10 lg:basis-[55%]">
