@@ -56,7 +56,11 @@ const StateOfData: React.FC = () => {
                   technological, data-driven movement.
                 </p>
 
-                <DarkButton href="/research" className="w-fit mx-auto lg:mx-0">
+                <DarkButton
+                  href="/research"
+                  newTab
+                  className="w-fit mx-auto lg:mx-0"
+                >
                   Read the report
                 </DarkButton>
               </div>
