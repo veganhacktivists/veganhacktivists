@@ -15,8 +15,18 @@ const OurMission: PageWithLayout = () => {
   const intl = useIntl();
   return (
     <>
-      <NextSeo title="Our Mission" />
-      <FirstSubSection header="Our mission">
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.about.section.our-mission.next-seo.title',
+          defaultMessage: 'Our Mission',
+        })}
+      />
+      <FirstSubSection
+        header={intl.formatMessage({
+          id: 'page.about.section.our-mission.section-header.heading',
+          defaultMessage: 'Our mission',
+        })}
+      >
         <FormattedMessage
           id="page.about.section.our-mission.section-header.content"
           defaultMessage="Our mission is to build data-driven, disruptive, and innovative projects
@@ -31,7 +41,10 @@ const OurMission: PageWithLayout = () => {
             src={PixelCow.src}
             width={PixelCow.width / 3}
             height={PixelCow.height / 3}
-            alt="Our mission"
+            alt={intl.formatMessage({
+              id: 'page.about.section.our-mission.section-header.image.alt-text',
+              defaultMessage: 'Our mission',
+            })}
           />
         </div>
         <div>
