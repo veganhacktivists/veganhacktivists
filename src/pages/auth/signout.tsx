@@ -1,6 +1,7 @@
 import { getSession, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { DarkButton } from '../../components/decoration/buttons';
 
@@ -31,7 +32,10 @@ const SignOut: NextPage = () => {
     <div className="p-10 bg-grey-background">
       {status === 'authenticated' && (
         <DarkButton disabled={isLoading} onClick={handleSignOut}>
-          Sign out!
+          <FormattedMessage
+            id="page.sign-in.button.sign-out"
+            defaultMessage="Sign out!"
+          />
         </DarkButton>
       )}
     </div>

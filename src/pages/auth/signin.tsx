@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
+import { FormattedMessage } from 'react-intl';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
@@ -78,8 +79,15 @@ const SignIn: NextPage = () => {
 
     return (
       <div>
-        You are already logged in. No callbackUrl provided.
-        <NavButton href="/playground">Go to Playground</NavButton>
+        <FormattedMessage
+          id="page.sign-in.already-signed-in.content"
+          defaultMessage="You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
+          values={{
+            button: (chunks) => (
+              <NavButton href="/playground">{chunks}</NavButton>
+            ),
+          }}
+        />
       </div>
     );
   }
@@ -93,11 +101,17 @@ const SignIn: NextPage = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="w-1/2 mx-auto">
           <TextInput {...register('email')} type="email">
-            Email
+            <FormattedMessage
+              id="page.sign-in.input.email"
+              defaultMessage="Email"
+            />
           </TextInput>
         </div>
         <DarkButton type="submit" disabled={isLoading}>
-          Sign in!
+          <FormattedMessage
+            id="page.sign-in.button.sign-in"
+            defaultMessage="Sign in!"
+          />
         </DarkButton>
       </form>
     </div>
