@@ -1,4 +1,4 @@
-import { RequestStatus } from '@prisma/client';
+import { ApplicationStatus, RequestStatus } from '@prisma/client';
 
 import prisma from '../../db/prisma';
 
@@ -35,7 +35,13 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
       providedEmail: true,
       _count: {
         select: {
-          applications: true,
+          applications: {
+            where: {
+              status: {
+                equals: ApplicationStatus.Accepted,
+              },
+            },
+          },
         },
       },
     },
