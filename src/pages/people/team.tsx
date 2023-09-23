@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import React, { useMemo } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
@@ -200,9 +201,15 @@ interface TeamProps {
 }
 
 const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
+  const intl = useIntl();
   return (
     <>
-      <NextSeo title="Our Team" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.people.section.team.next-seo.title',
+          defaultMessage: 'Our Team',
+        })}
+      />
       <div className="m-10">
         <MemberList members={members} teams={teams} />
       </div>
@@ -212,14 +219,21 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
-          alt="Our community"
+          alt={intl.formatMessage({
+            id: 'page.people.section.team.community.image.alt-text',
+            defaultMessage: 'Our community',
+          })}
         />
-        <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered by
-          shared values and invested in a vision of a better world for animals.
-          We believe in a community-first approach: one that is supportive,
-          growth-oriented, and accountable to each other. If this resonates with
-          you, scroll down to learn more.
+        <FirstSubSection
+          header={intl.formatMessage({
+            id: 'page.people.section.team.community.heading',
+            defaultMessage: 'Our community',
+          })}
+        >
+          <FormattedMessage
+            id="page.people.section.team.community.text"
+            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+          />
         </FirstSubSection>
       </div>
     </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SquareField from '../../components/decoration/squares';
 import PeopleLayout from '../../components/layout/people';
@@ -63,13 +64,25 @@ interface AdvisorsProps {
 }
 
 const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
+  const intl = useIntl();
   return (
     <>
-      <NextSeo title="Our Advisors" />
-      <FirstSubSection header="Our advisors">
-        We are incredibly thankful for our team of experienced advisors who
-        provide guidance and direction to the organization, its strategy, and
-        projects.
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.people.section.advisors.next-seo.title',
+          defaultMessage: 'Our Advisors',
+        })}
+      />
+      <FirstSubSection
+        header={intl.formatMessage({
+          id: 'page.people.section.advisors.intro.heading',
+          defaultMessage: 'Our advisors',
+        })}
+      >
+        <FormattedMessage
+          id="page.people.section.advisors.intro.text"
+          defaultMessage="We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
+        />
       </FirstSubSection>
       <div className="mx-auto my-10 lg:w-2/3">
         <div className="grid justify-center md:grid-cols-3 ">
@@ -86,14 +99,21 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
-          alt="Our community"
+          alt={intl.formatMessage({
+            id: 'page.people.section.advisors.community.image.alt-text',
+            defaultMessage: 'Our community',
+          })}
         />
-        <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered by
-          shared values and invested in a vision of a better world for animals.
-          We believe in a community-first approach: one that is supportive,
-          growth-oriented, and accountable to each other. If this resonates with
-          you, scroll down to learn more.
+        <FirstSubSection
+          header={intl.formatMessage({
+            id: 'page.people.section.advisors.community.heading',
+            defaultMessage: 'Our community',
+          })}
+        >
+          <FormattedMessage
+            id="page.people.section.advisors.community.text"
+            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+          />
         </FirstSubSection>
       </div>
     </>
