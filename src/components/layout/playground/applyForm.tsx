@@ -220,7 +220,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
               <Field title="Registered email">
-                {(request.requester as User).email ?? ''}
+                {request.requester.email ?? ''}
               </Field>
             </>
           )}
