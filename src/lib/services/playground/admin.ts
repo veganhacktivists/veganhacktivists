@@ -305,6 +305,8 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
       })
       .toJSON();
 
+    console.info('Trying to send to discord', request.id, Date.now());
+
     const playgroundMessage = await sendDiscordMessage({
       channelId: playgroundChannelId,
       content: roleToMention ? roleMention(roleToMention) : undefined,
@@ -490,6 +492,7 @@ export const setRequestStatus = async ({
         });
 
         if (shouldPost) {
+          console.info('Trying to post to reddit and discord', id, Date.now());
           redditSubmissions = await postPlaygroundRequestOnReddit(
             updatedRequest
           );

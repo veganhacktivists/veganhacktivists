@@ -55,6 +55,7 @@ const adminRouter = t.router({
   setRequestStatus: adminProcedure
     .input(setRequestStatusSchema)
     .mutation(async ({ input }) => {
+      console.info('setRequestStatus', JSON.stringify(input), Date.now());
       const request = await setRequestStatus(input);
 
       return request;
