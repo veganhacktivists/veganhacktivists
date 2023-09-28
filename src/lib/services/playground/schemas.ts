@@ -123,7 +123,7 @@ const submitRequestSchemaBase = z.object({
   providedEmail: z.string().trim().email(),
   phone: z.string().trim().min(1, { message: 'This value is required' }),
   organization: z.string().trim().optional(),
-  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType).optional(),
+  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType),
   organizationDescription: z.string().trim().min(1),
   website: z
     .string()
@@ -177,14 +177,25 @@ export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
   devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
 );
 
-export const verifyRequestFormRequestSchema =
-  submitRequestSchemaClientBase.extend({
+export const verifyRequestFormRequestSchema = submitRequestSchemaClientBase
+  .extend({
     dueDate: z
       .string()
       .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
         message: 'Due date must be in the future',
       }),
-  });
+  })
+  .refine(
+    ({ organizationType, budget }) => {
+      return !(
+        organizationType === PlaygroundRequestOrganizationType.Profit && !budget
+      );
+    },
+    {
+      message: 'Request for for-profit organizations must be paid',
+      path: ['budget'],
+    }
+  );
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
