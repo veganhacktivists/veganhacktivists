@@ -495,10 +495,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               Playground is a platform that primarily supports not-for-profit
               organizations and activism. As a for-profit, we require you to
               offer compensation for your project. Please add this information
-              to your post by selecting “Paid” in the request information
-              section. We want to support as many vegan endeavors as possible,
-              but also try our best to ensure the equitable distribution of
-              limited volunteer labor. Thank you for your cooperation!
+              to your post by selecting &ldquo;Paid&rdquo; in the request
+              information section. We want to support as many vegan endeavors as
+              possible, but also try our best to ensure the equitable
+              distribution of limited volunteer labor. Thank you for your
+              cooperation!
             </div>
           )}
         <TextArea
