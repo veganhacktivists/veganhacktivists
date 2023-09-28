@@ -52,10 +52,10 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   })`,
 }));
 
-const IS_NON_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
+const IS_FOR_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
   [
-    { label: 'Yes', value: 'Activism' },
-    { label: 'No', value: 'Profit' },
+    { label: 'No', value: 'Activism' },
+    { label: 'Yes', value: 'Profit' },
   ];
 
 const DEV_REQUEST_WEBSITE_EXISTS_OPTIONS: OptionType<boolean>[] = [
@@ -470,12 +470,12 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               <SelectInput
                 {...field}
                 current={
-                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
+                  IS_FOR_PROFIT_ORGANIZATION_OPTIONS.find(
                     (c) => c.value === current
                   ) || null
                 }
                 error={errors.organizationType?.message}
-                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
+                options={IS_FOR_PROFIT_ORGANIZATION_OPTIONS}
                 onChange={(option) => {
                   onChange(option?.value || null);
                   setFormData({
