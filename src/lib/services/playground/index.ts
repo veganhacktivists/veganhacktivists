@@ -100,6 +100,7 @@ export const getRequestById = async (
       status: true,
       updatedAt: true,
       website: true,
+      organizationDescription: true,
       designRequestCurrentDesignExists: true,
       designRequestType: true,
       devRequestWebsiteExists: true,
