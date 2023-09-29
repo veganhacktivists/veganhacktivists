@@ -15,10 +15,8 @@ const GrantsPollinationProject: React.FC = () => {
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
-            Our grant program is generously funded by The Pollination Project
-            (TPP). After reviewing and approving your application, we forward
-            your application to TPP for further review, so keep an eye out on
-            your inbox!
+          Our grants connection service is generously funded by The Pollination Project (TPP) 
+          and other private donors— please keep an eye out in your inbox, and don&apos;t forget to check spam!
           </p>
           <p className="mt-4">
             If your primary focus does not address farmed animals, you may still

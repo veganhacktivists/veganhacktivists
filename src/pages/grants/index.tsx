@@ -54,9 +54,9 @@ const Grants: React.FC = () => {
 
       <div className="p-12 pb-20 bg-yellow">
         <p className="max-w-screen-md mx-auto font-mono text-2xl text-center">
-          We offer up to <b>$1,000 USD in seed funding</b> for effective animal
+          We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal
           rights activism! We seek individual and grassroots groups whose
-          primary purpose is to help reduce suffering for non-human farmed
+          primary purpose is to help reduce suffering for farmed
           animals.
         </p>
       </div>
