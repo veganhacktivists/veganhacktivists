@@ -27,7 +27,7 @@ interface SelectInputProps<T>
   onChange?: (value: OptionType<T> | null) => void;
   placeholder?: string;
   showError?: boolean;
-  theme?: string;
+  theme?: 'default' | 'data' | 'dark';
 }
 
 const grey = getThemeColor('grey');
@@ -174,7 +174,7 @@ const SelectInput = <T,>({
     },
   };
 
-  const SelectComponent = () =>
+  const getSelectComponent = () =>
     creatable ? (
       <CreatableSelect
         {...commonProps}
@@ -196,7 +196,7 @@ const SelectInput = <T,>({
 
   return (
     <>
-      <SelectComponent />
+      {getSelectComponent()}
       {error && <div className="text-red">⚠ {error}</div>}
     </>
   );

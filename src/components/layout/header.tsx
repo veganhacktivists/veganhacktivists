@@ -6,10 +6,13 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 import CustomImage from '../decoration/customImage';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
+
+import { useLocale } from 'lib/translation/useLocale';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -83,6 +86,43 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   );
 };
 
+export const LanguagePickerDropdown = () => {
+  const router = useRouter();
+
+  const locales = router.locales;
+
+  const currentLocale = useLocale();
+
+  if (!locales) {
+    return null;
+  }
+
+  return (
+    // transform(scale-100) to make this the root for the absolute positioned locale selector list
+    <div className="scale-100 group flex flex-col items-center justify-center w-20 transition duration-500 hover:bg-gray-dark">
+      <div className="absolute hidden group-hover:block">{currentLocale}</div>
+      <div className="absolute block group-hover:hidden">
+        <FontAwesomeIcon icon={faLanguage} fixedWidth />
+      </div>
+      <div className="absolute top-full w-full hidden transition duration-500 group-hover:flex flex-col center">
+        {locales
+          .filter((locale) => locale !== currentLocale)
+          .map((locale) => (
+            <Link
+              key={locale + router.pathname}
+              href={router.pathname}
+              locale={locale}
+            >
+              <a className="py-2 transition duration-500 bg-black hover:bg-gray-dark text-center">
+                {locale}
+              </a>
+            </Link>
+          ))}
+      </div>
+    </div>
+  );
+};
+
 const NavbarItems: React.FC = () => {
   return (
     <>
@@ -113,6 +153,7 @@ const NavbarItems: React.FC = () => {
       >
         Get Help
       </NavBarItem>
+      <LanguagePickerDropdown />
       <a
         className="p-5 py-6 text-center transition duration-500 hover:bg-gray-dark"
         href="https://www.instagram.com/veganhacktivists/"

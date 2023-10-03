@@ -5,5 +5,5 @@ import dev from '../../../translation/data/compiled-dev.json';
 export const messages: Record<string, Record<string, string>> = {
   en,
   de,
-  ...(process.env.NODE_ENV !== 'production' && { dev }),
+  ...(process.env.NODE_ENV === 'development' && { dev }),
 };

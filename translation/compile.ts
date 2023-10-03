@@ -107,7 +107,7 @@ async function ensureTranslationFileUsage(language: string) {
     sourceFile
       .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
       .addSpreadAssignment({
-        expression: "(process.env.NODE_ENV !== 'production' && { dev })",
+        expression: "(process.env.NODE_ENV === 'development' && { dev })",
 
         kind: StructureKind.SpreadAssignment,
       });
