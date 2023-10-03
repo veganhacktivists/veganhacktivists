@@ -100,8 +100,10 @@ export const LanguagePickerDropdown = () => {
   return (
     // transform(scale-100) to make this the root for the absolute positioned locale selector list
     <div className="scale-100 group flex flex-col items-center justify-center w-20 transition duration-500 hover:bg-gray-dark">
-      <div className="absolute hidden group-hover:block">{currentLocale}</div>
-      <div className="absolute block group-hover:hidden">
+      <div className="absolute transition ease-in-out duration-500 opacity-0 group-hover:opacity-100">
+        {currentLocale}
+      </div>
+      <div className="absolute transition ease-in-out duration-500 opacity-100 group-hover:opacity-0">
         <FontAwesomeIcon icon={faLanguage} fixedWidth />
       </div>
       <div className="absolute top-full w-full hidden transition duration-500 group-hover:flex flex-col center">
