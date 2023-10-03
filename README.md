@@ -218,7 +218,7 @@ example for a headline on the index page:
 
 ### Scripts
 
-`pnpm translation:compile` compiles all messages into a format required by react-intl.  
+`pnpm translation:compile` compiles all messages into a format consumable by react-intl.  
 `pnpm translation:extract` finds new messages and extracts them into `/translation/data/en.json`. Runs `translation:compile` afterwards.  
 `pnpm translation:update` compares the defaultMessages in `FormattedMessage` and `intl.formatMessage` with previously extracted messages and updates the code where differences are found.  
 `pnpm translation:translate` next.config.ts locales will be used as language key for the deepl translation API, to generate translations of missing messages of the corresponding language. Results are written to `/translation/data/{languageKey}.json`. Runs `translation:compile` afterwards.

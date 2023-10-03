@@ -508,5 +508,452 @@
   },
   "page.our-work.section.our-communities.member-count.reddit": {
     "defaultMessage": "<no-localization>{count}</no-localization> members"
+  },
+  "page.about.hero.alt-text": {
+    "defaultMessage": "Data-Driven Activism"
+  },
+  "page.about.section.navigation.button.label.mission": {
+    "defaultMessage": "OUR MISSION"
+  },
+  "page.about.section.navigation.button.label.story": {
+    "defaultMessage": "OUR STORY"
+  },
+  "page.about.section.navigation.button.label.values": {
+    "defaultMessage": "OUR VALUES"
+  },
+  "page.about.section.our-mission.next-seo.title": {
+    "defaultMessage": "Our Mission"
+  },
+  "page.about.section.our-mission.section-header.content": {
+    "defaultMessage": "Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work."
+  },
+  "page.about.section.our-mission.section-header.heading": {
+    "defaultMessage": "Our mission"
+  },
+  "page.about.section.our-mission.section-header.image.alt-text": {
+    "defaultMessage": "Our mission"
+  },
+  "page.about.section.our-mission.subsection-1.content": {
+    "defaultMessage": "To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
+  },
+  "page.about.section.our-mission.subsection-1.heading": {
+    "defaultMessage": "1. We need more data in our movement."
+  },
+  "page.about.section.our-mission.subsection-2.content": {
+    "defaultMessage": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
+  },
+  "page.about.section.our-mission.subsection-2.heading": {
+    "defaultMessage": "2. We need more competition, too."
+  },
+  "page.about.section.our-mission.subsection-3.content": {
+    "defaultMessage": "We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
+  },
+  "page.about.section.our-mission.subsection-3.heading": {
+    "defaultMessage": "3. We need to be more innovative."
+  },
+  "page.about.section.our-mission.subsection-4.content": {
+    "defaultMessage": "We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
+  },
+  "page.about.section.our-mission.subsection-4.heading": {
+    "defaultMessage": "4. And we need to start collaborating."
+  },
+  "page.about.section.our-mission.subsection-5.content": {
+    "defaultMessage": "Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
+  },
+  "page.about.section.our-mission.subsection-5.heading": {
+    "defaultMessage": "5. Finally, we need more vegans to become active."
+  },
+  "page.about.section.our-story.next-seo.title": {
+    "defaultMessage": "Our Story"
+  },
+  "page.about.section.our-story.section-header.content": {
+    "defaultMessage": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
+  },
+  "page.about.section.our-story.section-header.heading": {
+    "defaultMessage": "Our story"
+  },
+  "page.about.section.our-story.section-header.image.alt-text": {
+    "defaultMessage": "Our story"
+  },
+  "page.about.section.our-story.subsection-1.content": {
+    "defaultMessage": "We are the Vegan Hacktivists. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
+  },
+  "page.about.section.our-story.subsection-2.content": {
+    "defaultMessage": "Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
+  },
+  "page.about.section.our-story.subsection-3.content": {
+    "defaultMessage": "Over the years, our organization has changed with the needs of our movement. While we now primarily focus on providing capacity-building services, we continue to build technology that we believe to be innovative and highly needed in the movement. Now, we work extensively with advocates, organizations, and those working at the frontlines to help improve their day-to-day operations, brand and identity, and technology. In doing so, we are helping to amplify their message and elevate their work to a wider audience."
+  },
+  "page.about.section.our-story.subsection-4.content": {
+    "defaultMessage": "Through it all, our North Star remains the same:{break}we do it for the animals."
+  },
+  "page.about.section.our-values.next-seo.title": {
+    "defaultMessage": "Our Values"
+  },
+  "page.about.section.our-values.section-header.content": {
+    "defaultMessage": "We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
+  },
+  "page.about.section.our-values.section-header.heading": {
+    "defaultMessage": "Our values"
+  },
+  "page.about.section.our-values.section-header.image.alt-text": {
+    "defaultMessage": "Our values"
+  },
+  "page.about.section.our-values.subsection-1.content": {
+    "defaultMessage": "We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
+  },
+  "page.about.section.our-values.subsection-1.heading": {
+    "defaultMessage": "Animal Liberation"
+  },
+  "page.about.section.our-values.subsection-2.content": {
+    "defaultMessage": "We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
+  },
+  "page.about.section.our-values.subsection-2.heading": {
+    "defaultMessage": "Non-violence"
+  },
+  "page.about.section.our-values.subsection-3.content": {
+    "defaultMessage": "We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
+  },
+  "page.about.section.our-values.subsection-3.heading": {
+    "defaultMessage": "Safe Community"
+  },
+  "page.about.section.our-values.subsection-4.content": {
+    "defaultMessage": "We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
+  },
+  "page.about.section.our-values.subsection-4.heading": {
+    "defaultMessage": "Farmed Animals"
+  },
+  "page.about.section.our-values.subsection-5.content": {
+    "defaultMessage": "We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
+  },
+  "page.about.section.our-values.subsection-5.heading": {
+    "defaultMessage": "Open Feedback"
+  },
+  "page.about.section.our-values.subsection-6.content": {
+    "defaultMessage": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
+  },
+  "page.about.section.our-values.subsection-6.heading": {
+    "defaultMessage": "Anti-Oppression"
+  },
+  "page.grants.content": {
+    "defaultMessage": "We offer up to <b>$1,000 USD in seed funding</b> for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+  },
+  "page.grants.hero.image.alt-text": {
+    "defaultMessage": "Grants for a kinder world"
+  },
+  "page.grants.next-seo.title": {
+    "defaultMessage": "Seed Funding Grants"
+  },
+  "page.grants.section.application.form.a.heading": {
+    "defaultMessage": "Section A - About you"
+  },
+  "page.grants.section.application.form.a.input.applicant-age.label": {
+    "defaultMessage": "Are you over 18?"
+  },
+  "page.grants.section.application.form.a.input.applicant-age.text": {
+    "defaultMessage": "If you're under 18 the form must be filled by your parent or legal guardian"
+  },
+  "page.grants.section.application.form.a.input.applicant-email.error": {
+    "defaultMessage": "Please enter a valid email"
+  },
+  "page.grants.section.application.form.a.input.applicant-email.label": {
+    "defaultMessage": "What's your email?"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.label": {
+    "defaultMessage": "Gender <span>(optional)</span>"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+    "defaultMessage": "male"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+    "defaultMessage": "female"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+    "defaultMessage": "other"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
+    "defaultMessage": "Select or type something..."
+  },
+  "page.grants.section.application.form.a.input.applicant-info.label": {
+    "defaultMessage": "Give us a sense of who you are"
+  },
+  "page.grants.section.application.form.a.input.applicant-info.text": {
+    "defaultMessage": "Your project is important to us and we'll get to that, but the person you are is an equally important part of our process and we'd like to get to know you. Share with us what values guide you through your life and how those values influence the way you choose to grow as a person or share whatever you'd like us to know about you!"
+  },
+  "page.grants.section.application.form.a.input.applicant-name.label": {
+    "defaultMessage": "What's your name?"
+  },
+  "page.grants.section.application.form.b.heading": {
+    "defaultMessage": "Section B - Your project"
+  },
+  "page.grants.section.application.form.b.input.other-organizations.label": {
+    "defaultMessage": "Will other organizations be involved on this project?"
+  },
+  "page.grants.section.application.form.b.input.other-organizations.text": {
+    "defaultMessage": "Please share with us any other organizations who will work on the proposed project in partnership with you. Please include any relationships your organization has with local, national and where appropriate, international partners"
+  },
+  "page.grants.section.application.form.b.input.project-info.label": {
+    "defaultMessage": "Tell us about the project you're seeking funding for"
+  },
+  "page.grants.section.application.form.b.input.project-info.text": {
+    "defaultMessage": "Please include the overall goal you wish to achieve for your project"
+  },
+  "page.grants.section.application.form.b.input.project-location.label": {
+    "defaultMessage": "Where does your project take place?"
+  },
+  "page.grants.section.application.form.b.input.project-name.label": {
+    "defaultMessage": "What do you call your project?"
+  },
+  "page.grants.section.application.form.b.input.project-name.text": {
+    "defaultMessage": "The name of the project will help us understand the focus of it. Please keep it brief and simple"
+  },
+  "page.grants.section.application.form.b.input.project-steps.label": {
+    "defaultMessage": "What steps will you take to carry out this project?"
+  },
+  "page.grants.section.application.form.b.input.project-steps.text": {
+    "defaultMessage": "Please include specific project objectives and activities"
+  },
+  "page.grants.section.application.form.b.input.project-success.label": {
+    "defaultMessage": "How will you know if your project is successful?"
+  },
+  "page.grants.section.application.form.b.input.project-success.text": {
+    "defaultMessage": "Please share with us how you will evaluate your impact"
+  },
+  "page.grants.section.application.form.b.input.target-audience.label": {
+    "defaultMessage": "Who is your target audience with this project?"
+  },
+  "page.grants.section.application.form.b.input.target-audience.text": {
+    "defaultMessage": "Do you target institutions, individuals, or something else? How will targeting this group create change for farmed animals?"
+  },
+  "page.grants.section.application.form.c.heading": {
+    "defaultMessage": "Section C - Project"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.error.max": {
+    "defaultMessage": "We can only accept applications for up to $1000 USD"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.error.min": {
+    "defaultMessage": "Please enter a positive value"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.label": {
+    "defaultMessage": "How much are you applying for?"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.text": {
+    "defaultMessage": "We can only accept applications for up to $1000 USD"
+  },
+  "page.grants.section.application.form.c.input.can-accept-funding.label": {
+    "defaultMessage": "Please confirm your ability to accept funding"
+  },
+  "page.grants.section.application.form.c.input.can-accept-funding.text": {
+    "defaultMessage": "I confirm that I have a bank or PayPal account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - TPP is unable to make grant payments to any other person or entity on my behalf. I understand that if TPP reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
+  },
+  "page.grants.section.application.form.c.input.funds-usage.label": {
+    "defaultMessage": "What will the funds be used for?"
+  },
+  "page.grants.section.application.form.c.input.funds-usage.text": {
+    "defaultMessage": "Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
+  },
+  "page.grants.section.application.form.c.input.total-budget.error": {
+    "defaultMessage": "Please enter a positive value"
+  },
+  "page.grants.section.application.form.c.input.total-budget.label": {
+    "defaultMessage": "How much is the total budget for the project?"
+  },
+  "page.grants.section.application.form.c.input.total-budget.text": {
+    "defaultMessage": "Please tell us the total cost of the project. This amount should include the expenditure for all activities associated with the project"
+  },
+  "page.grants.section.application.form.c.intro": {
+    "defaultMessage": "<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
+  },
+  "page.grants.section.application.form.message.error": {
+    "defaultMessage": "Something went wrong processing your submission! Please try again later"
+  },
+  "page.grants.section.application.form.message.pending": {
+    "defaultMessage": "Submitting..."
+  },
+  "page.grants.section.application.form.message.success": {
+    "defaultMessage": "Your request was sent successfully!"
+  },
+  "page.grants.section.application.heading": {
+    "defaultMessage": "Application Form"
+  },
+  "page.grants.section.application.intro": {
+    "defaultMessage": "We'd like to understand more about you and your work to see if this partnership is a good fit. Given that we have observed a recent trend of application submissions being primarily generated by AI, we will be declining any submissions that we believe to not be authored by you or your team. <b>Our goal is to understand your unique vision, mission, and plans,not to review</b> We encourage you to leverage such tools to support, not replace, the content of your grant application."
+  },
+  "page.grants.section.heading.image.alt-text": {
+    "defaultMessage": "A bee, busy pollinating"
+  },
+  "page.grants.section.heading.text": {
+    "defaultMessage": "Seed Funding Grants"
+  },
+  "page.grants.section.perks.check-ins.content": {
+    "defaultMessage": "A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
+  },
+  "page.grants.section.perks.check-ins.heading": {
+    "defaultMessage": "Monthly Advisory Check-ins"
+  },
+  "page.grants.section.perks.content-dev.content": {
+    "defaultMessage": "We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
+  },
+  "page.grants.section.perks.content-dev.heading": {
+    "defaultMessage": "Content Development"
+  },
+  "page.grants.section.perks.design-creation.content": {
+    "defaultMessage": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
+  },
+  "page.grants.section.perks.design-creation.heading": {
+    "defaultMessage": "Design Creation"
+  },
+  "page.grants.section.perks.heading": {
+    "defaultMessage": "Heart icon"
+  },
+  "page.grants.section.perks.heading.image.alt-text": {
+    "defaultMessage": "In addition to $1,000 in seed funding, VH Grants include:"
+  },
+  "page.grants.section.perks.squarespace.content": {
+    "defaultMessage": "<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
+  },
+  "page.grants.section.perks.squarespace.heading": {
+    "defaultMessage": "Squarespace Website Subscription"
+  },
+  "page.grants.section.pollination-project.button": {
+    "defaultMessage": "ThePollinationProject.org"
+  },
+  "page.grants.section.pollination-project.content[0]": {
+    "defaultMessage": "Our grant program is generously funded by The Pollination Project (TPP). After reviewing and approving your application, we forward your application to TPP for further review, so keep an eye out on your inbox!"
+  },
+  "page.grants.section.pollination-project.content[1]": {
+    "defaultMessage": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
+  },
+  "page.grants.section.pollination-project.image.alt-text": {
+    "defaultMessage": "Logo of The Pollination Project"
+  },
+  "page.grants.section.qualifications.cta[0].content": {
+    "defaultMessage": "<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
+  },
+  "page.grants.section.qualifications.cta[1].content": {
+    "defaultMessage": "If you meet the qualifications, fill out the application form below."
+  },
+  "page.grants.section.qualifications.heading": {
+    "defaultMessage": "Before applying, make sure you meet these qualifications:"
+  },
+  "page.grants.section.qualifications.step[0].content": {
+    "defaultMessage": "<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
+  },
+  "page.grants.section.qualifications.step[1].content": {
+    "defaultMessage": "<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
+  },
+  "page.grants.section.subheading": {
+    "defaultMessage": "We're very happy to be able to offer up to <b>$1000 USD in seed funding grants</b> for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+  },
+  "page.people.hero.alt-text": {
+    "defaultMessage": "Our Community of Passionate Activists"
+  },
+  "page.people.section.advisors.community.heading": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.advisors.community.image.alt-text": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.advisors.community.text": {
+    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+  },
+  "page.people.section.advisors.intro.heading": {
+    "defaultMessage": "Our advisors"
+  },
+  "page.people.section.advisors.intro.text": {
+    "defaultMessage": "We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
+  },
+  "page.people.section.advisors.next-seo.title": {
+    "defaultMessage": "Our Advisors"
+  },
+  "page.people.section.navigation.button.label.advisors": {
+    "defaultMessage": "OUR ADVISORS"
+  },
+  "page.people.section.navigation.button.label.partners": {
+    "defaultMessage": "OUR PARTNERS"
+  },
+  "page.people.section.navigation.button.label.team": {
+    "defaultMessage": "OUR TEAM"
+  },
+  "page.people.section.navigation.button.label.volunteers": {
+    "defaultMessage": "OUR VOLUNTEERS"
+  },
+  "page.people.section.partners.community.heading": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.partners.community.image.alt-text": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.partners.community.text": {
+    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+  },
+  "page.people.section.partners.intro.heading": {
+    "defaultMessage": "Our partners"
+  },
+  "page.people.section.partners.intro.text": {
+    "defaultMessage": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
+  },
+  "page.people.section.partners.next-seo.title": {
+    "defaultMessage": "Our Partners"
+  },
+  "page.people.section.team.community.heading": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.team.community.image.alt-text": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.team.community.text": {
+    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+  },
+  "page.people.section.team.next-seo.title": {
+    "defaultMessage": "Our Team"
+  },
+  "page.people.section.volunteers.button.load-more": {
+    "defaultMessage": "Load more"
+  },
+  "page.people.section.volunteers.community.heading": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.volunteers.community.image.alt-text": {
+    "defaultMessage": "Our community"
+  },
+  "page.people.section.volunteers.community.text": {
+    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+  },
+  "page.people.section.volunteers.intro.heading": {
+    "defaultMessage": "Our volunteers"
+  },
+  "page.people.section.volunteers.intro.text": {
+    "defaultMessage": "Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
+  },
+  "page.people.section.volunteers.next-seo.title": {
+    "defaultMessage": "Our Volunteers"
+  },
+  "page.sign-in.already-signed-in.content": {
+    "defaultMessage": "You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
+  },
+  "page.sign-in.button.sign-in": {
+    "defaultMessage": "Sign in!"
+  },
+  "page.sign-in.button.sign-out": {
+    "defaultMessage": "Sign out!"
+  },
+  "page.sign-in.input.email": {
+    "defaultMessage": "Email"
+  },
+  "page.verify-request.button.go-back": {
+    "defaultMessage": "Go back"
+  },
+  "page.verify-request.content": {
+    "defaultMessage": "Please follow the instructions we have sent you. If you are not seeing the email in your inbox, please check your spam folder."
+  },
+  "page.verify-request.heading": {
+    "defaultMessage": "Check your email"
+  },
+  "section.grants-cta.apply.heading": {
+    "defaultMessage": "Apply for a seed grant"
+  },
+  "section.grants-cta.visit-year-review.heading": {
+    "defaultMessage": "See our 2022 impact review"
   }
 }
