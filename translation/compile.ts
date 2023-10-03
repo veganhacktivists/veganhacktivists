@@ -12,6 +12,7 @@ import {
 import { z } from 'zod';
 
 import {
+  defaultLanguage,
   encoding,
   languages,
   repoDirectory,
@@ -27,11 +28,12 @@ function main() {
   return Promise.all(
     languages.map(async (lang) => {
       const compiledMessages = await compile([
-        resolveTranslationFilePath(lang),
+        resolveTranslationFilePath(lang === 'dev' ? defaultLanguage : lang),
       ]);
 
-      const updatedMessages = removeTranslationIgnoreTagsFromCompiledMessages(
-        stringRecordSchema.parse(JSON.parse(compiledMessages))
+      const updatedMessages = noramlizeCompiledMessagesForLang(
+        compiledMessages,
+        lang
       );
 
       await writeFile(
@@ -45,10 +47,27 @@ function main() {
   );
 }
 
-const messagesSourceFilePath = resolve(
-  repoDirectory,
-  'src/lib/translation/messages.ts'
-);
+function noramlizeCompiledMessagesForLang(
+  compiledMessages: string,
+  lang: string
+) {
+  const parsedMessages = stringRecordSchema.parse(JSON.parse(compiledMessages));
+
+  if (lang === 'dev') {
+    return createDevTranslations(parsedMessages);
+  }
+
+  return removeTranslationIgnoreTagsFromCompiledMessages(parsedMessages);
+}
+
+function createDevTranslations(
+  compiledMessages: Record<string, string>
+): Record<string, string> {
+  return Object.fromEntries(
+    Object.keys(compiledMessages).map((key) => [key, key])
+  );
+}
+
 const project = new Project({
   manipulationSettings: {
     quoteKind: QuoteKind.Single,
@@ -56,6 +75,10 @@ const project = new Project({
     useTrailingCommas: true,
   },
 });
+const messagesSourceFilePath = resolve(
+  repoDirectory,
+  'src/lib/translation/messages.ts'
+);
 project.addSourceFileAtPath(messagesSourceFilePath);
 
 async function ensureTranslationFileUsage(language: string) {
@@ -80,12 +103,22 @@ async function ensureTranslationFileUsage(language: string) {
     moduleSpecifier: filepath,
   });
 
-  sourceFile
-    .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
-    .addProperty({
-      name: language,
-      kind: StructureKind.ShorthandPropertyAssignment,
-    });
+  if (language === 'dev') {
+    sourceFile
+      .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
+      .addSpreadAssignment({
+        expression: "(process.env.NODE_ENV !== 'production' && { dev })",
+
+        kind: StructureKind.SpreadAssignment,
+      });
+  } else {
+    sourceFile
+      .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
+      .addProperty({
+        name: language,
+        kind: StructureKind.ShorthandPropertyAssignment,
+      });
+  }
 
   await project.save();
 }
