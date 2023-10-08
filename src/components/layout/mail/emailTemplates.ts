@@ -360,7 +360,7 @@ Please make sure your requests include clear information about your project and 
 <br /><br />
 If you'd like to resubmit the same request, you can click below.
 <br /><br />
-If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.
+If you have any questions and/or would like to provide feedback to us, please email Jess at jess@veganhacktivists.org.
 <br /><br />
 Resubmit your request: ${createNewRequestUrl}
 `;
@@ -372,7 +372,7 @@ Resubmit your request: ${createNewRequestUrl}
 <mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
 <mj-text>Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
 <mj-text>If you'd like to resubmit the same request, you can click below.</mj-text>
-<mj-text>If you have any questions and/or would like to provide feedback to us, please email Flavia at flavia@veganhacktivists.org.</mj-text>
+<mj-text>If you have any questions and/or would like to provide feedback to us, please email Jess at jess@veganhacktivists.org.</mj-text>
 <mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
 `;
   return mjml2html(mail(body, false)).html ?? '';

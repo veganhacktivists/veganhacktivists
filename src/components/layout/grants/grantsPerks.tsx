@@ -134,7 +134,7 @@ const GrantsPerks: React.FC = () => {
       <h3 className="p-4 mt-12 mb-10 text-4xl font-semibold md:p-0">
         <FormattedMessage
           id="page.grants.section.perks.heading.image.alt-text"
-          defaultMessage="In addition to $1,000 in seed funding, VH Grants include:"
+          defaultMessage="In addition to seed funding, succesful applicants can receive:"
         />
       </h3>
 

@@ -23,10 +23,7 @@ const GrantsPollinationProject: React.FC = () => {
           <p>
             <FormattedMessage
               id="page.grants.section.pollination-project.content[0]"
-              defaultMessage="Our grant program is generously funded by The Pollination Project
-              (TPP). After reviewing and approving your application, we forward
-              your application to TPP for further review, so keep an eye out on
-              your inbox!"
+              defaultMessage="Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
             />
           </p>
           <p className="mt-4">

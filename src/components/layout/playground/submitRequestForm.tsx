@@ -11,6 +11,7 @@ import {
 } from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
+import { PlaygroundRequestOrganizationType } from '@prisma/client';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -35,10 +36,7 @@ import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 import { useIsFirstRender } from 'hooks/useIsFirstRender';
 
-import type {
-  PlaygroundRequestDesignRequestType,
-  PlaygroundRequestOrganizationType,
-} from '@prisma/client';
+import type { PlaygroundRequestDesignRequestType } from '@prisma/client';
 import type { z } from 'zod';
 import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
@@ -52,10 +50,10 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
   })`,
 }));
 
-const IS_NON_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
+const IS_FOR_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
   [
-    { label: 'Yes', value: 'Activism' },
-    { label: 'No', value: 'Profit' },
+    { label: 'No', value: PlaygroundRequestOrganizationType.Activism },
+    { label: 'Yes', value: PlaygroundRequestOrganizationType.Profit },
   ];
 
 const DEV_REQUEST_WEBSITE_EXISTS_OPTIONS: OptionType<boolean>[] = [
@@ -323,6 +321,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           keepValues: true,
         });
       }
+
       await mutate(values);
       await utils.playground.getRequest.invalidate({ id: requestId });
     },
@@ -351,7 +350,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('budget', undefined);
   }, [isFree, setValue]);
 
-  const requestCategory = watch('category');
+  const [requestCategory, organizationType] = watch([
+    'category',
+    'organizationType',
+  ]);
 
   // reset category specific values
   useEffect(() => {
@@ -359,7 +361,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('devRequestWebsiteUrl', undefined);
     setValue('designRequestType', undefined);
     setValue('designRequestCurrentDesignExists', undefined);
-  }, [requestCategory]);
+  }, [requestCategory, setValue]);
 
   const isFirstRender = useIsFirstRender();
 
@@ -470,12 +472,12 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               <SelectInput
                 {...field}
                 current={
-                  IS_NON_PROFIT_ORGANIZATION_OPTIONS.find(
+                  IS_FOR_PROFIT_ORGANIZATION_OPTIONS.find(
                     (c) => c.value === current
                   ) || null
                 }
                 error={errors.organizationType?.message}
-                options={IS_NON_PROFIT_ORGANIZATION_OPTIONS}
+                options={IS_FOR_PROFIT_ORGANIZATION_OPTIONS}
                 onChange={(option) => {
                   onChange(option?.value || null);
                   setFormData({
@@ -487,6 +489,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             )}
           />
         </div>
+        {!isFirstRender &&
+          organizationType === PlaygroundRequestOrganizationType.Profit && (
+            <div className="col-span-full">
+              Playground is a platform that primarily supports not-for-profit
+              organizations and activism. As a for-profit, we require you to
+              offer compensation for your project. Please add this information
+              to your post by selecting &ldquo;Paid&rdquo; in the request
+              information section. We want to support as many vegan endeavors as
+              possible, but also try our best to ensure the equitable
+              distribution of limited volunteer labor. Thank you for your
+              cooperation!
+            </div>
+          )}
         <TextArea
           placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
           error={errors.organizationDescription?.message}
@@ -684,6 +699,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               setIsFree(value);
             }}
             options={IS_FREE_OPTIONS}
+            error={isFree ? errors.budget?.message : undefined}
           />
         </div>
         {!isFree && (

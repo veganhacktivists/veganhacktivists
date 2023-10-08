@@ -8,7 +8,7 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import {
-  FLAVIA_EMAIL,
+  JESS_EMAIL,
   OUR_EMAIL_TO,
   PLAYGROUND_EMAIL_FORMATTED,
 } from '../../mail/router';
@@ -305,6 +305,8 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
       })
       .toJSON();
 
+    console.info('Trying to send to discord', request.id, Date.now());
+
     const playgroundMessage = await sendDiscordMessage({
       channelId: playgroundChannelId,
       content: roleToMention ? roleMention(roleToMention) : undefined,
@@ -490,6 +492,7 @@ export const setRequestStatus = async ({
         });
 
         if (shouldPost) {
+          console.info('Trying to post to reddit and discord', id, Date.now());
           redditSubmissions = await postPlaygroundRequestOnReddit(
             updatedRequest
           );
@@ -578,7 +581,7 @@ const sendCompletionEmail = (
   return emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: FLAVIA_EMAIL,
+    cc: JESS_EMAIL,
     subject: 'Help Us Improve! Rate Your Experience with Playground',
     text: playgroundRequestCompletedSurvey(request, true),
     html: playgroundRequestCompletedSurvey(request),

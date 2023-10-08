@@ -87,7 +87,7 @@ const GrantsCallToAction: React.FC = () => {
         >
           <FormattedMessage
             id="section.grants-cta.apply.paragraph"
-            defaultMessage="We offer grants for impactful and effective work in animal advocacy and activism."
+            defaultMessage="We connect you with funders for impactful work in animal advocacy and activism."
           />
         </Info>
         <Info

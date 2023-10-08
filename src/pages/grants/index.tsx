@@ -63,7 +63,7 @@ const Grants: React.FC = () => {
         <p className="max-w-screen-md mx-auto font-mono text-2xl text-center">
           <FormattedMessage
             id="page.grants.content"
-            defaultMessage="We offer up to <b>$1,000 USD in seed funding</b> for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+            defaultMessage="We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
             values={{
               b: (chunks) => <b>{chunks}</b>,
             }}

@@ -4,10 +4,7 @@ import prisma from '../../db/prisma';
 
 import { playgroundRequestFeedbackAboutVolunteerAfter1Week } from 'components/layout/mail/emailTemplates';
 import emailClient from 'lib/mail';
-import {
-  FLAVIA_EMAIL_FORMATTED,
-  PLAYGROUND_EMAIL_FORMATTED,
-} from 'lib/mail/router';
+import { PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail/router';
 
 import type { PlaygroundRequest } from '@prisma/client';
 

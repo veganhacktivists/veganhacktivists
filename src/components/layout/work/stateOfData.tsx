@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import DataImage from '../../../../public/images/yearInReview/2022/data.png';
-import Faunalytics from '../../../../public/images/yearInReview/2022/faunalytics.png';
-import VHLogoWhiteBG from '../../../../public/images/VH_Logo_Type_WhiteBG_Tagline_300.png';
+import TechAndDataInTheMovement from '../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
+import { SectionHeader } from 'components/decoration/textBlocks';
+import { DarkButton } from 'components/decoration/buttons';
 
 const TOP_DECORATION_SQUARES = [
   { color: '#BCBCBC', size: 16, right: 0, top: 0 },
@@ -35,64 +35,43 @@ const StateOfData: React.FC = () => {
         className="hidden md:block"
       />
 
-      <div className="md:w-2/3 mx-auto w-fit">
-        <div className="flex flex-col pb-20 pt-20 px-5 text-left">
-          <div className="pb-9 w-fit">
-            <CustomImage alt="" src={DataImage} />
-          </div>
-          <FormattedMessage
-            id="page.our-work.section.state-of-data.headline"
-            defaultMessage="<left>Coming soon:</left> <middle>State of data & technology</middle> <right>in the movement</right>"
-            values={{
-              left: (chunk) => (
-                <div className="text-4xl text-green font-bold uppercase font-mono pb-3">
-                  {chunk}
-                </div>
-              ),
-              middle: (chunk) => (
-                <div className="text-5xl md:text-6xl font-bold uppercase font-mono pb-2 lg:overflow-visible lg:whitespace-nowrap">
-                  {chunk}
-                </div>
-              ),
-              right: (chunk) => (
-                <div className="text-4xl font-bold italic font-serif pb-8 md:pb-16">
-                  {chunk}
-                </div>
-              ),
-            }}
-          />
-          <div className="flex flex-col lg:flex-row items-center justify-start gap-5">
-            <div className="max-w-prose mr-auto">
-              <div className="text-xl">
-                <FormattedMessage
-                  id="page.our-work.section.state-of-data.content"
-                  defaultMessage="During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
+      <div className="mx-auto w-fit">
+        <div className="flex flex-col pb-20 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto">
+          <SectionHeader
+            header={['Read Our', 'Tech & Data Study']}
+            newDesign
+            stackEntries
+            rootClassName="text-left mx-auto text-center lg:text-left w-full mb-0"
+          >
+            <div className="flex flex-col lg:flex-row items-center justify-start gap-20 mt-10 lg:mt-20">
+              <div className="max-w-prose space-y-10 lg:basis-[55%]">
+                <p className="text-xl">
+                  <FormattedMessage
+                    id="page.our-work.section.state-of-data.content"
+                    defaultMessage="We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from Faunalytics and research conducted by Animetrics, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
+                  />
+                </p>
+
+                <DarkButton
+                  href="/research"
+                  newTab
+                  className="w-fit mx-auto lg:mx-0"
+                >
+                  <FormattedMessage
+                    id="page.our-work.section.state-of-data.cta"
+                    defaultMessage="Read the report"
+                  />
+                </DarkButton>
+              </div>
+              <div className="w-full md:w-[50%] lg:w-full lg:basis-[45%]">
+                <CustomImage
+                  alt="State of Tech And Data In The Movement"
+                  src={TechAndDataInTheMovement}
+                  layout="intrinsic"
                 />
               </div>
             </div>
-            <div className="md:flex-shrink-0 w-fit mr-auto lg:mx-auto">
-              <div className="grid grid-cols-2 gap-5">
-                <div className="bg-grey-background aspect-square grid place-items-center w-full h-full max-w-[200px]">
-                  <div className="w-fit m-auto">
-                    <CustomImage
-                      alt="Faunalytics"
-                      src={Faunalytics}
-                      layout="intrinsic"
-                    />
-                  </div>
-                </div>
-                <div className="bg-grey-background aspect-square grid place-items-center w-full h-full max-w-[200px]">
-                  <div className="w-fit m-auto">
-                    <CustomImage
-                      alt="Vegan Hacktivists"
-                      src={VHLogoWhiteBG}
-                      layout="intrinsic"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </SectionHeader>
         </div>
       </div>
 

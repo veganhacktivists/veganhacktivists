@@ -29,8 +29,7 @@ const nextConfig = {
     return [
       {
         source: '/research',
-        destination:
-          'https://tilburgss.co1.qualtrics.com/jfe/form/SV_78v0EGkf6hzIukS',
+        destination: '/tech-and-data-in-the-movement.pdf',
         permanent: false,
       },
       {

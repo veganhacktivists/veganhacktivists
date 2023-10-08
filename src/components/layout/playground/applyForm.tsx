@@ -38,7 +38,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { User, Source } from '@prisma/client';
+import type { Source } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -160,6 +160,18 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               </div>
             </div>
           </Field>
+          <Field title="About the organization">
+            <div className="font-sans break-words">
+              <div className="inline-block">
+                {request.organizationDescription
+                  ?.split('\n')
+                  .map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+              </div>
+            </div>
+          </Field>
+
           <Field title="Skills required">
             <div>{request.requiredSkills.join(', ')}</div>
           </Field>
@@ -220,7 +232,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             <>
               <Field title="Provided email">{request.providedEmail}</Field>
               <Field title="Registered email">
-                {(request.requester as User).email ?? ''}
+                {request.requester.email ?? ''}
               </Field>
             </>
           )}

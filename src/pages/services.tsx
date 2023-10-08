@@ -118,7 +118,7 @@ const getServiceBlockProps = (
     content: intl.formatMessage({
       id: 'page.services.section.service-block.3.content',
       defaultMessage:
-        'We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals.',
+        'We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals.',
     }),
     icon: fundingIcon,
     iconBgColor: 'yellow',
