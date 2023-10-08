@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
 import { resolve } from 'path';
 
 import { z } from 'zod';
@@ -75,4 +75,23 @@ export function warnIfIdInvalid(id: string) {
       id
     );
   }
+}
+
+export function sortTranslations(translations: TranslationFileStructure) {
+  return Object.fromEntries(
+    Object.entries(translations).sort(([keya], [keyb]) =>
+      keya.localeCompare(keyb)
+    )
+  );
+}
+
+export async function writeTranslationsToFile(
+  translations: TranslationFileStructure,
+  locale: string
+) {
+  await writeFile(
+    resolveCompiledTranslationFilePath(locale),
+    JSON.stringify(sortTranslations(translations), undefined, 2),
+    { encoding }
+  );
 }

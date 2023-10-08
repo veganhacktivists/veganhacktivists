@@ -1,7 +1,7 @@
 // Extract new translations using 'formatjs extract'
 
 import { promisify } from 'util';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 
 import { extract } from '@formatjs/cli-lib';
 import { glob } from 'glob';
@@ -13,6 +13,8 @@ import {
   repoDirectory,
   filesGlob,
   warnIfIdInvalid,
+  writeTranslationsToFile,
+  defaultLanguage,
 } from './_util';
 
 import type { TranslationFileStructure } from './_util';
@@ -37,33 +39,54 @@ async function main() {
     extractedTranslations
   );
 
-  await writeFile(
-    defaultTranslationPath,
-    JSON.stringify(mergedTranslations, undefined, 2),
-    { encoding }
-  );
+  await writeTranslationsToFile(mergedTranslations, defaultLanguage);
 }
 
 function addNewTranslationsToCurrent(
   currentTranslations: TranslationFileStructure = {},
   extractedTranslations: TranslationFileStructure
 ): TranslationFileStructure {
-  return Object.keys(extractedTranslations).reduce((translations, id) => {
-    warnIfIdInvalid(id);
+  // used to warn about changed translations
+  const changedTranslations: Record<
+    string,
+    [current: string, changed: string]
+  > = {};
 
-    if (!translations[id]) {
-      translations[id] = extractedTranslations[id];
-    } else if (
-      translations[id].defaultMessage !==
-      extractedTranslations[id].defaultMessage
-    ) {
-      // eslint-disable-next-line no-console
-      console.error(
-        `defaultMessage of existing translation changed. Existing translation messages must be set in ${defaultTranslationPath}\n${id}\ncurrent: ${translations[id].defaultMessage}\nchanged: ${extractedTranslations[id].defaultMessage}`
-      );
-    }
-    return translations;
-  }, currentTranslations);
+  const updatedTranslations = Object.keys(extractedTranslations).reduce(
+    (translations, id) => {
+      warnIfIdInvalid(id);
+
+      if (!translations[id]) {
+        translations[id] = extractedTranslations[id];
+      } else if (
+        translations[id].defaultMessage !==
+        extractedTranslations[id].defaultMessage
+      ) {
+        changedTranslations[id] = [
+          translations[id].defaultMessage,
+          extractedTranslations[id].defaultMessage,
+        ];
+      }
+      return translations;
+    },
+    currentTranslations
+  );
+
+  const changedTranslationsEntries = Object.entries(changedTranslations);
+  if (changedTranslationsEntries.length) {
+    // eslint-disable-next-line no-console
+    console.error(
+      `defaultMessage of existing translation(s) changed:\n${changedTranslationsEntries
+        .map(
+          ([id, [current, changed]]) => `[${id}]: "${current}" -> "${changed}"`
+        )
+        .join(
+          '\n'
+        )}\n\nExisting translation messages must be set in ${defaultTranslationPath}\n`
+    );
+  }
+
+  return updatedTranslations;
 }
 
 async function getTranslationsFromFile(

@@ -1,5 +1,5 @@
 // translate untranslated messages from EN to languages specified in next.config.js
-import { readFile, stat, writeFile } from 'fs/promises';
+import { readFile, stat } from 'fs/promises';
 
 import { translate } from './deepl';
 import {
@@ -8,6 +8,7 @@ import {
   languages,
   readTranslationFile,
   resolveTranslationFilePath,
+  writeTranslationsToFile,
 } from './_util';
 
 void translateLocalMessages();
@@ -42,11 +43,7 @@ async function translateLocalMessages() {
             console.error(error);
           }
 
-          await writeFile(
-            resolveTranslationFilePath(language),
-            JSON.stringify(translationFile, undefined, 2),
-            { encoding }
-          );
+          await writeTranslationsToFile(translationFile, language);
         }
       })
   );
@@ -66,16 +63,26 @@ async function ensureTranslationFileAvailability() {
     languages.map(async (language) => {
       const path = resolveTranslationFilePath(language);
 
+      let translationFileNotExistsOrInvalid = false;
+
       if (await fileExists(path)) {
         const content = await readFile(path, { encoding });
 
         if (content.length === 0) {
-          await writeFile(path, '{}', { encoding });
+          translationFileNotExistsOrInvalid = true;
+        } else {
+          try {
+            JSON.parse(content);
+          } catch {
+            translationFileNotExistsOrInvalid = true;
+          }
         }
-
-        JSON.parse(content);
       } else {
-        await writeFile(path, '{}', { encoding });
+        translationFileNotExistsOrInvalid = true;
+      }
+
+      if (translationFileNotExistsOrInvalid) {
+        await writeTranslationsToFile({}, language);
       }
     })
   );

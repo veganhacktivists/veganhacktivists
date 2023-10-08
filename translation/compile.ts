@@ -13,11 +13,11 @@ import { z } from 'zod';
 
 import {
   defaultLanguage,
-  encoding,
   languages,
   repoDirectory,
   resolveCompiledTranslationFilePath,
   resolveTranslationFilePath,
+  encoding,
 } from './_util';
 
 void main();
