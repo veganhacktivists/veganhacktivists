@@ -138,7 +138,7 @@
     "defaultMessage": "Get in contact"
   },
   "page.grants.content": {
-    "defaultMessage": "We offer up to <b>$1,000 USD in seed funding</b> for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+    "defaultMessage": "We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
   },
   "page.grants.hero.image.alt-text": {
     "defaultMessage": "Grants for a kinder world"
@@ -309,7 +309,7 @@
     "defaultMessage": "Heart icon"
   },
   "page.grants.section.perks.heading.image.alt-text": {
-    "defaultMessage": "In addition to $1,000 in seed funding, VH Grants include:"
+    "defaultMessage": "In addition to seed funding, succesful applicants can receive:"
   },
   "page.grants.section.perks.squarespace.content": {
     "defaultMessage": "<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
@@ -321,7 +321,7 @@
     "defaultMessage": "ThePollinationProject.org"
   },
   "page.grants.section.pollination-project.content[0]": {
-    "defaultMessage": "Our grant program is generously funded by The Pollination Project (TPP). After reviewing and approving your application, we forward your application to TPP for further review, so keep an eye out on your inbox!"
+    "defaultMessage": "Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
   },
   "page.grants.section.pollination-project.content[1]": {
     "defaultMessage": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
@@ -464,9 +464,6 @@
   "page.join.section.priority-roles.description.2": {
     "defaultMessage": "Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
   },
-  "page.join.section.priority-roles.description.3": {
-    "defaultMessage": "Recruit, onboard, and engage our growing VH community on Discord. Candidate will host events, facilitate interactions, and support our growing community of volunteers."
-  },
   "page.join.section.priority-roles.title.0": {
     "defaultMessage": "Community Manager"
   },
@@ -475,9 +472,6 @@
   },
   "page.join.section.priority-roles.title.2": {
     "defaultMessage": "Ads Manager"
-  },
-  "page.join.section.requirements": {
-    "defaultMessage": "Commitment to a vegan lifestyle"
   },
   "page.join.section.requirements.0": {
     "defaultMessage": "Commitment to a vegan lifestyle"
@@ -554,9 +548,6 @@
   "page.our-work.section.like-what-you-see.services.cta-button.label": {
     "defaultMessage": "Services"
   },
-  "page.our-work.section.our-communities.cta.ara": {
-    "defaultMessage": "Animal Rights Advocates"
-  },
   "page.our-work.section.our-communities.cta.reddit": {
     "defaultMessage": "Vegans of Reddit"
   },
@@ -594,13 +585,10 @@
     "defaultMessage": "We're often speaking at animal protection and EA related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <link>Instagram</link> to see where we'll be next!"
   },
   "page.our-work.section.state-of-data.content": {
-    "defaultMessage": "During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
+    "defaultMessage": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from Faunalytics and research conducted by Animetrics, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
   },
   "page.our-work.section.state-of-data.cta": {
     "defaultMessage": "Read the report"
-  },
-  "page.our-work.section.state-of-data.headline": {
-    "defaultMessage": "<left>Coming soon:</left> <middle>State of data & technology</middle> <right>in the movement</right>"
   },
   "page.people.hero.alt-text": {
     "defaultMessage": "Our Community of Passionate Activists"
@@ -735,7 +723,7 @@
     "defaultMessage": "Learn about our grant program"
   },
   "page.services.section.service-block.3.content": {
-    "defaultMessage": "We offer up to $1,000 USD in seed funding for effective animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+    "defaultMessage": "We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals."
   },
   "page.services.section.service-block.3.title": {
     "defaultMessage": "Funding"
@@ -764,15 +752,6 @@
   "page.support.next-seo.title": {
     "defaultMessage": "Support Us"
   },
-  "page.support.section.donation-goals.cta-label": {
-    "defaultMessage": "Donate Now"
-  },
-  "page.support.section.donation-goals.introduction": {
-    "defaultMessage": "See our Patreon goals below, and help us grow and be more effective!"
-  },
-  "page.support.section.donation-goals.title": {
-    "defaultMessage": "Monthly Patreon Goals"
-  },
   "page.support.section.hero.image-alt": {
     "defaultMessage": "You are their voice"
   },
@@ -784,15 +763,6 @@
   },
   "page.support.section.support-us.donation-card.0.title": {
     "defaultMessage": "PayPal"
-  },
-  "page.support.section.support-us.donation-card.1.button-label": {
-    "defaultMessage": "become a patron"
-  },
-  "page.support.section.support-us.donation-card.1.content": {
-    "defaultMessage": "Become a monthly supporter for as little as $5 a month"
-  },
-  "page.support.section.support-us.donation-card.1.title": {
-    "defaultMessage": "Patreon"
   },
   "page.support.section.support-us.donation-card.2.button-label": {
     "defaultMessage": "contact us"
@@ -808,9 +778,6 @@
   },
   "page.support.section.support-us.header.title": {
     "defaultMessage": "Support Us"
-  },
-  "page.support.section.support-us.introduction": {
-    "defaultMessage": "We are a vegan volunteer team that builds technology for organizations and individual activists in the animal protection movement. If you believe in the work we do and would like to support us, please consider making a donation."
   },
   "page.support.section.support-us.subtitle": {
     "defaultMessage": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
@@ -906,7 +873,7 @@
     "defaultMessage": "Apply for a seed grant"
   },
   "section.grants-cta.apply.paragraph": {
-    "defaultMessage": "We offer grants for impactful and effective work in animal advocacy and activism."
+    "defaultMessage": "We connect you with funders for impactful work in animal advocacy and activism."
   },
   "section.grants-cta.visit-year-review.cta": {
     "defaultMessage": "See our impact"

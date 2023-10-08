@@ -85,12 +85,12 @@ export function sortTranslations(translations: TranslationFileStructure) {
   );
 }
 
-export async function writeTranslationsToFile(
+export async function writeToTranslationFile(
   translations: TranslationFileStructure,
   locale: string
 ) {
   await writeFile(
-    resolveCompiledTranslationFilePath(locale),
+    resolveTranslationFilePath(locale),
     JSON.stringify(sortTranslations(translations), undefined, 2),
     { encoding }
   );

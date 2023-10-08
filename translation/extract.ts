@@ -13,7 +13,7 @@ import {
   repoDirectory,
   filesGlob,
   warnIfIdInvalid,
-  writeTranslationsToFile,
+  writeToTranslationFile,
   defaultLanguage,
 } from './_util';
 
@@ -39,7 +39,7 @@ async function main() {
     extractedTranslations
   );
 
-  await writeTranslationsToFile(mergedTranslations, defaultLanguage);
+  await writeToTranslationFile(mergedTranslations, defaultLanguage);
 }
 
 function addNewTranslationsToCurrent(

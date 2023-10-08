@@ -8,7 +8,7 @@ import {
   languages,
   readTranslationFile,
   resolveTranslationFilePath,
-  writeTranslationsToFile,
+  writeToTranslationFile,
 } from './_util';
 
 void translateLocalMessages();
@@ -43,7 +43,7 @@ async function translateLocalMessages() {
             console.error(error);
           }
 
-          await writeTranslationsToFile(translationFile, language);
+          await writeToTranslationFile(translationFile, language);
         }
       })
   );
@@ -82,7 +82,7 @@ async function ensureTranslationFileAvailability() {
       }
 
       if (translationFileNotExistsOrInvalid) {
-        await writeTranslationsToFile({}, language);
+        await writeToTranslationFile({}, language);
       }
     })
   );
