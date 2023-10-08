@@ -1,4 +1,358 @@
 {
+  "app.template.next-seo.default.title-template": {
+    "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
+  },
+  "page.about.hero.alt-text": {
+    "defaultMessage": "Datengesteuerter Aktivismus"
+  },
+  "page.about.section.navigation.button.label.mission": {
+    "defaultMessage": "UNSERE MISSION"
+  },
+  "page.about.section.navigation.button.label.story": {
+    "defaultMessage": "UNSERE GESCHICHTE"
+  },
+  "page.about.section.navigation.button.label.values": {
+    "defaultMessage": "UNSERE WERTE"
+  },
+  "page.about.section.our-mission.next-seo.title": {
+    "defaultMessage": "Unser Auftrag"
+  },
+  "page.about.section.our-mission.section-header.content": {
+    "defaultMessage": "Unser Ziel ist es, datengestützte, innovative Projekte zu entwickeln, die der Ausbeutung von Tieren ein Ende setzen. Wir sind der Meinung, dass die Tierschutzbewegung in fünf grundlegenden Bereichen Verbesserungsbedarf hat, den wir durch unsere Arbeit lösen wollen."
+  },
+  "page.about.section.our-mission.section-header.heading": {
+    "defaultMessage": "Unser Auftrag"
+  },
+  "page.about.section.our-mission.section-header.image.alt-text": {
+    "defaultMessage": "Unser Auftrag"
+  },
+  "page.about.section.our-mission.subsection-1.content": {
+    "defaultMessage": "Um die Wirksamkeit von Projekten, Kampagnen und unserer Arbeit insgesamt zu ermitteln, müssen aussagekräftige Daten verfolgt und gesammelt werden. Wir sind der festen Überzeugung, dass eine datengesteuerte Bewegung unsere Arbeit beschleunigen und aufwerten wird. Deshalb legen wir großen Wert darauf, Daten zu ermitteln, zu sammeln und zu analysieren und sie anderen zugänglich zu machen."
+  },
+  "page.about.section.our-mission.subsection-1.heading": {
+    "defaultMessage": "1. Wir brauchen mehr Daten in unserer Bewegung."
+  },
+  "page.about.section.our-mission.subsection-2.content": {
+    "defaultMessage": "Wir sind der festen Überzeugung, dass Wettbewerb nicht nur gesund, sondern auch unerlässlich ist, um die Wirksamkeit unserer Bewegung zu verbessern. Der Wettbewerb übt einen gesunden Druck auf Organisationen und Projekte aus, sich ständig zu verbessern und zu wiederholen - und das gibt uns mehr Informationen darüber, was funktioniert."
+  },
+  "page.about.section.our-mission.subsection-2.heading": {
+    "defaultMessage": "2. Wir brauchen auch mehr Wettbewerb."
+  },
+  "page.about.section.our-mission.subsection-3.content": {
+    "defaultMessage": "Wir glauben, dass die Bewegung das Potenzial hat, in ihren Ansätzen innovativer zu sein. Wir fördern den Blick über den Tellerrand und machen Innovation zu einem zentralen Aspekt unserer Arbeit und unserer Prozesse."
+  },
+  "page.about.section.our-mission.subsection-3.heading": {
+    "defaultMessage": "3. Wir müssen innovativer werden."
+  },
+  "page.about.section.our-mission.subsection-4.content": {
+    "defaultMessage": "Unser Ziel ist es, Organisationen und Einzelpersonen dabei zu helfen, sich auf sinnvollere Weise zu vernetzen und zusammenzuarbeiten. Wir müssen unser Wissen nutzen und uns miteinander vernetzen, um unsere gemeinsamen Ziele zu unterstützen, sei es durch die gemeinsame Nutzung von Forschungsergebnissen oder Daten, durch den Austausch von Ressourcen oder generell durch die gegenseitige Unterstützung bei der Bewältigung organisatorischer Herausforderungen."
+  },
+  "page.about.section.our-mission.subsection-4.heading": {
+    "defaultMessage": "4. Und wir müssen anfangen, zusammenzuarbeiten."
+  },
+  "page.about.section.our-mission.subsection-5.content": {
+    "defaultMessage": "Nur ein winziger Prozentsatz der Weltbevölkerung lebt vegan, und nur ein Bruchteil davon ist aktiv. Viele Organisationen ermutigen Nicht-Veganer, sich aus gesundheitlichen, ökologischen oder ethischen Gründen vegan zu ernähren. Wir glauben, dass wir auch effektiv sein können, indem wir Hilfsmittel schaffen, die mehr Veganer inspirieren und motivieren, sich für die Tiere einzusetzen."
+  },
+  "page.about.section.our-mission.subsection-5.heading": {
+    "defaultMessage": "5. Schließlich brauchen wir mehr Veganer, die aktiv werden."
+  },
+  "page.about.section.our-story.next-seo.title": {
+    "defaultMessage": "Unsere Geschichte"
+  },
+  "page.about.section.our-story.section-header.content": {
+    "defaultMessage": "Im Jahr 2019 starteten wir unser erstes Projekt mit ein paar Freiwilligen, die sich für Aktivismus begeisterten. Seitdem sind wir zu einer Gemeinschaft hochqualifizierter und professioneller Software-Ingenieure, Designer, Datenwissenschaftler und Inhaltsersteller gewachsen, die die Bewegung unterstützen. Wir sind mit der Hoffnung angetreten, Menschen zum Handeln zu bewegen und sie zu inspirieren, sich für Tiere einzusetzen - und diesem Grundprinzip sind wir verpflichtet. Unsere digitalen Fähigkeiten beflügeln unseren Aktivismus."
+  },
+  "page.about.section.our-story.section-header.heading": {
+    "defaultMessage": "Unsere Geschichte"
+  },
+  "page.about.section.our-story.section-header.image.alt-text": {
+    "defaultMessage": "Unsere Geschichte"
+  },
+  "page.about.section.our-story.subsection-1.content": {
+    "defaultMessage": "Wir sind die Vegan Hacktivists. Unsere Fähigkeiten - sei es das Schreiben von Code, die Entwicklung einer Markenidentität oder die Analyse von Daten - sind so vielfältig wie die Regionen, aus denen wir kommen und in denen wir leben. Wir arbeiten zusammen, um Projekte zu entwickeln, die datengesteuert, experimentell und effektiv sind. Unser Kernteam besteht aus Direktoren und hochrangigen Teammitgliedern, die über Erfahrung und Fachwissen in den Bereichen Technik, Architektur, Design, Daten, Betrieb und Kommunikation verfügen. Unsere Freiwilligenbasis besteht aus Teams, die von Leitern geführt werden; jedes Team ist für ein Projekt verantwortlich, das es aktiv aufbaut und pflegt."
+  },
+  "page.about.section.our-story.subsection-2.content": {
+    "defaultMessage": "Unsere Organisation verfolgt einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht. Da unsere Arbeit Geduld und Engagement erfordert, regen wir unsere Freiwilligen an, indem wir ein unterstützendes Umfeld schaffen, das es ihnen ermöglicht, sich zu engagieren, effektiv und wirkungsvoll zu sein. Als dezentrale Organisation wollen wir ein Gemeinschaftsgefühl aufbauen, das sich an Werten orientiert und durch sinnvolle und spielerische Interaktionen verbunden ist. Jedes Team wird durch eine <link>Frucht oder ein Gemüse</link> repräsentiert (pflanzenbasiert auf einer anderen Ebene), und wir gleichen unsere Arbeit mit Spielen, Zusammenkünften und Gemeinschaftsanrufen aus. Unsere Freiwilligen sind schließlich das Herzstück unserer Organisation."
+  },
+  "page.about.section.our-story.subsection-3.content": {
+    "defaultMessage": "Im Laufe der Jahre hat sich unsere Organisation mit den Bedürfnissen unserer Bewegung verändert. Während wir uns jetzt in erster Linie auf die Bereitstellung von Dienstleistungen zum Aufbau von Kapazitäten konzentrieren, entwickeln wir weiterhin Technologien, die wir für innovativ halten und die in der Bewegung dringend benötigt werden. Jetzt arbeiten wir intensiv mit Anwälten, Organisationen und denjenigen, die an vorderster Front arbeiten, zusammen, um ihren täglichen Betrieb, ihre Marke und Identität sowie ihre Technologie zu verbessern. Auf diese Weise tragen wir dazu bei, ihre Botschaft zu verbreiten und ihre Arbeit einem breiteren Publikum zugänglich zu machen."
+  },
+  "page.about.section.our-story.subsection-4.content": {
+    "defaultMessage": "Trotz allem bleibt unser Nordstern derselbe: Wir tun es für die Tiere."
+  },
+  "page.about.section.our-values.next-seo.title": {
+    "defaultMessage": "Unsere Werte"
+  },
+  "page.about.section.our-values.section-header.content": {
+    "defaultMessage": "Wir haben starke Grundwerte für unsere Organisation, die bestimmen, was wir tun, wie wir es tun und wie wir eine Gemeinschaft aufbauen."
+  },
+  "page.about.section.our-values.section-header.heading": {
+    "defaultMessage": "Unsere Werte"
+  },
+  "page.about.section.our-values.section-header.image.alt-text": {
+    "defaultMessage": "Unsere Werte"
+  },
+  "page.about.section.our-values.subsection-1.content": {
+    "defaultMessage": "Wir schätzen und respektieren das Leben aller Tiere und prangern jede Form von Gewalt und Ausbeutung gegen sie an. Wir glauben, dass Tiere das Recht haben, frei zu sein, und wir kämpfen dafür mit unserem (digitalen) Aktivismus."
+  },
+  "page.about.section.our-values.subsection-1.heading": {
+    "defaultMessage": "Tierbefreiung"
+  },
+  "page.about.section.our-values.subsection-2.content": {
+    "defaultMessage": "Wir praktizieren einen auf Liebe basierenden Organisationsansatz, bei dem die Gemeinschaft im Vordergrund steht. Wir üben uns in Empathie, Mitgefühl und Gewaltlosigkeit. Wir ermutigen jedes Mitglied zu einem offenen und freundlichen Umgang miteinander."
+  },
+  "page.about.section.our-values.subsection-2.heading": {
+    "defaultMessage": "Gewaltlosigkeit"
+  },
+  "page.about.section.our-values.subsection-3.content": {
+    "defaultMessage": "Wir glauben an den Aufbau und die Förderung von sicheren und integrativen Gemeinschaften, unabhängig von Rasse, Geschlecht, Art, Alter, sexueller Orientierung oder politischer Zugehörigkeit. Wir streben danach, vielfältig und repräsentativ für die Gemeinschaften zu sein, denen wir dienen und mit denen wir arbeiten."
+  },
+  "page.about.section.our-values.subsection-3.heading": {
+    "defaultMessage": "Sichere Gemeinschaft"
+  },
+  "page.about.section.our-values.subsection-4.content": {
+    "defaultMessage": "Wir glauben, dass Nutztiere unsere Unterstützung am dringendsten benötigen, weshalb wir uns als Organisation in erster Linie auf die Befreiung von Nutztieren konzentrieren."
+  },
+  "page.about.section.our-values.subsection-4.heading": {
+    "defaultMessage": "Gezüchtete Tiere"
+  },
+  "page.about.section.our-values.subsection-5.content": {
+    "defaultMessage": "Wir schätzen unterschiedliche Standpunkte und konstruktives Feedback von jedem Einzelnen. Wir glauben, dass jeder etwas Wertvolles zu einer Diskussion beitragen kann. Wir hören immer zuerst zu und reagieren dann konstruktiv."
+  },
+  "page.about.section.our-values.subsection-5.heading": {
+    "defaultMessage": "Offenes Feedback"
+  },
+  "page.about.section.our-values.subsection-6.content": {
+    "defaultMessage": "Wir unterstützen oder ermöglichen nicht die Ausbeutung oder Unterdrückung irgendeiner Gruppe. Wir glauben, dass die Unterdrückung von Menschen und nicht-menschlichen Tieren miteinander verbunden ist und dass die Arbeit zur Beseitigung aller Formen der Unterdrückung notwendig ist."
+  },
+  "page.about.section.our-values.subsection-6.heading": {
+    "defaultMessage": "Anti-Oppression"
+  },
+  "page.contact.next-seo.title": {
+    "defaultMessage": "Kontakt"
+  },
+  "page.contact.section.get-in-contact.content": {
+    "defaultMessage": "Wenn Sie sich mit uns in Verbindung setzen möchten, verwenden Sie bitte unser Kontaktformular unten! Wir tun unser Bestes, um jede E-Mail innerhalb von 48 Stunden zu beantworten. Bitte stellen Sie sicher, dass Sie Ihren Spam-Ordner überprüfen!"
+  },
+  "page.contact.section.get-in-contact.headline": {
+    "defaultMessage": "Nehmen Sie Kontakt auf"
+  },
+  "page.grants.content": {
+    "defaultMessage": "Wir bringen Sie mit Geldgebern zusammen, die bis zu <b> 1.000 USD als Anschubfinanzierung</b> für Tierrechtsaktivismus bereitstellen! Wir suchen Einzelpersonen und Basisgruppen, deren Hauptziel es ist, das Leiden von Nutztieren zu verringern."
+  },
+  "page.grants.hero.image.alt-text": {
+    "defaultMessage": "Zuschüsse für eine freundlichere Welt"
+  },
+  "page.grants.next-seo.title": {
+    "defaultMessage": "Zuschüsse für die Anschubfinanzierung"
+  },
+  "page.grants.section.application.form.a.heading": {
+    "defaultMessage": "Abschnitt A - Über Sie"
+  },
+  "page.grants.section.application.form.a.input.applicant-age.label": {
+    "defaultMessage": "Sind Sie über 18 Jahre alt?"
+  },
+  "page.grants.section.application.form.a.input.applicant-age.text": {
+    "defaultMessage": "Wenn Sie unter 18 Jahre alt sind, muss das Formular von einem Elternteil oder Erziehungsberechtigten ausgefüllt werden."
+  },
+  "page.grants.section.application.form.a.input.applicant-email.error": {
+    "defaultMessage": "Bitte geben Sie eine gültige E-Mail ein"
+  },
+  "page.grants.section.application.form.a.input.applicant-email.label": {
+    "defaultMessage": "Wie lautet Ihre E-Mail?"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.label": {
+    "defaultMessage": "Geschlecht <span>(fakultativ)</span>"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+    "defaultMessage": "männlich"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+    "defaultMessage": "weiblich"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+    "defaultMessage": "andere"
+  },
+  "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
+    "defaultMessage": "Wählen oder tippen Sie etwas..."
+  },
+  "page.grants.section.application.form.a.input.applicant-info.label": {
+    "defaultMessage": "Geben Sie uns ein Gefühl dafür, wer Sie sind"
+  },
+  "page.grants.section.application.form.a.input.applicant-info.text": {
+    "defaultMessage": "Ihr Projekt ist wichtig für uns und wir werden uns damit befassen, aber die Person, die Sie sind, ist ein ebenso wichtiger Teil unseres Prozesses und wir möchten Sie gerne kennenlernen. Teilen Sie uns mit, welche Werte Sie in Ihrem Leben leiten und wie diese Werte die Art und Weise beeinflussen, wie Sie sich als Person weiterentwickeln, oder teilen Sie uns mit, was Sie gerne über sich wissen möchten!"
+  },
+  "page.grants.section.application.form.a.input.applicant-name.label": {
+    "defaultMessage": "Wie ist Ihr Name?"
+  },
+  "page.grants.section.application.form.b.heading": {
+    "defaultMessage": "Abschnitt B - Ihr Projekt"
+  },
+  "page.grants.section.application.form.b.input.other-organizations.label": {
+    "defaultMessage": "Werden andere Organisationen an diesem Projekt beteiligt sein?"
+  },
+  "page.grants.section.application.form.b.input.other-organizations.text": {
+    "defaultMessage": "Bitte teilen Sie uns alle anderen Organisationen mit, die mit Ihnen gemeinsam an dem vorgeschlagenen Projekt arbeiten werden. Bitte geben Sie an, welche Beziehungen Ihre Organisation zu lokalen, nationalen und gegebenenfalls internationalen Partnern unterhält"
+  },
+  "page.grants.section.application.form.b.input.project-info.label": {
+    "defaultMessage": "Erzählen Sie uns von dem Projekt, für das Sie eine Finanzierung beantragen"
+  },
+  "page.grants.section.application.form.b.input.project-info.text": {
+    "defaultMessage": "Bitte geben Sie das Gesamtziel an, das Sie mit Ihrem Projekt erreichen möchten"
+  },
+  "page.grants.section.application.form.b.input.project-location.label": {
+    "defaultMessage": "Wo findet Ihr Projekt statt?"
+  },
+  "page.grants.section.application.form.b.input.project-name.label": {
+    "defaultMessage": "Wie nennen Sie Ihr Projekt?"
+  },
+  "page.grants.section.application.form.b.input.project-name.text": {
+    "defaultMessage": "Der Name des Projekts wird uns helfen, den Schwerpunkt des Projekts zu verstehen. Bitte halten Sie ihn kurz und einfach"
+  },
+  "page.grants.section.application.form.b.input.project-steps.label": {
+    "defaultMessage": "Welche Schritte werden Sie unternehmen, um dieses Projekt zu verwirklichen?"
+  },
+  "page.grants.section.application.form.b.input.project-steps.text": {
+    "defaultMessage": "Bitte geben Sie spezifische Projektziele und Aktivitäten an"
+  },
+  "page.grants.section.application.form.b.input.project-success.label": {
+    "defaultMessage": "Wie werden Sie feststellen, ob Ihr Projekt erfolgreich ist?"
+  },
+  "page.grants.section.application.form.b.input.project-success.text": {
+    "defaultMessage": "Bitte teilen Sie uns mit, wie Sie Ihre Wirkung bewerten werden"
+  },
+  "page.grants.section.application.form.b.input.target-audience.label": {
+    "defaultMessage": "Wer ist Ihre Zielgruppe für dieses Projekt?"
+  },
+  "page.grants.section.application.form.b.input.target-audience.text": {
+    "defaultMessage": "Richten Sie sich an Institutionen, Einzelpersonen oder etwas anderes? Wie können Sie durch die Ansprache dieser Gruppe Veränderungen für Nutztiere erreichen?"
+  },
+  "page.grants.section.application.form.c.heading": {
+    "defaultMessage": "Abschnitt C - Projekt"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.error.max": {
+    "defaultMessage": "Wir können nur Anträge bis zu einem Betrag von 1000 USD annehmen."
+  },
+  "page.grants.section.application.form.c.input.applied-budget.error.min": {
+    "defaultMessage": "Bitte geben Sie einen positiven Wert ein"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.label": {
+    "defaultMessage": "Wie hoch ist der Betrag, den Sie beantragen?"
+  },
+  "page.grants.section.application.form.c.input.applied-budget.text": {
+    "defaultMessage": "Wir können nur Anträge bis zu einem Betrag von 1000 USD annehmen."
+  },
+  "page.grants.section.application.form.c.input.can-accept-funding.label": {
+    "defaultMessage": "Bitte bestätigen Sie, dass Sie die Finanzierung akzeptieren können"
+  },
+  "page.grants.section.application.form.c.input.can-accept-funding.text": {
+    "defaultMessage": "Ich bestätige, dass ich über ein Bank- oder PayPal-Konto verfüge, das auf meinen Namen oder den Namen meiner Organisation lautet und auf das Zuschusszahlungen in US-Dollar überwiesen werden können. Ich bestätige, dass ich verstanden habe, dass - mit Ausnahme meines steuerlichen Sponsors, falls zutreffend - TPP nicht in der Lage ist, Zuschusszahlungen an eine andere Person oder Einrichtung in meinem Namen zu leisten. Ich verstehe, dass, wenn TPP meinen Vorschlag prüft und beschließt, ein Finanzierungsangebot zu machen, dieses Angebot an die Fähigkeit gebunden ist, Gelder auf ein Konto in meinem Namen oder im Namen meiner Organisation zu akzeptieren."
+  },
+  "page.grants.section.application.form.c.input.funds-usage.label": {
+    "defaultMessage": "Wofür sollen die Mittel verwendet werden?"
+  },
+  "page.grants.section.application.form.c.input.funds-usage.text": {
+    "defaultMessage": "Bitte listen Sie jeden Budgetposten und die damit verbundenen Kosten auf. Die Gesamtsumme sollte dem Gesamtbetrag entsprechen, den Sie bei TPP beantragen. Beispiel: <ul> <li>1 1lb Sack Mais - $5</li> <li>3 Gartenschaufeln - $35</li> </ul>"
+  },
+  "page.grants.section.application.form.c.input.total-budget.error": {
+    "defaultMessage": "Bitte geben Sie einen positiven Wert ein"
+  },
+  "page.grants.section.application.form.c.input.total-budget.label": {
+    "defaultMessage": "Wie hoch ist das Gesamtbudget für das Projekt?"
+  },
+  "page.grants.section.application.form.c.input.total-budget.text": {
+    "defaultMessage": "Bitte nennen Sie uns die Gesamtkosten des Projekts. Dieser Betrag sollte die Ausgaben für alle mit dem Projekt verbundenen Aktivitäten umfassen"
+  },
+  "page.grants.section.application.form.c.intro": {
+    "defaultMessage": "<div> Das Budget für Ihr Projekt ist ein sehr wichtiger Teil Ihres Antrags. Unser Team stützt sich bei seiner endgültigen Entscheidung häufig auf diese Angaben. Denken Sie daran, dass die von Ihnen aufgelisteten Budgetposten dazu dienen, Ihr vorgeschlagenes Projekt zu verwirklichen, seien Sie also sehr genau, wie die beantragte Finanzierung verwendet werden soll. </div> <div> Bitte beachten Sie, dass alle Angaben in diesem Abschnitt in <b>US-Dollar</b> (US$) gemacht werden müssen. </div>"
+  },
+  "page.grants.section.application.form.message.error": {
+    "defaultMessage": "Bei der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten! Bitte versuchen Sie es später noch einmal"
+  },
+  "page.grants.section.application.form.message.pending": {
+    "defaultMessage": "Einreichen..."
+  },
+  "page.grants.section.application.form.message.success": {
+    "defaultMessage": "Ihre Anfrage wurde erfolgreich gesendet!"
+  },
+  "page.grants.section.application.heading": {
+    "defaultMessage": "Bewerbungsformular"
+  },
+  "page.grants.section.application.intro": {
+    "defaultMessage": "Wir würden gerne mehr über Sie und Ihre Arbeit erfahren, um zu sehen, ob diese Partnerschaft gut passt. Da wir in letzter Zeit einen Trend beobachten, dass Bewerbungen in erster Linie von KI erstellt werden, lehnen wir Bewerbungen ab, von denen wir glauben, dass sie nicht von Ihnen oder Ihrem Team verfasst wurden. <b>Unser Ziel ist es, Ihre einzigartige Vision, Ihren Auftrag und Ihre Pläne zu verstehen, und nicht, den</b> Inhalt Ihres Förderantrags <b>zu überprüfen</b>. Wir ermutigen Sie, solche Tools zu nutzen, um den Inhalt Ihres Förderantrags zu unterstützen, nicht zu ersetzen."
+  },
+  "page.grants.section.heading.image.alt-text": {
+    "defaultMessage": "Eine Biene, die fleißig bestäubt"
+  },
+  "page.grants.section.heading.text": {
+    "defaultMessage": "Zuschüsse für die Anschubfinanzierung"
+  },
+  "page.grants.section.perks.check-ins.content": {
+    "defaultMessage": "Ein monatlicher 30-minütiger Zoom-Anruf, um Sie und Ihr Team zu beraten. Die Themen umfassen unter anderem Technologie, Marketing, Strategie und andere Aspekte des Wachstums und der Entwicklung Ihrer Organisation."
+  },
+  "page.grants.section.perks.check-ins.heading": {
+    "defaultMessage": "Monatliche Beratungsbesuche"
+  },
+  "page.grants.section.perks.content-dev.content": {
+    "defaultMessage": "Wir helfen Ihnen bei der Erstellung von Botschaften für die Öffentlichkeit, einschließlich Website-Texten. Wir bieten unsere Schreib- und Redaktionsfähigkeiten in jeder Phase des Prozesses an: vom ersten Brainstorming bis zur Überprüfung von Texten, die Ihre Arbeit fördern."
+  },
+  "page.grants.section.perks.content-dev.heading": {
+    "defaultMessage": "Entwicklung von Inhalten"
+  },
+  "page.grants.section.perks.design-creation.content": {
+    "defaultMessage": "Je nach Ihren Bedürfnissen entwerfen wir das Branding und das Logo für Ihre Organisation oder Ihr Projekt (oder gestalten es neu). Außerdem stellen wir digitale Assets wie Banner, Icons und andere benutzerdefinierte Elemente für soziale Medien und Ihre Website bereit."
+  },
+  "page.grants.section.perks.design-creation.heading": {
+    "defaultMessage": "Design-Erstellung"
+  },
+  "page.grants.section.perks.heading": {
+    "defaultMessage": "Herz-Symbol"
+  },
+  "page.grants.section.perks.heading.image.alt-text": {
+    "defaultMessage": "Zusätzlich zur Startfinanzierung können erfolgreiche Antragsteller Folgendes erhalten:"
+  },
+  "page.grants.section.perks.squarespace.content": {
+    "defaultMessage": "<div>Im Wert von 200 $ übernehmen wir die Abonnementkosten für das erste Jahr.</div> <div>Sie sind der Eigentümer, und wir helfen Ihnen bei der Gestaltung und Pflege der Website.</div> <div>Einfach zu aktualisieren mit wenig bis gar keiner Erfahrung.</div>"
+  },
+  "page.grants.section.perks.squarespace.heading": {
+    "defaultMessage": "Squarespace Website-Abonnement"
+  },
+  "page.grants.section.pollination-project.button": {
+    "defaultMessage": "DasBestäubungsprojekt.org"
+  },
+  "page.grants.section.pollination-project.content[0]": {
+    "defaultMessage": "Unser Zuschussvermittlungsdienst wird großzügig von The Pollination Project (TPP) und anderen privaten Spendern finanziert - bitte halten Sie in Ihrem Posteingang Ausschau und vergessen Sie nicht, Ihre Spam-Mails zu überprüfen!"
+  },
+  "page.grants.section.pollination-project.content[1]": {
+    "defaultMessage": "Wenn Ihr Hauptaugenmerk nicht auf Nutztiere gerichtet ist, können Sie trotzdem für einen Zuschuss direkt von TPP in Frage kommen. Wir empfehlen Ihnen, sich über die Website zu bewerben."
+  },
+  "page.grants.section.pollination-project.image.alt-text": {
+    "defaultMessage": "Logo von The Pollination Project"
+  },
+  "page.grants.section.qualifications.cta[0].content": {
+    "defaultMessage": "<b>Erfüllen Sie die oben genannten Voraussetzungen nicht?</b> Sie könnten trotzdem für eine Förderung in Frage kommen! Bewerben Sie sich und wir leiten Ihre Bewerbung an andere potenzielle Geldgeber weiter."
+  },
+  "page.grants.section.qualifications.cta[1].content": {
+    "defaultMessage": "Wenn Sie die Voraussetzungen erfüllen, füllen Sie bitte das nachstehende Bewerbungsformular aus."
+  },
+  "page.grants.section.qualifications.heading": {
+    "defaultMessage": "Vergewissern Sie sich vor Ihrer Bewerbung, dass Sie diese Voraussetzungen erfüllen:"
+  },
+  "page.grants.section.qualifications.step[0].content": {
+    "defaultMessage": "<b> Ihr vorrangiges Ziel </b> sollte es sein, das Leiden von Nutztieren zu verringern. In der Massentierhaltung leiden jedes Jahr über 100 Milliarden Tiere unter Entbehrungen, Angst und Schmerzen."
+  },
+  "page.grants.section.qualifications.step[1].content": {
+    "defaultMessage": "<b> Sie müssen </b> bereits Erfahrung im Aktivismus haben, sei es im Bereich der Tierrechte oder in anderen sozialen Bewegungen. Wir suchen Menschen, die an Basis-Kampagnen und/oder -Projekten mitgewirkt haben, sei es in einer bezahlten oder ehrenamtlichen Funktion."
+  },
+  "page.grants.section.subheading": {
+    "defaultMessage": "Wir freuen uns sehr, dass wir bis zu <b> 1000 USD an Startkapital</b> für herausragenden und effektiven Tierrechtsaktivismus zur Verfügung stellen können! Konkret suchen wir nach Einzelpersonen oder Basisgruppen, deren Hauptziel es ist, das Leiden von nichtmenschlichen Nutztieren zu verringern."
+  },
+  "page.index.next-seo.title": {
+    "defaultMessage": "<no-localization>Vegan Hacktivists</no-localization>"
+  },
+  "page.index.next-seo.title-template": {
+    "defaultMessage": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
+  },
   "page.index.section.introduction.headline": {
     "defaultMessage": "<left>Wir sind</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
   },
@@ -32,56 +386,11 @@
   "page.index.section.video.cta": {
     "defaultMessage": "Besuchen Sie unseren Kanal"
   },
+  "page.index.section.video.headline": {
+    "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
+  },
   "page.index.section.video.subline": {
     "defaultMessage": "Sehen Sie sich unsere Videos an, um mehr über uns und unsere Arbeit zu erfahren:"
-  },
-  "section.blog-teaser.cta": {
-    "defaultMessage": "Alle Beiträge anzeigen"
-  },
-  "section.blog-teaser.headline": {
-    "defaultMessage": "<left>Auf dem</left> <right>BLOG</right>"
-  },
-  "section.blog-teaser.paragraph": {
-    "defaultMessage": "In unserem Blog finden Sie Projekt-Updates, Ankündigungen, Interviews, Gastbeiträge und vieles mehr."
-  },
-  "section.grants-cta.apply.cta": {
-    "defaultMessage": "Jetzt bewerben"
-  },
-  "section.grants-cta.apply.paragraph": {
-    "defaultMessage": "Wir bieten Zuschüsse für wirkungsvolle und effektive Arbeit im Bereich Tierschutz und Aktivismus."
-  },
-  "section.grants-cta.visit-year-review.cta": {
-    "defaultMessage": "Siehe unsere Auswirkungen"
-  },
-  "section.grants-cta.visit-year-review.paragraph": {
-    "defaultMessage": "Lesen Sie unseren jährlichen Wirkungsbericht und sehen Sie, was wir im vergangenen Jahr erreicht haben."
-  },
-  "section.join-the-team.cta.join": {
-    "defaultMessage": "Beitritt beantragen"
-  },
-  "section.join-the-team.cta.meet-the-team": {
-    "defaultMessage": "Treffen Sie das Team"
-  },
-  "section.join-the-team.headline": {
-    "defaultMessage": "UNSEREM TEAM BEITRETEN"
-  },
-  "section.join-the-team.paragraph": {
-    "defaultMessage": "Sind Sie ein Entwickler, Designer, Autor oder ein kreativer Profi, der seine digitalen Fähigkeiten für die Tiere einsetzen möchte? Erfahren Sie mehr über unsere Teammitglieder und sehen Sie sich unsere offenen Stellen an."
-  },
-  "page.contact.next-seo.title": {
-    "defaultMessage": "Kontakt"
-  },
-  "page.contact.section.get-in-contact.content": {
-    "defaultMessage": "Wenn Sie sich mit uns in Verbindung setzen möchten, verwenden Sie bitte unser Kontaktformular unten! Wir tun unser Bestes, um jede E-Mail innerhalb von 48 Stunden zu beantworten. Bitte stellen Sie sicher, dass Sie Ihren Spam-Ordner überprüfen!"
-  },
-  "page.contact.section.get-in-contact.headline": {
-    "defaultMessage": "Nehmen Sie Kontakt auf"
-  },
-  "page.index.next-seo.title": {
-    "defaultMessage": "<no-localization>Vegan Hacktivists</no-localization>"
-  },
-  "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
   },
   "page.join.hero.image-alt": {
     "defaultMessage": "Du bist ihre Stimme"
@@ -89,29 +398,8 @@
   "page.join.next-seo.title": {
     "defaultMessage": "Mitmachen"
   },
-  "page.not-found.error-message": {
-    "defaultMessage": "Die von Ihnen angeforderte Seite (<no-localization>{path}</no-localization>) existiert nicht"
-  },
-  "page.not-found.next-seo.title": {
-    "defaultMessage": "Seite nicht gefunden"
-  },
-  "page.join.section.requirements": {
-    "defaultMessage": "Bekenntnis zu einer veganen Lebensweise"
-  },
-  "page.join.section.priority-roles.description.3": {
-    "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
-  },
-  "page.join.section.requirements.0": {
-    "defaultMessage": "Bekenntnis zu einer veganen Lebensweise"
-  },
-  "page.join.section.requirements.1": {
-    "defaultMessage": "Berufserfahrung in Ihrem Fachgebiet"
-  },
-  "page.join.section.requirements.2": {
-    "defaultMessage": "Portfolio, Lebenslauf oder Arbeitsergebnisse zum Nachweis der Erfahrung"
-  },
-  "page.join.section.requirements.3": {
-    "defaultMessage": "Fähigkeit, mindestens 5 Stunden pro Woche ehrenamtlich tätig zu sein"
+  "page.join.section.available-positions.headline": {
+    "defaultMessage": "Verfügbare Positionen"
   },
   "page.join.section.job-roles.description.0": {
     "defaultMessage": "Schreiben Sie hochwertigen, sauberen Code für Projekte in verschiedenen Entwicklungsstadien. Wir verwenden Laravel für die meisten Projekte und erwarten, dass Sie mit PHP, JS und CSS vertraut sind oder daran interessiert sind, sich darin weiterzuentwickeln."
@@ -143,27 +431,6 @@
   "page.join.section.job-roles.title.4": {
     "defaultMessage": "Grafik-Designer"
   },
-  "page.join.section.priority-roles.description.0": {
-    "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
-  },
-  "page.join.section.priority-roles.description.1": {
-    "defaultMessage": "Verwaltung und Beaufsichtigung der Zuschussvergabe und des Fundraising. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
-  },
-  "page.join.section.priority-roles.description.2": {
-    "defaultMessage": "Unterstützung unserer Werbemaßnahmen, einschließlich der Entwicklung von Kampagnen, Verwaltung von Budgets und Analyse von Metriken. Die Bewerberin/der Bewerber sollte einen Hintergrund in den Bereichen Marketing, Medien oder Werbung haben."
-  },
-  "page.join.section.priority-roles.title.0": {
-    "defaultMessage": "Community Manager"
-  },
-  "page.join.section.priority-roles.title.1": {
-    "defaultMessage": "Grant Writer"
-  },
-  "page.join.section.priority-roles.title.2": {
-    "defaultMessage": "Anzeigenleiter"
-  },
-  "page.join.section.available-positions.headline": {
-    "defaultMessage": "Verfügbare Positionen"
-  },
   "page.join.section.join-our-team.footer": {
     "defaultMessage": "Unser Team nutzt Discord für die interne Kommunikation, Trello für den Projekt- und Aufgaben-Workflow, Figma für das Design und GitHub für die Code-Verwaltung und Zusammenarbeit."
   },
@@ -188,14 +455,224 @@
   "page.join.section.priority-positions.subline": {
     "defaultMessage": "Wir suchen aktiv nach qualifizierten Freiwilligen für die folgenden Aufgaben:"
   },
+  "page.join.section.priority-roles.description.0": {
+    "defaultMessage": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
+  },
+  "page.join.section.priority-roles.description.1": {
+    "defaultMessage": "Verwaltung und Beaufsichtigung der Zuschussvergabe und des Fundraising. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
+  },
+  "page.join.section.priority-roles.description.2": {
+    "defaultMessage": "Unterstützung unserer Werbemaßnahmen, einschließlich der Entwicklung von Kampagnen, Verwaltung von Budgets und Analyse von Metriken. Die Bewerberin/der Bewerber sollte einen Hintergrund in den Bereichen Marketing, Medien oder Werbung haben."
+  },
+  "page.join.section.priority-roles.title.0": {
+    "defaultMessage": "Community Manager"
+  },
+  "page.join.section.priority-roles.title.1": {
+    "defaultMessage": "Grant Writer"
+  },
+  "page.join.section.priority-roles.title.2": {
+    "defaultMessage": "Anzeigenleiter"
+  },
+  "page.join.section.requirements.0": {
+    "defaultMessage": "Bekenntnis zu einer veganen Lebensweise"
+  },
+  "page.join.section.requirements.1": {
+    "defaultMessage": "Berufserfahrung in Ihrem Fachgebiet"
+  },
+  "page.join.section.requirements.2": {
+    "defaultMessage": "Portfolio, Lebenslauf oder Arbeitsergebnisse zum Nachweis der Erfahrung"
+  },
+  "page.join.section.requirements.3": {
+    "defaultMessage": "Fähigkeit, mindestens 5 Stunden pro Woche ehrenamtlich tätig zu sein"
+  },
   "page.newsletter.next-seo.title": {
     "defaultMessage": "Unser Newsletter"
   },
-  "page.index.section.video.headline": {
-    "defaultMessage": "Unser <b>Intro-Video</b> ansehen"
+  "page.not-found.error-message": {
+    "defaultMessage": "Die von Ihnen angeforderte Seite (<no-localization>{path}</no-localization>) existiert nicht"
   },
-  "app.template.next-seo.default.title-template": {
-    "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
+  "page.not-found.next-seo.title": {
+    "defaultMessage": "Seite nicht gefunden"
+  },
+  "page.our-work.section.design-samples.cta-button.label": {
+    "defaultMessage": "Unsere Branding-Arbeiten ansehen"
+  },
+  "page.our-work.section.design-samples.section-header.content": {
+    "defaultMessage": "Ob es sich um Branding, Dokumentendesign, Webdesign, Infografiken oder andere wirkungsvolle Designbereiche handelt, wir helfen veganen Organisationen, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen. Hier ein paar Beispiele für unsere Arbeit!"
+  },
+  "page.our-work.section.featured-projects.section-header.content": {
+    "defaultMessage": "Hier sind nur einige der Projekte, die wir für die Bewegung und in Zusammenarbeit mit anderen Partnern entwickelt haben."
+  },
+  "page.our-work.section.grant-program.funded-by-direct-recommendation": {
+    "defaultMessage": "Finanziert durch direkte Empfehlung"
+  },
+  "page.our-work.section.grant-program.section-header.applicants.cta-button.label": {
+    "defaultMessage": "Antragsteller"
+  },
+  "page.our-work.section.grant-program.section-header.content": {
+    "defaultMessage": "Letztes Jahr haben wir eine Partnerschaft mit dem Pollination Project angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
+  },
+  "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
+    "defaultMessage": "Mehr erfahren"
+  },
+  "page.our-work.section.grant-program.seed-funding-granted": {
+    "defaultMessage": "Anschubfinanzierung gewährt"
+  },
+  "page.our-work.section.hours-volunteered.cta-button.label": {
+    "defaultMessage": "hat sich 2022 freiwillig für den Tierschutz engagiert"
+  },
+  "page.our-work.section.kind-words[0].content": {
+    "defaultMessage": "Was mich an den Vegan Hacktivists am meisten beeindruckt, ist ihr hohes Maß an kritischem Denken in Bezug auf die Ideenfindung und ihre konsequente Durchsetzung. Dies hat zu mehreren hochwertigen Ergebnissen geführt, die ich nutzen konnte und anderen sehr empfehlen kann."
+  },
+  "page.our-work.section.kind-words[1].content": {
+    "defaultMessage": "Ich bin wirklich begeistert von dem Potenzial, das Vegan Hacktivists für die Tierschutzbewegung haben. Der Fortschritt ist voller Wendepunkte, und ich bin sicher, dass mindestens einer davon in einer technologischen Lösung liegt, die von dieser erfahrenen Gemeinschaft von Befürwortern angeboten wird."
+  },
+  "page.our-work.section.kind-words[2].content": {
+    "defaultMessage": "Vegan Hacktivists ist eine innovative Organisation, die Technologie einsetzt, um sich in großem Umfang für die Rechte und die Würde von Tieren einzusetzen. Sie haben unsere Organisation mit ihrem Fachwissen weit mehr als nur unterstützt. Ihre Arbeit ist äußerst notwendig und für die Zeit, in der wir leben, hochaktuell."
+  },
+  "page.our-work.section.kind-words[3].content": {
+    "defaultMessage": "Vegan Hacktivists ist ein verstecktes Juwel in der Tierschutzbewegung. Sie bauen Kapazitäten auf, um andere Tierschützer zu unterstützen. Wir hatten das Glück, ihre Hilfe bei mehreren Projekten hinter den Kulissen zu erhalten, und ich bin immer wieder beeindruckt von ihrer Leidenschaft und Professionalität."
+  },
+  "page.our-work.section.like-what-you-see.contact.cta-button.label": {
+    "defaultMessage": "Kontakt"
+  },
+  "page.our-work.section.like-what-you-see.donate.cta-button.label": {
+    "defaultMessage": "Spenden Sie"
+  },
+  "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
+    "defaultMessage": "Unterstützung erhalten"
+  },
+  "page.our-work.section.like-what-you-see.introduction": {
+    "defaultMessage": "Nehmen Sie Kontakt auf, wenn Sie sich ehrenamtlich engagieren, unsere Arbeit unterstützen oder unsere Dienste in Anspruch nehmen möchten!"
+  },
+  "page.our-work.section.like-what-you-see.services.cta-button.label": {
+    "defaultMessage": "Dienstleistungen"
+  },
+  "page.our-work.section.our-communities.cta.reddit": {
+    "defaultMessage": "Veganer auf Reddit"
+  },
+  "page.our-work.section.our-communities.member-count.ara": {
+    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
+  },
+  "page.our-work.section.our-communities.member-count.reddit": {
+    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
+  },
+  "page.our-work.section.our-communities.section-header.content": {
+    "defaultMessage": "Wir verwalten diese großen Gemeinschaften leidenschaftlicher Veganer und Aktivisten, die uns dabei helfen, ein neues Zeitalter von Freiwilligen und Aktivisten zu schaffen."
+  },
+  "page.our-work.section.our-work.cta.join": {
+    "defaultMessage": "Mitarbeiten"
+  },
+  "page.our-work.section.our-work.cta.services": {
+    "defaultMessage": "Unsere Dienstleistungen"
+  },
+  "page.our-work.section.our-work.cta.support": {
+    "defaultMessage": "Unterstützen Sie unsere Arbeit"
+  },
+  "page.our-work.section.our-work.section-header.content": {
+    "defaultMessage": "Durch unsere Entwicklungs-, Design- und Beratungsdienste haben wir mit <b>mehr als 200 Organisationen</b> in der Tierschutzbewegung zusammengearbeitet."
+  },
+  "page.our-work.section.playground.create-request.cta-button.label": {
+    "defaultMessage": "Unterstützung erhalten"
+  },
+  "page.our-work.section.playground.introduction": {
+    "defaultMessage": "<p>Playground war unsere Antwort auf die überwältigende Nachfrage nach technischer und gestalterischer Unterstützung in unserer Bewegung, während wir als Organisation mit begrenzten Kapazitäten nachhaltig bleiben wollten. Wir haben uns darauf konzentriert, den Prozess zu automatisieren, der Organisationen mit technischem, gestalterischem und anderem Unterstützungsbedarf mit qualifizierten Freiwilligen zusammenbringt.</p> <p>Diese Freiwilligen sind nicht nur in den Bereichen Design und Softwareentwicklung tätig, sondern auch in den Bereichen Datenwissenschaft, Videografie, Marketing, Sicherheit, Forschung und vielem mehr.</p>"
+  },
+  "page.our-work.section.playground.playground.cta-button.label": {
+    "defaultMessage": "Ehrenamtliche Mitarbeiterin"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
+    "defaultMessage": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und EA-Konferenzen in der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern. Wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <link>Instagram</link>, um zu sehen, wo wir als nächstes sein werden!"
+  },
+  "page.our-work.section.state-of-data.content": {
+    "defaultMessage": "In der zweiten Jahreshälfte haben wir die erste Studie über den Stand der Daten und Technologien im Tierschutz gestartet, die ihresgleichen sucht. Mit der Unterstützung und Partnerschaft von Faunalytics bei der Konzeption dieser Studie versucht unser Forscherteam zu verstehen, welche Herausforderungen und Chancen sich den Organisationen bieten, die in verschiedenen Bereichen und Branchen innerhalb unserer breiten Bewegung tätig sind. Der in Kürze erscheinende Bericht wird Empfehlungen für die Interessengruppen enthalten und dazu beitragen, unseren organisatorischen Fahrplan voranzutreiben."
+  },
+  "page.our-work.section.state-of-data.cta": {
+    "defaultMessage": "Lesen Sie den Bericht"
+  },
+  "page.people.hero.alt-text": {
+    "defaultMessage": "Unsere Gemeinschaft leidenschaftlicher Aktivisten"
+  },
+  "page.people.section.advisors.community.heading": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.advisors.community.image.alt-text": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.advisors.community.text": {
+    "defaultMessage": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
+  },
+  "page.people.section.advisors.intro.heading": {
+    "defaultMessage": "Unsere Berater"
+  },
+  "page.people.section.advisors.intro.text": {
+    "defaultMessage": "Wir sind sehr dankbar für unser Team von erfahrenen Beratern, die der Organisation, ihrer Strategie und ihren Projekten Orientierung geben."
+  },
+  "page.people.section.advisors.next-seo.title": {
+    "defaultMessage": "Unsere Beraterinnen und Berater"
+  },
+  "page.people.section.navigation.button.label.advisors": {
+    "defaultMessage": "UNSERE BERATER"
+  },
+  "page.people.section.navigation.button.label.partners": {
+    "defaultMessage": "UNSERE PARTNER"
+  },
+  "page.people.section.navigation.button.label.team": {
+    "defaultMessage": "UNSER TEAM"
+  },
+  "page.people.section.navigation.button.label.volunteers": {
+    "defaultMessage": "UNSERE FREIWILLIGEN"
+  },
+  "page.people.section.partners.community.heading": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.partners.community.image.alt-text": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.partners.community.text": {
+    "defaultMessage": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
+  },
+  "page.people.section.partners.intro.heading": {
+    "defaultMessage": "Unsere Partner"
+  },
+  "page.people.section.partners.intro.text": {
+    "defaultMessage": "Hier finden Sie Partnerorganisationen, die wir unterstützen und von denen wir unterstützt werden. Werfen Sie einen Blick darauf und erfahren Sie mehr über die großartige Arbeit, die sie leisten!"
+  },
+  "page.people.section.partners.next-seo.title": {
+    "defaultMessage": "Unsere Partner"
+  },
+  "page.people.section.team.community.heading": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.team.community.image.alt-text": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.team.community.text": {
+    "defaultMessage": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
+  },
+  "page.people.section.team.next-seo.title": {
+    "defaultMessage": "Unser Team"
+  },
+  "page.people.section.volunteers.button.load-more": {
+    "defaultMessage": "Mehr laden"
+  },
+  "page.people.section.volunteers.community.heading": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.volunteers.community.image.alt-text": {
+    "defaultMessage": "Unsere Gemeinschaft"
+  },
+  "page.people.section.volunteers.community.text": {
+    "defaultMessage": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
+  },
+  "page.people.section.volunteers.intro.heading": {
+    "defaultMessage": "Unsere Freiwilligen"
+  },
+  "page.people.section.volunteers.intro.text": {
+    "defaultMessage": "Unsere Freiwilligengemeinschaft ist das Herzstück unserer Organisation und ermöglicht es uns, innovative Projekte zu entwickeln und einen sinnvollen Beitrag zur Bewegung zu leisten. <b>Klicken Sie auf ein Symbol, um die Freiwilligen der einzelnen Teams kennenzulernen!</b>"
+  },
+  "page.people.section.volunteers.next-seo.title": {
+    "defaultMessage": "Unsere Freiwilligen"
   },
   "page.services.next-seo.title": {
     "defaultMessage": "Dienstleistungen"
@@ -260,6 +737,18 @@
   "page.services.section.service-block.4.title": {
     "defaultMessage": "Beratung"
   },
+  "page.sign-in.already-signed-in.content": {
+    "defaultMessage": "Sie sind bereits eingeloggt. Keine CallbackUrl angegeben. <button>Zum Spielplatz gehen</button>"
+  },
+  "page.sign-in.button.sign-in": {
+    "defaultMessage": "Eintragen!"
+  },
+  "page.sign-in.button.sign-out": {
+    "defaultMessage": "Abmelden!"
+  },
+  "page.sign-in.input.email": {
+    "defaultMessage": "E-Mail"
+  },
   "page.support.next-seo.title": {
     "defaultMessage": "Unterstützen Sie uns"
   },
@@ -274,15 +763,6 @@
   },
   "page.support.section.support-us.donation-card.0.title": {
     "defaultMessage": "PayPal"
-  },
-  "page.support.section.support-us.donation-card.1.button-label": {
-    "defaultMessage": "Mäzen werden"
-  },
-  "page.support.section.support-us.donation-card.1.content": {
-    "defaultMessage": "Werden Sie monatlicher Unterstützer für nur 5 $ pro Monat"
-  },
-  "page.support.section.support-us.donation-card.1.title": {
-    "defaultMessage": "Patreon"
   },
   "page.support.section.support-us.donation-card.2.button-label": {
     "defaultMessage": "Kontaktieren Sie uns"
@@ -299,18 +779,6 @@
   "page.support.section.support-us.header.title": {
     "defaultMessage": "Unterstützen Sie uns"
   },
-  "page.support.section.support-us.introduction": {
-    "defaultMessage": "Wir sind ein veganes, ehrenamtliches Team, das Technologie für Organisationen und einzelne Aktivisten der Tierschutzbewegung entwickelt. Wenn Sie an unsere Arbeit glauben und uns unterstützen möchten, ziehen Sie bitte eine Spende in Betracht."
-  },
-  "page.support.section.donation-goals.cta-label": {
-    "defaultMessage": "Jetzt spenden"
-  },
-  "page.support.section.donation-goals.introduction": {
-    "defaultMessage": "Sehen Sie sich unsere Patreon-Ziele unten an und helfen Sie uns, zu wachsen und effektiver zu werden!"
-  },
-  "page.support.section.donation-goals.title": {
-    "defaultMessage": "Monatliche Patreon-Ziele"
-  },
   "page.support.section.support-us.subtitle": {
     "defaultMessage": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>wenden Sie sich</contact-link> bitte <contact-link>an</contact-link> unseren steuerlichen Sponsor, um die steuerliche Absetzbarkeit zu erfragen."
   },
@@ -320,56 +788,26 @@
   "page.support.section.thank-you.title": {
     "defaultMessage": "Dankeschön"
   },
-  "section.crypto-donation.copy-wallet.button.label": {
-    "defaultMessage": "Kopieren"
+  "page.verify-request.button.go-back": {
+    "defaultMessage": "Zurückgehen"
   },
-  "section.crypto-donation.headline": {
-    "defaultMessage": "Wir akzeptieren Kryptowährungen!"
+  "page.verify-request.content": {
+    "defaultMessage": "Bitte folgen Sie den Anweisungen, die wir Ihnen geschickt haben. Wenn Sie die E-Mail nicht in Ihrem Posteingang sehen, überprüfen Sie bitte Ihren Spam-Ordner."
   },
-  "section.crypto-donation.introduction": {
-    "defaultMessage": "Klicken Sie auf den QR-Code, um ihn vergrößert anzuzeigen, oder kopieren Sie den Code in Ihre Zwischenablage."
+  "page.verify-request.heading": {
+    "defaultMessage": "Prüfen Sie Ihre E-Mail"
   },
-  "section.crypto-donation.notification.copy.error": {
-    "defaultMessage": "Beim Kopieren des Codes ist etwas schief gelaufen, bitte wählen Sie ihn aus und kopieren Sie ihn manuell"
+  "page.work.next-seo.title": {
+    "defaultMessage": "Unsere Arbeit"
   },
-  "section.crypto-donation.notification.copy.success": {
-    "defaultMessage": "Der Code wurde erfolgreich kopiert!"
+  "section.blog-teaser.cta": {
+    "defaultMessage": "Alle Beiträge anzeigen"
   },
-  "section.crypto-donation.subline": {
-    "defaultMessage": "Möchten Sie etwas anderes schicken? <contact-link>Kontaktieren Sie uns!</contact-link>"
+  "section.blog-teaser.headline": {
+    "defaultMessage": "<left>Auf dem</left> <right>BLOG</right>"
   },
-  "section.support-progess-bar.current.label": {
-    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
-  },
-  "section.support-progess-bar.goal.0.label": {
-    "defaultMessage": "Erforderlich zur Deckung der grundlegenden Betriebskosten"
-  },
-  "section.support-progess-bar.goal.1.label": {
-    "defaultMessage": "Wir können mehr nützliche Dienste und Technologien nutzen"
-  },
-  "section.support-progess-bar.goal.2.label": {
-    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
-  },
-  "section.support-progess-bar.goal.3.label": {
-    "defaultMessage": "Selbsttragendes Ziel"
-  },
-  "section.support-progess-bar.mobile.current.label": {
-    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
-  },
-  "section.support-progess-bar.mobile.goal.0.label": {
-    "defaultMessage": "Erforderlich zur Deckung der Betriebskosten"
-  },
-  "section.support-progess-bar.mobile.goal.1.label": {
-    "defaultMessage": "Kann sich mehr nützliche Dienstleistungen und Technik leisten"
-  },
-  "section.support-progess-bar.mobile.goal.2.label": {
-    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
-  },
-  "section.support-progess-bar.mobile.goal.3.label": {
-    "defaultMessage": "Selbsttragendes Ziel"
-  },
-  "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Spenden Sie <no-localization>{currencyName}</no-localization>"
+  "section.blog-teaser.paragraph": {
+    "defaultMessage": "In unserem Blog finden Sie Projekt-Updates, Ankündigungen, Interviews, Gastbeiträge und vieles mehr."
   },
   "section.contact-us-form.input-field.empty-error.email": {
     "defaultMessage": "Die E-Mail ist erforderlich"
@@ -407,106 +845,85 @@
   "section.contact-us-form.submit-button.label": {
     "defaultMessage": "Einreichen"
   },
-  "page.our-work.section.our-work.cta.join": {
-    "defaultMessage": "Mitarbeiten"
+  "section.crypto-donation.copy-wallet.button.label": {
+    "defaultMessage": "Kopieren"
   },
-  "page.our-work.section.our-work.cta.services": {
-    "defaultMessage": "Unsere Dienstleistungen"
+  "section.crypto-donation.headline": {
+    "defaultMessage": "Wir akzeptieren Kryptowährungen!"
   },
-  "page.our-work.section.our-work.cta.support": {
-    "defaultMessage": "Unterstützen Sie unsere Arbeit"
+  "section.crypto-donation.introduction": {
+    "defaultMessage": "Klicken Sie auf den QR-Code, um ihn vergrößert anzuzeigen, oder kopieren Sie den Code in Ihre Zwischenablage."
   },
-  "page.our-work.section.our-work.section-header.content": {
-    "defaultMessage": "Durch unsere Entwicklungs-, Design- und Beratungsdienste haben wir mit <b>mehr als 200 Organisationen</b> in der Tierschutzbewegung zusammengearbeitet."
+  "section.crypto-donation.notification.copy.error": {
+    "defaultMessage": "Beim Kopieren des Codes ist etwas schief gelaufen, bitte wählen Sie ihn aus und kopieren Sie ihn manuell"
   },
-  "page.work.next-seo.title": {
-    "defaultMessage": "Unsere Arbeit"
+  "section.crypto-donation.notification.copy.success": {
+    "defaultMessage": "Der Code wurde erfolgreich kopiert!"
   },
-  "page.our-work.section.design-samples.cta-button.label": {
-    "defaultMessage": "Unsere Branding-Arbeiten ansehen"
+  "section.crypto-donation.overlay.label": {
+    "defaultMessage": "Spenden Sie <no-localization>{currencyName}</no-localization>"
   },
-  "page.our-work.section.design-samples.section-header.content": {
-    "defaultMessage": "Ob es sich um Branding, Dokumentendesign, Webdesign, Infografiken oder andere wirkungsvolle Designbereiche handelt, wir helfen veganen Organisationen, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen. Hier ein paar Beispiele für unsere Arbeit!"
+  "section.crypto-donation.subline": {
+    "defaultMessage": "Möchten Sie etwas anderes schicken? <contact-link>Kontaktieren Sie uns!</contact-link>"
   },
-  "page.our-work.section.featured-projects.section-header.content": {
-    "defaultMessage": "Hier sind nur einige der Projekte, die wir für die Bewegung und in Zusammenarbeit mit anderen Partnern entwickelt haben."
+  "section.grants-cta.apply.cta": {
+    "defaultMessage": "Jetzt bewerben"
   },
-  "page.our-work.section.grant-program.funded-by-direct-recommendation": {
-    "defaultMessage": "Finanziert durch direkte Empfehlung"
+  "section.grants-cta.apply.heading": {
+    "defaultMessage": "Beantragen Sie eine Starthilfe"
   },
-  "page.our-work.section.grant-program.section-header.applicants.cta-button.label": {
-    "defaultMessage": "Antragsteller"
+  "section.grants-cta.apply.paragraph": {
+    "defaultMessage": "Wir bieten Zuschüsse für wirkungsvolle und effektive Arbeit im Bereich Tierschutz und Aktivismus."
   },
-  "page.our-work.section.grant-program.section-header.content": {
-    "defaultMessage": "Letztes Jahr haben wir eine Partnerschaft mit dem Pollination Project angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
+  "section.grants-cta.visit-year-review.cta": {
+    "defaultMessage": "Siehe unsere Auswirkungen"
   },
-  "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
-    "defaultMessage": "Mehr erfahren"
+  "section.grants-cta.visit-year-review.heading": {
+    "defaultMessage": "Siehe unsere Folgenabschätzung 2022"
   },
-  "page.our-work.section.grant-program.seed-funding-granted": {
-    "defaultMessage": "Anschubfinanzierung gewährt"
+  "section.grants-cta.visit-year-review.paragraph": {
+    "defaultMessage": "Lesen Sie unseren jährlichen Wirkungsbericht und sehen Sie, was wir im vergangenen Jahr erreicht haben."
   },
-  "page.our-work.section.hours-volunteered.cta-button.label": {
-    "defaultMessage": "hat sich 2022 freiwillig für den Tierschutz engagiert"
+  "section.join-the-team.cta.join": {
+    "defaultMessage": "Beitritt beantragen"
   },
-  "page.our-work.section.kind-words[0].content": {
-    "defaultMessage": "Was mich an den Vegan Hacktivists am meisten beeindruckt, ist ihr hohes Maß an kritischem Denken in Bezug auf die Ideenfindung und ihre konsequente Durchsetzung. Dies hat zu mehreren hochwertigen Ergebnissen geführt, die ich nutzen konnte und anderen sehr empfehlen kann."
+  "section.join-the-team.cta.meet-the-team": {
+    "defaultMessage": "Treffen Sie das Team"
   },
-  "page.our-work.section.kind-words[1].content": {
-    "defaultMessage": "Ich bin wirklich begeistert von dem Potenzial, das Vegan Hacktivists für die Tierschutzbewegung haben. Der Fortschritt ist voller Wendepunkte, und ich bin sicher, dass mindestens einer davon in einer technologischen Lösung liegt, die von dieser erfahrenen Gemeinschaft von Befürwortern angeboten wird."
+  "section.join-the-team.headline": {
+    "defaultMessage": "UNSEREM TEAM BEITRETEN"
   },
-  "page.our-work.section.kind-words[2].content": {
-    "defaultMessage": "Vegan Hacktivists ist eine innovative Organisation, die Technologie einsetzt, um sich in großem Umfang für die Rechte und die Würde von Tieren einzusetzen. Sie haben unsere Organisation mit ihrem Fachwissen weit mehr als nur unterstützt. Ihre Arbeit ist äußerst notwendig und für die Zeit, in der wir leben, hochaktuell."
+  "section.join-the-team.paragraph": {
+    "defaultMessage": "Sind Sie ein Entwickler, Designer, Autor oder ein kreativer Profi, der seine digitalen Fähigkeiten für die Tiere einsetzen möchte? Erfahren Sie mehr über unsere Teammitglieder und sehen Sie sich unsere offenen Stellen an."
   },
-  "page.our-work.section.kind-words[3].content": {
-    "defaultMessage": "Vegan Hacktivists ist ein verstecktes Juwel in der Tierschutzbewegung. Sie bauen Kapazitäten auf, um andere Tierschützer zu unterstützen. Wir hatten das Glück, ihre Hilfe bei mehreren Projekten hinter den Kulissen zu erhalten, und ich bin immer wieder beeindruckt von ihrer Leidenschaft und Professionalität."
+  "section.support-progess-bar.current.label": {
+    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
   },
-  "page.our-work.section.like-what-you-see.contact.cta-button.label": {
-    "defaultMessage": "Kontakt"
+  "section.support-progess-bar.goal.0.label": {
+    "defaultMessage": "Erforderlich zur Deckung der grundlegenden Betriebskosten"
   },
-  "page.our-work.section.like-what-you-see.donate.cta-button.label": {
-    "defaultMessage": "Spenden Sie"
+  "section.support-progess-bar.goal.1.label": {
+    "defaultMessage": "Wir können mehr nützliche Dienste und Technologien nutzen"
   },
-  "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
-    "defaultMessage": "Unterstützung erhalten"
+  "section.support-progess-bar.goal.2.label": {
+    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
   },
-  "page.our-work.section.like-what-you-see.introduction": {
-    "defaultMessage": "Nehmen Sie Kontakt auf, wenn Sie sich ehrenamtlich engagieren, unsere Arbeit unterstützen oder unsere Dienste in Anspruch nehmen möchten!"
+  "section.support-progess-bar.goal.3.label": {
+    "defaultMessage": "Selbsttragendes Ziel"
   },
-  "page.our-work.section.like-what-you-see.services.cta-button.label": {
-    "defaultMessage": "Dienstleistungen"
+  "section.support-progess-bar.mobile.current.label": {
+    "defaultMessage": "Aktuelle monatliche Patreon-Spenden"
   },
-  "page.our-work.section.our-communities.cta.ara": {
-    "defaultMessage": "Tierrechtsverteidiger"
+  "section.support-progess-bar.mobile.goal.0.label": {
+    "defaultMessage": "Erforderlich zur Deckung der Betriebskosten"
   },
-  "page.our-work.section.our-communities.cta.reddit": {
-    "defaultMessage": "Veganer auf Reddit"
+  "section.support-progess-bar.mobile.goal.1.label": {
+    "defaultMessage": "Kann sich mehr nützliche Dienstleistungen und Technik leisten"
   },
-  "page.our-work.section.our-communities.section-header.content": {
-    "defaultMessage": "Wir verwalten diese großen Gemeinschaften leidenschaftlicher Veganer und Aktivisten, die uns dabei helfen, ein neues Zeitalter von Freiwilligen und Aktivisten zu schaffen."
+  "section.support-progess-bar.mobile.goal.2.label": {
+    "defaultMessage": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
   },
-  "page.our-work.section.playground.create-request.cta-button.label": {
-    "defaultMessage": "Unterstützung erhalten"
-  },
-  "page.our-work.section.playground.introduction": {
-    "defaultMessage": "<p>Playground war unsere Antwort auf die überwältigende Nachfrage nach technischer und gestalterischer Unterstützung in unserer Bewegung, während wir als Organisation mit begrenzten Kapazitäten nachhaltig bleiben wollten. Wir haben uns darauf konzentriert, den Prozess zu automatisieren, der Organisationen mit technischem, gestalterischem und anderem Unterstützungsbedarf mit qualifizierten Freiwilligen zusammenbringt.</p> <p>Diese Freiwilligen sind nicht nur in den Bereichen Design und Softwareentwicklung tätig, sondern auch in den Bereichen Datenwissenschaft, Videografie, Marketing, Sicherheit, Forschung und vielem mehr.</p>"
-  },
-  "page.our-work.section.playground.playground.cta-button.label": {
-    "defaultMessage": "Ehrenamtliche Mitarbeiterin"
-  },
-  "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "defaultMessage": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und EA-Konferenzen in der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern. Wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <link>Instagram</link>, um zu sehen, wo wir als nächstes sein werden!"
-  },
-  "page.our-work.section.state-of-data.content": {
-    "defaultMessage": "In der zweiten Jahreshälfte haben wir die erste Studie über den Stand der Daten und Technologien im Tierschutz gestartet, die ihresgleichen sucht. Mit der Unterstützung und Partnerschaft von Faunalytics bei der Konzeption dieser Studie versucht unser Forscherteam zu verstehen, welche Herausforderungen und Chancen sich den Organisationen bieten, die in verschiedenen Bereichen und Branchen innerhalb unserer breiten Bewegung tätig sind. Der in Kürze erscheinende Bericht wird Empfehlungen für die Interessengruppen enthalten und dazu beitragen, unseren organisatorischen Fahrplan voranzutreiben."
-  },
-  "page.our-work.section.state-of-data.headline": {
-    "defaultMessage": "<left>Demnächst verfügbar:</left> <middle>Stand der Daten und Technologien</middle> <right>in der Bewegung</right>"
-  },
-  "page.our-work.section.our-communities.member-count.ara": {
-    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
-  },
-  "page.our-work.section.our-communities.member-count.reddit": {
-    "defaultMessage": "<no-localization>{count}</no-localization> Mitglieder"
+  "section.support-progess-bar.mobile.goal.3.label": {
+    "defaultMessage": "Selbsttragendes Ziel"
   }
 }

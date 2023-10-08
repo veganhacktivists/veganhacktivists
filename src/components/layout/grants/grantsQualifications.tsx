@@ -53,9 +53,7 @@ const GrantsQualifications: React.FC = () => {
         <GrantsQualificationsStep step="1">
           <FormattedMessage
             id="page.grants.section.qualifications.step[0].content"
-            defaultMessage="<b> Your primary goal </b> should focus on reducing farmed animal
-            suffering. Factory farming causes over 100 billion animals to suffer
-            deprivation, fear, and pain every year."
+            defaultMessage="<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
             values={{
               b: (chunks) => <b>{chunks}</b>,
             }}
@@ -64,10 +62,7 @@ const GrantsQualifications: React.FC = () => {
         <GrantsQualificationsStep step="2">
           <FormattedMessage
             id="page.grants.section.qualifications.step[1].content"
-            defaultMessage="<b> You must have </b> prior activism experience, whether in animal
-            rights or other social movements. We're looking for people who
-            have worked on and contributed to grassroots campaigns and/or
-            projects, in a paid or volunteer capacity."
+            defaultMessage="<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
             values={{
               b: (chunks) => <b>{chunks}</b>,
             }}
@@ -77,9 +72,7 @@ const GrantsQualifications: React.FC = () => {
           <i>
             <FormattedMessage
               id="page.grants.section.qualifications.cta[0].content"
-              defaultMessage="<b>Don't meet the qualifications above?</b> You may still be
-            eligible for funding! Apply and we'll forward your application
-            to other potential funders."
+              defaultMessage="<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
@@ -90,7 +83,7 @@ const GrantsQualifications: React.FC = () => {
           <b>
             <FormattedMessage
               id="page.grants.section.qualifications.cta[1].content"
-              defaultMessage=" If you meet the qualifications, fill out the application form below."
+              defaultMessage="If you meet the qualifications, fill out the application form below."
             />
           </b>
         </p>

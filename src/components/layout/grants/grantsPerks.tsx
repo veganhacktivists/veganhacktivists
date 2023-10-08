@@ -30,9 +30,7 @@ const PERKS: PerkProps[] = [
       <>
         <FormattedMessage
           id="page.grants.section.perks.squarespace.content"
-          defaultMessage="<div>Valued at $200, we cover the subscription cost for the first year.</div>
-          <div>You own it, and we help you design and maintain it.</div>
-          <div>Easy to update with little to no experience.</div>"
+          defaultMessage="<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
           values={{
             div: (chunks) => <div>{chunks}</div>,
           }}
@@ -52,10 +50,7 @@ const PERKS: PerkProps[] = [
       <>
         <FormattedMessage
           id="page.grants.section.perks.design-creation.content"
-          defaultMessage="Depending on your needs, we design (or redesign) the branding and logo
-      for your organization or project. We also provide digital assets, such
-      as banners, icons, and any custom elements, for social media and your
-      website."
+          defaultMessage="Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
         />
       </>
     ),
@@ -72,9 +67,7 @@ const PERKS: PerkProps[] = [
       <>
         <FormattedMessage
           id="page.grants.section.perks.content-dev.content"
-          defaultMessage="We help craft any public-facing messages, including website copy. We
-      offer our writing and editing skills at any stage of the process: from
-      initial brainstorming to reviewing copy that helps promote your work."
+          defaultMessage="We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
         />
       </>
     ),
@@ -91,9 +84,7 @@ const PERKS: PerkProps[] = [
       <>
         <FormattedMessage
           id="page.grants.section.perks.check-ins.content"
-          defaultMessage="A monthly 30-minute Zoom call to help advise you and your team. Topics
-      include but are not limited to technology, marketing, strategy, and
-      other aspects of your organization's growth and development."
+          defaultMessage="A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
         />
       </>
     ),

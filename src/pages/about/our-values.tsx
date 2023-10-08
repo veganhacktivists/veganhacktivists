@@ -29,8 +29,7 @@ const OurValues: PageWithLayout = () => {
       >
         <FormattedMessage
           id="page.about.section.our-values.section-header.content"
-          defaultMessage="We embrace strong core values for our organization, which drive what we
-      do, how we do it, and how we build community."
+          defaultMessage="We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
         />
       </FirstSubSection>
       <div className="pb-10 m-10">
@@ -54,9 +53,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-1.content"
-            defaultMessage="We value and respect the lives of all animals and denounce all forms
-        of violence and exploitation against them. We believe animals have the
-        right to be free, and we fight for that with our (digital) activism."
+            defaultMessage="We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
           />
         </SubSection>
 
@@ -68,9 +65,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-2.content"
-            defaultMessage="We practice a love-based, community-first organizational approach. We
-        exercise empathy, compassion, and non-violence. We encourage every
-        member to communicate openly and kindly with each other."
+            defaultMessage="We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
           />
         </SubSection>
 
@@ -82,10 +77,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-3.content"
-            defaultMessage="We believe in building and fostering safe and inclusive communities
-        regardless of race, gender, species, age, sexual orientation, or
-        political affiliation. We strive to be diverse and representative of
-        the communities we serve and work with."
+            defaultMessage="We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
           />
         </SubSection>
 
@@ -97,8 +89,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-4.content"
-            defaultMessage="We believe farmed animals are in most need of our support, which is
-        why we focus primarily on farmed animal liberation as an organization."
+            defaultMessage="We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
           />
         </SubSection>
 
@@ -110,9 +101,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-5.content"
-            defaultMessage="We value different viewpoints and constructive feedback from every
-            person. We believe everyone has something of value to contribute to
-            the discussion. We always listen first, then respond constructively."
+            defaultMessage="We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
           />
         </SubSection>
 
@@ -124,10 +113,7 @@ const OurValues: PageWithLayout = () => {
         >
           <FormattedMessage
             id="page.about.section.our-values.subsection-6.content"
-            defaultMessage="We do not support or enable the exploitation or oppression of any
-        group. We believe that the oppression of humans and non-human animals
-        are interlinked, and the work to eradicate all forms of oppression is
-        necessary."
+            defaultMessage="We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
           />
         </SubSection>
       </div>

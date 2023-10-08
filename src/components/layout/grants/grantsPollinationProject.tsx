@@ -29,9 +29,7 @@ const GrantsPollinationProject: React.FC = () => {
           <p className="mt-4">
             <FormattedMessage
               id="page.grants.section.pollination-project.content[1]"
-              defaultMessage="If your primary focus does not address farmed animals, you may still
-              be eligible for a grant directly from TPP. We encourage you to apply
-              through their website."
+              defaultMessage="If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
             />
           </p>
           <LightButton

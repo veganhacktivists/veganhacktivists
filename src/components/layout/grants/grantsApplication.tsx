@@ -378,13 +378,7 @@ const GrantsApplication: React.FC = () => {
         >
           <FormattedMessage
             id="page.grants.section.application.form.c.intro"
-            defaultMessage="
-            <div>
-              Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used.
-            </div>
-            <div>
-              Please note, all information in this section should be given in <b>US Dollars</b> (US$).
-            </div>"
+            defaultMessage="<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
             values={{
               div: (chunks) => <div>{chunks}</div>,
               b: (chunks) => <b>{chunks}</b>,
@@ -461,11 +455,7 @@ const GrantsApplication: React.FC = () => {
             <div className="font-normal">
               <FormattedMessage
                 id="page.grants.section.application.form.c.input.funds-usage.text"
-                defaultMessage="Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example:
-                <ul>
-                  <li>1 1lb bag of corn - $5</li>
-                  <li>3 Garden Shovels - $35</li>
-                </ul>"
+                defaultMessage="Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
                 values={{
                   ul: (chunks) => (
                     <ul className="list-disc list-inside">{chunks}</ul>

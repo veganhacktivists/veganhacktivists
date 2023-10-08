@@ -11,12 +11,11 @@ const nextConfig = z
   .parse(require('../next.config.js'));
 
 export const filesGlob = 'src/**/*.tsx';
-export const defaultLanguage = nextConfig.i18n.defaultLocale;
-export const languages = nextConfig.i18n.locales;
-export const defaultTranslationPath =
-  resolveTranslationFilePath(defaultLanguage);
+export const defaultLocale = nextConfig.i18n.defaultLocale;
+export const locales = nextConfig.i18n.locales;
+export const defaultTranslationPath = resolveTranslationFilePath(defaultLocale);
 export const defaultCompiledTranslationPath =
-  resolveCompiledTranslationFilePath(defaultLanguage);
+  resolveCompiledTranslationFilePath(defaultLocale);
 export const encoding = 'utf-8';
 export const repoDirectory = resolve(__dirname, '..');
 
@@ -41,31 +40,33 @@ export async function getTranslationsFromFile(
   }
 }
 
-export function resolveTranslationFilePath(language: string) {
-  return `${__dirname}/data/${language}.json`;
+export function resolveTranslationFilePath(locale: string) {
+  return `${__dirname}/data/${locale}.json`;
 }
 
-export function resolveCompiledTranslationFilePath(language: string) {
-  return `${__dirname}/data/compiled-${language}.json`;
+export function resolveCompiledTranslationFilePath(locale: string) {
+  return `${__dirname}/data/compiled-${locale}.json`;
 }
 
 export async function readTranslationFile(
-  language: string
+  locale: string
 ): Promise<z.infer<typeof validationSchema>> {
-  const referenceTranslationFileString = await readFile(
-    resolveTranslationFilePath(language),
+  return getTranslationsFromFile(resolveTranslationFilePath(locale));
+}
+
+export async function writeTranslationFile(
+  translations: TranslationFileStructure,
+  locale: string
+) {
+  await writeFile(
+    resolveTranslationFilePath(locale),
+    JSON.stringify(sortTranslations(translations), undefined, 2) + '\n',
     { encoding }
   );
-
-  const referenceTranslationFileContent = validationSchema.parse(
-    JSON.parse(referenceTranslationFileString)
-  );
-
-  return referenceTranslationFileContent;
 }
 
 export function validateTranslationId(id: string) {
-  return id.toLowerCase() === id && !id.includes(' ');
+  return id.toLowerCase() === id && !/.*\s.*/.test(id);
 }
 
 export function warnIfIdInvalid(id: string) {
@@ -80,18 +81,16 @@ export function warnIfIdInvalid(id: string) {
 export function sortTranslations(translations: TranslationFileStructure) {
   return Object.fromEntries(
     Object.entries(translations).sort(([keya], [keyb]) =>
-      keya.localeCompare(keyb)
+      keya.localeCompare(keyb, 'en-US')
     )
   );
 }
 
-export async function writeToTranslationFile(
+export function stripObsoleteTranslations(
   translations: TranslationFileStructure,
-  locale: string
+  validIds: string[]
 ) {
-  await writeFile(
-    resolveTranslationFilePath(locale),
-    JSON.stringify(sortTranslations(translations), undefined, 2),
-    { encoding }
+  return Object.fromEntries(
+    Object.entries(translations).filter(([id]) => validIds.includes(id))
   );
 }

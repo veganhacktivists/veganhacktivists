@@ -1,14 +1,15 @@
-// translate untranslated messages from EN to languages specified in next.config.js
+// translate untranslated messages from EN to locales specified in next.config.js
 import { readFile, stat } from 'fs/promises';
 
 import { translate } from './deepl';
 import {
-  defaultLanguage,
+  defaultLocale,
   encoding,
-  languages,
+  locales,
   readTranslationFile,
   resolveTranslationFilePath,
-  writeToTranslationFile,
+  stripObsoleteTranslations,
+  writeTranslationFile,
 } from './_util';
 
 void translateLocalMessages();
@@ -16,15 +17,22 @@ void translateLocalMessages();
 async function translateLocalMessages() {
   await ensureTranslationFileAvailability();
 
-  const referenceTranslationFile = await readTranslationFile(defaultLanguage);
+  const referenceTranslationFile = await readTranslationFile(defaultLocale);
 
   const translationIds = Object.keys(referenceTranslationFile);
 
   await Promise.all(
-    languages
-      .filter((l) => l !== defaultLanguage)
-      .map(async (language) => {
-        const translationFile = await readTranslationFile(language);
+    locales
+      .filter((l) => l !== defaultLocale)
+      .map(async (locale) => {
+        if (locale === 'dev') {
+          return;
+        }
+
+        const translationFile = stripObsoleteTranslations(
+          await readTranslationFile(locale),
+          translationIds
+        );
 
         for (const translationId of translationIds) {
           if (translationFile[translationId]) {
@@ -35,7 +43,7 @@ async function translateLocalMessages() {
             translationFile[translationId] = {
               defaultMessage: await translate(
                 referenceTranslationFile[translationId].defaultMessage,
-                language
+                locale
               ),
             };
           } catch (error) {
@@ -43,7 +51,7 @@ async function translateLocalMessages() {
             console.error(error);
           }
 
-          await writeToTranslationFile(translationFile, language);
+          await writeTranslationFile(translationFile, locale);
         }
       })
   );
@@ -60,8 +68,12 @@ async function fileExists(path: string) {
 
 async function ensureTranslationFileAvailability() {
   await Promise.all(
-    languages.map(async (language) => {
-      const path = resolveTranslationFilePath(language);
+    locales.map(async (locale) => {
+      if (locale === 'dev') {
+        return;
+      }
+
+      const path = resolveTranslationFilePath(locale);
 
       let translationFileNotExistsOrInvalid = false;
 
@@ -82,7 +94,7 @@ async function ensureTranslationFileAvailability() {
       }
 
       if (translationFileNotExistsOrInvalid) {
-        await writeToTranslationFile({}, language);
+        await writeTranslationFile({}, locale);
       }
     })
   );

@@ -13,8 +13,9 @@ import {
   repoDirectory,
   filesGlob,
   warnIfIdInvalid,
-  writeToTranslationFile,
-  defaultLanguage,
+  writeTranslationFile,
+  defaultLocale,
+  stripObsoleteTranslations,
 } from './_util';
 
 import type { TranslationFileStructure } from './_util';
@@ -38,8 +39,12 @@ async function main() {
     currentTranslations,
     extractedTranslations
   );
+  const updatedTranslations = stripObsoleteTranslations(
+    mergedTranslations,
+    Object.keys(extractedTranslations)
+  );
 
-  await writeToTranslationFile(mergedTranslations, defaultLanguage);
+  await writeTranslationFile(updatedTranslations, defaultLocale);
 }
 
 function addNewTranslationsToCurrent(

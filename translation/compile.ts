@@ -12,8 +12,8 @@ import {
 import { z } from 'zod';
 
 import {
-  defaultLanguage,
-  languages,
+  defaultLocale,
+  locales,
   repoDirectory,
   resolveCompiledTranslationFilePath,
   resolveTranslationFilePath,
@@ -24,36 +24,36 @@ void main();
 
 const stringRecordSchema = z.record(z.string(), z.string());
 
-function main() {
-  return Promise.all(
-    languages.map(async (lang) => {
+async function main() {
+  await Promise.all(
+    locales.map(async (locale) => {
       const compiledMessages = await compile([
-        resolveTranslationFilePath(lang === 'dev' ? defaultLanguage : lang),
+        resolveTranslationFilePath(locale === 'dev' ? defaultLocale : locale),
       ]);
 
-      const updatedMessages = noramlizeCompiledMessagesForLang(
+      const updatedMessages = noramlizeCompiledMessagesForLocale(
         compiledMessages,
-        lang
+        locale
       );
 
       await writeFile(
-        resolveCompiledTranslationFilePath(lang),
+        resolveCompiledTranslationFilePath(locale),
         JSON.stringify(updatedMessages),
         { encoding }
       );
 
-      await ensureTranslationFileUsage(lang);
+      await ensureTranslationFileUsage(locale);
     })
   );
 }
 
-function noramlizeCompiledMessagesForLang(
+function noramlizeCompiledMessagesForLocale(
   compiledMessages: string,
-  lang: string
+  locale: string
 ) {
   const parsedMessages = stringRecordSchema.parse(JSON.parse(compiledMessages));
 
-  if (lang === 'dev') {
+  if (locale === 'dev') {
     return createDevTranslations(parsedMessages);
   }
 
@@ -81,10 +81,10 @@ const messagesSourceFilePath = resolve(
 );
 project.addSourceFileAtPath(messagesSourceFilePath);
 
-async function ensureTranslationFileUsage(language: string) {
+async function ensureTranslationFileUsage(locale: string) {
   const filepath = relative(
     dirname(messagesSourceFilePath),
-    resolveCompiledTranslationFilePath(language)
+    resolveCompiledTranslationFilePath(locale)
   );
 
   const sourceFile = project.getSourceFiles()[0];
@@ -99,11 +99,11 @@ async function ensureTranslationFileUsage(language: string) {
   }
 
   sourceFile.addImportDeclaration({
-    defaultImport: language,
+    defaultImport: locale,
     moduleSpecifier: filepath,
   });
 
-  if (language === 'dev') {
+  if (locale === 'dev') {
     sourceFile
       .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
       .addSpreadAssignment({
@@ -115,7 +115,7 @@ async function ensureTranslationFileUsage(language: string) {
     sourceFile
       .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)[0]
       .addProperty({
-        name: language,
+        name: locale,
         kind: StructureKind.ShorthandPropertyAssignment,
       });
   }
