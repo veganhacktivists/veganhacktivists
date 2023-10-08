@@ -11,7 +11,7 @@ import CustomImage from '../decoration/customImage';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
 
-import { LocaleSelector } from './LanguagePickerDropdown';
+import { LocaleSelector } from './localeSelector';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;

@@ -67,8 +67,8 @@ export const LocaleSelector = () => {
               ))}
             </div>
           </div>
-          {/* clone of above locale selection dropdown, positioned relatively (and outside the viewport), to respect the width of the widest element */}
-          <div className="relative top-[100vh] h-0 flex flex-col center">
+          {/* clone of above locale selection dropdown, invisible with height 0, to respect the width of the widest element */}
+          <div className="h-0 overflow-y-hidden flex flex-col center">
             {localeOptions.map((locale) => (
               <Link
                 key={locale + router.pathname}
