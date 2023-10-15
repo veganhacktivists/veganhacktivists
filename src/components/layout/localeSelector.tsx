@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 
-import { useLocale } from 'lib/translation/useLocale';
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 /**
  * Locale selector positioned in the page header.
@@ -28,7 +28,7 @@ export const LocaleSelector = () => {
     [locales]
   );
 
-  const currentLocale = useLocale();
+  const currentLocale = useRouterLocale();
 
   const localeOptions = useMemo(
     () => locales && locales.filter((locale) => locale !== currentLocale),

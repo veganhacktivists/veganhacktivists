@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export const useLocale = (): string => {
+export const useRouterLocale = (): string => {
   const { locale, defaultLocale } = useRouter();
 
   return locale ?? defaultLocale ?? 'en';
