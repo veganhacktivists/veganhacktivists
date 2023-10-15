@@ -116,7 +116,7 @@ const NavbarItems: React.FC = () => {
         Get Help
       </NavBarItem>
       <a
-        className="p-5 py-6 text-center transition duration-500 hover:bg-gray-dark"
+        className="p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark"
         href="https://www.instagram.com/veganhacktivists/"
         target="_blank"
         rel="noreferrer"
