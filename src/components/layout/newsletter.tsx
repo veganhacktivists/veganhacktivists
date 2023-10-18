@@ -70,18 +70,18 @@ const Newsletter: React.FC<NewsletterProps> = ({
         <span className="text-4xl font-bold">NEWSLETTER</span>
       </h1>
       <div className="mx-auto mb-8 text-2xl text-center">
-        Join our newsletter now and never miss an update! <br />
-        Sign up now to receive...
+        Sign up for our newsletter now and never miss an update! <br />
+        Every month, you will receive...
       </div>
       <div
         className={classNames('mx-auto text-xl font-serif italic mb-8 w-fit')}
       >
         <ul className="list-none">
           {[
-            'Instant updates from our blog',
-            'Exclusive previews of upcoming events',
-            'Early access to events',
-            'And Much More!',
+            'Updates about our org, events, and projects',
+            'Exciting news and opportunities from the animal protection movement',
+            'Original content from our blog',
+            'And much more!',
           ].map((bulletText, i) => (
             <li
               className="flex flex-row items-baseline p-1 text-left before:bg-green before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
