@@ -78,7 +78,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
       >
         <ul className="list-none">
           {[
-            'Updates about our projects and projects',
+            'Updates about our projects and events',
             'Exciting news and opportunities from the movement',
             'Original content from our blog',
             'And much more!',
