@@ -78,8 +78,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
       >
         <ul className="list-none">
           {[
-            'Updates about our org, events, and projects',
-            'Exciting news and opportunities from the animal protection movement',
+            'Updates about our projects and projects',
+            'Exciting news and opportunities from the movement',
             'Original content from our blog',
             'And much more!',
           ].map((bulletText, i) => (
