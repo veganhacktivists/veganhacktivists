@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import ContentfulImage from '../contentfulImage';
 
@@ -47,7 +48,10 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         </LinkToBlog>
         {heading && (
           <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">
-            Latest post
+            <FormattedMessage
+              id="page.blog.section.blog-summary.heading-fallback"
+              defaultMessage="Latest post"
+            />
           </div>
         )}
       </div>
@@ -78,7 +82,10 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         </div>
         {heading || (
           <DarkButton className="mb-0" href={`/blog/${slug}`}>
-            Read More
+            <FormattedMessage
+              id="page.blog.section.blog-summary.heading-fallback"
+              defaultMessage="Read More"
+            />
           </DarkButton>
         )}
       </div>

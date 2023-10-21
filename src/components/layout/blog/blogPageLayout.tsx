@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { DarkButton } from '../../decoration/buttons';
 import ContentfulImage from '../contentfulImage';
@@ -51,7 +52,10 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
             </div>
 
             <DarkButton href={`/blog/${slug}`} className="w-full">
-              Read more
+              <FormattedMessage
+                id="page.blog.section.blog-page.btn.read-more"
+                defaultMessage="Read more"
+              />
             </DarkButton>
           </div>
         );

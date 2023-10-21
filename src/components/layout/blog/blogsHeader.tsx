@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import { FormattedMessage } from 'react-intl';
 
 import Circle from '../../decoration/circle';
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
@@ -57,8 +58,11 @@ const BlogsHeader: React.FC<HeaderProps> = ({
           <CustomImage src={roundLogo} alt="" />
         </div>
         <div className="text-2xl px-16 font-mono">
-          Welcome to our official blog. We regularly post news, annnouncements,
-          project updates, interviews, editorials, and more. Stay tuned!
+          <FormattedMessage
+            id="page.blog.section.header.intro"
+            defaultMessage="Welcome to our official blog. We regularly post news, annnouncements,
+              project updates, interviews, editorials, and more. Stay tuned!"
+          />
         </div>
       </div>
       <div className="bg-grey-dark mt-10">
@@ -82,7 +86,10 @@ const BlogsHeader: React.FC<HeaderProps> = ({
         </div>
         <div className="my-5 text-left text-xl">
           <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
-            Categories
+            <FormattedMessage
+              id="page.blog.section.header.categories"
+              defaultMessage="Categories"
+            />
           </div>
           <div>
             {tags.map((tag) => (
