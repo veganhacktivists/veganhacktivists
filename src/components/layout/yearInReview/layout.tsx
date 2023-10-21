@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { NavButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
@@ -60,6 +61,7 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
   hero,
   customMainSection,
 }) => {
+  const intl = useIntl();
   return (
     <div className="bg-grey-background">
       {hero}
@@ -69,13 +71,20 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
       />
       {customMainSection ?? (
         <FirstSubSection
-          header={`Our ${year} year in review`}
+          header={intl.formatMessage({
+            id: 'page.year-in-review.section.header.title',
+            defaultMessage: `Our ${year} year in review`,
+          })}
           firstWordsNum={2}
           className="pt-5"
         >
-          We&apos;re so happy to release our {year} Year in Review! Scroll down
-          to read all of our accomplishments thanks to your generous support,
-          our partners, and most of all our amazing volunteers.
+          <FormattedMessage
+            id="page.year-in-review.section.header.content"
+            defaultMessage="We're so happy to release our {year} Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
+            values={{
+              year,
+            }}
+          />
         </FirstSubSection>
       )}
       <YearInReviewButtons currentYear={year} />
