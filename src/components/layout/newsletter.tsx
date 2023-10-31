@@ -25,6 +25,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
   onChange,
   showCancelButton,
 }) => {
+  const intl = useIntl();
   const {
     register,
     handleSubmit,
@@ -60,9 +61,9 @@ const Newsletter: React.FC<NewsletterProps> = ({
           //ignore
         });
     },
-    [onChange]
+    [intl, onChange]
   );
-  const intl = useIntl();
+
   return (
     <div className="w-full p-8 mx-auto bg-grey-background text-grey">
       <div className="flex justify-center">
@@ -87,8 +88,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
       </h1>
       <div className="mx-auto mb-8 text-2xl text-center">
         <FormattedMessage
-          id="page.grants.section.application.intro"
-          defaultMessage="Join our newsletter now and never miss an update!{br}Sign up now to receive..."
+          id="page.blog.section.newsletter.intro"
+          defaultMessage="Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive..."
           values={{
             br: <br />,
           }}
@@ -100,24 +101,25 @@ const Newsletter: React.FC<NewsletterProps> = ({
         <ul className="list-none">
           {[
             intl.formatMessage({
-              id: 'page.blog.section.newsletter.features.updates',
-              defaultMessage: 'Instant updates from our blog',
+              id: 'page.blog.section.newsletter.features.0',
+              defaultMessage: 'Updates about our projects and events',
             }),
             intl.formatMessage({
-              id: 'page.blog.section.newsletter.features.previews',
-              defaultMessage: 'Exclusive previews of upcoming events',
+              id: 'page.blog.section.newsletter.features.1',
+              defaultMessage:
+                'Exciting news and opportunities from the movement',
             }),
             intl.formatMessage({
-              id: 'page.blog.section.newsletter.features.early-access',
-              defaultMessage: 'Early access to events',
+              id: 'page.blog.section.newsletter.features.2',
+              defaultMessage: 'Original content from our blog',
             }),
             intl.formatMessage({
-              id: 'page.blog.section.newsletter.features.much-more',
-              defaultMessage: 'And Much More!',
+              id: 'page.blog.section.newsletter.features.3',
+              defaultMessage: 'And much more!',
             }),
           ].map((bulletText, i) => (
             <li
-              className="flex flex-row items-baseline p-1 text-left before:bg-green before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
+              className="flex flex-row items-baseline p-1 text-left before:bg-green before:shrink-0 before:basis-2 before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
               key={i}
             >
               {bulletText}

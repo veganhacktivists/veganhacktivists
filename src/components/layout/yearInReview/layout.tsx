@@ -71,10 +71,13 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
       />
       {customMainSection ?? (
         <FirstSubSection
-          header={intl.formatMessage({
-            id: 'page.year-in-review.section.header.title',
-            defaultMessage: `Our ${year} year in review`,
-          })}
+          header={intl
+            .formatMessage({
+              id: 'page.year-in-review.section.header.title',
+              defaultMessage:
+                'Our <no-localization>{year}</no-localization> year in review',
+            })
+            .replace('{year}', String(year))}
           firstWordsNum={2}
           className="pt-5"
         >

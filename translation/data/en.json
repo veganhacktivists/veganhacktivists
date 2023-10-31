@@ -128,6 +128,72 @@
   "page.about.section.our-values.subsection-6.heading": {
     "defaultMessage": "Anti-Oppression"
   },
+  "page.blog.next-seo.title": {
+    "defaultMessage": "Blog"
+  },
+  "page.blog.section.blog-page.btn.read-more": {
+    "defaultMessage": "Read more"
+  },
+  "page.blog.section.blog-summary.heading-fallback": {
+    "defaultMessage": "Latest post"
+  },
+  "page.blog.section.blog-summary.read-more": {
+    "defaultMessage": "Read More"
+  },
+  "page.blog.section.container.no-match": {
+    "defaultMessage": "No entries match your query"
+  },
+  "page.blog.section.header.categories": {
+    "defaultMessage": "Categories"
+  },
+  "page.blog.section.header.intro": {
+    "defaultMessage": "Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"
+  },
+  "page.blog.section.navigation.btn.next": {
+    "defaultMessage": "Next"
+  },
+  "page.blog.section.navigation.btn.previous": {
+    "defaultMessage": "Previous"
+  },
+  "page.blog.section.newsletter.features.0": {
+    "defaultMessage": "Updates about our projects and events"
+  },
+  "page.blog.section.newsletter.features.1": {
+    "defaultMessage": "Exciting news and opportunities from the movement"
+  },
+  "page.blog.section.newsletter.features.2": {
+    "defaultMessage": "Original content from our blog"
+  },
+  "page.blog.section.newsletter.features.3": {
+    "defaultMessage": "And much more!"
+  },
+  "page.blog.section.newsletter.form.btn.cancel": {
+    "defaultMessage": "No thanks"
+  },
+  "page.blog.section.newsletter.form.btn.sign-up": {
+    "defaultMessage": "Sign up!"
+  },
+  "page.blog.section.newsletter.form.email.placeholder": {
+    "defaultMessage": "Enter your email"
+  },
+  "page.blog.section.newsletter.form.email.prompt": {
+    "defaultMessage": "Please enter a valid email"
+  },
+  "page.blog.section.newsletter.form.error": {
+    "defaultMessage": "An error has occurred. Please check that your email is correct and try again"
+  },
+  "page.blog.section.newsletter.form.success": {
+    "defaultMessage": "Welcome to the newsletter!"
+  },
+  "page.blog.section.newsletter.heading": {
+    "defaultMessage": "Our newsletter"
+  },
+  "page.blog.section.newsletter.image.alt-text": {
+    "defaultMessage": "Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
+  },
+  "page.blog.section.newsletter.intro": {
+    "defaultMessage": "Sign up for our newsletter now and never miss an update!<no-localization>a{br}</no-localization>Every month, you will receive..."
+  },
   "page.contact.next-seo.title": {
     "defaultMessage": "Contact Us"
   },
@@ -799,6 +865,222 @@
   },
   "page.work.next-seo.title": {
     "defaultMessage": "Our Work"
+  },
+  "page.year-in-review.2020.section.big-impact-changes.apple.content": {
+    "defaultMessage": "We enabled bot notifications for community events & actions."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.banana.content": {
+    "defaultMessage": "We launched our LinkedIn page for our volunteers."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.carrot.content": {
+    "defaultMessage": "We improved our on-boarding process and developer guides."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.grape.content": {
+    "defaultMessage": "We integrated Google Analytics into all of our projects."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.heading": {
+    "defaultMessage": "Minor changes with a BIG IMPACT"
+  },
+  "page.year-in-review.2020.section.big-impact-changes.kiwi.content": {
+    "defaultMessage": "We released and open-sourced several of our past projects."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.orange.content": {
+    "defaultMessage": "We published our anonymous volunteer feedback form."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.strawberry.content": {
+    "defaultMessage": "We installed advanced server monitoring software."
+  },
+  "page.year-in-review.2020.section.big-impact-changes.watermelon.content": {
+    "defaultMessage": "We started accepting applications from Python developers."
+  },
+  "page.year-in-review.2020.section.by-the-numbers.2020-traffic.heading": {
+    "defaultMessage": "OUR 2020 TRAFFIC"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.2020-traffic.unique-page-views": {
+    "defaultMessage": "UNIQUE PAGE VIEWS"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.2020-traffic.unique-visitors": {
+    "defaultMessage": "UNIQUE VISITORS"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.heading": {
+    "defaultMessage": "By the numbers"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.on-the-blog.heading": {
+    "defaultMessage": "ON THE BLOG"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.on-the-blog.new-posts": {
+    "defaultMessage": "<b>NEW POSTS</b> FROM THE CONTENT TEAM"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.on-the-blog.page-views": {
+    "defaultMessage": "UNIQUE <b>PAGE VIEWS</b> ON THE BLOG"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.project-statistics.clicks": {
+    "defaultMessage": "CLICKS DIRECTING ACTIVISTS TO ORGS <span>VEGANACTIVISM.ORG</span>"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.project-statistics.courses-done": {
+    "defaultMessage": "COURSES DONE ON <span>VEGANBOOTCAMP.ORG</span> IN UNDER 60 DAYS"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.project-statistics.groups-added": {
+    "defaultMessage": "ANIMAL RIGHTS GROUPS ADDED TO <span>ANIMALRIGHTSMAP.ORG</span>"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.project-statistics.heading": {
+    "defaultMessage": "PROJECT STATISTICS"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.project-statistics.tweets": {
+    "defaultMessage": "TWEETS BY OUR <span>5 MINUTES 5 VEGANS</span> SUPPORT BOT"
+  },
+  "page.year-in-review.2020.section.by-the-numbers.top-posts": {
+    "defaultMessage": "TOP POSTS"
+  },
+  "page.year-in-review.2020.section.community-building.heading": {
+    "defaultMessage": "COMMUNITY BUILDING"
+  },
+  "page.year-in-review.2020.section.community-building.our-values.content": {
+    "defaultMessage": "We came together as a community and decided on what values we wanted to adopt, and to formalize what our mission and goals were."
+  },
+  "page.year-in-review.2020.section.community-building.our-values.heading": {
+    "defaultMessage": "Our Values"
+  },
+  "page.year-in-review.2020.section.community-building.partnerships.content": {
+    "defaultMessage": "This year we're extremely happy to have partnered with PETA, Beyond Animal, and Project Counterglow. These three partners have elevated us this year and we're so grateful to have the ability to both serve them and rely on them as our new friends."
+  },
+  "page.year-in-review.2020.section.community-building.partnerships.heading": {
+    "defaultMessage": "Partnerships"
+  },
+  "page.year-in-review.2020.section.community-building.volunteers.content": {
+    "defaultMessage": "This year we attracted volunteers that worked for Trello, Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement and Paypal!"
+  },
+  "page.year-in-review.2020.section.community-building.volunteers.heading": {
+    "defaultMessage": "Volunteers"
+  },
+  "page.year-in-review.2020.section.header.image.alt-text": {
+    "defaultMessage": "2020 year in review"
+  },
+  "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.content": {
+    "defaultMessage": "With over 2,500 groups, the Animal Rights Map is a globally updated map that helps vegans find local groups to get active with. Our map includes everyone from the largest organizations to the very small grassroots groups spread around the country. We worked with a few organizations to import new groups automatically, and we have a dedicated volunteer (that started this project) who meticulously updates the map almost every day. We've received a lot of great feedback for the map from vegans who were looking to get active - we plan on gathering more data soon and expanding the features of this map for 2021!"
+  },
+  "page.year-in-review.2020.section.highlighted-projects.daily-nooch.content": {
+    "defaultMessage": "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project."
+  },
+  "page.year-in-review.2020.section.highlighted-projects.heading": {
+    "defaultMessage": "See our HIGHLIGHTED PROJECTS"
+  },
+  "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.content": {
+    "defaultMessage": "Dr. Greger, founder of NutritionFacts.org, created an app called \"Daily Dozen\" that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My Daily Dozen to keep daily track of the foods recommended by Dr. Greger in his New York Times Bestselling book, How Not to Die. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle."
+  },
+  "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.content": {
+    "defaultMessage": "Following the success of Vegan Bootcamp's launch in 2019 with over 5000+ signups, we decided to invest more time in improving it. We sent out a survey to all members and received a large amount of feedback helping us decide what new content and features were needed. Vegan Bootcamp now includes community forums, individual courses, tags, better rewards, advanced statistics for referrals, content search, a vegan dietitian support program, a mentorship support program, and it now comes translated in 10 different languages!"
+  },
+  "page.year-in-review.2020.section.moving-forward.btn.text": {
+    "defaultMessage": "Support our work!"
+  },
+  "page.year-in-review.2020.section.moving-forward.content[0]": {
+    "defaultMessage": "While we're happy with this years results as-well, we recognize the need to take a more data-based approach in what we build if we are to utilize our network of amazing volunteers effectively."
+  },
+  "page.year-in-review.2020.section.moving-forward.content[1]": {
+    "defaultMessage": "We also recognize that innovation often comes in uncharted territories where data is often lacking - so for 2021 we want to find a good balance of choosing projects that align with our innovation approach, while utilizing data to pick which ones may have the greater chance of impact in our movement."
+  },
+  "page.year-in-review.2020.section.moving-forward.content[2]": {
+    "defaultMessage": "We're really excited to hear your thoughts on our 2020 year in review, and if you like what we do, please consider supporting us by clicking the button below. Your donation ensures that all of our work and projects remain free and accessible to everyone, and we can't begin to thank you enough for the support!"
+  },
+  "page.year-in-review.2020.section.moving-forward.heading": {
+    "defaultMessage": "Finishing up and moving forward!"
+  },
+  "page.year-in-review.2020.section.new-teams.blueberry.content": {
+    "defaultMessage": "We recently introduced the Specialists team! 9 new activists have joined the team and each one currently fulfilling the roles of: Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. This filled a gap where our team members could specifically get issues addressed on their projects through Team Bluebbery."
+  },
+  "page.year-in-review.2020.section.new-teams.blueberry.heading": {
+    "defaultMessage": "<span>Specialists</span> | Team Blueberry"
+  },
+  "page.year-in-review.2020.section.new-teams.strawberry.content[0]": {
+    "defaultMessage": "We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but Vegan Hacktivists as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
+  },
+  "page.year-in-review.2020.section.new-teams.strawberry.content[1]": {
+    "defaultMessage": "Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
+  },
+  "page.year-in-review.2020.section.new-teams.strawberry.heading": {
+    "defaultMessage": "<span>Data Analytics</span> | Team Strawberry"
+  },
+  "page.year-in-review.2020.section.strategy-and-experimentation.content[0]": {
+    "defaultMessage": "Like 2019, we focused on building projects with little data on whether those projects would succeed. We consider this a high-risk strategy as we use hundreds of hours volunteer time on these experimental projects."
+  },
+  "page.year-in-review.2020.section.strategy-and-experimentation.content[1]": {
+    "defaultMessage": "We're thankful this worked last year as 3 of the 6 projects we built met our standards of success, so we continued with this methodology. We firmly believe it's important for any movement to innovate, try new tactics, build experimental tools, and strategize alternatively."
+  },
+  "page.year-in-review.2020.section.strategy-and-experimentation.heading": {
+    "defaultMessage": "Strategy and experimentation"
+  },
+  "page.year-in-review.2020.section.we-grew.advisory-team.content": {
+    "defaultMessage": "We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and Michael Dearborn. Browse more of our advisors, <link>click here!</link>"
+  },
+  "page.year-in-review.2020.section.we-grew.advisory-team.heading.bold": {
+    "defaultMessage": "ADVISORY TEAM"
+  },
+  "page.year-in-review.2020.section.we-grew.advisory-team.heading.end": {
+    "defaultMessage": "OF VEGAN EXPERTS"
+  },
+  "page.year-in-review.2020.section.we-grew.advisory-team.heading.start": {
+    "defaultMessage": "WE NOW HAVE AN"
+  },
+  "page.year-in-review.2020.section.we-grew.expanded.content": {
+    "defaultMessage": "We expanded from just 3 teams of 28 volunteers to 7 teams of 80 volunteers! We were able to open up more positions including content creators, animators, social, marketing, and advertising!"
+  },
+  "page.year-in-review.2020.section.we-grew.expanded.heading.bold": {
+    "defaultMessage": "28 TO 80 VOLUNTEERS"
+  },
+  "page.year-in-review.2020.section.we-grew.expanded.heading.start": {
+    "defaultMessage": "WE EXPANDED OUR TEAM FROM"
+  },
+  "page.year-in-review.2020.section.we-grew.heading": {
+    "defaultMessage": "We grew a lot as a community"
+  },
+  "page.year-in-review.2020.section.we-grew.intro": {
+    "defaultMessage": "This year, we worked with some amazing vegan organizations, helped a lot of people with their advocacy, and had a blast building interesting projects for the movement. Our team almost grew three fold and there were a lot of new challenges that came with that growth, but we're really happy with what we accomplished and we can't wait to see what 2021 brings for us!"
+  },
+  "page.year-in-review.2020.section.we-grew.launched.content": {
+    "defaultMessage": "Four of which were unique project ideas of our own! We were also lucky enough to work on projects with Animal Rebellion, Animal Save Movement, Lebanese Vegans, and the Excelsior 4!"
+  },
+  "page.year-in-review.2020.section.we-grew.launched.heading.bold": {
+    "defaultMessage": "EIGHT PROJECTS"
+  },
+  "page.year-in-review.2020.section.we-grew.launched.heading.end": {
+    "defaultMessage": "FOR THE MOVEMENT"
+  },
+  "page.year-in-review.2020.section.we-grew.launched.heading.start": {
+    "defaultMessage": "WE LAUNCHED"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.content": {
+    "defaultMessage": "We partnered with Animal Rebellion this year to help build their new website, which we dedicated an entire team for that took about 6 months of work. Their tech team were fantastic to work with, they were very knowledgeable and we felt like we were working with a team of professional during each encounter during our work. Animal Rebellion is a mass movement that uses nonviolent civil resistance to bring about a transition to a just and sustainable plant-based food system as an attempt to halt massive extinction, alleviate the worst effects of climate breakdown, and ensure justice for animals."
+  },
+  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
+    "defaultMessage": "Animal Rebellion"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.content": {
+    "defaultMessage": "We were able to work with Animal Save and help them with their new website. We also helped with their Ad campaign and managed those for a few months to help promote more of Save's work and newsletter. If you haven't heard of Save, their mission is to hold vigils at every slaughterhouse and to bear witness to every exploited animal. They also run the Climate and Health Save Movement, which promote reversing catastrophic climate change and making plant-based diets accessible. It was an absolute joy to meet and work with their team of passionate activists!"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading": {
+    "defaultMessage": "Animal Save Movement"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.excelsior.content": {
+    "defaultMessage": "The Excelsior 4 are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at Excelsior Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.excelsior.heading": {
+    "defaultMessage": "The Excelsior 4"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.heading": {
+    "defaultMessage": "Working with ORGANIZATIONS"
+  },
+  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.content": {
+    "defaultMessage": "The Lebanese Vegans social hub is the only animal rights and vegan support center in Southwest Asia and North Africa offering free monthly workshops and lectures about veganism, free weekly food distribution and monthly campaigns raising awareness about animal rights. We were lucky enough to work with them to help them both launch their new website and also re-branding with a new logo. We had a great time working through our advisor, Seb Alex, who organizes the work behind Lebanese Vegans."
+  },
+  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
+    "defaultMessage": "Lebanese Vegans"
+  },
+  "page.year-in-review.section.header.content": {
+    "defaultMessage": "We're so happy to release our {year} Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
+  },
+  "page.year-in-review.section.header.title": {
+    "defaultMessage": "Our <no-localization>{year}</no-localization> year in review"
   },
   "section.blog-teaser.cta": {
     "defaultMessage": "See All Posts"

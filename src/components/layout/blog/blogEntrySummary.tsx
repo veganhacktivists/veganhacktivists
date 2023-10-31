@@ -83,7 +83,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         {heading || (
           <DarkButton className="mb-0" href={`/blog/${slug}`}>
             <FormattedMessage
-              id="page.blog.section.blog-summary.heading-fallback"
+              id="page.blog.section.blog-summary.read-more"
               defaultMessage="Read More"
             />
           </DarkButton>
