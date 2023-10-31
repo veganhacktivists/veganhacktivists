@@ -192,7 +192,7 @@
     "defaultMessage": "Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
   },
   "page.blog.section.newsletter.intro": {
-    "defaultMessage": "Sign up for our newsletter now and never miss an update!<no-localization>a{br}</no-localization>Every month, you will receive..."
+    "defaultMessage": "Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive..."
   },
   "page.contact.next-seo.title": {
     "defaultMessage": "Contact Us"
