@@ -84,7 +84,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
             'And much more!',
           ].map((bulletText, i) => (
             <li
-              className="flex flex-row items-baseline p-1 text-left before:bg-green before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
+              className="flex flex-row items-baseline p-1 text-left before:bg-green before:shrink-0 before:basis-2 before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
               key={i}
             >
               {bulletText}
