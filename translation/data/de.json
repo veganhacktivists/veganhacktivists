@@ -417,7 +417,7 @@
     "message": "<no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.index.next-seo.title-template": {
-    "message": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
+    "message": "<no-localization>%s | Compassion, Creativity, Code!</no-localization>"
   },
   "page.index.section.introduction.headline": {
     "message": "<left>Wir sind</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"

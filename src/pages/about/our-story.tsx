@@ -73,7 +73,7 @@ const OurStory: PageWithLayout = () => {
         <SubSection>
           <FormattedMessage
             id="page.about.section.our-story.subsection-4.content"
-            defaultMessage="Through it all, our North Star remains the same:<no-localization>{break}</no-localization>we do it for the animals."
+            defaultMessage="Through it all, our North Star remains the same: <no-localization>{break}</no-localization> we do it for the animals."
             values={{
               break: <br />,
             }}

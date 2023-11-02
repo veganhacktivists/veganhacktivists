@@ -82,7 +82,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         titleTemplate={intl.formatMessage({
           id: 'page.index.next-seo.title-template',
           defaultMessage:
-            '%s | <no-localization>Compassion, Creativity, Code!</no-localization>',
+            '<no-localization>%s | Compassion, Creativity, Code!</no-localization>',
         })}
       />
       <Hero
