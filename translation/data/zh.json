@@ -2,6 +2,81 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "layout.footer.navigation-item.about.label": {
+    "message": "关于"
+  },
+  "layout.footer.navigation-item.about.our-mission.label": {
+    "message": "我们的使命"
+  },
+  "layout.footer.navigation-item.about.our-story.label": {
+    "message": "我们的故事"
+  },
+  "layout.footer.navigation-item.about.our-values.label": {
+    "message": "我们的价值观"
+  },
+  "layout.footer.navigation-item.blog.label": {
+    "message": "博客"
+  },
+  "layout.footer.navigation-item.contact.label": {
+    "message": "联系我们"
+  },
+  "layout.footer.navigation-item.join.label": {
+    "message": "加入我们"
+  },
+  "layout.footer.navigation-item.people.advisors.label": {
+    "message": "顾问"
+  },
+  "layout.footer.navigation-item.people.label": {
+    "message": "人"
+  },
+  "layout.footer.navigation-item.people.partners.label": {
+    "message": "合作伙伴"
+  },
+  "layout.footer.navigation-item.people.team.label": {
+    "message": "我们的团队"
+  },
+  "layout.footer.navigation-item.services.label": {
+    "message": "服务"
+  },
+  "layout.footer.navigation-item.social.description": {
+    "message": "如果您有项目创意、建议、问题或其他任何想法，请联系我们！"
+  },
+  "layout.footer.navigation-item.social.headline": {
+    "message": "联系我们"
+  },
+  "layout.footer.navigation-item.support.label": {
+    "message": "<top>支持我们的工作</top> <bottom>捐款</bottom>"
+  },
+  "layout.footer.navigation-item.work.label": {
+    "message": "我们的工作"
+  },
+  "layout.header.navigation-item.about.label": {
+    "message": "关于"
+  },
+  "layout.header.navigation-item.blog.label": {
+    "message": "博客"
+  },
+  "layout.header.navigation-item.donate.label": {
+    "message": "捐赠"
+  },
+  "layout.header.navigation-item.instagram.aria-label": {
+    "message": "在 Instagram 上关注我们"
+  },
+  "layout.header.navigation-item.join.label": {
+    "message": "加入我们"
+  },
+  "layout.header.navigation-item.people.label": {
+    "message": "人民"
+  },
+  "layout.header.navigation-item.playground.label": {
+    "message": "获取帮助"
+  },
+  "layout.header.navigation-item.services.label": {
+    "message": "服务"
+  },
+  "layout.header.navigation-item.work.label": {
+    "message": "工作"
+  },
   "page.about.hero.alt-text": {
     "message": "数据驱动的行动主义"
   },

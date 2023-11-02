@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import CustomImage from '../decoration/customImage';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
@@ -70,7 +71,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   const active = pathname.startsWith(href);
 
   const classes = classNames(
-    'p-5 py-6 transition duration-500 text-center whitespace-nowrap',
+    'p-5 py-6 transition duration-500 text-center whitespace-nowrap xl:max-w-[15rem] truncate',
     className
   );
 
@@ -86,41 +87,78 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 };
 
 const NavbarItems: React.FC = () => {
+  const intl = useIntl();
+
+  const navItems = {
+    about: intl.formatMessage({
+      id: 'layout.header.navigation-item.about.label',
+      defaultMessage: 'about',
+    }),
+    services: intl.formatMessage({
+      id: 'layout.header.navigation-item.services.label',
+      defaultMessage: 'services',
+    }),
+    work: intl.formatMessage({
+      id: 'layout.header.navigation-item.work.label',
+      defaultMessage: 'work',
+    }),
+    people: intl.formatMessage({
+      id: 'layout.header.navigation-item.people.label',
+      defaultMessage: 'people',
+    }),
+    blog: intl.formatMessage({
+      id: 'layout.header.navigation-item.blog.label',
+      defaultMessage: 'blog',
+    }),
+  };
+
   return (
     <>
-      {['about', 'services', 'work', 'people', 'blog'].map((menuElem) => (
+      {(Object.keys(navItems) as (keyof typeof navItems)[]).map((menuElem) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
           className="hover:bg-gray-dark"
         >
-          {menuElem}
+          {navItems[menuElem]}
         </NavBarItem>
       ))}
       <NavBarItem
         href={'/join'}
         className="font-bold bg-gray hover:bg-gray-dark"
       >
-        Join
+        <FormattedMessage
+          id="layout.header.navigation-item.join.label"
+          defaultMessage="Join"
+        />
       </NavBarItem>
       <NavBarItem
         href={'/support'}
         className="font-bold bg-pink hover:bg-pink-dark"
       >
-        Donate
+        <FormattedMessage
+          id="layout.header.navigation-item.donate.label"
+          defaultMessage="Donate"
+        />
       </NavBarItem>
       <NavBarItem
         href={'/playground'}
         className="font-bold bg-green hover:bg-green-dark"
       >
-        Get Help
+        <FormattedMessage
+          id="layout.header.navigation-item.playground.label"
+          defaultMessage="Get Help"
+        />
       </NavBarItem>
       <a
         className="p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark"
         href="https://www.instagram.com/veganhacktivists/"
         target="_blank"
         rel="noreferrer"
-        aria-label="Follow us on Instagram"
+        aria-label={intl.formatMessage({
+          id: 'layout.header.navigation-item.instagram.aria-label',
+          defaultMessage: 'Follow us on Instagram',
+        })}
       >
         <FontAwesomeIcon icon={faInstagram} fixedWidth />
       </a>

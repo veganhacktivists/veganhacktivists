@@ -2,6 +2,81 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "layout.footer.navigation-item.about.label": {
+    "message": "About"
+  },
+  "layout.footer.navigation-item.about.our-mission.label": {
+    "message": "Our Mission"
+  },
+  "layout.footer.navigation-item.about.our-story.label": {
+    "message": "Our Story"
+  },
+  "layout.footer.navigation-item.about.our-values.label": {
+    "message": "Our Values"
+  },
+  "layout.footer.navigation-item.blog.label": {
+    "message": "Blog"
+  },
+  "layout.footer.navigation-item.contact.label": {
+    "message": "Contact Us"
+  },
+  "layout.footer.navigation-item.join.label": {
+    "message": "Join Us"
+  },
+  "layout.footer.navigation-item.people.advisors.label": {
+    "message": "Advisors"
+  },
+  "layout.footer.navigation-item.people.label": {
+    "message": "People"
+  },
+  "layout.footer.navigation-item.people.partners.label": {
+    "message": "Partners"
+  },
+  "layout.footer.navigation-item.people.team.label": {
+    "message": "Our Team"
+  },
+  "layout.footer.navigation-item.services.label": {
+    "message": "Services"
+  },
+  "layout.footer.navigation-item.social.description": {
+    "message": "If you have project ideas, suggestions, questions or anything else, get in touch!"
+  },
+  "layout.footer.navigation-item.social.headline": {
+    "message": "Contact Us"
+  },
+  "layout.footer.navigation-item.support.label": {
+    "message": "<top>Support our work</top> <bottom>Donate</bottom>"
+  },
+  "layout.footer.navigation-item.work.label": {
+    "message": "Our Work"
+  },
+  "layout.header.navigation-item.about.label": {
+    "message": "about"
+  },
+  "layout.header.navigation-item.blog.label": {
+    "message": "blog"
+  },
+  "layout.header.navigation-item.donate.label": {
+    "message": "Donate"
+  },
+  "layout.header.navigation-item.instagram.aria-label": {
+    "message": "Follow us on Instagram"
+  },
+  "layout.header.navigation-item.join.label": {
+    "message": "Join"
+  },
+  "layout.header.navigation-item.people.label": {
+    "message": "people"
+  },
+  "layout.header.navigation-item.playground.label": {
+    "message": "Get Help"
+  },
+  "layout.header.navigation-item.services.label": {
+    "message": "services"
+  },
+  "layout.header.navigation-item.work.label": {
+    "message": "work"
+  },
   "page.about.hero.alt-text": {
     "message": "Data-Driven Activism"
   },

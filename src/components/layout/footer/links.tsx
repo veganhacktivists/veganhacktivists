@@ -1,5 +1,8 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useIntl } from 'react-intl';
+
+import type { IntlShape } from 'react-intl';
 
 interface ILinks {
   label: string;
@@ -7,30 +10,102 @@ interface ILinks {
   links?: this[];
 }
 
-const links: ILinks[] = [
+const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
   {
-    label: 'About',
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.about.label',
+      defaultMessage: 'About',
+    }),
     href: '/about',
     links: [
-      { label: 'Our Story', href: '/about/our-story' },
-      { label: 'Our Values', href: '/about/our-values' },
-      { label: 'Our Mission', href: '/about/our-mission' },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.about.our-story.label',
+          defaultMessage: 'Our Story',
+        }),
+        href: '/about/our-story',
+      },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.about.our-values.label',
+          defaultMessage: 'Our Values',
+        }),
+        href: '/about/our-values',
+      },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.about.our-mission.label',
+          defaultMessage: 'Our Mission',
+        }),
+        href: '/about/our-mission',
+      },
     ],
   },
-  { label: 'Services', href: '/services' },
-  { label: 'Our Work', href: '/work' },
   {
-    label: 'People',
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.services.label',
+      defaultMessage: 'Services',
+    }),
+    href: '/services',
+  },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.work.label',
+      defaultMessage: 'Our Work',
+    }),
+    href: '/work',
+  },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.people.label',
+      defaultMessage: 'People',
+    }),
     href: '/people',
     links: [
-      { label: 'Our Team', href: '/people/team' },
-      { label: 'Advisors', href: '/people/advisors' },
-      { label: 'Partners', href: '/people/partners' },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.people.team.label',
+          defaultMessage: 'Our Team',
+        }),
+        href: '/people/team',
+      },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.people.advisors.label',
+          defaultMessage: 'Advisors',
+        }),
+        href: '/people/advisors',
+      },
+      {
+        label: intl.formatMessage({
+          id: 'layout.footer.navigation-item.people.partners.label',
+          defaultMessage: 'Partners',
+        }),
+        href: '/people/partners',
+      },
     ],
   },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'Join Us', href: '/join' },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.blog.label',
+      defaultMessage: 'Blog',
+    }),
+    href: '/blog',
+  },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.contact.label',
+      defaultMessage: 'Contact Us',
+    }),
+    href: '/contact',
+  },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.join.label',
+      defaultMessage: 'Join Us',
+    }),
+    href: '/join',
+  },
 ];
 
 const MyLink: React.FC<ILinks & { level?: number }> = ({
@@ -58,9 +133,11 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
 };
 
 const Links: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <ul className="text-xl text-left">
-      {links.map((link, i) => (
+      {getLinks(intl).map((link, i) => (
         <MyLink key={i} {...link} />
       ))}
     </ul>

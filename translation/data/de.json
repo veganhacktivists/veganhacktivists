@@ -2,6 +2,81 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "layout.footer.navigation-item.about.label": {
+    "message": "Über"
+  },
+  "layout.footer.navigation-item.about.our-mission.label": {
+    "message": "Unser Auftrag"
+  },
+  "layout.footer.navigation-item.about.our-story.label": {
+    "message": "Unsere Geschichte"
+  },
+  "layout.footer.navigation-item.about.our-values.label": {
+    "message": "Unsere Werte"
+  },
+  "layout.footer.navigation-item.blog.label": {
+    "message": "Blog"
+  },
+  "layout.footer.navigation-item.contact.label": {
+    "message": "Kontakt"
+  },
+  "layout.footer.navigation-item.join.label": {
+    "message": "Mitmachen"
+  },
+  "layout.footer.navigation-item.people.advisors.label": {
+    "message": "Beraterinnen und Berater"
+  },
+  "layout.footer.navigation-item.people.label": {
+    "message": "Menschen"
+  },
+  "layout.footer.navigation-item.people.partners.label": {
+    "message": "Partner"
+  },
+  "layout.footer.navigation-item.people.team.label": {
+    "message": "Unser Team"
+  },
+  "layout.footer.navigation-item.services.label": {
+    "message": "Dienstleistungen"
+  },
+  "layout.footer.navigation-item.social.description": {
+    "message": "Wenn Sie Projektideen, Vorschläge, Fragen oder sonst etwas haben, melden Sie sich!"
+  },
+  "layout.footer.navigation-item.social.headline": {
+    "message": "Kontakt"
+  },
+  "layout.footer.navigation-item.support.label": {
+    "message": "<top>Unterstützen Sie unsere Arbeit</top> <bottom>Spenden Sie</bottom>"
+  },
+  "layout.footer.navigation-item.work.label": {
+    "message": "Unsere Arbeit"
+  },
+  "layout.header.navigation-item.about.label": {
+    "message": "über"
+  },
+  "layout.header.navigation-item.blog.label": {
+    "message": "Blog"
+  },
+  "layout.header.navigation-item.donate.label": {
+    "message": "Spenden Sie"
+  },
+  "layout.header.navigation-item.instagram.aria-label": {
+    "message": "Folgen Sie uns auf Instagram"
+  },
+  "layout.header.navigation-item.join.label": {
+    "message": "Beitreten"
+  },
+  "layout.header.navigation-item.people.label": {
+    "message": "Menschen"
+  },
+  "layout.header.navigation-item.playground.label": {
+    "message": "Hilfe erhalten"
+  },
+  "layout.header.navigation-item.services.label": {
+    "message": "Dienstleistungen"
+  },
+  "layout.header.navigation-item.work.label": {
+    "message": "Arbeit"
+  },
   "page.about.hero.alt-text": {
     "message": "Datengesteuerter Aktivismus"
   },
