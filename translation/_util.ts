@@ -19,22 +19,55 @@ export const defaultCompiledTranslationPath =
 export const encoding = 'utf-8';
 export const repoDirectory = resolve(__dirname, '..');
 
-export const validationSchema = z.record(
+export const validationSchemaInternal = z.record(
   z.string(),
   z.object({
-    defaultMessage: z.string(),
+    message: z.string(),
+    description: z.string().optional(),
   })
 );
 
-export type TranslationFileStructure = z.infer<typeof validationSchema>;
+export const validationSchemaFormatJS = z.record(
+  z.string(),
+  z.object({
+    defaultMessage: z.string(),
+    description: z.string().optional(),
+  })
+);
+
+export type TranslationFileStructureInternal = z.infer<
+  typeof validationSchemaInternal
+>;
+type TranslationFileStructureFormatJS = z.infer<
+  typeof validationSchemaFormatJS
+>;
+
+/**
+ * map translations to a format consumable by weblate
+ * https://docs.weblate.org/en/latest/formats/webextension.html
+ */
+export function mapFormatJSTranslationsToInternalFormat(
+  translations: TranslationFileStructureFormatJS
+): TranslationFileStructureInternal {
+  return validationSchemaInternal.parse(
+    Object.fromEntries(
+      Object.entries(translations).map(
+        ([key, { defaultMessage: message, description }]) => [
+          key,
+          { message, description },
+        ]
+      )
+    )
+  );
+}
 
 export async function getTranslationsFromFile(
   path: string
-): Promise<TranslationFileStructure> {
+): Promise<TranslationFileStructureInternal> {
   try {
     const contents = await readFile(path, { encoding });
 
-    return validationSchema.parse(JSON.parse(contents));
+    return validationSchemaInternal.parse(JSON.parse(contents));
   } catch {
     return {};
   }
@@ -50,12 +83,12 @@ export function resolveCompiledTranslationFilePath(locale: string) {
 
 export async function readTranslationFile(
   locale: string
-): Promise<z.infer<typeof validationSchema>> {
+): Promise<TranslationFileStructureInternal> {
   return getTranslationsFromFile(resolveTranslationFilePath(locale));
 }
 
 export async function writeTranslationFile(
-  translations: TranslationFileStructure,
+  translations: TranslationFileStructureInternal,
   locale: string
 ) {
   await writeFile(
@@ -78,7 +111,9 @@ export function warnIfIdInvalid(id: string) {
   }
 }
 
-export function sortTranslations(translations: TranslationFileStructure) {
+export function sortTranslations(
+  translations: TranslationFileStructureInternal
+) {
   return Object.fromEntries(
     Object.entries(translations).sort(([keya], [keyb]) =>
       keya.localeCompare(keyb, 'en-US')
@@ -87,7 +122,7 @@ export function sortTranslations(translations: TranslationFileStructure) {
 }
 
 export function stripObsoleteTranslations(
-  translations: TranslationFileStructure,
+  translations: TranslationFileStructureInternal,
   validIds: string[]
 ) {
   return Object.fromEntries(

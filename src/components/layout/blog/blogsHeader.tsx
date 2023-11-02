@@ -60,8 +60,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
         <div className="text-2xl px-16 font-mono">
           <FormattedMessage
             id="page.blog.section.header.intro"
-            defaultMessage="Welcome to our official blog. We regularly post news, annnouncements,
-              project updates, interviews, editorials, and more. Stay tuned!"
+            defaultMessage="Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"
           />
         </div>
       </div>

@@ -8,7 +8,7 @@ import { glob } from 'glob';
 
 import {
   defaultTranslationPath,
-  validationSchema,
+  validationSchemaFormatJS,
   encoding,
   repoDirectory,
   filesGlob,
@@ -16,9 +16,11 @@ import {
   writeTranslationFile,
   defaultLocale,
   stripObsoleteTranslations,
+  validationSchemaInternal,
+  mapFormatJSTranslationsToInternalFormat,
 } from './_util';
 
-import type { TranslationFileStructure } from './_util';
+import type { TranslationFileStructureInternal } from './_util';
 
 void main();
 
@@ -29,8 +31,8 @@ async function main() {
 
   const resultAsString = await extract(files, {});
 
-  const extractedTranslations = validationSchema.parse(
-    JSON.parse(resultAsString)
+  const extractedTranslations = mapFormatJSTranslationsToInternalFormat(
+    validationSchemaFormatJS.parse(JSON.parse(resultAsString))
   );
   const currentTranslations = await getTranslationsFromFile(
     defaultTranslationPath
@@ -48,9 +50,9 @@ async function main() {
 }
 
 function addNewTranslationsToCurrent(
-  currentTranslations: TranslationFileStructure = {},
-  extractedTranslations: TranslationFileStructure
-): TranslationFileStructure {
+  currentTranslations: TranslationFileStructureInternal = {},
+  extractedTranslations: TranslationFileStructureInternal
+): TranslationFileStructureInternal {
   // used to warn about changed translations
   const changedTranslations: Record<
     string,
@@ -64,12 +66,11 @@ function addNewTranslationsToCurrent(
       if (!translations[id]) {
         translations[id] = extractedTranslations[id];
       } else if (
-        translations[id].defaultMessage !==
-        extractedTranslations[id].defaultMessage
+        translations[id].message !== extractedTranslations[id].message
       ) {
         changedTranslations[id] = [
-          translations[id].defaultMessage,
-          extractedTranslations[id].defaultMessage,
+          translations[id].message,
+          extractedTranslations[id].message,
         ];
       }
       return translations;
@@ -81,7 +82,7 @@ function addNewTranslationsToCurrent(
   if (changedTranslationsEntries.length) {
     // eslint-disable-next-line no-console
     console.error(
-      `defaultMessage of existing translation(s) changed:\n${changedTranslationsEntries
+      `message of existing translation(s) changed:\n${changedTranslationsEntries
         .map(
           ([id, [current, changed]]) => `[${id}]: "${current}" -> "${changed}"`
         )
@@ -96,11 +97,11 @@ function addNewTranslationsToCurrent(
 
 async function getTranslationsFromFile(
   path: string
-): Promise<TranslationFileStructure> {
+): Promise<TranslationFileStructureInternal> {
   try {
     const contents = await readFile(path, { encoding });
 
-    return validationSchema.parse(JSON.parse(contents));
+    return validationSchemaInternal.parse(JSON.parse(contents));
   } catch {
     return {};
   }

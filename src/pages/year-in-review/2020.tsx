@@ -752,30 +752,20 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
       >
         <FormattedMessage
           id="page.year-in-review.2020.section.moving-forward.content[0]"
-          defaultMessage="While we're happy with this years results as-well, we recognize the
-          need to take a more data-based approach in what we build if we are to
-          utilize our network of amazing volunteers effectively."
+          defaultMessage="While we're happy with this years results as-well, we recognize the need to take a more data-based approach in what we build if we are to utilize our network of amazing volunteers effectively."
         />
       </SubSection>
       <SubSection contentSize="2xl" spacing={4}>
         <FormattedMessage
           id="page.year-in-review.2020.section.moving-forward.content[1]"
-          defaultMessage="We also recognize that innovation often comes in uncharted territories
-          where data is often lacking - so for 2021 we want to find a good balance
-          of choosing projects that align with our innovation approach, while
-          utilizing data to pick which ones may have the greater chance of impact
-          in our movement."
+          defaultMessage="We also recognize that innovation often comes in uncharted territories where data is often lacking - so for 2021 we want to find a good balance of choosing projects that align with our innovation approach, while utilizing data to pick which ones may have the greater chance of impact in our movement."
         />
       </SubSection>
 
       <SubSection contentSize="2xl" spacing={4}>
         <FormattedMessage
           id="page.year-in-review.2020.section.moving-forward.content[2]"
-          defaultMessage="We're really excited to hear your thoughts on our 2020 year in
-          review, and if you like what we do, please consider supporting us by
-          clicking the button below. Your donation ensures that all of our work
-          and projects remain free and accessible to everyone, and we can't
-          begin to thank you enough for the support!"
+          defaultMessage="We're really excited to hear your thoughts on our 2020 year in review, and if you like what we do, please consider supporting us by clicking the button below. Your donation ensures that all of our work and projects remain free and accessible to everyone, and we can't begin to thank you enough for the support!"
         />
       </SubSection>
       <div className="flex justify-center my-16 mb-36">

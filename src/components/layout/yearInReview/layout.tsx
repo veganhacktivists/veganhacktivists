@@ -83,10 +83,8 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
         >
           <FormattedMessage
             id="page.year-in-review.section.header.content"
-            defaultMessage="We're so happy to release our {year} Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
-            values={{
-              year,
-            }}
+            defaultMessage="We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
+            values={{ year }}
           />
         </FirstSubSection>
       )}

@@ -41,8 +41,8 @@ async function translateLocalMessages() {
 
           try {
             translationFile[translationId] = {
-              defaultMessage: await translate(
-                referenceTranslationFile[translationId].defaultMessage,
+              message: await translate(
+                referenceTranslationFile[translationId].message,
                 locale
               ),
             };

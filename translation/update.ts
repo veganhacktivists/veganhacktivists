@@ -1,4 +1,4 @@
-// Update obsolete defaultMessages in source files
+// Update obsolete messages in source files
 
 import { Project, SyntaxKind } from 'ts-morph';
 
@@ -11,7 +11,7 @@ import {
 } from './_util';
 
 import type { Node, ts } from 'ts-morph';
-import type { TranslationFileStructure } from './_util';
+import type { TranslationFileStructureInternal } from './_util';
 
 const project = new Project();
 project.addSourceFilesAtPaths(filesGlob);
@@ -50,7 +50,7 @@ function getNamedImportReferences(importName: string) {
 }
 
 function updateFormattedMessageComponent(
-  translations: TranslationFileStructure
+  translations: TranslationFileStructureInternal
 ) {
   const references = getNamedImportReferences('FormattedMessage');
 
@@ -85,7 +85,7 @@ function updateFormattedMessageComponent(
   });
 }
 
-function updateUseIntlHook(translations: TranslationFileStructure) {
+function updateUseIntlHook(translations: TranslationFileStructureInternal) {
   project.getSourceFiles().forEach((file) => {
     file
       .getDescendantsOfKind(SyntaxKind.ObjectLiteralExpression)
@@ -122,7 +122,7 @@ function updateUseIntlHook(translations: TranslationFileStructure) {
 function replaceDefaultValue(
   idPropTuple: Node<ts.Node>[],
   defaultValuePropTuple: Node<ts.Node>[],
-  translations: TranslationFileStructure
+  translations: TranslationFileStructureInternal
 ) {
   const idNodeValue = idPropTuple?.[2].getText();
   const defaultMessageNodeValue = defaultValuePropTuple?.[2].getText();
@@ -135,11 +135,10 @@ function replaceDefaultValue(
     idStringValue &&
     defaultMessageNodeValue &&
     translations[idStringValue] &&
-    translations[idStringValue].defaultMessage !==
-      defaultMessageNodeValue.slice(1, -1)
+    translations[idStringValue].message !== defaultMessageNodeValue.slice(1, -1)
   ) {
     defaultValuePropTuple?.[2].replaceWithText(
-      quotes + translations[idStringValue].defaultMessage + quotes
+      quotes + translations[idStringValue].message + quotes
     );
   }
 }

@@ -1,7 +1,6 @@
 import { dirname, relative, resolve } from 'path';
 import { writeFile } from 'fs/promises';
 
-import { compile } from '@formatjs/cli-lib';
 import {
   IndentationText,
   Project,
@@ -16,9 +15,11 @@ import {
   locales,
   repoDirectory,
   resolveCompiledTranslationFilePath,
-  resolveTranslationFilePath,
   encoding,
+  readTranslationFile,
 } from './_util';
+
+import type { TranslationFileStructureInternal } from './_util';
 
 void main();
 
@@ -27,9 +28,9 @@ const stringRecordSchema = z.record(z.string(), z.string());
 async function main() {
   await Promise.all(
     locales.map(async (locale) => {
-      const compiledMessages = await compile([
-        resolveTranslationFilePath(locale === 'dev' ? defaultLocale : locale),
-      ]);
+      const compiledMessages = compile(
+        await readTranslationFile(locale === 'dev' ? defaultLocale : locale)
+      );
 
       const updatedMessages = noramlizeCompiledMessagesForLocale(
         compiledMessages,
@@ -47,17 +48,25 @@ async function main() {
   );
 }
 
+function compile(
+  translations: TranslationFileStructureInternal
+): Record<string, string> {
+  return stringRecordSchema.parse(
+    Object.fromEntries(
+      Object.entries(translations).map(([key, { message }]) => [key, message])
+    )
+  );
+}
+
 function noramlizeCompiledMessagesForLocale(
-  compiledMessages: string,
+  compiledMessages: Record<string, string>,
   locale: string
 ) {
-  const parsedMessages = stringRecordSchema.parse(JSON.parse(compiledMessages));
-
   if (locale === 'dev') {
-    return createDevTranslations(parsedMessages);
+    return createDevTranslations(compiledMessages);
   }
 
-  return removeTranslationIgnoreTagsFromCompiledMessages(parsedMessages);
+  return removeTranslationIgnoreTagsFromCompiledMessages(compiledMessages);
 }
 
 function createDevTranslations(

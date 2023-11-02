@@ -1,1211 +1,1211 @@
 {
   "app.template.next-seo.default.title-template": {
-    "defaultMessage": "%s | <no-localization>Vegan Hacktivists</no-localization>"
+    "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
   "page.about.hero.alt-text": {
-    "defaultMessage": "Data-Driven Activism"
+    "message": "Data-Driven Activism"
   },
   "page.about.section.navigation.button.label.mission": {
-    "defaultMessage": "OUR MISSION"
+    "message": "OUR MISSION"
   },
   "page.about.section.navigation.button.label.story": {
-    "defaultMessage": "OUR STORY"
+    "message": "OUR STORY"
   },
   "page.about.section.navigation.button.label.values": {
-    "defaultMessage": "OUR VALUES"
+    "message": "OUR VALUES"
   },
   "page.about.section.our-mission.next-seo.title": {
-    "defaultMessage": "Our Mission"
+    "message": "Our Mission"
   },
   "page.about.section.our-mission.section-header.content": {
-    "defaultMessage": "Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work."
+    "message": "Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work."
   },
   "page.about.section.our-mission.section-header.heading": {
-    "defaultMessage": "Our mission"
+    "message": "Our mission"
   },
   "page.about.section.our-mission.section-header.image.alt-text": {
-    "defaultMessage": "Our mission"
+    "message": "Our mission"
   },
   "page.about.section.our-mission.subsection-1.content": {
-    "defaultMessage": "To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
+    "message": "To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
   },
   "page.about.section.our-mission.subsection-1.heading": {
-    "defaultMessage": "1. We need more data in our movement."
+    "message": "1. We need more data in our movement."
   },
   "page.about.section.our-mission.subsection-2.content": {
-    "defaultMessage": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
+    "message": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
   },
   "page.about.section.our-mission.subsection-2.heading": {
-    "defaultMessage": "2. We need more competition, too."
+    "message": "2. We need more competition, too."
   },
   "page.about.section.our-mission.subsection-3.content": {
-    "defaultMessage": "We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
+    "message": "We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
   },
   "page.about.section.our-mission.subsection-3.heading": {
-    "defaultMessage": "3. We need to be more innovative."
+    "message": "3. We need to be more innovative."
   },
   "page.about.section.our-mission.subsection-4.content": {
-    "defaultMessage": "We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
+    "message": "We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
   },
   "page.about.section.our-mission.subsection-4.heading": {
-    "defaultMessage": "4. And we need to start collaborating."
+    "message": "4. And we need to start collaborating."
   },
   "page.about.section.our-mission.subsection-5.content": {
-    "defaultMessage": "Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
+    "message": "Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
   },
   "page.about.section.our-mission.subsection-5.heading": {
-    "defaultMessage": "5. Finally, we need more vegans to become active."
+    "message": "5. Finally, we need more vegans to become active."
   },
   "page.about.section.our-story.next-seo.title": {
-    "defaultMessage": "Our Story"
+    "message": "Our Story"
   },
   "page.about.section.our-story.section-header.content": {
-    "defaultMessage": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
+    "message": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
   },
   "page.about.section.our-story.section-header.heading": {
-    "defaultMessage": "Our story"
+    "message": "Our story"
   },
   "page.about.section.our-story.section-header.image.alt-text": {
-    "defaultMessage": "Our story"
+    "message": "Our story"
   },
   "page.about.section.our-story.subsection-1.content": {
-    "defaultMessage": "We are the Vegan Hacktivists. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
+    "message": "We are the Vegan Hacktivists. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
   },
   "page.about.section.our-story.subsection-2.content": {
-    "defaultMessage": "Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
+    "message": "Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
   },
   "page.about.section.our-story.subsection-3.content": {
-    "defaultMessage": "Over the years, our organization has changed with the needs of our movement. While we now primarily focus on providing capacity-building services, we continue to build technology that we believe to be innovative and highly needed in the movement. Now, we work extensively with advocates, organizations, and those working at the frontlines to help improve their day-to-day operations, brand and identity, and technology. In doing so, we are helping to amplify their message and elevate their work to a wider audience."
+    "message": "Over the years, our organization has changed with the needs of our movement. While we now primarily focus on providing capacity-building services, we continue to build technology that we believe to be innovative and highly needed in the movement. Now, we work extensively with advocates, organizations, and those working at the frontlines to help improve their day-to-day operations, brand and identity, and technology. In doing so, we are helping to amplify their message and elevate their work to a wider audience."
   },
   "page.about.section.our-story.subsection-4.content": {
-    "defaultMessage": "Through it all, our North Star remains the same:{break}we do it for the animals."
+    "message": "Through it all, our North Star remains the same: <no-localization>{break}</no-localization> we do it for the animals."
   },
   "page.about.section.our-values.next-seo.title": {
-    "defaultMessage": "Our Values"
+    "message": "Our Values"
   },
   "page.about.section.our-values.section-header.content": {
-    "defaultMessage": "We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
+    "message": "We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
   },
   "page.about.section.our-values.section-header.heading": {
-    "defaultMessage": "Our values"
+    "message": "Our values"
   },
   "page.about.section.our-values.section-header.image.alt-text": {
-    "defaultMessage": "Our values"
+    "message": "Our values"
   },
   "page.about.section.our-values.subsection-1.content": {
-    "defaultMessage": "We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
+    "message": "We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
   },
   "page.about.section.our-values.subsection-1.heading": {
-    "defaultMessage": "Animal Liberation"
+    "message": "Animal Liberation"
   },
   "page.about.section.our-values.subsection-2.content": {
-    "defaultMessage": "We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
+    "message": "We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
   },
   "page.about.section.our-values.subsection-2.heading": {
-    "defaultMessage": "Non-violence"
+    "message": "Non-violence"
   },
   "page.about.section.our-values.subsection-3.content": {
-    "defaultMessage": "We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
+    "message": "We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
   },
   "page.about.section.our-values.subsection-3.heading": {
-    "defaultMessage": "Safe Community"
+    "message": "Safe Community"
   },
   "page.about.section.our-values.subsection-4.content": {
-    "defaultMessage": "We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
+    "message": "We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
   },
   "page.about.section.our-values.subsection-4.heading": {
-    "defaultMessage": "Farmed Animals"
+    "message": "Farmed Animals"
   },
   "page.about.section.our-values.subsection-5.content": {
-    "defaultMessage": "We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
+    "message": "We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
   },
   "page.about.section.our-values.subsection-5.heading": {
-    "defaultMessage": "Open Feedback"
+    "message": "Open Feedback"
   },
   "page.about.section.our-values.subsection-6.content": {
-    "defaultMessage": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
+    "message": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
   },
   "page.about.section.our-values.subsection-6.heading": {
-    "defaultMessage": "Anti-Oppression"
+    "message": "Anti-Oppression"
   },
   "page.blog.next-seo.title": {
-    "defaultMessage": "Blog"
+    "message": "Blog"
   },
   "page.blog.section.blog-page.btn.read-more": {
-    "defaultMessage": "Read more"
+    "message": "Read more"
   },
   "page.blog.section.blog-summary.heading-fallback": {
-    "defaultMessage": "Latest post"
+    "message": "Latest post"
   },
   "page.blog.section.blog-summary.read-more": {
-    "defaultMessage": "Read More"
+    "message": "Read More"
   },
   "page.blog.section.container.no-match": {
-    "defaultMessage": "No entries match your query"
+    "message": "No entries match your query"
   },
   "page.blog.section.header.categories": {
-    "defaultMessage": "Categories"
+    "message": "Categories"
   },
   "page.blog.section.header.intro": {
-    "defaultMessage": "Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"
+    "message": "Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"
   },
   "page.blog.section.navigation.btn.next": {
-    "defaultMessage": "Next"
+    "message": "Next"
   },
   "page.blog.section.navigation.btn.previous": {
-    "defaultMessage": "Previous"
+    "message": "Previous"
   },
   "page.blog.section.newsletter.features.0": {
-    "defaultMessage": "Updates about our projects and events"
+    "message": "Updates about our projects and events"
   },
   "page.blog.section.newsletter.features.1": {
-    "defaultMessage": "Exciting news and opportunities from the movement"
+    "message": "Exciting news and opportunities from the movement"
   },
   "page.blog.section.newsletter.features.2": {
-    "defaultMessage": "Original content from our blog"
+    "message": "Original content from our blog"
   },
   "page.blog.section.newsletter.features.3": {
-    "defaultMessage": "And much more!"
+    "message": "And much more!"
   },
   "page.blog.section.newsletter.form.btn.cancel": {
-    "defaultMessage": "No thanks"
+    "message": "No thanks"
   },
   "page.blog.section.newsletter.form.btn.sign-up": {
-    "defaultMessage": "Sign up!"
+    "message": "Sign up!"
   },
   "page.blog.section.newsletter.form.email.placeholder": {
-    "defaultMessage": "Enter your email"
+    "message": "Enter your email"
   },
   "page.blog.section.newsletter.form.email.prompt": {
-    "defaultMessage": "Please enter a valid email"
+    "message": "Please enter a valid email"
   },
   "page.blog.section.newsletter.form.error": {
-    "defaultMessage": "An error has occurred. Please check that your email is correct and try again"
+    "message": "An error has occurred. Please check that your email is correct and try again"
   },
   "page.blog.section.newsletter.form.success": {
-    "defaultMessage": "Welcome to the newsletter!"
+    "message": "Welcome to the newsletter!"
   },
   "page.blog.section.newsletter.heading": {
-    "defaultMessage": "Our newsletter"
+    "message": "Our newsletter"
   },
   "page.blog.section.newsletter.image.alt-text": {
-    "defaultMessage": "Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
+    "message": "Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
   },
   "page.blog.section.newsletter.intro": {
-    "defaultMessage": "Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive..."
+    "message": "Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive..."
   },
   "page.contact.next-seo.title": {
-    "defaultMessage": "Contact Us"
+    "message": "Contact Us"
   },
   "page.contact.section.get-in-contact.content": {
-    "defaultMessage": "If you'd like to get in touch with us, please use our contact form below! We do our best to respond to every email within 48 hours. Please make sure to check your spam folder!"
+    "message": "If you'd like to get in touch with us, please use our contact form below! We do our best to respond to every email within 48 hours. Please make sure to check your spam folder!"
   },
   "page.contact.section.get-in-contact.headline": {
-    "defaultMessage": "Get in contact"
+    "message": "Get in contact"
   },
   "page.grants.content": {
-    "defaultMessage": "We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
+    "message": "We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
   },
   "page.grants.hero.image.alt-text": {
-    "defaultMessage": "Grants for a kinder world"
+    "message": "Grants for a kinder world"
   },
   "page.grants.next-seo.title": {
-    "defaultMessage": "Seed Funding Grants"
+    "message": "Seed Funding Grants"
   },
   "page.grants.section.application.form.a.heading": {
-    "defaultMessage": "Section A - About you"
+    "message": "Section A - About you"
   },
   "page.grants.section.application.form.a.input.applicant-age.label": {
-    "defaultMessage": "Are you over 18?"
+    "message": "Are you over 18?"
   },
   "page.grants.section.application.form.a.input.applicant-age.text": {
-    "defaultMessage": "If you're under 18 the form must be filled by your parent or legal guardian"
+    "message": "If you're under 18 the form must be filled by your parent or legal guardian"
   },
   "page.grants.section.application.form.a.input.applicant-email.error": {
-    "defaultMessage": "Please enter a valid email"
+    "message": "Please enter a valid email"
   },
   "page.grants.section.application.form.a.input.applicant-email.label": {
-    "defaultMessage": "What's your email?"
+    "message": "What's your email?"
   },
   "page.grants.section.application.form.a.input.applicant-gender.label": {
-    "defaultMessage": "Gender <span>(optional)</span>"
+    "message": "Gender <span>(optional)</span>"
   },
   "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
-    "defaultMessage": "male"
+    "message": "male"
   },
   "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
-    "defaultMessage": "female"
+    "message": "female"
   },
   "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
-    "defaultMessage": "other"
+    "message": "other"
   },
   "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
-    "defaultMessage": "Select or type something..."
+    "message": "Select or type something..."
   },
   "page.grants.section.application.form.a.input.applicant-info.label": {
-    "defaultMessage": "Give us a sense of who you are"
+    "message": "Give us a sense of who you are"
   },
   "page.grants.section.application.form.a.input.applicant-info.text": {
-    "defaultMessage": "Your project is important to us and we'll get to that, but the person you are is an equally important part of our process and we'd like to get to know you. Share with us what values guide you through your life and how those values influence the way you choose to grow as a person or share whatever you'd like us to know about you!"
+    "message": "Your project is important to us and we'll get to that, but the person you are is an equally important part of our process and we'd like to get to know you. Share with us what values guide you through your life and how those values influence the way you choose to grow as a person or share whatever you'd like us to know about you!"
   },
   "page.grants.section.application.form.a.input.applicant-name.label": {
-    "defaultMessage": "What's your name?"
+    "message": "What's your name?"
   },
   "page.grants.section.application.form.b.heading": {
-    "defaultMessage": "Section B - Your project"
+    "message": "Section B - Your project"
   },
   "page.grants.section.application.form.b.input.other-organizations.label": {
-    "defaultMessage": "Will other organizations be involved on this project?"
+    "message": "Will other organizations be involved on this project?"
   },
   "page.grants.section.application.form.b.input.other-organizations.text": {
-    "defaultMessage": "Please share with us any other organizations who will work on the proposed project in partnership with you. Please include any relationships your organization has with local, national and where appropriate, international partners"
+    "message": "Please share with us any other organizations who will work on the proposed project in partnership with you. Please include any relationships your organization has with local, national and where appropriate, international partners"
   },
   "page.grants.section.application.form.b.input.project-info.label": {
-    "defaultMessage": "Tell us about the project you're seeking funding for"
+    "message": "Tell us about the project you're seeking funding for"
   },
   "page.grants.section.application.form.b.input.project-info.text": {
-    "defaultMessage": "Please include the overall goal you wish to achieve for your project"
+    "message": "Please include the overall goal you wish to achieve for your project"
   },
   "page.grants.section.application.form.b.input.project-location.label": {
-    "defaultMessage": "Where does your project take place?"
+    "message": "Where does your project take place?"
   },
   "page.grants.section.application.form.b.input.project-name.label": {
-    "defaultMessage": "What do you call your project?"
+    "message": "What do you call your project?"
   },
   "page.grants.section.application.form.b.input.project-name.text": {
-    "defaultMessage": "The name of the project will help us understand the focus of it. Please keep it brief and simple"
+    "message": "The name of the project will help us understand the focus of it. Please keep it brief and simple"
   },
   "page.grants.section.application.form.b.input.project-steps.label": {
-    "defaultMessage": "What steps will you take to carry out this project?"
+    "message": "What steps will you take to carry out this project?"
   },
   "page.grants.section.application.form.b.input.project-steps.text": {
-    "defaultMessage": "Please include specific project objectives and activities"
+    "message": "Please include specific project objectives and activities"
   },
   "page.grants.section.application.form.b.input.project-success.label": {
-    "defaultMessage": "How will you know if your project is successful?"
+    "message": "How will you know if your project is successful?"
   },
   "page.grants.section.application.form.b.input.project-success.text": {
-    "defaultMessage": "Please share with us how you will evaluate your impact"
+    "message": "Please share with us how you will evaluate your impact"
   },
   "page.grants.section.application.form.b.input.target-audience.label": {
-    "defaultMessage": "Who is your target audience with this project?"
+    "message": "Who is your target audience with this project?"
   },
   "page.grants.section.application.form.b.input.target-audience.text": {
-    "defaultMessage": "Do you target institutions, individuals, or something else? How will targeting this group create change for farmed animals?"
+    "message": "Do you target institutions, individuals, or something else? How will targeting this group create change for farmed animals?"
   },
   "page.grants.section.application.form.c.heading": {
-    "defaultMessage": "Section C - Project"
+    "message": "Section C - Project"
   },
   "page.grants.section.application.form.c.input.applied-budget.error.max": {
-    "defaultMessage": "We can only accept applications for up to $1000 USD"
+    "message": "We can only accept applications for up to $1000 USD"
   },
   "page.grants.section.application.form.c.input.applied-budget.error.min": {
-    "defaultMessage": "Please enter a positive value"
+    "message": "Please enter a positive value"
   },
   "page.grants.section.application.form.c.input.applied-budget.label": {
-    "defaultMessage": "How much are you applying for?"
+    "message": "How much are you applying for?"
   },
   "page.grants.section.application.form.c.input.applied-budget.text": {
-    "defaultMessage": "We can only accept applications for up to $1000 USD"
+    "message": "We can only accept applications for up to $1000 USD"
   },
   "page.grants.section.application.form.c.input.can-accept-funding.label": {
-    "defaultMessage": "Please confirm your ability to accept funding"
+    "message": "Please confirm your ability to accept funding"
   },
   "page.grants.section.application.form.c.input.can-accept-funding.text": {
-    "defaultMessage": "I confirm that I have a bank or PayPal account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - TPP is unable to make grant payments to any other person or entity on my behalf. I understand that if TPP reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
+    "message": "I confirm that I have a bank or PayPal account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - TPP is unable to make grant payments to any other person or entity on my behalf. I understand that if TPP reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
   },
   "page.grants.section.application.form.c.input.funds-usage.label": {
-    "defaultMessage": "What will the funds be used for?"
+    "message": "What will the funds be used for?"
   },
   "page.grants.section.application.form.c.input.funds-usage.text": {
-    "defaultMessage": "Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
+    "message": "Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
   },
   "page.grants.section.application.form.c.input.total-budget.error": {
-    "defaultMessage": "Please enter a positive value"
+    "message": "Please enter a positive value"
   },
   "page.grants.section.application.form.c.input.total-budget.label": {
-    "defaultMessage": "How much is the total budget for the project?"
+    "message": "How much is the total budget for the project?"
   },
   "page.grants.section.application.form.c.input.total-budget.text": {
-    "defaultMessage": "Please tell us the total cost of the project. This amount should include the expenditure for all activities associated with the project"
+    "message": "Please tell us the total cost of the project. This amount should include the expenditure for all activities associated with the project"
   },
   "page.grants.section.application.form.c.intro": {
-    "defaultMessage": "<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
+    "message": "<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
   },
   "page.grants.section.application.form.message.error": {
-    "defaultMessage": "Something went wrong processing your submission! Please try again later"
+    "message": "Something went wrong processing your submission! Please try again later"
   },
   "page.grants.section.application.form.message.pending": {
-    "defaultMessage": "Submitting..."
+    "message": "Submitting..."
   },
   "page.grants.section.application.form.message.success": {
-    "defaultMessage": "Your request was sent successfully!"
+    "message": "Your request was sent successfully!"
   },
   "page.grants.section.application.heading": {
-    "defaultMessage": "Application Form"
+    "message": "Application Form"
   },
   "page.grants.section.application.intro": {
-    "defaultMessage": "We'd like to understand more about you and your work to see if this partnership is a good fit. Given that we have observed a recent trend of application submissions being primarily generated by AI, we will be declining any submissions that we believe to not be authored by you or your team. <b>Our goal is to understand your unique vision, mission, and plans,not to review</b> We encourage you to leverage such tools to support, not replace, the content of your grant application."
+    "message": "We'd like to understand more about you and your work to see if this partnership is a good fit. Given that we have observed a recent trend of application submissions being primarily generated by AI, we will be declining any submissions that we believe to not be authored by you or your team. <b>Our goal is to understand your unique vision, mission, and plans,not to review</b> We encourage you to leverage such tools to support, not replace, the content of your grant application."
   },
   "page.grants.section.heading.image.alt-text": {
-    "defaultMessage": "A bee, busy pollinating"
+    "message": "A bee, busy pollinating"
   },
   "page.grants.section.heading.text": {
-    "defaultMessage": "Seed Funding Grants"
+    "message": "Seed Funding Grants"
   },
   "page.grants.section.perks.check-ins.content": {
-    "defaultMessage": "A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
+    "message": "A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
   },
   "page.grants.section.perks.check-ins.heading": {
-    "defaultMessage": "Monthly Advisory Check-ins"
+    "message": "Monthly Advisory Check-ins"
   },
   "page.grants.section.perks.content-dev.content": {
-    "defaultMessage": "We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
+    "message": "We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
   },
   "page.grants.section.perks.content-dev.heading": {
-    "defaultMessage": "Content Development"
+    "message": "Content Development"
   },
   "page.grants.section.perks.design-creation.content": {
-    "defaultMessage": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
+    "message": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
   },
   "page.grants.section.perks.design-creation.heading": {
-    "defaultMessage": "Design Creation"
+    "message": "Design Creation"
   },
   "page.grants.section.perks.heading": {
-    "defaultMessage": "Heart icon"
+    "message": "Heart icon"
   },
   "page.grants.section.perks.heading.image.alt-text": {
-    "defaultMessage": "In addition to seed funding, succesful applicants can receive:"
+    "message": "In addition to seed funding, succesful applicants can receive:"
   },
   "page.grants.section.perks.squarespace.content": {
-    "defaultMessage": "<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
+    "message": "<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
   },
   "page.grants.section.perks.squarespace.heading": {
-    "defaultMessage": "Squarespace Website Subscription"
+    "message": "Squarespace Website Subscription"
   },
   "page.grants.section.pollination-project.button": {
-    "defaultMessage": "ThePollinationProject.org"
+    "message": "ThePollinationProject.org"
   },
   "page.grants.section.pollination-project.content[0]": {
-    "defaultMessage": "Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
+    "message": "Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
   },
   "page.grants.section.pollination-project.content[1]": {
-    "defaultMessage": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
+    "message": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
   },
   "page.grants.section.pollination-project.image.alt-text": {
-    "defaultMessage": "Logo of The Pollination Project"
+    "message": "Logo of The Pollination Project"
   },
   "page.grants.section.qualifications.cta[0].content": {
-    "defaultMessage": "<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
+    "message": "<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
   },
   "page.grants.section.qualifications.cta[1].content": {
-    "defaultMessage": "If you meet the qualifications, fill out the application form below."
+    "message": "If you meet the qualifications, fill out the application form below."
   },
   "page.grants.section.qualifications.heading": {
-    "defaultMessage": "Before applying, make sure you meet these qualifications:"
+    "message": "Before applying, make sure you meet these qualifications:"
   },
   "page.grants.section.qualifications.step[0].content": {
-    "defaultMessage": "<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
+    "message": "<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
   },
   "page.grants.section.qualifications.step[1].content": {
-    "defaultMessage": "<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
+    "message": "<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
   },
   "page.grants.section.subheading": {
-    "defaultMessage": "We're very happy to be able to offer up to <b>$1000 USD in seed funding grants</b> for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+    "message": "We're very happy to be able to offer up to <b>$1000 USD in seed funding grants</b> for oustanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
   },
   "page.index.next-seo.title": {
-    "defaultMessage": "<no-localization>Vegan Hacktivists</no-localization>"
+    "message": "<no-localization>Vegan Hacktivists</no-localization>"
   },
   "page.index.next-seo.title-template": {
-    "defaultMessage": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
+    "message": "%s | <no-localization>Compassion, Creativity, Code!</no-localization>"
   },
   "page.index.section.introduction.headline": {
-    "defaultMessage": "<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
+    "message": "<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
   },
   "page.index.section.introduction.paragraph1": {
-    "defaultMessage": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
+    "message": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
   },
   "page.index.section.introduction.paragraph2": {
-    "defaultMessage": "Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
+    "message": "Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
   },
   "page.index.section.introduction.paragraph3": {
-    "defaultMessage": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
+    "message": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
   },
   "page.index.section.projects.cta": {
-    "defaultMessage": "See Our Work"
+    "message": "See Our Work"
   },
   "page.index.section.projects.headline": {
-    "defaultMessage": "<left>Featured</left> <right>PROJECTS</right>"
+    "message": "<left>Featured</left> <right>PROJECTS</right>"
   },
   "page.index.section.projects.paragraph": {
-    "defaultMessage": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
+    "message": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
   },
   "page.index.section.stage.cta": {
-    "defaultMessage": "Learn More"
+    "message": "Learn More"
   },
   "page.index.section.stage.hero.alt": {
-    "defaultMessage": "<no-localization>Compassion, Creativity, Code</no-localization>"
+    "message": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
   "page.index.section.stage.subline": {
-    "defaultMessage": "<no-localization>Building for the animal protection movement since 2019</no-localization>"
+    "message": "<no-localization>Building for the animal protection movement since 2019</no-localization>"
   },
   "page.index.section.video.cta": {
-    "defaultMessage": "Visit our channel"
+    "message": "Visit our channel"
   },
   "page.index.section.video.headline": {
-    "defaultMessage": "Watch our <b>intro video</b>"
+    "message": "Watch our <b>intro video</b>"
   },
   "page.index.section.video.subline": {
-    "defaultMessage": "Watch our videos to learn more about us and our work:"
+    "message": "Watch our videos to learn more about us and our work:"
   },
   "page.join.hero.image-alt": {
-    "defaultMessage": "You are their voice"
+    "message": "You are their voice"
   },
   "page.join.next-seo.title": {
-    "defaultMessage": "Join Us"
+    "message": "Join Us"
   },
   "page.join.section.available-positions.headline": {
-    "defaultMessage": "Available Positions"
+    "message": "Available Positions"
   },
   "page.join.section.job-roles.description.0": {
-    "defaultMessage": "Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS."
+    "message": "Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS."
   },
   "page.join.section.job-roles.description.1": {
-    "defaultMessage": "Define the user's experience and interface for our projects by producing modern, visually-appealing web designs—from wireframes and mockups to the app's final look and feel."
+    "message": "Define the user's experience and interface for our projects by producing modern, visually-appealing web designs—from wireframes and mockups to the app's final look and feel."
   },
   "page.join.section.job-roles.description.2": {
-    "defaultMessage": "Craft our voice and brand on social media, whether it's through developing content strategy, analyzing engagement data, or interacting with followers."
+    "message": "Craft our voice and brand on social media, whether it's through developing content strategy, analyzing engagement data, or interacting with followers."
   },
   "page.join.section.job-roles.description.3": {
-    "defaultMessage": "Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more."
+    "message": "Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more."
   },
   "page.join.section.job-roles.description.4": {
-    "defaultMessage": "Create high-quality and innovative designs that include logo and branding, social media visuals, and UI components."
+    "message": "Create high-quality and innovative designs that include logo and branding, social media visuals, and UI components."
   },
   "page.join.section.job-roles.title.0": {
-    "defaultMessage": "Developers"
+    "message": "Developers"
   },
   "page.join.section.job-roles.title.1": {
-    "defaultMessage": "UI Designers"
+    "message": "UI Designers"
   },
   "page.join.section.job-roles.title.2": {
-    "defaultMessage": "Social Media Manager"
+    "message": "Social Media Manager"
   },
   "page.join.section.job-roles.title.3": {
-    "defaultMessage": "Writers"
+    "message": "Writers"
   },
   "page.join.section.job-roles.title.4": {
-    "defaultMessage": "Graphic Designers"
+    "message": "Graphic Designers"
   },
   "page.join.section.join-our-team.footer": {
-    "defaultMessage": "Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration."
+    "message": "Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration."
   },
   "page.join.section.join-our-team.headline": {
-    "defaultMessage": "Join our team"
+    "message": "Join our team"
   },
   "page.join.section.join-our-team.subline": {
-    "defaultMessage": "We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway."
+    "message": "We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway."
   },
   "page.join.section.other-roles.content": {
-    "defaultMessage": "Don't see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!"
+    "message": "Don't see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!"
   },
   "page.join.section.other-roles.cta": {
-    "defaultMessage": "Apply Now"
+    "message": "Apply Now"
   },
   "page.join.section.other-roles.headline": {
-    "defaultMessage": "Other Talents & Specialists"
+    "message": "Other Talents & Specialists"
   },
   "page.join.section.priority-positions.headline": {
-    "defaultMessage": "High Priority Positions"
+    "message": "High Priority Positions"
   },
   "page.join.section.priority-positions.subline": {
-    "defaultMessage": "We're actively seeking skilled volunteers to fulfill the following positions:"
+    "message": "We're actively seeking skilled volunteers to fulfill the following positions:"
   },
   "page.join.section.priority-roles.description.0": {
-    "defaultMessage": "Recruit, onboard, and engage our growing VH community on Discord. Candidate will host events, facilitate interactions, and support our growing community of volunteers."
+    "message": "Recruit, onboard, and engage our growing VH community on Discord. Candidate will host events, facilitate interactions, and support our growing community of volunteers."
   },
   "page.join.section.priority-roles.description.1": {
-    "defaultMessage": "Manage and oversee grantwriting and fundraising pipeline. Candidate must exemplify strong organizational and writing skills, with excellent grammar and spelling."
+    "message": "Manage and oversee grantwriting and fundraising pipeline. Candidate must exemplify strong organizational and writing skills, with excellent grammar and spelling."
   },
   "page.join.section.priority-roles.description.2": {
-    "defaultMessage": "Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
+    "message": "Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
   },
   "page.join.section.priority-roles.title.0": {
-    "defaultMessage": "Community Manager"
+    "message": "Community Manager"
   },
   "page.join.section.priority-roles.title.1": {
-    "defaultMessage": "Grant Writer"
+    "message": "Grant Writer"
   },
   "page.join.section.priority-roles.title.2": {
-    "defaultMessage": "Ads Manager"
+    "message": "Ads Manager"
   },
   "page.join.section.requirements.0": {
-    "defaultMessage": "Commitment to a vegan lifestyle"
+    "message": "Commitment to a vegan lifestyle"
   },
   "page.join.section.requirements.1": {
-    "defaultMessage": "Professional experience in your field"
+    "message": "Professional experience in your field"
   },
   "page.join.section.requirements.2": {
-    "defaultMessage": "Portfolio, resume, or work product to demonstrate experience"
+    "message": "Portfolio, resume, or work product to demonstrate experience"
   },
   "page.join.section.requirements.3": {
-    "defaultMessage": "Ability to volunteer at least 5 hours a week"
+    "message": "Ability to volunteer at least 5 hours a week"
   },
   "page.newsletter.next-seo.title": {
-    "defaultMessage": "Our Newsletter"
+    "message": "Our Newsletter"
   },
   "page.not-found.error-message": {
-    "defaultMessage": "The page you requested (<no-localization>{path}</no-localization>) does not exist"
+    "message": "The page you requested (<no-localization>{path}</no-localization>) does not exist"
   },
   "page.not-found.next-seo.title": {
-    "defaultMessage": "Page not found"
+    "message": "Page not found"
   },
   "page.our-work.section.design-samples.cta-button.label": {
-    "defaultMessage": "View our branding work"
+    "message": "View our branding work"
   },
   "page.our-work.section.design-samples.section-header.content": {
-    "defaultMessage": "Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
+    "message": "Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
   },
   "page.our-work.section.featured-projects.section-header.content": {
-    "defaultMessage": "Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
+    "message": "Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
   },
   "page.our-work.section.grant-program.funded-by-direct-recommendation": {
-    "defaultMessage": "Funded by direct recommendation"
+    "message": "Funded by direct recommendation"
   },
   "page.our-work.section.grant-program.section-header.applicants.cta-button.label": {
-    "defaultMessage": "Applicants"
+    "message": "Applicants"
   },
   "page.our-work.section.grant-program.section-header.content": {
-    "defaultMessage": "Last year, we announced a partnership with The Pollination Project to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
+    "message": "Last year, we announced a partnership with The Pollination Project to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
   },
   "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
-    "defaultMessage": "Learn more"
+    "message": "Learn more"
   },
   "page.our-work.section.grant-program.seed-funding-granted": {
-    "defaultMessage": "Seed Funding granted"
+    "message": "Seed Funding granted"
   },
   "page.our-work.section.hours-volunteered.cta-button.label": {
-    "defaultMessage": "volunteered in 2022 for the animal protection movement"
+    "message": "volunteered in 2022 for the animal protection movement"
   },
   "page.our-work.section.kind-words[0].content": {
-    "defaultMessage": "What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others."
+    "message": "What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others."
   },
   "page.our-work.section.kind-words[1].content": {
-    "defaultMessage": "I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates."
+    "message": "I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates."
   },
   "page.our-work.section.kind-words[2].content": {
-    "defaultMessage": "Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in."
+    "message": "Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in."
   },
   "page.our-work.section.kind-words[3].content": {
-    "defaultMessage": "Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism."
+    "message": "Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism."
   },
   "page.our-work.section.like-what-you-see.contact.cta-button.label": {
-    "defaultMessage": "Contact us"
+    "message": "Contact us"
   },
   "page.our-work.section.like-what-you-see.donate.cta-button.label": {
-    "defaultMessage": "Donate"
+    "message": "Donate"
   },
   "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
-    "defaultMessage": "Get support"
+    "message": "Get support"
   },
   "page.our-work.section.like-what-you-see.introduction": {
-    "defaultMessage": "Get in touch if you’d like to volunteer, support our work, or make use of our services!"
+    "message": "Get in touch if you’d like to volunteer, support our work, or make use of our services!"
   },
   "page.our-work.section.like-what-you-see.services.cta-button.label": {
-    "defaultMessage": "Services"
+    "message": "Services"
   },
   "page.our-work.section.our-communities.cta.reddit": {
-    "defaultMessage": "Vegans of Reddit"
+    "message": "Vegans of Reddit"
   },
   "page.our-work.section.our-communities.member-count.ara": {
-    "defaultMessage": "<no-localization>{count}</no-localization> members"
+    "message": "<no-localization>{count}</no-localization> members"
   },
   "page.our-work.section.our-communities.member-count.reddit": {
-    "defaultMessage": "<no-localization>{count}</no-localization> members"
+    "message": "<no-localization>{count}</no-localization> members"
   },
   "page.our-work.section.our-communities.section-header.content": {
-    "defaultMessage": "We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism"
+    "message": "We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism"
   },
   "page.our-work.section.our-work.cta.join": {
-    "defaultMessage": "Volunteer with us"
+    "message": "Volunteer with us"
   },
   "page.our-work.section.our-work.cta.services": {
-    "defaultMessage": "Explore our services"
+    "message": "Explore our services"
   },
   "page.our-work.section.our-work.cta.support": {
-    "defaultMessage": "Support our work"
+    "message": "Support our work"
   },
   "page.our-work.section.our-work.section-header.content": {
-    "defaultMessage": "We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services."
+    "message": "We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services."
   },
   "page.our-work.section.playground.create-request.cta-button.label": {
-    "defaultMessage": "Get Support"
+    "message": "Get Support"
   },
   "page.our-work.section.playground.introduction": {
-    "defaultMessage": "<p>Playground was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
+    "message": "<p>Playground was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
   },
   "page.our-work.section.playground.playground.cta-button.label": {
-    "defaultMessage": "Volunteer"
+    "message": "Volunteer"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "defaultMessage": "We're often speaking at animal protection and EA related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <link>Instagram</link> to see where we'll be next!"
+    "message": "We're often speaking at animal protection and EA related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <link>Instagram</link> to see where we'll be next!"
   },
   "page.our-work.section.state-of-data.content": {
-    "defaultMessage": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from Faunalytics and research conducted by Animetrics, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
+    "message": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from Faunalytics and research conducted by Animetrics, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
   },
   "page.our-work.section.state-of-data.cta": {
-    "defaultMessage": "Read the report"
+    "message": "Read the report"
   },
   "page.people.hero.alt-text": {
-    "defaultMessage": "Our Community of Passionate Activists"
+    "message": "Our Community of Passionate Activists"
   },
   "page.people.section.advisors.community.heading": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.advisors.community.image.alt-text": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.advisors.community.text": {
-    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+    "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.advisors.intro.heading": {
-    "defaultMessage": "Our advisors"
+    "message": "Our advisors"
   },
   "page.people.section.advisors.intro.text": {
-    "defaultMessage": "We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
+    "message": "We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
   },
   "page.people.section.advisors.next-seo.title": {
-    "defaultMessage": "Our Advisors"
+    "message": "Our Advisors"
   },
   "page.people.section.navigation.button.label.advisors": {
-    "defaultMessage": "OUR ADVISORS"
+    "message": "OUR ADVISORS"
   },
   "page.people.section.navigation.button.label.partners": {
-    "defaultMessage": "OUR PARTNERS"
+    "message": "OUR PARTNERS"
   },
   "page.people.section.navigation.button.label.team": {
-    "defaultMessage": "OUR TEAM"
+    "message": "OUR TEAM"
   },
   "page.people.section.navigation.button.label.volunteers": {
-    "defaultMessage": "OUR VOLUNTEERS"
+    "message": "OUR VOLUNTEERS"
   },
   "page.people.section.partners.community.heading": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.partners.community.image.alt-text": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.partners.community.text": {
-    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+    "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.partners.intro.heading": {
-    "defaultMessage": "Our partners"
+    "message": "Our partners"
   },
   "page.people.section.partners.intro.text": {
-    "defaultMessage": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
+    "message": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
   },
   "page.people.section.partners.next-seo.title": {
-    "defaultMessage": "Our Partners"
+    "message": "Our Partners"
   },
   "page.people.section.team.community.heading": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.team.community.image.alt-text": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.team.community.text": {
-    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+    "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.team.next-seo.title": {
-    "defaultMessage": "Our Team"
+    "message": "Our Team"
   },
   "page.people.section.volunteers.button.load-more": {
-    "defaultMessage": "Load more"
+    "message": "Load more"
   },
   "page.people.section.volunteers.community.heading": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.volunteers.community.image.alt-text": {
-    "defaultMessage": "Our community"
+    "message": "Our community"
   },
   "page.people.section.volunteers.community.text": {
-    "defaultMessage": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+    "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.volunteers.intro.heading": {
-    "defaultMessage": "Our volunteers"
+    "message": "Our volunteers"
   },
   "page.people.section.volunteers.intro.text": {
-    "defaultMessage": "Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
+    "message": "Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
   },
   "page.people.section.volunteers.next-seo.title": {
-    "defaultMessage": "Our Volunteers"
+    "message": "Our Volunteers"
   },
   "page.services.next-seo.title": {
-    "defaultMessage": "Services"
+    "message": "Services"
   },
   "page.services.section.contact.content": {
-    "defaultMessage": "If you'd like to discuss any of our service offerings, please use our our contact form to get in touch. We do our best to promptly respond to every inquiry."
+    "message": "If you'd like to discuss any of our service offerings, please use our our contact form to get in touch. We do our best to promptly respond to every inquiry."
   },
   "page.services.section.hero.image-alt": {
-    "defaultMessage": "Supporting the Animal Protection Movement"
+    "message": "Supporting the Animal Protection Movement"
   },
   "page.services.section.our-services.content.0": {
-    "defaultMessage": "As capacity builders, we offer our skills and services to the animal protection movement. From development and design to content creation, volunteers, and operational advice, we're here to help elevate your work for the animals."
+    "message": "As capacity builders, we offer our skills and services to the animal protection movement. From development and design to content creation, volunteers, and operational advice, we're here to help elevate your work for the animals."
   },
   "page.services.section.our-services.content.1": {
-    "defaultMessage": "Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget."
+    "message": "Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget."
   },
   "page.services.section.our-services.header.text": {
-    "defaultMessage": "Our services"
+    "message": "Our services"
   },
   "page.services.section.service-block.0.button-label": {
-    "defaultMessage": "Apply for a free website"
+    "message": "Apply for a free website"
   },
   "page.services.section.service-block.0.content": {
-    "defaultMessage": "If you're an independent activist or organization with little to no funding, you're the ones we want to help! We support advocates who have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves."
+    "message": "If you're an independent activist or organization with little to no funding, you're the ones we want to help! We support advocates who have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves."
   },
   "page.services.section.service-block.0.title": {
-    "defaultMessage": "Websites"
+    "message": "Websites"
   },
   "page.services.section.service-block.1.button-label": {
-    "defaultMessage": "Apply for free design support"
+    "message": "Apply for free design support"
   },
   "page.services.section.service-block.1.content": {
-    "defaultMessage": "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence."
+    "message": "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence."
   },
   "page.services.section.service-block.1.title": {
-    "defaultMessage": "Design"
+    "message": "Design"
   },
   "page.services.section.service-block.2.button-label": {
-    "defaultMessage": "Let's chat about your idea"
+    "message": "Let's chat about your idea"
   },
   "page.services.section.service-block.2.content": {
-    "defaultMessage": "Do you have an idea that would help bring us closer to a vegan world? Whether it's an app, event, or media that you are interested in producing, we'll help get the resources you need to get your idea off the ground. If the concept is aligned with our work, we'd be happy to explore partnerships."
+    "message": "Do you have an idea that would help bring us closer to a vegan world? Whether it's an app, event, or media that you are interested in producing, we'll help get the resources you need to get your idea off the ground. If the concept is aligned with our work, we'd be happy to explore partnerships."
   },
   "page.services.section.service-block.2.title": {
-    "defaultMessage": "Projects"
+    "message": "Projects"
   },
   "page.services.section.service-block.3.button-label": {
-    "defaultMessage": "Learn about our grant program"
+    "message": "Learn about our grant program"
   },
   "page.services.section.service-block.3.content": {
-    "defaultMessage": "We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals."
+    "message": "We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals."
   },
   "page.services.section.service-block.3.title": {
-    "defaultMessage": "Funding"
+    "message": "Funding"
   },
   "page.services.section.service-block.4.button-label": {
-    "defaultMessage": "Contact us for advice"
+    "message": "Contact us for advice"
   },
   "page.services.section.service-block.4.content": {
-    "defaultMessage": "Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising."
+    "message": "Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising."
   },
   "page.services.section.service-block.4.title": {
-    "defaultMessage": "Advice"
+    "message": "Advice"
   },
   "page.sign-in.already-signed-in.content": {
-    "defaultMessage": "You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
+    "message": "You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
   },
   "page.sign-in.button.sign-in": {
-    "defaultMessage": "Sign in!"
+    "message": "Sign in!"
   },
   "page.sign-in.button.sign-out": {
-    "defaultMessage": "Sign out!"
+    "message": "Sign out!"
   },
   "page.sign-in.input.email": {
-    "defaultMessage": "Email"
+    "message": "Email"
   },
   "page.support.next-seo.title": {
-    "defaultMessage": "Support Us"
+    "message": "Support Us"
   },
   "page.support.section.hero.image-alt": {
-    "defaultMessage": "You are their voice"
+    "message": "You are their voice"
   },
   "page.support.section.support-us.donation-card.0.button-label": {
-    "defaultMessage": "donate"
+    "message": "donate"
   },
   "page.support.section.support-us.donation-card.0.content": {
-    "defaultMessage": "For one-time, smaller donations"
+    "message": "For one-time, smaller donations"
   },
   "page.support.section.support-us.donation-card.0.title": {
-    "defaultMessage": "PayPal"
+    "message": "PayPal"
   },
   "page.support.section.support-us.donation-card.2.button-label": {
-    "defaultMessage": "contact us"
+    "message": "contact us"
   },
   "page.support.section.support-us.donation-card.2.content": {
-    "defaultMessage": "For larger donations (US tax-deductible)"
+    "message": "For larger donations (US tax-deductible)"
   },
   "page.support.section.support-us.donation-card.2.title": {
-    "defaultMessage": "Other"
+    "message": "Other"
   },
   "page.support.section.support-us.header.content": {
-    "defaultMessage": "If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
+    "message": "If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
   },
   "page.support.section.support-us.header.title": {
-    "defaultMessage": "Support Us"
+    "message": "Support Us"
   },
   "page.support.section.support-us.subtitle": {
-    "defaultMessage": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+    "message": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
   },
   "page.support.section.thank-you.introduction": {
-    "defaultMessage": "We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
+    "message": "We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
   },
   "page.support.section.thank-you.title": {
-    "defaultMessage": "Thank You"
+    "message": "Thank You"
   },
   "page.verify-request.button.go-back": {
-    "defaultMessage": "Go back"
+    "message": "Go back"
   },
   "page.verify-request.content": {
-    "defaultMessage": "Please follow the instructions we have sent you. If you are not seeing the email in your inbox, please check your spam folder."
+    "message": "Please follow the instructions we have sent you. If you are not seeing the email in your inbox, please check your spam folder."
   },
   "page.verify-request.heading": {
-    "defaultMessage": "Check your email"
+    "message": "Check your email"
   },
   "page.work.next-seo.title": {
-    "defaultMessage": "Our Work"
+    "message": "Our Work"
   },
   "page.year-in-review.2020.section.big-impact-changes.apple.content": {
-    "defaultMessage": "We enabled bot notifications for community events & actions."
+    "message": "We enabled bot notifications for community events & actions."
   },
   "page.year-in-review.2020.section.big-impact-changes.banana.content": {
-    "defaultMessage": "We launched our LinkedIn page for our volunteers."
+    "message": "We launched our LinkedIn page for our volunteers."
   },
   "page.year-in-review.2020.section.big-impact-changes.carrot.content": {
-    "defaultMessage": "We improved our on-boarding process and developer guides."
+    "message": "We improved our on-boarding process and developer guides."
   },
   "page.year-in-review.2020.section.big-impact-changes.grape.content": {
-    "defaultMessage": "We integrated Google Analytics into all of our projects."
+    "message": "We integrated Google Analytics into all of our projects."
   },
   "page.year-in-review.2020.section.big-impact-changes.heading": {
-    "defaultMessage": "Minor changes with a BIG IMPACT"
+    "message": "Minor changes with a BIG IMPACT"
   },
   "page.year-in-review.2020.section.big-impact-changes.kiwi.content": {
-    "defaultMessage": "We released and open-sourced several of our past projects."
+    "message": "We released and open-sourced several of our past projects."
   },
   "page.year-in-review.2020.section.big-impact-changes.orange.content": {
-    "defaultMessage": "We published our anonymous volunteer feedback form."
+    "message": "We published our anonymous volunteer feedback form."
   },
   "page.year-in-review.2020.section.big-impact-changes.strawberry.content": {
-    "defaultMessage": "We installed advanced server monitoring software."
+    "message": "We installed advanced server monitoring software."
   },
   "page.year-in-review.2020.section.big-impact-changes.watermelon.content": {
-    "defaultMessage": "We started accepting applications from Python developers."
+    "message": "We started accepting applications from Python developers."
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.heading": {
-    "defaultMessage": "OUR 2020 TRAFFIC"
+    "message": "OUR 2020 TRAFFIC"
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.unique-page-views": {
-    "defaultMessage": "UNIQUE PAGE VIEWS"
+    "message": "UNIQUE PAGE VIEWS"
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.unique-visitors": {
-    "defaultMessage": "UNIQUE VISITORS"
+    "message": "UNIQUE VISITORS"
   },
   "page.year-in-review.2020.section.by-the-numbers.heading": {
-    "defaultMessage": "By the numbers"
+    "message": "By the numbers"
   },
   "page.year-in-review.2020.section.by-the-numbers.on-the-blog.heading": {
-    "defaultMessage": "ON THE BLOG"
+    "message": "ON THE BLOG"
   },
   "page.year-in-review.2020.section.by-the-numbers.on-the-blog.new-posts": {
-    "defaultMessage": "<b>NEW POSTS</b> FROM THE CONTENT TEAM"
+    "message": "<b>NEW POSTS</b> FROM THE CONTENT TEAM"
   },
   "page.year-in-review.2020.section.by-the-numbers.on-the-blog.page-views": {
-    "defaultMessage": "UNIQUE <b>PAGE VIEWS</b> ON THE BLOG"
+    "message": "UNIQUE <b>PAGE VIEWS</b> ON THE BLOG"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.clicks": {
-    "defaultMessage": "CLICKS DIRECTING ACTIVISTS TO ORGS <span>VEGANACTIVISM.ORG</span>"
+    "message": "CLICKS DIRECTING ACTIVISTS TO ORGS <span>VEGANACTIVISM.ORG</span>"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.courses-done": {
-    "defaultMessage": "COURSES DONE ON <span>VEGANBOOTCAMP.ORG</span> IN UNDER 60 DAYS"
+    "message": "COURSES DONE ON <span>VEGANBOOTCAMP.ORG</span> IN UNDER 60 DAYS"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.groups-added": {
-    "defaultMessage": "ANIMAL RIGHTS GROUPS ADDED TO <span>ANIMALRIGHTSMAP.ORG</span>"
+    "message": "ANIMAL RIGHTS GROUPS ADDED TO <span>ANIMALRIGHTSMAP.ORG</span>"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.heading": {
-    "defaultMessage": "PROJECT STATISTICS"
+    "message": "PROJECT STATISTICS"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.tweets": {
-    "defaultMessage": "TWEETS BY OUR <span>5 MINUTES 5 VEGANS</span> SUPPORT BOT"
+    "message": "TWEETS BY OUR <span>5 MINUTES 5 VEGANS</span> SUPPORT BOT"
   },
   "page.year-in-review.2020.section.by-the-numbers.top-posts": {
-    "defaultMessage": "TOP POSTS"
+    "message": "TOP POSTS"
   },
   "page.year-in-review.2020.section.community-building.heading": {
-    "defaultMessage": "COMMUNITY BUILDING"
+    "message": "COMMUNITY BUILDING"
   },
   "page.year-in-review.2020.section.community-building.our-values.content": {
-    "defaultMessage": "We came together as a community and decided on what values we wanted to adopt, and to formalize what our mission and goals were."
+    "message": "We came together as a community and decided on what values we wanted to adopt, and to formalize what our mission and goals were."
   },
   "page.year-in-review.2020.section.community-building.our-values.heading": {
-    "defaultMessage": "Our Values"
+    "message": "Our Values"
   },
   "page.year-in-review.2020.section.community-building.partnerships.content": {
-    "defaultMessage": "This year we're extremely happy to have partnered with PETA, Beyond Animal, and Project Counterglow. These three partners have elevated us this year and we're so grateful to have the ability to both serve them and rely on them as our new friends."
+    "message": "This year we're extremely happy to have partnered with PETA, Beyond Animal, and Project Counterglow. These three partners have elevated us this year and we're so grateful to have the ability to both serve them and rely on them as our new friends."
   },
   "page.year-in-review.2020.section.community-building.partnerships.heading": {
-    "defaultMessage": "Partnerships"
+    "message": "Partnerships"
   },
   "page.year-in-review.2020.section.community-building.volunteers.content": {
-    "defaultMessage": "This year we attracted volunteers that worked for Trello, Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement and Paypal!"
+    "message": "This year we attracted volunteers that worked for Trello, Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement and Paypal!"
   },
   "page.year-in-review.2020.section.community-building.volunteers.heading": {
-    "defaultMessage": "Volunteers"
+    "message": "Volunteers"
   },
   "page.year-in-review.2020.section.header.image.alt-text": {
-    "defaultMessage": "2020 year in review"
+    "message": "2020 year in review"
   },
   "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.content": {
-    "defaultMessage": "With over 2,500 groups, the Animal Rights Map is a globally updated map that helps vegans find local groups to get active with. Our map includes everyone from the largest organizations to the very small grassroots groups spread around the country. We worked with a few organizations to import new groups automatically, and we have a dedicated volunteer (that started this project) who meticulously updates the map almost every day. We've received a lot of great feedback for the map from vegans who were looking to get active - we plan on gathering more data soon and expanding the features of this map for 2021!"
+    "message": "With over 2,500 groups, the Animal Rights Map is a globally updated map that helps vegans find local groups to get active with. Our map includes everyone from the largest organizations to the very small grassroots groups spread around the country. We worked with a few organizations to import new groups automatically, and we have a dedicated volunteer (that started this project) who meticulously updates the map almost every day. We've received a lot of great feedback for the map from vegans who were looking to get active - we plan on gathering more data soon and expanding the features of this map for 2021!"
   },
   "page.year-in-review.2020.section.highlighted-projects.daily-nooch.content": {
-    "defaultMessage": "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project."
+    "message": "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project."
   },
   "page.year-in-review.2020.section.highlighted-projects.heading": {
-    "defaultMessage": "See our HIGHLIGHTED PROJECTS"
+    "message": "See our HIGHLIGHTED PROJECTS"
   },
   "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.content": {
-    "defaultMessage": "Dr. Greger, founder of NutritionFacts.org, created an app called \"Daily Dozen\" that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My Daily Dozen to keep daily track of the foods recommended by Dr. Greger in his New York Times Bestselling book, How Not to Die. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle."
+    "message": "Dr. Greger, founder of NutritionFacts.org, created an app called \"Daily Dozen\" that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My Daily Dozen to keep daily track of the foods recommended by Dr. Greger in his New York Times Bestselling book, How Not to Die. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle."
   },
   "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.content": {
-    "defaultMessage": "Following the success of Vegan Bootcamp's launch in 2019 with over 5000+ signups, we decided to invest more time in improving it. We sent out a survey to all members and received a large amount of feedback helping us decide what new content and features were needed. Vegan Bootcamp now includes community forums, individual courses, tags, better rewards, advanced statistics for referrals, content search, a vegan dietitian support program, a mentorship support program, and it now comes translated in 10 different languages!"
+    "message": "Following the success of Vegan Bootcamp's launch in 2019 with over 5000+ signups, we decided to invest more time in improving it. We sent out a survey to all members and received a large amount of feedback helping us decide what new content and features were needed. Vegan Bootcamp now includes community forums, individual courses, tags, better rewards, advanced statistics for referrals, content search, a vegan dietitian support program, a mentorship support program, and it now comes translated in 10 different languages!"
   },
   "page.year-in-review.2020.section.moving-forward.btn.text": {
-    "defaultMessage": "Support our work!"
+    "message": "Support our work!"
   },
   "page.year-in-review.2020.section.moving-forward.content[0]": {
-    "defaultMessage": "While we're happy with this years results as-well, we recognize the need to take a more data-based approach in what we build if we are to utilize our network of amazing volunteers effectively."
+    "message": "While we're happy with this years results as-well, we recognize the need to take a more data-based approach in what we build if we are to utilize our network of amazing volunteers effectively."
   },
   "page.year-in-review.2020.section.moving-forward.content[1]": {
-    "defaultMessage": "We also recognize that innovation often comes in uncharted territories where data is often lacking - so for 2021 we want to find a good balance of choosing projects that align with our innovation approach, while utilizing data to pick which ones may have the greater chance of impact in our movement."
+    "message": "We also recognize that innovation often comes in uncharted territories where data is often lacking - so for 2021 we want to find a good balance of choosing projects that align with our innovation approach, while utilizing data to pick which ones may have the greater chance of impact in our movement."
   },
   "page.year-in-review.2020.section.moving-forward.content[2]": {
-    "defaultMessage": "We're really excited to hear your thoughts on our 2020 year in review, and if you like what we do, please consider supporting us by clicking the button below. Your donation ensures that all of our work and projects remain free and accessible to everyone, and we can't begin to thank you enough for the support!"
+    "message": "We're really excited to hear your thoughts on our 2020 year in review, and if you like what we do, please consider supporting us by clicking the button below. Your donation ensures that all of our work and projects remain free and accessible to everyone, and we can't begin to thank you enough for the support!"
   },
   "page.year-in-review.2020.section.moving-forward.heading": {
-    "defaultMessage": "Finishing up and moving forward!"
+    "message": "Finishing up and moving forward!"
   },
   "page.year-in-review.2020.section.new-teams.blueberry.content": {
-    "defaultMessage": "We recently introduced the Specialists team! 9 new activists have joined the team and each one currently fulfilling the roles of: Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. This filled a gap where our team members could specifically get issues addressed on their projects through Team Bluebbery."
+    "message": "We recently introduced the Specialists team! 9 new activists have joined the team and each one currently fulfilling the roles of: Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. This filled a gap where our team members could specifically get issues addressed on their projects through Team Bluebbery."
   },
   "page.year-in-review.2020.section.new-teams.blueberry.heading": {
-    "defaultMessage": "<span>Specialists</span> | Team Blueberry"
+    "message": "<span>Specialists</span> | Team Blueberry"
   },
   "page.year-in-review.2020.section.new-teams.strawberry.content[0]": {
-    "defaultMessage": "We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but Vegan Hacktivists as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
+    "message": "We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but Vegan Hacktivists as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
   },
   "page.year-in-review.2020.section.new-teams.strawberry.content[1]": {
-    "defaultMessage": "Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
+    "message": "Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
   },
   "page.year-in-review.2020.section.new-teams.strawberry.heading": {
-    "defaultMessage": "<span>Data Analytics</span> | Team Strawberry"
+    "message": "<span>Data Analytics</span> | Team Strawberry"
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.content[0]": {
-    "defaultMessage": "Like 2019, we focused on building projects with little data on whether those projects would succeed. We consider this a high-risk strategy as we use hundreds of hours volunteer time on these experimental projects."
+    "message": "Like 2019, we focused on building projects with little data on whether those projects would succeed. We consider this a high-risk strategy as we use hundreds of hours volunteer time on these experimental projects."
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.content[1]": {
-    "defaultMessage": "We're thankful this worked last year as 3 of the 6 projects we built met our standards of success, so we continued with this methodology. We firmly believe it's important for any movement to innovate, try new tactics, build experimental tools, and strategize alternatively."
+    "message": "We're thankful this worked last year as 3 of the 6 projects we built met our standards of success, so we continued with this methodology. We firmly believe it's important for any movement to innovate, try new tactics, build experimental tools, and strategize alternatively."
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.heading": {
-    "defaultMessage": "Strategy and experimentation"
+    "message": "Strategy and experimentation"
   },
   "page.year-in-review.2020.section.we-grew.advisory-team.content": {
-    "defaultMessage": "We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and Michael Dearborn. Browse more of our advisors, <link>click here!</link>"
+    "message": "We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and Michael Dearborn. Browse more of our advisors, <link>click here!</link>"
   },
   "page.year-in-review.2020.section.we-grew.advisory-team.heading.bold": {
-    "defaultMessage": "ADVISORY TEAM"
+    "message": "ADVISORY TEAM"
   },
   "page.year-in-review.2020.section.we-grew.advisory-team.heading.end": {
-    "defaultMessage": "OF VEGAN EXPERTS"
+    "message": "OF VEGAN EXPERTS"
   },
   "page.year-in-review.2020.section.we-grew.advisory-team.heading.start": {
-    "defaultMessage": "WE NOW HAVE AN"
+    "message": "WE NOW HAVE AN"
   },
   "page.year-in-review.2020.section.we-grew.expanded.content": {
-    "defaultMessage": "We expanded from just 3 teams of 28 volunteers to 7 teams of 80 volunteers! We were able to open up more positions including content creators, animators, social, marketing, and advertising!"
+    "message": "We expanded from just 3 teams of 28 volunteers to 7 teams of 80 volunteers! We were able to open up more positions including content creators, animators, social, marketing, and advertising!"
   },
   "page.year-in-review.2020.section.we-grew.expanded.heading.bold": {
-    "defaultMessage": "28 TO 80 VOLUNTEERS"
+    "message": "28 TO 80 VOLUNTEERS"
   },
   "page.year-in-review.2020.section.we-grew.expanded.heading.start": {
-    "defaultMessage": "WE EXPANDED OUR TEAM FROM"
+    "message": "WE EXPANDED OUR TEAM FROM"
   },
   "page.year-in-review.2020.section.we-grew.heading": {
-    "defaultMessage": "We grew a lot as a community"
+    "message": "We grew a lot as a community"
   },
   "page.year-in-review.2020.section.we-grew.intro": {
-    "defaultMessage": "This year, we worked with some amazing vegan organizations, helped a lot of people with their advocacy, and had a blast building interesting projects for the movement. Our team almost grew three fold and there were a lot of new challenges that came with that growth, but we're really happy with what we accomplished and we can't wait to see what 2021 brings for us!"
+    "message": "This year, we worked with some amazing vegan organizations, helped a lot of people with their advocacy, and had a blast building interesting projects for the movement. Our team almost grew three fold and there were a lot of new challenges that came with that growth, but we're really happy with what we accomplished and we can't wait to see what 2021 brings for us!"
   },
   "page.year-in-review.2020.section.we-grew.launched.content": {
-    "defaultMessage": "Four of which were unique project ideas of our own! We were also lucky enough to work on projects with Animal Rebellion, Animal Save Movement, Lebanese Vegans, and the Excelsior 4!"
+    "message": "Four of which were unique project ideas of our own! We were also lucky enough to work on projects with Animal Rebellion, Animal Save Movement, Lebanese Vegans, and the Excelsior 4!"
   },
   "page.year-in-review.2020.section.we-grew.launched.heading.bold": {
-    "defaultMessage": "EIGHT PROJECTS"
+    "message": "EIGHT PROJECTS"
   },
   "page.year-in-review.2020.section.we-grew.launched.heading.end": {
-    "defaultMessage": "FOR THE MOVEMENT"
+    "message": "FOR THE MOVEMENT"
   },
   "page.year-in-review.2020.section.we-grew.launched.heading.start": {
-    "defaultMessage": "WE LAUNCHED"
+    "message": "WE LAUNCHED"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.content": {
-    "defaultMessage": "We partnered with Animal Rebellion this year to help build their new website, which we dedicated an entire team for that took about 6 months of work. Their tech team were fantastic to work with, they were very knowledgeable and we felt like we were working with a team of professional during each encounter during our work. Animal Rebellion is a mass movement that uses nonviolent civil resistance to bring about a transition to a just and sustainable plant-based food system as an attempt to halt massive extinction, alleviate the worst effects of climate breakdown, and ensure justice for animals."
+    "message": "We partnered with Animal Rebellion this year to help build their new website, which we dedicated an entire team for that took about 6 months of work. Their tech team were fantastic to work with, they were very knowledgeable and we felt like we were working with a team of professional during each encounter during our work. Animal Rebellion is a mass movement that uses nonviolent civil resistance to bring about a transition to a just and sustainable plant-based food system as an attempt to halt massive extinction, alleviate the worst effects of climate breakdown, and ensure justice for animals."
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
-    "defaultMessage": "Animal Rebellion"
+    "message": "Animal Rebellion"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.content": {
-    "defaultMessage": "We were able to work with Animal Save and help them with their new website. We also helped with their Ad campaign and managed those for a few months to help promote more of Save's work and newsletter. If you haven't heard of Save, their mission is to hold vigils at every slaughterhouse and to bear witness to every exploited animal. They also run the Climate and Health Save Movement, which promote reversing catastrophic climate change and making plant-based diets accessible. It was an absolute joy to meet and work with their team of passionate activists!"
+    "message": "We were able to work with Animal Save and help them with their new website. We also helped with their Ad campaign and managed those for a few months to help promote more of Save's work and newsletter. If you haven't heard of Save, their mission is to hold vigils at every slaughterhouse and to bear witness to every exploited animal. They also run the Climate and Health Save Movement, which promote reversing catastrophic climate change and making plant-based diets accessible. It was an absolute joy to meet and work with their team of passionate activists!"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading": {
-    "defaultMessage": "Animal Save Movement"
+    "message": "Animal Save Movement"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.content": {
-    "defaultMessage": "The Excelsior 4 are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at Excelsior Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!"
+    "message": "The Excelsior 4 are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at Excelsior Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.heading": {
-    "defaultMessage": "The Excelsior 4"
+    "message": "The Excelsior 4"
   },
   "page.year-in-review.2020.section.working-with-organizations.heading": {
-    "defaultMessage": "Working with ORGANIZATIONS"
+    "message": "Working with ORGANIZATIONS"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.content": {
-    "defaultMessage": "The Lebanese Vegans social hub is the only animal rights and vegan support center in Southwest Asia and North Africa offering free monthly workshops and lectures about veganism, free weekly food distribution and monthly campaigns raising awareness about animal rights. We were lucky enough to work with them to help them both launch their new website and also re-branding with a new logo. We had a great time working through our advisor, Seb Alex, who organizes the work behind Lebanese Vegans."
+    "message": "The Lebanese Vegans social hub is the only animal rights and vegan support center in Southwest Asia and North Africa offering free monthly workshops and lectures about veganism, free weekly food distribution and monthly campaigns raising awareness about animal rights. We were lucky enough to work with them to help them both launch their new website and also re-branding with a new logo. We had a great time working through our advisor, Seb Alex, who organizes the work behind Lebanese Vegans."
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
-    "defaultMessage": "Lebanese Vegans"
+    "message": "Lebanese Vegans"
   },
   "page.year-in-review.section.header.content": {
-    "defaultMessage": "We're so happy to release our {year} Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
+    "message": "We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
   },
   "page.year-in-review.section.header.title": {
-    "defaultMessage": "Our <no-localization>{year}</no-localization> year in review"
+    "message": "Our <no-localization>{year}</no-localization> year in review"
   },
   "section.blog-teaser.cta": {
-    "defaultMessage": "See All Posts"
+    "message": "See All Posts"
   },
   "section.blog-teaser.headline": {
-    "defaultMessage": "<left>On the</left> <right>BLOG</right>"
+    "message": "<left>On the</left> <right>BLOG</right>"
   },
   "section.blog-teaser.paragraph": {
-    "defaultMessage": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."
+    "message": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."
   },
   "section.contact-us-form.input-field.empty-error.email": {
-    "defaultMessage": "The email is required"
+    "message": "The email is required"
   },
   "section.contact-us-form.input-field.empty-error.name": {
-    "defaultMessage": "Please enter a name"
+    "message": "Please enter a name"
   },
   "section.contact-us-form.input-field.empty-error.service": {
-    "defaultMessage": "Select a service"
+    "message": "Select a service"
   },
   "section.contact-us-form.input-field.label.email": {
-    "defaultMessage": "Email"
+    "message": "Email"
   },
   "section.contact-us-form.input-field.label.message": {
-    "defaultMessage": "Message"
+    "message": "Message"
   },
   "section.contact-us-form.input-field.label.name": {
-    "defaultMessage": "Name"
+    "message": "Name"
   },
   "section.contact-us-form.input-field.label.service": {
-    "defaultMessage": "Service"
+    "message": "Service"
   },
   "section.contact-us-form.input-field.pattern-error.email": {
-    "defaultMessage": "Please enter a valid email"
+    "message": "Please enter a valid email"
   },
   "section.contact-us-form.submission.toast.error": {
-    "defaultMessage": "Something went wrong processing your submission! Please try again later"
+    "message": "Something went wrong processing your submission! Please try again later"
   },
   "section.contact-us-form.submission.toast.pending": {
-    "defaultMessage": "Submitting..."
+    "message": "Submitting..."
   },
   "section.contact-us-form.submission.toast.success": {
-    "defaultMessage": "Your request was sent successfully!"
+    "message": "Your request was sent successfully!"
   },
   "section.contact-us-form.submit-button.label": {
-    "defaultMessage": "Submit"
+    "message": "Submit"
   },
   "section.crypto-donation.copy-wallet.button.label": {
-    "defaultMessage": "Copy"
+    "message": "Copy"
   },
   "section.crypto-donation.headline": {
-    "defaultMessage": "We accept cryptocurrency!"
+    "message": "We accept cryptocurrency!"
   },
   "section.crypto-donation.introduction": {
-    "defaultMessage": "Click the QR code to view it enlarged, or copy the code to your clipboard."
+    "message": "Click the QR code to view it enlarged, or copy the code to your clipboard."
   },
   "section.crypto-donation.notification.copy.error": {
-    "defaultMessage": "Something went wrong copying the code, please select and copy it manually"
+    "message": "Something went wrong copying the code, please select and copy it manually"
   },
   "section.crypto-donation.notification.copy.success": {
-    "defaultMessage": "Code succesfully copied!"
+    "message": "Code succesfully copied!"
   },
   "section.crypto-donation.overlay.label": {
-    "defaultMessage": "Donate <no-localization>{currencyName}</no-localization>"
+    "message": "Donate <no-localization>{currencyName}</no-localization>"
   },
   "section.crypto-donation.subline": {
-    "defaultMessage": "Want to send something else? <contact-link>Contact us!</contact-link>"
+    "message": "Want to send something else? <contact-link>Contact us!</contact-link>"
   },
   "section.grants-cta.apply.cta": {
-    "defaultMessage": "Apply Now"
+    "message": "Apply Now"
   },
   "section.grants-cta.apply.heading": {
-    "defaultMessage": "Apply for a seed grant"
+    "message": "Apply for a seed grant"
   },
   "section.grants-cta.apply.paragraph": {
-    "defaultMessage": "We connect you with funders for impactful work in animal advocacy and activism."
+    "message": "We connect you with funders for impactful work in animal advocacy and activism."
   },
   "section.grants-cta.visit-year-review.cta": {
-    "defaultMessage": "See our impact"
+    "message": "See our impact"
   },
   "section.grants-cta.visit-year-review.heading": {
-    "defaultMessage": "See our 2022 impact review"
+    "message": "See our 2022 impact review"
   },
   "section.grants-cta.visit-year-review.paragraph": {
-    "defaultMessage": "Read our annual impact review and see what we've accomplished last year."
+    "message": "Read our annual impact review and see what we've accomplished last year."
   },
   "section.join-the-team.cta.join": {
-    "defaultMessage": "Apply to Join"
+    "message": "Apply to Join"
   },
   "section.join-the-team.cta.meet-the-team": {
-    "defaultMessage": "Meet the Team"
+    "message": "Meet the Team"
   },
   "section.join-the-team.headline": {
-    "defaultMessage": "JOIN OUR TEAM"
+    "message": "JOIN OUR TEAM"
   },
   "section.join-the-team.paragraph": {
-    "defaultMessage": "Are you a developer, designer, writer, or a creative professional interested in applying your digital skills for the animals? Learn more about our team members and view our openings below."
+    "message": "Are you a developer, designer, writer, or a creative professional interested in applying your digital skills for the animals? Learn more about our team members and view our openings below."
   },
   "section.support-progess-bar.current.label": {
-    "defaultMessage": "Current monthly donations"
+    "message": "Current monthly donations"
   },
   "section.support-progess-bar.goal.0.label": {
-    "defaultMessage": "This will cover some of our most basic needs!"
+    "message": "This will cover some of our most basic needs!"
   },
   "section.support-progess-bar.goal.1.label": {
-    "defaultMessage": "We can utilize more useful services and tech"
+    "message": "We can utilize more useful services and tech"
   },
   "section.support-progess-bar.goal.2.label": {
-    "defaultMessage": "We can ramp up value and services offered"
+    "message": "We can ramp up value and services offered"
   },
   "section.support-progess-bar.goal.3.label": {
-    "defaultMessage": "We've hit our monthly contribution goal, thanks!"
+    "message": "We've hit our monthly contribution goal, thanks!"
   },
   "section.support-progess-bar.mobile.current.label": {
-    "defaultMessage": "Current monthly donations"
+    "message": "Current monthly donations"
   },
   "section.support-progess-bar.mobile.goal.0.label": {
-    "defaultMessage": "This will cover some of our most basic needs!"
+    "message": "This will cover some of our most basic needs!"
   },
   "section.support-progess-bar.mobile.goal.1.label": {
-    "defaultMessage": "We can utilize more useful services and tech"
+    "message": "We can utilize more useful services and tech"
   },
   "section.support-progess-bar.mobile.goal.2.label": {
-    "defaultMessage": "We can ramp up value and services offered"
+    "message": "We can ramp up value and services offered"
   },
   "section.support-progess-bar.mobile.goal.3.label": {
-    "defaultMessage": "We've hit our monthly contribution goal, thanks!"
+    "message": "We've hit our monthly contribution goal, thanks!"
   }
 }
