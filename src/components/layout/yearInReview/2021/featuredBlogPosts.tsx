@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -22,19 +23,28 @@ export interface FeaturedBlogPostsProps {
 const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
   featuredBlogPosts,
 }) => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer
         header={
           <SectionHeader
             className="text-grey"
-            header={['Featured', 'blog posts']}
+            header={[
+              intl.formatMessage({
+                id: 'page.year-in-review.2021.section.featured-blog-posts.intro.heading.0',
+                defaultMessage: 'Featured',
+              }),
+              intl.formatMessage({
+                id: 'page.year-in-review.2021.section.featured-blog-posts.intro.heading.1',
+                defaultMessage: 'blog posts',
+              }),
+            ]}
           >
-            We&apos;ve been having fun with our blog! We launched our
-            &ldquo;Meet The Team&rdquo; series so we could feature the
-            incredible work done by our team and spotlight the dedicated
-            volunteers behind the scenes. We plan to deliver more amazing
-            content in 2022. Stay tuned!
+            <FormattedMessage
+              id="page.year-in-review.2021.section.featured-blog-posts.intro.paragraph"
+              defaultMessage="We've been having fun with our blog! We launched our “Meet The Team” series so we could feature the incredible work done by our team and spotlight the dedicated volunteers behind the scenes. We plan to deliver more amazing content in 2022. Stay tuned!"
+            />
           </SectionHeader>
         }
       >
@@ -78,7 +88,11 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                       style={{ backgroundColor: color }}
                       className="font-bold p-5"
                     >
-                      Meet {/* Sorry Suan Chin! */}
+                      <FormattedMessage
+                        id="page.year-in-review.2021.section.featured-blog-posts.team-member-introduction"
+                        defaultMessage="Meet"
+                      />{' '}
+                      {/* Sorry Suan Chin! */}
                       {name.includes('Suan')
                         ? name.split(' ').slice(0, 2).join(' ')
                         : name.split(' ')[0]}

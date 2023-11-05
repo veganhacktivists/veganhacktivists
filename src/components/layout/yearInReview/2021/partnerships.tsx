@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import CustomImage from '../../../decoration/customImage';
@@ -35,80 +37,108 @@ const Partnership: React.FC<PartnershipProps> = ({
 };
 
 const Partnerships: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer
         header={
           <SectionHeader
-            header={['Building meaningful', 'partnerships']}
+            header={[
+              intl.formatMessage({
+                id: 'page.year-in-review.2021.section.partnerships.heading.0',
+                defaultMessage: 'Building meaningful',
+              }),
+              intl.formatMessage({
+                id: 'page.year-in-review.2021.section.partnerships.heading.1',
+                defaultMessage: 'partnerships',
+              }),
+            ]}
             className="text-grey"
           >
-            This year we looked back at our previous partnerships and
-            brainstormed together on how our future partnerships could lead to
-            more effective and long-lasting relationships. We wanted our
-            partnerships to extend with more complexity and with more impact for
-            both them, and us.
+            <FormattedMessage
+              id="page.year-in-review.2021.section.partnerships.intro.paragraph"
+              defaultMessage="This year we looked back at our previous partnerships and brainstormed together on how our future partnerships could lead to more effective and long-lasting relationships. We wanted our partnerships to extend with more complexity and with more impact for both them, and us."
+            />
           </SectionHeader>
         }
       >
         <div className="md:w-3/4 mx-auto space-y-20 mt-10">
           <Partnership
             image={pollinationPartner}
-            title="Partnership with The Pollination Project"
+            title={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.partnerships.pollination-project.heading',
+              defaultMessage:
+                'Partnership with <no-localization>The Pollination Project</no-localization>',
+            })}
           >
             <p>
-              We were very happy to{' '}
-              <CustomLink href="https://veganhacktivists.org/grants">
-                announce a partnership
-              </CustomLink>{' '}
-              in where we&apos;re able to offer up to $1000 USD in seed funding
-              grants for outstanding, and effective, animal rights activism!
-              Specifically we&apos;re looking for individual or grassroots
-              groups whose primary purpose is to help reduce suffering for
-              non-human farmed animals.
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.0"
+                defaultMessage="We were very happy to <link>announce a partnership</link> in where we're able to offer up to $1000 USD in seed funding grants for outstanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
+                values={{
+                  link: (chunks) => (
+                    <CustomLink href="https://veganhacktivists.org/people/advisors">
+                      {chunks}
+                    </CustomLink>
+                  ),
+                }}
+              />
             </p>
             <p>
-              In our first month alone, we averaged one grant request per day
-              received by various activists and organizations. Grant requests
-              were for a wide variety of forms of activism, including: Singing,
-              Virtual Reality, Drawing, Photography, Videography, Baking,
-              Fundraising, Welfare Awareness, Child Education, Youth Skills,
-              Capacity Building, Farming, Campaigning, Printing, Litigation,
-              Animal Rescue, Wild Animal Advocacy and more!
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.1"
+                defaultMessage="In our first month alone, we averaged one grant request per day received by various activists and organizations. Grant requests were for a wide variety of forms of activism, including: Singing, Virtual Reality, Drawing, Photography, Videography, Baking, Fundraising, Welfare Awareness, Child Education, Youth Skills, Capacity Building, Farming, Campaigning, Printing, Litigation, Animal Rescue, Wild Animal Advocacy and more!"
+              />
             </p>
             <p>
-              We&apos;re excited to see where this partnership leads us in the
-              future as we work together with{' '}
-              <CustomLink href="https://thepollinationproject.org/">
-                The Pollination Project
-              </CustomLink>{' '}
-              to get these activists funded as much as possible.
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.2"
+                defaultMessage="We're excited to see where this partnership leads us in the future as we work together with <link>The Pollination Project</link> to get these activists funded as much as possible."
+                values={{
+                  link: (chunks) => (
+                    <CustomLink href="https://thepollinationproject.org/">
+                      {chunks}
+                    </CustomLink>
+                  ),
+                }}
+              />
             </p>
           </Partnership>
           <Partnership
             image={avPartner}
-            title="Partnership with Anonymous for the Voiceless"
+            title={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.heading',
+              defaultMessage:
+                'Partnership with <no-localization>Anonymous for the Voiceless</no-localization>',
+            })}
           >
             <p>
-              Anonymous for the Voiceless (AV) is a not-for-profit animal rights
-              organisation specializing in using conversation and standard
-              practice footage to edify the public about animal exploitation.
-              They hold street activism events worldwide to edify the public
-              towards supporting animal rights, living vegan and speaking up for
-              the animals.
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.0"
+                defaultMessage="<no-localization>Anonymous for the Voiceless (AV)</no-localization> is a not-for-profit animal rights organisation specializing in using conversation and standard practice footage to edify the public about animal exploitation. They hold street activism events worldwide to edify the public towards supporting animal rights, living vegan and speaking up for the animals."
+              />
             </p>
             <p>
-              Traditionally, it&apos;s been very hard to track the effectiveness
-              of street outreach. We&apos;re excited to have partnered up with
-              AV in order to be able to provide them the tools they need to
-              monitor and track the effectiveness of each group with{' '}
-              <CustomLink href="https://activisthub.org">
-                Activist Hub
-              </CustomLink>
-              .
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1"
+                defaultMessage="Traditionally, it's been very hard to track the effectiveness of street outreach. We're excited to have partnered up with <no-localization>AV</no-localization> in order to be able to provide them the tools they need to monitor and track the effectiveness of each group with <link>Activist Hub</link>."
+                values={{
+                  link: (chunks) => (
+                    <CustomLink href="https://activisthub.org">
+                      {chunks}
+                    </CustomLink>
+                  ),
+                }}
+              />
             </p>
           </Partnership>
-          <Partnership image={otherPartner} title="Other Partnerships">
+          <Partnership
+            image={otherPartner}
+            title={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.partnerships.other-partnerships.heading',
+              defaultMessage: 'Other Partnerships',
+            })}
+          >
             <p>
               <CustomLink href="https://veganoutreach.org">
                 <span className="block md:inline">
@@ -116,9 +146,10 @@ const Partnerships: React.FC = () => {
                 </span>
               </CustomLink>
               <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
-              We partnered with Vegan Outreach&apos;s Vegan Mentorship Program
-              in order to provide completely free mentorship access to all Vegan
-              Bootcamp and 3Movies.org participants.
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph"
+                defaultMessage="We partnered with <no-localization>Vegan Outreach's</no-localization> Vegan Mentorship Program in order to provide completely free mentorship access to all <no-localization>Vegan Bootcamp</no-localization> and <no-localization>3Movies.org</no-localization> participants."
+              />
             </p>
             <p className="pb-20">
               <CustomLink href="https://www.legalimpactforchickens.org/">
@@ -127,10 +158,10 @@ const Partnerships: React.FC = () => {
                 </span>
               </CustomLink>
               <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
-              We partnered with Legal Impact for Chickens for our upcoming
-              project, Start Pressuring! We&apos;ll be able to provide
-              successful pressure campaigns launched on our platform with free
-              legal support!
+              <FormattedMessage
+                id="page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph"
+                defaultMessage="We partnered with <no-localization>Legal Impact for Chickens</no-localization> for our upcoming project, <no-localization>Start Pressuring!</no-localization> We'll be able to provide successful pressure campaigns launched on our platform with free legal support!"
+              />
             </p>
           </Partnership>
         </div>
