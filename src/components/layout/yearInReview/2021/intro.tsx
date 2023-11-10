@@ -40,18 +40,9 @@ const Intro: React.FC = () => {
       <div>
         <HighlightBlock
           borderColor="magenta"
-          headerStart={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.projects.heading.0',
-            defaultMessage: 'We launched',
-          })}
-          headerBold={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.projects.heading.1',
-            defaultMessage: '8 new projects',
-          })}
-          headerEnd={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.projects.heading.2',
-            defaultMessage: 'for the movement',
-          })}
+          headerStart="We launched"
+          headerBold="8 new projects"
+          headerEnd="for the movement"
         >
           <FormattedMessage
             id="page.year-in-review.2021.section.we-grew.projects.paragraph"
@@ -63,18 +54,9 @@ const Intro: React.FC = () => {
         </HighlightBlock>
         <HighlightBlock
           borderColor="yellow"
-          headerStart={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.advisory-team.heading.0',
-            defaultMessage: 'We',
-          })}
-          headerBold={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.advisory-team.heading.1',
-            defaultMessage: 'expanded our advisory team',
-          })}
-          headerEnd={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.advisory-team.heading.2',
-            defaultMessage: 'of vegan experts',
-          })}
+          headerStart="We"
+          headerBold="expanded our advisory team"
+          headerEnd="of vegan experts"
         >
           <FormattedMessage
             id="page.year-in-review.2021.section.we-grew.advisory-team.paragraph"
@@ -89,18 +71,9 @@ const Intro: React.FC = () => {
         </HighlightBlock>
         <HighlightBlock
           borderColor="green"
-          headerStart={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.new-teams.heading.0',
-            defaultMessage: 'We expanded with',
-          })}
-          headerBold={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.new-teams.heading.1',
-            defaultMessage: '5 new teams',
-          })}
-          headerEnd={intl.formatMessage({
-            id: 'page.year-in-review.2021.section.we-grew.new-teams.heading.2',
-            defaultMessage: 'in just 6 months',
-          })}
+          headerStart="We expanded with"
+          headerBold="5 new teams"
+          headerEnd="in just 6 months"
         >
           <FormattedMessage
             id="page.year-in-review.2021.section.we-grew.new-teams.paragraph"
