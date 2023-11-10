@@ -1157,20 +1157,8 @@
   "page.year-in-review.2021.section.advisory-service.btn.cta": {
     "message": "Check out our services"
   },
-  "page.year-in-review.2021.section.advisory-service.heading.0": {
-    "message": "Our new"
-  },
-  "page.year-in-review.2021.section.advisory-service.heading.1": {
-    "message": "advisory service"
-  },
   "page.year-in-review.2021.section.advisory-service.paragraph": {
     "message": "<p>We launched our newest service to connect people with our team of experts who have a wide range of experience and skills. We welcome vegan activists and organizations to count us as a resource for their tech, org structure, strategy, marketing, grant requests, and more.</p> <p>We've been very happy with this launch and we've received over 100+ requests for advice! We have been able to assist organizations such as <no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization>, among many others.</p>"
-  },
-  "page.year-in-review.2021.section.big-impact.heading.0": {
-    "message": "Minor changes with a"
-  },
-  "page.year-in-review.2021.section.big-impact.heading.1": {
-    "message": "big impact"
   },
   "page.year-in-review.2021.section.big-impact.paragraph.0": {
     "message": "Created guidelines around brand, design, and content"
@@ -1218,25 +1206,25 @@
     "message": "<b>Grants requested</b> of us within the first 45 days"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.2": {
-    "message": "Clicks directing activists to orgs {link}"
+    "message": "Clicks directing activists to orgs <no-localization><link>veganactivism.org</link></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.3": {
-    "message": "Unique page visits for {project}"
+    "message": "Unique page visits for <no-localization><project>Vegan Bootcamp</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.4": {
-    "message": "Total sign ups for {project}"
+    "message": "Total sign ups for <no-localization><project>Vegan Bootcamp</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.5": {
-    "message": "New grassroots groups on {project}"
+    "message": "New grassroots groups on <no-localization><project>Activist Hub</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.6": {
-    "message": "New resources added to {project}"
+    "message": "New resources added to <no-localization><project>Vegan Cheat Sheet</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.7": {
-    "message": "Groups added to {project}"
+    "message": "Groups added to <no-localization><project>Animal Rights Map</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.8": {
-    "message": "New comments made by our {project}"
+    "message": "New comments made by our <no-localization><project>Reddit Bot</project></no-localization>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.9": {
     "message": "<b>New team members</b> have joined us"
@@ -1246,12 +1234,6 @@
   },
   "page.year-in-review.2021.section.community-growth.documentation.paragraph": {
     "message": "Growth doesn't just come in numbers, it comes in structure. We combined our organization documentation from four different platforms into one user-friendly section of our new website."
-  },
-  "page.year-in-review.2021.section.community-growth.heading.0": {
-    "message": "Encouraging"
-  },
-  "page.year-in-review.2021.section.community-growth.heading.1": {
-    "message": "community growth"
   },
   "page.year-in-review.2021.section.community-growth.safety.heading": {
     "message": "Safety"
@@ -1265,23 +1247,8 @@
   "page.year-in-review.2021.section.community-growth.technology.paragraph": {
     "message": "We've embraced new technologies to improve the overall quality and robustness of our projects, as well as meet our developers where they're at."
   },
-  "page.year-in-review.2021.section.designs-for-vegan-orgs.heading.0": {
-    "message": "Designs"
-  },
-  "page.year-in-review.2021.section.designs-for-vegan-orgs.heading.1": {
-    "message": "for"
-  },
-  "page.year-in-review.2021.section.designs-for-vegan-orgs.heading.2": {
-    "message": "Vegan Orgs"
-  },
   "page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph": {
     "message": "We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the competitive digital landscape."
-  },
-  "page.year-in-review.2021.section.featured-blog-posts.intro.heading.0": {
-    "message": "Featured"
-  },
-  "page.year-in-review.2021.section.featured-blog-posts.intro.heading.1": {
-    "message": "blog posts"
   },
   "page.year-in-review.2021.section.featured-blog-posts.intro.paragraph": {
     "message": "We've been having fun with our blog! We launched our “Meet The Team” series so we could feature the incredible work done by our team and spotlight the dedicated volunteers behind the scenes. We plan to deliver more amazing content in 2022. Stay tuned!"
@@ -1307,12 +1274,6 @@
   "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.2": {
     "message": "<no-localization>Activist Hub</no-localization> also acts as the world’s first animal rights social network! Add friends, join groups, share or create posts, strategize and talk with other activists. Our hub is 100% free to use for any individual or organization advocating on behalf of animals."
   },
-  "page.year-in-review.2021.section.featured-projects.heading.0": {
-    "message": "Featured"
-  },
-  "page.year-in-review.2021.section.featured-projects.heading.1": {
-    "message": "projects"
-  },
   "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.0": {
     "message": "Every day, more and more people from around the world are being digitally connected."
   },
@@ -1330,15 +1291,6 @@
   },
   "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.2": {
     "message": "<no-localization>Anonymous for the Voiceless</no-localization>, <no-localization>DontWatch.org</no-localization>, <no-localization>Viena Animal Save</no-localization>, and many others use this project now for uninterrupted access."
-  },
-  "page.year-in-review.2021.section.feedback-and-testing.heading.0": {
-    "message": "Feedback"
-  },
-  "page.year-in-review.2021.section.feedback-and-testing.heading.1": {
-    "message": "and"
-  },
-  "page.year-in-review.2021.section.feedback-and-testing.heading.2": {
-    "message": "testing"
   },
   "page.year-in-review.2021.section.feedback-and-testing.paragraph.0": {
     "message": "To be more effective and meet the needs of our movement, we not only expanded our advisory team, but we expanded how we receive feedback. We used a combination of internal polls, newsletters, advisors, and testers to determine next steps for both our projects in development and our own growth."
@@ -1376,20 +1328,20 @@
   "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1": {
     "message": "Traditionally, it's been very hard to track the effectiveness of street outreach. We're excited to have partnered up with <no-localization>AV</no-localization> in order to be able to provide them the tools they need to monitor and track the effectiveness of each group with <link>Activist Hub</link>."
   },
-  "page.year-in-review.2021.section.partnerships.heading.0": {
-    "message": "Building meaningful"
-  },
-  "page.year-in-review.2021.section.partnerships.heading.1": {
-    "message": "partnerships"
-  },
   "page.year-in-review.2021.section.partnerships.intro.paragraph": {
     "message": "This year we looked back at our previous partnerships and brainstormed together on how our future partnerships could lead to more effective and long-lasting relationships. We wanted our partnerships to extend with more complexity and with more impact for both them, and us."
   },
   "page.year-in-review.2021.section.partnerships.other-partnerships.heading": {
     "message": "Other Partnerships"
   },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading": {
+    "message": "<no-localization>Legal Impact for Chickens</no-localization>"
+  },
   "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph": {
     "message": "We partnered with <no-localization>Legal Impact for Chickens</no-localization> for our upcoming project, <no-localization>Start Pressuring!</no-localization> We'll be able to provide successful pressure campaigns launched on our platform with free legal support!"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading": {
+    "message": "<no-localization>Vegan Outreach</no-localization>"
   },
   "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph": {
     "message": "We partnered with <no-localization>Vegan Outreach's</no-localization> Vegan Mentorship Program in order to provide completely free mentorship access to all <no-localization>Vegan Bootcamp</no-localization> and <no-localization>3Movies.org</no-localization> participants."
@@ -1409,32 +1361,17 @@
   "page.year-in-review.2021.section.playground.btn.cta": {
     "message": "Join the playground"
   },
-  "page.year-in-review.2021.section.playground.heading": {
-    "message": "launched"
-  },
   "page.year-in-review.2021.section.playground.paragraph": {
     "message": "<p>We launched an open-source community available to the public called <no-localization>VH: Playground</no-localization>! <no-localization>Playground</no-localization> allows developers who don't have the time or specific skills to join the core <no-localization>Vegan Hacktivists</no-localization> team to still contribute to the movement, whether that be on our open source projects or their own!</p> <p>In short, we wanted to build and foster a community of vegan developers in order to support folks outside of our network—so far we've attracted over 400 members, and counting!</p>"
   },
   "page.year-in-review.2021.section.rebrand.btn.cta": {
     "message": "See our new brand guide!"
   },
-  "page.year-in-review.2021.section.rebrand.heading.0": {
-    "message": "Our"
-  },
-  "page.year-in-review.2021.section.rebrand.heading.1": {
-    "message": "rebrand"
-  },
   "page.year-in-review.2021.section.rebrand.paragraph": {
     "message": "<p>This year, we decided to professionally rebrand both the organization and our website from the ground up. We wanted our branding to still deeply represent our tech background, but also be far more inviting and fun to better represent our work and our community.</p> <p>We saw an immediate increase in applications on both our website and social platforms from interested volunteers for those who found us on either platform.</p> <p>Our branding was done by our newest Team Lead, <no-localization>{link}</no-localization>, who's been at the heart of transforming the way we work and look at design here at VH.</p>"
   },
-  "page.year-in-review.2021.section.videos.heading.0": {
-    "message": "Our new"
-  },
-  "page.year-in-review.2021.section.videos.heading.1": {
-    "message": "animated videos"
-  },
   "page.year-in-review.2021.section.videos.paragraph": {
-    "message": "We've partnered with <no-localization>{link}</no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
+    "message": "We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
   },
   "page.year-in-review.2021.section.we-grew.advisory-team.heading.0": {
     "message": "We"

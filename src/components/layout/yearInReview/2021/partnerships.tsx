@@ -43,16 +43,7 @@ const Partnerships: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={[
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.partnerships.heading.0',
-                defaultMessage: 'Building meaningful',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.partnerships.heading.1',
-                defaultMessage: 'partnerships',
-              }),
-            ]}
+            header={['Building meaningful', 'partnerships']}
             className="text-grey"
           >
             <FormattedMessage
@@ -142,7 +133,12 @@ const Partnerships: React.FC = () => {
             <p>
               <CustomLink href="https://veganoutreach.org">
                 <span className="block md:inline">
-                  <b>Vegan Outreach</b>
+                  <b>
+                    <FormattedMessage
+                      id="page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading"
+                      defaultMessage="<no-localization>Vegan Outreach</no-localization>"
+                    />
+                  </b>
                 </span>
               </CustomLink>
               <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
@@ -154,7 +150,12 @@ const Partnerships: React.FC = () => {
             <p className="pb-20">
               <CustomLink href="https://www.legalimpactforchickens.org/">
                 <span className="block md:inline">
-                  <b>Legal Impact for Chickens</b>
+                  <b>
+                    <FormattedMessage
+                      id="page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading"
+                      defaultMessage="<no-localization>Legal Impact for Chickens</no-localization>"
+                    />
+                  </b>
                 </span>
               </CustomLink>
               <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>

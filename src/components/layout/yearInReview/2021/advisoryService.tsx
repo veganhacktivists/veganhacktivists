@@ -19,16 +19,7 @@ const AdvisoryService: React.FC = () => {
           </div>
           <div className="mx-auto md:text-left space-y-5 text-2xl px-5">
             <SectionHeader
-              header={[
-                intl.formatMessage({
-                  id: 'page.year-in-review.2021.section.advisory-service.heading.0',
-                  defaultMessage: 'Our new',
-                }),
-                intl.formatMessage({
-                  id: 'page.year-in-review.2021.section.advisory-service.heading.1',
-                  defaultMessage: 'advisory service',
-                }),
-              ]}
+              header={['Our new', 'advisory service']}
               className="text-grey"
             />
             <FormattedMessage

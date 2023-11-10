@@ -17,20 +17,7 @@ const DesignsForVeganOrgs: React.FC = () => {
         header={
           <SectionHeader
             className="text-grey-dark"
-            header={[
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.designs-for-vegan-orgs.heading.0',
-                defaultMessage: 'Designs',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.designs-for-vegan-orgs.heading.1',
-                defaultMessage: 'for',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.designs-for-vegan-orgs.heading.2',
-                defaultMessage: 'Vegan Orgs',
-              }),
-            ]}
+            header={['Designs', 'for', 'Vegan Orgs']}
             startWithBoldFont
           >
             <FormattedMessage

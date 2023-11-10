@@ -83,12 +83,12 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.2"
-                defaultMessage="Clicks directing activists to orgs {link}"
+                defaultMessage="Clicks directing activists to orgs <no-localization><link>veganactivism.org</link></no-localization>"
                 values={{
-                  link: (
+                  link: (chunks) => (
                     <Link href="https://veganactivism.org">
                       <a>
-                        <b>veganactivism.org</b>
+                        <b>{chunks}</b>
                       </a>
                     </Link>
                   ),
@@ -102,9 +102,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.3"
-                defaultMessage="Unique page visits for {project}"
+                defaultMessage="Unique page visits for <no-localization><project>Vegan Bootcamp</project></no-localization>"
                 values={{
-                  project: <b>Vegan Bootcamp</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>
@@ -115,9 +115,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.4"
-                defaultMessage="Total sign ups for {project}"
+                defaultMessage="Total sign ups for <no-localization><project>Vegan Bootcamp</project></no-localization>"
                 values={{
-                  project: <b>Vegan Bootcamp</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>
@@ -128,9 +128,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.5"
-                defaultMessage="New grassroots groups on {project}"
+                defaultMessage="New grassroots groups on <no-localization><project>Activist Hub</project></no-localization>"
                 values={{
-                  project: <b>Activist Hub</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>
@@ -141,9 +141,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.6"
-                defaultMessage="New resources added to {project}"
+                defaultMessage="New resources added to <no-localization><project>Vegan Cheat Sheet</project></no-localization>"
                 values={{
-                  project: <b>Vegan Cheat Sheet</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>
@@ -159,9 +159,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.7"
-                defaultMessage="Groups added to {project}"
+                defaultMessage="Groups added to <no-localization><project>Animal Rights Map</project></no-localization>"
                 values={{
-                  project: <b>Animal Rights Map</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>
@@ -176,9 +176,9 @@ const ByTheNumbers: React.FC = () => {
             >
               <FormattedMessage
                 id="page.year-in-review.2021.section.by-the-numbers.statistic.8"
-                defaultMessage="New comments made by our {project}"
+                defaultMessage="New comments made by our <no-localization><project>Reddit Bot</project></no-localization>"
                 values={{
-                  project: <b>Reddit bot</b>,
+                  project: (chunks) => <b>{chunks}</b>,
                 }}
               />
             </Number>

@@ -24,24 +24,15 @@ const AnimatedVideos: React.FC = () => {
         header={
           <SectionHeader
             className="text-grey"
-            header={[
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.videos.heading.0',
-                defaultMessage: 'Our new',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.videos.heading.1',
-                defaultMessage: 'animated videos',
-              }),
-            ]}
+            header={['Our new', 'animated videos']}
           >
             <FormattedMessage
               id="page.year-in-review.2021.section.videos.paragraph"
-              defaultMessage="We've partnered with <no-localization>{link}</no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
+              defaultMessage="We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
               values={{
-                link: (
+                link: (chunks) => (
                   <CustomLink href="https://expandedcircle.org/">
-                    Expanded Circle Collective
+                    {chunks}
                   </CustomLink>
                 ),
               }}

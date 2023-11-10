@@ -24,13 +24,7 @@ const Playground: React.FC = () => {
           <div className="md:text-left md:w-3/4">
             <SectionHeader
               className="mt-5 mb-10"
-              header={[
-                'VH: Playground',
-                intl.formatMessage({
-                  id: 'page.year-in-review.2021.section.playground.heading',
-                  defaultMessage: 'launched',
-                }),
-              ]}
+              header={['VH: Playground', 'launched']}
               startWithBoldFont
             />
             <div className="space-y-5">

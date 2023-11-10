@@ -21,20 +21,7 @@ const FeedbackAndTesting: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={[
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.feedback-and-testing.heading.0',
-                defaultMessage: 'Feedback',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.feedback-and-testing.heading.1',
-                defaultMessage: 'and',
-              }),
-              intl.formatMessage({
-                id: 'page.year-in-review.2021.section.feedback-and-testing.heading.2',
-                defaultMessage: 'testing',
-              }),
-            ]}
+            header={['Feedback', 'and', 'testing']}
             startWithBoldFont
           />
         }
