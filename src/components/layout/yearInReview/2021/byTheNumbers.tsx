@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -27,12 +28,21 @@ const Number: React.FC<NumberProps> = ({
 };
 
 const ByTheNumbers: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer
         className="text-white uppercase"
         color="grey-darker"
-        header={<SectionHeader header="By the numbers" startWithBoldFont />}
+        header={
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.by-the-numbers.heading',
+              defaultMessage: 'By the numbers',
+            })}
+            startWithBoldFont
+          />
+        }
       >
         <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pb-10">
           <Number
@@ -44,7 +54,13 @@ const ByTheNumbers: React.FC = () => {
               />
             }
           >
-            <b>Total unique page views</b> for all projects
+            <FormattedMessage
+              id="page.year-in-review.2021.section.by-the-numbers.statistic.0"
+              defaultMessage="<b>Total unique page views</b> for all projects"
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </Number>
           <div className="flex flex-col md:flex-row flex-wrap mt-5">
             <Number
@@ -52,48 +68,84 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={13100} className="text-green" approx />
               }
             >
-              Tweets by our <b>5 Minutes 5 Vegans</b> support bot
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.1"
+                defaultMessage="Tweets by our <b>5 Minutes 5 Vegans</b> support bot"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={93432} className="text-green" approx />
               }
             >
-              Clicks directing activists to orgs{' '}
-              <Link href="https://veganactivism.org">
-                <a>
-                  <b>veganactivism.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.2"
+                defaultMessage="Clicks directing activists to orgs <no-localization><link>veganactivism.org</link></no-localization>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://veganactivism.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={500000} className="text-green" approx />
               }
             >
-              Unique page visits for <b>Vegan Bootcamp</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.3"
+                defaultMessage="Unique page visits for <no-localization><project>Vegan Bootcamp</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
-
             <Number
               number={
                 <AnimatedNumber number={21000} className="text-yellow" approx />
               }
             >
-              Total sign ups for <b>Vegan Bootcamp</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.4"
+                defaultMessage="Total sign ups for <no-localization><project>Vegan Bootcamp</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={625} className="text-yellow" approx />
               }
             >
-              New grassroots groups on <b>Activist Hub</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.5"
+                defaultMessage="New grassroots groups on <no-localization><project>Activist Hub</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={134} className="text-yellow" approx />
               }
             >
-              New resources added to <b>Vegan Cheat Sheet</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.6"
+                defaultMessage="New resources added to <no-localization><project>Vegan Cheat Sheet</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
 
             <Number
@@ -105,7 +157,13 @@ const ByTheNumbers: React.FC = () => {
                 />
               }
             >
-              Groups added to <b>Animal Rights Map</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.7"
+                defaultMessage="Groups added to <no-localization><project>Animal Rights Map</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
@@ -116,7 +174,13 @@ const ByTheNumbers: React.FC = () => {
                 />
               }
             >
-              New comments made by our <b>Reddit bot</b>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.8"
+                defaultMessage="New comments made by our <no-localization><project>Reddit Bot</project></no-localization>"
+                values={{
+                  project: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
@@ -127,30 +191,40 @@ const ByTheNumbers: React.FC = () => {
                 />
               }
             >
-              <b>New team members</b> have joined us
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.9"
+                defaultMessage="<b>New team members</b> have joined us"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
-
             <Number
               number={
                 <AnimatedNumber number={28} className="text-orange" approx />
               }
             >
-              <b>New blog posts</b> from our content team
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.10"
+                defaultMessage="<b>New blog posts</b> from our content team"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={29} className="text-orange" approx />
               }
             >
-              <b>Grants requested</b> of us within the first 45 days
+              <FormattedMessage
+                id="page.year-in-review.2021.section.by-the-numbers.statistic.11"
+                defaultMessage="<b>Grants requested</b> of us within the first 45 days"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
-            {/* <Number
-              number={
-                <AnimatedNumber number={40} className="text-orange" approx />
-              }
-            >
-              <b>New team members</b> have joined us
-            </Number> */}
           </div>
         </div>
       </SectionContainer>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
@@ -7,6 +8,7 @@ import YoutubeVideo from '../../../decoration/youtubeVideo';
 import SectionContainer from '../sectionContainer';
 
 const AnimatedVideos: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SquareField
@@ -24,14 +26,17 @@ const AnimatedVideos: React.FC = () => {
             className="text-grey"
             header={['Our new', 'animated videos']}
           >
-            We&apos;ve partnered with{' '}
-            <CustomLink href="https://expandedcircle.org/">
-              Expanded Circle Collective
-            </CustomLink>{' '}
-            in order to produce two animated introductory videos for Activist
-            Hub and Vegan Bootcamp! These videos are fantastic resources for
-            viewers to quickly get familiar with our work. We look forward to
-            collaborating with them in the new year.
+            <FormattedMessage
+              id="page.year-in-review.2021.section.videos.paragraph"
+              defaultMessage="We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
+              values={{
+                link: (chunks) => (
+                  <CustomLink href="https://expandedcircle.org/">
+                    {chunks}
+                  </CustomLink>
+                ),
+              }}
+            />
           </SectionHeader>
         }
       >
