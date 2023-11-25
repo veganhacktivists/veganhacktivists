@@ -25,6 +25,7 @@ const CustomLink: React.FC<LinkProps> = ({
       className={classes}
       target="_blank"
       rel="noreferrer"
+      // eslint-disable-next-line
       href={href.toString()}
       {...props}
     >

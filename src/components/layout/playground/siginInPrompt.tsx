@@ -62,7 +62,7 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
 
       const callbackUrl = `${router.asPath}?${searchParams.toString()}`;
 
-      signIn<'email'>('email', {
+      void signIn<'email'>('email', {
         email,
         callbackUrl,
       }).finally(() => {
