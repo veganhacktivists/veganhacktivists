@@ -87,9 +87,7 @@ const ByTheNumbers: React.FC = () => {
                 values={{
                   link: (chunks) => (
                     <Link href="https://veganactivism.org">
-                      <a>
-                        <b>{chunks}</b>
-                      </a>
+                      <b>{chunks}</b>
                     </Link>
                   ),
                 }}

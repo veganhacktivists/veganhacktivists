@@ -59,10 +59,9 @@ export const LocaleSelector = () => {
                   key={locale + router.pathname}
                   href={router.pathname}
                   locale={locale}
+                  className="py-2 px-4 text-center bg-black"
                 >
-                  <a className="py-2 px-4 text-center bg-black">
-                    {languageDisplayNames[locale]}
-                  </a>
+                  {languageDisplayNames[locale]}
                 </Link>
               ))}
             </div>
@@ -74,8 +73,9 @@ export const LocaleSelector = () => {
                 key={locale + router.pathname}
                 href={router.pathname}
                 locale={locale}
+                className="px-4"
               >
-                <a className="px-4">{languageDisplayNames[locale]}</a>
+                {languageDisplayNames[locale]}
               </Link>
             ))}
           </div>
