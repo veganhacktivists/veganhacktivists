@@ -119,6 +119,7 @@ const Hero: React.FC<HeroProps> = ({
                 height: `${taglineHeight}px`,
                 width: `${tagLineWidth}px`,
               }}
+              className="object-contain"
             />
           </div>
         )}
