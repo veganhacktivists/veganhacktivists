@@ -94,7 +94,7 @@
     "@types/luxon": "^3.1.0",
     "@types/mailchimp__mailchimp_marketing": "^3.0.6",
     "@types/mjml": "^4.7.0",
-    "@types/node": "^18.11.9",
+    "@types/node": "^20.9.0",
     "@types/nodemailer": "^6.4.6",
     "@types/react": "18.0.18",
     "@types/react-gtm-module": "^2.0.1",
@@ -110,7 +110,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.9.0",
+    "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.2",
     "identity-obj-proxy": "^3.0.0",
@@ -129,6 +129,7 @@
     "contentful-typescript-codegen": "^3.2.3"
   },
   "engines": {
-    "pnpm": ">=8.0.0"
+    "pnpm": ">=8.0.0",
+    "node": ">=20.9.0"
   }
 }
