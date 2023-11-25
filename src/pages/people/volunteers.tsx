@@ -13,10 +13,11 @@ import ContentfulImage from '../../components/layout/contentfulImage';
 import { useHash } from '../../hooks/useHash';
 import shuffle from '../../lib/helpers/shuffle';
 import useViewMore from '../../hooks/useViewMore';
-import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
 import { useTeamStore } from '../../lib/stores/teamStore';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamMember } from '../../types/generated/contentful';
@@ -128,27 +129,27 @@ const TeamSelector: React.FC<{
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite, slug }) => (
-          <Link key={slug} href={{ hash: slug }}>
-            <a
-              style={{ backgroundColor: getBackgroundColor(slug, color) }}
-              className={'w-20 h-20 flex-grow-0 transition-colors'}
-              onPointerEnter={() => setHovered(slug)}
-              onPointerLeave={() =>
-                setHovered((curr) => (curr === slug ? null : curr))
-              }
-            >
-              {sprite ? (
-                <ContentfulImage
-                  image={sprite}
-                  alt={name}
-                  width={75}
-                  height={75}
-                  priority
-                />
-              ) : (
-                <div className="text-4xl">{icon}</div>
-              )}
-            </a>
+          <Link
+            key={slug}
+            href={{ hash: slug }}
+            style={{ backgroundColor: getBackgroundColor(slug, color) }}
+            className={'w-20 h-20 flex-grow-0 transition-colors'}
+            onPointerEnter={() => setHovered(slug)}
+            onPointerLeave={() =>
+              setHovered((curr) => (curr === slug ? null : curr))
+            }
+          >
+            {sprite ? (
+              <ContentfulImage
+                image={sprite}
+                alt={name}
+                width={75}
+                height={75}
+                priority
+              />
+            ) : (
+              <div className="text-4xl">{icon}</div>
+            )}
           </Link>
         ))}
     </div>

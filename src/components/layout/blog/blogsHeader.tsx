@@ -7,7 +7,8 @@ import { FormattedMessage } from 'react-intl';
 import Circle from '../../decoration/circle';
 import roundLogo from '../../../../public/images/VH_Logo_Crest_Tagline.png';
 import getThemeColor from '../../../lib/helpers/theme';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { ITag, ITagFields } from '../../../types/generated/contentful';
 

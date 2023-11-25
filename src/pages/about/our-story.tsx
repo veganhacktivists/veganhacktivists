@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
 import { pixelPig } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 
@@ -57,8 +58,8 @@ const OurStory: PageWithLayout = () => {
             defaultMessage="Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
             values={{
               link: (chunks) => (
-                <Link href="/people/team">
-                  <a className="hover:text-grey">{chunks}</a>
+                <Link href="/people/team" className="hover:text-grey">
+                  {chunks}
                 </Link>
               ),
             }}

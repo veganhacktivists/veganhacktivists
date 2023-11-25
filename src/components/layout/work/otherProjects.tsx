@@ -35,12 +35,7 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
                   fields: { name, image, url, retiredInfo },
                 }) => (
                   <Link key={id} href={retiredInfo?.fields?.archiveUrl ?? url}>
-                    <ContentfulImage
-                      layout="responsive"
-                      title={name}
-                      image={image}
-                      alt={name}
-                    />
+                    <ContentfulImage title={name} image={image} alt={name} />
                   </Link>
                 )
               )}

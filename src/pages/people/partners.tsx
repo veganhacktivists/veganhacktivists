@@ -10,8 +10,9 @@ import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
-import CustomImage from '../../components/decoration/customImage';
 import { pixelHeart } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type {
@@ -52,7 +53,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
       <div className="">
         {image && (
           <div className="w-full mx-auto sm:w-72 xl:w-96 aspect-square">
-            <ContentfulImage image={image} alt="" layout="responsive" />
+            <ContentfulImage image={image} alt="" />
           </div>
         )}
       </div>

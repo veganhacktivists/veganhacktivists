@@ -2,7 +2,8 @@ import Script from 'next/script';
 import React from 'react';
 
 import getThemeColor from '../../../lib/helpers/theme';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

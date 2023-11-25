@@ -1,7 +1,8 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import bee from '../../../../public/images/grants/VH-icon-bee.png';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 const GrantsHeading: React.FC = () => {
   const intl = useIntl();

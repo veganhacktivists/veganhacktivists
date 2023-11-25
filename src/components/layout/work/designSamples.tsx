@@ -3,11 +3,11 @@ import { FormattedMessage } from 'react-intl';
 
 import Modal from '../modal';
 
+import CustomImage from 'components/decoration/customImage';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
 import { DarkButton } from 'components/decoration/buttons';
 import { Carousel } from 'components/decoration/carousel';
-import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

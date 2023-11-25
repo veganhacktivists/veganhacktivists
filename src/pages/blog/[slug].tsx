@@ -149,8 +149,8 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 <ContentfulImage
                   image={featuredImage}
                   alt=""
-                  layout="responsive"
                   priority
+                  className="w-full"
                 />
               </div>
             )}

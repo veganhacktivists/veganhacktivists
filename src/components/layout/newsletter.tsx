@@ -7,10 +7,11 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { pixelEnvelope } from '../../images/separators';
 import { DarkButton } from '../decoration/buttons';
-import CustomImage from '../decoration/customImage';
 import Spinner from '../decoration/spinner';
 import TextInput from '../forms/inputs/textInput';
 import { FirstSubSection } from '../decoration/textBlocks';
+
+import CustomImage from 'components/decoration/customImage';
 
 interface NewsletterRequestProps {
   email: string;

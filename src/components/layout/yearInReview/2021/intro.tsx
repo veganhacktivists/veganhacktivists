@@ -1,6 +1,5 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import CustomImage from '../../../decoration/customImage';
 import CustomLink from '../../../decoration/link';
 import { SubSection } from '../../../decoration/textBlocks';
 import { HighlightBlock } from '../highlightBlock';
@@ -10,6 +9,8 @@ import mangoIcon from '../../../../../public/images/people/teamIcons/icon-mango.
 import watermelonIcon from '../../../../../public/images/people/teamIcons/icon-wmelon.png';
 import sweetPotatoIcon from '../../../../../public/images/people/teamIcons/icon-spotato.png';
 import { pixelHeart } from '../../../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 const Intro: React.FC = () => {
   const intl = useIntl();

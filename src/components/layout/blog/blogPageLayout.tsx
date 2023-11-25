@@ -37,17 +37,10 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
           >
             <div className="mb-4">
               <Link href={`/blog/${slug}`}>
-                <a>
-                  <ContentfulImage
-                    image={featuredImage}
-                    alt=""
-                    layout="responsive"
-                  />
-
-                  <div className="font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5">
-                    {title}
-                  </div>
-                </a>
+                <ContentfulImage image={featuredImage} alt="" />
+                <div className="font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5">
+                  {title}
+                </div>
               </Link>
             </div>
 

@@ -2,6 +2,7 @@
 import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
 import { Decimal } from 'decimal.js';
+import { httpBatchLink } from '@trpc/client';
 
 import type { NextPageContext } from 'next';
 import type {
@@ -44,6 +45,7 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
     const url = `${getBaseUrl()}/api/trpc`;
     return {
       url,
+      links: [httpBatchLink({ url })],
       transformer: superjson,
       headers: () => {
         if (ctx?.req) {
@@ -59,10 +61,13 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
 });
 
 type HandleInferenceHelpers<
-  TRouterOrProcedure extends AnyRouter | Procedure<any>
+  TRouterOrProcedure extends
+    | AnyRouter
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+    | Procedure<any, any>
 > = TRouterOrProcedure extends AnyRouter
   ? GetInferenceHelpers<TRouterOrProcedure>
-  : TRouterOrProcedure extends Procedure<any>
+  : TRouterOrProcedure extends Procedure<any, any>
   ? {
       input: inferProcedureInput<TRouterOrProcedure>;
       output: inferProcedureOutput<TRouterOrProcedure>;

@@ -67,7 +67,6 @@ const StateOfData: React.FC = () => {
                 <CustomImage
                   alt="State of Tech And Data In The Movement"
                   src={TechAndDataInTheMovement}
-                  layout="intrinsic"
                 />
               </div>
             </div>

@@ -78,20 +78,18 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                   hash: item.subsection?.fields.slug,
                 }}
               >
-                <a>
-                  <Highlighter
-                    searchWords={[searchTerm]}
-                    textToHighlight={
-                      item.category.name +
-                      ' -> ' +
-                      item.section.fields.title +
-                      (item.subsection
-                        ? ' -> ' + item.subsection.fields.title
-                        : '')
-                    }
-                    highlightTag="b"
-                  />
-                </a>
+                <Highlighter
+                  searchWords={[searchTerm]}
+                  textToHighlight={
+                    item.category.name +
+                    ' -> ' +
+                    item.section.fields.title +
+                    (item.subsection
+                      ? ' -> ' + item.subsection.fields.title
+                      : '')
+                  }
+                  highlightTag="b"
+                />
               </Link>
             </div>
           );

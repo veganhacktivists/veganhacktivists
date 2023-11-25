@@ -6,8 +6,8 @@ import GrantApplicants from '../../../../public/images/yearInReview/2022/grant-a
 import GrantGranted from '../../../../public/images/yearInReview/2022/grant-granted.png';
 import GrantFunded from '../../../../public/images/yearInReview/2022/grant-funded.png';
 
-import { SectionHeader } from 'components/decoration/textBlocks';
 import CustomImage from 'components/decoration/customImage';
+import { SectionHeader } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
 import AnimatedNumber from 'components/decoration/animatedNumber';
 import { DarkButton } from 'components/decoration/buttons';
