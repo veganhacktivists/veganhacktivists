@@ -8,7 +8,7 @@ import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
 
 import type { Asset } from 'contentful';
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface InfoBoxProps extends React.PropsWithChildren {
   align?: 'left' | 'right';

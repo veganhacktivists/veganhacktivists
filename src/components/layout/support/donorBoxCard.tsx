@@ -4,7 +4,7 @@ import React from 'react';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface DonorCardProps extends React.PropsWithChildren {
   color: string;

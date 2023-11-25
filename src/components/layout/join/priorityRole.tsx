@@ -5,7 +5,7 @@ import SquareField from '../../decoration/squares';
 import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 export interface PriorityRoleProps {
   image: StaticImageData;

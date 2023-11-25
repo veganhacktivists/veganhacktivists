@@ -8,7 +8,7 @@ import { DarkButton } from 'components/decoration/buttons';
 import { Carousel } from 'components/decoration/carousel';
 import CustomImage from 'components/decoration/customImage';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 import adp from '~images/work/designSamples/designs/VH_Design_ADP.png';
 import gyviGali from '~images/work/designSamples/designs/VH_Design_Document_GyviGali.jpg';

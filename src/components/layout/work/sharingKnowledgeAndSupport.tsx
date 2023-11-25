@@ -7,7 +7,7 @@ import SquareField from '../../decoration/squares';
 
 import CustomLink from 'components/decoration/link';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 const TOP_DECORATION_SQUARES = [
   { color: '#292929', size: 16, right: 0, top: 0 },

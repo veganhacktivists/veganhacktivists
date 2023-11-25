@@ -8,7 +8,7 @@ import getThemeColor from '../../../lib/helpers/theme';
 import CustomImage from '../../decoration/customImage';
 import { pixelFlower } from '../../../images/separators';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface InfoProps extends React.PropsWithChildren {
   title: string;

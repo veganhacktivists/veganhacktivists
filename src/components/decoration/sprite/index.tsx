@@ -9,7 +9,7 @@ import CustomImage from '../customImage';
 import FloatingHeart from './FloatingHeart';
 import cssAnimations from './animations.module.css';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 import chicken from '~images/animated/sprite_chicken.gif';
 import pig from '~images/animated/sprite_pig.gif';

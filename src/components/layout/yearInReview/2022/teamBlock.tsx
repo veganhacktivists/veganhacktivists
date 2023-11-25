@@ -3,7 +3,7 @@ import React from 'react';
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface TeamBlockProps extends React.PropsWithChildren {
   team: string;

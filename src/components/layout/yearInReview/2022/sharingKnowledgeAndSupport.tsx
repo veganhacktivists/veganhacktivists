@@ -6,7 +6,7 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import SquareField from '../../../decoration/squares';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface ImageWithCaptionTypes {
   caption: string;

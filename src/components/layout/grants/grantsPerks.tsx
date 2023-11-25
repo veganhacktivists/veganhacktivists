@@ -9,7 +9,7 @@ import { pixelHeart } from '../../../images/separators';
 
 import useOnce from 'hooks/useOnce';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 type PerkProps = React.PropsWithChildren<{
   image: StaticImageData;

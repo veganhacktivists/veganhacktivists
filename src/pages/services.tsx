@@ -18,7 +18,7 @@ import webIcon from '../../public/images/services/Services-icon-web.png';
 import designIcon from '../../public/images/services/Services-icon-design.png';
 import PixelBulb from '../../public/images/VH_PixelBulb.png';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },

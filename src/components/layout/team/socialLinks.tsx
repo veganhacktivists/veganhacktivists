@@ -18,7 +18,7 @@ import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
 
 import type { ISocialLinksFields } from '../../../types/generated/contentful';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 const SOCIAL_LINK_KEY_TO_ICON: Record<
   keyof ISocialLinksFields,

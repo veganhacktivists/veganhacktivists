@@ -8,7 +8,7 @@ import ContentfulImage from '../contentfulImage';
 import getThemeColor from '../../../lib/helpers/theme';
 
 import type { Asset } from 'contentful';
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 export interface ContentButtonProps {
   content: { title: string; image: Asset | StaticImageData };

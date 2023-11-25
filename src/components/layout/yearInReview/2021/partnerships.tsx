@@ -7,7 +7,7 @@ import otherPartner from '../../../../../public/images/yearInReview/2021/partner
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface PartnershipProps extends React.PropsWithChildren {
   image: StaticImageData;

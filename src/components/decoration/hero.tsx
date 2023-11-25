@@ -5,7 +5,7 @@ import Circle from './circle';
 import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
 
-import type { ImageProps, StaticImageData } from 'next/image';
+import type { ImageProps, StaticImageData } from 'next/legacy/image';
 
 interface HeroClassNames {
   container?: string;

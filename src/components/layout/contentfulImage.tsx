@@ -1,7 +1,7 @@
 import CustomImage from '../decoration/customImage';
 
 import type { Asset } from 'contentful';
-import type { ImageProps } from 'next/image';
+import type { ImageProps } from 'next/legacy/image';
 
 interface ContentfulImageProps
   extends Partial<Omit<ImageProps, 'src' | 'alt'>> {

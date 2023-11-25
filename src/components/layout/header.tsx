@@ -23,31 +23,30 @@ const LeftSide: React.FC = () => {
       )}
     >
       {/* root */}
-      <Link href="/">
-        <a className={classNames({ hidden: !isRootPage })}>
-          <Player
-            autoplay
-            loop
-            src={logoBig}
-            style={{
-              maxWidth: '344px',
-              maxHeight: '113.5px',
-            }}
-          />
-        </a>
+      <Link href="/" className={classNames({ hidden: !isRootPage })}>
+        <Player
+          autoplay
+          loop
+          src={logoBig}
+          style={{
+            maxWidth: '344px',
+            maxHeight: '113.5px',
+          }}
+        />
       </Link>
       {/* others */}
-      <Link href="/">
-        <a className={classNames('flex items-center', { hidden: isRootPage })}>
-          <CustomImage
-            src={logoOneLine}
-            alt="Vegan Hacktivists Logo"
-            layout="intrinsic"
-            width={logoOneLine.width * ratio}
-            height={logoOneLine.height * ratio}
-            priority
-          />
-        </a>
+      <Link
+        href="/"
+        className={classNames('flex items-center', { hidden: isRootPage })}
+      >
+        <CustomImage
+          src={logoOneLine}
+          alt="Vegan Hacktivists Logo"
+          layout="intrinsic"
+          width={logoOneLine.width * ratio}
+          height={logoOneLine.height * ratio}
+          priority
+        />
       </Link>
     </div>
   );
@@ -73,12 +72,10 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   );
 
   return (
-    <Link href={href} passHref>
-      <a className={classes}>
-        <code className={classNames({ 'border-b-[3px]': active })}>
-          {children}
-        </code>
-      </a>
+    <Link href={href} passHref className={classes}>
+      <code className={classNames({ 'border-b-[3px]': active })}>
+        {children}
+      </code>
     </Link>
   );
 };

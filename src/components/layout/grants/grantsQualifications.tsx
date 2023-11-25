@@ -2,7 +2,7 @@ import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
 import CustomImage from '../../decoration/customImage';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface INumberIcons {
   [key: string]: StaticImageData;

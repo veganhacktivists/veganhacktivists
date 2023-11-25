@@ -2,7 +2,7 @@ import getThemeColor from '../../../lib/helpers/theme';
 import { LightButton } from '../../decoration/buttons';
 import CustomImage from '../../decoration/customImage';
 
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/legacy/image';
 
 interface DonationCardProps extends React.PropsWithChildren {
   title: string;

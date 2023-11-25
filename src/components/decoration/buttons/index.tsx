@@ -84,19 +84,20 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
     return (
       <>
         {props.href ? (
-          <Link {...linkProps} href={props.href} passHref>
-            <a
-              {...(props as AnchorHTMLAttributes<unknown>)}
-              ref={ref as Ref<HTMLAnchorElement>}
-              className={classNames(
-                classes,
-                `${props.disabled ? 'bg-gray-light text-black' : ''}`
-              )}
-              target={openInNewTab ? '_blank' : undefined}
-              rel={openInNewTab ? 'noreferrer' : undefined}
-            >
-              {children}
-            </a>
+          <Link
+            {...props}
+            {...linkProps}
+            href={props.href}
+            passHref
+            ref={ref as Ref<HTMLAnchorElement>}
+            className={classNames(
+              classes,
+              `${props.disabled ? 'bg-gray-light text-black' : ''}`
+            )}
+            target={openInNewTab ? '_blank' : undefined}
+            rel={openInNewTab ? 'noreferrer' : undefined}
+          >
+            {children}
           </Link>
         ) : (
           <button

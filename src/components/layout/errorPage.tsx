@@ -92,10 +92,10 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
                       },
                     }}
                     passHref
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <a target="_blank" rel="noreferrer">
-                      hello@veganhacktivists.org
-                    </a>
+                    hello@veganhacktivists.org
                   </Link>
                 </span>
               ) : (
