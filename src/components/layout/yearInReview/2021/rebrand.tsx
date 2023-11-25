@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import brandGuideImage from '../../../../../public/images/yearInReview/2021/VH_BrandGuide.jpg';
-import CustomImage from '../../../decoration/customImage';
 import { LightButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { BlogPostItem } from './featuredBlogPosts';
 
@@ -44,13 +45,10 @@ const Rebrand: React.FC<RebrandProps> = ({ kate }) => {
                   query: { slug: kate.blogEntry.fields.slug },
                 }}
                 scroll
+                className="font-bold"
+                style={{ color: kate.member.fields.team?.fields.color }}
               >
-                <a
-                  className="font-bold"
-                  style={{ color: kate.member.fields.team?.fields.color }}
-                >
-                  {kate.member.fields.name}
-                </a>
+                {kate.member.fields.name}
               </Link>
               , who&apos;s been at the heart of transforming the way we work and
               look at design here at VH.

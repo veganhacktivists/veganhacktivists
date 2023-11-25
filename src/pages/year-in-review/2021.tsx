@@ -86,12 +86,14 @@ export const getStaticProps: GetStaticProps = async () => {
       other: { select: ['fields.slug', 'fields.title'] },
     });
 
-    return members.map((member) => ({
-      member,
-      blogEntry: meetTheMembers.find((blogEntry) =>
-        blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
-      ),
-    }));
+    return members
+      .map((member) => ({
+        member,
+        blogEntry: meetTheMembers.find((blogEntry) =>
+          blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
+        ),
+      }))
+      .filter(({ blogEntry }) => blogEntry);
   };
 
   const getFeaturedProjects = async () => {

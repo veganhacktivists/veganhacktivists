@@ -1,12 +1,13 @@
 import { NextSeo } from 'next-seo';
 
 import PixelCow from '../../../public/images/VH_PixelCow.png';
-import CustomImage from '../../components/decoration/customImage';
 import {
   SubSection,
   FirstSubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 

@@ -25,9 +25,10 @@ import Sprite, { sheep, chicks } from '../components/decoration/sprite';
 import JoinPlayground from '../components/layout/join/joinPlayground';
 import SquareField from '../components/decoration/squares';
 import { FirstSubSection } from '../components/decoration/textBlocks';
-import CustomImage from '../components/decoration/customImage';
 import { pixelFlower } from '../images/separators';
 import PriorityRole from '../components/layout/join/priorityRole';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { PriorityRoleProps } from '../components/layout/join/priorityRole';
 import type { JobRoleProps } from '../components/layout/join/jobRole';

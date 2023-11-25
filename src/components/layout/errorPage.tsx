@@ -4,7 +4,6 @@ import { NextSeo } from 'next-seo';
 import { StatusCodes } from 'http-status-codes';
 import { useEffect } from 'react';
 
-import CustomImage from '../decoration/customImage';
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
 import errorTypeImage from '../../../public/images/VH-error-type.png';
@@ -15,6 +14,8 @@ import {
   sweetPotato,
   watermelon,
 } from '../../images/teams';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { FallbackProps } from 'react-error-boundary';
 import type { NextPage } from 'next';
@@ -92,10 +93,10 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
                       },
                     }}
                     passHref
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <a target="_blank" rel="noreferrer">
-                      hello@veganhacktivists.org
-                    </a>
+                    hello@veganhacktivists.org
                   </Link>
                 </span>
               ) : (

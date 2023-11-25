@@ -1,10 +1,11 @@
 import vcj from '../../../../../public/images/yearInReview/2021/DesignedLogo_VCJ.png';
 import sv from '../../../../../public/images/yearInReview/2021/DesignedLogo_SV.png';
 import ivff from '../../../../../public/images/yearInReview/2021/DesignedLogo_IVFF.png';
-import CustomImage from '../../../decoration/customImage';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import SquareField from '../../../decoration/squares';
+
+import CustomImage from 'components/decoration/customImage';
 
 const DesignsForVeganOrgs: React.FC = () => {
   return (
@@ -34,7 +35,14 @@ const DesignsForVeganOrgs: React.FC = () => {
             />
           </div>
           <div className="mb-10">
-            <CustomImage src={sv} alt="Solutionary Vegan design" />
+            <CustomImage
+              src={sv}
+              alt="Solutionary Vegan design"
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
+            />
           </div>
         </div>
       </SectionContainer>

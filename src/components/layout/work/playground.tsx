@@ -3,8 +3,8 @@ import React from 'react';
 import playgroundLogo from '../../../../public/images/playground/VH_Playground_Logo_Full.png';
 import { PlaygroundStats } from '../playground/layout';
 
-import SquareField from 'components/decoration/squares';
 import CustomImage from 'components/decoration/customImage';
+import SquareField from 'components/decoration/squares';
 import { LightButton } from 'components/decoration/buttons';
 
 const TOP_DECORATION_SQUARES = [

@@ -3,9 +3,10 @@ import React from 'react';
 import { DarkButton } from '../../../decoration/buttons';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
-import CustomImage from '../../../decoration/customImage';
 import SquareField from '../../../decoration/squares';
 import newsletter from '../../../../../public/images/yearInReview/2021/newsletter.png';
+
+import CustomImage from 'components/decoration/customImage';
 
 const NewsletterLaunch: React.FC = () => {
   return (

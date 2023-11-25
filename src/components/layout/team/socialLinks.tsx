@@ -13,8 +13,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
-import CustomImage from '../../decoration/customImage';
 import ahIcon from '../../../../public/images/projects/icons/ahub.svg';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { ISocialLinksFields } from '../../../types/generated/contentful';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
@@ -76,7 +77,6 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
               <CustomImage
                 src={ahIcon as StaticImageData}
                 alt=""
-                layout="fixed"
                 width={30}
                 height={24}
               />

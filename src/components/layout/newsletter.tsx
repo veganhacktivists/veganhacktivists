@@ -6,9 +6,10 @@ import { toast } from 'react-toastify';
 
 import { pixelEnvelope } from '../../images/separators';
 import { DarkButton } from '../decoration/buttons';
-import CustomImage from '../decoration/customImage';
 import Spinner from '../decoration/spinner';
 import TextInput from '../forms/inputs/textInput';
+
+import CustomImage from 'components/decoration/customImage';
 
 interface NewsletterRequestProps {
   email: string;

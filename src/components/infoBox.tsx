@@ -3,9 +3,10 @@ import React from 'react';
 
 import getThemeColor from '../lib/helpers/theme';
 
-import CustomImage from './decoration/customImage';
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { Asset } from 'contentful';
 import type { StaticImageData } from 'next/image';
@@ -51,14 +52,19 @@ const InfoBox: React.FC<InfoBoxProps> = ({
             squares={[{ color: iconAccentColor, size: 16, top: 0, right: 0 }]}
           />
         </div>
-        <div className="p-10 my-auto w-full">
+        <div className="p-10 my-auto w-full h-96 md:h-auto flex items-center justify-center">
           {(icon as Asset).fields ? (
-            <ContentfulImage image={icon as Asset} layout="responsive" alt="" />
+            <ContentfulImage
+              image={icon as Asset}
+              alt=""
+              className="h-full md:h-auto object-contain"
+            />
           ) : (
             <CustomImage
               src={icon as StaticImageData}
-              layout="responsive"
               alt=""
+              sizes="100vw"
+              className="h-full md:h-auto object-contain"
             />
           )}
         </div>

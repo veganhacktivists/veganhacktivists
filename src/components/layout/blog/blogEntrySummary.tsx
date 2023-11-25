@@ -24,8 +24,8 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
   const LinkToBlog: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <Link href={`/blog/${blog.fields.slug}`}>
-      <a aria-label={blog.fields.title}>{children}</a>
+    <Link href={`/blog/${blog.fields.slug}`} aria-label={blog.fields.title}>
+      {children}
     </Link>
   );
 
@@ -43,7 +43,11 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         })}
       >
         <LinkToBlog>
-          <ContentfulImage image={featuredImage} alt="" layout="responsive" />
+          <ContentfulImage
+            image={featuredImage}
+            alt=""
+            className="h-full object-contain object-top"
+          />
         </LinkToBlog>
         {heading && (
           <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">

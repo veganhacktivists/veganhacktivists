@@ -5,8 +5,9 @@ import beeImage from '../../../../public/images/grants/bee-header.png';
 import beeIcon from '../../../../public/images/grants/VH-icon-bee.png';
 import { DarkButton } from '../../decoration/buttons';
 import getThemeColor from '../../../lib/helpers/theme';
-import CustomImage from '../../decoration/customImage';
 import { pixelFlower } from '../../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 
@@ -51,7 +52,6 @@ const Info: React.FC<InfoProps> = ({
             <CustomImage
               src={boxicon}
               alt=""
-              layout="fixed"
               height={(boxicon.height / boxicon.width) * 100}
               width={100}
             />

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import CustomImage from '../../../decoration/customImage';
 import SectionContainer from '../sectionContainer';
 import advisorService from '../../../../../public/images/yearInReview/2021/advisory.png';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import { DarkButton } from '../../../decoration/buttons';
 import SquareField from '../../../decoration/squares';
+
+import CustomImage from 'components/decoration/customImage';
 
 const AdvisoryService: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const AdvisoryService: React.FC = () => {
       <SectionContainer>
         <div className="flex flex-col md:flex-row md:w-3/4 mx-auto gap-x-10 justify-center">
           <div className="mx-auto w-2/3 md:w-[100rem] pb-5 md:pb-0 md:flex-grow">
-            <CustomImage src={advisorService} alt="" layout="responsive" />
+            <CustomImage src={advisorService} alt="" sizes="100vw" />
           </div>
           <div className="mx-auto md:text-left space-y-5 text-2xl px-5">
             <SectionHeader

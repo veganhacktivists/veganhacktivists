@@ -4,9 +4,9 @@ import callImage from '../../../../public/images/grants/call.jpg';
 import squarespaceImage from '../../../../public/images/grants/squarespace.jpg';
 import contentImage from '../../../../public/images/grants/content.jpg';
 import designerImage from '../../../../public/images/grants/designer.jpg';
-import CustomImage from '../../decoration/customImage';
 import { pixelHeart } from '../../../images/separators';
 
+import CustomImage from 'components/decoration/customImage';
 import useOnce from 'hooks/useOnce';
 
 import type { StaticImageData } from 'next/image';
@@ -70,7 +70,7 @@ const Perk: React.FC<PerkProps> = ({ image, title, children }) => {
   return (
     <div className="grid grid-cols-1 py-10 md:grid-cols-2">
       <div>
-        <CustomImage src={image} alt="" layout="responsive" />
+        <CustomImage src={image} alt="" sizes="100vw" />
       </div>
       <div className="flex flex-col justify-center px-4 mt-6 ml-0 md:ml-8 md:mt-0 md:px-0">
         <h4 className="text-3xl font-semibold">{title}</h4>

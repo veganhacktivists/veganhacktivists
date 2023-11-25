@@ -54,37 +54,36 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                   query: { slug: blogEntry.fields.slug },
                 }}
                 key={blogEntry.fields.slug}
+                target="_blank"
               >
-                <a target="_blank">
-                  <div className="w-64 md:w-52 mx-auto">
-                    <div className="flex justify-end group aspect-square">
-                      <div className="relative h-min">
-                        <ContentfulImage image={image} alt={name} />
-                        <div
-                          className={
-                            'left-0 top-0 w-full h-full absolute opacity-10'
-                          }
-                          style={{
-                            backgroundColor: color,
-                          }}
-                        />
-                      </div>
+                <div className="w-64 md:w-52 mx-auto">
+                  <div className="flex justify-end group aspect-square">
+                    <div className="relative h-min">
+                      <ContentfulImage image={image} alt={name} />
                       <div
-                        style={{ backgroundColor: color }}
-                        className={'absolute w-8 h-8'}
+                        className={
+                          'left-0 top-0 w-full h-full absolute opacity-10'
+                        }
+                        style={{
+                          backgroundColor: color,
+                        }}
                       />
                     </div>
                     <div
                       style={{ backgroundColor: color }}
-                      className="font-bold p-5"
-                    >
-                      Meet {/* Sorry Suan Chin! */}
-                      {name.includes('Suan')
-                        ? name.split(' ').slice(0, 2).join(' ')
-                        : name.split(' ')[0]}
-                    </div>
+                      className={'absolute w-8 h-8'}
+                    />
                   </div>
-                </a>
+                  <div
+                    style={{ backgroundColor: color }}
+                    className="font-bold p-5 mt-2"
+                  >
+                    Meet {/* Sorry Suan Chin! */}
+                    {name.includes('Suan')
+                      ? name.split(' ').slice(0, 2).join(' ')
+                      : name.split(' ')[0]}
+                  </div>
+                </div>
               </Link>
             );
           })}

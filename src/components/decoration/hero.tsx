@@ -2,8 +2,9 @@ import React, { useCallback, useRef } from 'react';
 import classNames from 'classnames';
 
 import Circle from './circle';
-import CustomImage from './customImage';
 import ScrollDownIndicator from './scrollDownIndicator';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { ImageProps, StaticImageData } from 'next/image';
 
@@ -72,27 +73,36 @@ const Hero: React.FC<HeroProps> = ({
     });
   }, []);
 
+  const tagLineWidth =
+    tagline &&
+    ((tagline.imageWidth ?? tagline.image.width ?? 380) /
+      tagline.image.height) *
+      taglineHeight;
+
+  const objectPositionMap = {
+    top: 'object-top',
+    right: 'object-right',
+    left: 'object-left',
+    center: 'object-center',
+  };
+
   return (
     <div className={containerClasses} ref={ref}>
       <CustomImage
         alt=""
         src={imageBackground}
-        layout="fill"
-        objectFit="cover"
-        objectPosition={
-          main
-            ? 'top'
-            : imageAlignment === 'left'
-            ? 'left'
-            : imageAlignment === 'right'
-            ? 'right'
-            : 'center'
-        }
         priority
         {...backgroundImageProps}
+        fill
+        sizes="100vw"
+        className={classNames(
+          'object-cover',
+          main ? 'object-top' : objectPositionMap[imageAlignment]
+        )}
       />
+
       <h1 className={contentClasses}>
-        {tagline && (
+        {tagline && tagLineWidth && (
           <div
             className={classNames(classNameMapping?.tagline, {
               'ml-5 md:ml-56 xl:ml-36 2xl:ml-5 py-20 md:py-20 lg:py-20': !main,
@@ -102,13 +112,13 @@ const Hero: React.FC<HeroProps> = ({
               src={tagline.image}
               alt={tagline.alt}
               title={tagline.alt}
-              width={
-                ((tagline?.imageWidth ?? tagline?.image.width ?? 380) /
-                  tagline.image.height) *
-                taglineHeight
-              }
+              width={tagLineWidth}
               height={taglineHeight}
               priority
+              style={{
+                height: `${taglineHeight}px`,
+                width: `${tagLineWidth}px`,
+              }}
             />
           </div>
         )}

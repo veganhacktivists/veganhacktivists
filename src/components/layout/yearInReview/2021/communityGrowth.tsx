@@ -4,8 +4,9 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 import docImage from '../../../../../public/images/yearInReview/2021/comm_docs.png';
 import safetyImage from '../../../../../public/images/yearInReview/2021/comm_safety.png';
 import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.png';
-import CustomImage from '../../../decoration/customImage';
 import SectionContainer from '../sectionContainer';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 
@@ -70,11 +71,10 @@ const CommunityGrowth: React.FC = () => {
                 key={header}
                 className="flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0 pt-10"
               >
-                <div>
+                <div className={'shrink-0'}>
                   <CustomImage
                     src={image}
                     alt=""
-                    layout="fixed"
                     height={imageDimension}
                     width={imageDimension}
                   />

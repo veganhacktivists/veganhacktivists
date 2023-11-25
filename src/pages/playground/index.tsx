@@ -11,12 +11,12 @@ import { PlaygroundRequestCategory } from '@prisma/client';
 
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
+import CustomImage from 'components/decoration/customImage';
 import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import RequestFilters from 'components/layout/playground/requests/filters';
 import { DarkButton, LightButton } from 'components/decoration/buttons';
-import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { pixelHeart } from 'images/separators';
 import CustomLink from 'components/decoration/link';

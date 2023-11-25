@@ -1,9 +1,9 @@
 import SectionContainer from '../sectionContainer';
-import CustomImage from '../../../decoration/customImage';
 import SquareField from '../../../decoration/squares';
 import { pixelPig } from '../../../../images/separators';
 import Sprite, { goat } from '../../../decoration/sprite';
 
+import CustomImage from 'components/decoration/customImage';
 import { DarkButton } from 'components/decoration/buttons';
 
 const MovingForward: React.FC = () => {

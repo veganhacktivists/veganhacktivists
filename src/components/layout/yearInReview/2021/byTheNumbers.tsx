@@ -61,9 +61,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Clicks directing activists to orgs{' '}
               <Link href="https://veganactivism.org">
-                <a>
-                  <b>veganactivism.org</b>
-                </a>
+                <b>veganactivism.org</b>
               </Link>
             </Number>
             <Number
@@ -145,12 +143,12 @@ const ByTheNumbers: React.FC = () => {
               <b>Grants requested</b> of us within the first 45 days
             </Number>
             {/* <Number
-              number={
-                <AnimatedNumber number={40} className="text-orange" approx />
-              }
-            >
-              <b>New team members</b> have joined us
-            </Number> */}
+            number={
+              <AnimatedNumber number={40} className="text-orange" approx />
+            }
+          >
+            <b>New team members</b> have joined us
+          </Number> */}
           </div>
         </div>
       </SectionContainer>

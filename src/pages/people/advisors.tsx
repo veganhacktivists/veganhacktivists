@@ -6,9 +6,10 @@ import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import CustomImage from '../../components/decoration/customImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamMember } from '../../types/generated/contentful';

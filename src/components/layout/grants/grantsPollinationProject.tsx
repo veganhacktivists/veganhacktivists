@@ -1,6 +1,7 @@
 import { LightButton } from '../../decoration/buttons';
 import PollinationProjectLogo from '../../../../public/images/grants/PollinationProject-Logo.jpg';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 const GrantsPollinationProject: React.FC = () => {
   return (
@@ -9,8 +10,8 @@ const GrantsPollinationProject: React.FC = () => {
         <div className="w-screen md:max-w-md">
           <CustomImage
             src={PollinationProjectLogo}
-            layout="responsive"
             alt="Logo of The Pollination Project"
+            sizes="100vw"
           />
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">

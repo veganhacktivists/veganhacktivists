@@ -1,6 +1,7 @@
 import getThemeColor from '../../../lib/helpers/theme';
 import { LightButton } from '../../decoration/buttons';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React from 'react';
 
-import CustomImage from '../../decoration/customImage';
 import ContentfulImage from '../contentfulImage';
 import getThemeColor from '../../../lib/helpers/theme';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { Asset } from 'contentful';
 import type { StaticImageData } from 'next/image';
@@ -84,7 +85,6 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
           <ContentfulImage
             image={content.image}
             alt={content.title + ' logo'}
-            layout="fill"
           />
         ) : (
           <CustomImage src={content.image} alt={content.title + ' logo'} />

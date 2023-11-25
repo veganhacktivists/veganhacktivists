@@ -64,9 +64,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Visitors to{' '}
               <Link href="https://watchdominion.org">
-                <a>
-                  <b>watchdominion.org</b>
-                </a>
+                <b>watchdominion.org</b>
               </Link>
             </Number>
             <Number
@@ -74,9 +72,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Translators signed up on{' '}
               <Link href="https://veganlinguists.org">
-                <a>
-                  <b>veganlinguists.org</b>
-                </a>
+                <b>veganlinguists.org</b>
               </Link>
             </Number>
             <Number
@@ -86,9 +82,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Words translated on{' '}
               <Link href="https://veganlinguists.org">
-                <a>
-                  <b>veganlinguists.org</b>
-                </a>
+                <b>veganlinguists.org</b>
               </Link>
             </Number>
 
@@ -99,9 +93,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Courses completed on{' '}
               <Link href="https://veganbootcamp.org">
-                <a>
-                  <b>veganbootcamp.org</b>
-                </a>
+                <b>veganbootcamp.org</b>
               </Link>
             </Number>
             <Number
@@ -111,9 +103,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Users signed up on{' '}
               <Link href="https://veganbootcamp.org">
-                <a>
-                  <b>veganbootcamp.org</b>
-                </a>
+                <b>veganbootcamp.org</b>
               </Link>
             </Number>
             <Number
@@ -123,9 +113,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Activists signed up on{' '}
               <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
+                <b>activisthub.org</b>
               </Link>
             </Number>
 
@@ -134,9 +122,7 @@ const ByTheNumbers: React.FC = () => {
             >
               Global events launched on{' '}
               <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
+                <b>activisthub.org</b>
               </Link>
             </Number>
             <Number
@@ -144,18 +130,16 @@ const ByTheNumbers: React.FC = () => {
             >
               Actions performed on{' '}
               <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
+                <b>activisthub.org</b>
               </Link>
             </Number>
             {/* <Number
-              number={
-                <AnimatedNumber number={40} className="text-orange" approx />
-              }
-            >
-              <b>New team members</b> have joined us
-            </Number> */}
+          number={
+            <AnimatedNumber number={40} className="text-orange" approx />
+          }
+        >
+          <b>New team members</b> have joined us
+        </Number> */}
           </div>
         </div>
       </div>
