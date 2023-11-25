@@ -1,9 +1,10 @@
 import { NextSeo } from 'next-seo';
 
 import SquareField from '../components/decoration/squares';
-import CustomImage from '../components/decoration/customImage';
 import Newsletter from '../components/layout/newsletter';
 import { pixelHeart } from '../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 const Contact: React.FC = () => {
   return (

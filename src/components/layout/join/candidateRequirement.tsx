@@ -1,7 +1,8 @@
 import React from 'react';
 
 import getThemeColor from '../../../lib/helpers/theme';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 
@@ -21,15 +22,16 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
   const backgroundColor = getThemeColor(color);
   return (
     <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
-      <div style={{ backgroundColor }} className="p-3 pb-1">
+      <div style={{ backgroundColor }} className="p-3">
         <CustomImage
           src={image}
           alt=""
           width={iconSize}
           height={iconSize}
-          layout="fixed"
-          objectPosition="center"
           priority
+          style={{
+            objectPosition: 'center',
+          }}
         />
       </div>
       <p className="w-5/8 text-center md:text-left md:text-2xl">

@@ -4,8 +4,9 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 import docImage from '../../../../../public/images/yearInReview/2021/comm_docs.png';
 import safetyImage from '../../../../../public/images/yearInReview/2021/comm_safety.png';
 import techImage from '../../../../../public/images/yearInReview/2021/comm_tech.png';
-import CustomImage from '../../../decoration/customImage';
 import SectionContainer from '../sectionContainer';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 
@@ -74,7 +75,6 @@ const CommunityGrowth: React.FC = () => {
                   <CustomImage
                     src={image}
                     alt=""
-                    layout="fixed"
                     height={imageDimension}
                     width={imageDimension}
                   />

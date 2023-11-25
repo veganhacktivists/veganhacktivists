@@ -3,9 +3,10 @@ import React from 'react';
 
 import getThemeColor from '../lib/helpers/theme';
 
-import CustomImage from './decoration/customImage';
 import SquareField from './decoration/squares';
 import ContentfulImage from './layout/contentfulImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { Asset } from 'contentful';
 import type { StaticImageData } from 'next/image';
@@ -55,11 +56,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
           {(icon as Asset).fields ? (
             <ContentfulImage image={icon as Asset} layout="responsive" alt="" />
           ) : (
-            <CustomImage
-              src={icon as StaticImageData}
-              layout="responsive"
-              alt=""
-            />
+            <CustomImage src={icon as StaticImageData} alt="" sizes="100vw" />
           )}
         </div>
       </div>

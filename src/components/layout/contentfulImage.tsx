@@ -1,4 +1,4 @@
-import CustomImage from '../decoration/customImage';
+import CustomImage from 'components/decoration/customImage';
 
 import type { Asset } from 'contentful';
 import type { ImageProps } from 'next/image';

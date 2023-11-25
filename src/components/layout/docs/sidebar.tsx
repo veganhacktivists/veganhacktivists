@@ -41,31 +41,29 @@ const Documentation: React.FC<DocumentationProps> = ({
           hash: slug,
         }}
       >
-        <a>
-          <div
-            onClick={() => {
-              setCurrentDocSlug(slug);
-              setSelectedSectionSlug(sectionSlug);
-              setTimeout(() => {
-                document.getElementById(slug)?.scrollIntoView();
-              });
-            }}
-            onPointerEnter={() => {
-              setHover(true);
-            }}
-            onPointerLeave={() => {
-              setHover(false);
-            }}
-            className={classNames('cursor-pointer py-1', {
-              'font-bold': isSelected,
-            })}
-            style={{
-              color: isSelected || hover ? color : 'inherit',
-            }}
-          >
-            {title}
-          </div>
-        </a>
+        <div
+          onClick={() => {
+            setCurrentDocSlug(slug);
+            setSelectedSectionSlug(sectionSlug);
+            setTimeout(() => {
+              document.getElementById(slug)?.scrollIntoView();
+            });
+          }}
+          onPointerEnter={() => {
+            setHover(true);
+          }}
+          onPointerLeave={() => {
+            setHover(false);
+          }}
+          className={classNames('cursor-pointer py-1', {
+            'font-bold': isSelected,
+          })}
+          style={{
+            color: isSelected || hover ? color : 'inherit',
+          }}
+        >
+          {title}
+        </div>
       </Link>
     </li>
   );
@@ -103,9 +101,7 @@ const Section: React.FC<SectionProps> = ({
           query: { category: categorySlug, section: slug },
         }}
       >
-        <a>
-          <div className="py-1 text-xl font-bold cursor-pointer">{title}</div>
-        </a>
+        <div className="py-1 text-xl font-bold cursor-pointer">{title}</div>
       </Link>
 
       {subsections && (

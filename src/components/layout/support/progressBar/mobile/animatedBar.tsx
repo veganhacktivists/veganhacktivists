@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 
 import useReduceMotion from '../../../../../hooks/useReduceMotion';
-import CustomImage from '../../../../decoration/customImage';
 import { chicken } from '../../../../decoration/sprite';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { AnimatedBarProps } from '../animatedBar';
 

@@ -9,8 +9,9 @@ import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import { DarkButton } from '../../components/decoration/buttons';
 import { firstLetterUppercase } from '../../lib/helpers/strings';
-import CustomImage from '../../components/decoration/customImage';
 import { pixelHeart } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type {

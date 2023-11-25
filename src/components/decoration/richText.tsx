@@ -95,10 +95,11 @@ const defaultRichTextOptions: Options = {
     ),
     [BLOCKS.HR]: () => <hr className="mt-5" />,
     [INLINES.HYPERLINK]: (node, children) => (
-      <Link href={(node as Hyperlink).data.uri}>
-        <a className="font-semibold underline hover:text-grey visited:text-grey">
-          {children}
-        </a>
+      <Link
+        href={(node as Hyperlink).data.uri}
+        className="font-semibold underline hover:text-grey visited:text-grey"
+      >
+        {children}
       </Link>
     ),
     [BLOCKS.PARAGRAPH]: (node, children) => (

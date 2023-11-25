@@ -2,7 +2,8 @@ import React from 'react';
 
 import { LightButton } from '../decoration/buttons';
 import teamIcons from '../../../public/images/VH-team-icons.png';
-import CustomImage from '../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 const MeetOurTeam: React.FC = () => {
   return (

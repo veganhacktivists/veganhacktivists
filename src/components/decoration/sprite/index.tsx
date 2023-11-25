@@ -4,10 +4,11 @@ import classNames from 'classnames';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 import useWindowBreakpoint from '../../../hooks/useWindowBreakpoint';
-import CustomImage from '../customImage';
 
 import FloatingHeart from './FloatingHeart';
 import cssAnimations from './animations.module.css';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 
@@ -110,7 +111,6 @@ const Sprite = ({
             height={image.height * scale}
             width={image.width * scale}
             alt=""
-            layout="fixed"
           />
         </div>
       </animated.div>

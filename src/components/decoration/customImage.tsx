@@ -5,7 +5,13 @@ import Image from 'next/image';
 import type { ImageProps } from 'next/image';
 
 const CustomImage: React.FC<ImageProps> = (props) => {
-  return <Image loading="eager" {...props} />;
+  return (
+    <Image
+      loading="eager"
+      className={'max-w-full h-auto inline-block'}
+      {...props}
+    />
+  );
 };
 
 export default CustomImage;

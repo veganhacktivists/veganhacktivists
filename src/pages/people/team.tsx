@@ -7,10 +7,11 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import CustomImage from '../../components/decoration/customImage';
 import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamFields } from '../../types/generated/contentful';

@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
-import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
 import { pixelPig } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 
@@ -52,8 +53,8 @@ const OurStory: PageWithLayout = () => {
           effective, and impactful. As a distributed organization, we want to
           build a sense of community aligned by values and connected through
           meaningful and playful interactions. Each team is represented with a{' '}
-          <Link href="/people/team">
-            <a className="hover:text-grey">fruit or vegetable</a>
+          <Link href="/people/team" className="hover:text-grey">
+            fruit or vegetable
           </Link>{' '}
           (taking plant-based to another level), and we balance our work with
           games, get-togethers, and community calls. Our volunteers are, after
