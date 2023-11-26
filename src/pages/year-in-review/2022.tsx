@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 import Hero from '../../components/decoration/hero';
 import { YearInReviewHeader } from '../../components/layout/yearInReview/layout';
@@ -21,9 +22,15 @@ import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
 import BonusProjects from 'components/layout/yearInReview/2022/bonusProjects';
 
 const YearInReview2022: React.FC = ({}) => {
+  const intl = useIntl();
   return (
     <>
-      <NextSeo title="2022 in Review" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.year-in-review.2022.next-seo.title',
+          defaultMessage: '2022 in Review',
+        })}
+      />
       <div className="text-2xl">
         <YearInReviewHeader
           year={2022}
@@ -32,7 +39,10 @@ const YearInReview2022: React.FC = ({}) => {
               imageBackground={heroBackground}
               tagline={{
                 image: heroTagline,
-                alt: '2022 year in review',
+                alt: intl.formatMessage({
+                  id: 'page.year-in-review.2022.section.header.image.alt-text',
+                  defaultMessage: '2022 year in review',
+                }),
               }}
               alignment="left"
               classNameMapping={{
