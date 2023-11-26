@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import NumberImage from '../../../../../public/images/yearInReview/2022/numbers.png';
@@ -34,62 +35,112 @@ const ByTheNumbers: React.FC = () => {
         <div className="flex justify-center pb-10">
           <CustomImage alt="" src={NumberImage} />
         </div>
-        <span className="text-6xl font-bold font-mono">By the numbers</span>
+        <span className="text-6xl font-bold font-mono">
+          <FormattedMessage
+            id="page.year-in-review.2022.section.by-the-numbers.heading"
+            defaultMessage="By the numbers"
+          />
+        </span>
         <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pt-20 pb-10">
           <Number
             number={<AnimatedNumber number={2636} className="text-magenta" />}
           >
-            <b>Volunteer applicants</b> for Vegan Hacktivists
+            <FormattedMessage
+              id="page.year-in-review.2022.section.by-the-numbers.applicants"
+              defaultMessage="<b>Volunteer applicants</b> for <no-localization>Vegan Hacktivists</no-localization>"
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </Number>
           <div className="flex flex-col md:flex-row flex-wrap mt-5">
             <Number
               number={<AnimatedNumber number={56623} className="text-green" />}
             >
-              Emails successfully sent across all <b>newsletters</b>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.emails"
+                defaultMessage="Emails successfully sent across all <b>newsletters</b>"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={<AnimatedNumber number={2077} className="text-green" />}
             >
-              Clicks from our newsletter <b>to our services</b>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.newsletter-clicks"
+                defaultMessage="Clicks from our newsletter <b>to our services</b>"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={<AnimatedNumber number={147} className="text-green" />}
             >
-              <b>Organizations suppported</b> by Vegan Hacktivists
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.organizations-supported"
+                defaultMessage="<b>Organizations supported</b> by <no-localization>Vegan Hacktivists</no-localization>"
+                values={{
+                  b: (chunks) => <b>{chunks}</b>,
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={133060} className="text-yellow" />
               }
             >
-              Visitors to{' '}
-              <Link href="https://watchdominion.org">
-                <a>
-                  <b>watchdominion.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.watch-dominion-visitors"
+                defaultMessage="Visitors to <link><no-localization>watchdominion.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://watchdominion.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={<AnimatedNumber number={812} className="text-yellow" />}
             >
-              Translators signed up on{' '}
-              <Link href="https://veganlinguists.org">
-                <a>
-                  <b>veganlinguists.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.vegan-linguists.translators"
+                defaultMessage="Translators signed up on <link><no-localization>veganlinguists.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://veganlinguists.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={147382} className="text-yellow" />
               }
             >
-              Words translated on{' '}
-              <Link href="https://veganlinguists.org">
-                <a>
-                  <b>veganlinguists.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.vegan-linguists.words-translated"
+                defaultMessage="Words translated on <link><no-localization>veganlinguists.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://veganlinguists.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
 
             <Number
@@ -97,65 +148,93 @@ const ByTheNumbers: React.FC = () => {
                 <AnimatedNumber number={10823} className="text-orange-light" />
               }
             >
-              Courses completed on{' '}
-              <Link href="https://veganbootcamp.org">
-                <a>
-                  <b>veganbootcamp.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.vegan-bootcamp.courses-completed"
+                defaultMessage="Courses completed on <link><no-localization>veganbootcamp.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://veganbootcamp.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={18102} className="text-orange-light" />
               }
             >
-              Users signed up on{' '}
-              <Link href="https://veganbootcamp.org">
-                <a>
-                  <b>veganbootcamp.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.vegan-bootcamp.users-signed-up"
+                defaultMessage="Users signed up on <link><no-localization>veganbootcamp.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://veganbootcamp.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={
                 <AnimatedNumber number={3025} className="text-orange-light" />
               }
             >
-              Activists signed up on{' '}
-              <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.activist-hub.sign-ups"
+                defaultMessage="Activists signed up on <link><no-localization>activisthub.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://activisthub.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
 
             <Number
               number={<AnimatedNumber number={754} className="text-orange" />}
             >
-              Global events launched on{' '}
-              <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.activist-hub.events"
+                defaultMessage="Global events launched on <link><no-localization>activisthub.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://activisthub.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
             <Number
               number={<AnimatedNumber number={15008} className="text-orange" />}
             >
-              Actions performed on{' '}
-              <Link href="https://activisthub.org">
-                <a>
-                  <b>activisthub.org</b>
-                </a>
-              </Link>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.by-the-numbers.activist-hub.actions"
+                defaultMessage="Actions performed on <link><no-localization>activisthub.org</no-localization></link>"
+                values={{
+                  link: (chunks) => (
+                    <Link href="https://activisthub.org">
+                      <a>
+                        <b>{chunks}</b>
+                      </a>
+                    </Link>
+                  ),
+                }}
+              />
             </Number>
-            {/* <Number
-              number={
-                <AnimatedNumber number={40} className="text-orange" approx />
-              }
-            >
-              <b>New team members</b> have joined us
-            </Number> */}
           </div>
         </div>
       </div>

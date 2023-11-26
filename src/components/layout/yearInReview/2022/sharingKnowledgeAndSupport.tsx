@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import family from '../../../../../public/images/yearInReview/2022/vh-family.jpg';
 import malina from '../../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
 import james from '../../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
@@ -43,6 +45,7 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
 };
 
 const SharingKnowledgeAndSupport: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer
@@ -54,11 +57,13 @@ const SharingKnowledgeAndSupport: React.FC = () => {
         }
       >
         <div className="text-xl md:w-2/3 xl:w-1/2 mx-auto">
-          This year, we were invited to speak at <b>CARE Conference</b> in
-          Warsaw, Poland and the first-ever <b>AVA Summit</b> in Washington, DC.
-          We spoke about our work for the animal protection movement and how
-          organizations and individuals could get involved with our services to
-          get the support they need.
+          <FormattedMessage
+            id="page.year-in-review.2022.section.sharing-knowledge-and-support.paragraph"
+            defaultMessage="This year, we were invited to speak at <no-localization><b>CARE Conference</b></no-localization> in <no-localization>Warsaw, Poland</no-localization> and the first-ever <no-localization><b>AVA Summit</b></no-localization> in <no-localization>Washington, DC</no-localization>. We spoke about our work for the animal protection movement and how organizations and individuals could get involved with our services to get the support they need."
+            values={{
+              b: (chunks) => <b>{chunks}</b>,
+            }}
+          />
         </div>
         <div className="xl:w-2/3 mx-auto mt-20">
           <div className="flex flex-col md:flex-row gap-5 pb-20">
@@ -67,16 +72,30 @@ const SharingKnowledgeAndSupport: React.FC = () => {
                 <ImageWithCaption
                   bgColor="yellow"
                   image={malina}
-                  caption={'Malina Tran at CARE Conference'}
-                  subcaption={'Data & Tech in Animal Rights Activism'}
+                  caption={intl.formatMessage({
+                    id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.caption',
+                    defaultMessage:
+                      '<no-localization>Malina Tran</no-localization> at <no-localization>CARE Conference</no-localization>',
+                  })}
+                  subcaption={intl.formatMessage({
+                    id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.subcaption',
+                    defaultMessage: 'Data & Tech in Animal Rights Activism',
+                  })}
                 />
               </div>
               <div className="flex ">
                 <ImageWithCaption
                   bgColor="green"
                   image={james}
-                  caption={'James Morgan at AVA Summit'}
-                  subcaption={'Tech Innovation in Animal Protection'}
+                  caption={intl.formatMessage({
+                    id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.ava-summit.caption',
+                    defaultMessage:
+                      '<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>',
+                  })}
+                  subcaption={intl.formatMessage({
+                    id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.ava-summit.subcaption',
+                    defaultMessage: 'Tech Innovation in Animal Protection',
+                  })}
                 />
               </div>
             </div>

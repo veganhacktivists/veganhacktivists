@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Bee from '../../../../../public/images/yearInReview/2022/bee.png';
 import GrantApplicants from '../../../../../public/images/yearInReview/2022/grant-applicants.png';
@@ -50,15 +51,22 @@ const GrantProgram: React.FC = () => {
                   className="text-left"
                 />
                 <div className="text-xl text-left pt-5 pb-10">
-                  Last year, we announced a partnership with{' '}
-                  <b>The Pollination Project</b> to offer seed funding to
-                  individuals and burgeoning organizations. Here&apos;s what
-                  2022 looked like for the program:
+                  <FormattedMessage
+                    id="page.year-in-review.2022.section.grant-program.paragraph.0"
+                    defaultMessage="Last year, we announced a partnership with <no-localization><b>The Pollination Project</b></no-localization> to offer seed funding to individuals and burgeoning organizations. Here's what 2022 looked like for the program:"
+                    values={{
+                      b: (chunks) => <b>{chunks}</b>,
+                    }}
+                  />
                 </div>
                 <div className="text-xl text-left p-5 bg-grey-lighter">
-                  Additionally, our endorsement of individuals and organizations
-                  helped secure <b>$70,000 in recommended funding</b> through
-                  other programs to those recipients.
+                  <FormattedMessage
+                    id="page.year-in-review.2022.section.grant-program.paragraph.1"
+                    defaultMessage="Additionally, our endorsement of individuals and organizations helped secure <b>$70,000 in recommended funding</b> through other programs to those recipients."
+                    values={{
+                      b: (chunks) => <b>{chunks}</b>,
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -73,7 +81,12 @@ const GrantProgram: React.FC = () => {
                   <span className="block text-8xl font-bold leading-[0.7]">
                     <AnimatedNumber number={97} />
                   </span>
-                  <span className="text-3xl leading-[1.25rem]">Applicants</span>
+                  <span className="text-3xl leading-[1.25rem]">
+                    <FormattedMessage
+                      id="page.year-in-review.2022.section.grant-program.stats.applicants"
+                      defaultMessage="Applicants"
+                    />
+                  </span>
                 </div>
               </div>
               <div className="flex flex-row sm:gap-10">
@@ -84,7 +97,12 @@ const GrantProgram: React.FC = () => {
                   <span className="block text-8xl font-bold leading-[0.7]">
                     <AnimatedNumber prefix="$" number={54386} />
                   </span>
-                  <span className="text-3xl leading-[1.25rem]">Granted</span>
+                  <span className="text-3xl leading-[1.25rem]">
+                    <FormattedMessage
+                      id="page.year-in-review.2022.section.grant-program.stats.granted"
+                      defaultMessage="Granted"
+                    />
+                  </span>
                 </div>
               </div>
               <div className="flex flex-row sm:gap-10">
@@ -95,7 +113,12 @@ const GrantProgram: React.FC = () => {
                   <span className="block text-8xl font-bold leading-[0.7]">
                     <AnimatedNumber number={36} />
                   </span>
-                  <span className="text-3xl leading-[1.25rem]">Funded</span>
+                  <span className="text-3xl leading-[1.25rem]">
+                    <FormattedMessage
+                      id="page.year-in-review.2022.section.grant-program.stats.funded"
+                      defaultMessage="Funded"
+                    />
+                  </span>
                 </div>
               </div>
             </div>

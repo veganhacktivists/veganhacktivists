@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import DataImage from '../../../../../public/images/yearInReview/2022/data.png';
 import Faunalytics from '../../../../../public/images/yearInReview/2022/faunalytics.png';
@@ -26,15 +27,10 @@ const StateOfData: React.FC = () => {
               In the movement
             </span>
             <span className="text-xl block pt-20">
-              During the second half of the year, we launched the
-              first-of-its-kind study on the state of data and technology in
-              animal protection. With support and partnership from Faunalytics
-              with the design of this study, our team of researchers are seeking
-              to understand what are the challenges and opportunities among
-              organizations working in various fields and industries within our
-              broad movement. The forthcoming report will provide
-              recommendations to stakeholders and help drive our organizational
-              roadmap.
+              <FormattedMessage
+                id="page.year-in-review.2022.section.state-of-data.paragraph"
+                defaultMessage="During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
+              />
             </span>
             <div className="flex flex-row flex-wrap md:flex-no-wrap justify-center gap-10 pt-20 pb-20">
               <div className="bg-grey-background flex w-[305px] h-[305px] justify-center items-center p-5">

@@ -1373,15 +1373,6 @@
   "page.year-in-review.2021.section.videos.paragraph": {
     "message": "We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
   },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.0": {
-    "message": "We"
-  },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.1": {
-    "message": "expanded our advisory team"
-  },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.2": {
-    "message": "of vegan experts"
-  },
   "page.year-in-review.2021.section.we-grew.advisory-team.paragraph": {
     "message": "<b>We're so thankful to have more advisors to lean on</b> such as <no-localization>Katie</no-localization> from <no-localization>Animal Equality</no-localization>, <no-localization>Chris</no-localization> from <no-localization>APEX Advocacy</no-localization>, <no-localization>Tessa</no-localization> from the <no-localization>Pollination Project</no-localization>, and <no-localization>Casey</no-localization> from <no-localization>Faunalytics</no-localization>. To browse more of our advisors, <link>click here</link>."
   },
@@ -1391,29 +1382,266 @@
   "page.year-in-review.2021.section.we-grew.intro.paragraph": {
     "message": "This year, we refined our goals and built projects that focused primarily on filling existing gaps in our movement. We grew more meaningful partnerships and we greatly improved our branding, design team, and services offered. We're excited to show you what we've done below!"
   },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.0": {
-    "message": "We expanded with"
-  },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.1": {
-    "message": "5 new teams"
-  },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.2": {
-    "message": "in just 6 months"
-  },
   "page.year-in-review.2021.section.we-grew.new-teams.paragraph": {
     "message": "<b>More teams, more impact!</b> We're so happy to announce the growth of our community with five new amazing teams. Please welcome Team Avocado, Team Mango, Team Watermelon, and Team Sweet Potato."
   },
-  "page.year-in-review.2021.section.we-grew.projects.heading.0": {
-    "message": "We launched"
-  },
-  "page.year-in-review.2021.section.we-grew.projects.heading.1": {
-    "message": "8 new projects"
-  },
-  "page.year-in-review.2021.section.we-grew.projects.heading.2": {
-    "message": "for the movement"
-  },
   "page.year-in-review.2021.section.we-grew.projects.paragraph": {
     "message": "<b>Four of which were in-house projects.</b> We were also lucky enough to work on projects with <no-localization>Sehati Animal Sanctuary</no-localization>, <no-localization>Animal Alliance Asia</no-localization>, <no-localization>Vegan Japan Consulting</no-localization>, and many more."
+  },
+  "page.year-in-review.2022.next-seo.title": {
+    "message": "2022 in Review"
+  },
+  "page.year-in-review.2022.section.animal-rights-advocates.btn.community.cta": {
+    "message": "Join the Community"
+  },
+  "page.year-in-review.2022.section.animal-rights-advocates.btn.website.cta": {
+    "message": "Visit Website"
+  },
+  "page.year-in-review.2022.section.animal-rights-advocates.heading": {
+    "message": "Uplifting online community"
+  },
+  "page.year-in-review.2022.section.animal-rights-advocates.paragraph": {
+    "message": "We acquired the largest animal rights online community in the world. Founded in 2019, <no-localization>Animal Rights Advocates (ARA)</no-localization> is a platform on <no-localization>Discord</no-localization> for young activists. <no-localization>ARA</no-localization> has over 22,000 members who participate daily in vegan outreach efforts across hundreds of <no-localization>Discord</no-localization> communities. In addition to outreach events and training, this community also hosts <no-localization>AMA</no-localization> events with philosophers, activists, and influencers every week. <no-localization>ARA</no-localization> is also an inclusive community that strongly believes in intersectionality, feminism, diversity, trans rights, and more – a space where everyone is welcome."
+  },
+  "page.year-in-review.2022.section.bonus-projects.featured": {
+    "message": "Featured"
+  },
+  "page.year-in-review.2022.section.bonus-projects.paragraph": {
+    "message": "The team gathered together to build two mini projects before the end of the year that we thought would provide value to other movements and help promote our work."
+  },
+  "page.year-in-review.2022.section.bonus-projects.pitchfta.btn.cta": {
+    "message": "<no-localization>PitchFTA.org</no-localization>"
+  },
+  "page.year-in-review.2022.section.bonus-projects.pitchfta.featured.0": {
+    "message": "2022 <no-localization>AVA Summit</no-localization>"
+  },
+  "page.year-in-review.2022.section.bonus-projects.pitchfta.heading": {
+    "message": "<no-localization>PitchFTA.org</no-localization>"
+  },
+  "page.year-in-review.2022.section.bonus-projects.pitchfta.paragraph": {
+    "message": "<no-localization>Pitch for the Animals</no-localization> is a mobile-friendly app that crowdsources innovative ideas for the movement. The winning app idea, determined by popular vote at the inaugural <no-localization>AVA Summit</no-localization>, will be built by our team. Users participate in various in-app and in-person activities — such as quizzes, games, attending events, and participating in a scavenger hunt to find QR codes at the conference — to earn votes."
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.btn.cta": {
+    "message": "<no-localization>WildAnimalSuffering.org</no-localization>"
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.0": {
+    "message": "<no-localization>80,000 Hours</no-localization> Website"
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.1": {
+    "message": "<no-localization>Effective Altruism</no-localization> Newsletter"
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.2": {
+    "message": "<no-localization>Animal Charity Evaluators</no-localization> Newsletter"
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.heading": {
+    "message": "<no-localization>WildAnimalSuffering.org</no-localization>"
+  },
+  "page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.paragraph": {
+    "message": "This educational website presents the many issues facing wild animals and how people can make a difference in an accessible, visually-stunning format. From custom illustrations to educational resources, this site brings value to the conversation of wild animals. Special thanks to our friends at <no-localization>Animal Ethics</no-localization>, <no-localization>Wild Animal Initiative</no-localization>, <no-localization>Rethink Priorities</no-localization>, for lending their expertise for this project."
+  },
+  "page.year-in-review.2022.section.building-effective-teams.comms.heading": {
+    "message": "Communication Team"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.comms.paragraph": {
+    "message": "We are excited to have a dedicated comms team led by Malina Tran, our Director of Communications. This versatile team manages our blog, software content, social media, marketing, fundraising and grant application— and has been vital to our success and growth in showcasing the work we do to the public."
+  },
+  "page.year-in-review.2022.section.building-effective-teams.core.heading": {
+    "message": "Core Team"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.core.paragraph": {
+    "message": "We've also made several changes to our team structure! We now have a leadership team that includes key roles such as communications, product management, operations, engineering, design and lead architect supporting various teams and the organization as a whole. Branded with an apple (core), of course!"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.playground.heading": {
+    "message": "Playground Teams"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.playground.paragraph": {
+    "message": "As our volunteer community has grown, we've moved our signature team branding to Playground! Each team will specialize in a specific role which will allow us to connect volunteers with requests much easier. We're looking forward to building the community further there!"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.activist-hub.actions": {
+    "message": "Actions performed on <link><no-localization>activisthub.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.activist-hub.events": {
+    "message": "Global events launched on <link><no-localization>activisthub.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.activist-hub.sign-ups": {
+    "message": "Activists signed up on <link><no-localization>activisthub.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.applicants": {
+    "message": "<b>Volunteer applicants</b> for <no-localization>Vegan Hacktivists</no-localization>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.emails": {
+    "message": "Emails successfully sent across all <b>newsletters</b>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.heading": {
+    "message": "By the numbers"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.newsletter-clicks": {
+    "message": "Clicks from our newsletter <b>to our services</b>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.organizations-supported": {
+    "message": "<b>Organizations supported</b> by <no-localization>Vegan Hacktivists</no-localization>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.vegan-bootcamp.courses-completed": {
+    "message": "Courses completed on <link><no-localization>veganbootcamp.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.vegan-bootcamp.users-signed-up": {
+    "message": "Users signed up on <link><no-localization>veganbootcamp.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.vegan-linguists.translators": {
+    "message": "Translators signed up on <link><no-localization>veganlinguists.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.vegan-linguists.words-translated": {
+    "message": "Words translated on <link><no-localization>veganlinguists.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.by-the-numbers.watch-dominion-visitors": {
+    "message": "Visitors to <link><no-localization>watchdominion.org</no-localization></link>"
+  },
+  "page.year-in-review.2022.section.featured-interviews.btn.cta": {
+    "message": "Read More on the Blog"
+  },
+  "page.year-in-review.2022.section.featured-interviews.loading-spinner": {
+    "message": "Loading"
+  },
+  "page.year-in-review.2022.section.featured-interviews.paragraph": {
+    "message": "Earlier in the year, we had the honor of sitting down with diverse leaders in animal protection. We were inspired by their origin stories, words of wisdom, and their openness and candor in sharing their experiences with us — and hope you are too."
+  },
+  "page.year-in-review.2022.section.grant-program.paragraph.0": {
+    "message": "Last year, we announced a partnership with <no-localization><b>The Pollination Project</b></no-localization> to offer seed funding to individuals and burgeoning organizations. Here's what 2022 looked like for the program:"
+  },
+  "page.year-in-review.2022.section.grant-program.paragraph.1": {
+    "message": "Additionally, our endorsement of individuals and organizations helped secure <b>$70,000 in recommended funding</b> through other programs to those recipients."
+  },
+  "page.year-in-review.2022.section.grant-program.stats.applicants": {
+    "message": "Applicants"
+  },
+  "page.year-in-review.2022.section.grant-program.stats.funded": {
+    "message": "Funded"
+  },
+  "page.year-in-review.2022.section.grant-program.stats.granted": {
+    "message": "Granted"
+  },
+  "page.year-in-review.2022.section.header.image.alt-text": {
+    "message": "2022 year in review"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.broccoli": {
+    "message": "Utilized and launched a machine learning and artificial intelligence project"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.chili": {
+    "message": "Connected <no-localization>Faunalytics</no-localization>, <no-localization>We Animals Media</no-localization>, <no-localization>Black Veg Society</no-localization>, and 20+ others with volunteers"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.coconut": {
+    "message": "Created a Communications team that handles our content, social, and marketing strategy"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.corn": {
+    "message": "Designed a book for <no-localization>Sentient Media</no-localization> and formed a partnership with its programs"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.cucumber": {
+    "message": "Designed a new UX process that drives project ideation from start to finish"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.grape": {
+    "message": "Created an animation team to showcase our work and as a service to others in the movement"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.kiwi": {
+    "message": "Launched two new blog series, Leaders in <no-localization>Animal Protection</no-localization> and <no-localization>Byte Size</no-localization>"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.leafy-green": {
+    "message": "Created specialized roles, both among our core team and for platforms like <no-localization>Squarespace</no-localization> and <no-localization>Wordpress</no-localization>"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.peach": {
+    "message": "Developed a DevOps team to manage our servers and technical infrastructure"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.pineapple": {
+    "message": "Expanded our services to support design requests (logo, branding, and identity)"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.potato": {
+    "message": "Welcomed new advisors, <no-localization>Andrea Gunn</no-localization> and <no-localization>Christopher Eubanks</no-localization>, to our advisory board"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.sweet-potato": {
+    "message": "Collaborated with various <no-localization>Reddit</no-localization> communities to prominently feature <no-localization>WatchDominion.org</no-localization>"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.tangerine": {
+    "message": "Participated in <no-localization>LEAD Conference</no-localization>, and presented at <no-localization>CARE Conference</no-localization> and <no-localization>AVA Summit</no-localization>"
+  },
+  "page.year-in-review.2022.section.minor-changes-big-impact.tomato": {
+    "message": "Featured in interviews by <no-localization>Our Hen House</no-localization>, <no-localization>Animal Justice Academy</no-localization>, and <no-localization>Vegan FTA</no-localization>"
+  },
+  "page.year-in-review.2022.section.moving-forward.btn.cta": {
+    "message": "Support our work"
+  },
+  "page.year-in-review.2022.section.moving-forward.heading": {
+    "message": "Forward & Onward"
+  },
+  "page.year-in-review.2022.section.moving-forward.paragraph": {
+    "message": "We witnessed our biggest transformation to date this year. We focused significantly on the internal workings and processes of our organization, while also doing our best to serve organizations and advocates. We launched technology using machine learning and artificial intelligence, and we delivered new features and upgrades to high-impact projects. We attended conferences, spoke on podcasts, and created meaningful connections to expand our reach and impact. We launched the first study of its kind to collect data on the state of tech in the movement, and we partnered with 10 unique organizations in the animal protection movement on various initiatives. There is so much that we’ve done behind the scenes, and there is so much more to come. We are excited to be on this journey with all of you."
+  },
+  "page.year-in-review.2022.section.new-videos.btn.cta": {
+    "message": "Watch more videos"
+  },
+  "page.year-in-review.2022.section.new-videos.paragraph": {
+    "message": "Check out our latest videos from 2022! We have more videos in the pipeline so keep an eye out and subscribe to our youtube channel if you'd like to be the first to watch."
+  },
+  "page.year-in-review.2022.section.playground.btn.cta": {
+    "message": "Get support"
+  },
+  "page.year-in-review.2022.section.playground.heading": {
+    "message": "New & improved"
+  },
+  "page.year-in-review.2022.section.playground.paragraph.0": {
+    "message": "<no-localization>Playground</no-localization> was our answer to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs from volunteers."
+  },
+  "page.year-in-review.2022.section.playground.paragraph.1": {
+    "message": "Over 45 requests from organizations have been supported since our launch. Over 1500 volunteers have joined the <no-localization>Playground</no-localization> community, and it's growing every day!"
+  },
+  "page.year-in-review.2022.section.playground.paragraph.2": {
+    "message": "These volunteers are not just developers or designers, but also include data scientists, videographers, marketers, security experts, researchers, and many more roles."
+  },
+  "page.year-in-review.2022.section.providing-value.building-projects.paragraph": {
+    "message": "<b>Beyond building technology</b>, we work hard to find and fill gaps in our movement. This not only includes building our projects, but also launching our research study, participating in various international conferences, and investing in the growth of communities."
+  },
+  "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
+    "message": "<numberSpan>9600+</numberSpan> <textSpan>Hours</textSpan>"
+  },
+  "page.year-in-review.2022.section.providing-value.hours.text": {
+    "message": "volunteered in 2022 for the animal protection movement"
+  },
+  "page.year-in-review.2022.section.providing-value.intro.paragraph": {
+    "message": "This year, we leaned into our role and strength as capacity builders by expanding both our services and our professional volunteer network. We saved the movement over half a million dollars by serving over 120 organizations this year alone with our tech, design and advisory services. And we're just getting started!"
+  },
+  "page.year-in-review.2022.section.providing-value.numbers.cost-for-same-output": {
+    "message": "The cost for a company to deliver the <span>same output per year</span>"
+  },
+  "page.year-in-review.2022.section.providing-value.numbers.money-saved": {
+    "message": "Saved by organizations using our <span>free tech, design, and advisory services</span>"
+  },
+  "page.year-in-review.2022.section.providing-value.numbers.small-print": {
+    "message": "Amounts are in USD. Due to the nature of volunteer work, such as location of volunteer / cost of living, experience, hours contributed, hourly rate, and many other variables, these numbers are both conservative and rough estimates."
+  },
+  "page.year-in-review.2022.section.providing-value.numbers.total-value": {
+    "message": "Total value of <span>technology built to date</span> for the animal protection movement"
+  },
+  "page.year-in-review.2022.section.providing-value.we-expanded.paragraph": {
+    "message": "<b>Within our Playground community</b>, we've been able to expand our network of volunteers to 1500+ strong utilizing skills like developers, designers, writers, editors, researchers, marketers, data scientists, and many other roles."
+  },
+  "page.year-in-review.2022.section.providing-value.we-partnered.paragraph": {
+    "message": "<b>We are immensely thankful</b> for the opportunity to partner and collaborate with other organizations dedicated to animal protection such as <no-localization>Sentient Media</no-localization>, <no-localization>Open Sanctuary</no-localization>, <no-localization>Animal Advocacy Careers</no-localization>, and <no-localization>Animal Defense Partnerships</no-localization>, and others."
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.ava-summit.caption": {
+    "message": "<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.ava-summit.subcaption": {
+    "message": "Tech Innovation in Animal Protection"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.caption": {
+    "message": "<no-localization>Malina Tran</no-localization> at <no-localization>CARE Conference</no-localization>"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.subcaption": {
+    "message": "Data & Tech in Animal Rights Activism"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.paragraph": {
+    "message": "This year, we were invited to speak at <no-localization><b>CARE Conference</b></no-localization> in <no-localization>Warsaw, Poland</no-localization> and the first-ever <no-localization><b>AVA Summit</b></no-localization> in <no-localization>Washington, DC</no-localization>. We spoke about our work for the animal protection movement and how organizations and individuals could get involved with our services to get the support they need."
+  },
+  "page.year-in-review.2022.section.state-of-data.paragraph": {
+    "message": "During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
   },
   "page.year-in-review.section.header.content": {
     "message": "We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."

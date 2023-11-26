@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
@@ -28,11 +30,10 @@ const Intro: React.FC = () => {
         }
       >
         <div className="md:w-2/3 mx-auto pb-10">
-          This year, we leaned into our role and strength as capacity builders
-          by expanding both our services and our professional volunteer network.
-          We saved the movement over half a million dollars by serving over 120
-          organizations this year alone with our tech, design and advisory
-          services. And we&apos;re just getting started!
+          <FormattedMessage
+            id="page.year-in-review.2022.section.providing-value.intro.paragraph"
+            defaultMessage="This year, we leaned into our role and strength as capacity builders by expanding both our services and our professional volunteer network. We saved the movement over half a million dollars by serving over 120 organizations this year alone with our tech, design and advisory services. And we're just getting started!"
+          />
         </div>
         <div className="flex flex-col md:flex-row flex-wrap w-4/5 xl:w-2/3 2xl:w-2/3 mx-auto mb-10">
           <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
@@ -43,10 +44,17 @@ const Intro: React.FC = () => {
               suffix={'K'}
             />
             <div className="text-left">
-              Saved by organizations using our{' '}
-              <span className="text-yellow-orange font-bold">
-                free tech, design, and advisory services
-              </span>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.providing-value.numbers.money-saved"
+                defaultMessage="Saved by organizations using our <span>free tech, design, and advisory services</span>"
+                values={{
+                  span: (chunks) => (
+                    <span className="text-yellow-orange font-bold">
+                      {chunks}
+                    </span>
+                  ),
+                }}
+              />
             </div>
           </div>
           <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
@@ -57,11 +65,15 @@ const Intro: React.FC = () => {
               suffix={'K'}
             />
             <div className="text-left">
-              Total value of{' '}
-              <span className="text-magenta font-bold">
-                technology built to date
-              </span>{' '}
-              for the animal protection movement
+              <FormattedMessage
+                id="page.year-in-review.2022.section.providing-value.numbers.total-value"
+                defaultMessage="Total value of <span>technology built to date</span> for the animal protection movement"
+                values={{
+                  span: (chunks) => (
+                    <span className="text-magenta font-bold">{chunks}</span>
+                  ),
+                }}
+              />
             </div>
           </div>
           <div className="flex flex-col w-full md:w-1/2 xl:w-1/3 md:px-4 py-4 xl:py-0">
@@ -69,17 +81,24 @@ const Intro: React.FC = () => {
               $1.7M
             </span>
             <div className="text-left">
-              The cost for a company to deliver the{' '}
-              <span className="text-green font-bold">same output per year</span>
+              <FormattedMessage
+                id="page.year-in-review.2022.section.providing-value.numbers.cost-for-same-output"
+                defaultMessage="The cost for a company to deliver the <span>same output per year</span>"
+                values={{
+                  span: (chunks) => (
+                    <span className="text-green font-bold">{chunks}</span>
+                  ),
+                }}
+              />
             </div>
           </div>
         </div>
         <div className="xl:w-2/3 2xl:w-2/3 mx-auto mb-8">
           <div className="bg-grey-border bg-opacity-20 p-10 text-lg">
-            Amounts are in USD. Due to the nature of volunteer work, such as
-            location of volunteer / cost of living, experience, hours
-            contributed, hourly rate, and many other variables, these numbers
-            are both conservative and rough estimates.
+            <FormattedMessage
+              id="page.year-in-review.2022.section.providing-value.numbers.small-print"
+              defaultMessage="Amounts are in USD. Due to the nature of volunteer work, such as location of volunteer / cost of living, experience, hours contributed, hourly rate, and many other variables, these numbers are both conservative and rough estimates."
+            />
           </div>
           <div>
             <SquareField
@@ -94,11 +113,24 @@ const Intro: React.FC = () => {
             />
             <div className="bg-magenta flex flex-row flex-wrap p-12 px-2">
               <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-8xl font-mono px-2 justify-center">
-                <span className="font-bold">9600+</span>{' '}
-                <span className="uppercase font-light">Hours</span>
+                <FormattedMessage
+                  id="page.year-in-review.2022.section.providing-value.hours.number-of-hours"
+                  defaultMessage="<numberSpan>9600+</numberSpan> <textSpan>Hours</textSpan>"
+                  values={{
+                    numberSpan: (chunks) => (
+                      <span className="font-bold">{chunks}</span>
+                    ),
+                    textSpan: (chunks) => (
+                      <span className="uppercase font-light">{chunks}</span>
+                    ),
+                  }}
+                />
               </div>
               <div className="flex items-center flex-wrap w-full md:w-1/2 text-white text-3xl font-serif italic font-bold  text-center md:text-left px-2 justify-center">
-                volunteered in 2022 for the animal protection movement
+                <FormattedMessage
+                  id="page.year-in-review.2022.section.providing-value.hours.text"
+                  defaultMessage="volunteered in 2022 for the animal protection movement"
+                />
               </div>
             </div>
           </div>
@@ -120,10 +152,13 @@ const Intro: React.FC = () => {
             headerBold="10 organizations"
             headerEnd="for animal protection"
           >
-            <b>We are immensely thankful</b> for the opportunity to partner and
-            collaborate with other organizations dedicated to animal protection
-            such as Sentient Media, Open Sanctuary, Animal Advocacy Careers, and
-            Animal Defense Partnerships, and others.
+            <FormattedMessage
+              id="page.year-in-review.2022.section.providing-value.we-partnered.paragraph"
+              defaultMessage="<b>We are immensely thankful</b> for the opportunity to partner and collaborate with other organizations dedicated to animal protection such as <no-localization>Sentient Media</no-localization>, <no-localization>Open Sanctuary</no-localization>, <no-localization>Animal Advocacy Careers</no-localization>, and <no-localization>Animal Defense Partnerships</no-localization>, and others."
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </HighlightBlock>
           <HighlightBlock
             borderColor="yellow"
@@ -131,10 +166,13 @@ const Intro: React.FC = () => {
             headerBold="1500+ volunteers"
             headerEnd=""
           >
-            <b>Within our Playground community,</b> we&apos;ve been able to
-            expand our network of volunteers to 1500+ strong utilizing skills
-            like developers, designers, writers, editors, researchers,
-            marketers, data scientists, and many other roles.
+            <FormattedMessage
+              id="page.year-in-review.2022.section.providing-value.we-expanded.paragraph"
+              defaultMessage="<b>Within our Playground community</b>, we've been able to expand our network of volunteers to 1500+ strong utilizing skills like developers, designers, writers, editors, researchers, marketers, data scientists, and many other roles."
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </HighlightBlock>
           <HighlightBlock
             borderColor="green"
@@ -142,11 +180,13 @@ const Intro: React.FC = () => {
             headerBold="projects, research and community"
             headerEnd="in 2022"
           >
-            <b>Beyond building technology,</b> we work hard to find and fill
-            gaps in our movement. This not only includes building our projects,
-            but also launching our research study, participating in various
-            international conferences, and investing in the growth of
-            communities.
+            <FormattedMessage
+              id="page.year-in-review.2022.section.providing-value.building-projects.paragraph"
+              defaultMessage="<b>Beyond building technology</b>, we work hard to find and fill gaps in our movement. This not only includes building our projects, but also launching our research study, participating in various international conferences, and investing in the growth of communities."
+              values={{
+                b: (chunks) => <b>{chunks}</b>,
+              }}
+            />
           </HighlightBlock>
         </div>
       </SectionContainer>

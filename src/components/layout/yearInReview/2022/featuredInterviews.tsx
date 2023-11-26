@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import SectionContainer from '../sectionContainer';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -31,14 +32,19 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
         }
       >
         <div className="text-xl md:w-2/3 mx-auto pb-16">
-          Earlier in the year, we had the honor of sitting down with diverse
-          leaders in animal protection. We were inspired by their origin
-          stories, words of wisdom, and their openness and candor in sharing
-          their experiences with us — and hope you are too.
+          <FormattedMessage
+            id="page.year-in-review.2022.section.featured-interviews.paragraph"
+            defaultMessage="Earlier in the year, we had the honor of sitting down with diverse leaders in animal protection. We were inspired by their origin stories, words of wisdom, and their openness and candor in sharing their experiences with us — and hope you are too."
+          />
         </div>
         {isLoading && !isError && (
           <div>
-            <span className="block mb-1">Loading</span>
+            <span className="block mb-1">
+              <FormattedMessage
+                id="page.year-in-review.2022.section.featured-interviews.loading-spinner"
+                defaultMessage="Loading"
+              />
+            </span>
             <Spinner />
           </div>
         )}
@@ -59,7 +65,10 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
         </div>
         <div className="flex justify-center pb-20">
           <DarkButton className="mb-0" href={'/blog'}>
-            Read More on the Blog
+            <FormattedMessage
+              id="page.year-in-review.2022.section.featured-interviews.btn.cta"
+              defaultMessage="Read More on the Blog"
+            />
           </DarkButton>
         </div>
       </SectionContainer>

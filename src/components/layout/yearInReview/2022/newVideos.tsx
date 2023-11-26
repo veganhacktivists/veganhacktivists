@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -22,9 +23,10 @@ const AnimatedVideos: React.FC = () => {
         header={<SectionHeader header={['New', 'videos']} newDesign={true} />}
       >
         <div className="text-xl mx-auto md:w-2/3 xl:w-1/2">
-          Check out our latest videos from 2022! We have more videos in the
-          pipeline so keep an eye out and subscribe to our youtube channel if
-          you&apos;d like to be the first to watch.
+          <FormattedMessage
+            id="page.year-in-review.2022.section.new-videos.paragraph"
+            defaultMessage="Check out our latest videos from 2022! We have more videos in the pipeline so keep an eye out and subscribe to our youtube channel if you'd like to be the first to watch."
+          />
         </div>
         <div className="pb-10">
           <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 xl:w-2/3 mt-10 mb-10">
@@ -44,7 +46,10 @@ const AnimatedVideos: React.FC = () => {
         </div>
         <div className="flex justify-center pb-10">
           <DarkButton href="https://www.youtube.com/@VeganHacktivists">
-            Watch more videos
+            <FormattedMessage
+              id="page.year-in-review.2022.section.new-videos.btn.cta"
+              defaultMessage="Watch more videos"
+            />
           </DarkButton>
         </div>
       </SectionContainer>
