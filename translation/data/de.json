@@ -1151,6 +1151,243 @@
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
     "message": "Libanesische Veganer"
   },
+  "page.year-in-review.2021.next-seo.title": {
+    "message": "Das Jahr 2021 im Rückblick"
+  },
+  "page.year-in-review.2021.section.advisory-service.btn.cta": {
+    "message": "Informieren Sie sich über unsere Dienstleistungen"
+  },
+  "page.year-in-review.2021.section.advisory-service.paragraph": {
+    "message": "<p>Wir haben unseren neuesten Dienst gestartet, um Menschen mit unserem Expertenteam zu verbinden, das über ein breites Spektrum an Erfahrungen und Fähigkeiten verfügt. Wir heißen vegane Aktivisten und Organisationen willkommen, die uns als Ressource für ihre Technik, Organisationsstruktur, Strategie, Marketing, Zuschussanträge und mehr nutzen wollen.</p> <p>Wir sind sehr zufrieden mit diesem Start und haben mehr als 100 Beratungsanfragen erhalten! Wir waren in der Lage, Organisationen wie <no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization> zu unterstützen, neben vielen anderen.</p>"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.0": {
+    "message": "Erstellung von Richtlinien für Marke, Design und Inhalt"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.1": {
+    "message": "Einbindung neuer Technologien wie <no-localization>Docker, LaravelShift, Vue, Tailwind, React, Svelte,</no-localization> und mehr"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.2": {
+    "message": "Einführung eines Systems zur Sammlung regelmäßiger Rückmeldungen von unserem Beirat"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.3": {
+    "message": "Drei neue Kurse hinzugefügt zu <no-localization>Vegan Bootcamp</no-localization>"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.4": {
+    "message": "Unser Bewerbungsverfahren für Freiwillige wurde gestrafft"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.5": {
+    "message": "Präsentiert <no-localization>Vegan Linguists</no-localization> im Jahr 2021 <no-localization>Animal Advocacy Conference</no-localization> Asien"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.6": {
+    "message": "Start eines Community-Abstimmungskanals auf unserem Server <no-localization>Discord</no-localization> "
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.7": {
+    "message": "Nutzung externer Plattformen wie <no-localization>Reddit</no-localization> und <no-localization>Twitter</no-localization>, um unsere Dienstleistungen zu bewerben"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.8": {
+    "message": "Zusätzliche Lokalisierung von Projekten für genauere und klarere Übersetzungen"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.9": {
+    "message": "Wir haben begonnen, wöchentliche Sprechstunden für unser Team zu veranstalten, um zu chatten, zu arbeiten und zu spielen."
+  },
+  "page.year-in-review.2021.section.by-the-numbers.heading": {
+    "message": "Die Zahlen"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.0": {
+    "message": "<b>Gesamte eindeutige Seitenaufrufe</b> für alle Projekte"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.1": {
+    "message": "Tweets von unserem <b>5 Minutes 5 Vegans</b> Support-Bot"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.10": {
+    "message": "<b>Neue Blog-Beiträge</b> von unserem Content-Team"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.11": {
+    "message": "<b>Zuschüsse, die</b> innerhalb der ersten 45 Tage bei uns <b>beantragt werden</b> "
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.2": {
+    "message": "Klicks, die Aktivisten zu Organisationen führen <no-localization><link>veganactivism.org</link></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.3": {
+    "message": "Eindeutige Seitenbesuche für <no-localization><project>Vegan Bootcamp</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.4": {
+    "message": "Anmeldungen insgesamt für <no-localization><project>Vegan Bootcamp</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.5": {
+    "message": "Neue Basisgruppen auf <no-localization><project>Activist Hub</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.6": {
+    "message": "Neue Ressourcen hinzugefügt zu <no-localization><project>Vegan Cheat Sheet</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.7": {
+    "message": "Gruppen hinzugefügt zu <no-localization><project>Animal Rights Map</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.8": {
+    "message": "Neue Kommentare unserer <no-localization><project>Reddit Bot</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.9": {
+    "message": "<b>Neue Teammitglieder</b> haben sich uns angeschlossen"
+  },
+  "page.year-in-review.2021.section.community-growth.documentation.heading": {
+    "message": "Dokumentation"
+  },
+  "page.year-in-review.2021.section.community-growth.documentation.paragraph": {
+    "message": "Wachstum hat nicht nur mit Zahlen zu tun, sondern auch mit Struktur. Wir haben die Dokumentation unserer Organisation aus vier verschiedenen Plattformen in einem benutzerfreundlichen Bereich unserer neuen Website zusammengefasst."
+  },
+  "page.year-in-review.2021.section.community-growth.safety.heading": {
+    "message": "Sicherheit"
+  },
+  "page.year-in-review.2021.section.community-growth.safety.paragraph": {
+    "message": "Wir haben jetzt einen Verhaltenskodex für unsere wachsende Gemeinschaft und bitten alle Freiwilligen, unsere Schulungen zu effektiver Kommunikation, unbewusster Voreingenommenheit und Einverständnis zu absolvieren, um ein gesundes und integratives Umfeld zu fördern."
+  },
+  "page.year-in-review.2021.section.community-growth.technology.heading": {
+    "message": "Technologie"
+  },
+  "page.year-in-review.2021.section.community-growth.technology.paragraph": {
+    "message": "Wir haben uns neue Technologien zu eigen gemacht, um die Gesamtqualität und Robustheit unserer Projekte zu verbessern und unsere Entwickler dort abzuholen, wo sie sich befinden."
+  },
+  "page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph": {
+    "message": "Wir hatten die Möglichkeit, veganen Organisationen, die ihre Marke und Identität entwickeln und sich in der wettbewerbsintensiven digitalen Landschaft abheben wollten, Designunterstützung vor Ort zu bieten."
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.intro.paragraph": {
+    "message": "Wir haben viel Spaß mit unserem Blog! Wir haben unsere Serie \"Meet The Team\" gestartet, um die unglaubliche Arbeit unseres Teams vorzustellen und die engagierten Freiwilligen hinter den Kulissen zu beleuchten. Für das Jahr 2022 planen wir weitere tolle Inhalte. Bleiben Sie dran!"
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.team-member-introduction": {
+    "message": "Treffen Sie <no-localization>{name}</no-localization>"
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.0": {
+    "message": "Sehen Sie sich drei Filme an, die zum Nachdenken anregen und unbequeme Realitäten beleuchten, und erkunden Sie weitere Ressourcen zur Unterstützung!"
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.1": {
+    "message": "Mit diesem Projekt können Sie Ihre eigene Landing Page mit veganen Dokumentationen, Videos, Ressourcen, Herausforderungen und vielem mehr erstellen, um sie mit Freunden, Familie oder online zu teilen - und dann alle Klicks und die Zeit, die Sie sich ansehen, verfolgen."
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.2": {
+    "message": "Ihr <no-localization>3 Movies</no-localization> -Link ist der einzige Link, den Sie während Ihres Einsatzes weitergeben müssen!"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.0": {
+    "message": "Wir haben über <no-localization>{noOfActivists}</no-localization> Tierrechtsaktivisten befragt, um herauszufinden, welche Instrumente ihre Interessenvertretung am besten unterstützen würden. Der wichtigste Wunsch war eine Methode zur Überwachung unserer Effektivität, um fundierte Entscheidungen über unsere Strategie und zukünftige Bemühungen zu treffen. Also haben wir <no-localization>Activist Hub</no-localization> geschaffen!"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.1": {
+    "message": "<no-localization>Activist Hub</no-localization> ist ein Online-Tool, mit dem Aktivisten sehen können, wie viele Menschen sie dazu inspiriert haben, Dokumentarfilme zu sehen, eine vegane Herausforderung anzunehmen und vegan zu werden!"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.2": {
+    "message": "<no-localization>Activist Hub</no-localization> fungiert auch als das weltweit erste soziale Netzwerk für Tierrechte! Fügen Sie Freunde hinzu, treten Sie Gruppen bei, teilen oder erstellen Sie Beiträge, entwickeln Sie Strategien und sprechen Sie mit anderen Aktivisten. Unser Hub ist zu 100% kostenlos für jede Person oder Organisation, die sich für Tiere einsetzt."
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.0": {
+    "message": "Jeden Tag werden mehr und mehr Menschen auf der ganzen Welt digital vernetzt."
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.1": {
+    "message": "Es wird immer wichtiger, vegane Online-Inhalte zu übersetzen, um mehr Menschen zu erreichen. <no-localization>Vegan Linguists</no-localization> ist ein kostenloser Übersetzungsdienst, der von Veganern für Veganer betrieben wird. Wir übersetzen vegane Inhalte, um den Veganismus weltweit zugänglicher zu machen! Alles, was Sie tun müssen, ist, sich anzumelden und Ihre Inhalte einzureichen - oder sich freiwillig als Übersetzer zu melden, für die Tiere."
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.2": {
+    "message": "Wir sind stolz darauf, mit <no-localization>Animal Ethics</no-localization>, <no-localization>Faunalytics</no-localization>, <no-localization>Peace Advocacy Network</no-localization>, <no-localization>Sinergia Animal</no-localization>, und vielen anderen zusammengearbeitet zu haben."
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.0": {
+    "message": "<no-localization>Watch Dominion</no-localization> bietet einen einfachen, mehrsprachigen Zugang zu dem meistgeförderten Dokumentarfilm der veganen Bewegung, <no-localization>Dominion</no-localization>."
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.1": {
+    "message": "<no-localization>Watch Dominion</no-localization> ermöglicht es auch anderen Organisationen, Dominion (ohne Altersbeschränkungen oder die Sorge, dass es vom Netz genommen wird) auf ihrer eigenen Website einzubinden und gleichzeitig Statistiken über die Sehdauer zu sammeln."
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.2": {
+    "message": "<no-localization>Anonymous for the Voiceless</no-localization>, <no-localization>DontWatch.org</no-localization>, <no-localization>Viena Animal Save</no-localization>, und viele andere nutzen dieses Projekt jetzt für einen ununterbrochenen Zugang."
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.paragraph.0": {
+    "message": "Um effektiver zu sein und den Bedürfnissen unserer Bewegung gerecht zu werden, haben wir nicht nur unser Beraterteam erweitert, sondern auch die Art und Weise, wie wir Feedback erhalten. Wir nutzten eine Kombination aus internen Umfragen, Newslettern, Beratern und Testern, um die nächsten Schritte sowohl für unsere Projekte in der Entwicklung als auch für unser eigenes Wachstum festzulegen."
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.paragraph.1": {
+    "message": "Gemeinsam konnten wir mehrere Umfragen vor, während und nach Projekten durchführen, um bessere Daten zu gewünschten Funktionen und Problemen zu sammeln. Wir freuen uns sehr, sagen zu können, dass wir auf der Grundlage von über 80 % des individuellen Feedbacks von Testern sinnvolle Änderungen vorgenommen haben."
+  },
+  "page.year-in-review.2021.section.header.image.alt-text": {
+    "message": "Das Jahr 2021 im Rückblick"
+  },
+  "page.year-in-review.2021.section.moving-forward.btn.cta": {
+    "message": "Unterstützen Sie unsere Arbeit"
+  },
+  "page.year-in-review.2021.section.moving-forward.heading": {
+    "message": "Vorwärtskommen"
+  },
+  "page.year-in-review.2021.section.moving-forward.paragraph": {
+    "message": "<p>Was für ein Jahr! Wir wollten uns auf datenbasierte Bemühungen konzentrieren und gleichzeitig unserem Geist der experimentellen Projekte treu bleiben, und wir konnten diese Ziele durch <no-localization>Activist Hub</no-localization> und <no-localization>Vegan Linguists</no-localization> erreichen. Dies war wirklich das beste Jahr für die Schaffung von Verbindungen und Partnerschaften in der Tierschutzbewegung, und wir sind sehr zufrieden mit der Arbeit, die wir geleistet haben.</p> <p>In diesem Jahr haben wir uns auch auf die Organisation und Optimierung interner Prozesse konzentriert. Dies war für uns von entscheidender Bedeutung, da ein Schwerpunkt des Jahres 2022 darin besteht, unser Freiwilligen-Netzwerk auszubauen, um der Nachfrage nach unseren Dienstleistungen gerecht zu werden. Wir wollen weiterhin in der Lage sein, die vielfältigen Bedürfnisse der veganen Bewegung zu bedienen und Menschen zu befähigen, Aktivisten zu werden.</p> <p>Wir sind sehr gespannt auf Ihre Meinung in unserem Jahresrückblick 2021, und wenn Ihnen gefällt, was wir tun, ziehen Sie bitte in Betracht, uns zu unterstützen, indem Sie auf die Schaltfläche unten klicken. Ihre Spende stellt sicher, dass unsere Arbeit und unsere Projekte kostenlos und für jeden zugänglich bleiben. Wir können Ihnen gar nicht genug für Ihre Unterstützung danken!</p>"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.btn.cta": {
+    "message": "Melden Sie sich für unseren Newsletter an!"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.heading": {
+    "message": "Einführung des Newsletters"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.paragraph": {
+    "message": "In der veganen Bewegung hat sich viel getan, und wir freuen uns, Teil dieser Veränderungen zu sein. Um Sie über unsere Fortschritte auf dem Laufenden zu halten, haben wir einen monatlichen Newsletter ins Leben gerufen, in dem wir über unsere Projekte und allgemeine Ereignisse berichten. Bis heute haben wir über 15.000 E-Mails von unserer Community erhalten. Melden Sie sich noch heute für unseren Newsletter an!"
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.heading": {
+    "message": "Partnerschaft mit <no-localization>Anonymous for the Voiceless</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.0": {
+    "message": "<no-localization>Anonymous for the Voiceless (AV)</no-localization> ist eine gemeinnützige Tierrechtsorganisation, die sich darauf spezialisiert hat, die Öffentlichkeit mit Hilfe von Konversations- und Praxisfilmen über die Ausbeutung von Tieren aufzuklären. Sie veranstalten weltweit Straßenaktionen, um die Öffentlichkeit für die Rechte der Tiere zu sensibilisieren, vegan zu leben und sich für die Tiere einzusetzen."
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1": {
+    "message": "Bisher war es sehr schwierig, die Wirksamkeit von Straßeneinsätzen zu verfolgen. Wir freuen uns über die Partnerschaft mit <no-localization>AV</no-localization>, die es uns ermöglicht, ihnen die Werkzeuge zur Verfügung zu stellen, die sie benötigen, um die Effektivität jeder Gruppe mit <link>Activist Hub</link> zu überwachen und zu verfolgen."
+  },
+  "page.year-in-review.2021.section.partnerships.intro.paragraph": {
+    "message": "In diesem Jahr haben wir auf unsere bisherigen Partnerschaften zurückgeblickt und gemeinsam überlegt, wie unsere künftigen Partnerschaften zu effektiveren und dauerhafteren Beziehungen führen könnten. Wir wollten, dass sich unsere Partnerschaften komplexer gestalten und sowohl für die Partner als auch für uns mehr Wirkung zeigen."
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.heading": {
+    "message": "Andere Partnerschaften"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading": {
+    "message": "<no-localization>Legal Impact for Chickens</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph": {
+    "message": "Für unser kommendes Projekt sind wir eine Partnerschaft mit <no-localization>Legal Impact for Chickens</no-localization> eingegangen: <no-localization>Start Pressuring!</no-localization>. Wir werden erfolgreiche Druckkampagnen, die auf unserer Plattform gestartet werden, mit kostenloser rechtlicher Unterstützung versorgen können!"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading": {
+    "message": "<no-localization>Vegan Outreach</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph": {
+    "message": "Wir haben uns mit dem <no-localization>Vegan Outreach's</no-localization> Vegan Mentorship Program zusammengetan, um allen <no-localization>Vegan Bootcamp</no-localization> und <no-localization>3Movies.org</no-localization> Teilnehmern kostenlosen Zugang zu Mentoren zu ermöglichen."
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.heading": {
+    "message": "Partnerschaft mit <no-localization>The Pollination Project</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.0": {
+    "message": "Wir freuen uns sehr, <link>eine Partnerschaft ankündigen</link> zu können, in deren Rahmen wir in der Lage sind, bis zu 1000 USD an Startkapital für herausragenden und effektiven Tierrechtsaktivismus bereitzustellen! Konkret suchen wir nach Einzelpersonen oder Basisgruppen, deren Hauptziel es ist, das Leiden von nichtmenschlichen Nutztieren zu verringern."
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.1": {
+    "message": "Allein im ersten Monat erhielten wir im Durchschnitt einen Zuschussantrag pro Tag von verschiedenen Aktivisten und Organisationen. Die Zuschussanträge betrafen eine breite Palette von Formen des Aktivismus, darunter: Singen, Virtuelle Realität, Zeichnen, Fotografie, Videografie, Backen, Fundraising, Sensibilisierung für das Wohlergehen von Kindern, Ausbildung von Jugendlichen, Aufbau von Kapazitäten, Landwirtschaft, Kampagnen, Druck, Rechtsstreitigkeiten, Tierrettung, Unterstützung von Wildtieren und vieles mehr!"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.2": {
+    "message": "Wir sind gespannt, wohin uns diese Partnerschaft in Zukunft führen wird, wenn wir mit <link>The Pollination Project</link> zusammenarbeiten, um diese Aktivisten so weit wie möglich zu unterstützen."
+  },
+  "page.year-in-review.2021.section.playground.btn.cta": {
+    "message": "Spielen Sie mit auf dem Spielplatz"
+  },
+  "page.year-in-review.2021.section.playground.paragraph": {
+    "message": "<p>Wir haben eine öffentlich zugängliche Open-Source-Community namens <no-localization>VH: Playground</no-localization> ins Leben gerufen! <no-localization>Playground</no-localization> ermöglicht es Entwicklern, die nicht die Zeit oder die spezifischen Fähigkeiten haben, um dem Kernteam von <no-localization>Vegan Hacktivists</no-localization> beizutreten, trotzdem einen Beitrag zur Bewegung zu leisten, sei es bei unseren Open-Source-Projekten oder bei ihren eigenen!</p> <p>Kurz gesagt, wir wollten eine Gemeinschaft von veganen Entwicklern aufbauen und fördern, um Leute außerhalb unseres Netzwerks zu unterstützen - bis jetzt haben wir über 400 Mitglieder, Tendenz steigend!</p>"
+  },
+  "page.year-in-review.2021.section.rebrand.btn.cta": {
+    "message": "Siehe unseren neuen Markenleitfaden!"
+  },
+  "page.year-in-review.2021.section.rebrand.paragraph": {
+    "message": "<p>In diesem Jahr haben wir beschlossen, sowohl die Organisation als auch unsere Website von Grund auf neu zu gestalten. Wir wollten, dass unser Branding immer noch unseren technischen Hintergrund widerspiegelt, aber auch viel einladender und unterhaltsamer ist, um unsere Arbeit und unsere Gemeinschaft besser zu repräsentieren.</p> <p>Sowohl auf unserer Website als auch auf den sozialen Plattformen konnten wir einen sofortigen Anstieg der Bewerbungen von interessierten Freiwilligen feststellen, die uns auf einer der beiden Plattformen gefunden haben.</p> <p>Unser Branding wurde von unserem neuesten Teamleiter <no-localization>{link}</no-localization> entworfen, der die Art und Weise, wie wir hier bei VH arbeiten und unser Design betrachten, maßgeblich verändert hat.</p>"
+  },
+  "page.year-in-review.2021.section.videos.paragraph": {
+    "message": "Wir haben uns mit <no-localization><link>Expanded Circle Collective</link></no-localization> zusammengetan, um zwei animierte Einführungsvideos für <no-localization>Activist Hub</no-localization> und <no-localization>Vegan Bootcamp</no-localization> zu produzieren! Diese Videos sind fantastische Hilfsmittel für die Betrachter, um sich schnell mit unserer Arbeit vertraut zu machen. Wir freuen uns darauf, im neuen Jahr mit ihnen zusammenzuarbeiten."
+  },
+  "page.year-in-review.2021.section.we-grew.advisory-team.paragraph": {
+    "message": "<b>Wir sind so dankbar, dass wir weitere Berater haben, auf die wir uns stützen</b> können, wie z. B. <no-localization>Katie</no-localization> von <no-localization>Animal Equality</no-localization>, <no-localization>Chris</no-localization> von <no-localization>APEX Advocacy</no-localization>, <no-localization>Tessa</no-localization> von <no-localization>Pollination Project</no-localization> und <no-localization>Casey</no-localization> von <no-localization>Faunalytics</no-localization>. Wenn Sie mehr von unseren Beratern sehen möchten, <link>klicken Sie hier</link>."
+  },
+  "page.year-in-review.2021.section.we-grew.intro.heading": {
+    "message": "Wir haben dieses Jahr so viel erforscht und sind gewachsen"
+  },
+  "page.year-in-review.2021.section.we-grew.intro.paragraph": {
+    "message": "In diesem Jahr haben wir unsere Ziele verfeinert und Projekte entwickelt, die sich in erster Linie darauf konzentrieren, bestehende Lücken in unserer Bewegung zu schließen. Wir bauten mehr bedeutende Partnerschaften auf und verbesserten unser Branding, unser Designteam und unser Dienstleistungsangebot. Wir freuen uns, Ihnen im Folgenden zu zeigen, was wir erreicht haben!"
+  },
+  "page.year-in-review.2021.section.we-grew.new-teams.paragraph": {
+    "message": "<b>Mehr Teams, mehr Wirkung!</b> Wir freuen uns, das Wachstum unserer Gemeinschaft mit fünf neuen Teams bekannt geben zu können. Bitte begrüßen Sie das Team Avocado, das Team Mango, das Team Wassermelone und das Team Süßkartoffel."
+  },
+  "page.year-in-review.2021.section.we-grew.projects.paragraph": {
+    "message": "<b>Vier davon waren interne Projekte.</b> Wir hatten auch das Glück, an Projekten mit <no-localization>Sehati Animal Sanctuary</no-localization>, <no-localization>Animal Alliance Asia</no-localization>, <no-localization>Vegan Japan Consulting</no-localization> und vielen anderen zu arbeiten."
+  },
   "page.year-in-review.section.header.content": {
     "message": "Wir freuen uns sehr, unseren <no-localization>{year}</no-localization> Jahresrückblick veröffentlichen zu können! Scrollen Sie nach unten und lesen Sie, was wir dank Ihrer großzügigen Unterstützung, unserer Partner und vor allem unserer großartigen Freiwilligen alles erreicht haben."
   },

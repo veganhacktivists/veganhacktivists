@@ -1254,7 +1254,7 @@
     "message": "We've been having fun with our blog! We launched our “Meet The Team” series so we could feature the incredible work done by our team and spotlight the dedicated volunteers behind the scenes. We plan to deliver more amazing content in 2022. Stay tuned!"
   },
   "page.year-in-review.2021.section.featured-blog-posts.team-member-introduction": {
-    "message": "Meet"
+    "message": "Meet <no-localization>{name}</no-localization>"
   },
   "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.0": {
     "message": "Watch three thought-provoking movies that shed light on uncomfortable realities, and explore other resources for support!"
