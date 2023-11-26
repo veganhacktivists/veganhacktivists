@@ -1254,7 +1254,7 @@
     "message": "We've been having fun with our blog! We launched our “Meet The Team” series so we could feature the incredible work done by our team and spotlight the dedicated volunteers behind the scenes. We plan to deliver more amazing content in 2022. Stay tuned!"
   },
   "page.year-in-review.2021.section.featured-blog-posts.team-member-introduction": {
-    "message": "Meet"
+    "message": "Meet <no-localization>{name}</no-localization>"
   },
   "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.0": {
     "message": "Watch three thought-provoking movies that shed light on uncomfortable realities, and explore other resources for support!"
@@ -1373,15 +1373,6 @@
   "page.year-in-review.2021.section.videos.paragraph": {
     "message": "We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
   },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.0": {
-    "message": "We"
-  },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.1": {
-    "message": "expanded our advisory team"
-  },
-  "page.year-in-review.2021.section.we-grew.advisory-team.heading.2": {
-    "message": "of vegan experts"
-  },
   "page.year-in-review.2021.section.we-grew.advisory-team.paragraph": {
     "message": "<b>We're so thankful to have more advisors to lean on</b> such as <no-localization>Katie</no-localization> from <no-localization>Animal Equality</no-localization>, <no-localization>Chris</no-localization> from <no-localization>APEX Advocacy</no-localization>, <no-localization>Tessa</no-localization> from the <no-localization>Pollination Project</no-localization>, and <no-localization>Casey</no-localization> from <no-localization>Faunalytics</no-localization>. To browse more of our advisors, <link>click here</link>."
   },
@@ -1391,26 +1382,8 @@
   "page.year-in-review.2021.section.we-grew.intro.paragraph": {
     "message": "This year, we refined our goals and built projects that focused primarily on filling existing gaps in our movement. We grew more meaningful partnerships and we greatly improved our branding, design team, and services offered. We're excited to show you what we've done below!"
   },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.0": {
-    "message": "We expanded with"
-  },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.1": {
-    "message": "5 new teams"
-  },
-  "page.year-in-review.2021.section.we-grew.new-teams.heading.2": {
-    "message": "in just 6 months"
-  },
   "page.year-in-review.2021.section.we-grew.new-teams.paragraph": {
     "message": "<b>More teams, more impact!</b> We're so happy to announce the growth of our community with five new amazing teams. Please welcome Team Avocado, Team Mango, Team Watermelon, and Team Sweet Potato."
-  },
-  "page.year-in-review.2021.section.we-grew.projects.heading.0": {
-    "message": "We launched"
-  },
-  "page.year-in-review.2021.section.we-grew.projects.heading.1": {
-    "message": "8 new projects"
-  },
-  "page.year-in-review.2021.section.we-grew.projects.heading.2": {
-    "message": "for the movement"
   },
   "page.year-in-review.2021.section.we-grew.projects.paragraph": {
     "message": "<b>Four of which were in-house projects.</b> We were also lucky enough to work on projects with <no-localization>Sehati Animal Sanctuary</no-localization>, <no-localization>Animal Alliance Asia</no-localization>, <no-localization>Vegan Japan Consulting</no-localization>, and many more."

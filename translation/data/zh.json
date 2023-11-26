@@ -1151,6 +1151,243 @@
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
     "message": "黎巴嫩素食者"
   },
+  "page.year-in-review.2021.next-seo.title": {
+    "message": "2021 年回顾"
+  },
+  "page.year-in-review.2021.section.advisory-service.btn.cta": {
+    "message": "查看我们的服务"
+  },
+  "page.year-in-review.2021.section.advisory-service.paragraph": {
+    "message": "<p>我们推出了最新服务，将人们与我们拥有丰富经验和技能的专家团队联系起来。我们欢迎素食主义活动家和组织将我们作为他们在技术、组织结构、战略、营销、拨款申请等方面的资源。</p> <p>我们对这次启动非常满意，已经收到了 100 多份咨询请求！我们已经为<no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization> 等组织提供了帮助。</p>"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.0": {
+    "message": "围绕品牌、设计和内容制定指导方针"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.1": {
+    "message": "采用<no-localization>Docker, LaravelShift, Vue, Tailwind, React, Svelte,</no-localization> 等新技术"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.2": {
+    "message": "引入定期收集咨询委员会反馈意见的系统"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.3": {
+    "message": "新增三门课程<no-localization>Vegan Bootcamp</no-localization>"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.4": {
+    "message": "简化我们的志愿者申请程序"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.5": {
+    "message": "在 2021<no-localization>Animal Advocacy Conference</no-localization> 亚洲会议上发表<no-localization>Vegan Linguists</no-localization> "
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.6": {
+    "message": "在<no-localization>Discord</no-localization> 服务器上推出社区投票频道"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.7": {
+    "message": "利用<no-localization>Reddit</no-localization> 和<no-localization>Twitter</no-localization> 等外部平台推广我们的服务"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.8": {
+    "message": "为项目添加本地化功能，使翻译更准确、更清晰"
+  },
+  "page.year-in-review.2021.section.big-impact.paragraph.9": {
+    "message": "开始主持每周办公时间，供团队聊天、工作和娱乐"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.heading": {
+    "message": "数字"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.0": {
+    "message": "所有项目的<b>独特页面浏览总量</b>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.1": {
+    "message": "<b>5 分钟 5 个素食者</b>支持机器人的推文"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.10": {
+    "message": "我们内容团队的<b>新博文</b>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.11": {
+    "message": "头 45 天内向我们<b>申请的补助金</b>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.2": {
+    "message": "将活动家引向组织的点击率<no-localization><link>veganactivism.org</link></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.3": {
+    "message": "唯一页面访问量<no-localization><project>Vegan Bootcamp</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.4": {
+    "message": "报名总数<no-localization><project>Vegan Bootcamp</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.5": {
+    "message": "新的基层组织<no-localization><project>Activist Hub</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.6": {
+    "message": "新增资源<no-localization><project>Vegan Cheat Sheet</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.7": {
+    "message": "添加到<no-localization><project>Animal Rights Map</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.8": {
+    "message": "我们的<no-localization><project>Reddit Bot</project></no-localization>"
+  },
+  "page.year-in-review.2021.section.by-the-numbers.statistic.9": {
+    "message": "<b>新团队成员</b>加入我们"
+  },
+  "page.year-in-review.2021.section.community-growth.documentation.heading": {
+    "message": "文件"
+  },
+  "page.year-in-review.2021.section.community-growth.documentation.paragraph": {
+    "message": "增长不仅体现在数量上，还体现在结构上。我们将四个不同平台上的组织文件合并到新网站的一个用户友好型部分。"
+  },
+  "page.year-in-review.2021.section.community-growth.safety.heading": {
+    "message": "安全"
+  },
+  "page.year-in-review.2021.section.community-growth.safety.paragraph": {
+    "message": "现在，我们为日益壮大的社区制定了《行为准则》，并要求所有志愿者完成我们的 \"有效沟通\"、\"无意识偏见 \"和 \"同意 \"培训课程，以营造一个健康、包容的环境。"
+  },
+  "page.year-in-review.2021.section.community-growth.technology.heading": {
+    "message": "技术"
+  },
+  "page.year-in-review.2021.section.community-growth.technology.paragraph": {
+    "message": "我们采用新技术来提高项目的整体质量和稳健性，并满足开发人员的需求。"
+  },
+  "page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph": {
+    "message": "我们有机会为素食组织提供内部设计支持，帮助他们创建品牌和形象，并在竞争激烈的数字环境中脱颖而出。"
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.intro.paragraph": {
+    "message": "我们的博客一直很有趣！我们推出了 \"认识我们的团队 \"系列，这样我们就可以介绍我们团队所做的令人难以置信的工作，以及幕后默默奉献的志愿者。我们计划在 2022 年推出更多精彩内容。敬请期待！"
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.team-member-introduction": {
+    "message": "会面<no-localization>{name}</no-localization>"
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.0": {
+    "message": "观看三部发人深省的电影，揭示令人不安的现实，并探索其他支持资源！"
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.1": {
+    "message": "通过这个项目，您可以创建自己的登陆页面，上面有素食纪录片、视频、资源、挑战等，可以与朋友、家人或在线分享，然后跟踪所有点击和观看时间。"
+  },
+  "page.year-in-review.2021.section.featured-projects.3-movies.paragraph.2": {
+    "message": "您的<no-localization>3 Movies</no-localization> 链接是您在推广过程中唯一需要分享的链接！"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.0": {
+    "message": "我们对超过<no-localization>{noOfActivists}</no-localization> 名动物权利活动家进行了调查，以了解哪些工具能够最好地支持他们的宣传活动。他们的首要要求是提供一种监测我们工作成效的方法，以便就我们的战略和未来工作做出明智的决策。因此，我们创建了<no-localization>Activist Hub</no-localization> ！"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.1": {
+    "message": "<no-localization>Activist Hub</no-localization> 是一个在线工具，活动家们可以通过它了解自己激励了多少人观看纪录片、接受素食挑战以及成为素食者！"
+  },
+  "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.2": {
+    "message": "<no-localization>Activist Hub</no-localization> 也是世界上第一个动物权利社交网络！添加好友、加入群组、分享或创建帖子、制定战略并与其他积极分子交流。我们的中心对任何代表动物权益的个人或组织都是 100% 免费使用的。"
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.0": {
+    "message": "每天，世界各地都有越来越多的人与数字世界建立联系。"
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.1": {
+    "message": "为了让更多人了解在线素食内容，翻译工作变得越来越重要。<no-localization>Vegan Linguists</no-localization> 是由素食主义者为素食主义者提供的免费内容翻译服务。我们翻译素食内容，帮助全世界更多的人了解素食主义！您所需要做的就是注册并提交您的内容，或者自愿成为一名翻译，为动物们服务。"
+  },
+  "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.2": {
+    "message": "我们很荣幸能与<no-localization>Animal Ethics</no-localization>,<no-localization>Faunalytics</no-localization>,<no-localization>Peace Advocacy Network</no-localization>,<no-localization>Sinergia Animal</no-localization> 等多家公司合作并共同推出产品。"
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.0": {
+    "message": "<no-localization>Watch Dominion</no-localization> 提供多语种的简便访问方式，可访问素食运动中最受欢迎的纪录片 。<no-localization>Dominion</no-localization>"
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.1": {
+    "message": "<no-localization>Watch Dominion</no-localization> 此外，它还允许其他组织在自己的网站上嵌入 Dominion（没有年龄限制，也不用担心会被删除），同时收集观看时间的统计数据。"
+  },
+  "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.2": {
+    "message": "<no-localization>Anonymous for the Voiceless</no-localization>,<no-localization>DontWatch.org</no-localization>,<no-localization>Viena Animal Save</no-localization>, 以及许多其他网站现在都使用此项目进行不间断访问。"
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.paragraph.0": {
+    "message": "为了更有效地满足我们运动的需求，我们不仅扩大了我们的顾问团队，还扩展了我们接收反馈的方式。我们将内部民意调查、新闻通讯、顾问和测试人员结合起来，以确定开发中项目和我们自身发展的下一步措施。"
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.paragraph.1": {
+    "message": "通过合作，我们得以在项目前、项目中和项目后开展多项调查，以便更好地收集所需的功能和问题数据。我们非常高兴地宣布，根据测试人员提供的 80% 以上的个人反馈，我们做出了有意义的改变。"
+  },
+  "page.year-in-review.2021.section.header.image.alt-text": {
+    "message": "2021 年回顾"
+  },
+  "page.year-in-review.2021.section.moving-forward.btn.cta": {
+    "message": "支持我们的工作"
+  },
+  "page.year-in-review.2021.section.moving-forward.heading": {
+    "message": "向前迈进"
+  },
+  "page.year-in-review.2021.section.moving-forward.paragraph": {
+    "message": "<p>多么美好的一年！我们希望将重点放在以数据为基础的工作上，同时坚持我们的实验项目精神，我们通过<no-localization>Activist Hub</no-localization> 和<no-localization>Vegan Linguists</no-localization> 实现了这些目标。今年确实是在动物保护运动中建立联系和伙伴关系的最佳一年，我们对所完成的工作感到非常满意。</p> <p>今年，我们还优先组织和优化了内部流程。这对我们来说至关重要，因为 2022 年的核心重点是扩大我们的志愿者网络，以满足我们的服务需求。我们希望能够继续满足素食运动的多方面需求，并增强人们成为活动家的能力。</p> <p>如果您喜欢我们的工作，请点击下面的按钮支持我们。您的捐款将确保我们的所有工作和项目对所有人免费开放，我们对您的支持感激不尽！</p>"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.btn.cta": {
+    "message": "订阅我们的时事通讯！"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.heading": {
+    "message": "通讯发布"
+  },
+  "page.year-in-review.2021.section.newsletter-launch.paragraph": {
+    "message": "素食运动发生了很多变化，我们很高兴能参与其中。为了让您了解我们的最新进展，我们推出了月度通讯，以展示我们的项目和总体情况。迄今为止，我们已经积累了超过 15,000 封来自社区的电子邮件。今天就注册订阅我们的时事通讯吧！"
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.heading": {
+    "message": "合作伙伴<no-localization>Anonymous for the Voiceless</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.0": {
+    "message": "<no-localization>Anonymous for the Voiceless (AV)</no-localization> 是一个非营利性的动物权利组织，专门利用对话和标准实践片段向公众宣传有关动物剥削的知识。他们在世界各地举办街头活动，教育公众支持动物权利，过素食生活，为动物发声。"
+  },
+  "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1": {
+    "message": "传统上，很难跟踪街头宣传的效果。我们很高兴能与<no-localization>AV</no-localization> 合作，为他们提供所需的工具，以便通过<link>Activist Hub</link> 监控和跟踪每个小组的成效。"
+  },
+  "page.year-in-review.2021.section.partnerships.intro.paragraph": {
+    "message": "今年，我们回顾了以往的合作伙伴关系，并共同集思广益，探讨未来的合作伙伴关系如何才能更有效、更持久。我们希望我们的合作关系能够更加复杂，对他们和我们都能产生更大的影响。"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.heading": {
+    "message": "其他合作伙伴"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading": {
+    "message": "<no-localization>Legal Impact for Chickens</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph": {
+    "message": "我们与<no-localization>Legal Impact for Chickens</no-localization> 合作，为我们即将开展的项目<no-localization>Start Pressuring!</no-localization> 我们将为在我们平台上成功发起的施压活动提供免费的法律支持！"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading": {
+    "message": "<no-localization>Vegan Outreach</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph": {
+    "message": "我们与<no-localization>Vegan Outreach's</no-localization> Vegan Mentorship Program 合作，为所有<no-localization>Vegan Bootcamp</no-localization> 和<no-localization>3Movies.org</no-localization> 的参与者提供完全免费的指导。"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.heading": {
+    "message": "合作伙伴<no-localization>The Pollination Project</no-localization>"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.0": {
+    "message": "我们非常高兴地<link>宣布一项合作</link>计划，我们将为杰出、有效的动物权利活动提供高达 1000 美元的种子基金！具体来说，我们正在寻找以帮助减少非人类养殖动物的痛苦为主要目的的个人或草根团体。"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.1": {
+    "message": "仅在第一个月，我们平均每天就收到一份来自不同活动家和组织的资助申请。申请资助的活动形式多种多样，包括唱歌、虚拟现实、绘画、摄影、摄像、烘焙、筹款、福利意识、儿童教育、青少年技能、能力建设、养殖、竞选、印刷、诉讼、动物救助、野生动物宣传等！"
+  },
+  "page.year-in-review.2021.section.partnerships.pollination-project.paragraph.2": {
+    "message": "我们很高兴看到这种合作关系将引领我们走向未来，我们将与<link>授粉项目</link>合作，为这些积极分子提供尽可能多的资助。"
+  },
+  "page.year-in-review.2021.section.playground.btn.cta": {
+    "message": "加入游乐场"
+  },
+  "page.year-in-review.2021.section.playground.paragraph": {
+    "message": "<p>我们推出了一个面向公众的开源社区，名为<no-localization>VH: Playground</no-localization> ！<no-localization>Playground</no-localization> ，让那些没有时间或特殊技能加入<no-localization>Vegan Hacktivists</no-localization> 核心团队的开发者也能为这项运动做出贡献，无论是在我们的开源项目上，还是在他们自己的项目上！</p> <p>简而言之，我们希望建立和培养一个素食开发者社区，以便为我们网络之外的人们提供支持--到目前为止，我们已经吸引了 400 多名成员，而且还在不断增加！</p>"
+  },
+  "page.year-in-review.2021.section.rebrand.btn.cta": {
+    "message": "请参阅我们的新品牌指南！"
+  },
+  "page.year-in-review.2021.section.rebrand.paragraph": {
+    "message": "<p>今年，我们决定从根本上对组织和网站进行专业的品牌重塑。我们希望我们的品牌仍能深刻地代表我们的技术背景，但同时也能更吸引人、更有趣，以更好地代表我们的工作和我们的社区。</p> <p>在我们的网站和社交平台上，我们看到有兴趣的志愿者通过这两个平台找到我们，申请人数立即增加。</p> <p>我们的品牌设计是由我们最新的团队领导<no-localization>{link}</no-localization> 完成的，她是 VH 工作方式和设计理念转变的核心人物。</p>"
+  },
+  "page.year-in-review.2021.section.videos.paragraph": {
+    "message": "我们与<no-localization><link>Expanded Circle Collective</link></no-localization> 合作，为<no-localization>Activist Hub</no-localization> 和<no-localization>Vegan Bootcamp</no-localization> 制作了两部动画介绍视频！这些视频是让观众快速熟悉我们工作的绝佳资源。我们期待着在新的一年里与他们合作。"
+  },
+  "page.year-in-review.2021.section.we-grew.advisory-team.paragraph": {
+    "message": "<b>我们非常感谢有更多的顾问可以依靠</b>，如<no-localization>Katie</no-localization> 来自<no-localization>Animal Equality</no-localization> ，<no-localization>Chris</no-localization> 来自<no-localization>APEX Advocacy</no-localization> ，<no-localization>Tessa</no-localization> 来自<no-localization>Pollination Project</no-localization> ，以及<no-localization>Casey</no-localization> 来自<no-localization>Faunalytics</no-localization> 。要浏览更多的顾问，<link>请单击此处</link>。"
+  },
+  "page.year-in-review.2021.section.we-grew.intro.heading": {
+    "message": "这一年，我们探索了很多，成长了很多"
+  },
+  "page.year-in-review.2021.section.we-grew.intro.paragraph": {
+    "message": "这一年，我们细化了我们的目标，并建立了主要侧重于填补我们运动中现有空白的项目。我们建立了更多有意义的合作伙伴关系，大大改进了我们的品牌、设计团队和服务。我们很高兴在下文中向大家展示我们所做的一切！"
+  },
+  "page.year-in-review.2021.section.we-grew.new-teams.paragraph": {
+    "message": "<b>更多团队，更大影响！</b>我们非常高兴地宣布，我们的社区又增加了五个新团队。欢迎牛油果团队、芒果团队、西瓜团队和红薯团队的加入。"
+  },
+  "page.year-in-review.2021.section.we-grew.projects.paragraph": {
+    "message": "<b>其中四个是内部项目。</b>我们还有幸参与了<no-localization>Sehati Animal Sanctuary</no-localization>,<no-localization>Animal Alliance Asia</no-localization>,<no-localization>Vegan Japan Consulting</no-localization> 等多个项目。"
+  },
   "page.year-in-review.section.header.content": {
     "message": "我们很高兴发布<no-localization>{year}</no-localization> 年度回顾！请向下滚动阅读我们取得的所有成就，这要归功于您的慷慨支持、我们的合作伙伴以及最重要的是我们出色的志愿者。"
   },
