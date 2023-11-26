@@ -3,10 +3,11 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import family from '../../../../../public/images/yearInReview/2022/vh-family.jpg';
 import malina from '../../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
 import james from '../../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
-import CustomImage from '../../../decoration/customImage';
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import SquareField from '../../../decoration/squares';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

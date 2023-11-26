@@ -6,20 +6,20 @@ import HeartLogo from '../../public/images/support/heart-icon.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
-import CustomImage from '../components/decoration/customImage';
 import Hero from '../components/decoration/hero';
 import Sprite, { chicken, pig } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { PlainHeader } from '../components/decoration/textBlocks';
 import JoinOurTeam from '../components/layout/support/joinOurTeam';
 import PatreonSupporters from '../components/layout/support/patreonSupporters';
-import ProgressBar from '../components/layout/support/progressBar';
-import { getPatreonFundig, getPatrons } from '../lib/patreon';
+import { getPatrons } from '../lib/patreon';
 import CustomLink from '../components/decoration/link';
 import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
 import DonorBoxCard from '../components/layout/support/donorBoxCard';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { GetStaticProps } from 'next';
 
@@ -39,7 +39,6 @@ const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
 
 const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
   patrons,
-  patreonFunding,
 }) => {
   const intl = useIntl();
 
@@ -184,15 +183,11 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [patrons, patreonFunding] = await Promise.all([
-    getPatrons(),
-    getPatreonFundig('USD'),
-  ]);
+  const patrons = await getPatrons();
 
   return {
     props: {
       patrons,
-      patreonFunding,
     },
     revalidate: 480,
   };

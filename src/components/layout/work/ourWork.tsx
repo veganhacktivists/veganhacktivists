@@ -1,8 +1,8 @@
 import { FormattedMessage } from 'react-intl';
 
+import CustomImage from 'components/decoration/customImage';
 import { Autoscroll } from 'components/decoration/autoscroll';
 import { DarkButton } from 'components/decoration/buttons';
-import CustomImage from 'components/decoration/customImage';
 import Sprite, { goat } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';

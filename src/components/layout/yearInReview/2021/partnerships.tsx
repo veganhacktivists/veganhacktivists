@@ -2,12 +2,13 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
-import CustomImage from '../../../decoration/customImage';
 import avPartner from '../../../../../public/images/yearInReview/2021/partner_av.png';
 import pollinationPartner from '../../../../../public/images/yearInReview/2021/partner_pollinationproject.png';
 import otherPartner from '../../../../../public/images/yearInReview/2021/partner_other.png';
 import CustomLink from '../../../decoration/link';
 import SquareField from '../../../decoration/squares';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

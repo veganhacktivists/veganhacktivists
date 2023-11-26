@@ -3,10 +3,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { pixelHeart } from '../images/separators';
 
+import CustomImage from 'components/decoration/customImage';
 import ContactUsForm from 'components/forms/contactUs';
 import { FirstSubSection } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
-import CustomImage from 'components/decoration/customImage';
 
 const Contact: React.FC = () => {
   const intl = useIntl();

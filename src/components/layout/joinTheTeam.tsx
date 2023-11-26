@@ -3,7 +3,8 @@ import { FormattedMessage } from 'react-intl';
 
 import { LightButton } from '../decoration/buttons';
 import teamIcons from '../../../public/images/VH-team-icons.png';
-import CustomImage from '../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 const JoinTheTeam: React.FC = () => {
   return (

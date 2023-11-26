@@ -2,12 +2,13 @@ import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import PixelChicken from '../../../public/images/VH_PixelChicken.png';
-import CustomImage from '../../components/decoration/customImage';
 import {
   FirstSubSection,
   SubSection,
 } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 

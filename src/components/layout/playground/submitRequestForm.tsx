@@ -537,8 +537,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             <p className="font-thin mb-2">
               For translators: check out our free content translation
               service,&nbsp;
-              <Link href="https://veganlinguists.org/">
-                <a className="font-bold whitespace-nowrap">Vegan Linguists</a>
+              <Link
+                href="https://veganlinguists.org/"
+                className="font-bold whitespace-nowrap"
+              >
+                Vegan Linguists
               </Link>
             </p>
           </div>

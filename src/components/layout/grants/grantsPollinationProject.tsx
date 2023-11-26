@@ -2,7 +2,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { LightButton } from '../../decoration/buttons';
 import PollinationProjectLogo from '../../../../public/images/grants/PollinationProject-Logo.jpg';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 const GrantsPollinationProject: React.FC = () => {
   const intl = useIntl();
@@ -12,11 +13,11 @@ const GrantsPollinationProject: React.FC = () => {
         <div className="w-screen md:max-w-md">
           <CustomImage
             src={PollinationProjectLogo}
-            layout="responsive"
             alt={intl.formatMessage({
               id: 'page.grants.section.pollination-project.image.alt-text',
               defaultMessage: 'Logo of The Pollination Project',
             })}
+            sizes="100vw"
           />
         </div>
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">

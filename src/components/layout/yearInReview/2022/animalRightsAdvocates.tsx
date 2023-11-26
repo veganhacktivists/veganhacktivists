@@ -20,9 +20,12 @@ const AnimalRightsAdvocates: React.FC = () => {
         <CustomImage
           alt=""
           src={ARABackground}
-          layout="fill"
-          objectFit="cover"
-          objectPosition={'top'}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'top',
+          }}
         />
         <div className="flex relative z-10">
           <div className="flex flex-row">

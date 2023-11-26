@@ -22,7 +22,6 @@ import { DarkButton } from '../../components/decoration/buttons';
 import Sprite, { cow } from '../../components/decoration/sprite';
 import TopPosts from '../../components/layout/yearInReview/topPosts';
 import { getContents } from '../../lib/cms';
-import CustomImage from '../../components/decoration/customImage';
 import YearInReviewHeader from '../../components/layout/yearInReview/layout';
 import CustomLink from '../../components/decoration/link';
 import AnimatedNumber from '../../components/decoration/animatedNumber';
@@ -33,6 +32,8 @@ import {
   pixelPig,
   pixelStar,
 } from '../../images/separators';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type {
   IBlogEntry,
@@ -395,7 +396,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               className="drop-shadow-xl"
               src={Strawberry}
               alt=""
-              layout="responsive"
+              sizes="100vw"
             />
           </div>
           <div className="px-5 mb-5">
@@ -437,8 +438,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             <CustomImage
               src={Blueberry}
               alt=""
-              layout="responsive"
               className="drop-shadow-xl"
+              sizes="100vw"
             />
           </div>
           <div className="px-5 mb-5">

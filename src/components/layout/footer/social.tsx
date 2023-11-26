@@ -26,9 +26,7 @@ const Social: React.FC = () => {
         />
       </div>
       <div className="font-bold pt-5 text-lg">
-        <Link href="/contact">
-          <a>hello@veganhacktivists.org</a>
-        </Link>
+        <Link href="/contact">hello@veganhacktivists.org</Link>
       </div>
       <div className="flex gap-x-2 pt-5">
         <InstagramButton href="https://www.instagram.com/veganhacktivists/" />

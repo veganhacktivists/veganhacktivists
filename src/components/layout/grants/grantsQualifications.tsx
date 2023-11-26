@@ -2,7 +2,8 @@ import { FormattedMessage } from 'react-intl';
 
 import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
 import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
-import CustomImage from '../../decoration/customImage';
+
+import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
 

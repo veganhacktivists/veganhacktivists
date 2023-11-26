@@ -6,8 +6,8 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 import PitchFTA from '../../../../../public/images/yearInReview/2022/pitch-fta.png';
 import WildAnimalSuffering from '../../../../../public/images/yearInReview/2022/wild-animal-suffering.png';
 
-import SquareField from 'components/decoration/squares';
 import CustomImage from 'components/decoration/customImage';
+import SquareField from 'components/decoration/squares';
 import { DarkButton } from 'components/decoration/buttons';
 
 const BonusProjects: React.FC = () => {

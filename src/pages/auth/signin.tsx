@@ -39,7 +39,7 @@ const SignIn: NextPage = () => {
   const { handleSubmit, register } = useForm<SignInForm>({ resolver });
 
   useOnce(() => {
-    getProviders()
+    void getProviders()
       .then((providers) => {
         setProviders(providers);
       })

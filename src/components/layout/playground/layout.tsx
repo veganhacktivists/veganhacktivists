@@ -19,9 +19,9 @@ import clockIcon from '../../../../public/images/playground/icons/clock.svg';
 
 import FaqSection from './faqSection';
 
+import CustomImage from 'components/decoration/customImage';
 import Hero from 'components/decoration/hero';
 import { DarkButton, OutlineButton } from 'components/decoration/buttons';
-import CustomImage from 'components/decoration/customImage';
 import { trpc } from 'lib/client/trpc';
 import Spinner from 'components/decoration/spinner';
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
@@ -95,9 +95,9 @@ const PlaygroundLayout: Layout = ({ children }) => {
               />
               <div className="bg-yellow-orange p-10 2xl:p-20">
                 <CustomImage
-                  layout="responsive"
                   alt="Animal Advocacy Careers"
                   src={animalAdvocacyCareers}
+                  sizes="100vw"
                 />
               </div>
             </div>
@@ -167,8 +167,8 @@ const PlaygroundLayout: Layout = ({ children }) => {
               </DarkButton>
             </div>
             {/* <div>
-            <Newsletter />
-          </div> */}
+          <Newsletter />
+        </div> */}
           </div>
         </div>
       </div>

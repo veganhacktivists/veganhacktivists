@@ -8,11 +8,12 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import CustomImage from '../decoration/customImage';
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
 
 import { LocaleSelector } from './localeSelector';
+
+import CustomImage from 'components/decoration/customImage';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -26,31 +27,29 @@ const LeftSide: React.FC = () => {
       )}
     >
       {/* root */}
-      <Link href="/">
-        <a className={classNames({ hidden: !isRootPage })}>
-          <Player
-            autoplay
-            loop
-            src={logoBig}
-            style={{
-              maxWidth: '344px',
-              maxHeight: '113.5px',
-            }}
-          />
-        </a>
+      <Link href="/" className={classNames({ hidden: !isRootPage })}>
+        <Player
+          autoplay
+          loop
+          src={logoBig}
+          style={{
+            maxWidth: '344px',
+            maxHeight: '113.5px',
+          }}
+        />
       </Link>
       {/* others */}
-      <Link href="/">
-        <a className={classNames('flex items-center', { hidden: isRootPage })}>
-          <CustomImage
-            src={logoOneLine}
-            alt="Vegan Hacktivists Logo"
-            layout="intrinsic"
-            width={logoOneLine.width * ratio}
-            height={logoOneLine.height * ratio}
-            priority
-          />
-        </a>
+      <Link
+        href="/"
+        className={classNames('flex items-center', { hidden: isRootPage })}
+      >
+        <CustomImage
+          src={logoOneLine}
+          alt="Vegan Hacktivists Logo"
+          width={logoOneLine.width * ratio}
+          height={logoOneLine.height * ratio}
+          priority
+        />
       </Link>
     </div>
   );
@@ -76,12 +75,10 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   );
 
   return (
-    <Link href={href} passHref>
-      <a className={classes}>
-        <code className={classNames({ 'border-b-[3px]': active })}>
-          {children}
-        </code>
-      </a>
+    <Link href={href} passHref className={classes}>
+      <code className={classNames({ 'border-b-[3px]': active })}>
+        {children}
+      </code>
     </Link>
   );
 };
