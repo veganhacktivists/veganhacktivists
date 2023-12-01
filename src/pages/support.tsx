@@ -139,8 +139,8 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const patrons = await getPatrons();
+export const getStaticProps: GetStaticProps = () => {
+  const patrons: string[] = [];
 
   return {
     props: {
