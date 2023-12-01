@@ -116,8 +116,7 @@ const otherRequestCategorySchema = z.object({
   category: z.nativeEnum(PlaygroundRequestCategory),
 });
 
-const submitRequestSchemaBase = z.object({
-  id: z.string().cuid().optional(),
+export const requestorSignupSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
   pronouns: z.string().trim().optional(),
   providedEmail: z.string().trim().email(),
@@ -134,6 +133,10 @@ const submitRequestSchemaBase = z.object({
     })
     .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
   calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
+});
+
+const submitRequestSchemaBase = z.object({
+  id: z.string().cuid().optional(),
   title: z.string().trim().min(1).max(200),
   category: z.nativeEnum(PlaygroundRequestCategory),
   // Transform the string of skills separated by a comma in an array of strings
