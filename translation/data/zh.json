@@ -941,31 +941,31 @@
   "page.work.next-seo.title": {
     "message": "我们的工作"
   },
-  "page.year-in-review.2020.section.big-impact-changes.apple.content": {
+  "page.year-in-review.2020.section.big-impact-changes.apple.paragraph": {
     "message": "我们启用了社区活动和行动的机器人通知功能。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.banana.content": {
+  "page.year-in-review.2020.section.big-impact-changes.banana.paragraph": {
     "message": "我们为志愿者开通了 LinkedIn 页面。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.carrot.content": {
+  "page.year-in-review.2020.section.big-impact-changes.carrot.paragraph": {
     "message": "我们改进了入职流程和开发人员指南。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.grape.content": {
+  "page.year-in-review.2020.section.big-impact-changes.grape.paragraph": {
     "message": "我们将 Google Analytics 集成到所有项目中。"
   },
   "page.year-in-review.2020.section.big-impact-changes.heading": {
     "message": "影响巨大的微小变化"
   },
-  "page.year-in-review.2020.section.big-impact-changes.kiwi.content": {
+  "page.year-in-review.2020.section.big-impact-changes.kiwi.paragraph": {
     "message": "我们发布并开源了过去的几个项目。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.orange.content": {
+  "page.year-in-review.2020.section.big-impact-changes.orange.paragraph": {
     "message": "我们公布了匿名志愿者反馈表。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.strawberry.content": {
+  "page.year-in-review.2020.section.big-impact-changes.strawberry.paragraph": {
     "message": "我们安装了先进的服务器监控软件。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.watermelon.content": {
+  "page.year-in-review.2020.section.big-impact-changes.watermelon.paragraph": {
     "message": "我们开始接受 Python 开发人员的申请。"
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.heading": {
@@ -1010,19 +1010,19 @@
   "page.year-in-review.2020.section.community-building.heading": {
     "message": "社区建设"
   },
-  "page.year-in-review.2020.section.community-building.our-values.content": {
+  "page.year-in-review.2020.section.community-building.our-values.paragraph": {
     "message": "我们作为一个社区走到了一起，决定了我们想要采纳的价值观，并正式确定了我们的使命和目标。"
   },
   "page.year-in-review.2020.section.community-building.our-values.heading": {
     "message": "我们的价值观"
   },
-  "page.year-in-review.2020.section.community-building.partnerships.content": {
+  "page.year-in-review.2020.section.community-building.partnerships.paragraph": {
     "message": "今年，我们非常高兴能与 PETA、Beyond Animal 和 Project Counterglow 合作。这三个合作伙伴在今年提升了我们的地位，我们非常感谢能够为他们服务，并将他们视为我们的新朋友。"
   },
   "page.year-in-review.2020.section.community-building.partnerships.heading": {
     "message": "合作伙伴"
   },
-  "page.year-in-review.2020.section.community-building.volunteers.content": {
+  "page.year-in-review.2020.section.community-building.volunteers.paragraph": {
     "message": "今年，我们吸引了为 Trello、微软、Etsy、Better Eating、Mercy for Animals、Save Movement 和 Paypal 工作的志愿者！"
   },
   "page.year-in-review.2020.section.community-building.volunteers.heading": {
@@ -1031,55 +1031,55 @@
   "page.year-in-review.2020.section.header.image.alt-text": {
     "message": "2020 年回顾"
   },
-  "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.content": {
+  "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.paragraph": {
     "message": "动物权利地图 \"拥有 2,500 多个团体，是一份全球更新的地图，可帮助素食主义者找到当地团体，积极参与其中。我们的地图涵盖了从最大的组织到遍布全国的小型草根团体的方方面面。我们与一些组织合作，自动导入新的团体，我们还有一名专门的志愿者（发起了这个项目），几乎每天都一丝不苟地更新地图。我们收到了很多希望积极参与活动的素食主义者对地图的反馈--我们计划很快收集更多数据，并在 2021 年扩大地图的功能！"
   },
-  "page.year-in-review.2020.section.highlighted-projects.daily-nooch.content": {
+  "page.year-in-review.2020.section.highlighted-projects.daily-nooch.paragraph": {
     "message": "在这个项目中，我们希望创造一些更有趣、更轻便的东西，让素食主义者能够享受消费并与世界分享。Daily Nooch 是您获取每日素食新闻、资源和灵感的一站式来源。该网站旨在成为您的主页，每天午夜更新最新的新闻、语录、艺术、备忘录、事实、视频等内容。这个项目非常具有实验性，我们不知道素食主义者是否会一直使用它，但与此同时，团队在创建它的过程中获得了很多乐趣。如果大家喜欢，我们还有很多有趣的想法可以探索，为项目增加更多的互动性。"
   },
   "page.year-in-review.2020.section.highlighted-projects.heading": {
     "message": "查看我们的重点项目"
   },
-  "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.content": {
+  "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.paragraph": {
     "message": "NutritionFacts.org 的创始人 Greger 博士创建了一个名为 \"每日一打 \"的应用程序，让您可以跟踪自己的饮食，确保获得尽可能多的营养，并详细介绍了最健康的食物以及我们每天应该尝试勾选的每种食物的份量。我们希望扩展这一概念，创建一个网络版的应用程序，并增加一些功能。使用 \"我的每日一打\"，您可以每天记录 Greger 博士在《纽约时报》畅销书《如何不死》中推荐的食物。我们希望这个项目能让非素食者有机会通过采用以植物为基础的生活方式更容易地成为素食者。"
   },
-  "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.content": {
+  "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.paragraph": {
     "message": "继 2019 年 Vegan Bootcamp 成功推出并获得 5000 多人注册后，我们决定投入更多时间对其进行改进。我们向所有会员发出了调查问卷，收到了大量反馈，帮助我们决定需要哪些新内容和新功能。现在，Vegan Bootcamp 包括社区论坛、个人课程、标签、更好的奖励、推荐人高级统计、内容搜索、素食营养师支持计划、导师支持计划，现在还翻译成 10 种不同的语言！"
   },
   "page.year-in-review.2020.section.moving-forward.btn.text": {
     "message": "支持我们的工作"
   },
-  "page.year-in-review.2020.section.moving-forward.content[0]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.0": {
     "message": "虽然我们对今年的结果也很满意，但我们认识到，如果要有效利用我们的优秀志愿者网络，我们就需要在建设过程中采取更加基于数据的方法。"
   },
-  "page.year-in-review.2020.section.moving-forward.content[1]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.1": {
     "message": "我们还认识到，创新往往是在缺乏数据的未知领域进行的，因此，对于 2021 年，我们希望在选择符合我们创新方法的项目时找到一个良好的平衡点，同时利用数据来选择哪些项目可能对我们的运动产生更大的影响。"
   },
-  "page.year-in-review.2020.section.moving-forward.content[2]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.2": {
     "message": "如果您喜欢我们的工作，请点击下面的按钮支持我们。您的捐款将确保我们的所有工作和项目对所有人免费开放，我们对您的支持感激不尽！"
   },
   "page.year-in-review.2020.section.moving-forward.heading": {
     "message": "收尾和前进"
   },
-  "page.year-in-review.2020.section.new-teams.blueberry.content": {
+  "page.year-in-review.2020.section.new-teams.blueberry.paragraph": {
     "message": "我们最近推出了专家团队！9 名新的积极分子加入了团队，他们目前分别担任以下角色：发布、开发运营、安全、搜索引擎优化、CSS、艺术、地图、视频和音频。这填补了我们的空白，使我们的团队成员可以通过 Bluebbery 团队专门解决他们项目中的问题。"
   },
   "page.year-in-review.2020.section.new-teams.blueberry.heading": {
     "message": "<span>专家</span>| 蓝莓团队"
   },
-  "page.year-in-review.2020.section.new-teams.strawberry.content[0]": {
+  "page.year-in-review.2020.section.new-teams.strawberry.paragraph.0": {
     "message": "我们<link>成立了一个新团队</link>，专门负责收集和分析数据，不仅是关于我们构建的项目，也是关于 Vegan Hacktivists 这个组织。这个团队标志着我们对数据的承诺，也是确保我们所做的每一件事都能产生巨大影响的承诺，同时也是我们能够从过去的工作中吸取经验教训，并塑造未来工作的承诺。"
   },
-  "page.year-in-review.2020.section.new-teams.strawberry.content[1]": {
+  "page.year-in-review.2020.section.new-teams.strawberry.paragraph.1": {
     "message": "Suan Chin 与其他 7 位数据科学家共同领导着这个团队。请访问<link>团队页面</link>查看整个团队。我们很高兴看到这个团队将如何塑造我们工作的未来！"
   },
   "page.year-in-review.2020.section.new-teams.strawberry.heading": {
     "message": "<span>数据分析</span>| 草莓团队"
   },
-  "page.year-in-review.2020.section.strategy-and-experimentation.content[0]": {
+  "page.year-in-review.2020.section.strategy-and-experimentation.paragraph.0": {
     "message": "与 2019 年一样，我们专注于建设项目，但对这些项目是否会成功几乎没有数据。我们认为这是一项高风险战略，因为我们在这些实验项目上花费了数百小时的志愿者时间。"
   },
-  "page.year-in-review.2020.section.strategy-and-experimentation.content[1]": {
+  "page.year-in-review.2020.section.strategy-and-experimentation.paragraph.1": {
     "message": "去年，我们建立的 6 个项目中有 3 个达到了我们的成功标准，因此我们继续采用这种方法。我们坚信，对于任何运动来说，创新、尝试新战术、建立实验性工具和制定替代战略都是非常重要的。"
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.heading": {
@@ -1124,19 +1124,19 @@
   "page.year-in-review.2020.section.we-grew.launched.heading.start": {
     "message": "我们启动"
   },
-  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.content": {
+  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.paragraph": {
     "message": "今年，我们与 Animal Rebellion 合作，帮助他们建立了新网站，我们为此专门组建了一个团队，耗时约 6 个月。与他们的技术团队合作非常愉快，他们知识渊博，在工作中的每一次接触都让我们感觉是在与专业团队合作。动物叛乱 \"是一场群众运动，它通过非暴力的公民抵抗，实现向公正、可持续的植物性食物系统的过渡，试图阻止大规模的物种灭绝，减轻气候破坏带来的最坏影响，并确保为动物伸张正义。"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
     "message": "动物的反叛"
   },
-  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.content": {
+  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.paragraph": {
     "message": "我们与动物救助组织合作，帮助他们建立了新网站。我们还为他们的广告活动提供了帮助，并管理了几个月的广告活动，以帮助宣传更多 \"拯救 \"组织的工作和通讯。如果您还没有听说过 \"拯救 \"组织，他们的使命是在每一个屠宰场守夜，为每一只受剥削的动物作证。他们还发起了 \"拯救气候与健康运动\"，旨在推动扭转灾难性的气候变化，让人们能够吃上以植物为基础的饮食。能与他们这支充满热情的活动家团队会面和合作，我感到非常高兴！"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading": {
     "message": "拯救动物运动"
   },
-  "page.year-in-review.2020.section.working-with-organizations.excelsior.content": {
+  "page.year-in-review.2020.section.working-with-organizations.excelsior.paragraph": {
     "message": "Excelsior 4 是四名积极分子，他们因揭露 Excelsior 养猪场虐待动物的犯罪行为而面临共计 21 项指控。我们与他们合作推出了一个新网站，使他们能够尽快筹集法律辩护资金。我们真的认为他们所做的工作和揭露的问题非常重要，我们很高兴能有机会支持并帮助他们启动和运行网站。如果可以，请一定去看看他们，并给予支持！"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.heading": {
@@ -1145,7 +1145,7 @@
   "page.year-in-review.2020.section.working-with-organizations.heading": {
     "message": "与组织合作"
   },
-  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.content": {
+  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.paragraph": {
     "message": "黎巴嫩素食者社会中心是西南亚和北非地区唯一的动物权利和素食者支持中心，每月举办免费的素食主义研讨会和讲座，每周免费发放食品，每月开展提高动物权利意识的活动。我们有幸与他们合作，帮助他们推出了新网站，并使用新徽标重塑了品牌形象。通过我们的顾问 Seb Alex（黎巴嫩素食者协会的幕后组织者），我们度过了一段愉快的合作时光。"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {

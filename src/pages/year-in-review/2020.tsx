@@ -151,24 +151,24 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
   const intl = useIntl();
   const PROJECTS_DESCRIPTION: Record<string, React.ReactNode> = {
     'Vegan Bootcamp': intl.formatMessage({
-      id: 'page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.content',
+      id: 'page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.paragraph',
       defaultMessage:
-        "Following the success of Vegan Bootcamp's launch in 2019 with over 5000+ signups, we decided to invest more time in improving it. We sent out a survey to all members and received a large amount of feedback helping us decide what new content and features were needed. Vegan Bootcamp now includes community forums, individual courses, tags, better rewards, advanced statistics for referrals, content search, a vegan dietitian support program, a mentorship support program, and it now comes translated in 10 different languages!",
+        "Following the success of <no-localization>Vegan Bootcamp's</no-localization> launch in 2019 with over 5000+ signups, we decided to invest more time in improving it. We sent out a survey to all members and received a large amount of feedback helping us decide what new content and features were needed. <no-localization>Vegan Bootcamp</no-localization> now includes community forums, individual courses, tags, better rewards, advanced statistics for referrals, content search, a vegan dietitian support program, a mentorship support program, and it now comes translated in 10 different languages!",
     }),
     'Animal Rights Map': intl.formatMessage({
-      id: 'page.year-in-review.2020.section.highlighted-projects.animal-rights-map.content',
+      id: 'page.year-in-review.2020.section.highlighted-projects.animal-rights-map.paragraph',
       defaultMessage:
-        "With over 2,500 groups, the Animal Rights Map is a globally updated map that helps vegans find local groups to get active with. Our map includes everyone from the largest organizations to the very small grassroots groups spread around the country. We worked with a few organizations to import new groups automatically, and we have a dedicated volunteer (that started this project) who meticulously updates the map almost every day. We've received a lot of great feedback for the map from vegans who were looking to get active - we plan on gathering more data soon and expanding the features of this map for 2021!",
+        "With over 2,500 groups, the <no-localization>Animal Rights Map</no-localization> is a globally updated map that helps vegans find local groups to get active with. Our map includes everyone from the largest organizations to the very small grassroots groups spread around the country. We worked with a few organizations to import new groups automatically, and we have a dedicated volunteer (that started this project) who meticulously updates the map almost every day. We've received a lot of great feedback for the map from vegans who were looking to get active - we plan on gathering more data soon and expanding the features of this map for 2021!",
     }),
     'Daily Nooch': intl.formatMessage({
-      id: 'page.year-in-review.2020.section.highlighted-projects.daily-nooch.content',
+      id: 'page.year-in-review.2020.section.highlighted-projects.daily-nooch.paragraph',
       defaultMessage:
-        "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. Daily Nooch is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project.",
+        "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. <no-localization>Daily Nooch</no-localization> is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project.",
     }),
     'My Daily Dozen': intl.formatMessage({
-      id: 'page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.content',
+      id: 'page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.paragraph',
       defaultMessage:
-        'Dr. Greger, founder of NutritionFacts.org, created an app called "Daily Dozen" that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My Daily Dozen to keep daily track of the foods recommended by Dr. Greger in his New York Times Bestselling book, How Not to Die. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle.',
+        '<no-localization>Dr. Greger</no-localization>, founder of <no-localization>NutritionFacts.org</no-localization>, created an app called <no-localization>"Daily Dozen"</no-localization> that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My <no-localization>Daily Dozen</no-localization> to keep daily track of the foods recommended by <no-localization>Dr. Greger</no-localization> in his <no-localization>New York Times</no-localization> Bestselling book, <no-localization>How Not to Die</no-localization>. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle.',
     }),
   };
   return (
@@ -215,34 +215,19 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
       <div className="h-12" />
       <HighlightBlock
         borderColor="magenta"
-        headerStart={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.launched.heading.start',
-          defaultMessage: 'WE LAUNCHED',
-        })}
-        headerBold={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.launched.heading.bold',
-          defaultMessage: 'EIGHT PROJECTS',
-        })}
-        headerEnd={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.launched.heading.end',
-          defaultMessage: 'FOR THE MOVEMENT',
-        })}
+        headerStart="WE LAUNCHED"
+        headerBold="EIGHT PROJECTS"
+        headerEnd="FOR THE MOVEMENT"
       >
         <FormattedMessage
           id="page.year-in-review.2020.section.we-grew.launched.content"
-          defaultMessage="Four of which were unique project ideas of our own! We were also lucky enough to work on projects with Animal Rebellion, Animal Save Movement, Lebanese Vegans, and the Excelsior 4!"
+          defaultMessage="Four of which were unique project ideas of our own! We were also lucky enough to work on projects with <no-localization>Animal Rebellion</no-localization>, <no-localization>Animal Save Movement</no-localization>, <no-localization>Lebanese Vegans</no-localization>, and the <no-localization>Excelsior 4</no-localization>!"
         />
       </HighlightBlock>
       <HighlightBlock
         borderColor="yellow"
-        headerStart={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.expanded.heading.start',
-          defaultMessage: 'WE EXPANDED OUR TEAM FROM',
-        })}
-        headerBold={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.expanded.heading.bold',
-          defaultMessage: '28 TO 80 VOLUNTEERS',
-        })}
+        headerStart="WE EXPANDED OUR TEAM FROM"
+        headerBold="28 TO 80 VOLUNTEERS"
       >
         <FormattedMessage
           id="page.year-in-review.2020.section.we-grew.expanded.content"
@@ -251,22 +236,13 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
       </HighlightBlock>
       <HighlightBlock
         borderColor="green"
-        headerStart={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.advisory-team.heading.start',
-          defaultMessage: 'WE NOW HAVE AN',
-        })}
-        headerBold={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.advisory-team.heading.bold',
-          defaultMessage: 'ADVISORY TEAM',
-        })}
-        headerEnd={intl.formatMessage({
-          id: 'page.year-in-review.2020.section.we-grew.advisory-team.heading.end',
-          defaultMessage: 'OF VEGAN EXPERTS',
-        })}
+        headerStart="WE NOW HAVE AN"
+        headerBold="ADVISORY TEAM"
+        headerEnd="OF VEGAN EXPERTS"
       >
         <FormattedMessage
           id="page.year-in-review.2020.section.we-grew.advisory-team.content"
-          defaultMessage="We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as Seb Alex, Ryuji Chua, Leah Doellinger and Michael Dearborn. Browse more of our advisors, <link>click here!</link>"
+          defaultMessage="We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as <no-localization>Seb Alex</no-localization>, <no-localization>Ryuji Chua</no-localization>, <no-localization>Leah Doellinger</no-localization> and <no-localization>Michael Dearborn</no-localization>. Browse more of our advisors, <link>click here!</link>"
           values={{
             link: (chunks) => (
               <CustomLink href="https://veganhacktivists.org/people/advisors">
@@ -298,13 +274,13 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
           spacing={4}
         >
           <FormattedMessage
-            id="page.year-in-review.2020.section.strategy-and-experimentation.content[0]"
+            id="page.year-in-review.2020.section.strategy-and-experimentation.paragraph.0"
             defaultMessage="Like 2019, we focused on building projects with little data on whether those projects would succeed. We consider this a high-risk strategy as we use hundreds of hours volunteer time on these experimental projects."
           />
         </SubSection>
         <SubSection contentSize="2xl">
           <FormattedMessage
-            id="page.year-in-review.2020.section.strategy-and-experimentation.content[1]"
+            id="page.year-in-review.2020.section.strategy-and-experimentation.paragraph.1"
             defaultMessage="We're thankful this worked last year as 3 of the 6 projects we built met our standards of success, so we continued with this methodology. We firmly believe it's important for any movement to innovate, try new tactics, build experimental tools, and strategize alternatively."
           />
         </SubSection>
@@ -339,8 +315,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
                 textColor="white"
               >
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.community-building.volunteers.content"
-                  defaultMessage="This year we attracted volunteers that worked for Trello, Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement and Paypal!"
+                  id="page.year-in-review.2020.section.community-building.volunteers.paragraph"
+                  defaultMessage="This year we attracted volunteers that worked for <no-localization>Trello</no-localization>, <no-localization>Microsoft</no-localization>, <no-localization>Etsy</no-localization>, <no-localization>Better Eating</no-localization>, <no-localization>Mercy for Animals</no-localization>, <no-localization>Save Movement</no-localization> and <no-localization>Paypal</no-localization>!"
                 />
               </SubSection>
             </div>
@@ -361,7 +337,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
                 textColor="white"
               >
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.community-building.our-values.content"
+                  id="page.year-in-review.2020.section.community-building.our-values.paragraph"
                   defaultMessage="We came together as a community and decided on what values we wanted to adopt, and to formalize what our mission and goals were."
                 />
               </SubSection>
@@ -377,8 +353,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             textColor="white"
           >
             <FormattedMessage
-              id="page.year-in-review.2020.section.community-building.partnerships.content"
-              defaultMessage="This year we're extremely happy to have partnered with PETA, Beyond Animal, and Project Counterglow. These three partners have elevated us this year and we're so grateful to have the ability to both serve them and rely on them as our new friends."
+              id="page.year-in-review.2020.section.community-building.partnerships.paragraph"
+              defaultMessage="This year we're extremely happy to have partnered with <no-localization>PETA</no-localization>, <no-localization>Beyond Animal</no-localization>, and <no-localization>Project Counterglow</no-localization>. These three partners have elevated us this year and we're so grateful to have the ability to both serve them and rely on them as our new friends."
             />
           </SubSection>
           <div className="grid justify-center grid-cols-1 md:grid-cols-3">
@@ -411,8 +387,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           <FormattedMessage
-            id="page.year-in-review.2020.section.new-teams.strawberry.content[0]"
-            defaultMessage="We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but Vegan Hacktivists as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
+            id="page.year-in-review.2020.section.new-teams.strawberry.paragraph.0"
+            defaultMessage="We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but <no-localization>Vegan Hacktivists</no-localization> as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
             values={{
               link: (chunks) => (
                 <CustomLink href="https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team">
@@ -424,8 +400,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         </SubSection>
         <SubSection headerSize="3xl" contentSize="2xl" spacing={4}>
           <FormattedMessage
-            id="page.year-in-review.2020.section.new-teams.strawberry.content[1]"
-            defaultMessage="Suan Chin is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
+            id="page.year-in-review.2020.section.new-teams.strawberry.paragraph.1"
+            defaultMessage="<no-localization>Suan Chin</no-localization> is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
             values={{
               link: (chunks) => (
                 <CustomLink href="/people/team">{chunks}</CustomLink>
@@ -454,8 +430,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         </h2>
         <SubSection headerSize="3xl" contentSize="2xl">
           <FormattedMessage
-            id="page.year-in-review.2020.section.new-teams.blueberry.content"
-            defaultMessage="We recently introduced the Specialists team! 9 new activists have joined the team and each one currently fulfilling the roles of: Release, DevOps, Security, SEO, CSS, Art, Maps, Video, and Audio. This filled a gap where our team members could specifically get issues addressed on their projects through Team Bluebbery."
+            id="page.year-in-review.2020.section.new-teams.blueberry.paragraph"
+            defaultMessage="We recently introduced the Specialists team! 9 new activists have joined the team and each one currently fulfilling the roles of: Release, DevOps, Security, <no-localization>SEO</no-localization>, <no-localization>CSS</no-localization>, Art, Maps, Video, and Audio. This filled a gap where our team members could specifically get issues addressed on their projects through Team Blueberry."
           />
         </SubSection>
       </div>
@@ -477,8 +453,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#127815;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.grape.content"
-                  defaultMessage="We integrated Google Analytics into all of our projects."
+                  id="page.year-in-review.2020.section.big-impact-changes.grape.paragraph"
+                  defaultMessage="We integrated <no-localization>Google Analytics</no-localization> into all of our projects."
                 />
               ),
             },
@@ -486,8 +462,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#127817;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.watermelon.content"
-                  defaultMessage="We started accepting applications from Python developers."
+                  id="page.year-in-review.2020.section.big-impact-changes.watermelon.paragraph"
+                  defaultMessage="We started accepting applications from <no-localization>Python</no-localization> developers."
                 />
               ),
             },
@@ -495,7 +471,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#127818;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.orange.content"
+                  id="page.year-in-review.2020.section.big-impact-changes.orange.paragraph"
                   defaultMessage="We published our anonymous volunteer feedback form."
                 />
               ),
@@ -504,8 +480,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <> &#127820;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.banana.content"
-                  defaultMessage="We launched our LinkedIn page for our volunteers."
+                  id="page.year-in-review.2020.section.big-impact-changes.banana.paragraph"
+                  defaultMessage="We launched our <no-localization>LinkedIn</no-localization> page for our volunteers."
                 />
               ),
             },
@@ -513,7 +489,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#127822;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.apple.content"
+                  id="page.year-in-review.2020.section.big-impact-changes.apple.paragraph"
                   defaultMessage="We enabled bot notifications for community events & actions."
                 />
               ),
@@ -522,7 +498,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#129373;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.kiwi.content"
+                  id="page.year-in-review.2020.section.big-impact-changes.kiwi.paragraph"
                   defaultMessage="We released and open-sourced several of our past projects."
                 />
               ),
@@ -531,7 +507,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#129365;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.carrot.content"
+                  id="page.year-in-review.2020.section.big-impact-changes.carrot.paragraph"
                   defaultMessage="We improved our on-boarding process and developer guides."
                 />
               ),
@@ -540,7 +516,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               icon: <>&#127827;</>,
               description: (
                 <FormattedMessage
-                  id="page.year-in-review.2020.section.big-impact-changes.strawberry.content"
+                  id="page.year-in-review.2020.section.big-impact-changes.strawberry.paragraph"
                   defaultMessage="We installed advanced server monitoring software."
                 />
               ),
@@ -613,7 +589,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               <p className="w-2/3 mb-10 font-mono text-3xl text-white">
                 <FormattedMessage
                   id="page.year-in-review.2020.section.by-the-numbers.project-statistics.courses-done"
-                  defaultMessage="COURSES DONE ON <span>VEGANBOOTCAMP.ORG</span> IN UNDER 60 DAYS"
+                  defaultMessage="COURSES DONE ON <span><no-localization>VEGANBOOTCAMP.ORG</no-localization></span> IN UNDER 60 DAYS"
                   values={{
                     span: (chunks) => (
                       <span className="font-bold">{chunks}</span>
@@ -629,7 +605,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               <p className="w-2/3 mb-10 font-mono text-3xl text-white">
                 <FormattedMessage
                   id="page.year-in-review.2020.section.by-the-numbers.project-statistics.tweets"
-                  defaultMessage="TWEETS BY OUR <span>5 MINUTES 5 VEGANS</span> SUPPORT BOT"
+                  defaultMessage="TWEETS BY OUR <span><no-localization>5 MINUTES 5 VEGANS</no-localization></span> SUPPORT BOT"
                   values={{
                     span: (chunks) => (
                       <span className="font-bold">{chunks}</span>
@@ -645,7 +621,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               <p className="w-2/3 font-mono text-3xl text-white">
                 <FormattedMessage
                   id="page.year-in-review.2020.section.by-the-numbers.project-statistics.groups-added"
-                  defaultMessage="ANIMAL RIGHTS GROUPS ADDED TO <span>ANIMALRIGHTSMAP.ORG</span>"
+                  defaultMessage="ANIMAL RIGHTS GROUPS ADDED TO <span><no-localization>ANIMALRIGHTSMAP.ORG</no-localization></span>"
                   values={{
                     span: (chunks) => (
                       <span className="font-bold">{chunks}</span>
@@ -661,7 +637,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
               <p className="w-2/3 font-mono text-3xl text-white">
                 <FormattedMessage
                   id="page.year-in-review.2020.section.by-the-numbers.project-statistics.clicks"
-                  defaultMessage="CLICKS DIRECTING ACTIVISTS TO ORGS <span>VEGANACTIVISM.ORG</span>"
+                  defaultMessage="CLICKS DIRECTING ACTIVISTS TO ORGS <span><no-localization>VEGANACTIVISM.ORG</no-localization></span>"
                   values={{
                     span: (chunks) => (
                       <span className="font-bold">{chunks}</span>
@@ -752,20 +728,20 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         spacing={4}
       >
         <FormattedMessage
-          id="page.year-in-review.2020.section.moving-forward.content[0]"
+          id="page.year-in-review.2020.section.moving-forward.paragraph.0"
           defaultMessage="While we're happy with this years results as-well, we recognize the need to take a more data-based approach in what we build if we are to utilize our network of amazing volunteers effectively."
         />
       </SubSection>
       <SubSection contentSize="2xl" spacing={4}>
         <FormattedMessage
-          id="page.year-in-review.2020.section.moving-forward.content[1]"
+          id="page.year-in-review.2020.section.moving-forward.paragraph.1"
           defaultMessage="We also recognize that innovation often comes in uncharted territories where data is often lacking - so for 2021 we want to find a good balance of choosing projects that align with our innovation approach, while utilizing data to pick which ones may have the greater chance of impact in our movement."
         />
       </SubSection>
 
       <SubSection contentSize="2xl" spacing={4}>
         <FormattedMessage
-          id="page.year-in-review.2020.section.moving-forward.content[2]"
+          id="page.year-in-review.2020.section.moving-forward.paragraph.2"
           defaultMessage="We're really excited to hear your thoughts on our 2020 year in review, and if you like what we do, please consider supporting us by clicking the button below. Your donation ensures that all of our work and projects remain free and accessible to everyone, and we can't begin to thank you enough for the support!"
         />
       </SubSection>

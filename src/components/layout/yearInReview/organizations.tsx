@@ -19,53 +19,54 @@ export const Organizations: React.FC = () => {
     savemovement: {
       title: intl.formatMessage({
         id: 'page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading',
-        defaultMessage: 'Animal Save Movement',
+        defaultMessage:
+          '<no-localization>Animal Save Movement</no-localization>',
       }),
       url: 'thesavemovement.org',
       image: saveMovementImage,
       content: intl.formatMessage({
-        id: 'page.year-in-review.2020.section.working-with-organizations.animal-save-movement.content',
+        id: 'page.year-in-review.2020.section.working-with-organizations.animal-save-movement.paragraph',
         defaultMessage:
-          "We were able to work with Animal Save and help them with their new website. We also helped with their Ad campaign and managed those for a few months to help promote more of Save's work and newsletter. If you haven't heard of Save, their mission is to hold vigils at every slaughterhouse and to bear witness to every exploited animal. They also run the Climate and Health Save Movement, which promote reversing catastrophic climate change and making plant-based diets accessible. It was an absolute joy to meet and work with their team of passionate activists!",
+          "We were able to work with <no-localization>Animal Save</no-localization> and help them with their new website. We also helped with their Ad campaign and managed those for a few months to help promote more of <no-localization>Save's</no-localization> work and newsletter. If you haven't heard of <no-localization>Save</no-localization>, their mission is to hold vigils at every slaughterhouse and to bear witness to every exploited animal. They also run the Climate and Health Save Movement, which promote reversing catastrophic climate change and making plant-based diets accessible. It was an absolute joy to meet and work with their team of passionate activists!",
       }),
     },
     animalrebellion: {
       title: intl.formatMessage({
         id: 'page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading',
-        defaultMessage: 'Animal Rebellion',
+        defaultMessage: '<no-localization>Animal Rebellion</no-localization>',
       }),
       url: 'animalrebellion.org',
       image: animalRebellionImage,
       content: intl.formatMessage({
-        id: 'page.year-in-review.2020.section.working-with-organizations.animal-rebellion.content',
+        id: 'page.year-in-review.2020.section.working-with-organizations.animal-rebellion.paragraph',
         defaultMessage:
-          'We partnered with Animal Rebellion this year to help build their new website, which we dedicated an entire team for that took about 6 months of work. Their tech team were fantastic to work with, they were very knowledgeable and we felt like we were working with a team of professional during each encounter during our work. Animal Rebellion is a mass movement that uses nonviolent civil resistance to bring about a transition to a just and sustainable plant-based food system as an attempt to halt massive extinction, alleviate the worst effects of climate breakdown, and ensure justice for animals.',
+          'We partnered with <no-localization>Animal Rebellion</no-localization> this year to help build their new website, which we dedicated an entire team for that took about 6 months of work. Their tech team were fantastic to work with, they were very knowledgeable and we felt like we were working with a team of professional during each encounter during our work. <no-localization>Animal Rebellion</no-localization> is a mass movement that uses nonviolent civil resistance to bring about a transition to a just and sustainable plant-based food system as an attempt to halt massive extinction, alleviate the worst effects of climate breakdown, and ensure justice for animals.',
       }),
     },
     lebanesevegans: {
       title: intl.formatMessage({
         id: 'page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading',
-        defaultMessage: 'Lebanese Vegans',
+        defaultMessage: '<no-localization>Lebanese Vegans</no-localization>',
       }),
       url: 'lebanesevegans.org',
       image: lebaneseVegansImage,
       content: intl.formatMessage({
-        id: 'page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.content',
+        id: 'page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.paragraph',
         defaultMessage:
-          'The Lebanese Vegans social hub is the only animal rights and vegan support center in Southwest Asia and North Africa offering free monthly workshops and lectures about veganism, free weekly food distribution and monthly campaigns raising awareness about animal rights. We were lucky enough to work with them to help them both launch their new website and also re-branding with a new logo. We had a great time working through our advisor, Seb Alex, who organizes the work behind Lebanese Vegans.',
+          'The <no-localization>Lebanese Vegans</no-localization> social hub is the only animal rights and vegan support center in Southwest Asia and North Africa offering free monthly workshops and lectures about veganism, free weekly food distribution and monthly campaigns raising awareness about animal rights. We were lucky enough to work with them to help them both launch their new website and also re-branding with a new logo. We had a great time working through our advisor, <no-localization>Seb Alex</no-localization>, who organizes the work behind <no-localization>Lebanese Vegans</no-localization>.',
       }),
     },
     theexcelsior4: {
       title: intl.formatMessage({
         id: 'page.year-in-review.2020.section.working-with-organizations.excelsior.heading',
-        defaultMessage: 'The Excelsior 4',
+        defaultMessage: '<no-localization>The Excelsior 4</no-localization>',
       }),
       url: 'excelsior4.org',
       image: theExcelsior4Image,
       content: intl.formatMessage({
-        id: 'page.year-in-review.2020.section.working-with-organizations.excelsior.content',
+        id: 'page.year-in-review.2020.section.working-with-organizations.excelsior.paragraph',
         defaultMessage:
-          "The Excelsior 4 are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at Excelsior Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!",
+          "The <no-localization>Excelsior 4</no-localization> are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at <no-localization>Excelsior</no-localization> Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!",
       }),
     },
   };
