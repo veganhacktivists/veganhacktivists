@@ -101,58 +101,58 @@
   "page.about.section.our-mission.section-header.image.alt-text": {
     "message": "Unser Auftrag"
   },
-  "page.about.section.our-mission.subsection-1.content": {
+  "page.about.section.our-mission.subsection-0.paragraph": {
     "message": "Um die Wirksamkeit von Projekten, Kampagnen und unserer Arbeit insgesamt zu ermitteln, müssen aussagekräftige Daten verfolgt und gesammelt werden. Wir sind der festen Überzeugung, dass eine datengesteuerte Bewegung unsere Arbeit beschleunigen und aufwerten wird. Deshalb legen wir großen Wert darauf, Daten zu ermitteln, zu sammeln und zu analysieren und sie anderen zugänglich zu machen."
   },
-  "page.about.section.our-mission.subsection-1.heading": {
+  "page.about.section.our-mission.subsection-0.heading": {
     "message": "1. Wir brauchen mehr Daten in unserer Bewegung."
   },
-  "page.about.section.our-mission.subsection-2.content": {
+  "page.about.section.our-mission.subsection-1.paragraph": {
     "message": "Wir sind der festen Überzeugung, dass Wettbewerb nicht nur gesund, sondern auch unerlässlich ist, um die Wirksamkeit unserer Bewegung zu verbessern. Der Wettbewerb übt einen gesunden Druck auf Organisationen und Projekte aus, sich ständig zu verbessern und zu wiederholen - und das gibt uns mehr Informationen darüber, was funktioniert."
   },
-  "page.about.section.our-mission.subsection-2.heading": {
+  "page.about.section.our-mission.subsection-1.heading": {
     "message": "2. Wir brauchen auch mehr Wettbewerb."
   },
-  "page.about.section.our-mission.subsection-3.content": {
+  "page.about.section.our-mission.subsection-2.paragraph": {
     "message": "Wir glauben, dass die Bewegung das Potenzial hat, in ihren Ansätzen innovativer zu sein. Wir fördern den Blick über den Tellerrand und machen Innovation zu einem zentralen Aspekt unserer Arbeit und unserer Prozesse."
   },
-  "page.about.section.our-mission.subsection-3.heading": {
+  "page.about.section.our-mission.subsection-2.heading": {
     "message": "3. Wir müssen innovativer werden."
   },
-  "page.about.section.our-mission.subsection-4.content": {
+  "page.about.section.our-mission.subsection-3.paragraph": {
     "message": "Unser Ziel ist es, Organisationen und Einzelpersonen dabei zu helfen, sich auf sinnvollere Weise zu vernetzen und zusammenzuarbeiten. Wir müssen unser Wissen nutzen und uns miteinander vernetzen, um unsere gemeinsamen Ziele zu unterstützen, sei es durch die gemeinsame Nutzung von Forschungsergebnissen oder Daten, durch den Austausch von Ressourcen oder generell durch die gegenseitige Unterstützung bei der Bewältigung organisatorischer Herausforderungen."
   },
-  "page.about.section.our-mission.subsection-4.heading": {
+  "page.about.section.our-mission.subsection-3.heading": {
     "message": "4. Und wir müssen anfangen, zusammenzuarbeiten."
   },
-  "page.about.section.our-mission.subsection-5.content": {
+  "page.about.section.our-mission.subsection-4.paragraph": {
     "message": "Nur ein winziger Prozentsatz der Weltbevölkerung lebt vegan, und nur ein Bruchteil davon ist aktiv. Viele Organisationen ermutigen Nicht-Veganer, sich aus gesundheitlichen, ökologischen oder ethischen Gründen vegan zu ernähren. Wir glauben, dass wir auch effektiv sein können, indem wir Hilfsmittel schaffen, die mehr Veganer inspirieren und motivieren, sich für die Tiere einzusetzen."
   },
-  "page.about.section.our-mission.subsection-5.heading": {
+  "page.about.section.our-mission.subsection-4.heading": {
     "message": "5. Schließlich brauchen wir mehr Veganer, die aktiv werden."
   },
   "page.about.section.our-story.next-seo.title": {
     "message": "Unsere Geschichte"
   },
-  "page.about.section.our-story.section-header.content": {
+  "page.about.section.our-story.intro.paragraph": {
     "message": "Im Jahr 2019 starteten wir unser erstes Projekt mit ein paar Freiwilligen, die sich für Aktivismus begeisterten. Seitdem sind wir zu einer Gemeinschaft hochqualifizierter und professioneller Software-Ingenieure, Designer, Datenwissenschaftler und Inhaltsersteller gewachsen, die die Bewegung unterstützen. Wir sind mit der Hoffnung angetreten, Menschen zum Handeln zu bewegen und sie zu inspirieren, sich für Tiere einzusetzen - und diesem Grundprinzip sind wir verpflichtet. Unsere digitalen Fähigkeiten beflügeln unseren Aktivismus."
   },
-  "page.about.section.our-story.section-header.heading": {
+  "page.about.section.our-story.intro.heading": {
     "message": "Unsere Geschichte"
   },
-  "page.about.section.our-story.section-header.image.alt-text": {
+  "page.about.section.our-story.image.alt-text": {
     "message": "Unsere Geschichte"
   },
-  "page.about.section.our-story.subsection-1.content": {
+  "page.about.section.our-story.paragraph.0": {
     "message": "Wir sind die Vegan Hacktivists. Unsere Fähigkeiten - sei es das Schreiben von Code, die Entwicklung einer Markenidentität oder die Analyse von Daten - sind so vielfältig wie die Regionen, aus denen wir kommen und in denen wir leben. Wir arbeiten zusammen, um Projekte zu entwickeln, die datengesteuert, experimentell und effektiv sind. Unser Kernteam besteht aus Direktoren und hochrangigen Teammitgliedern, die über Erfahrung und Fachwissen in den Bereichen Technik, Architektur, Design, Daten, Betrieb und Kommunikation verfügen. Unsere Freiwilligenbasis besteht aus Teams, die von Leitern geführt werden; jedes Team ist für ein Projekt verantwortlich, das es aktiv aufbaut und pflegt."
   },
-  "page.about.section.our-story.subsection-2.content": {
+  "page.about.section.our-story.paragraph.1": {
     "message": "Unsere Organisation verfolgt einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht. Da unsere Arbeit Geduld und Engagement erfordert, regen wir unsere Freiwilligen an, indem wir ein unterstützendes Umfeld schaffen, das es ihnen ermöglicht, sich zu engagieren, effektiv und wirkungsvoll zu sein. Als dezentrale Organisation wollen wir ein Gemeinschaftsgefühl aufbauen, das sich an Werten orientiert und durch sinnvolle und spielerische Interaktionen verbunden ist. Jedes Team wird durch eine <link>Frucht oder ein Gemüse</link> repräsentiert (pflanzenbasiert auf einer anderen Ebene), und wir gleichen unsere Arbeit mit Spielen, Zusammenkünften und Gemeinschaftsanrufen aus. Unsere Freiwilligen sind schließlich das Herzstück unserer Organisation."
   },
-  "page.about.section.our-story.subsection-3.content": {
+  "page.about.section.our-story.paragraph.2": {
     "message": "Im Laufe der Jahre hat sich unsere Organisation mit den Bedürfnissen unserer Bewegung verändert. Während wir uns jetzt in erster Linie auf die Bereitstellung von Dienstleistungen zum Aufbau von Kapazitäten konzentrieren, entwickeln wir weiterhin Technologien, die wir für innovativ halten und die in der Bewegung dringend benötigt werden. Jetzt arbeiten wir intensiv mit Anwälten, Organisationen und denjenigen, die an vorderster Front arbeiten, zusammen, um ihren täglichen Betrieb, ihre Marke und Identität sowie ihre Technologie zu verbessern. Auf diese Weise tragen wir dazu bei, ihre Botschaft zu verbreiten und ihre Arbeit einem breiteren Publikum zugänglich zu machen."
   },
-  "page.about.section.our-story.subsection-4.content": {
+  "page.about.section.our-story.paragraph.3": {
     "message": "Trotz allem bleibt unser Nordstern derselbe: <no-localization>{break}</no-localization> Wir tun es für die Tiere."
   },
   "page.about.section.our-values.next-seo.title": {
@@ -167,40 +167,40 @@
   "page.about.section.our-values.section-header.image.alt-text": {
     "message": "Unsere Werte"
   },
-  "page.about.section.our-values.subsection-1.content": {
+  "page.about.section.our-values.subsection-0.paragraph": {
     "message": "Wir schätzen und respektieren das Leben aller Tiere und prangern jede Form von Gewalt und Ausbeutung gegen sie an. Wir glauben, dass Tiere das Recht haben, frei zu sein, und wir kämpfen dafür mit unserem (digitalen) Aktivismus."
   },
-  "page.about.section.our-values.subsection-1.heading": {
+  "page.about.section.our-values.subsection-0.heading": {
     "message": "Tierbefreiung"
   },
-  "page.about.section.our-values.subsection-2.content": {
+  "page.about.section.our-values.subsection-1.paragraph": {
     "message": "Wir praktizieren einen auf Liebe basierenden Organisationsansatz, bei dem die Gemeinschaft im Vordergrund steht. Wir üben uns in Empathie, Mitgefühl und Gewaltlosigkeit. Wir ermutigen jedes Mitglied zu einem offenen und freundlichen Umgang miteinander."
   },
-  "page.about.section.our-values.subsection-2.heading": {
+  "page.about.section.our-values.subsection-1.heading": {
     "message": "Gewaltlosigkeit"
   },
-  "page.about.section.our-values.subsection-3.content": {
+  "page.about.section.our-values.subsection-2.paragraph": {
     "message": "Wir glauben an den Aufbau und die Förderung von sicheren und integrativen Gemeinschaften, unabhängig von Rasse, Geschlecht, Art, Alter, sexueller Orientierung oder politischer Zugehörigkeit. Wir streben danach, vielfältig und repräsentativ für die Gemeinschaften zu sein, denen wir dienen und mit denen wir arbeiten."
   },
-  "page.about.section.our-values.subsection-3.heading": {
+  "page.about.section.our-values.subsection-2.heading": {
     "message": "Sichere Gemeinschaft"
   },
-  "page.about.section.our-values.subsection-4.content": {
+  "page.about.section.our-values.subsection-3.paragraph": {
     "message": "Wir glauben, dass Nutztiere unsere Unterstützung am dringendsten benötigen, weshalb wir uns als Organisation in erster Linie auf die Befreiung von Nutztieren konzentrieren."
   },
-  "page.about.section.our-values.subsection-4.heading": {
+  "page.about.section.our-values.subsection-3.heading": {
     "message": "Gezüchtete Tiere"
   },
-  "page.about.section.our-values.subsection-5.content": {
+  "page.about.section.our-values.subsection-4.paragraph": {
     "message": "Wir schätzen unterschiedliche Standpunkte und konstruktives Feedback von jedem Einzelnen. Wir glauben, dass jeder etwas Wertvolles zu einer Diskussion beitragen kann. Wir hören immer zuerst zu und reagieren dann konstruktiv."
   },
-  "page.about.section.our-values.subsection-5.heading": {
+  "page.about.section.our-values.subsection-4.heading": {
     "message": "Offenes Feedback"
   },
-  "page.about.section.our-values.subsection-6.content": {
+  "page.about.section.our-values.subsection-5.paragraph": {
     "message": "Wir unterstützen oder ermöglichen nicht die Ausbeutung oder Unterdrückung irgendeiner Gruppe. Wir glauben, dass die Unterdrückung von Menschen und nicht-menschlichen Tieren miteinander verbunden ist und dass die Arbeit zur Beseitigung aller Formen der Unterdrückung notwendig ist."
   },
-  "page.about.section.our-values.subsection-6.heading": {
+  "page.about.section.our-values.subsection-5.heading": {
     "message": "Anti-Oppression"
   },
   "page.blog.next-seo.title": {

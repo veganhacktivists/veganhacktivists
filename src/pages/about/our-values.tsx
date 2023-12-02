@@ -48,72 +48,72 @@ const OurValues: PageWithLayout = () => {
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-1.heading',
+            id: 'page.about.section.our-values.subsection-0.heading',
             defaultMessage: 'Animal Liberation',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-1.content"
+            id="page.about.section.our-values.subsection-0.paragraph"
             defaultMessage="We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
           />
         </SubSection>
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-2.heading',
+            id: 'page.about.section.our-values.subsection-1.heading',
             defaultMessage: 'Non-violence',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-2.content"
+            id="page.about.section.our-values.subsection-1.paragraph"
             defaultMessage="We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
           />
         </SubSection>
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-3.heading',
+            id: 'page.about.section.our-values.subsection-2.heading',
             defaultMessage: 'Safe Community',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-3.content"
+            id="page.about.section.our-values.subsection-2.paragraph"
             defaultMessage="We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
           />
         </SubSection>
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-4.heading',
+            id: 'page.about.section.our-values.subsection-3.heading',
             defaultMessage: 'Farmed Animals',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-4.content"
+            id="page.about.section.our-values.subsection-3.paragraph"
             defaultMessage="We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
           />
         </SubSection>
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-5.heading',
+            id: 'page.about.section.our-values.subsection-4.heading',
             defaultMessage: 'Open Feedback',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-5.content"
+            id="page.about.section.our-values.subsection-4.paragraph"
             defaultMessage="We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
           />
         </SubSection>
 
         <SubSection
           header={intl.formatMessage({
-            id: 'page.about.section.our-values.subsection-6.heading',
+            id: 'page.about.section.our-values.subsection-5.heading',
             defaultMessage: 'Anti-Oppression',
           })}
         >
           <FormattedMessage
-            id="page.about.section.our-values.subsection-6.content"
+            id="page.about.section.our-values.subsection-5.paragraph"
             defaultMessage="We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
           />
         </SubSection>

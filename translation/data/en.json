@@ -101,58 +101,58 @@
   "page.about.section.our-mission.section-header.image.alt-text": {
     "message": "Our mission"
   },
-  "page.about.section.our-mission.subsection-1.content": {
+  "page.about.section.our-mission.subsection-0.heading": {
+    "message": "1. We need more data in our movement."
+  },
+  "page.about.section.our-mission.subsection-0.paragraph": {
     "message": "To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
   },
   "page.about.section.our-mission.subsection-1.heading": {
-    "message": "1. We need more data in our movement."
+    "message": "2. We need more competition, too."
   },
-  "page.about.section.our-mission.subsection-2.content": {
+  "page.about.section.our-mission.subsection-1.paragraph": {
     "message": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
   },
   "page.about.section.our-mission.subsection-2.heading": {
-    "message": "2. We need more competition, too."
+    "message": "3. We need to be more innovative."
   },
-  "page.about.section.our-mission.subsection-3.content": {
+  "page.about.section.our-mission.subsection-2.paragraph": {
     "message": "We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
   },
   "page.about.section.our-mission.subsection-3.heading": {
-    "message": "3. We need to be more innovative."
+    "message": "4. And we need to start collaborating."
   },
-  "page.about.section.our-mission.subsection-4.content": {
+  "page.about.section.our-mission.subsection-3.paragraph": {
     "message": "We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
   },
   "page.about.section.our-mission.subsection-4.heading": {
-    "message": "4. And we need to start collaborating."
+    "message": "5. Finally, we need more vegans to become active."
   },
-  "page.about.section.our-mission.subsection-5.content": {
+  "page.about.section.our-mission.subsection-4.paragraph": {
     "message": "Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
   },
-  "page.about.section.our-mission.subsection-5.heading": {
-    "message": "5. Finally, we need more vegans to become active."
+  "page.about.section.our-story.image.alt-text": {
+    "message": "Our story"
+  },
+  "page.about.section.our-story.intro.heading": {
+    "message": "Our story"
+  },
+  "page.about.section.our-story.intro.paragraph": {
+    "message": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
   },
   "page.about.section.our-story.next-seo.title": {
     "message": "Our Story"
   },
-  "page.about.section.our-story.section-header.content": {
-    "message": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
+  "page.about.section.our-story.paragraph.0": {
+    "message": "We are the <no-localization>Vegan Hacktivists</no-localization>. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
   },
-  "page.about.section.our-story.section-header.heading": {
-    "message": "Our story"
-  },
-  "page.about.section.our-story.section-header.image.alt-text": {
-    "message": "Our story"
-  },
-  "page.about.section.our-story.subsection-1.content": {
-    "message": "We are the Vegan Hacktivists. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
-  },
-  "page.about.section.our-story.subsection-2.content": {
+  "page.about.section.our-story.paragraph.1": {
     "message": "Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
   },
-  "page.about.section.our-story.subsection-3.content": {
+  "page.about.section.our-story.paragraph.2": {
     "message": "Over the years, our organization has changed with the needs of our movement. While we now primarily focus on providing capacity-building services, we continue to build technology that we believe to be innovative and highly needed in the movement. Now, we work extensively with advocates, organizations, and those working at the frontlines to help improve their day-to-day operations, brand and identity, and technology. In doing so, we are helping to amplify their message and elevate their work to a wider audience."
   },
-  "page.about.section.our-story.subsection-4.content": {
+  "page.about.section.our-story.paragraph.3": {
     "message": "Through it all, our North Star remains the same: <no-localization>{break}</no-localization> we do it for the animals."
   },
   "page.about.section.our-values.next-seo.title": {
@@ -167,41 +167,41 @@
   "page.about.section.our-values.section-header.image.alt-text": {
     "message": "Our values"
   },
-  "page.about.section.our-values.subsection-1.content": {
+  "page.about.section.our-values.subsection-0.heading": {
+    "message": "Animal Liberation"
+  },
+  "page.about.section.our-values.subsection-0.paragraph": {
     "message": "We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
   },
   "page.about.section.our-values.subsection-1.heading": {
-    "message": "Animal Liberation"
+    "message": "Non-violence"
   },
-  "page.about.section.our-values.subsection-2.content": {
+  "page.about.section.our-values.subsection-1.paragraph": {
     "message": "We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
   },
   "page.about.section.our-values.subsection-2.heading": {
-    "message": "Non-violence"
+    "message": "Safe Community"
   },
-  "page.about.section.our-values.subsection-3.content": {
+  "page.about.section.our-values.subsection-2.paragraph": {
     "message": "We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
   },
   "page.about.section.our-values.subsection-3.heading": {
-    "message": "Safe Community"
+    "message": "Farmed Animals"
   },
-  "page.about.section.our-values.subsection-4.content": {
+  "page.about.section.our-values.subsection-3.paragraph": {
     "message": "We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
   },
   "page.about.section.our-values.subsection-4.heading": {
-    "message": "Farmed Animals"
+    "message": "Open Feedback"
   },
-  "page.about.section.our-values.subsection-5.content": {
+  "page.about.section.our-values.subsection-4.paragraph": {
     "message": "We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
   },
   "page.about.section.our-values.subsection-5.heading": {
-    "message": "Open Feedback"
-  },
-  "page.about.section.our-values.subsection-6.content": {
-    "message": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
-  },
-  "page.about.section.our-values.subsection-6.heading": {
     "message": "Anti-Oppression"
+  },
+  "page.about.section.our-values.subsection-5.paragraph": {
+    "message": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
   },
   "page.blog.next-seo.title": {
     "message": "Blog"
