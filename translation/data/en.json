@@ -879,7 +879,7 @@
     "message": "Advice"
   },
   "page.sign-in.already-signed-in.content": {
-    "message": "You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
+    "message": "You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>"
   },
   "page.sign-in.button.sign-in": {
     "message": "Sign in!"
