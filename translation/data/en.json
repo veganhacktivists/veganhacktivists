@@ -305,13 +305,13 @@
   "page.grants.section.application.form.a.input.applicant-gender.label": {
     "message": "Gender <span>(optional)</span>"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.0": {
     "message": "male"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.1": {
     "message": "female"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.2": {
     "message": "other"
   },
   "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
@@ -387,13 +387,13 @@
     "message": "Please confirm your ability to accept funding"
   },
   "page.grants.section.application.form.c.input.can-accept-funding.text": {
-    "message": "I confirm that I have a bank or PayPal account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - TPP is unable to make grant payments to any other person or entity on my behalf. I understand that if TPP reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
+    "message": "I confirm that I have a bank or <no-localization>PayPal</no-localization> account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - <no-localization>TPP</no-localization> is unable to make grant payments to any other person or entity on my behalf. I understand that if <no-localization>TPP</no-localization> reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
   },
   "page.grants.section.application.form.c.input.funds-usage.label": {
     "message": "What will the funds be used for?"
   },
   "page.grants.section.application.form.c.input.funds-usage.text": {
-    "message": "Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
+    "message": "Please list each budget item and the associated cost. The total should equal the total funding you are requesting from <no-localization>TPP</no-localization>. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
   },
   "page.grants.section.application.form.c.input.total-budget.error": {
     "message": "Please enter a positive value"
@@ -405,7 +405,7 @@
     "message": "Please tell us the total cost of the project. This amount should include the expenditure for all activities associated with the project"
   },
   "page.grants.section.application.form.c.intro": {
-    "message": "<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
+    "message": "<div>Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used.</div> <div>Please note, all information in this section should be given in <b>US Dollars</b> (US$).</div>"
   },
   "page.grants.section.application.form.message.error": {
     "message": "Something went wrong processing your submission! Please try again later"
@@ -428,23 +428,23 @@
   "page.grants.section.heading.text": {
     "message": "Seed Funding Grants"
   },
-  "page.grants.section.perks.check-ins.content": {
-    "message": "A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
-  },
   "page.grants.section.perks.check-ins.heading": {
     "message": "Monthly Advisory Check-ins"
   },
-  "page.grants.section.perks.content-dev.content": {
-    "message": "We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
+  "page.grants.section.perks.check-ins.paragraph": {
+    "message": "A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
   },
   "page.grants.section.perks.content-dev.heading": {
     "message": "Content Development"
   },
-  "page.grants.section.perks.design-creation.content": {
-    "message": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
+  "page.grants.section.perks.content-dev.paragraph": {
+    "message": "We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
   },
   "page.grants.section.perks.design-creation.heading": {
     "message": "Design Creation"
+  },
+  "page.grants.section.perks.design-creation.paragraph": {
+    "message": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
   },
   "page.grants.section.perks.heading": {
     "message": "Heart icon"
@@ -452,37 +452,37 @@
   "page.grants.section.perks.heading.image.alt-text": {
     "message": "In addition to seed funding, succesful applicants can receive:"
   },
-  "page.grants.section.perks.squarespace.content": {
+  "page.grants.section.perks.squarespace.heading": {
+    "message": "<no-localization>Squarespace</no-localization> Website Subscription"
+  },
+  "page.grants.section.perks.squarespace.paragraph": {
     "message": "<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
   },
-  "page.grants.section.perks.squarespace.heading": {
-    "message": "Squarespace Website Subscription"
-  },
   "page.grants.section.pollination-project.button": {
-    "message": "ThePollinationProject.org"
-  },
-  "page.grants.section.pollination-project.content[0]": {
-    "message": "Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
-  },
-  "page.grants.section.pollination-project.content[1]": {
-    "message": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
+    "message": "<no-localization>ThePollinationProject.org</no-localization>"
   },
   "page.grants.section.pollination-project.image.alt-text": {
-    "message": "Logo of The Pollination Project"
+    "message": "Logo of <no-localization>The Pollination Project</no-localization>"
   },
-  "page.grants.section.qualifications.cta[0].content": {
+  "page.grants.section.pollination-project.paragraph.0": {
+    "message": "Our grants connection service is generously funded by <no-localization>The Pollination Project (TPP)</no-localization> and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
+  },
+  "page.grants.section.pollination-project.paragraph.1": {
+    "message": "If your primary focus does not address farmed animals, you may still be eligible for a grant directly from <no-localization>TPP</no-localization>. We encourage you to apply through their website."
+  },
+  "page.grants.section.qualifications.cta.paragraph.0": {
     "message": "<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
   },
-  "page.grants.section.qualifications.cta[1].content": {
+  "page.grants.section.qualifications.cta.paragraph.1": {
     "message": "If you meet the qualifications, fill out the application form below."
   },
   "page.grants.section.qualifications.heading": {
     "message": "Before applying, make sure you meet these qualifications:"
   },
-  "page.grants.section.qualifications.step[0].content": {
+  "page.grants.section.qualifications.steps.paragraph.0": {
     "message": "<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
   },
-  "page.grants.section.qualifications.step[1].content": {
+  "page.grants.section.qualifications.steps.paragraph.1": {
     "message": "<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
   },
   "page.grants.section.subheading": {

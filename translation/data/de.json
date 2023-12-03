@@ -305,13 +305,13 @@
   "page.grants.section.application.form.a.input.applicant-gender.label": {
     "message": "Geschlecht <span>(fakultativ)</span>"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.0": {
     "message": "männlich"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.1": {
     "message": "weiblich"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.2": {
     "message": "andere"
   },
   "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
@@ -428,19 +428,19 @@
   "page.grants.section.heading.text": {
     "message": "Zuschüsse für die Anschubfinanzierung"
   },
-  "page.grants.section.perks.check-ins.content": {
+  "page.grants.section.perks.check-ins.paragraph": {
     "message": "Ein monatlicher 30-minütiger Zoom-Anruf, um Sie und Ihr Team zu beraten. Die Themen umfassen unter anderem Technologie, Marketing, Strategie und andere Aspekte des Wachstums und der Entwicklung Ihrer Organisation."
   },
   "page.grants.section.perks.check-ins.heading": {
     "message": "Monatliche Beratungsbesuche"
   },
-  "page.grants.section.perks.content-dev.content": {
+  "page.grants.section.perks.content-dev.paragraph": {
     "message": "Wir helfen Ihnen bei der Erstellung von Botschaften für die Öffentlichkeit, einschließlich Website-Texten. Wir bieten unsere Schreib- und Redaktionsfähigkeiten in jeder Phase des Prozesses an: vom ersten Brainstorming bis zur Überprüfung von Texten, die Ihre Arbeit fördern."
   },
   "page.grants.section.perks.content-dev.heading": {
     "message": "Entwicklung von Inhalten"
   },
-  "page.grants.section.perks.design-creation.content": {
+  "page.grants.section.perks.design-creation.paragraph": {
     "message": "Je nach Ihren Bedürfnissen entwerfen wir das Branding und das Logo für Ihre Organisation oder Ihr Projekt (oder gestalten es neu). Außerdem stellen wir digitale Assets wie Banner, Icons und andere benutzerdefinierte Elemente für soziale Medien und Ihre Website bereit."
   },
   "page.grants.section.perks.design-creation.heading": {
@@ -452,7 +452,7 @@
   "page.grants.section.perks.heading.image.alt-text": {
     "message": "Zusätzlich zur Startfinanzierung können erfolgreiche Antragsteller Folgendes erhalten:"
   },
-  "page.grants.section.perks.squarespace.content": {
+  "page.grants.section.perks.squarespace.paragraph": {
     "message": "<div>Im Wert von 200 $ übernehmen wir die Abonnementkosten für das erste Jahr.</div> <div>Sie sind der Eigentümer, und wir helfen Ihnen bei der Gestaltung und Pflege der Website.</div> <div>Einfach zu aktualisieren mit wenig bis gar keiner Erfahrung.</div>"
   },
   "page.grants.section.perks.squarespace.heading": {
@@ -461,28 +461,28 @@
   "page.grants.section.pollination-project.button": {
     "message": "DasBestäubungsprojekt.org"
   },
-  "page.grants.section.pollination-project.content[0]": {
+  "page.grants.section.pollination-project.paragraph.0": {
     "message": "Unser Zuschussvermittlungsdienst wird großzügig von The Pollination Project (TPP) und anderen privaten Spendern finanziert - bitte halten Sie in Ihrem Posteingang Ausschau und vergessen Sie nicht, Ihre Spam-Mails zu überprüfen!"
   },
-  "page.grants.section.pollination-project.content[1]": {
+  "page.grants.section.pollination-project.paragraph.1": {
     "message": "Wenn Ihr Hauptaugenmerk nicht auf Nutztiere gerichtet ist, können Sie trotzdem für einen Zuschuss direkt von TPP in Frage kommen. Wir empfehlen Ihnen, sich über die Website zu bewerben."
   },
   "page.grants.section.pollination-project.image.alt-text": {
     "message": "Logo von The Pollination Project"
   },
-  "page.grants.section.qualifications.cta[0].content": {
+  "page.grants.section.qualifications.cta.paragraph.0": {
     "message": "<b>Erfüllen Sie die oben genannten Voraussetzungen nicht?</b> Sie könnten trotzdem für eine Förderung in Frage kommen! Bewerben Sie sich und wir leiten Ihre Bewerbung an andere potenzielle Geldgeber weiter."
   },
-  "page.grants.section.qualifications.cta[1].content": {
+  "page.grants.section.qualifications.cta.paragraph.1": {
     "message": "Wenn Sie die Voraussetzungen erfüllen, füllen Sie bitte das nachstehende Bewerbungsformular aus."
   },
   "page.grants.section.qualifications.heading": {
     "message": "Vergewissern Sie sich vor Ihrer Bewerbung, dass Sie diese Voraussetzungen erfüllen:"
   },
-  "page.grants.section.qualifications.step[0].content": {
+  "page.grants.section.qualifications.steps.paragraph.0": {
     "message": "<b> Ihr vorrangiges Ziel </b> sollte es sein, das Leiden von Nutztieren zu verringern. In der Massentierhaltung leiden jedes Jahr über 100 Milliarden Tiere unter Entbehrungen, Angst und Schmerzen."
   },
-  "page.grants.section.qualifications.step[1].content": {
+  "page.grants.section.qualifications.steps.paragraph.1": {
     "message": "<b> Sie müssen </b> bereits Erfahrung im Aktivismus haben, sei es im Bereich der Tierrechte oder in anderen sozialen Bewegungen. Wir suchen Menschen, die an Basis-Kampagnen und/oder -Projekten mitgewirkt haben, sei es in einer bezahlten oder ehrenamtlichen Funktion."
   },
   "page.grants.section.subheading": {

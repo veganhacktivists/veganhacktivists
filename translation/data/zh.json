@@ -305,13 +305,13 @@
   "page.grants.section.application.form.a.input.applicant-gender.label": {
     "message": "性别<span>（可选）</span>"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.0": {
     "message": "雄性"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.1": {
     "message": "女性"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.2": {
     "message": "其他"
   },
   "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
@@ -428,19 +428,19 @@
   "page.grants.section.heading.text": {
     "message": "种子基金赠款"
   },
-  "page.grants.section.perks.check-ins.content": {
+  "page.grants.section.perks.check-ins.paragraph": {
     "message": "每月一次 30 分钟的 Zoom 电话会议，为您和您的团队提供建议。主题包括但不限于技术、营销、战略以及组织成长和发展的其他方面。"
   },
   "page.grants.section.perks.check-ins.heading": {
     "message": "每月咨询检查"
   },
-  "page.grants.section.perks.content-dev.content": {
+  "page.grants.section.perks.content-dev.paragraph": {
     "message": "我们帮助制作任何面向公众的信息，包括网站文案。从最初的头脑风暴到审查有助于宣传您作品的文案，我们都能在任何阶段提供写作和编辑技能。"
   },
   "page.grants.section.perks.content-dev.heading": {
     "message": "内容开发"
   },
-  "page.grants.section.perks.design-creation.content": {
+  "page.grants.section.perks.design-creation.paragraph": {
     "message": "根据您的需求，我们为您的组织或项目设计（或重新设计）品牌和徽标。我们还为您的社交媒体和网站提供数字资产，如横幅、图标和任何定制元素。"
   },
   "page.grants.section.perks.design-creation.heading": {
@@ -452,7 +452,7 @@
   "page.grants.section.perks.heading.image.alt-text": {
     "message": "除种子基金外，成功的申请者还可获得"
   },
-  "page.grants.section.perks.squarespace.content": {
+  "page.grants.section.perks.squarespace.paragraph": {
     "message": "<div>价值 200 美元，我们承担第一年的订阅费用。</div> <div>您拥有它，我们帮助您设计和维护它。</div> <div>无需经验，即可轻松更新。</div>"
   },
   "page.grants.section.perks.squarespace.heading": {
@@ -461,28 +461,28 @@
   "page.grants.section.pollination-project.button": {
     "message": "ThePollinationProject.org"
   },
-  "page.grants.section.pollination-project.content[0]": {
+  "page.grants.section.pollination-project.paragraph.0": {
     "message": "我们的赠款连接服务得到了授粉项目 (TPP) 和其他私人捐助者的慷慨资助--请留意您的收件箱，别忘了检查垃圾邮件！"
   },
-  "page.grants.section.pollination-project.content[1]": {
+  "page.grants.section.pollination-project.paragraph.1": {
     "message": "如果您的主要关注点不涉及养殖动物，您仍有资格直接获得 TPP 的资助。我们鼓励您通过其网站进行申请。"
   },
   "page.grants.section.pollination-project.image.alt-text": {
     "message": "授粉项目徽标"
   },
-  "page.grants.section.qualifications.cta[0].content": {
+  "page.grants.section.qualifications.cta.paragraph.0": {
     "message": "<b>不符合上述条件？</b>您仍然有资格获得资助！请提出申请，我们会将您的申请转发给其他潜在资助者。"
   },
-  "page.grants.section.qualifications.cta[1].content": {
+  "page.grants.section.qualifications.cta.paragraph.1": {
     "message": "如果您符合条件，请填写下面的申请表。"
   },
   "page.grants.section.qualifications.heading": {
     "message": "申请前，请确保您符合这些条件："
   },
-  "page.grants.section.qualifications.step[0].content": {
+  "page.grants.section.qualifications.steps.paragraph.0": {
     "message": "<b> 您的首要目标 </b>应该是减少养殖动物的痛苦。工厂化养殖每年导致超过 1000 亿只动物遭受剥夺、恐惧和痛苦。"
   },
-  "page.grants.section.qualifications.step[1].content": {
+  "page.grants.section.qualifications.steps.paragraph.1": {
     "message": "<b> 您必须 </b>在动物权利或其他社会运动方面有过活动经验。我们正在寻找曾以有偿或志愿者身份参与基层运动和/或项目并做出贡献的人员。"
   },
   "page.grants.section.subheading": {

@@ -53,7 +53,7 @@ const GrantsQualifications: React.FC = () => {
         </h3>
         <GrantsQualificationsStep step="1">
           <FormattedMessage
-            id="page.grants.section.qualifications.step[0].content"
+            id="page.grants.section.qualifications.steps.paragraph.0"
             defaultMessage="<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year."
             values={{
               b: (chunks) => <b>{chunks}</b>,
@@ -62,7 +62,7 @@ const GrantsQualifications: React.FC = () => {
         </GrantsQualificationsStep>
         <GrantsQualificationsStep step="2">
           <FormattedMessage
-            id="page.grants.section.qualifications.step[1].content"
+            id="page.grants.section.qualifications.steps.paragraph.1"
             defaultMessage="<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
             values={{
               b: (chunks) => <b>{chunks}</b>,
@@ -72,7 +72,7 @@ const GrantsQualifications: React.FC = () => {
         <p className="mt-12 text-2xl font-thin">
           <i>
             <FormattedMessage
-              id="page.grants.section.qualifications.cta[0].content"
+              id="page.grants.section.qualifications.cta.paragraph.0"
               defaultMessage="<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
               values={{
                 b: (chunks) => <b>{chunks}</b>,
@@ -83,7 +83,7 @@ const GrantsQualifications: React.FC = () => {
         <p className="mt-10 mb-4 text-2xl">
           <b>
             <FormattedMessage
-              id="page.grants.section.qualifications.cta[1].content"
+              id="page.grants.section.qualifications.cta.paragraph.1"
               defaultMessage="If you meet the qualifications, fill out the application form below."
             />
           </b>
