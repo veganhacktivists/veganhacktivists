@@ -740,13 +740,13 @@
   "page.people.section.advisors.community.image.alt-text": {
     "message": "Our community"
   },
-  "page.people.section.advisors.community.text": {
+  "page.people.section.advisors.community.paragraph": {
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.advisors.intro.heading": {
     "message": "Our advisors"
   },
-  "page.people.section.advisors.intro.text": {
+  "page.people.section.advisors.intro.paragraph": {
     "message": "We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
   },
   "page.people.section.advisors.next-seo.title": {
@@ -770,13 +770,13 @@
   "page.people.section.partners.community.image.alt-text": {
     "message": "Our community"
   },
-  "page.people.section.partners.community.text": {
+  "page.people.section.partners.community.paragraph": {
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.partners.intro.heading": {
     "message": "Our partners"
   },
-  "page.people.section.partners.intro.text": {
+  "page.people.section.partners.intro.paragraph": {
     "message": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
   },
   "page.people.section.partners.next-seo.title": {
@@ -788,7 +788,7 @@
   "page.people.section.team.community.image.alt-text": {
     "message": "Our community"
   },
-  "page.people.section.team.community.text": {
+  "page.people.section.team.community.paragraph": {
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.team.next-seo.title": {
@@ -803,13 +803,13 @@
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "Our community"
   },
-  "page.people.section.volunteers.community.text": {
+  "page.people.section.volunteers.community.paragraph": {
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.volunteers.intro.heading": {
     "message": "Our volunteers"
   },
-  "page.people.section.volunteers.intro.text": {
+  "page.people.section.volunteers.intro.paragraph": {
     "message": "Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
   },
   "page.people.section.volunteers.next-seo.title": {

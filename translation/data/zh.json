@@ -740,13 +740,13 @@
   "page.people.section.advisors.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.advisors.community.text": {
+  "page.people.section.advisors.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.advisors.intro.heading": {
     "message": "我们的顾问"
   },
-  "page.people.section.advisors.intro.text": {
+  "page.people.section.advisors.intro.paragraph": {
     "message": "我们非常感谢我们经验丰富的顾问团队，他们为组织、组织战略和项目提供了指导和方向。"
   },
   "page.people.section.advisors.next-seo.title": {
@@ -770,13 +770,13 @@
   "page.people.section.partners.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.partners.community.text": {
+  "page.people.section.partners.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.partners.intro.heading": {
     "message": "我们的合作伙伴"
   },
-  "page.people.section.partners.intro.text": {
+  "page.people.section.partners.intro.paragraph": {
     "message": "以下是我们支持的伙伴组织。请看一看，进一步了解他们所做的了不起的工作！"
   },
   "page.people.section.partners.next-seo.title": {
@@ -788,7 +788,7 @@
   "page.people.section.team.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.team.community.text": {
+  "page.people.section.team.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.team.next-seo.title": {
@@ -803,13 +803,13 @@
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.volunteers.community.text": {
+  "page.people.section.volunteers.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.volunteers.intro.heading": {
     "message": "我们的志愿者"
   },
-  "page.people.section.volunteers.intro.text": {
+  "page.people.section.volunteers.intro.paragraph": {
     "message": "我们的志愿者社区是我们组织的核心，使我们能够建立创新项目，并以有意义的方式为运动做出贡献。<b>点击图标，了解每个团队的志愿者！</b>"
   },
   "page.people.section.volunteers.next-seo.title": {

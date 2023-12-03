@@ -232,7 +232,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.team.community.text"
+            id="page.people.section.team.community.paragraph"
             defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
           />
         </FirstSubSection>

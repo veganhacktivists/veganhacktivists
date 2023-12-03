@@ -740,13 +740,13 @@
   "page.people.section.advisors.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
   },
-  "page.people.section.advisors.community.text": {
+  "page.people.section.advisors.community.paragraph": {
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.advisors.intro.heading": {
     "message": "Unsere Berater"
   },
-  "page.people.section.advisors.intro.text": {
+  "page.people.section.advisors.intro.paragraph": {
     "message": "Wir sind sehr dankbar für unser Team von erfahrenen Beratern, die der Organisation, ihrer Strategie und ihren Projekten Orientierung geben."
   },
   "page.people.section.advisors.next-seo.title": {
@@ -770,13 +770,13 @@
   "page.people.section.partners.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
   },
-  "page.people.section.partners.community.text": {
+  "page.people.section.partners.community.paragraph": {
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.partners.intro.heading": {
     "message": "Unsere Partner"
   },
-  "page.people.section.partners.intro.text": {
+  "page.people.section.partners.intro.paragraph": {
     "message": "Hier finden Sie Partnerorganisationen, die wir unterstützen und von denen wir unterstützt werden. Werfen Sie einen Blick darauf und erfahren Sie mehr über die großartige Arbeit, die sie leisten!"
   },
   "page.people.section.partners.next-seo.title": {
@@ -788,7 +788,7 @@
   "page.people.section.team.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
   },
-  "page.people.section.team.community.text": {
+  "page.people.section.team.community.paragraph": {
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.team.next-seo.title": {
@@ -803,13 +803,13 @@
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
   },
-  "page.people.section.volunteers.community.text": {
+  "page.people.section.volunteers.community.paragraph": {
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.volunteers.intro.heading": {
     "message": "Unsere Freiwilligen"
   },
-  "page.people.section.volunteers.intro.text": {
+  "page.people.section.volunteers.intro.paragraph": {
     "message": "Unsere Freiwilligengemeinschaft ist das Herzstück unserer Organisation und ermöglicht es uns, innovative Projekte zu entwickeln und einen sinnvollen Beitrag zur Bewegung zu leisten. <b>Klicken Sie auf ein Symbol, um die Freiwilligen der einzelnen Teams kennenzulernen!</b>"
   },
   "page.people.section.volunteers.next-seo.title": {
