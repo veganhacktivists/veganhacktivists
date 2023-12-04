@@ -1,13 +1,37 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, UserRole } from '@prisma/client';
 
-const prismaGlobal = global as typeof global & {
-  prisma?: PrismaClient;
+const prismaClientSingleton = () => {
+  return new PrismaClient().$extends({
+    name: 'userRole',
+    result: {
+      user: {
+        isOrganization: {
+          needs: { role: true },
+          compute: ({ role }) =>
+            role === UserRole.Admin || role === UserRole.Organization,
+        },
+        isApplicant: {
+          needs: { role: true },
+          compute: ({ role }) =>
+            role === UserRole.Admin || role === UserRole.Applicant,
+        },
+      },
+    },
+  });
 };
 
-const prisma = prismaGlobal.prisma || new PrismaClient();
+type Prisma = ReturnType<typeof prismaClientSingleton>;
 
-if (process.env.NODE_ENV !== 'production') {
-  prismaGlobal.prisma = prisma;
+declare global {
+  // eslint-disable-next-line no-var
+  var cachedPrisma: ReturnType<typeof prismaClientSingleton> | undefined;
 }
+const prisma =
+  (globalThis as typeof globalThis & { prisma?: Prisma }).prisma ??
+  prismaClientSingleton();
 
 export default prisma;
+
+if (process.env.NODE_ENV !== 'production') {
+  globalThis.cachedPrisma = prisma;
+}
