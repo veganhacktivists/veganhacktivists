@@ -116,14 +116,17 @@ const otherRequestCategorySchema = z.object({
   category: z.nativeEnum(PlaygroundRequestCategory),
 });
 
-export const requestorSignupSchema = z.object({
+const requestorPersonSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
   pronouns: z.string().trim().optional(),
-  providedEmail: z.string().trim().email(),
+  contactEmail: z.string().trim().email(),
   phone: z.string().trim().min(1, { message: 'This value is required' }),
-  organization: z.string().trim().optional(),
-  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType),
-  organizationDescription: z.string().trim().min(1),
+  calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
+});
+
+const requestorOrgSchema = z.object({
+  name: z.string().trim().optional(),
+  description: z.string().trim().min(1),
   website: z
     .string()
     .trim()
@@ -132,7 +135,11 @@ export const requestorSignupSchema = z.object({
       message: "The URL can't contain spaces",
     })
     .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
-  calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
+});
+
+export const requestorSignupSchema = z.object({
+  personal: requestorPersonSchema,
+  organization: requestorOrgSchema,
 });
 
 const submitRequestSchemaBase = z.object({

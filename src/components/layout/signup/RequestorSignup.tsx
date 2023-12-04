@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import ToolTip from '../../decoration/tooltip';
@@ -11,6 +11,9 @@ import SelectInput from 'components/forms/inputs/selectInput';
 import TextArea from 'components/forms/inputs/textArea';
 
 import type { z } from 'zod';
+import { trpc } from 'lib/client/trpc';
+import { DarkButton } from 'components/decoration/buttons';
+import Spinner from 'components/decoration/spinner';
 
 interface RequestorSignupProps {}
 
@@ -20,15 +23,24 @@ const RequestorSignup = () => {
   const {
     register,
     formState: { errors },
+    handleSubmit
   } = useForm<RequestorSignupPayload>({
     resolver: zodResolver(requestorSignupSchema),
   });
+
+  const { mutate, isLoading } = trpc.playground.signup.useMutation();
+
+  const onSubmit = useCallback((data: RequestorSignupPayload) => {
+    mutate(data);
+  }, [mutate]);
+
+
 
   return (
     <>
       <div className="px-10 bg-grey-background" id="contact-us">
         <form
-          noValidate
+          onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
         >
           <div className="text-xl col-span-full">Personal Information</div>
@@ -36,14 +48,14 @@ const RequestorSignup = () => {
             className="lg:col-span-3 col-span-full"
             placeholder="Name"
             showRequiredMark
-            {...register('name', { required: 'Please enter a name' })}
-            error={errors.name?.message}
+            {...register('personal.name', { required: 'Please enter a name' })}
+            error={errors.personal?.name?.message}
           />
           <TextInput
             className="lg:col-span-3 col-span-full"
             placeholder="they/them"
-            {...register('pronouns')}
-            error={errors.pronouns?.message}
+            {...register('personal.pronouns')}
+            error={errors.personal?.pronouns?.message}
           >
             Pronouns
           </TextInput>
@@ -51,10 +63,10 @@ const RequestorSignup = () => {
             className="col-span-full"
             placeholder="Email"
             showRequiredMark
-            {...register('providedEmail', {
+            {...register('personal.contactEmail', {
               required: 'The email is required',
             })}
-            error={errors.providedEmail?.message}
+            error={errors.personal?.contactEmail?.message}
           >
             Email
           </TextInput>
@@ -63,24 +75,24 @@ const RequestorSignup = () => {
             placeholder="Phone"
             showRequiredMark
             type="tel"
-            {...register('phone', { required: 'The phone is required' })}
-            error={errors.phone?.message}
+            {...register('personal.phone', { required: 'The phone is required' })}
+            error={errors.personal?.phone?.message}
           />
           <TextInput
             placeholder="www.website..."
             showRequiredMark
-            {...register('website', {
+            {...register('organization.website', {
               required: 'Please enter a valid website',
             })}
             className="w-full col-span-full"
-            error={errors.website?.message}
+            error={errors.organization?.website?.message}
           />
           <TextInput
             showRequiredMark
             placeholder="Calendly"
             className="col-span-full"
-            {...register('calendlyUrl')}
-            error={errors.calendlyUrl?.message}
+            {...register('personal.calendlyUrl')}
+            error={errors.personal?.calendlyUrl?.message}
           >
             Link to your Calendly
           </TextInput>
@@ -88,8 +100,8 @@ const RequestorSignup = () => {
           <TextInput
             className="col-span-full"
             placeholder="Organization"
-            {...register('organization', { required: false })}
-            error={errors.organization?.message}
+            {...register('organization.name', { required: false })}
+            error={errors.organization?.name?.message}
           />
           {/* // <div className="col-span-full">
         //   <Label name="organizationType">
@@ -138,8 +150,8 @@ const RequestorSignup = () => {
         //   )} */}
           <TextArea
             placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
-            error={errors.organizationDescription?.message}
-            {...register('organizationDescription', {
+            error={errors.organization?.description?.message}
+            {...register('organization.description', {
               required: 'Organization description is required',
             })}
             style={{ resize: 'vertical' }}
@@ -148,6 +160,15 @@ const RequestorSignup = () => {
           >
             About your organization
           </TextArea>
+          <DarkButton
+            className="mb-10 text-center w-fit md:w-72"
+            disabled={isLoading}
+            type="submit"
+          >
+            {isLoading ? 
+              <Spinner />
+             :  'Save' }
+          </DarkButton>
         </form>
       </div>
     </>
