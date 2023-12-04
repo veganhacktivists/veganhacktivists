@@ -21,7 +21,8 @@ const nextConfig = {
     },
   },
   i18n: {
-    locales: ['en', 'de', 'zh', 'dev'],
+    // disable languages other than english until the translation feature is fully integrated
+    locales: ['en' /**, 'de', 'zh', 'dev' */],
     defaultLocale: 'en',
     localeDetection: true,
   },

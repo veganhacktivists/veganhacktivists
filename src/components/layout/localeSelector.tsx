@@ -1,3 +1,7 @@
+// Not in use until the translation feature is fully integrated
+// eslint-disable-next-line
+// @ts-nocheck
+
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -11,6 +15,9 @@ import { useRouterLocale } from 'lib/translation/useRouterLocale';
  * When focused options are exposed to the user to switch to a different locale.
  */
 export const LocaleSelector = () => {
+  // disable until the translation feature is fully integrated
+  return null;
+
   const router = useRouter();
 
   const locales = router.locales;
