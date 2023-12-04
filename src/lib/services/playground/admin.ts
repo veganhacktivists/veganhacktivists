@@ -496,8 +496,14 @@ export const setRequestStatus = async ({
           redditSubmissions = await postPlaygroundRequestOnReddit(
             updatedRequest
           );
-
+          console.info('Successfully posted request to reddit', id, Date.now());
           discordMessages = await postRequestOnDiscord(updatedRequest);
+          console.info(
+            'Successfully posted request to discord',
+            id,
+            Date.now()
+          );
+
           updatedRequest = await prisma.playgroundRequest.update({
             where: { id },
             include: { budget: true },
@@ -514,7 +520,7 @@ export const setRequestStatus = async ({
 
         return updatedRequest;
       },
-      { timeout: 30000 }
+      { timeout: 60000 }
     );
     if (shouldPost) {
       await sendAcceptedEmail(updatedRequest);
