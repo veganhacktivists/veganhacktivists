@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import { UserRole } from '@prisma/client';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
@@ -15,21 +17,19 @@ import Spinner from 'components/decoration/spinner';
 import type { NextPage } from 'next';
 import type { SignInResponse } from 'next-auth/react';
 
-interface SignInForm {
-  email: string;
-  // name: string;
-}
-
 const signInSchema = z.object({
   email: z.string().email(),
-  // name: Joi.string().required(),
 });
+
+type SignInForm = z.infer<typeof signInSchema>;
 
 const resolver = zodResolver(signInSchema);
 
 const SignIn: NextPage = () => {
+  const { query, isReady } = useRouter();
+
   const [isLoading, setIsLoading] = useState(true);
-  const { status } = useSession();
+  const { status, data } = useSession();
   const router = useRouter();
 
   const [providers, setProviders] =
@@ -47,8 +47,18 @@ const SignIn: NextPage = () => {
       });
   });
 
-  const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
-    async ({ email }) => {
+  useOnce(
+    () => {
+      // TODO: redirect/show according to role
+      if (query.user === UserRole.Applicant) {
+      } else if (query.user === UserRole.Organization) {
+      }
+    },
+    { enabled: isReady }
+  );
+
+  const onSubmit = useCallback(
+    async ({ email }: SignInForm) => {
       const callbackUrl = router.query.callbackUrl as string;
       setIsLoading(true);
 
@@ -89,18 +99,21 @@ const SignIn: NextPage = () => {
   }
 
   return (
-    <div className="p-10 bg-grey-background">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="w-1/2 mx-auto">
-          <TextInput {...register('email')} type="email">
-            Email
-          </TextInput>
-        </div>
-        <DarkButton type="submit" disabled={isLoading}>
-          Sign in!
-        </DarkButton>
-      </form>
-    </div>
+    <>
+      <NextSeo title="Sign In" />
+      <div className="p-10 bg-grey-background h-max">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="w-1/2 mx-auto h-max">
+            <TextInput {...register('email')} type="email">
+              Email
+            </TextInput>
+          </div>
+          <DarkButton type="submit" disabled={isLoading}>
+            Sign in!
+          </DarkButton>
+        </form>
+      </div>
+    </>
   );
 };
 
