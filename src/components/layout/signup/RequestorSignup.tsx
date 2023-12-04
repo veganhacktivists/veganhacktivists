@@ -9,11 +9,11 @@ import TextInput from 'components/forms/inputs/textInput';
 import Label from 'components/forms/inputs/label';
 import SelectInput from 'components/forms/inputs/selectInput';
 import TextArea from 'components/forms/inputs/textArea';
-
-import type { z } from 'zod';
 import { trpc } from 'lib/client/trpc';
 import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
+
+import type { z } from 'zod';
 
 interface RequestorSignupProps {}
 
@@ -23,18 +23,19 @@ const RequestorSignup = () => {
   const {
     register,
     formState: { errors },
-    handleSubmit
+    handleSubmit,
   } = useForm<RequestorSignupPayload>({
     resolver: zodResolver(requestorSignupSchema),
   });
 
   const { mutate, isLoading } = trpc.playground.signup.useMutation();
 
-  const onSubmit = useCallback((data: RequestorSignupPayload) => {
-    mutate(data);
-  }, [mutate]);
-
-
+  const onSubmit = useCallback(
+    (data: RequestorSignupPayload) => {
+      mutate(data);
+    },
+    [mutate]
+  );
 
   return (
     <>
@@ -75,7 +76,9 @@ const RequestorSignup = () => {
             placeholder="Phone"
             showRequiredMark
             type="tel"
-            {...register('personal.phone', { required: 'The phone is required' })}
+            {...register('personal.phone', {
+              required: 'The phone is required',
+            })}
             error={errors.personal?.phone?.message}
           />
           <TextInput
@@ -165,9 +168,7 @@ const RequestorSignup = () => {
             disabled={isLoading}
             type="submit"
           >
-            {isLoading ? 
-              <Spinner />
-             :  'Save' }
+            {isLoading ? <Spinner /> : 'Save'}
           </DarkButton>
         </form>
       </div>
