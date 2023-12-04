@@ -52,9 +52,12 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
+  organizationId String?
 
   accounts Account[]
   sessions Session[]
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
 
   requestorInformation RequestorInformation?
   applicantInformation ApplicantInformation?
@@ -71,12 +74,14 @@ model Organization {
   name        String @unique
   description String
   website     String
+  members     User[]
 }
 
 model RequestorInformation {
   id          String @id @default(cuid()) @db.VarChar(30)
   userId      String @unique
   phone       String
+  contactEmail String
   contactLink String
   user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
