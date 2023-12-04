@@ -5,6 +5,10 @@ const prismaClientSingleton = () => {
     name: 'userRole',
     result: {
       user: {
+        isAdmin: {
+          needs: { role: true },
+          compute: ({ role }) => role === UserRole.Admin,
+        },
         isOrganization: {
           needs: { role: true },
           compute: ({ role }) =>
