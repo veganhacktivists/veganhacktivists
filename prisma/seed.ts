@@ -9,6 +9,7 @@ import {
   Source,
   PlaygroundRequestOrganizationType,
   PlaygroundRequestDesignRequestType,
+  UserRole,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -28,6 +29,9 @@ const seedUsers = async (n: number = NUMBER) => {
       const name = faker.name.fullName({ firstName, lastName });
 
       return {
+        role: faker.datatype.boolean()
+          ? UserRole.Organization
+          : UserRole.Applicant,
         email: faker.internet.email(firstName, lastName),
         name,
       };
