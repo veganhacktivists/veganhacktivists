@@ -5,14 +5,10 @@ export const OUR_EMAIL_FROM =
 export const OUR_EMAIL_TO =
   process.env.EMAIL_TO ?? 'hello@veganhacktivists.org';
 export const PLAYGROUND_TO_CC = process.env.EMAIL_TO_PLAYGROUND_CC ?? '';
-export const OUR_EMAIL_FROM_FORMATTED =
-  `Vegan Hacktivists <${OUR_EMAIL_FROM}>` as const;
+export const OUR_EMAIL_FROM_FORMATTED = `Vegan Hacktivists <${OUR_EMAIL_FROM}>`;
 export const PLAYGROUND_EMAIL =
   process.env.EMAIL_PLAYGROUND ?? 'playground@veganhacktivists.org';
-export const PLAYGROUND_EMAIL_FORMATTED =
-  `VH Playground <${PLAYGROUND_EMAIL}>` as const;
-export const JESS_EMAIL = 'jess@veganhacktivists.org';
-export const JESS_EMAIL_FORMATTED = `Jess <${JESS_EMAIL}>`;
+export const PLAYGROUND_EMAIL_FORMATTED = `VH Playground <${PLAYGROUND_EMAIL}>`;
 export const KATE_EMAIL = 'kate@veganhacktivists.org';
 export const KATE_EMAIL_FORMATTED = `Kate <${KATE_EMAIL}>`;
 export const JAMES_EMAIL = 'james@veganhacktivists.org';
