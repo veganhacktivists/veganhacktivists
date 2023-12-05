@@ -7,20 +7,28 @@ import ToolTip from '../../decoration/tooltip';
 import { requestorSignupSchema } from 'lib/services/playground/schemas';
 import TextInput from 'components/forms/inputs/textInput';
 import Label from 'components/forms/inputs/label';
-import SelectInput from 'components/forms/inputs/selectInput';
+import SelectInput, { OptionType } from 'components/forms/inputs/selectInput';
 import TextArea from 'components/forms/inputs/textArea';
 import { trpc } from 'lib/client/trpc';
 import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
+import { OrganizationType } from '@prisma/client';
 
 import type { z } from 'zod';
 
-interface RequestorSignupProps {}
+
+const ORGANIZATION_TYPE_OPTIONS: OptionType<OrganizationType>[] =
+  [
+    { label: 'No', value: OrganizationType.Activism },
+    { label: 'Yes', value: OrganizationType.Profit },
+  ];
 
 type RequestorSignupPayload = z.infer<typeof requestorSignupSchema>;
 
 const RequestorSignup = () => {
   const {
+    control,
+    watch,
     register,
     formState: { errors },
     handleSubmit,
@@ -33,9 +41,11 @@ const RequestorSignup = () => {
   const onSubmit = useCallback(
     (data: RequestorSignupPayload) => {
       mutate(data);
+      //todo: Add redirect to the next page
     },
     [mutate]
   );
+  const organizationType = watch('organization.organizationType');
 
   return (
     <>
@@ -51,7 +61,9 @@ const RequestorSignup = () => {
             showRequiredMark
             {...register('personal.name', { required: 'Please enter a name' })}
             error={errors.personal?.name?.message}
-          />
+          >
+          Name
+          </TextInput>
           <TextInput
             className="lg:col-span-3 col-span-full"
             placeholder="they/them"
@@ -80,7 +92,9 @@ const RequestorSignup = () => {
               required: 'The phone is required',
             })}
             error={errors.personal?.phone?.message}
-          />
+          >
+          Phone
+          </TextInput>
           <TextInput
             placeholder="www.website..."
             showRequiredMark
@@ -89,7 +103,9 @@ const RequestorSignup = () => {
             })}
             className="w-full col-span-full"
             error={errors.organization?.website?.message}
-          />
+          >
+          Website
+          </TextInput>
           <TextInput
             showRequiredMark
             placeholder="Calendly"
@@ -105,52 +121,48 @@ const RequestorSignup = () => {
             placeholder="Organization"
             {...register('organization.name', { required: false })}
             error={errors.organization?.name?.message}
+          >
+          Organization
+          </TextInput>
+          <div className="col-span-full">
+          <Label showRequiredMark name="organizationType">
+            Is your organization or activism for profit?
+          </Label>
+
+          <Controller
+            name="organization.organizationType"
+            control={control}
+            rules={{
+              required: 'Please select the best option for your organization',
+            }}
+            render={({ field: { value: current, onChange, ...field } }) => (
+              <SelectInput
+                {...field}
+                current={
+                  ORGANIZATION_TYPE_OPTIONS.find(
+                    (c) => c.value === current
+                  ) || null
+                }
+                onChange={(option) => onChange(option?.value)}
+                error={errors.organization?.organizationType?.message}
+                options={ORGANIZATION_TYPE_OPTIONS}
+              />
+            )}
           />
-          {/* // <div className="col-span-full">
-        //   <Label name="organizationType">
-        //     Is your organization or activism for profit?
-        //   </Label>
-        //
-        //   <Controller
-        //     name="organizationType"
-        //     control={control}
-        //     rules={{
-        //       required: 'Please select the best option for your organization',
-        //     }}
-        //     render={({ field: { value: current, onChange, ...field } }) => (
-        //       <SelectInput
-        //         {...field}
-        //         current={
-        //           IS_FOR_PROFIT_ORGANIZATION_OPTIONS.find(
-        //             (c) => c.value === current
-        //           ) || null
-        //         }
-        //         error={errors.organizationType?.message}
-        //         options={IS_FOR_PROFIT_ORGANIZATION_OPTIONS}
-        //         onChange={(option) => {
-        //           onChange(option?.value || null);
-        //           setFormData({
-        //             organizationType:
-        //               option?.value as PlaygroundRequestOrganizationType,
-        //           });
-        //         }}
-        //       />
-        //     )}
-        //   />
-        // </div> */}
-          {/*// {!isFirstRender &&
-        //   organizationType === PlaygroundRequestOrganizationType.Profit && (
-        //     <div className="col-span-full">
-        //       Playground is a platform that primarily supports not-for-profit
-        //       organizations and activism. As a for-profit, we require you to
-        //       offer compensation for your project. Please add this information
-        //       to your post by selecting &ldquo;Paid&rdquo; in the request
-        //       information section. We want to support as many vegan endeavors as
-        //       possible, but also try our best to ensure the equitable
-        //       distribution of limited volunteer labor. Thank you for your
-        //       cooperation!
-        //     </div>
-        //   )} */}
+        </div> 
+          {
+          organizationType === OrganizationType.Profit && (
+            <div className="col-span-full">
+              Playground is a platform that primarily supports not-for-profit
+              organizations and activism. As a for-profit, we require you to
+              offer compensation for your project. Please add this information
+              to your post by selecting &ldquo;Paid&rdquo; in the request
+              information section. We want to support as many vegan endeavors as
+              possible, but also try our best to ensure the equitable
+              distribution of limited volunteer labor. Thank you for your
+              cooperation!
+            </div>
+          )} 
           <TextArea
             placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
             error={errors.organization?.description?.message}
