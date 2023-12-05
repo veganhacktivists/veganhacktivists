@@ -5,6 +5,7 @@ import React from 'react';
 import RequestorSignup from 'components/layout/signup/RequestorSignup';
 
 import type { GetServerSideProps } from 'next';
+import ApplicantSignup from 'components/layout/signup/ApplicantSignup';
 
 interface SignupProps {
   role: UserRole;
@@ -14,7 +15,7 @@ const Signup: React.FC<SignupProps> = ({ role }) => {
   if (role === UserRole.Requestor || role === UserRole.Admin) {
     return <RequestorSignup />;
   }
-  return <></>;
+  return <ApplicantSignup />;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
