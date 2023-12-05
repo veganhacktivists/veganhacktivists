@@ -1,27 +1,26 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { OrganizationType } from '@prisma/client';
 
 import ToolTip from '../../decoration/tooltip';
 
 import { requestorSignupSchema } from 'lib/services/playground/schemas';
 import TextInput from 'components/forms/inputs/textInput';
 import Label from 'components/forms/inputs/label';
-import SelectInput, { OptionType } from 'components/forms/inputs/selectInput';
+import SelectInput from 'components/forms/inputs/selectInput';
 import TextArea from 'components/forms/inputs/textArea';
 import { trpc } from 'lib/client/trpc';
 import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
-import { OrganizationType } from '@prisma/client';
 
+import type { OptionType } from 'components/forms/inputs/selectInput';
 import type { z } from 'zod';
 
-
-const ORGANIZATION_TYPE_OPTIONS: OptionType<OrganizationType>[] =
-  [
-    { label: 'No', value: OrganizationType.Activism },
-    { label: 'Yes', value: OrganizationType.Profit },
-  ];
+const ORGANIZATION_TYPE_OPTIONS: OptionType<OrganizationType>[] = [
+  { label: 'No', value: OrganizationType.Activism },
+  { label: 'Yes', value: OrganizationType.Profit },
+];
 
 type RequestorSignupPayload = z.infer<typeof requestorSignupSchema>;
 
@@ -62,7 +61,7 @@ const RequestorSignup = () => {
             {...register('personal.name', { required: 'Please enter a name' })}
             error={errors.personal?.name?.message}
           >
-          Name
+            Name
           </TextInput>
           <TextInput
             className="lg:col-span-3 col-span-full"
@@ -93,7 +92,7 @@ const RequestorSignup = () => {
             })}
             error={errors.personal?.phone?.message}
           >
-          Phone
+            Phone
           </TextInput>
           <TextInput
             placeholder="www.website..."
@@ -104,7 +103,7 @@ const RequestorSignup = () => {
             className="w-full col-span-full"
             error={errors.organization?.website?.message}
           >
-          Website
+            Website
           </TextInput>
           <TextInput
             showRequiredMark
@@ -122,36 +121,35 @@ const RequestorSignup = () => {
             {...register('organization.name', { required: false })}
             error={errors.organization?.name?.message}
           >
-          Organization
+            Organization
           </TextInput>
           <div className="col-span-full">
-          <Label showRequiredMark name="organizationType">
-            Is your organization or activism for profit?
-          </Label>
+            <Label showRequiredMark name="organizationType">
+              Is your organization or activism for profit?
+            </Label>
 
-          <Controller
-            name="organization.organizationType"
-            control={control}
-            rules={{
-              required: 'Please select the best option for your organization',
-            }}
-            render={({ field: { value: current, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  ORGANIZATION_TYPE_OPTIONS.find(
-                    (c) => c.value === current
-                  ) || null
-                }
-                onChange={(option) => onChange(option?.value)}
-                error={errors.organization?.organizationType?.message}
-                options={ORGANIZATION_TYPE_OPTIONS}
-              />
-            )}
-          />
-        </div> 
-          {
-          organizationType === OrganizationType.Profit && (
+            <Controller
+              name="organization.organizationType"
+              control={control}
+              rules={{
+                required: 'Please select the best option for your organization',
+              }}
+              render={({ field: { value: current, onChange, ...field } }) => (
+                <SelectInput
+                  {...field}
+                  current={
+                    ORGANIZATION_TYPE_OPTIONS.find(
+                      (c) => c.value === current
+                    ) || null
+                  }
+                  onChange={(option) => onChange(option?.value)}
+                  error={errors.organization?.organizationType?.message}
+                  options={ORGANIZATION_TYPE_OPTIONS}
+                />
+              )}
+            />
+          </div>
+          {organizationType === OrganizationType.Profit && (
             <div className="col-span-full">
               Playground is a platform that primarily supports not-for-profit
               organizations and activism. As a for-profit, we require you to
@@ -162,7 +160,7 @@ const RequestorSignup = () => {
               distribution of limited volunteer labor. Thank you for your
               cooperation!
             </div>
-          )} 
+          )}
           <TextArea
             placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
             error={errors.organization?.description?.message}
