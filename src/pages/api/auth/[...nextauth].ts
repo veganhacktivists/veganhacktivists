@@ -9,7 +9,7 @@ import {
 import { OUR_EMAIL_FROM_FORMATTED } from '../../../lib/mail/router';
 
 import emailClient from 'lib/mail';
-import prisma from 'lib/db/prisma';
+import { basePrismaClient } from 'lib/db/prisma';
 
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
@@ -35,7 +35,7 @@ const sendVerificationRequest = async (
 };
 
 export const nextAuthOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(basePrismaClient),
   session: {
     strategy: 'jwt',
   },
@@ -54,7 +54,7 @@ export const nextAuthOptions: NextAuthOptions = {
   },
   callbacks: {
     jwt: async ({ token }) => {
-      const user = await prisma.user.findUnique({
+      const user = await basePrismaClient.user.findUnique({
         where: {
           id: token.sub,
         },
