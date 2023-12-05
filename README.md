@@ -184,7 +184,7 @@ const useOnce = (callback: () => void, options: UseOnceOptions = {}) => {
 
 ### Configuring your editor
 
-It is recommended to install [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), although the commit hooks will already take care of the formatting.
+It is recommended to install [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), although the commit hooks will already take care of the formatting.
 
 It is also recommended to activate the `Editor: Format on save` option.
 
