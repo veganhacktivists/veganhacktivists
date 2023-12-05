@@ -1,7 +1,27 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, UserRole } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  return new PrismaClient().$extends({
+    name: 'userRole',
+    result: {
+      user: {
+        isAdmin: {
+          needs: { role: true },
+          compute: ({ role }) => role === UserRole.Admin,
+        },
+        isOrganization: {
+          needs: { role: true },
+          compute: ({ role }) =>
+            role === UserRole.Admin || role === UserRole.Organization,
+        },
+        isApplicant: {
+          needs: { role: true },
+          compute: ({ role }) =>
+            role === UserRole.Admin || role === UserRole.Applicant,
+        },
+      },
+    },
+  });
 };
 
 type Prisma = ReturnType<typeof prismaClientSingleton>;
