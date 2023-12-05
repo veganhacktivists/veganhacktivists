@@ -69,8 +69,14 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+enum OrganizationType {
+  Activism
+  Profit
+}
+
 model Organization {
   id          String @id @default(cuid()) @db.VarChar(30)
+  type        OrganizationType
   name        String @unique
   description String
   website     String
