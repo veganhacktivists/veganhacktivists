@@ -35,6 +35,7 @@ const accountRouter = t.router({
                 name: input.organization.name ?? '',
                 description: input.organization.description,
                 website: input.organization.website,
+                type: input.organization.organizationType,
               },
             },
           },

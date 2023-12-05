@@ -7,6 +7,7 @@ import {
   ApplicationStatus,
   PlaygroundRequestOrganizationType,
   PlaygroundRequestDesignRequestType,
+  OrganizationType,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -127,6 +128,7 @@ const requestorPersonSchema = z.object({
 const requestorOrgSchema = z.object({
   name: z.string().trim().optional(),
   description: z.string().trim().min(1),
+  organizationType: z.nativeEnum(OrganizationType),
   website: z
     .string()
     .trim()
