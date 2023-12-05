@@ -117,6 +117,19 @@ const otherRequestCategorySchema = z.object({
   category: z.nativeEnum(PlaygroundRequestCategory),
 });
 
+export const applicantSignupSchema = z.object({
+  name: z.string().min(1, { message: 'This value is required' }),
+  pronouns: z.string().optional(),
+  contactEmail: z.string().trim().email(),
+  website: z.string().trim(),
+  twitter: z.string().trim().optional(),
+  instagram: z.string().trim().optional(),
+  linkedin: z.string().trim().optional(),
+  calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
+  availableTimePerWeek: z.nativeEnum(TimePerWeek),
+  source: z.nativeEnum(Source),
+});
+
 const requestorPersonSchema = z.object({
   name: z.string().trim().min(1, { message: 'This value is required' }),
   pronouns: z.string().trim().optional(),
