@@ -1,5 +1,5 @@
 import { UserRole } from '@prisma/client';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import React from 'react';
 
 import RequestorSignup from 'components/layout/signup/RequestorSignup';
