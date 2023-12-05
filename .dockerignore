@@ -2,8 +2,6 @@
 .git
 .github
 .gitignore
-.husky
-.next
 .next
 *-debug.log
 *-error.log
