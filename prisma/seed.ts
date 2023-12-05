@@ -30,7 +30,7 @@ const seedUsers = async (n: number = NUMBER) => {
 
       return {
         role: faker.datatype.boolean()
-          ? UserRole.Organization
+          ? UserRole.Requestor
           : UserRole.Applicant,
         email: faker.internet.email(firstName, lastName),
         name,
