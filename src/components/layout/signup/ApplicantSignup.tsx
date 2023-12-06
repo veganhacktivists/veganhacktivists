@@ -3,15 +3,17 @@ import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { TimePerWeek } from '@prisma/client';
 
+import { SourceLabel, TimePerWeekLabel } from '../playground/applyForm';
+
 import { applicantSignupSchema } from 'lib/services/playground/schemas';
 import TextInput from 'components/forms/inputs/textInput';
 import Label from 'components/forms/inputs/label';
 import SelectInput from 'components/forms/inputs/selectInput';
 import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
-import type { z } from 'zod';
-import { SourceLabel, TimePerWeekLabel } from '../playground/applyForm';
 import { trpc } from 'lib/client/trpc';
+
+import type { z } from 'zod';
 
 type ApplicantSignupPayload = z.infer<typeof applicantSignupSchema>;
 
@@ -27,9 +29,12 @@ const ApplicantSignup = () => {
 
   const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation();
 
-  const onSubmit = useCallback((data: ApplicantSignupPayload) => {
-    mutate(data);
-  }, [mutate]);
+  const onSubmit = useCallback(
+    (data: ApplicantSignupPayload) => {
+      mutate(data);
+    },
+    [mutate]
+  );
 
   return (
     <>
@@ -75,7 +80,7 @@ const ApplicantSignup = () => {
             })}
             error={errors.website?.message}
           >
-           Personal website or potfolio link
+            Personal website or potfolio link
           </TextInput>
           <TextInput
             className="md:col-span-2"
@@ -91,7 +96,7 @@ const ApplicantSignup = () => {
             {...register('instagram')}
             error={errors.instagram?.message}
           >
-           Instagram
+            Instagram
           </TextInput>
           <TextInput
             className="md:col-span-2"
@@ -99,7 +104,7 @@ const ApplicantSignup = () => {
             {...register('linkedin')}
             error={errors.linkedin?.message}
           >
-           LinkedIn
+            LinkedIn
           </TextInput>
           <TextInput
             className="col-span-full md:col-span-3"
@@ -135,28 +140,30 @@ const ApplicantSignup = () => {
               )}
             />
           </div>
-        <div className="col-span-full">
-          <Label error={errors.source?.message} name="source">
-            Where did you hear about Playground?
-          </Label>
-          <Controller
-            name="source"
-            control={control}
-            render={({ field: { value, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  value ? { value: value, label: SourceLabel[value] } : null
-                }
-                onChange={(option) => onChange(option?.value)}
-                options={Object.entries(SourceLabel).map(([value, label]) => ({
-                  value,
-                  label,
-                }))}
-              />
-            )}
-          />
-        </div>
+          <div className="col-span-full">
+            <Label error={errors.source?.message} name="source">
+              Where did you hear about Playground?
+            </Label>
+            <Controller
+              name="source"
+              control={control}
+              render={({ field: { value, onChange, ...field } }) => (
+                <SelectInput
+                  {...field}
+                  current={
+                    value ? { value: value, label: SourceLabel[value] } : null
+                  }
+                  onChange={(option) => onChange(option?.value)}
+                  options={Object.entries(SourceLabel).map(
+                    ([value, label]) => ({
+                      value,
+                      label,
+                    })
+                  )}
+                />
+              )}
+            />
+          </div>
           <DarkButton
             className="mb-10 text-center w-fit md:w-72"
             disabled={isLoading || isSuccess}
