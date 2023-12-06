@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { UserRole } from '@prisma/client';
 
 import {
   verificationMail,
@@ -61,6 +62,10 @@ export const nextAuthOptions: NextAuthOptions = {
       });
 
       if (user) {
+        token.isRequestor =
+          user.role === UserRole.Admin || user.role === UserRole.Requestor;
+        token.isApplicant =
+          user.role === UserRole.Admin || user.role === UserRole.Applicant;
         token.role = user.role;
         token.email = user.email;
         token.name = user.name;
