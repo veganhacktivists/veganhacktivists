@@ -4,16 +4,78 @@ import { getToken } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from 'next/server';
 import { FetchedUser } from 'pages/api/user';
 
+
+/*
+ *  Here are the routes defined that are checked in the middleware for the right user permissions.
+ *  All routes on the same level are seen as equal, so if you have a child-route and a parent-route in the same level, then
+ *  based on the order of the routes, they will be checked top to bottom.
+ *
+ *  If there is a child route defined and it applies for the current path, the parents will be ignored.
+ *
+ *  Example:  /playground/ <-- redirect to signin if not logged in
+ *                /playground/account   ... <-- redirect to details page if not filled out 
+ *
+ *  This will only check if the details page is filled out, but not if the user is logged in.
+ *            
+ *            /playground/ <-- redirect to signin if not logged in
+ *            /playground/account   ... <-- redirect to signin if not logged in
+ *
+ *  This will check if the user is logged in and if the details page is filled out.
+ *
+ */
+const routes: MiddlewareRoute[] = [
+  {
+    path: '/playground/admin',
+    check: 'admin',
+    redirect: '/playground/signin',
+  },
+  {
+    path: '/playground',
+    check: 'initialised',
+    redirect: '/playground/signup',
+  },
+];
+
+const checkRoutes = async(req: NextRequest, path: string, routes: MiddlewareRoute[]): Promise<NextResponse | null>  => {
+  for (const route of routes) {
+    if (path.startsWith(route.path) && path !== route.redirect) {
+      if (route.children) {
+        let response = checkRoutes(req, path, route.children);
+        if (response !== null) return response;
+      }
+      if(Array.isArray(route.check)){
+        for(const check of route.check){
+          if (!(await hasPermission(check, req))) {
+            return NextResponse.redirect(new URL(route.redirect, req.url));
+          }
+        }
+      } else {
+        if (!(await hasPermission(route.check, req))){
+          return NextResponse.redirect(new URL(route.redirect, req.url));
+        }
+      }
+    }
+  }
+  return null;
+}
+
 const middleware = async(req: NextRequest) => {
   await checkForFlushRequest(req);
   const { pathname } = req.nextUrl;
   if (pathname.startsWith('/api')) {
     return NextResponse.next();
   }
-  if (pathname.startsWith('/playground/admin') && !(await hasPermission('admin', req))) {
-    return NextResponse.redirect(new URL('/auth/signin', req.url));
-  }
+  let redirect = await checkRoutes(req, pathname, routes);
+  if (redirect !== null) return redirect;
 };
+
+interface MiddlewareRoute {
+  path: string;
+  redirect: string;
+  check: string | string[];
+  children?: MiddlewareRoute[];
+}
+
 
 interface CacheUser {
   user?: FetchedUser;
@@ -40,13 +102,15 @@ const hasPermission = async(permission: string, req: NextRequest) => {
   }
 
   if (!user) {
-    user = await fetch(new URL('/api/user', req.url), { headers: { cookie: req.headers.get('cookie') ?? '', 'Content-Type': 'application/json' } }).then(res => res.json()).then(res => res.user);
+    user = await fetch(new URL('/api/user', req.url), { headers: { cookie: req.headers.get('cookie') ?? '', 'Content-Type': 'application/json' } }).then(res => res.json()).then(res => res.user) as FetchedUser;
     cache[token.sub] = { user, updatedAt: Date.now() };
   }
   if (!user) return false; 
   switch (permission) {
     case 'admin':
       return user.role === UserRole.Admin;
+    case 'initialised':
+      return !((user.role === UserRole.Requestor && !user.requestorInformation) || (user.role === UserRole.User && !user.applicantInformation));
   }
 
 };
