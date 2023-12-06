@@ -1,12 +1,13 @@
 import { UserRole } from '@prisma/client';
-import { withAuth } from 'next-auth/middleware';
+import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
 
-const middleware = withAuth({
-  callbacks: {
-    authorized: ({ token }) => token?.role === UserRole.Admin,
-  },
-});
+const middleware = async(req: NextRequest) => {
+  const { pathname } = req.nextUrl;
+  const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  if (pathname.startsWith('/playground/admin') && token?.role !== UserRole.Admin) {
+    return NextResponse.redirect(new URL('/auth/signin', req.url));
+  }
+};
 
 export default middleware;
-
-export const config = { matcher: ['/playground/admin/:path*'] };
