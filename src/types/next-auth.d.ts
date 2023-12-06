@@ -19,6 +19,8 @@ declare module 'next-auth' {
 
 declare module 'next-auth/jwt' {
   interface JWT extends DefaultJWT {
+    isApplicant: boolean;
+    isRequestor: boolean;
     role: UserRole;
   }
 }
