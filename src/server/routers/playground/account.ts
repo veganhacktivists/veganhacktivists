@@ -79,7 +79,11 @@ const accountRouter = t.router({
                 create: {
                   contactEmail: input.contactEmail,
                   website: input.website,
-                  socialMedia: {twitter: input.twitter, instagram: input.instagram, linkedin: input.linkedin},
+                  socialMedia: {
+                    twitter: input.twitter,
+                    instagram: input.instagram,
+                    linkedin: input.linkedin,
+                  },
                   contactLink: input.calendlyUrl,
                   availableTimePerWeek: input.availableTimePerWeek,
                   origin: input.source,

@@ -3,9 +3,9 @@ import { getSession } from 'next-auth/react';
 import React from 'react';
 
 import RequestorSignup from 'components/layout/signup/RequestorSignup';
+import ApplicantSignup from 'components/layout/signup/ApplicantSignup';
 
 import type { GetServerSideProps } from 'next';
-import ApplicantSignup from 'components/layout/signup/ApplicantSignup';
 
 interface SignupProps {
   role: UserRole;
