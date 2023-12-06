@@ -1,5 +1,5 @@
 import { getProviders, signIn, useSession } from 'next-auth/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,28 +14,70 @@ import { NavButton } from '../../components/decoration/buttons';
 import useOnce from 'hooks/useOnce';
 import Spinner from 'components/decoration/spinner';
 
+import type { BuiltInProviderType } from 'next-auth/providers';
 import type { NextPage } from 'next';
-import type { SignInResponse } from 'next-auth/react';
+import type {
+  ClientSafeProvider,
+  LiteralUnion,
+  SignInResponse,
+} from 'next-auth/react';
 
-const signInSchema = z.object({
+const emailSignInSchema = z.object({
   email: z.string().email(),
 });
 
-type SignInForm = z.infer<typeof signInSchema>;
+type EmailSignInForm = z.infer<typeof emailSignInSchema>;
 
-const resolver = zodResolver(signInSchema);
+const resolver = zodResolver(emailSignInSchema);
+
+type AuthProviders = Record<
+  LiteralUnion<BuiltInProviderType, string>,
+  ClientSafeProvider
+>;
+
+const SignInWithEmail = ({ callbackUrl }: { callbackUrl?: string }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { handleSubmit, register } = useForm<EmailSignInForm>({ resolver });
+  const onSubmit = useCallback(
+    async ({ email }: EmailSignInForm) => {
+      setIsLoading(true);
+
+      const { ok } = (await signIn('email', {
+        email,
+        callbackUrl,
+      })) as SignInResponse;
+      if (!ok) {
+        setIsLoading(false);
+      }
+    },
+    [callbackUrl],
+  );
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="w-1/2 mx-auto h-max">
+        <TextInput {...register('email')} type="email">
+          Email
+        </TextInput>
+      </div>
+      <DarkButton type="submit" disabled={isLoading}>
+        Sign in!
+      </DarkButton>
+    </form>
+  );
+};
 
 const SignIn: NextPage = () => {
-  const { query, isReady } = useRouter();
+  const {
+    query: { user: queryUser },
+    isReady,
+  } = useRouter();
 
   const [isLoading, setIsLoading] = useState(true);
-  const { status, data } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
-  const [providers, setProviders] =
-    useState<Awaited<ReturnType<typeof getProviders>>>(null);
-
-  const { handleSubmit, register } = useForm<SignInForm>({ resolver });
+  const [providers, setProviders] = useState<AuthProviders | null>(null);
 
   useOnce(() => {
     void getProviders()
@@ -47,31 +89,32 @@ const SignIn: NextPage = () => {
       });
   });
 
+  const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
+
   useOnce(
     () => {
-      // TODO: redirect/show according to role
-      if (query.user === UserRole.Applicant) {
-      } else if (query.user === UserRole.Organization) {
+      if (
+        queryUser === UserRole.Applicant ||
+        queryUser === UserRole.Requestor
+      ) {
+        setSelectedRole(queryUser);
+        return;
       }
+      setSelectedRole(UserRole.Applicant);
     },
-    { enabled: isReady }
+    { enabled: isReady },
   );
 
-  const onSubmit = useCallback(
-    async ({ email }: SignInForm) => {
-      const callbackUrl = router.query.callbackUrl as string;
-      setIsLoading(true);
-
-      const { ok } = (await signIn<'email'>('email', {
-        email,
-        callbackUrl,
-      })) as SignInResponse;
-      if (!ok) {
-        setIsLoading(false);
-      }
-    },
-    [router.query]
-  );
+  const callbackUrl = useMemo(() => {
+    if (typeof document === 'undefined') {
+      return undefined;
+    }
+    const url = new URL(document.location as unknown as URL);
+    if (selectedRole) {
+      url.searchParams.set('user', selectedRole);
+    }
+    return url.toString();
+  }, [selectedRole]);
 
   if (isLoading || status === 'loading') {
     return <Spinner />;
@@ -102,16 +145,24 @@ const SignIn: NextPage = () => {
     <>
       <NextSeo title="Sign In" />
       <div className="p-10 bg-grey-background h-max">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div className="w-1/2 mx-auto h-max">
-            <TextInput {...register('email')} type="email">
-              Email
-            </TextInput>
-          </div>
-          <DarkButton type="submit" disabled={isLoading}>
-            Sign in!
+        <div className="flex flex-wrap justify-center mt-10 mb-5">
+          <DarkButton
+            onClick={() => setSelectedRole(UserRole.Applicant)}
+            active={selectedRole === UserRole.Applicant}
+            className="m-5 font-mono"
+          >
+            I&apos;m an applicant
           </DarkButton>
-        </form>
+          <DarkButton
+            onClick={() => setSelectedRole(UserRole.Requestor)}
+            className="m-5 font-mono"
+            active={selectedRole === UserRole.Requestor}
+          >
+            I&apos;m a requestor
+          </DarkButton>
+        </div>
+
+        {providers.email && <SignInWithEmail callbackUrl={callbackUrl} />}
       </div>
     </>
   );
