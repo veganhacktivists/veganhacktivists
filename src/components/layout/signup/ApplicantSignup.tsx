@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { TimePerWeek } from '@prisma/client';
 
@@ -11,13 +11,13 @@ import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
 import type { z } from 'zod';
 import { SourceLabel, TimePerWeekLabel } from '../playground/applyForm';
+import { trpc } from 'lib/client/trpc';
 
 type ApplicantSignupPayload = z.infer<typeof applicantSignupSchema>;
 
 const ApplicantSignup = () => {
   const {
     control,
-    watch,
     register,
     formState: { errors },
     handleSubmit,
@@ -25,10 +25,17 @@ const ApplicantSignup = () => {
     resolver: zodResolver(applicantSignupSchema),
   });
 
+  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation();
+
+  const onSubmit = useCallback((data: ApplicantSignupPayload) => {
+    mutate(data);
+  }, [mutate]);
+
   return (
     <>
       <div className="px-10 bg-grey-background" id="contact-us">
         <form
+          onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
         >
           <TextInput
@@ -66,14 +73,13 @@ const ApplicantSignup = () => {
             {...register('website', {
               required: 'Please enter a valid website',
             })}
-            error={errors.contactEmail?.message}
+            error={errors.website?.message}
           >
            Personal website or potfolio link
           </TextInput>
           <TextInput
             className="md:col-span-2"
             placeholder="@yourhandle"
-            showRequiredMark
             {...register('twitter')}
             error={errors.twitter?.message}
           >
@@ -82,7 +88,6 @@ const ApplicantSignup = () => {
           <TextInput
             className="md:col-span-2"
             placeholder="@yourhandle"
-            showRequiredMark
             {...register('instagram')}
             error={errors.instagram?.message}
           >
@@ -91,7 +96,6 @@ const ApplicantSignup = () => {
           <TextInput
             className="md:col-span-2"
             placeholder="linkedin.com/in/"
-            showRequiredMark
             {...register('linkedin')}
             error={errors.linkedin?.message}
           >
@@ -119,6 +123,7 @@ const ApplicantSignup = () => {
               render={({ field: { value: current, onChange, ...field } }) => (
                 <SelectInput
                   {...field}
+                  ref={null}
                   placeholder="Select an option"
                   onChange={(option) => onChange(option?.value)}
                   current={{ value: current, label: TimePerWeekLabel[current] }}
@@ -154,9 +159,10 @@ const ApplicantSignup = () => {
         </div>
           <DarkButton
             className="mb-10 text-center w-fit md:w-72"
+            disabled={isLoading || isSuccess}
             type="submit"
           >
-            {'Save'}
+            {isLoading ? <Spinner /> : 'Save'}
           </DarkButton>
         </form>
       </div>
