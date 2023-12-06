@@ -95,10 +95,10 @@ model RequestorInformation {
 model ApplicantInformation {
   id           String @id @default(cuid()) @db.VarChar(30)
   userId       String @unique
-  name         String
   contactEmail String
   contactLink  String
   website      String
+  origin       String
 
   availableTimePerWeek TimePerWeek
   socialMedia          Json        @db.Json
