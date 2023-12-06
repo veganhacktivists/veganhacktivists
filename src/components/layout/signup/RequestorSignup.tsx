@@ -35,7 +35,7 @@ const RequestorSignup = () => {
     resolver: zodResolver(requestorSignupSchema),
   });
 
-  const { mutate, isLoading } = trpc.playground.signup.useMutation();
+  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation();
 
   const onSubmit = useCallback(
     (data: RequestorSignupPayload) => {
@@ -175,7 +175,7 @@ const RequestorSignup = () => {
           </TextArea>
           <DarkButton
             className="mb-10 text-center w-fit md:w-72"
-            disabled={isLoading}
+            disabled={isLoading || isSuccess}
             type="submit"
           >
             {isLoading ? <Spinner /> : 'Save'}
