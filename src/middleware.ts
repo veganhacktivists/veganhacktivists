@@ -29,7 +29,12 @@ const routes: MiddlewareRoute[] = [
   {
     path: '/playground/admin',
     check: 'admin',
-    redirect: '/playground/signin',
+    redirect: '/auth/signin',
+  },
+  {
+    path: '/playground/signup',
+    check: 'logged-in',
+    redirect: '/auth/signin',
   },
   {
     path: '/playground',
@@ -66,7 +71,7 @@ const checkRoutes = async (
 };
 
 const middleware = async (req: NextRequest) => {
-  checkForFlushRequest(req);
+  await checkForFlushRequest(req);
   const { pathname } = req.nextUrl;
   if (pathname.startsWith('/api')) {
     return NextResponse.next();
@@ -87,11 +92,12 @@ interface CacheUser {
   updatedAt: number;
 }
 
-let cache: Record<User['id'], CacheUser> = {};
+const cache: Record<User['id'], CacheUser> = {};
 
-const checkForFlushRequest = (req: NextRequest) => {
-  if (req.headers.get('x-flush-cache') === 'true') {
-    cache = {};
+const checkForFlushRequest = async (req: NextRequest) => {
+  const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  if (req.headers.get('x-flush-cache') === 'true' && token?.sub) {
+    delete cache[token.sub];
   }
 };
 
@@ -129,6 +135,8 @@ const hasPermission = async (permission: string, req: NextRequest) => {
         (user.role === UserRole.Requestor && !user.requestorInformation) ||
         (user.role === UserRole.User && !user.applicantInformation)
       );
+    case 'logged-in':
+      return true;
   }
 };
 
