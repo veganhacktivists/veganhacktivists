@@ -26,6 +26,10 @@ const emailSignInSchema = z.object({
   email: z.string().email(),
 });
 
+interface AuthProviderProps {
+  callbackUrl?: string;
+}
+
 type EmailSignInForm = z.infer<typeof emailSignInSchema>;
 
 const resolver = zodResolver(emailSignInSchema);
@@ -35,7 +39,7 @@ type AuthProviders = Record<
   ClientSafeProvider
 >;
 
-const SignInWithEmail = ({ callbackUrl }: { callbackUrl?: string }) => {
+const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { handleSubmit, register } = useForm<EmailSignInForm>({ resolver });
   const onSubmit = useCallback(
@@ -137,10 +141,6 @@ const SignIn: NextPage = () => {
     );
   }
 
-  if (!providers?.email) {
-    return null;
-  }
-
   return (
     <>
       <NextSeo title="Sign In" />
@@ -162,7 +162,7 @@ const SignIn: NextPage = () => {
           </DarkButton>
         </div>
 
-        {providers.email && <SignInWithEmail callbackUrl={callbackUrl} />}
+        {providers?.email && <SignInWithEmail callbackUrl={callbackUrl} />}
       </div>
     </>
   );
