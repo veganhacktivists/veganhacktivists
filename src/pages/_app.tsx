@@ -25,7 +25,7 @@ import type { Session } from 'next-auth';
 if (
   typeof window !== 'undefined' &&
   process.env.NODE_ENV !== 'production' &&
-  process.env.DISABLE_ACCESSIBILITY_CHECK !== '1'
+  process.env.NEXT_PUBLIC_DISABLE_ACCESSIBILITY_CHECK !== '1'
 ) {
   const ReactDOM = require('react-dom') as ReactDOM;
   const axe = require('@axe-core/react') as typeof ReactAxe;
