@@ -5,6 +5,8 @@ import type { DefaultSession, DefaultUser } from 'next-auth';
 interface UserCustomFields {
   id: string;
   role: UserRole;
+  isApplicant: boolean;
+  isRequestor: boolean;
 }
 
 declare module 'next-auth' {
