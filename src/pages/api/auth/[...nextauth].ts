@@ -12,11 +12,13 @@ import { OUR_EMAIL_FROM_FORMATTED } from '../../../lib/mail/router';
 import emailClient from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
+import type { Adapter } from 'next-auth/adapters';
+import type { NextApiHandler } from 'next';
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
 const sendVerificationRequest = async (
-  params: SendVerificationRequestParams
+  params: SendVerificationRequestParams,
 ) => {
   const { identifier, url } = params;
   const { searchParams } = new URL(url);
@@ -35,8 +37,8 @@ const sendVerificationRequest = async (
   });
 };
 
-export const nextAuthOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+export const nextAuthOptions = (adapter: Adapter): NextAuthOptions => ({
+  adapter,
   session: {
     strategy: 'jwt',
   },
@@ -82,12 +84,47 @@ export const nextAuthOptions: NextAuthOptions = {
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.role = token.role;
+        session.user.isApplicant = token.isApplicant;
+        session.user.isRequestor = token.isRequestor;
       }
 
       delete session.user?.image;
       return session;
     },
   },
+});
+
+const handle: NextApiHandler = async (req, res) => {
+  const adapter = PrismaAdapter(prisma);
+
+  if (
+    (req.query.nextauth as string).includes('callback') &&
+    // All this logic can probably be avoided with the profile callback of the other OAuth methods
+    // So we're just going to apply it to the email login for now
+    (req.query.nextauth as string).includes('email')
+  ) {
+    const callbackUrl = req.query.callbackUrl
+      ? new URL(req.query.callbackUrl as string)
+      : undefined;
+
+    if (
+      [UserRole.Applicant, UserRole.Requestor].includes(
+        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>,
+      )
+    ) {
+      const role = callbackUrl?.searchParams.get('role') as Exclude<
+        UserRole,
+        'Admin'
+      >;
+      adapter.createUser = async (data) => {
+        return await prisma.user.create({
+          data: { ...data, role },
+        });
+      };
+    }
+  }
+
+  return await NextAuth(req, res, nextAuthOptions(adapter));
 };
 
-export default NextAuth(nextAuthOptions);
+export default handle;
