@@ -2,9 +2,9 @@
 CREATE TABLE "RequestorInformation" (
     "id" VARCHAR(30) NOT NULL,
     "userId" TEXT NOT NULL,
-    "website" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
     "contactLink" TEXT NOT NULL,
+    "contactEmail" TEXT NOT NULL,
 
     CONSTRAINT "RequestorInformation_pkey" PRIMARY KEY ("id")
 );
@@ -16,7 +16,7 @@ CREATE TABLE "ApplicantInformation" (
     "contactEmail" TEXT NOT NULL,
     "contactLink" TEXT NOT NULL,
     "website" TEXT NOT NULL,
-    "origin" TEXT NOT NULL;
+    "origin" TEXT NOT NULL,
     "availableTimePerWeek" "TimePerWeek" NOT NULL,
     "socialMedia" JSON NOT NULL,
 
