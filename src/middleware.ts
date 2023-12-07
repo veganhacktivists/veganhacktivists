@@ -31,7 +31,7 @@ const middleware: NextMiddleware = async (request, event) => {
   res ??= NextResponse.next();
 
   const locale = request.nextUrl.locale ?? request.nextUrl.defaultLocale;
-  if (request.cookies.get('NEXT_LOCALE') !== locale) {
+  if (request.cookies.get('NEXT_LOCALE')?.value !== locale) {
     res.cookies.set('NEXT_LOCALE', locale, {
       secure: true,
       path: '/',
