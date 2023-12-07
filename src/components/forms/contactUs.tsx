@@ -91,17 +91,9 @@ const ContactUsForm: React.FC = () => {
         id: 'section.contact-us-form.input-field.label.name',
         defaultMessage: 'Name',
       }),
-      email: intl.formatMessage({
-        id: 'section.contact-us-form.input-field.label.email',
-        defaultMessage: 'Email',
-      }),
       service: intl.formatMessage({
         id: 'section.contact-us-form.input-field.label.service',
         defaultMessage: 'Service',
-      }),
-      message: intl.formatMessage({
-        id: 'section.contact-us-form.input-field.label.message',
-        defaultMessage: 'Message',
       }),
     }),
     [intl]
@@ -119,7 +111,7 @@ const ContactUsForm: React.FC = () => {
                 defaultMessage: 'Please enter a name',
               }),
             })}
-            name={inputLabels.name}
+            name="name"
             error={errors.name?.message}
           />
         </div>
@@ -140,7 +132,7 @@ const ContactUsForm: React.FC = () => {
                 }),
               },
             })}
-            name={inputLabels.email}
+            name="email"
             error={errors.email?.message}
           />
         </div>
@@ -180,7 +172,7 @@ const ContactUsForm: React.FC = () => {
           <TextArea
             error={errors.message?.message}
             {...register('message')}
-            name={inputLabels.message}
+            name="message"
             defaultValue={defaultErrorMessage}
             onChange={onMessageChange}
           />
