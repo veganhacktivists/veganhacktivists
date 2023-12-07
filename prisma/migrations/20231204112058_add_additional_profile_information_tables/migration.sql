@@ -13,10 +13,10 @@ CREATE TABLE "RequestorInformation" (
 CREATE TABLE "ApplicantInformation" (
     "id" VARCHAR(30) NOT NULL,
     "userId" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
     "contactEmail" TEXT NOT NULL,
     "contactLink" TEXT NOT NULL,
     "website" TEXT NOT NULL,
+    "origin" TEXT NOT NULL;
     "availableTimePerWeek" "TimePerWeek" NOT NULL,
     "socialMedia" JSON NOT NULL,
 
