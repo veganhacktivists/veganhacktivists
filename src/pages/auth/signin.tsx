@@ -9,7 +9,6 @@ import { UserRole } from '@prisma/client';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
-import { NavButton } from '../../components/decoration/buttons';
 
 import useOnce from 'hooks/useOnce';
 import Spinner from 'components/decoration/spinner';
@@ -81,7 +80,7 @@ const SignIn: NextPage = () => {
   const { status } = useSession();
   const router = useRouter();
 
-  const [providers, setProviders] = useState<AuthProviders | null>(null);
+  const [providers, setProviders] = useState<AuthProviders | null>();
 
   useOnce(() => {
     void getProviders()
@@ -113,32 +112,34 @@ const SignIn: NextPage = () => {
     if (typeof document === 'undefined') {
       return undefined;
     }
-    const url = new URL(document.location as unknown as URL);
+    const url = new URL(
+      (router.query.callbackUrl as string) ?? '/playground/signup',
+      (router.query.callbackUrl as string) ??
+        (document.location as unknown as URL),
+    );
+
     if (selectedRole) {
-      url.searchParams.set('user', selectedRole);
+      url.searchParams.set('role', selectedRole);
     }
     return url.toString();
-  }, [selectedRole]);
+  }, [router.query.callbackUrl, selectedRole]);
+
+  useOnce(
+    () => {
+      if (
+        typeof router.query.callbackUrl === 'string' &&
+        router.query.callbackUrl
+      ) {
+        void router.push(router.query.callbackUrl);
+      } else {
+        void router.push('/playground');
+      }
+    },
+    { enabled: status === 'authenticated' && isReady },
+  );
 
   if (isLoading || status === 'loading') {
     return <Spinner />;
-  }
-
-  if (status === 'authenticated') {
-    if (
-      typeof router.query.callbackUrl === 'string' &&
-      router.query.callbackUrl
-    ) {
-      void router.push(router.query.callbackUrl);
-      return null;
-    }
-
-    return (
-      <div>
-        You are already logged in. No callbackUrl provided.
-        <NavButton href="/playground">Go to Playground</NavButton>
-      </div>
-    );
   }
 
   return (
