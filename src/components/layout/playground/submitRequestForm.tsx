@@ -713,7 +713,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               return (
                 <>
                   <div className="lg:col-span-2 col-span-full">
-                    <Label name="Rate?" showRequiredMark />
+                    <Label name="rate" label="Rate?" showRequiredMark />
                     <SelectInput
                       current={
                         BUDGET_TYPE_OPTIONS.find(

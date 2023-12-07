@@ -1,18 +1,16 @@
 import classNames from 'classnames';
 
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-interface LabelProps
-  extends React.PropsWithChildren<HTMLAttributes<HTMLLabelElement>> {
+type LabelProps = HTMLAttributes<HTMLLabelElement> & {
   name: string;
   showRequiredMark?: boolean;
   error?: string;
-}
+} & ({ label: string } | { children: ReactNode });
 
 const Label: React.FC<LabelProps> = ({
   name,
   error,
-  children,
   showRequiredMark,
   className,
   ...props
@@ -23,7 +21,13 @@ const Label: React.FC<LabelProps> = ({
       htmlFor={name}
       {...props}
     >
-      {children || <span className="capitalize">{name}</span>}
+      {'children' in props ? (
+        props.children
+      ) : 'label' in props ? (
+        <span className="capitalize">{props.label}</span>
+      ) : (
+        ''
+      )}
       {showRequiredMark && <span className="text-red">*</span>}
       {error && <span className="font-normal text-red">⚠ {error}</span>}
     </label>

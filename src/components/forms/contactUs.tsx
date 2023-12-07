@@ -145,7 +145,7 @@ const ContactUsForm: React.FC = () => {
           />
         </div>
         <div>
-          <Label name={inputLabels.service} />
+          <Label name="service" label={inputLabels.service} />
           <Controller
             name="service"
             control={control}

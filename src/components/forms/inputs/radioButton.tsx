@@ -2,10 +2,7 @@ import React from 'react';
 
 import type { HTMLProps } from 'react';
 
-interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
-  test?: 1;
-  // label: React.ReactNode;
-}
+type RadioButtonProps = HTMLProps<HTMLInputElement>;
 
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   ({ label, ...props }, ref) => {
