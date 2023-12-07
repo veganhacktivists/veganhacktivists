@@ -86,7 +86,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 const NavbarItems: React.FC = () => {
   const intl = useIntl();
 
-  const navItems = {
+  const navItemRouteLabelMapping = {
     about: intl.formatMessage({
       id: 'layout.header.navigation-item.about.label',
       defaultMessage: 'about',
@@ -99,7 +99,7 @@ const NavbarItems: React.FC = () => {
       id: 'layout.header.navigation-item.work.label',
       defaultMessage: 'work',
     }),
-    people: intl.formatMessage({
+    'people/team': intl.formatMessage({
       id: 'layout.header.navigation-item.people.label',
       defaultMessage: 'people',
     }),
@@ -111,13 +111,17 @@ const NavbarItems: React.FC = () => {
 
   return (
     <>
-      {(Object.keys(navItems) as (keyof typeof navItems)[]).map((menuElem) => (
+      {(
+        Object.keys(
+          navItemRouteLabelMapping
+        ) as (keyof typeof navItemRouteLabelMapping)[]
+      ).map((menuElem) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
           className="hover:bg-gray-dark"
         >
-          {navItems[menuElem]}
+          {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
       ))}
       <NavBarItem
