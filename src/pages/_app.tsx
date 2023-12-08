@@ -21,6 +21,9 @@ import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
 import type { AppProps } from 'next/app';
 import type { Session } from 'next-auth';
+import { Refine } from "@refinedev/core";
+import dataProvider from "@refinedev/simple-rest";
+import routerProvider from "@refinedev/nextjs-router";
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom') as ReactDOM;
@@ -129,14 +132,17 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
     </DefaultLayout>
   );
 
+  const API_URL = "https://api.fake-rest.refine.dev";
   return (
-    <AppWrapper session={session as Session | null}>
-      <PageWrapper>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </PageWrapper>
-    </AppWrapper>
+    <Refine resources={[{ name: 'users', list: '/users', show: '/users/show/:id', edit: '/users/show/edit/:id' }]} routerProvider={routerProvider} dataProvider={dataProvider(API_URL)}>
+      <AppWrapper session={session as Session | null}>
+        <PageWrapper>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </PageWrapper>
+      </AppWrapper>
+    </Refine>
   );
 };
 
