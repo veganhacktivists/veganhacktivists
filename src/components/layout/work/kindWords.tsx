@@ -45,39 +45,65 @@ const Quote = ({ author, company, children, color }: QuoteProps) => {
 
 const getQuotes: (intl: IntlShape) => QuoteProps[] = (intl) => [
   {
-    company: 'Mercy for Animals',
-    author: 'Courtney Dillard',
+    company: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[0].company',
+      defaultMessage: '<no-localization>Mercy for Animals</no-localization>',
+    }),
+    author: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[0].author',
+      defaultMessage: '<no-localization>Courtney Dillard</no-localization>',
+    }),
     children: intl.formatMessage({
       id: 'page.our-work.section.kind-words[0].content',
       defaultMessage:
-        'What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others.',
+        'What impresses me most about the <no-localization>Vegan Hacktivists</no-localization> is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others.',
     }),
   },
   {
-    company: 'Ben Williamson',
-    author: 'Compassion In World Farming',
+    company: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[1].company',
+      defaultMessage:
+        '<no-localization>Compassion In World Farming</no-localization>',
+    }),
+    author: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[1].author',
+      defaultMessage: '<no-localization>Ben Williamson</no-localization>',
+    }),
     children: intl.formatMessage({
       id: 'page.our-work.section.kind-words[1].content',
       defaultMessage:
-        'I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates.',
+        'I’m really excited by the potential <no-localization>Vegan Hacktivists</no-localization> have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates.',
     }),
   },
   {
-    company: 'The Pollination Project',
-    author: 'AJ Dahiya',
+    company: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[2].company',
+      defaultMessage:
+        '<no-localization>The Pollination Project</no-localization>',
+    }),
+    author: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[2].author',
+      defaultMessage: '<no-localization>AJ Dahiya</no-localization>',
+    }),
     children: intl.formatMessage({
       id: 'page.our-work.section.kind-words[2].content',
       defaultMessage:
-        'Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in.',
+        '<no-localization>Vegan Hacktivists</no-localization> is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in.',
     }),
   },
   {
-    company: 'Faunalytics',
-    author: 'Brooke Haggerty',
+    company: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[3].company',
+      defaultMessage: '<no-localization>Faunalytics</no-localization>',
+    }),
+    author: intl.formatMessage({
+      id: 'page.our-work.section.kind-words[3].author',
+      defaultMessage: '<no-localization>Brooke Haggerty</no-localization>',
+    }),
     children: intl.formatMessage({
       id: 'page.our-work.section.kind-words[3].content',
       defaultMessage:
-        'Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism.',
+        '<no-localization>Vegan Hacktivists</no-localization> is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism.',
     }),
   },
 ];

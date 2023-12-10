@@ -65,7 +65,7 @@ const OurCommunities: React.FC = () => {
                 <a href={redditLink} target="_blank" rel="noreferrer">
                   <FormattedMessage
                     id="page.our-work.section.our-communities.cta.reddit"
-                    defaultMessage="Vegans of Reddit"
+                    defaultMessage="Vegans of <no-localization>Reddit</no-localization>"
                   />
                 </a>
               </div>
@@ -79,7 +79,10 @@ const OurCommunities: React.FC = () => {
               </div>
               <div className="font-bold">
                 <a href={discordLink} target="_blank" rel="noreferrer">
-                  Animal Rights Advocates
+                  <FormattedMessage
+                    id="page.our-work.section.our-communities.cta.animal-rights-advocates"
+                    defaultMessage="<no-localization>Animal Rights Advocates</no-localization>"
+                  />
                 </a>
               </div>
               <div>{araMembers}</div>

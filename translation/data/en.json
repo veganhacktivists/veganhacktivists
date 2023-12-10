@@ -651,7 +651,7 @@
     "message": "Applicants"
   },
   "page.our-work.section.grant-program.section-header.content": {
-    "message": "Last year, we announced a partnership with The Pollination Project to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
+    "message": "Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
   },
   "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
     "message": "Learn more"
@@ -662,17 +662,41 @@
   "page.our-work.section.hours-volunteered.cta-button.label": {
     "message": "volunteered in 2022 for the animal protection movement"
   },
+  "page.our-work.section.kind-words[0].author": {
+    "message": "<no-localization>Courtney Dillard</no-localization>"
+  },
+  "page.our-work.section.kind-words[0].company": {
+    "message": "<no-localization>Mercy for Animals</no-localization>"
+  },
   "page.our-work.section.kind-words[0].content": {
-    "message": "What impresses me most about the Vegan Hacktivists is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others."
+    "message": "What impresses me most about the <no-localization>Vegan Hacktivists</no-localization> is their high level of critical thinking in terms of ideation and their consistent follow through. This has resulted in several high level deliverables I have been able to use and highly recommended to others."
+  },
+  "page.our-work.section.kind-words[1].author": {
+    "message": "<no-localization>Ben Williamson</no-localization>"
+  },
+  "page.our-work.section.kind-words[1].company": {
+    "message": "<no-localization>Compassion In World Farming</no-localization>"
   },
   "page.our-work.section.kind-words[1].content": {
-    "message": "I’m really excited by the potential Vegan Hacktivists have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates."
+    "message": "I’m really excited by the potential <no-localization>Vegan Hacktivists</no-localization> have for the animal protection movement. Progress is full of tipping points, and I’m sure at least one of these lives within a technological solution offered by this skilled community of advocates."
+  },
+  "page.our-work.section.kind-words[2].author": {
+    "message": "<no-localization>AJ Dahiya</no-localization>"
+  },
+  "page.our-work.section.kind-words[2].company": {
+    "message": "<no-localization>The Pollination Project</no-localization>"
   },
   "page.our-work.section.kind-words[2].content": {
-    "message": "Vegan Hacktivists is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in."
+    "message": "<no-localization>Vegan Hacktivists</no-localization> is an innovative organization leveraging technology to make a large-scale impact for the rights and dignity of animals. They have gone above and beyond in supporting our organization with their expertise. Their work is extremely needed and on the cutting edge for the time we live in."
+  },
+  "page.our-work.section.kind-words[3].author": {
+    "message": "<no-localization>Brooke Haggerty</no-localization>"
+  },
+  "page.our-work.section.kind-words[3].company": {
+    "message": "<no-localization>Faunalytics</no-localization>"
   },
   "page.our-work.section.kind-words[3].content": {
-    "message": "Vegan Hacktivists is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism."
+    "message": "<no-localization>Vegan Hacktivists</no-localization> is a hidden gem in the animal protection movement. They are capacity builders, dedicated to supporting other animal advocates. We’ve been fortunate enough to receive their help with several behind the scenes projects, and I’m constantly impressed with their passion and professionalism."
   },
   "page.our-work.section.like-what-you-see.contact.cta-button.label": {
     "message": "Contact us"
@@ -689,8 +713,11 @@
   "page.our-work.section.like-what-you-see.services.cta-button.label": {
     "message": "Services"
   },
+  "page.our-work.section.our-communities.cta.animal-rights-advocates": {
+    "message": "<no-localization>Animal Rights Advocates</no-localization>"
+  },
   "page.our-work.section.our-communities.cta.reddit": {
-    "message": "Vegans of Reddit"
+    "message": "Vegans of <no-localization>Reddit</no-localization>"
   },
   "page.our-work.section.our-communities.member-count.ara": {
     "message": "<no-localization>{count}</no-localization> members"
@@ -717,16 +744,28 @@
     "message": "Get Support"
   },
   "page.our-work.section.playground.introduction": {
-    "message": "<p>Playground was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
+    "message": "<p><no-localization>Playground</no-localization> was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
   },
   "page.our-work.section.playground.playground.cta-button.label": {
     "message": "Volunteer"
   },
+  "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
+    "message": "<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption": {
+    "message": "Data & Tech in Animal Rights Activism"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.conferences.2.caption": {
+    "message": "<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>"
+  },
+  "page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption": {
+    "message": "Tech Innovation in Animal Protection"
+  },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "message": "We're often speaking at animal protection and EA related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <link>Instagram</link> to see where we'll be next!"
+    "message": "We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
   },
   "page.our-work.section.state-of-data.content": {
-    "message": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from Faunalytics and research conducted by Animetrics, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
+    "message": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from <no-localization>Faunalytics</no-localization> and research conducted by <no-localization>Animetrics</no-localization>, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
   },
   "page.our-work.section.state-of-data.cta": {
     "message": "Read the report"

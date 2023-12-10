@@ -44,7 +44,7 @@ const Playground: React.FC = () => {
           <div className="text-lg space-y-3 mx-auto">
             <FormattedMessage
               id="page.our-work.section.playground.introduction"
-              defaultMessage="<p>Playground was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
+              defaultMessage="<p><no-localization>Playground</no-localization> was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>"
               values={{
                 p: (chunk) => <p>{chunk}</p>,
               }}
