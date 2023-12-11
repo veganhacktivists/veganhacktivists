@@ -270,7 +270,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         })}
       >
         <FormattedMessage
-          id="page.people.section.volunteers.intro.text"
+          id="page.people.section.volunteers.intro.paragraph"
           defaultMessage="Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
           values={{
             b: (chunks) => <b>{chunks}</b>,
@@ -312,7 +312,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.volunteers.community.text"
+            id="page.people.section.volunteers.community.paragraph"
             defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
           />
         </FirstSubSection>

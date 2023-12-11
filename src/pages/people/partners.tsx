@@ -110,7 +110,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
         })}
       >
         <FormattedMessage
-          id="page.people.section.partners.intro.text"
+          id="page.people.section.partners.intro.paragraph"
           defaultMessage="Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
         />
       </FirstSubSection>
@@ -135,7 +135,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.partners.community.text"
+            id="page.people.section.partners.community.paragraph"
             defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
           />
         </FirstSubSection>

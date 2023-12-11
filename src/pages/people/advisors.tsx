@@ -81,7 +81,7 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
         })}
       >
         <FormattedMessage
-          id="page.people.section.advisors.intro.text"
+          id="page.people.section.advisors.intro.paragraph"
           defaultMessage="We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
         />
       </FirstSubSection>
@@ -112,7 +112,7 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.advisors.community.text"
+            id="page.people.section.advisors.community.paragraph"
             defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
           />
         </FirstSubSection>

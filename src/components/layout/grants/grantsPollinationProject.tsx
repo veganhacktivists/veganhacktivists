@@ -15,7 +15,8 @@ const GrantsPollinationProject: React.FC = () => {
             src={PollinationProjectLogo}
             alt={intl.formatMessage({
               id: 'page.grants.section.pollination-project.image.alt-text',
-              defaultMessage: 'Logo of The Pollination Project',
+              defaultMessage:
+                'Logo of <no-localization>The Pollination Project</no-localization>',
             })}
             sizes="100vw"
           />
@@ -23,14 +24,14 @@ const GrantsPollinationProject: React.FC = () => {
         <div className="flex-1 py-8 px-3 md:px-10 bg-gray-background text-center md:text-left text-2xl">
           <p>
             <FormattedMessage
-              id="page.grants.section.pollination-project.content[0]"
-              defaultMessage="Our grants connection service is generously funded by The Pollination Project (TPP) and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
+              id="page.grants.section.pollination-project.paragraph.0"
+              defaultMessage="Our grants connection service is generously funded by <no-localization>The Pollination Project (TPP)</no-localization> and other private donors— please keep an eye out in your inbox, and don't forget to check spam!"
             />
           </p>
           <p className="mt-4">
             <FormattedMessage
-              id="page.grants.section.pollination-project.content[1]"
-              defaultMessage="If your primary focus does not address farmed animals, you may still be eligible for a grant directly from TPP. We encourage you to apply through their website."
+              id="page.grants.section.pollination-project.paragraph.1"
+              defaultMessage="If your primary focus does not address farmed animals, you may still be eligible for a grant directly from <no-localization>TPP</no-localization>. We encourage you to apply through their website."
             />
           </p>
           <LightButton
@@ -39,7 +40,7 @@ const GrantsPollinationProject: React.FC = () => {
           >
             <FormattedMessage
               id="page.grants.section.pollination-project.button"
-              defaultMessage="ThePollinationProject.org"
+              defaultMessage="<no-localization>ThePollinationProject.org</no-localization>"
             />
           </LightButton>
         </div>

@@ -181,15 +181,15 @@ const GrantsApplication: React.FC = () => {
                   error={errors.gender?.message}
                   options={[
                     intl.formatMessage({
-                      id: 'page.grants.section.application.form.a.input.applicant-gender.option[0]',
+                      id: 'page.grants.section.application.form.a.input.applicant-gender.option.0',
                       defaultMessage: 'male',
                     }),
                     intl.formatMessage({
-                      id: 'page.grants.section.application.form.a.input.applicant-gender.option[1]',
+                      id: 'page.grants.section.application.form.a.input.applicant-gender.option.1',
                       defaultMessage: 'female',
                     }),
                     intl.formatMessage({
-                      id: 'page.grants.section.application.form.a.input.applicant-gender.option[2]',
+                      id: 'page.grants.section.application.form.a.input.applicant-gender.option.2',
                       defaultMessage: 'other',
                     }),
                   ].map((option) => ({
@@ -378,7 +378,7 @@ const GrantsApplication: React.FC = () => {
         >
           <FormattedMessage
             id="page.grants.section.application.form.c.intro"
-            defaultMessage="<div> Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used. </div> <div> Please note, all information in this section should be given in <b>US Dollars</b> (US$). </div>"
+            defaultMessage="<div>Your project's budget is a very important part of your application. Our team often uses this information to support their final decisions. Keep in mind that the budget items you list are ones that will serve to complete your proposed project, so be very specific in how the requested funding will be used.</div> <div>Please note, all information in this section should be given in <b>US Dollars</b> (US$).</div>"
             values={{
               div: (chunks) => <div>{chunks}</div>,
               b: (chunks) => <b>{chunks}</b>,
@@ -455,7 +455,7 @@ const GrantsApplication: React.FC = () => {
             <div className="font-normal">
               <FormattedMessage
                 id="page.grants.section.application.form.c.input.funds-usage.text"
-                defaultMessage="Please list each budget item and the associated cost. The total should equal the total funding you are requesting from TPP. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
+                defaultMessage="Please list each budget item and the associated cost. The total should equal the total funding you are requesting from <no-localization>TPP</no-localization>. Example: <ul> <li>1 1lb bag of corn - $5</li> <li>3 Garden Shovels - $35</li> </ul>"
                 values={{
                   ul: (chunks) => (
                     <ul className="list-disc list-inside">{chunks}</ul>
@@ -476,7 +476,7 @@ const GrantsApplication: React.FC = () => {
               <>
                 <FormattedMessage
                   id="page.grants.section.application.form.c.input.can-accept-funding.text"
-                  defaultMessage="I confirm that I have a bank or PayPal account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - TPP is unable to make grant payments to any other person or entity on my behalf. I understand that if TPP reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
+                  defaultMessage="I confirm that I have a bank or <no-localization>PayPal</no-localization> account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - <no-localization>TPP</no-localization> is unable to make grant payments to any other person or entity on my behalf. I understand that if <no-localization>TPP</no-localization> reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
                 />
               </>
             }

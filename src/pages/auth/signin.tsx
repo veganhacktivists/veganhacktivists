@@ -81,7 +81,7 @@ const SignIn: NextPage = () => {
       <div>
         <FormattedMessage
           id="page.sign-in.already-signed-in.content"
-          defaultMessage="You are already logged in. No callbackUrl provided. <button>Go to Playground</button>"
+          defaultMessage="You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>"
           values={{
             button: (chunks) => (
               <NavButton href="/playground">{chunks}</NavButton>

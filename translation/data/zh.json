@@ -101,58 +101,58 @@
   "page.about.section.our-mission.section-header.image.alt-text": {
     "message": "我们的使命"
   },
-  "page.about.section.our-mission.subsection-1.content": {
+  "page.about.section.our-mission.subsection-0.paragraph": {
     "message": "为了确定项目、活动和我们整体工作的有效性，需要跟踪和收集有意义的数据。我们坚信，数据驱动的运动将加速和提升我们的工作，这就是为什么我们优先考虑识别、收集和分析数据，并将其提供给他人。"
   },
-  "page.about.section.our-mission.subsection-1.heading": {
+  "page.about.section.our-mission.subsection-0.heading": {
     "message": "1.我们的运动需要更多的数据。"
   },
-  "page.about.section.our-mission.subsection-2.content": {
+  "page.about.section.our-mission.subsection-1.paragraph": {
     "message": "我们坚信，竞争不仅是健康的，而且对于提高我们运动的效率至关重要。竞争会给组织和项目带来健康的压力，促使其不断改进和迭代--这也会给我们提供更多信息，让我们知道什么是有效的。"
   },
-  "page.about.section.our-mission.subsection-2.heading": {
+  "page.about.section.our-mission.subsection-1.heading": {
     "message": "2.我们也需要更多的竞争。"
   },
-  "page.about.section.our-mission.subsection-3.content": {
+  "page.about.section.our-mission.subsection-2.paragraph": {
     "message": "我们相信，运动有潜力在方法上更具创新性。我们提倡打破常规思维，并将创新作为我们工作和流程每个部分的核心考虑因素。"
   },
-  "page.about.section.our-mission.subsection-3.heading": {
+  "page.about.section.our-mission.subsection-2.heading": {
     "message": "3.我们需要更加创新。"
   },
-  "page.about.section.our-mission.subsection-4.content": {
+  "page.about.section.our-mission.subsection-3.paragraph": {
     "message": "我们旨在帮助组织和个人以更有意义的方式进行联系与合作。我们需要利用我们的知识和相互之间的网络来支持我们的共同目标，无论是共享研究或数据、资源，还是相互支持以克服组织面临的挑战。"
   },
-  "page.about.section.our-mission.subsection-4.heading": {
+  "page.about.section.our-mission.subsection-3.heading": {
     "message": "4.我们需要开始合作。"
   },
-  "page.about.section.our-mission.subsection-5.content": {
+  "page.about.section.our-mission.subsection-4.paragraph": {
     "message": "世界上只有极少数人是素食主义者，其中一小部分人是积极的。许多组织鼓励非素食者出于健康、环境或道德原因采用素食主义。我们相信，我们也可以通过创造工具来帮助、激励更多的素食者成为动物的代言人。"
   },
-  "page.about.section.our-mission.subsection-5.heading": {
+  "page.about.section.our-mission.subsection-4.heading": {
     "message": "5.最后，我们需要更多的素食主义者积极行动起来。"
   },
   "page.about.section.our-story.next-seo.title": {
     "message": "我们的故事"
   },
-  "page.about.section.our-story.section-header.content": {
+  "page.about.section.our-story.intro.paragraph": {
     "message": "2019 年，我们与几名热衷于行动主义的志愿者一起启动了第一个项目。从那时起，我们已经成长为一个由高技能的专业软件工程师、设计师、数据科学家和内容创作者组成的社区，为运动提供支持。我们一开始就希望催化人们行动起来，激励他们成为动物的拥护者--我们始终坚持这一创始原则。我们的数字技能为我们的行动提供了动力。"
   },
-  "page.about.section.our-story.section-header.heading": {
+  "page.about.section.our-story.intro.heading": {
     "message": "我们的故事"
   },
-  "page.about.section.our-story.section-header.image.alt-text": {
+  "page.about.section.our-story.image.alt-text": {
     "message": "我们的故事"
   },
-  "page.about.section.our-story.subsection-1.content": {
+  "page.about.section.our-story.paragraph.0": {
     "message": "我们是 Vegan Hacktivists。我们的技能组合--无论是编写代码、创建品牌形象，还是分析数据--就像我们来自哪里、生活在哪里一样多种多样。我们相互协作，建立以数据为导向、具有实验性和有效性的项目。我们的核心团队由总监和高级团队成员组成，他们在工程、建筑、设计、数据、运营和沟通方面拥有丰富的经验和专业知识。我们的志愿者基础包括由负责人管理的团队；每个团队都拥有一个项目的所有权，并积极建设和维护该项目。"
   },
-  "page.about.section.our-story.subsection-2.content": {
+  "page.about.section.our-story.paragraph.1": {
     "message": "我们的组织以社区为先。鉴于我们的工作需要耐心和承诺，我们通过创造一个支持性的环境来激发志愿者的活力，使他们能够参与其中，提高效率和影响力。作为一个分布式组织，我们希望通过有意义和有趣的互动，建立一种价值观一致、相互联系的社区意识。每个团队都以一种<link>水果或蔬菜</link>为代表（将以植物为基础提升到另一个层次），我们通过游戏、聚会和社区电话来平衡我们的工作。毕竟，志愿者是我们组织的核心。"
   },
-  "page.about.section.our-story.subsection-3.content": {
+  "page.about.section.our-story.paragraph.2": {
     "message": "多年来，我们的组织随着运动的需要而变化。虽然我们现在主要专注于提供能力建设服务，但我们仍在继续开发我们认为具有创新性且在运动中非常需要的技术。现在，我们与倡导者、组织和前线工作者广泛合作，帮助他们改善日常运营、品牌和形象以及技术。通过这样做，我们帮助扩大他们的信息，将他们的工作推向更广泛的受众。"
   },
-  "page.about.section.our-story.subsection-4.content": {
+  "page.about.section.our-story.paragraph.3": {
     "message": "无论如何，我们的北极星始终如一：<no-localization>{break}</no-localization> ，我们是为了动物。"
   },
   "page.about.section.our-values.next-seo.title": {
@@ -167,40 +167,40 @@
   "page.about.section.our-values.section-header.image.alt-text": {
     "message": "我们的价值观"
   },
-  "page.about.section.our-values.subsection-1.content": {
+  "page.about.section.our-values.subsection-0.paragraph": {
     "message": "我们珍视并尊重所有动物的生命，谴责一切形式针对动物的暴力和剥削行为。我们相信动物有获得自由的权利，并通过我们的（数字）行动主义为之奋斗。"
   },
-  "page.about.section.our-values.subsection-1.heading": {
+  "page.about.section.our-values.subsection-0.heading": {
     "message": "动物解放"
   },
-  "page.about.section.our-values.subsection-2.content": {
+  "page.about.section.our-values.subsection-1.paragraph": {
     "message": "我们践行以爱为本，社区优先的组织方式。我们践行同理心、同情心和非暴力。我们鼓励每一位成员彼此坦诚、友好地交流。"
   },
-  "page.about.section.our-values.subsection-2.heading": {
+  "page.about.section.our-values.subsection-1.heading": {
     "message": "非暴力"
   },
-  "page.about.section.our-values.subsection-3.content": {
+  "page.about.section.our-values.subsection-2.paragraph": {
     "message": "我们相信，无论种族、性别、物种、年龄、性取向或政治派别如何，我们都能建立和培育安全、包容的社区。我们努力使我们所服务和工作的社区具有多样性和代表性。"
   },
-  "page.about.section.our-values.subsection-3.heading": {
+  "page.about.section.our-values.subsection-2.heading": {
     "message": "安全社区"
   },
-  "page.about.section.our-values.subsection-4.content": {
+  "page.about.section.our-values.subsection-3.paragraph": {
     "message": "我们认为养殖动物最需要我们的支持，这也是我们作为一个组织主要关注养殖动物解放的原因。"
   },
-  "page.about.section.our-values.subsection-4.heading": {
+  "page.about.section.our-values.subsection-3.heading": {
     "message": "养殖动物"
   },
-  "page.about.section.our-values.subsection-5.content": {
+  "page.about.section.our-values.subsection-4.paragraph": {
     "message": "我们重视来自每个人的不同观点和建设性反馈。我们相信每个人都能为讨论做出有价值的贡献。我们总是首先倾听，然后做出建设性的回应。"
   },
-  "page.about.section.our-values.subsection-5.heading": {
+  "page.about.section.our-values.subsection-4.heading": {
     "message": "公开反馈"
   },
-  "page.about.section.our-values.subsection-6.content": {
+  "page.about.section.our-values.subsection-5.paragraph": {
     "message": "我们不支持或助长对任何群体的剥削或压迫。我们认为，对人类和非人类动物的压迫是相互关联的，必须努力消除一切形式的压迫。"
   },
-  "page.about.section.our-values.subsection-6.heading": {
+  "page.about.section.our-values.subsection-5.heading": {
     "message": "反压迫"
   },
   "page.blog.next-seo.title": {
@@ -305,13 +305,13 @@
   "page.grants.section.application.form.a.input.applicant-gender.label": {
     "message": "性别<span>（可选）</span>"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[0]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.0": {
     "message": "雄性"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[1]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.1": {
     "message": "女性"
   },
-  "page.grants.section.application.form.a.input.applicant-gender.option[2]": {
+  "page.grants.section.application.form.a.input.applicant-gender.option.2": {
     "message": "其他"
   },
   "page.grants.section.application.form.a.input.applicant-gender.placeholder": {
@@ -428,19 +428,19 @@
   "page.grants.section.heading.text": {
     "message": "种子基金赠款"
   },
-  "page.grants.section.perks.check-ins.content": {
+  "page.grants.section.perks.check-ins.paragraph": {
     "message": "每月一次 30 分钟的 Zoom 电话会议，为您和您的团队提供建议。主题包括但不限于技术、营销、战略以及组织成长和发展的其他方面。"
   },
   "page.grants.section.perks.check-ins.heading": {
     "message": "每月咨询检查"
   },
-  "page.grants.section.perks.content-dev.content": {
+  "page.grants.section.perks.content-dev.paragraph": {
     "message": "我们帮助制作任何面向公众的信息，包括网站文案。从最初的头脑风暴到审查有助于宣传您作品的文案，我们都能在任何阶段提供写作和编辑技能。"
   },
   "page.grants.section.perks.content-dev.heading": {
     "message": "内容开发"
   },
-  "page.grants.section.perks.design-creation.content": {
+  "page.grants.section.perks.design-creation.paragraph": {
     "message": "根据您的需求，我们为您的组织或项目设计（或重新设计）品牌和徽标。我们还为您的社交媒体和网站提供数字资产，如横幅、图标和任何定制元素。"
   },
   "page.grants.section.perks.design-creation.heading": {
@@ -452,7 +452,7 @@
   "page.grants.section.perks.heading.image.alt-text": {
     "message": "除种子基金外，成功的申请者还可获得"
   },
-  "page.grants.section.perks.squarespace.content": {
+  "page.grants.section.perks.squarespace.paragraph": {
     "message": "<div>价值 200 美元，我们承担第一年的订阅费用。</div> <div>您拥有它，我们帮助您设计和维护它。</div> <div>无需经验，即可轻松更新。</div>"
   },
   "page.grants.section.perks.squarespace.heading": {
@@ -461,28 +461,28 @@
   "page.grants.section.pollination-project.button": {
     "message": "ThePollinationProject.org"
   },
-  "page.grants.section.pollination-project.content[0]": {
+  "page.grants.section.pollination-project.paragraph.0": {
     "message": "我们的赠款连接服务得到了授粉项目 (TPP) 和其他私人捐助者的慷慨资助--请留意您的收件箱，别忘了检查垃圾邮件！"
   },
-  "page.grants.section.pollination-project.content[1]": {
+  "page.grants.section.pollination-project.paragraph.1": {
     "message": "如果您的主要关注点不涉及养殖动物，您仍有资格直接获得 TPP 的资助。我们鼓励您通过其网站进行申请。"
   },
   "page.grants.section.pollination-project.image.alt-text": {
     "message": "授粉项目徽标"
   },
-  "page.grants.section.qualifications.cta[0].content": {
+  "page.grants.section.qualifications.cta.paragraph.0": {
     "message": "<b>不符合上述条件？</b>您仍然有资格获得资助！请提出申请，我们会将您的申请转发给其他潜在资助者。"
   },
-  "page.grants.section.qualifications.cta[1].content": {
+  "page.grants.section.qualifications.cta.paragraph.1": {
     "message": "如果您符合条件，请填写下面的申请表。"
   },
   "page.grants.section.qualifications.heading": {
     "message": "申请前，请确保您符合这些条件："
   },
-  "page.grants.section.qualifications.step[0].content": {
+  "page.grants.section.qualifications.steps.paragraph.0": {
     "message": "<b> 您的首要目标 </b>应该是减少养殖动物的痛苦。工厂化养殖每年导致超过 1000 亿只动物遭受剥夺、恐惧和痛苦。"
   },
-  "page.grants.section.qualifications.step[1].content": {
+  "page.grants.section.qualifications.steps.paragraph.1": {
     "message": "<b> 您必须 </b>在动物权利或其他社会运动方面有过活动经验。我们正在寻找曾以有偿或志愿者身份参与基层运动和/或项目并做出贡献的人员。"
   },
   "page.grants.section.subheading": {
@@ -740,13 +740,13 @@
   "page.people.section.advisors.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.advisors.community.text": {
+  "page.people.section.advisors.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.advisors.intro.heading": {
     "message": "我们的顾问"
   },
-  "page.people.section.advisors.intro.text": {
+  "page.people.section.advisors.intro.paragraph": {
     "message": "我们非常感谢我们经验丰富的顾问团队，他们为组织、组织战略和项目提供了指导和方向。"
   },
   "page.people.section.advisors.next-seo.title": {
@@ -770,13 +770,13 @@
   "page.people.section.partners.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.partners.community.text": {
+  "page.people.section.partners.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.partners.intro.heading": {
     "message": "我们的合作伙伴"
   },
-  "page.people.section.partners.intro.text": {
+  "page.people.section.partners.intro.paragraph": {
     "message": "以下是我们支持的伙伴组织。请看一看，进一步了解他们所做的了不起的工作！"
   },
   "page.people.section.partners.next-seo.title": {
@@ -788,7 +788,7 @@
   "page.people.section.team.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.team.community.text": {
+  "page.people.section.team.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.team.next-seo.title": {
@@ -803,13 +803,13 @@
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "我们的社区"
   },
-  "page.people.section.volunteers.community.text": {
+  "page.people.section.volunteers.community.paragraph": {
     "message": "我们不仅仅是一群志愿者；我们是一个由共同价值观维系的社区，致力于为动物创造一个更美好的世界。我们坚信 \"社区第一 \"的理念：相互支持、共同成长、相互负责。如果您对此有共鸣，请向下滚动以了解更多信息。"
   },
   "page.people.section.volunteers.intro.heading": {
     "message": "我们的志愿者"
   },
-  "page.people.section.volunteers.intro.text": {
+  "page.people.section.volunteers.intro.paragraph": {
     "message": "我们的志愿者社区是我们组织的核心，使我们能够建立创新项目，并以有意义的方式为运动做出贡献。<b>点击图标，了解每个团队的志愿者！</b>"
   },
   "page.people.section.volunteers.next-seo.title": {
@@ -941,31 +941,31 @@
   "page.work.next-seo.title": {
     "message": "我们的工作"
   },
-  "page.year-in-review.2020.section.big-impact-changes.apple.content": {
+  "page.year-in-review.2020.section.big-impact-changes.apple.paragraph": {
     "message": "我们启用了社区活动和行动的机器人通知功能。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.banana.content": {
+  "page.year-in-review.2020.section.big-impact-changes.banana.paragraph": {
     "message": "我们为志愿者开通了 LinkedIn 页面。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.carrot.content": {
+  "page.year-in-review.2020.section.big-impact-changes.carrot.paragraph": {
     "message": "我们改进了入职流程和开发人员指南。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.grape.content": {
+  "page.year-in-review.2020.section.big-impact-changes.grape.paragraph": {
     "message": "我们将 Google Analytics 集成到所有项目中。"
   },
   "page.year-in-review.2020.section.big-impact-changes.heading": {
     "message": "影响巨大的微小变化"
   },
-  "page.year-in-review.2020.section.big-impact-changes.kiwi.content": {
+  "page.year-in-review.2020.section.big-impact-changes.kiwi.paragraph": {
     "message": "我们发布并开源了过去的几个项目。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.orange.content": {
+  "page.year-in-review.2020.section.big-impact-changes.orange.paragraph": {
     "message": "我们公布了匿名志愿者反馈表。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.strawberry.content": {
+  "page.year-in-review.2020.section.big-impact-changes.strawberry.paragraph": {
     "message": "我们安装了先进的服务器监控软件。"
   },
-  "page.year-in-review.2020.section.big-impact-changes.watermelon.content": {
+  "page.year-in-review.2020.section.big-impact-changes.watermelon.paragraph": {
     "message": "我们开始接受 Python 开发人员的申请。"
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.heading": {
@@ -1010,19 +1010,19 @@
   "page.year-in-review.2020.section.community-building.heading": {
     "message": "社区建设"
   },
-  "page.year-in-review.2020.section.community-building.our-values.content": {
+  "page.year-in-review.2020.section.community-building.our-values.paragraph": {
     "message": "我们作为一个社区走到了一起，决定了我们想要采纳的价值观，并正式确定了我们的使命和目标。"
   },
   "page.year-in-review.2020.section.community-building.our-values.heading": {
     "message": "我们的价值观"
   },
-  "page.year-in-review.2020.section.community-building.partnerships.content": {
+  "page.year-in-review.2020.section.community-building.partnerships.paragraph": {
     "message": "今年，我们非常高兴能与 PETA、Beyond Animal 和 Project Counterglow 合作。这三个合作伙伴在今年提升了我们的地位，我们非常感谢能够为他们服务，并将他们视为我们的新朋友。"
   },
   "page.year-in-review.2020.section.community-building.partnerships.heading": {
     "message": "合作伙伴"
   },
-  "page.year-in-review.2020.section.community-building.volunteers.content": {
+  "page.year-in-review.2020.section.community-building.volunteers.paragraph": {
     "message": "今年，我们吸引了为 Trello、微软、Etsy、Better Eating、Mercy for Animals、Save Movement 和 Paypal 工作的志愿者！"
   },
   "page.year-in-review.2020.section.community-building.volunteers.heading": {
@@ -1031,55 +1031,55 @@
   "page.year-in-review.2020.section.header.image.alt-text": {
     "message": "2020 年回顾"
   },
-  "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.content": {
+  "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.paragraph": {
     "message": "动物权利地图 \"拥有 2,500 多个团体，是一份全球更新的地图，可帮助素食主义者找到当地团体，积极参与其中。我们的地图涵盖了从最大的组织到遍布全国的小型草根团体的方方面面。我们与一些组织合作，自动导入新的团体，我们还有一名专门的志愿者（发起了这个项目），几乎每天都一丝不苟地更新地图。我们收到了很多希望积极参与活动的素食主义者对地图的反馈--我们计划很快收集更多数据，并在 2021 年扩大地图的功能！"
   },
-  "page.year-in-review.2020.section.highlighted-projects.daily-nooch.content": {
+  "page.year-in-review.2020.section.highlighted-projects.daily-nooch.paragraph": {
     "message": "在这个项目中，我们希望创造一些更有趣、更轻便的东西，让素食主义者能够享受消费并与世界分享。Daily Nooch 是您获取每日素食新闻、资源和灵感的一站式来源。该网站旨在成为您的主页，每天午夜更新最新的新闻、语录、艺术、备忘录、事实、视频等内容。这个项目非常具有实验性，我们不知道素食主义者是否会一直使用它，但与此同时，团队在创建它的过程中获得了很多乐趣。如果大家喜欢，我们还有很多有趣的想法可以探索，为项目增加更多的互动性。"
   },
   "page.year-in-review.2020.section.highlighted-projects.heading": {
     "message": "查看我们的重点项目"
   },
-  "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.content": {
+  "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.paragraph": {
     "message": "NutritionFacts.org 的创始人 Greger 博士创建了一个名为 \"每日一打 \"的应用程序，让您可以跟踪自己的饮食，确保获得尽可能多的营养，并详细介绍了最健康的食物以及我们每天应该尝试勾选的每种食物的份量。我们希望扩展这一概念，创建一个网络版的应用程序，并增加一些功能。使用 \"我的每日一打\"，您可以每天记录 Greger 博士在《纽约时报》畅销书《如何不死》中推荐的食物。我们希望这个项目能让非素食者有机会通过采用以植物为基础的生活方式更容易地成为素食者。"
   },
-  "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.content": {
+  "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.paragraph": {
     "message": "继 2019 年 Vegan Bootcamp 成功推出并获得 5000 多人注册后，我们决定投入更多时间对其进行改进。我们向所有会员发出了调查问卷，收到了大量反馈，帮助我们决定需要哪些新内容和新功能。现在，Vegan Bootcamp 包括社区论坛、个人课程、标签、更好的奖励、推荐人高级统计、内容搜索、素食营养师支持计划、导师支持计划，现在还翻译成 10 种不同的语言！"
   },
   "page.year-in-review.2020.section.moving-forward.btn.text": {
     "message": "支持我们的工作"
   },
-  "page.year-in-review.2020.section.moving-forward.content[0]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.0": {
     "message": "虽然我们对今年的结果也很满意，但我们认识到，如果要有效利用我们的优秀志愿者网络，我们就需要在建设过程中采取更加基于数据的方法。"
   },
-  "page.year-in-review.2020.section.moving-forward.content[1]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.1": {
     "message": "我们还认识到，创新往往是在缺乏数据的未知领域进行的，因此，对于 2021 年，我们希望在选择符合我们创新方法的项目时找到一个良好的平衡点，同时利用数据来选择哪些项目可能对我们的运动产生更大的影响。"
   },
-  "page.year-in-review.2020.section.moving-forward.content[2]": {
+  "page.year-in-review.2020.section.moving-forward.paragraph.2": {
     "message": "如果您喜欢我们的工作，请点击下面的按钮支持我们。您的捐款将确保我们的所有工作和项目对所有人免费开放，我们对您的支持感激不尽！"
   },
   "page.year-in-review.2020.section.moving-forward.heading": {
     "message": "收尾和前进"
   },
-  "page.year-in-review.2020.section.new-teams.blueberry.content": {
+  "page.year-in-review.2020.section.new-teams.blueberry.paragraph": {
     "message": "我们最近推出了专家团队！9 名新的积极分子加入了团队，他们目前分别担任以下角色：发布、开发运营、安全、搜索引擎优化、CSS、艺术、地图、视频和音频。这填补了我们的空白，使我们的团队成员可以通过 Bluebbery 团队专门解决他们项目中的问题。"
   },
   "page.year-in-review.2020.section.new-teams.blueberry.heading": {
     "message": "<span>专家</span>| 蓝莓团队"
   },
-  "page.year-in-review.2020.section.new-teams.strawberry.content[0]": {
+  "page.year-in-review.2020.section.new-teams.strawberry.paragraph.0": {
     "message": "我们<link>成立了一个新团队</link>，专门负责收集和分析数据，不仅是关于我们构建的项目，也是关于 Vegan Hacktivists 这个组织。这个团队标志着我们对数据的承诺，也是确保我们所做的每一件事都能产生巨大影响的承诺，同时也是我们能够从过去的工作中吸取经验教训，并塑造未来工作的承诺。"
   },
-  "page.year-in-review.2020.section.new-teams.strawberry.content[1]": {
+  "page.year-in-review.2020.section.new-teams.strawberry.paragraph.1": {
     "message": "Suan Chin 与其他 7 位数据科学家共同领导着这个团队。请访问<link>团队页面</link>查看整个团队。我们很高兴看到这个团队将如何塑造我们工作的未来！"
   },
   "page.year-in-review.2020.section.new-teams.strawberry.heading": {
     "message": "<span>数据分析</span>| 草莓团队"
   },
-  "page.year-in-review.2020.section.strategy-and-experimentation.content[0]": {
+  "page.year-in-review.2020.section.strategy-and-experimentation.paragraph.0": {
     "message": "与 2019 年一样，我们专注于建设项目，但对这些项目是否会成功几乎没有数据。我们认为这是一项高风险战略，因为我们在这些实验项目上花费了数百小时的志愿者时间。"
   },
-  "page.year-in-review.2020.section.strategy-and-experimentation.content[1]": {
+  "page.year-in-review.2020.section.strategy-and-experimentation.paragraph.1": {
     "message": "去年，我们建立的 6 个项目中有 3 个达到了我们的成功标准，因此我们继续采用这种方法。我们坚信，对于任何运动来说，创新、尝试新战术、建立实验性工具和制定替代战略都是非常重要的。"
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.heading": {
@@ -1124,19 +1124,19 @@
   "page.year-in-review.2020.section.we-grew.launched.heading.start": {
     "message": "我们启动"
   },
-  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.content": {
+  "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.paragraph": {
     "message": "今年，我们与 Animal Rebellion 合作，帮助他们建立了新网站，我们为此专门组建了一个团队，耗时约 6 个月。与他们的技术团队合作非常愉快，他们知识渊博，在工作中的每一次接触都让我们感觉是在与专业团队合作。动物叛乱 \"是一场群众运动，它通过非暴力的公民抵抗，实现向公正、可持续的植物性食物系统的过渡，试图阻止大规模的物种灭绝，减轻气候破坏带来的最坏影响，并确保为动物伸张正义。"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
     "message": "动物的反叛"
   },
-  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.content": {
+  "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.paragraph": {
     "message": "我们与动物救助组织合作，帮助他们建立了新网站。我们还为他们的广告活动提供了帮助，并管理了几个月的广告活动，以帮助宣传更多 \"拯救 \"组织的工作和通讯。如果您还没有听说过 \"拯救 \"组织，他们的使命是在每一个屠宰场守夜，为每一只受剥削的动物作证。他们还发起了 \"拯救气候与健康运动\"，旨在推动扭转灾难性的气候变化，让人们能够吃上以植物为基础的饮食。能与他们这支充满热情的活动家团队会面和合作，我感到非常高兴！"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading": {
     "message": "拯救动物运动"
   },
-  "page.year-in-review.2020.section.working-with-organizations.excelsior.content": {
+  "page.year-in-review.2020.section.working-with-organizations.excelsior.paragraph": {
     "message": "Excelsior 4 是四名积极分子，他们因揭露 Excelsior 养猪场虐待动物的犯罪行为而面临共计 21 项指控。我们与他们合作推出了一个新网站，使他们能够尽快筹集法律辩护资金。我们真的认为他们所做的工作和揭露的问题非常重要，我们很高兴能有机会支持并帮助他们启动和运行网站。如果可以，请一定去看看他们，并给予支持！"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.heading": {
@@ -1145,7 +1145,7 @@
   "page.year-in-review.2020.section.working-with-organizations.heading": {
     "message": "与组织合作"
   },
-  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.content": {
+  "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.paragraph": {
     "message": "黎巴嫩素食者社会中心是西南亚和北非地区唯一的动物权利和素食者支持中心，每月举办免费的素食主义研讨会和讲座，每周免费发放食品，每月开展提高动物权利意识的活动。我们有幸与他们合作，帮助他们推出了新网站，并使用新徽标重塑了品牌形象。通过我们的顾问 Seb Alex（黎巴嫩素食者协会的幕后组织者），我们度过了一段愉快的合作时光。"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {

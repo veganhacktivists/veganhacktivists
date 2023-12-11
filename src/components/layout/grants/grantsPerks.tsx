@@ -23,13 +23,13 @@ const PERKS: PerkProps[] = [
     title: (
       <FormattedMessage
         id="page.grants.section.perks.squarespace.heading"
-        defaultMessage="Squarespace Website Subscription"
+        defaultMessage="<no-localization>Squarespace</no-localization> Website Subscription"
       />
     ),
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.squarespace.content"
+          id="page.grants.section.perks.squarespace.paragraph"
           defaultMessage="<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
           values={{
             div: (chunks) => <div>{chunks}</div>,
@@ -49,7 +49,7 @@ const PERKS: PerkProps[] = [
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.design-creation.content"
+          id="page.grants.section.perks.design-creation.paragraph"
           defaultMessage="Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
         />
       </>
@@ -66,7 +66,7 @@ const PERKS: PerkProps[] = [
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.content-dev.content"
+          id="page.grants.section.perks.content-dev.paragraph"
           defaultMessage="We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
         />
       </>
@@ -83,8 +83,8 @@ const PERKS: PerkProps[] = [
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.check-ins.content"
-          defaultMessage="A monthly 30-minute Zoom call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
+          id="page.grants.section.perks.check-ins.paragraph"
+          defaultMessage="A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
         />
       </>
     ),
