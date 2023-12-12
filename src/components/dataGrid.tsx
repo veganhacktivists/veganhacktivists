@@ -7,7 +7,7 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 export interface SortingOptions {
   column: string;
-  order: string;
+  order: 'asc' | 'desc';
 }
 
 interface DataGridProps<T> {

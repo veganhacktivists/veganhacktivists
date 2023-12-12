@@ -236,3 +236,10 @@ export const setRequestStatusSchema = z.object({
   id: z.string().cuid(),
   status: z.nativeEnum(RequestStatus),
 });
+
+export const datagridParamsSchema = z.object({
+  sort: z.object({
+    column: z.string(),
+    order: z.enum(['asc', 'desc']),
+  }).nullish(),
+});
