@@ -1,4 +1,10 @@
-import { ApplicationStatus, RequestStatus } from '@prisma/client';
+import {
+  ApplicationStatus,
+  PlaygroundApplication,
+  PlaygroundRequest,
+  RequestStatus,
+  User,
+} from '@prisma/client';
 import { z } from 'zod';
 
 import {
@@ -19,6 +25,11 @@ import {
 } from 'lib/services/playground/schemas';
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
+
+// export interface applicationEntry extends PlaygroundApplication{
+//   request: Pick<PlaygroundRequest, 'id' | 'name'>;
+//   requestor: Pick<User, 'email' | 'name'>;
+// }
 
 const adminRouter = t.router({
   pendingApplications: adminProcedure
@@ -117,6 +128,32 @@ const adminRouter = t.router({
       });
     }
   ),
+  allApplications: adminProcedure.query(({ ctx: { prisma } }) => {
+    return prisma.playgroundApplication.findMany({
+      include: {
+        request: {
+          select: {
+            id: true,
+            title: true,
+            requester: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            },
+          },
+        },
+        applicant: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+    });
+  }),
 });
 
 export default adminRouter;

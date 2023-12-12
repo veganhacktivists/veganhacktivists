@@ -38,6 +38,8 @@
     "@trpc/next": "10.44.1",
     "@trpc/react-query": "10.44.1",
     "@trpc/server": "10.44.1",
+    "ag-grid-community": "^31.0.1",
+    "ag-grid-react": "^31.0.0",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "classnames": "^2.3.2",
