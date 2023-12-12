@@ -26,11 +26,6 @@ import {
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 
-// export interface applicationEntry extends PlaygroundApplication{
-//   request: Pick<PlaygroundRequest, 'id' | 'name'>;
-//   requestor: Pick<User, 'email' | 'name'>;
-// }
-
 const adminRouter = t.router({
   pendingApplications: adminProcedure
     .input(getPendingApplicationsSchema)
@@ -135,6 +130,9 @@ const adminRouter = t.router({
           select: {
             id: true,
             title: true,
+            category: true,
+            requiredSkills: true,
+            status: true,
             requester: {
               select: {
                 id: true,

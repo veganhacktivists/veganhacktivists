@@ -12,11 +12,20 @@ const Applications: NextPage = () => {
   type Data = typeof data[number];
   const columns: ColDef<Data>[] = [
     { field: 'id', hide: true },
-    { field: 'name', headerName: 'Name' },
-    { field: 'request.title', headerName: 'Request Title' },
+    { field: 'request.title', headerName: 'Request' },
+    { field: 'request.category', headerName: 'Category' },
+    { field: 'name', headerName: 'Applicant' },
+    { field: 'moreInfo', headerName: 'Description' },
+    { field: 'estimatedTimeDays', headerName: 'Estimated Time (Days)' },
+    { field: 'status', headerName: 'Status' },
+    { field: 'createdAt', headerName: 'Applied At' },
   ];
 
-  return <DataGrid data={data} columns={columns} />;
+  return (
+    <div className="w-full h-full">
+      <DataGrid data={data} columns={columns} />
+    </div>
+  );
 };
 
 export default Applications;
