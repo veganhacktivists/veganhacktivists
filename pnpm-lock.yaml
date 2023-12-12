@@ -74,6 +74,12 @@ dependencies:
   '@trpc/server':
     specifier: 10.44.1
     version: 10.44.1
+  ag-grid-community:
+    specifier: ^31.0.1
+    version: 31.0.1
+  ag-grid-react:
+    specifier: ^31.0.0
+    version: 31.0.0(react-dom@18.2.0)(react@18.2.0)
   axios:
     specifier: ^0.27.2
     version: 0.27.2
@@ -3727,6 +3733,22 @@ packages:
     resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  /ag-grid-community@31.0.1:
+    resolution: {integrity: sha512-RZQlW1DTOJHsUR/tnbnTJQKgAnDlHi05YYyTe5AgNor/1TlX1hoYdcqrGsJjvcHQgTjeEgzWOL0yf+KcqXZzxg==}
+    dev: false
+
+  /ag-grid-react@31.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-lrcsPNggFdkbDApQG8sFhVu8Bd2E6GbwVJKugxhjg4y/fVayctb7NOmp8wQde8mt288vSKFtwoXJWicBB2k8uw==}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      ag-grid-community: 31.0.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
