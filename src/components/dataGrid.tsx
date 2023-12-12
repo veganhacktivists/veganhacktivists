@@ -20,7 +20,8 @@ const DataGrid = <T,>({ data, columns }: DataGridProps<T>) => {
       rowData={data}
       columnDefs={columns}
       gridOptions={{ domLayout: 'autoHeight' }}
-      className="ag-theme-quartz h-full w-full"
+      autoSizeStrategy={{ type: 'fitGridWidth' }}
+      className="grid-wrapper ag-theme-quartz text-left"
     />
   );
 };
