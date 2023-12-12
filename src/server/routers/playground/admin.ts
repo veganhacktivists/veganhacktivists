@@ -133,6 +133,9 @@ const adminRouter = t.router({
       select: {
         id: true,
         status: true,
+        estimatedTimeDays: true,
+        moreInfo: true,
+        createdAt: true,
         applicant: {
           select: {
             id: true,
