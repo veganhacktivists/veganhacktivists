@@ -19,10 +19,12 @@ import {
   repostRequestSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
+  datagridParamsSchema,
 } from 'lib/services/playground/schemas';
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 import { PlaygroundApplicationSchema, PlaygroundRequestSchema, UserSchema } from 'generated/schemas';
+import { buildSortingQuery } from 'lib/helpers/sorting';
 
 const applicationSchema = PlaygroundApplicationSchema.omit({ applicantId: true, requestId: true }).extend({
   request: PlaygroundRequestSchema.omit({ requesterId: true }).extend({ requester: UserSchema.partial() }).partial(),
@@ -128,7 +130,7 @@ const adminRouter = t.router({
       });
     }
   ),
-  allApplications: adminProcedure.query(async ({ ctx: { prisma } }) => {
+  allApplications: adminProcedure.input(datagridParamsSchema.partial()).query(async ({input, ctx: { prisma } }) => {
     const data: ApplicationEntry[] = await prisma.playgroundApplication.findMany({
       select: {
         id: true,
@@ -160,6 +162,7 @@ const adminRouter = t.router({
           },
         },
       },
+      orderBy: input.sort ? buildSortingQuery(input.sort.column, input.sort.order) : undefined,
     });
     return data;
   }),

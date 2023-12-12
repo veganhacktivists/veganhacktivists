@@ -1,14 +1,15 @@
-import DataGrid from 'components/dataGrid';
+import DataGrid, { SortingOptions } from 'components/dataGrid';
 import { trpc } from 'lib/client/trpc';
 
 import type { NextPage } from 'next';
 import type { ColDef } from 'ag-grid-community';
 import { ApplicationStatus, PlaygroundApplication } from '@prisma/client';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { ApplicationEntry } from 'server/routers/playground/admin';
 
 const Applications: NextPage = () => {
-  const { data } = trpc.playground.admin.allApplications.useQuery();
+  const [sorting, setSorting] = useState<SortingOptions | null>(null);
+  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
@@ -25,13 +26,15 @@ const Applications: NextPage = () => {
     const { request, applicant, ...rest } = data;
     mutate(rest);
   }, [mutate]);
+
+
   if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="w-full h-full">
-      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} />
+      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} />
     </div>
   );
 };
