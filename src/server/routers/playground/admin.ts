@@ -1,9 +1,6 @@
 import {
   ApplicationStatus,
-  PlaygroundApplication,
-  PlaygroundRequest,
   RequestStatus,
-  User,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -25,6 +22,14 @@ import {
 } from 'lib/services/playground/schemas';
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
+import { PlaygroundApplicationSchema, PlaygroundRequestSchema, UserSchema } from 'generated/schemas';
+
+const applicationSchema = PlaygroundApplicationSchema.omit({ applicantId: true, requestId: true }).extend({
+  request: PlaygroundRequestSchema.omit({ requesterId: true }).extend({ requester: UserSchema.partial() }).partial(),
+  applicant: UserSchema.partial(),
+}).partial();
+
+export type ApplicationEntry = z.infer<typeof applicationSchema>;
 
 const adminRouter = t.router({
   pendingApplications: adminProcedure
@@ -123,9 +128,18 @@ const adminRouter = t.router({
       });
     }
   ),
-  allApplications: adminProcedure.query(({ ctx: { prisma } }) => {
-    return prisma.playgroundApplication.findMany({
-      include: {
+  allApplications: adminProcedure.query(async ({ ctx: { prisma } }) => {
+    const data: ApplicationEntry[] = await prisma.playgroundApplication.findMany({
+      select: {
+        id: true,
+        status: true,
+        applicant: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
         request: {
           select: {
             id: true,
@@ -142,14 +156,15 @@ const adminRouter = t.router({
             },
           },
         },
-        applicant: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-          },
-        },
       },
+    });
+    return data;
+  }),
+  updateApplication: adminProcedure.input(PlaygroundApplicationSchema.partial()).mutation(async({ input }) => {
+    const { id, ...data } = input;
+    await prisma.playgroundApplication.update({
+      where: { id: id as string},
+      data,
     });
   }),
 });
