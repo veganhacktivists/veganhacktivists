@@ -9,7 +9,7 @@ import { ApplicationEntry } from 'server/routers/playground/admin';
 
 const Applications: NextPage = () => {
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
-  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting });
+  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting }, { keepPreviousData: true });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },

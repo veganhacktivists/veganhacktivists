@@ -26,6 +26,7 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
     return {
       flex: 1,
       editable: true,
+      comparator: () => 0,
     };
   }, [_defaultColDef]);
 
