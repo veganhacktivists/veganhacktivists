@@ -40,3 +40,6 @@ yarn-error.log*
 # PWA build-time generated files
 **/public/workbox-*.js
 **/public/sw.js
+
+# generated zod schemas
+/src/generated
