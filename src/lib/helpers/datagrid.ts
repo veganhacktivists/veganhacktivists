@@ -49,27 +49,25 @@ interface FilterQuery {
 }
 
 const getFilterCondition = (column: string, filter: FilterOption['filter']) => {
-  console.log(filter.type);
   switch (filter.type) {
     case 'contains':
-      return {[column]: {contains: filter.filter}};
+      return {[column]: {contains: filter.filter, mode: 'insensitive'}};
     case 'notContains':
-      return {NOT: {[column]: {contains: filter.filter}}};
+      return {NOT: {[column]: {contains: filter.filter, mode: 'insensitive'}}};
     case 'blank':
       return {[column]: ''};
     case 'notBlank':
       return {NOT: {[column]: ''}};
     case 'notEqual':
-      return {NOT: {[column]: filter.filter}};
+      return {NOT: {[column]: { equals: filter.filter, mode: 'insensitive' } }};
     case 'equal':
-      return {[column]: filter.filter};
+      return {[column]: filter.filter, mode: 'insensitive'};
     case 'startsWith':
-      return {[column]: {startsWith: filter.filter}};
+      return {[column]: {startsWith: filter.filter, mode: 'insensitive'}};
     case 'endsWith':
-      return {[column]: {endsWith: filter.filter}};
+      return {[column]: {endsWith: filter.filter, mode: 'insensitive'}};
     default:
-      if (!filter.filter) return {};
-      return {[column]: filter.filter};
+      return {};
   }
 }
 
