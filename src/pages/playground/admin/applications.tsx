@@ -3,7 +3,7 @@ import { trpc } from 'lib/client/trpc';
 
 import type { NextPage } from 'next';
 import type { ColDef } from 'ag-grid-community';
-import { ApplicationStatus, PlaygroundApplication } from '@prisma/client';
+import { ApplicationStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { ApplicationEntry } from 'server/routers/playground/admin';
 
@@ -23,7 +23,7 @@ const Applications: NextPage = () => {
   ];
 
   const handleValueChange = useCallback((column: string, data: ApplicationEntry) => {
-    const { request, applicant, ...rest } = data;
+    const { request, ...rest } = data;
     mutate(rest);
   }, [mutate]);
 
