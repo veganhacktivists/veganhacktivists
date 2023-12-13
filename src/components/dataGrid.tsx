@@ -41,6 +41,9 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
       flex: 1,
       editable: true,
       comparator: () => 0,
+      filterParams: {
+        suppressAndOrCondition: true,
+      }
     };
   }, [_defaultColDef]);
 
