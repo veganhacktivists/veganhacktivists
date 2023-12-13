@@ -1,13 +1,16 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 
-import type { CellValueChangedEvent, ColDef, PaginationChangedEvent, SortChangedEvent } from 'ag-grid-community';
+import type { CellValueChangedEvent, ColDef, FilterChangedEvent, PaginationChangedEvent, SortChangedEvent } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
-import SelectInput, { OptionType } from './forms/inputs/selectInput';
+import { OptionType } from './forms/inputs/selectInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import { FilterOption  } from 'lib/services/playground/schemas';
+
+
 
 export interface SortingOptions {
   column: string;
@@ -21,6 +24,7 @@ interface DataGridProps<T> {
   onSortChange?: (sorting: SortingOptions | null) => void;
   onUpdate?: (column: string, data: T) => void;
   onDataChange?: (data: T[]) => void;
+  onFilterChange?: (filter: FilterOption[]) => void;
   defaultColDef?: ColDef<T>;
 }
 
@@ -30,7 +34,7 @@ const pageSizeOptions: OptionType<number>[] = [
   { label: '100', value: 100 },
 ];
 
-const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, onSortChange, onPaginationChange }: DataGridProps<T>) => {
+const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, onSortChange, onPaginationChange, onFilterChange }: DataGridProps<T>) => {
   const defaultColDef: ColDef<T> = useMemo(() => {
     if (_defaultColDef) return _defaultColDef;
     return {
@@ -79,6 +83,11 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
     onPaginationChange?.(page, pageSize);
   }, [onPaginationChange, pageSize]);
 
+  const handleFilterChanged = useCallback((e: FilterChangedEvent) => {
+    const settings = e.api.getFilterModel();
+    const filters: FilterOption[] = Object.entries(settings).map(([column, filter]) => ({ column, filter }));
+    onFilterChange?.(filters);
+  }, [onFilterChange]);
 
 
   return (
@@ -89,6 +98,7 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
         defaultColDef={defaultColDef}
         onCellValueChanged={handleCellValueChanged}
         onSortChanged={handleSortChanged}
+        onFilterChanged={handleFilterChanged}
         gridOptions={{ domLayout: 'autoHeight' }}
         autoSizeStrategy={{ type: 'fitGridWidth' }}
         className="grid-wrapper ag-theme-quartz text-left"
