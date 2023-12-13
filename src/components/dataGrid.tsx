@@ -5,6 +5,9 @@ import type { CellValueChangedEvent, ColDef, PaginationChangedEvent, SortChanged
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import SelectInput, { OptionType } from './forms/inputs/selectInput';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 
 export interface SortingOptions {
   column: string;
@@ -48,14 +51,33 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
     onSortChange?.(sorting[0] ? { column: sorting[0].colId, order: sorting[0].sort } : null);
   }, [onSortChange]);
 
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
   const [page, setPage] = useState(0);
 
+
+  const paginationData = useMemo(() => {
+    const start = page * pageSize + 1;
+    const lastPage = Math.ceil(data.total / pageSize);
+    return {
+      start,
+      end: Math.min(start + pageSize - 1, data.total),
+      maxPage: lastPage,
+      isFirstPage: page === 0,
+      isLastPage: page === lastPage - 1,
+    }
+
+  }, [pageSize, page, data]);
   const handlePageSizeChanged = useCallback((pageSize?: number) => {
-    if (!pageSize) return;
+    if (!pageSize || pageSize < 0) return;
     setPageSize(pageSize);
     onPaginationChange?.(page, pageSize);
   }, [onPaginationChange, page]);
+
+  const handlePageChanged = useCallback((page: number) => {
+    if (page < 0 || page >= paginationData.maxPage) return;
+    setPage(page);
+    onPaginationChange?.(page, pageSize);
+  }, [onPaginationChange, pageSize]);
 
 
 
@@ -71,7 +93,7 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
         autoSizeStrategy={{ type: 'fitGridWidth' }}
         className="grid-wrapper ag-theme-quartz text-left"
       />
-      <div className="flex justify-end my-2 mr-4">
+      <div className="flex justify-end my-2 mr-8 gap-8">
         <div className="flex gap-1 items-center">
           <span className="mr-2">Page size:</span>
           <select value={pageSize} onChange={(e) => handlePageSizeChanged(Number(e.target.value))} className="w-16 bg-white border border-[#dddddd] rounded-md px-2">
@@ -79,6 +101,14 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
+        </div>
+        <div className="flex items-center">
+          <span>{paginationData.start} - {paginationData.end} of {data.total}</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <button className={classNames('p-1 cursor-pointer', { 'opacity-30': paginationData.isFirstPage})} disabled={paginationData.isFirstPage}><FontAwesomeIcon icon={faChevronLeft} onClick={() => handlePageChanged(page-1)} /></button>
+          <span>Page {page + 1} of {paginationData.maxPage}</span>
+          <button className={classNames('p-1 cursor-pointer', { 'opacity-30': paginationData.isLastPage})} disabled={paginationData.isLastPage}><FontAwesomeIcon icon={faChevronRight} onClick={() => handlePageChanged(page+1)} /></button>
         </div>
       </div>
     </>
