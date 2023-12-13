@@ -1,4 +1,4 @@
-import DataGrid, { FilterOptions, SortingOptions } from 'components/dataGrid';
+import DataGrid, { SortingOptions } from 'components/dataGrid';
 import { trpc } from 'lib/client/trpc';
 
 import type { NextPage } from 'next';
@@ -6,18 +6,19 @@ import type { ColDef } from 'ag-grid-community';
 import { ApplicationStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { ApplicationEntry } from 'server/routers/playground/admin';
+import { FilterOption } from 'lib/services/playground/schemas';
 
 const Applications: NextPage = () => {
   const [pageSize, setPageSize] = useState(20);
   const [currentPage, setCurrentPage] = useState(0);
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
-  const [filters, setFilters] = useState<FilterOptions[]>([]);
+  const [filters, setFilters] = useState<FilterOption[]>([]);
   const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage, filters }, { keepPreviousData: true });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
-    { field: 'request.title', headerName: 'Request', editable: false},
-    { field: 'request.category', headerName: 'Category', editable: false},
+    { field: 'request.title', headerName: 'Request', editable: false, filter: 'agTextColumnFilter'},
+    { field: 'request.category', headerName: 'Category', editable: false, filter: 'agTextColumnFilter'},
     { field: 'applicant.name', headerName: 'Applicant', filter: 'agTextColumnFilter'},
     { field: 'moreInfo', headerName: 'Description', filter: 'agTextColumnFilter' },
     { field: 'estimatedTimeDays', headerName: 'Estimated Time (Days)', cellEditor: 'agNumberCellEditor', cellEditorParams: {  min: 1, valueParser: (val: string) => parseInt(val) } },

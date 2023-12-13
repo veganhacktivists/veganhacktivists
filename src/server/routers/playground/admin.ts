@@ -24,7 +24,7 @@ import {
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 import { PlaygroundApplicationSchema, PlaygroundRequestSchema, UserSchema } from 'generated/schemas';
-import { buildSortingQuery, buildUpdateQuery, getKeyEntry } from 'lib/helpers/datagrid';
+import { buildFilterQuery, buildSortingQuery, buildUpdateQuery, getKeyEntry } from 'lib/helpers/datagrid';
 
 const applicationSchema = PlaygroundApplicationSchema.omit({ applicantId: true, requestId: true }).extend({
   request: PlaygroundRequestSchema.omit({ requesterId: true }).extend({ requester: UserSchema.partial() }).partial(),
@@ -133,6 +133,7 @@ const adminRouter = t.router({
   allApplications: adminProcedure.input(datagridParamsSchema.partial()).query(async ({input, ctx: { prisma } }) => {
     const total: number = await prisma.playgroundApplication.count();
     const skip = (input.page ?? 0) * (input.pageSize ?? 20);
+    const where = (input.filters && input.filters.length > 0) ? buildFilterQuery(input.filters) : undefined;
     const data: ApplicationEntry[] = await prisma.playgroundApplication.findMany({
       select: {
         id: true,
@@ -167,6 +168,7 @@ const adminRouter = t.router({
       take: input.pageSize ?? 20,
       skip: skip,
       orderBy: input.sort ? buildSortingQuery(input.sort.column, input.sort.order) : undefined,
+      where
     });
     return { total, content: data };
   }),
