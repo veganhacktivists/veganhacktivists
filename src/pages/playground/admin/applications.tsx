@@ -1,4 +1,4 @@
-import DataGrid, { SortingOptions } from 'components/dataGrid';
+import DataGrid, { FilterOptions, SortingOptions } from 'components/dataGrid';
 import { trpc } from 'lib/client/trpc';
 
 import type { NextPage } from 'next';
@@ -11,14 +11,15 @@ const Applications: NextPage = () => {
   const [pageSize, setPageSize] = useState(20);
   const [currentPage, setCurrentPage] = useState(0);
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
-  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage }, { keepPreviousData: true });
+  const [filters, setFilters] = useState<FilterOptions[]>([]);
+  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage, filters }, { keepPreviousData: true });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
     { field: 'request.title', headerName: 'Request', editable: false},
     { field: 'request.category', headerName: 'Category', editable: false},
-    { field: 'applicant.name', headerName: 'Applicant' },
-    { field: 'moreInfo', headerName: 'Description' },
+    { field: 'applicant.name', headerName: 'Applicant', filter: 'agTextColumnFilter'},
+    { field: 'moreInfo', headerName: 'Description', filter: 'agTextColumnFilter' },
     { field: 'estimatedTimeDays', headerName: 'Estimated Time (Days)', cellEditor: 'agNumberCellEditor', cellEditorParams: {  min: 1, valueParser: (val: string) => parseInt(val) } },
     { field: 'status', headerName: 'Status', cellEditor: 'agSelectCellEditor', cellEditorParams: { values: Object.keys(ApplicationStatus) } },
     { field: 'createdAt', headerName: 'Applied At', cellEditor: 'agDateCellEditor', cellEditorParams: { dateFormat: 'dd/mm/yyyy' } },
@@ -34,14 +35,13 @@ const Applications: NextPage = () => {
     setPageSize(pageSize);
   }, []);
 
-
   if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="w-full h-full">
-      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} onPaginationChange={handlePaginationChange} />
+      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} onPaginationChange={handlePaginationChange} onFilterChange={setFilters} />
     </div>
   );
 };

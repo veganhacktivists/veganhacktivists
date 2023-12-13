@@ -225,6 +225,11 @@ export const setRequestStatusSchema = z.object({
   status: z.nativeEnum(RequestStatus),
 });
 
+export const datagridFilterSchema = z.object({
+ column: z.string(), filter: z.object({ filterType: z.string(), type: z.string(), filter: z.string().nullish()  })
+});
+export type FilterOption = z.infer<typeof datagridFilterSchema>;
+
 export const datagridParamsSchema = z.object({
   sort: z.object({
     column: z.string(),
@@ -232,4 +237,5 @@ export const datagridParamsSchema = z.object({
   }).nullish(),
   pageSize: z.number().int().positive(),
   page: z.number().int().nonnegative(),
+  filters: z.array(datagridFilterSchema)
 });
