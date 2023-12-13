@@ -230,4 +230,6 @@ export const datagridParamsSchema = z.object({
     column: z.string(),
     order: z.enum(['asc', 'desc']),
   }).nullish(),
+  pageSize: z.number().int().positive(),
+  page: z.number().int().nonnegative(),
 });
