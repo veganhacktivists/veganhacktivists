@@ -45,7 +45,7 @@ export const buildUpdateQuery = (data: { [key: string]: unknown }) => {
 }
 
 interface FilterQuery {
-  [key: string | 'where']: FilterQuery | any;
+  [key: string]: FilterQuery | any;
 }
 
 const getFilterCondition = (column: string, filter: FilterOption['filter']) => {
@@ -71,6 +71,7 @@ const getFilterCondition = (column: string, filter: FilterOption['filter']) => {
   }
 }
 
+
 const getFilterEntry = (column: string, filter: FilterOption['filter']): FilterQuery  => {
   const chunks = column.split('.');
   if (chunks.length === 1) {
@@ -79,7 +80,9 @@ const getFilterEntry = (column: string, filter: FilterOption['filter']): FilterQ
   return {[chunks[0]]: getFilterEntry(chunks.slice(1).join('.'), filter)};
 }
 
-export const buildFilterQuery = (filters: FilterOption[]) => {
+
+
+export const buildFilterQuery = (filters: FilterOption[]): FilterQuery => {
   let query = {};
   for (const filter of filters) {
     query = {...query, ...getFilterEntry(filter.column, filter.filter)};
@@ -87,4 +90,16 @@ export const buildFilterQuery = (filters: FilterOption[]) => {
   return query;
 
 };
+
+const getSearchEntry = (column: string, search: string): FilterQuery => {
+    const chunks = column.split('.');
+    if (chunks.length === 1) {
+      return { [column]: { contains: search, mode: 'insensitive' } };
+    }
+    return { [chunks[0]]: getSearchEntry(chunks.slice(1).join('.'), search) }; 
+}
+
+export const buildSearchQuery = (search: string, columns: string[]): FilterQuery => {
+  return { OR: columns.map((column) => getSearchEntry(column, search))};
+}
 

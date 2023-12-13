@@ -6,7 +6,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { OptionType } from './forms/inputs/selectInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { FilterOption  } from 'lib/services/playground/schemas';
 
@@ -22,6 +22,7 @@ interface DataGridProps<T> {
   columns: ColDef<T>[];
   onPaginationChange?: (page: number, pageSize: number) => void;
   onSortChange?: (sorting: SortingOptions | null) => void;
+  onSearchChange?: (search: string) => void;
   onUpdate?: (column: string, data: T) => void;
   onDataChange?: (data: T[]) => void;
   onFilterChange?: (filter: FilterOption[]) => void;
@@ -34,7 +35,7 @@ const pageSizeOptions: OptionType<number>[] = [
   { label: '100', value: 100 },
 ];
 
-const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, onSortChange, onPaginationChange, onFilterChange }: DataGridProps<T>) => {
+const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, onSortChange, onPaginationChange, onFilterChange, onSearchChange }: DataGridProps<T>) => {
   const defaultColDef: ColDef<T> = useMemo(() => {
     if (_defaultColDef) return _defaultColDef;
     return {
@@ -60,6 +61,8 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
 
   const [pageSize, setPageSize] = useState(20);
   const [page, setPage] = useState(0);
+
+  const [search, setSearch] = useState('');
 
 
   const paginationData = useMemo(() => {
@@ -92,9 +95,17 @@ const DataGrid = <T,>({ data, columns, defaultColDef: _defaultColDef, onUpdate, 
     onFilterChange?.(filters);
   }, [onFilterChange]);
 
+  const handleChangeSearch = useCallback((search: string) => {
+    setSearch(search);
+    onSearchChange?.(search);
+  }, [onSearchChange]);
+
 
   return (
     <>
+      <div className="flex w-full justify-end my-1">
+        <div className="relative mr-1"><input type="text" placeholder="Search" className="w-full border border-[#dddddd] focus:border-[#bbbaba] outline-none rounded-md px-2 py-1 w-80" value={search} onChange={(e) => handleChangeSearch(e.target.value)}/>{ search.length > 0 && <button className="absolute right-2 top-1/2 -translate-y-1/2" onClick={() => handleChangeSearch('')}><FontAwesomeIcon className="text-gray" icon={faXmarkCircle}/></button> }</div>
+      </div>
       <AgGridReact
         columnDefs={columns}
         rowData={data.content}
