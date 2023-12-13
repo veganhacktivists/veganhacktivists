@@ -24,7 +24,7 @@ import {
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 import { PlaygroundApplicationSchema, PlaygroundRequestSchema, UserSchema } from 'generated/schemas';
-import { buildFilterQuery, buildSortingQuery, buildUpdateQuery, getKeyEntry } from 'lib/helpers/datagrid';
+import { buildFilterQuery, buildSearchQuery, buildSortingQuery, buildUpdateQuery, getKeyEntry } from 'lib/helpers/datagrid';
 
 const applicationSchema = PlaygroundApplicationSchema.omit({ applicantId: true, requestId: true }).extend({
   request: PlaygroundRequestSchema.omit({ requesterId: true }).extend({ requester: UserSchema.partial() }).partial(),
@@ -133,7 +133,9 @@ const adminRouter = t.router({
   allApplications: adminProcedure.input(datagridParamsSchema.partial()).query(async ({input, ctx: { prisma } }) => {
     const total: number = await prisma.playgroundApplication.count();
     const skip = (input.page ?? 0) * (input.pageSize ?? 20);
-    const where = (input.filters && input.filters.length > 0) ? buildFilterQuery(input.filters) : undefined;
+    const filters = (input.filters && input.filters.length > 0) ? buildFilterQuery(input.filters) : undefined;
+    const search = (input.search && input.search.length > 0) ? buildSearchQuery(input.search, ['applicant.name','request.title','moreInfo']) : undefined;
+    const where = (filters && input.search && input.search.length > 0) ? { AND: [filters, search] } : (filters ? filters : search);
     const data: ApplicationEntry[] = await prisma.playgroundApplication.findMany({
       select: {
         id: true,

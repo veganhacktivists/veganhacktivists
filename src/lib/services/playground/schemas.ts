@@ -237,5 +237,6 @@ export const datagridParamsSchema = z.object({
   }).nullish(),
   pageSize: z.number().int().positive(),
   page: z.number().int().nonnegative(),
-  filters: z.array(datagridFilterSchema)
+  filters: z.array(datagridFilterSchema),
+  search: z.string().nullish(),
 });

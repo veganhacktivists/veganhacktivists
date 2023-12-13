@@ -13,7 +13,8 @@ const Applications: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
   const [filters, setFilters] = useState<FilterOption[]>([]);
-  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage, filters }, { keepPreviousData: true });
+  const [search, setSearch] = useState('');
+  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage, filters, search }, { keepPreviousData: true });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
@@ -42,7 +43,7 @@ const Applications: NextPage = () => {
 
   return (
     <div className="w-full h-full">
-      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} onPaginationChange={handlePaginationChange} onFilterChange={setFilters} />
+      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} onPaginationChange={handlePaginationChange} onFilterChange={setFilters} onSearchChange={setSearch} />
     </div>
   );
 };
