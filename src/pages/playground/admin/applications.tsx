@@ -8,8 +8,10 @@ import { useCallback, useState } from 'react';
 import { ApplicationEntry } from 'server/routers/playground/admin';
 
 const Applications: NextPage = () => {
+  const [pageSize, setPageSize] = useState(20);
+  const [currentPage, setCurrentPage] = useState(0);
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
-  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting }, { keepPreviousData: true });
+  const { data } = trpc.playground.admin.allApplications.useQuery({sort: sorting, pageSize, page: currentPage }, { keepPreviousData: true });
   const { mutate } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
@@ -27,6 +29,11 @@ const Applications: NextPage = () => {
     mutate(rest);
   }, [mutate]);
 
+  const handlePaginationChange = useCallback((page: number, pageSize: number) => {
+    setCurrentPage(page);
+    setPageSize(pageSize);
+  }, []);
+
 
   if (!data) {
     return <div>Loading...</div>;
@@ -34,7 +41,7 @@ const Applications: NextPage = () => {
 
   return (
     <div className="w-full h-full">
-      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} />
+      <DataGrid data={data} columns={columns} onUpdate={handleValueChange} onSortChange={setSorting} onPaginationChange={handlePaginationChange} />
     </div>
   );
 };

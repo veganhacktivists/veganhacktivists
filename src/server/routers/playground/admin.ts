@@ -131,6 +131,8 @@ const adminRouter = t.router({
     }
   ),
   allApplications: adminProcedure.input(datagridParamsSchema.partial()).query(async ({input, ctx: { prisma } }) => {
+    const total: number = await prisma.playgroundApplication.count();
+    const skip = (input.page ?? 0) * (input.pageSize ?? 20);
     const data: ApplicationEntry[] = await prisma.playgroundApplication.findMany({
       select: {
         id: true,
@@ -162,9 +164,11 @@ const adminRouter = t.router({
           },
         },
       },
+      take: input.pageSize ?? 20,
+      skip: skip,
       orderBy: input.sort ? buildSortingQuery(input.sort.column, input.sort.order) : undefined,
     });
-    return data;
+    return { total, content: data };
   }),
   updateApplication: adminProcedure.input(applicationSchema.omit({ request: true }).partial()).mutation(async({ input }) => {
     const { id, ...data } = input;
