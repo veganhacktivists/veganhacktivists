@@ -68,8 +68,8 @@ const requestsRouter = t.router({
 
   // auth procedures
   submitRequest: protectedProcedure
-    .use(checkForProfitRequestHasBudgetMiddleware)
     .input(submitRequestSchema)
+    .use(checkForProfitRequestHasBudgetMiddleware)
     .mutation(async ({ input, ctx }) => {
       if (!input.id) {
         return submitRequest({
