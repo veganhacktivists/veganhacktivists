@@ -37,7 +37,63 @@ const sendVerificationRequest = async (
   });
 };
 
-export const nextAuthOptions = (adapter: Adapter): NextAuthOptions => ({
+export const nextAuthOptions: NextAuthOptions = {
+  session: {
+    strategy: 'jwt',
+  },
+  providers: [
+    EmailProvider({
+      name: 'magic link',
+      server: process.env.EMAIL_SERVER_URL,
+      from: OUR_EMAIL_FROM_FORMATTED,
+      sendVerificationRequest,
+    }),
+  ],
+  pages: {
+    signIn: '/auth/signin',
+    signOut: '/auth/signout',
+    verifyRequest: '/auth/verify-request',
+  },
+  callbacks: {
+    jwt: async ({ token }) => {
+      const user = await prisma.user.findUnique({
+        where: {
+          id: token.sub,
+        },
+      });
+
+      if (user) {
+        token.isRequestor =
+          user.role === UserRole.Admin || user.role === UserRole.Requestor;
+        token.isApplicant =
+          user.role === UserRole.Admin || user.role === UserRole.Applicant;
+        token.role = user.role;
+        token.email = user.email;
+        token.name = user.name;
+        token.sub = user.id;
+      }
+
+      return token;
+    },
+    session: ({ session, token }) => {
+      if (session?.user) {
+        if (token.sub) {
+          session.user.id = token.sub;
+        }
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.role = token.role;
+        session.user.isApplicant = token.isApplicant;
+        session.user.isRequestor = token.isRequestor;
+      }
+
+      delete session.user?.image;
+      return session;
+    },
+  },
+};
+
+const getNextAuthOptions = (adapter: Adapter): NextAuthOptions => ({
   adapter,
   session: {
     strategy: 'jwt',
@@ -124,7 +180,7 @@ const handle: NextApiHandler = async (req, res) => {
     }
   }
 
-  return await NextAuth(req, res, nextAuthOptions(adapter));
+  return await NextAuth(req, res, getNextAuthOptions(adapter));
 };
 
 export default handle;
