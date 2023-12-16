@@ -160,6 +160,7 @@ export const submitRequestSchema = z
     id: z.string().cuid().optional(),
     title: z.string().trim().min(1).max(200),
     category: z.nativeEnum(PlaygroundRequestCategory),
+    name: z.string().trim().min(1, { message: 'This value is required' }),
     // Transform the string of skills separated by a comma in an array of strings
     requiredSkills: z.string().transform((x) =>
       x
@@ -176,6 +177,19 @@ export const submitRequestSchema = z
       .boolean()
       .refine((x) => !!x)
       .transform(() => undefined),
+    providedEmail: z.string().trim().email(),
+    website: z
+      .string()
+      .trim()
+      .min(1)
+      .refine((url) => !url.includes(' '), {
+        message: "The URL can't contain spaces",
+      })
+      .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
+    calendlyUrl: z
+      .string()
+      .trim()
+      .min(1, { message: 'This value is required' }),
     devRequestWebsiteExists: z.boolean().optional(),
     devRequestWebsiteUrl: z.string().optional(),
     designRequestType: z
@@ -194,17 +208,6 @@ export const verifyRequestFormRequestSchema = submitRequestSchema.and(
       }),
   }),
 );
-// .refine(
-//   ({ organizationType, budget }) => {
-//     return !(
-//       organizationType === PlaygroundRequestOrganizationType.Profit && !budget
-//     );
-//   },
-//   {
-//     message: 'Request for for-profit organizations must be paid',
-//     path: ['budget'],
-//   },
-// );
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 
