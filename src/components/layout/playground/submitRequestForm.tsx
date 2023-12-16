@@ -11,7 +11,6 @@ import {
 } from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
-import { PlaygroundRequestOrganizationType } from '@prisma/client';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -38,7 +37,7 @@ import type { PlaygroundRequestDesignRequestType } from '@prisma/client';
 import type { z } from 'zod';
 import type { submitRequestSchema } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
-import type { FieldError } from 'react-hook-form';
+import type { FieldError, FieldPath, SubmitHandler } from 'react-hook-form';
 import type { RefCallback } from 'react';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
@@ -142,42 +141,45 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         return;
       }
       const skills = request.requiredSkills.join(', ');
-      type RequestFormData = Pick<
-        typeof request,
-        | 'providedEmail'
-        | 'name'
-        | 'phone'
-        | 'website'
-        | 'calendlyUrl'
-        | 'title'
-        | 'category'
-        | 'description'
-        | 'neededVolunteers'
-      >;
-      const requestData: RequestFormData = {
-        ...request,
-      };
-      const x = request?.dueDate
-        ? DateTime.fromISO(request.dueDate.toISOString()).toFormat('yyyy-LL-dd')
-        : '';
+      // type RequestFormData = Pick<
+      //   typeof request,
+      //   | 'providedEmail'
+      //   | 'name'
+      //   | 'phone'
+      //   | 'website'
+      //   | 'calendlyUrl'
+      //   | 'title'
+      //   | 'category'
+      //   | 'description'
+      //   | 'neededVolunteers'
+      // >;
+      // const requestData: RequestFormData = request;
 
-      const formData: Partial<z.infer<typeof verifyRequestFormRequestSchema>> =
-        {
-          ...requestData,
-          dueDate: '',
-          budget: request?.budget
-            ? {
-                type: request?.budget.type,
-                quantity: request?.budget?.quantity.toNumber(),
-              }
-            : undefined,
-          phone: request?.phone ?? undefined,
-          organization: request?.organization ?? undefined,
-          requiredSkills: skills,
-        };
+      const formData = {
+        ...request,
+        // ...requestData,
+        dueDate: request?.dueDate
+          ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+              'yyyy-LL-dd',
+            )
+          : '',
+        budget: request?.budget
+          ? {
+              type: request?.budget.type,
+              quantity: request?.budget?.quantity.toNumber(),
+            }
+          : undefined,
+        // phone: request?.phone ?? undefined,
+        // organization: request?.organization ?? undefined,
+        requiredSkills: skills,
+      };
+
       Object.keys(formData).forEach((keystring) => {
-        const key = keystring as keyof typeof formData;
-        setValue(key, formData[key]);
+        const key = keystring as FieldPath<FormInput>;
+        setValue(
+          key,
+          formData[key as keyof typeof formData] as unknown as string,
+        );
       });
       if (formData.budget?.type) {
         setIsFree(false);
@@ -300,8 +302,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     [mutateAsync, requestId],
   );
 
-  const onSubmit = useCallback(
-    async (values: FormOutput) => {
+  const onSubmit = useCallback<SubmitHandler<FormOutput>>(
+    async (values) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {
@@ -314,7 +316,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         });
       }
 
-      await mutate(values);
+      await mutate(
+        values as unknown as trpc['playground']['submitRequest']['input'],
+      );
       await utils.playground.getRequest.invalidate({ id: requestId });
     },
     [mutate, reset, sessionStatus, requestId, utils.playground.getRequest],
@@ -325,7 +329,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       formRef!.scrollIntoView({
         block: 'end',
       });
-      void handleSubmit(onSubmit)();
+      void handleSubmit(onSubmit as unknown as SubmitHandler<FormInput>)();
     },
     {
       enabled:
@@ -342,10 +346,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('budget', undefined);
   }, [isFree, setValue]);
 
-  const [requestCategory, organizationType] = watch([
-    'category',
-    'organizationType',
-  ]);
+  const requestCategory = watch('category');
 
   // reset category specific values
   useEffect(() => {
@@ -371,7 +372,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       <form
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit as unknown as SubmitHandler<FormInput>)}
         className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
       >
         <div className="text-xl col-span-full">Request Information</div>
