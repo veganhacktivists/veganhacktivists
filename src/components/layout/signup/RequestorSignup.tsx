@@ -3,8 +3,6 @@ import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { OrganizationType } from '@prisma/client';
 
-import ToolTip from '../../decoration/tooltip';
-
 import { requestorSignupSchema } from 'lib/services/playground/schemas';
 import TextInput from 'components/forms/inputs/textInput';
 import Label from 'components/forms/inputs/label';
@@ -42,7 +40,7 @@ const RequestorSignup = () => {
       mutate(data);
       //todo: Add redirect to the next page
     },
-    [mutate]
+    [mutate],
   );
   const organizationType = watch('organization.organizationType');
 
@@ -139,7 +137,7 @@ const RequestorSignup = () => {
                   {...field}
                   current={
                     ORGANIZATION_TYPE_OPTIONS.find(
-                      (c) => c.value === current
+                      (c) => c.value === current,
                     ) || null
                   }
                   onChange={(option) => onChange(option?.value)}

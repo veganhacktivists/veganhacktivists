@@ -5,7 +5,6 @@ import {
   Source,
   RequestStatus,
   ApplicationStatus,
-  PlaygroundRequestOrganizationType,
   PlaygroundRequestDesignRequestType,
   OrganizationType,
 } from '@prisma/client';
@@ -82,7 +81,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
     agreeToTerms: z
       .boolean()
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
-  })
+  }),
 );
 
 const budgetSchema = z.object({
@@ -130,97 +129,82 @@ export const applicantSignupSchema = z.object({
   source: z.nativeEnum(Source),
 });
 
-const requestorPersonSchema = z.object({
-  name: z.string().trim().min(1, { message: 'This value is required' }),
-  pronouns: z.string().trim().optional(),
-  contactEmail: z.string().trim().email(),
-  phone: z.string().trim().min(1, { message: 'This value is required' }),
-  calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
-});
-
-const requestorOrgSchema = z.object({
-  name: z.string().trim().optional(),
-  description: z.string().trim().min(1),
-  organizationType: z.nativeEnum(OrganizationType),
-  website: z
-    .string()
-    .trim()
-    .min(1)
-    .refine((url) => !url.includes(' '), {
-      message: "The URL can't contain spaces",
-    })
-    .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
-});
-
 export const requestorSignupSchema = z.object({
-  personal: requestorPersonSchema,
-  organization: requestorOrgSchema,
+  personal: z.object({
+    name: z.string().trim().min(1, { message: 'This value is required' }),
+    pronouns: z.string().trim().optional(),
+    contactEmail: z.string().trim().email(),
+    phone: z.string().trim().min(1, { message: 'This value is required' }),
+    calendlyUrl: z
+      .string()
+      .trim()
+      .min(1, { message: 'This value is required' }),
+  }),
+  organization: z.object({
+    name: z.string().trim().optional(),
+    description: z.string().trim().min(1),
+    organizationType: z.nativeEnum(OrganizationType),
+    website: z
+      .string()
+      .trim()
+      .min(1)
+      .refine((url) => !url.includes(' '), {
+        message: "The URL can't contain spaces",
+      })
+      .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
+  }),
 });
 
-const submitRequestSchemaBase = z.object({
-  id: z.string().cuid().optional(),
-  title: z.string().trim().min(1).max(200),
-  category: z.nativeEnum(PlaygroundRequestCategory),
-  // Transform the string of skills separated by a comma in an array of strings
-  requiredSkills: z.string().transform((x) =>
-    x
-      .split(',')
-      .map((x) => x.trim())
-      .filter((x) => x.length > 0)
-  ),
-  description: z.string().trim().min(1),
-  budget: budgetSchema.optional(),
-  dueDate: z.date().optional().nullable(),
-  estimatedTimeDays: z.number().nonnegative().int().nullish(),
-  neededVolunteers: z.number().nonnegative().int(),
-  agreeToTerms: z
-    .boolean()
-    .refine((x) => !!x)
-    .transform(() => undefined),
-  devRequestWebsiteExists: z.boolean().optional(),
-  devRequestWebsiteUrl: z.string().optional(),
-  designRequestType: z
-    .nativeEnum(PlaygroundRequestDesignRequestType)
-    .optional(),
-  designRequestCurrentDesignExists: z.boolean().optional(),
-});
-
-export const submitRequestSchema = submitRequestSchemaBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
-);
-
-const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
-  z.object({
-    requiredSkills: z.string().trim().min(1),
+export const submitRequestSchema = z
+  .object({
+    id: z.string().cuid().optional(),
+    title: z.string().trim().min(1).max(200),
+    category: z.nativeEnum(PlaygroundRequestCategory),
+    // Transform the string of skills separated by a comma in an array of strings
+    requiredSkills: z.string().transform((x) =>
+      x
+        .split(',')
+        .map((x) => x.trim())
+        .filter((x) => x.length > 0),
+    ),
+    description: z.string().trim().min(1),
+    budget: budgetSchema.optional(),
+    dueDate: z.date().optional().nullable(),
+    estimatedTimeDays: z.number().nonnegative().int().nullish(),
+    neededVolunteers: z.number().nonnegative().int(),
     agreeToTerms: z
       .boolean()
-      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+      .refine((x) => !!x)
+      .transform(() => undefined),
+    devRequestWebsiteExists: z.boolean().optional(),
+    devRequestWebsiteUrl: z.string().optional(),
+    designRequestType: z
+      .nativeEnum(PlaygroundRequestDesignRequestType)
+      .optional(),
+    designRequestCurrentDesignExists: z.boolean().optional(),
   })
-);
+  .and(devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema));
 
-export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
-);
-
-export const verifyRequestFormRequestSchema = submitRequestSchemaClientBase
-  .extend({
+export const verifyRequestFormRequestSchema = submitRequestSchema.and(
+  z.object({
     dueDate: z
       .string()
       .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
         message: 'Due date must be in the future',
       }),
-  })
-  .refine(
-    ({ organizationType, budget }) => {
-      return !(
-        organizationType === PlaygroundRequestOrganizationType.Profit && !budget
-      );
-    },
-    {
-      message: 'Request for for-profit organizations must be paid',
-      path: ['budget'],
-    }
-  );
+  }),
+);
+// .refine(
+//   ({ organizationType, budget }) => {
+//     return !(
+//       organizationType === PlaygroundRequestOrganizationType.Profit && !budget
+//     );
+//   },
+//   {
+//     message: 'Request for for-profit organizations must be paid',
+//     path: ['budget'],
+//   },
+// );
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 

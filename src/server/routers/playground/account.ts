@@ -7,6 +7,7 @@ import {
 } from 'lib/services/playground/schemas';
 import { protectedProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
+import prisma from 'lib/db/prisma';
 
 import type { z } from 'zod';
 
@@ -19,8 +20,7 @@ const accountRouter = t.router({
     .mutation(async ({ input, ctx }) => {
       const session = await getSession({ ctx });
       if (!session?.user) return;
-      const isRequestor =
-        session.user?.role === 'Requestor' || session.user?.role === 'Admin';
+      const isRequestor = session.user?.isRequestor ?? false;
       if (requestorSignupSchema.safeParse(input).success && !isRequestor)
         return;
       if (isRequestor) {

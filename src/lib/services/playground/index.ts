@@ -46,8 +46,8 @@ export const getPlaygroundRequests = async ({
       ...(isPaidRequest === undefined
         ? {}
         : isPaidRequest
-        ? { budget: { isNot: null } }
-        : { budget: { is: null } }),
+          ? { budget: { isNot: null } }
+          : { budget: { is: null } }),
       category: {
         in: categories,
       },
@@ -62,7 +62,7 @@ export const getPlaygroundRequests = async ({
 export const getRequestById = async (
   id: z.infer<typeof getRequestByIdSchema>,
   user?: Session['user'],
-  extended = false
+  extended = false,
 ) => {
   let ownRequest = false;
   if (extended && user) {
@@ -139,7 +139,7 @@ export const getRequestById = async (
 };
 
 export const applyToHelp = async (
-  params: z.infer<typeof applyToRequestSchema> & { applicantId: string }
+  params: z.infer<typeof applyToRequestSchema> & { applicantId: string },
 ) => {
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundApplication.create({
