@@ -1,4 +1,4 @@
-import { RequestStatus } from '@prisma/client';
+import { OrganizationType, RequestStatus } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 import {
@@ -16,6 +16,30 @@ import {
 import { baseProcedure } from 'server/procedures';
 import { protectedProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
+import { ctxInput } from 'server/procedures/middlewares';
+import prisma from 'lib/db/prisma';
+
+import type { Context } from 'server/context';
+
+const checkForProfitRequestHasBudgetMiddleware = ctxInput((ctx: Context) =>
+  submitRequestSchema.refine(
+    async ({ budget }) => {
+      const user = await prisma.user.findUniqueOrThrow({
+        where: { id: ctx?.user?.id },
+        select: { organization: { select: { type: true } } },
+      });
+
+      if (user.organization?.type == OrganizationType.Profit) {
+        return !!budget;
+      }
+      return true;
+    },
+    {
+      message: 'Request for for-profit organizations must be paid',
+      path: ['budget'],
+    },
+  ),
+);
 
 const requestsRouter = t.router({
   getAllRequests: baseProcedure
@@ -44,6 +68,7 @@ const requestsRouter = t.router({
 
   // auth procedures
   submitRequest: protectedProcedure
+    .use(checkForProfitRequestHasBudgetMiddleware)
     .input(submitRequestSchema)
     .mutation(async ({ input, ctx }) => {
       if (!input.id) {
@@ -92,7 +117,7 @@ const requestsRouter = t.router({
       }
 
       return request;
-    }
+    },
   ),
 });
 
