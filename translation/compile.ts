@@ -26,16 +26,28 @@ void main();
 const stringRecordSchema = z.record(z.string(), z.string());
 
 async function main() {
+  const defaultTranslationMessages = await readTranslationFile(defaultLocale);
+  const compiledDefaultTranslationMessages = compile(
+    defaultTranslationMessages
+  );
+
   await Promise.all(
     locales.map(async (locale) => {
-      const compiledMessages = compile(
-        await readTranslationFile(locale === 'dev' ? defaultLocale : locale)
+      // ids of defaultLocale file are used for dev translations
+      const compiledMessages =
+        locale === 'dev' || locale === defaultLocale
+          ? compiledDefaultTranslationMessages
+          : compile(await readTranslationFile(locale));
+
+      applyTranslationFallback(
+        compiledMessages,
+        compiledDefaultTranslationMessages
       );
 
-      const updatedMessages = noramlizeCompiledMessagesForLocale(
-        compiledMessages,
-        locale
-      );
+      const updatedMessages =
+        locale === 'dev'
+          ? createDevTranslations(compiledMessages)
+          : removeTranslationIgnoreTagsFromCompiledMessages(compiledMessages);
 
       await writeFile(
         resolveCompiledTranslationFilePath(locale),
@@ -48,6 +60,17 @@ async function main() {
   );
 }
 
+function applyTranslationFallback(
+  compiledMessages: Record<string, string>,
+  fallbackMessages: Record<string, string>
+): void {
+  Object.entries(fallbackMessages).forEach(([id, message]) => {
+    if (!compiledMessages[id]) {
+      compiledMessages[id] = message;
+    }
+  });
+}
+
 function compile(
   translations: TranslationFileStructureInternal
 ): Record<string, string> {
@@ -56,17 +79,6 @@ function compile(
       Object.entries(translations).map(([key, { message }]) => [key, message])
     )
   );
-}
-
-function noramlizeCompiledMessagesForLocale(
-  compiledMessages: Record<string, string>,
-  locale: string
-) {
-  if (locale === 'dev') {
-    return createDevTranslations(compiledMessages);
-  }
-
-  return removeTranslationIgnoreTagsFromCompiledMessages(compiledMessages);
 }
 
 function createDevTranslations(
