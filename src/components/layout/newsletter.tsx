@@ -152,9 +152,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
                 defaultMessage: 'Enter your email',
               })}
               error={errors.email?.message}
-              name="email"
             >
-              <></>
+              Email
             </TextInput>
           </div>
           <div className="flex flex-col justify-center align-baseline md:flex-row gap-x-10 gap-y-2">

@@ -573,7 +573,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </TextInput>
         <div className="relative bottom-0 self-end col-span-full md:col-span-3">
           <Label
-            name="availableTimePerWeek"
+            htmlFor="availableTimePerWeek"
             error={errors.availableTimePerWeek?.message}
             showRequiredMark
           >
@@ -618,7 +618,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           </span>
         </TextInput>
         <div className="col-span-full">
-          <Label error={errors.source?.message} name="source">
+          <Label error={errors.source?.message} htmlFor="source">
             Where did you hear about Playground?
           </Label>
           <Controller

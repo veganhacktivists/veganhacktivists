@@ -151,7 +151,7 @@ const GrantsApplication: React.FC = () => {
           )}
 
           <div>
-            <Label name="gender">
+            <Label htmlFor="gender">
               <FormattedMessage
                 id="page.grants.section.application.form.a.input.applicant-gender.label"
                 defaultMessage="Gender <span>(optional)</span>"
@@ -473,12 +473,10 @@ const GrantsApplication: React.FC = () => {
             })}
             onChange={(checked) => setValue('canAcceptFunding', checked)}
             description={
-              <>
-                <FormattedMessage
-                  id="page.grants.section.application.form.c.input.can-accept-funding.text"
-                  defaultMessage="I confirm that I have a bank or <no-localization>PayPal</no-localization> account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - <no-localization>TPP</no-localization> is unable to make grant payments to any other person or entity on my behalf. I understand that if <no-localization>TPP</no-localization> reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
-                />
-              </>
+              <FormattedMessage
+                id="page.grants.section.application.form.c.input.can-accept-funding.text"
+                defaultMessage="I confirm that I have a bank or <no-localization>PayPal</no-localization> account that is in my name or my organization's name and that can receive grant payments in US Dollars. I confirm my understanding that - with the exception of my fiscal sponsor, if applicable - <no-localization>TPP</no-localization> is unable to make grant payments to any other person or entity on my behalf. I understand that if <no-localization>TPP</no-localization> reviews my proposal and decides to make an offer of funding, that offer is conditional on the ability to accept funds to an account in my name or in my organization's name."
+              />
             }
           >
             <FormattedMessage

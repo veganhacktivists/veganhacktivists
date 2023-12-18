@@ -27,6 +27,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       labelPosition = 'left',
       className,
       size = 'medium',
+      name,
       ...props
     },
     ref
@@ -42,7 +43,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           )}
         >
           <div className="w-fit">
-            <Label className="mt-2" name={props.name || ''}>
+            <Label className="mt-2" htmlFor={name}>
               {children}
             </Label>
           </div>
@@ -65,7 +66,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               }
             )}
             {...props}
-            id={props.id || props.name}
+            name={name}
+            id={props.id || name}
             type="checkbox"
           />
         </div>

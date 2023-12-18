@@ -389,7 +389,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           showRequiredMark
           {...myRegister('name', { required: 'Please enter a name' })}
           error={errors.name?.message}
-        />
+        >
+          Name
+        </TextInput>
         <TextInput
           className="lg:col-span-3 col-span-full"
           placeholder="they/them"
@@ -416,7 +418,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           type="tel"
           {...myRegister('phone', { required: 'The phone is required' })}
           error={errors.phone?.message}
-        />
+        >
+          Phone
+        </TextInput>
         <TextInput
           placeholder="www.website..."
           showRequiredMark
@@ -425,7 +429,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           })}
           className="w-full col-span-full"
           error={errors.website?.message}
-        />
+        >
+          Website
+        </TextInput>
         <TextInput
           showRequiredMark
           placeholder="Calendly"
@@ -456,9 +462,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           placeholder="Organization"
           {...myRegister('organization', { required: false })}
           error={errors.organization?.message}
-        />
+        >
+          Organization
+        </TextInput>
         <div className="col-span-full">
-          <Label name="organizationType">
+          <Label htmlFor="organizationType">
             Is your organization or activism for profit?
           </Label>
 
@@ -531,7 +539,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </TextInput>
         <div className="col-span-full">
           <div className="flex flex-col md:flex-row">
-            <Label name="category">
+            <Label htmlFor="category">
               Category<span className="text-red">*</span>&nbsp;
             </Label>
             <p className="font-thin mb-2">
@@ -568,7 +576,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         {!isFirstRender && requestCategory === 'Developer' && (
           <>
             <div className="md:col-span-2 col-span-full">
-              <Label name="devRequestWebsiteExists">
+              <Label htmlFor="devRequestWebsiteExists">
                 Do you have an existing website?
               </Label>
               <Controller
@@ -607,7 +615,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         {!isFirstRender && requestCategory === 'Designer' && (
           <>
             <div className="md:col-span-4 col-span-full">
-              <Label name="designRequestType">
+              <Label htmlFor="designRequestType">
                 What type of design request is this?
               </Label>
               <Controller
@@ -634,7 +642,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               />
             </div>
             <div className="md:col-span-2 col-span-full">
-              <Label name="designRequestCurrentDesignExists">
+              <Label htmlFor="designRequestCurrentDesignExists">
                 Do you have a current design?
               </Label>
               <Controller
@@ -691,7 +699,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           Volunteers required
         </TextInput>
         <div className="lg:col-span-2 col-span-full">
-          <Label name="isFree" showRequiredMark>
+          <Label htmlFor="isFree" showRequiredMark>
             Volunteer or Paid?
           </Label>
           <SelectInput
@@ -713,7 +721,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               return (
                 <>
                   <div className="lg:col-span-2 col-span-full">
-                    <Label name="rate" label="Rate?" showRequiredMark />
+                    <Label showRequiredMark>Rate?</Label>
                     <SelectInput
                       current={
                         BUDGET_TYPE_OPTIONS.find(
@@ -788,7 +796,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           </span>
         </TextArea>
         <div className="col-span-full">
-          <Label name="dueDate">
+          <Label htmlFor="dueDate">
             Desired due date&nbsp;
             <span className="font-thin">
               Please be thoughtful about this, keep in mind that Playground

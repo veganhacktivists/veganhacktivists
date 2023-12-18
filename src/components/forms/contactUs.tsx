@@ -95,6 +95,14 @@ const ContactUsForm: React.FC = () => {
         id: 'section.contact-us-form.input-field.label.service',
         defaultMessage: 'Service',
       }),
+      email: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.email',
+        defaultMessage: 'Email',
+      }),
+      message: intl.formatMessage({
+        id: 'section.contact-us-form.input-field.label.message',
+        defaultMessage: 'Message',
+      }),
     }),
     [intl]
   );
@@ -111,9 +119,10 @@ const ContactUsForm: React.FC = () => {
                 defaultMessage: 'Please enter a name',
               }),
             })}
-            name="name"
             error={errors.name?.message}
-          />
+          >
+            {inputLabels.name}
+          </TextInput>
         </div>
         <div>
           <TextInput
@@ -132,12 +141,13 @@ const ContactUsForm: React.FC = () => {
                 }),
               },
             })}
-            name="email"
             error={errors.email?.message}
-          />
+          >
+            {inputLabels.email}
+          </TextInput>
         </div>
         <div>
-          <Label name="service" label={inputLabels.service} />
+          <Label htmlFor="service">{inputLabels.service}</Label>
           <Controller
             name="service"
             control={control}
@@ -175,7 +185,9 @@ const ContactUsForm: React.FC = () => {
             name="message"
             defaultValue={defaultErrorMessage}
             onChange={onMessageChange}
-          />
+          >
+            {inputLabels.message}
+          </TextArea>
         </div>
         {suggestions.map((suggestion, i) => (
           <div
