@@ -71,14 +71,11 @@ const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
 };
 
 const SignIn: NextPage = () => {
-  const {
-    query: { user: queryUser },
-    isReady,
-  } = useRouter();
+  const { query, isReady, push } = useRouter();
+  const { user: queryUser } = query;
 
   const [isLoading, setIsLoading] = useState(true);
   const { status } = useSession();
-  const router = useRouter();
 
   const [providers, setProviders] = useState<AuthProviders | null>();
 
@@ -113,26 +110,22 @@ const SignIn: NextPage = () => {
       return undefined;
     }
     const url = new URL(
-      (router.query.callbackUrl as string) ?? '/playground/signup',
-      (router.query.callbackUrl as string) ??
-        (document.location as unknown as URL),
+      (query.callbackUrl as string) ?? '/playground/signup',
+      (query.callbackUrl as string) ?? (document.location as unknown as URL),
     );
 
     if (selectedRole) {
       url.searchParams.set('role', selectedRole);
     }
     return url.toString();
-  }, [router.query.callbackUrl, selectedRole]);
+  }, [query.callbackUrl, selectedRole]);
 
   useOnce(
     () => {
-      if (
-        typeof router.query.callbackUrl === 'string' &&
-        router.query.callbackUrl
-      ) {
-        void router.push(router.query.callbackUrl);
+      if (typeof query.callbackUrl === 'string' && query.callbackUrl) {
+        void push(query.callbackUrl);
       } else {
-        void router.push('/playground');
+        void push('/playground');
       }
     },
     { enabled: status === 'authenticated' && isReady },
