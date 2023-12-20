@@ -1,6 +1,6 @@
 import { unstable_getServerSession } from 'next-auth';
 
-import { nextAuthOptions } from 'pages/api/auth/[...nextauth]';
+import { getNextAuthOptions } from 'pages/api/auth/[...nextauth]';
 import prisma from 'lib/db/prisma';
 
 import type * as trpc from '@trpc/server';
@@ -14,7 +14,11 @@ export const createContextInner = async ({
   req,
   res,
 }: trpcNext.CreateNextContextOptions) => {
-  const session = await unstable_getServerSession(req, res, nextAuthOptions);
+  const session = await unstable_getServerSession(
+    req,
+    res,
+    getNextAuthOptions(req),
+  );
   return {
     req,
     res,
