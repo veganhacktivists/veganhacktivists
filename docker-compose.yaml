@@ -9,12 +9,12 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     ports:
-      - "5432:5432"
+      - "${DATABASE_PORT:-5432}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
   smtp:
     image: ixdotai/smtp:latest
     ports:
-      - "25:25"
+      - "${EMAIL_SERVER_PORT:-2525}:25"
 volumes:
   pgdata:
