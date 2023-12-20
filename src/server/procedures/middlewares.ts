@@ -3,7 +3,7 @@ import { TRPCError, experimental_standaloneMiddleware } from '@trpc/server';
 
 import type { z } from 'zod';
 
-export const ctxInput = <T extends z.ZodType, C extends object>(
+export const ctxInput = <T extends z.ZodTypeAny, C extends object>(
   getZodType: (ctx: C) => T,
 ) =>
   experimental_standaloneMiddleware<{
@@ -11,22 +11,20 @@ export const ctxInput = <T extends z.ZodType, C extends object>(
     rawInput: unknown;
     meta: any;
   }>().create(async ({ next, ctx, rawInput }) => {
-    try {
+    const result = await getZodType(ctx as unknown as C).safeParseAsync(
+      rawInput,
+    );
+
+    if (result.success) {
       return next({
         ctx: {
-          ctxInput: (await getZodType(ctx as unknown as C).parseAsync(
-            rawInput,
-          )) as z.infer<T>,
+          ctxInput: result.data,
         },
       });
-    } catch (cause) {
-      if (cause instanceof TRPCError) {
-        throw cause;
-      } else {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          cause,
-        });
-      }
     }
+
+    if (result.error instanceof TRPCError) {
+      throw result.error;
+    }
+    throw new TRPCError({ code: 'BAD_REQUEST', cause: result.error });
   });
