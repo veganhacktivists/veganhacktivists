@@ -2,13 +2,13 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "darwin"]
 }
 
 generator zod {
-  provider = "pnpx zod-prisma-types"
-  output  = "../src/generated/schemas"
+  provider = "zod-prisma-types"
+  output   = "../src/generated/schemas"
 }
 
 datasource db {
@@ -127,7 +127,7 @@ model Budget {
 }
 
 model PlaygroundApplication {
-  id                   String      @id @default(cuid()) @db.VarChar(30)
+  id                   String            @id @default(cuid()) @db.VarChar(30)
   providedEmail        String
   applicantId          String
   name                 String
@@ -144,14 +144,14 @@ model PlaygroundApplication {
   calendlyUrl          String?
   moreInfo             String
   requestId            String
-  status               ApplicationStatus      @default(Pending)
+  status               ApplicationStatus @default(Pending)
 
   applicant User              @relation(fields: [applicantId], references: [id])
   request   PlaygroundRequest @relation(fields: [requestId], references: [id])
 
-  feedbackRequested    Boolean? @default(false)
+  feedbackRequested Boolean? @default(false)
 
-  acceptedAt           DateTime?
+  acceptedAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -195,7 +195,7 @@ model DiscordMessage {
 }
 
 model PlaygroundRequest {
-  id                      String                    @id @default(cuid()) @db.VarChar(30)
+  id                      String                             @id @default(cuid()) @db.VarChar(30)
   phone                   String?
   name                    String
   pronouns                String?
@@ -205,33 +205,33 @@ model PlaygroundRequest {
   organizationDescription String?
   website                 String
   calendlyUrl             String
-  title                   String                    @db.VarChar(200)
-  requiredSkills          String[]                  @default([])
-  neededVolunteers        Int                       @default(1)
-  description             String                    @db.Text
-  dueDate                 DateTime?                 @db.Date
+  title                   String                             @db.VarChar(200)
+  requiredSkills          String[]                           @default([])
+  neededVolunteers        Int                                @default(1)
+  description             String                             @db.Text
+  dueDate                 DateTime?                          @db.Date
   estimatedTimeDays       Int? // TODO: remvoe
   requesterId             String
-  status                  RequestStatus             @default(Pending)
+  status                  RequestStatus                      @default(Pending)
   category                PlaygroundRequestCategory
 
-  discordMessages         DiscordMessage[]
-  requester               User                      @relation(fields: [requesterId], references: [id])
-  applications            PlaygroundApplication[]
-  budget                  Budget?
+  discordMessages DiscordMessage[]
+  requester       User                    @relation(fields: [requesterId], references: [id])
+  applications    PlaygroundApplication[]
+  budget          Budget?
 
-  devRequestWebsiteExists Boolean?
-  devRequestWebsiteUrl    String?
-  designRequestType       PlaygroundRequestDesignRequestType?
+  devRequestWebsiteExists          Boolean?
+  devRequestWebsiteUrl             String?
+  designRequestType                PlaygroundRequestDesignRequestType?
   designRequestCurrentDesignExists Boolean?
 
-  lastManuallyPushed      DateTime?
-  noApplicationsNotificationEmailSent Boolean       @default(false)
+  lastManuallyPushed                  DateTime?
+  noApplicationsNotificationEmailSent Boolean   @default(false)
 
-  acceptedAt              DateTime?
+  acceptedAt DateTime?
 
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model DataDashboardData {
