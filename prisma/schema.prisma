@@ -7,8 +7,8 @@ generator client {
 }
 
 generator zod {
-  provider = "pnpx zod-prisma-types"
-  output  = "../src/generated/schemas"
+  provider = "zod-prisma-types"
+  output   = "../src/generated/schemas"
 }
 
 datasource db {
