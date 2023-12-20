@@ -93,14 +93,11 @@ const SignIn: NextPage = () => {
 
   useOnce(
     () => {
-      if (
-        queryUser === UserRole.Applicant ||
-        queryUser === UserRole.Requestor
-      ) {
-        setSelectedRole(queryUser);
-        return;
+      if (queryUser === UserRole.Requestor) {
+        setSelectedRole(UserRole.Requestor);
+      } else {
+        setSelectedRole(UserRole.Applicant);
       }
-      setSelectedRole(UserRole.Applicant);
     },
     { enabled: isReady },
   );
