@@ -66,7 +66,7 @@ const Applications: NextPage = () => {
   ];
 
   const handleValueChange = useCallback(
-    (column: string, data: ApplicationEntry) => {
+    (data: ApplicationEntry) => {
       const { request, ...rest } = data;
       mutate(rest);
     },
