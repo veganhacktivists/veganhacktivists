@@ -74,8 +74,8 @@ const SelectInput = <T,>({
         props.theme === 'data'
           ? 'transparent'
           : props.theme === 'dark'
-          ? `linear-gradient(to right, ${green}, 50%, ${grey} 50%)`
-          : 'white',
+            ? `linear-gradient(to right, ${green}, 50%, ${grey} 50%)`
+            : 'white',
       backgroundPosition: menuIsOpen ? '0' : 'right',
       '&:hover': {
         backgroundPosition:
@@ -113,8 +113,8 @@ const SelectInput = <T,>({
         props.theme === 'dark'
           ? 'transparent'
           : props.theme !== 'data'
-          ? grey
-          : provided.backgroundColor,
+            ? grey
+            : provided.backgroundColor,
     }),
     input: (provided) => ({
       ...provided,

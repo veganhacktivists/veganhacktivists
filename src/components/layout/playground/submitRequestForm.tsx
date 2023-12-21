@@ -96,7 +96,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     usePlaygroundSubmitRequestStore((state) => state.form);
   const setFormData = usePlaygroundSubmitRequestStore((state) => state.setForm);
   const clearFormData = usePlaygroundSubmitRequestStore(
-    (state) => state.resetForm,
+    (state) => state.resetForm
   );
 
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
@@ -126,7 +126,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     { id: requestId, extended: true },
     {
       enabled: !!requestId,
-    },
+    }
   );
 
   useEffect(() => {
@@ -160,7 +160,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         // ...requestData,
         dueDate: request?.dueDate
           ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-              'yyyy-LL-dd',
+              'yyyy-LL-dd'
             )
           : '',
         budget: request?.budget
@@ -178,7 +178,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         const key = keystring as FieldPath<FormInput>;
         setValue(
           key,
-          formData[key as keyof typeof formData] as unknown as string,
+          formData[key as keyof typeof formData] as unknown as string
         );
       });
       if (formData.budget?.type) {
@@ -201,7 +201,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     (name: keyof FormInput) => (value: unknown) => {
       setFormData({ [name]: value });
     },
-    [setFormData],
+    [setFormData]
   );
 
   const myRegister = useCallback<typeof register>(
@@ -215,7 +215,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         },
       });
     },
-    [onChangeValue, register],
+    [onChangeValue, register]
   );
 
   const { data: lastSubmittedRequest } =
@@ -247,7 +247,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.isReady &&
         router.query.submit !== 'true' &&
         filledDataFromStorage,
-    },
+    }
   );
 
   useOnce(
@@ -268,7 +268,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.isReady &&
         router.query.submit !== 'true' &&
         filledDataFromStorage,
-    },
+    }
   );
 
   const { mutateAsync, isLoading, isSuccess } =
@@ -299,7 +299,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           "There's been an error submitting your application. Please try again later.",
       });
     },
-    [mutateAsync, requestId],
+    [mutateAsync, requestId]
   );
 
   const onSubmit = useCallback<SubmitHandler<FormOutput>>(
@@ -317,11 +317,11 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       }
 
       await mutate(
-        values as unknown as trpc['playground']['submitRequest']['input'],
+        values as unknown as trpc['playground']['submitRequest']['input']
       );
       await utils.playground.getRequest.invalidate({ id: requestId });
     },
-    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest],
+    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest]
   );
 
   useOnce(
@@ -338,7 +338,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.query.submit === 'true' &&
         !!formRef &&
         filledDataFromStorage,
-    },
+    }
   );
 
   useEffect(() => {
@@ -440,7 +440,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                     {...field}
                     current={
                       DEV_REQUEST_WEBSITE_EXISTS_OPTIONS.find(
-                        (c) => c.value === current,
+                        (c) => c.value === current
                       ) || null
                     }
                     error={errors.devRequestWebsiteExists?.message}
@@ -479,7 +479,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                     {...field}
                     current={
                       DESIGN_REQUEST_TYPE_OPTIONS.find(
-                        (c) => c.value === current,
+                        (c) => c.value === current
                       ) || null
                     }
                     error={errors.designRequestType?.message}
@@ -506,7 +506,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                     {...field}
                     current={
                       DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS.find(
-                        (c) => c.value === current,
+                        (c) => c.value === current
                       ) || null
                     }
                     error={errors.designRequestCurrentDesignExists?.message}
@@ -578,7 +578,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                     <SelectInput
                       current={
                         BUDGET_TYPE_OPTIONS.find(
-                          (c) => c.value === value?.type,
+                          (c) => c.value === value?.type
                         ) || null
                       }
                       error={(errors.budget?.type as FieldError)?.message}
@@ -587,7 +587,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                         onChange(
                           option?.value
                             ? { ...value, type: option.value }
-                            : null,
+                            : null
                         );
                         setFormData((state) => ({
                           budget: { ...state.budget, type: option?.value },

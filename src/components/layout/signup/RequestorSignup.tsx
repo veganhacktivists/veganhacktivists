@@ -40,7 +40,7 @@ const RequestorSignup = () => {
       mutate(data);
       //todo: Add redirect to the next page
     },
-    [mutate],
+    [mutate]
   );
   const organizationType = watch('organization.organizationType');
 
@@ -137,7 +137,7 @@ const RequestorSignup = () => {
                   {...field}
                   current={
                     ORGANIZATION_TYPE_OPTIONS.find(
-                      (c) => c.value === current,
+                      (c) => c.value === current
                     ) || null
                   }
                   onChange={(option) => onChange(option?.value)}

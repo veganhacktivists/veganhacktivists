@@ -81,7 +81,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
     agreeToTerms: z
       .boolean()
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
-  }),
+  })
 );
 
 const budgetSchema = z.object({
@@ -166,7 +166,7 @@ export const submitRequestSchema = z
       x
         .split(',')
         .map((x) => x.trim())
-        .filter((x) => x.length > 0),
+        .filter((x) => x.length > 0)
     ),
     description: z.string().trim().min(1),
     budget: budgetSchema.optional(),
@@ -206,7 +206,7 @@ export const verifyRequestFormRequestSchema = submitRequestSchema.and(
       .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
         message: 'Due date must be in the future',
       }),
-  }),
+  })
 );
 
 export const getPendingApplicationsSchema = paginationSchema.optional();

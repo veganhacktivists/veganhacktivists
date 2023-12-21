@@ -16,7 +16,7 @@ export const protectedProcedure = baseProcedure.use(
         user: ctx.user,
       },
     });
-  }),
+  })
 );
 
 export const adminProcedure = protectedProcedure.use(async ({ ctx, next }) => {

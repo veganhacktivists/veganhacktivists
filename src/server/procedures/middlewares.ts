@@ -5,7 +5,7 @@ import type { Context } from 'server/context';
 import type { z } from 'zod';
 
 export const ctxInput = <T extends z.ZodTypeAny, C extends Context>(
-  getZodType: (ctx: C) => T,
+  getZodType: (ctx: C) => T
 ) =>
   experimental_standaloneMiddleware<{
     ctx: C;

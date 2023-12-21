@@ -21,7 +21,7 @@ const LeftSide: React.FC = () => {
   return (
     <div
       className={classNames(
-        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max',
+        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
       )}
     >
       {/* root */}
@@ -69,7 +69,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 
   const classes = classNames(
     'p-5 py-6 transition duration-500 text-center whitespace-nowrap',
-    className,
+    className
   );
 
   return (

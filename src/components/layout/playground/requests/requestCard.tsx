@@ -164,19 +164,19 @@ const PlaygroundRequestCard: React.FC<
               hasNoDue
                 ? 'Due Date'
                 : timeUntilDue
-                ? isDue
-                  ? 'Was due'
-                  : 'Due in'
-                : 'Due'
+                  ? isDue
+                    ? 'Was due'
+                    : 'Due in'
+                  : 'Due'
             }`}
             name={`${
               hasNoDue
                 ? 'Due Date'
                 : timeUntilDue
-                ? isDue
-                  ? 'Was due'
-                  : 'Due in'
-                : 'Due'
+                  ? isDue
+                    ? 'Was due'
+                    : 'Due in'
+                  : 'Due'
             }`}
             category={category}
           >

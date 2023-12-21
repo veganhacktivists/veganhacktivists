@@ -161,12 +161,15 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 }) => {
   const colorMap = useMemo(() => {
     if (!teams) return {};
-    return teams.reduce((acc, curr) => {
-      const { name: teamName, color } = curr.fields;
+    return teams.reduce(
+      (acc, curr) => {
+        const { name: teamName, color } = curr.fields;
 
-      acc[teamName] = color;
-      return acc;
-    }, {} as Record<string, string>);
+        acc[teamName] = color;
+        return acc;
+      },
+      {} as Record<string, string>
+    );
   }, [teams]);
 
   return (

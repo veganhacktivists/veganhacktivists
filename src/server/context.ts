@@ -17,7 +17,7 @@ export const createContextInner = async ({
   const session = await unstable_getServerSession(
     req,
     res,
-    getNextAuthOptions(req),
+    getNextAuthOptions(req)
   );
   return {
     req,
