@@ -116,14 +116,22 @@ export const buildSearchQuery = (
 };
 
 
+
 export const extractZodNullables = (schema: z.ZodObject<any>, prefix?: string) => {
   let nullables: string[] = [];
   for (const key in schema.shape){
     const entry = schema.shape[key];
-    if(entry._def.innerType instanceof z.ZodObject){
-      nullables = nullables.concat(extractZodNullables(entry._def.innerType, prefix ? prefix + '.' + key : key));
+    let level = 0;
+    let innerElement = entry;
+    while ((innerElement._def.innerType instanceof z.ZodOptional || innerElement._def.innerType instanceof z.ZodNullable) && level < 5) {
+      innerElement = innerElement._def.innerType;
+      level++;
     }
-    if(entry instanceof z.ZodNullable || entry instanceof z.ZodOptional)
+    
+    if(innerElement._def.innerType instanceof z.ZodObject){
+      nullables = nullables.concat(extractZodNullables(innerElement._def.innerType, prefix ? prefix + '.' + key : key));
+    }
+    if(innerElement instanceof z.ZodNullable || innerElement instanceof z.ZodOptional)
     {
       nullables.push(prefix ? prefix + '.' + key : key);
     }
