@@ -1,4 +1,5 @@
 import type { FilterOption } from 'lib/services/playground/schemas';
+import { z } from 'zod';
 
 interface SortingQuery {
   [key: string]: 'asc' | 'desc' | SortingQuery;
@@ -113,3 +114,31 @@ export const buildSearchQuery = (
 ): FilterQuery => {
   return { OR: columns.map((column) => getSearchEntry(column, search)) };
 };
+
+
+export const extractZodNullables = (schema: z.ZodObject<any>, prefix?: string) => {
+  let nullables: string[] = [];
+  for (const key in schema.shape){
+    const entry = schema.shape[key];
+    if(entry._def.innerType instanceof z.ZodObject){
+      nullables = nullables.concat(extractZodNullables(entry._def.innerType, prefix ? prefix + '.' + key : key));
+    }
+    if(entry instanceof z.ZodNullable || entry instanceof z.ZodOptional)
+    {
+      nullables.push(prefix ? prefix + '.' + key : key);
+    }
+  }
+  return nullables;
+};
+
+
+  //return Object.entries(data).map(([key, value]) => (nonNullableFields.includes(key) && value === null) ? { [key]: '' } : { [key]: value } );
+// export const checkNullable = <T extends {[key:string]: unknown}>(data: T, nonNullableFields: string[]) => T {
+//   const keys = Object.keys(data);
+//   for (const key of keys) {
+//     if(typeof data[key] !== 'object' || data[key] === null) {
+//       return { ...data, [key]: (nonNullableFields.includes(key) && data[key] === null) ? '' : data[key] };
+//     }
+//     return { ...data, [key]: checkNullable(data[key] as T, nonNullableFields) };
+//   }
+// };
