@@ -16,7 +16,7 @@ const Applications: NextPage = () => {
   const [sorting, setSorting] = useState<SortingOptions | null>(null);
   const [filters, setFilters] = useState<FilterOption[]>([]);
   const [search, setSearch] = useState('');
-  const { data } = trpc.playground.admin.allApplications.useQuery(
+  const { data, refetch } = trpc.playground.admin.allApplications.useQuery(
     { sort: sorting, pageSize, page: currentPage, filters, search },
     { keepPreviousData: true }
   );
@@ -69,8 +69,9 @@ const Applications: NextPage = () => {
     (data: ApplicationEntry) => {
       const { request, ...rest } = data;
       mutate(rest);
+      refetch();
     },
-    [mutate]
+    [mutate, refetch]
   );
 
   const handlePaginationChange = useCallback(
