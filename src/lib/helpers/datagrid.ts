@@ -1,5 +1,5 @@
 import type { FilterOption } from 'lib/services/playground/schemas';
-import { z } from 'zod';
+import { ZodObject, z } from 'zod';
 
 interface SortingQuery {
   [key: string]: 'asc' | 'desc' | SortingQuery;
@@ -117,52 +117,59 @@ export const buildSearchQuery = (
 
 
 
-export const extractZodNullables = (schema: z.ZodObject<any>, prefix?: string) => {
-  let nullables: string[] = [];
+export const extractZodNonNullables = (schema: z.ZodObject<any>, prefix?: string) => {
+  let NonNullables: string[] = [];
   for (const key in schema.shape){
     const entry = schema.shape[key];
     let level = 0;
     let innerElement = entry;
-    while ((innerElement._def.innerType instanceof z.ZodOptional || innerElement._def.innerType instanceof z.ZodNullable) && level < 5) {
+    let found = false;
+    while (!!innerElement._def.innerType && level < 5) {
       innerElement = innerElement._def.innerType;
+      if(innerElement instanceof z.ZodObject){
+        NonNullables = NonNullables.concat(extractZodNonNullables(innerElement, prefix ? prefix + '.' + key : key));
+      }
+      if (innerElement instanceof z.ZodNullable) {
+        found = true;
+        break;
+      }
       level++;
     }
     
-    if(innerElement._def.innerType instanceof z.ZodObject){
-      nullables = nullables.concat(extractZodNullables(innerElement._def.innerType, prefix ? prefix + '.' + key : key));
-    }
-    if(innerElement instanceof z.ZodNullable || innerElement instanceof z.ZodOptional)
+    if(!found && !(entry instanceof z.ZodNullable))
     {
-      nullables.push(prefix ? prefix + '.' + key : key);
+      NonNullables.push(prefix ? prefix + '.' + key : key);
     }
   }
-  return nullables;
+  return NonNullables;
 };
 
-export const replaceNullables = (data: {[string]: unknown}, nullables: string[]) => {
+export const replaceNullables = (data: {[string]: unknown}, nullables: string[], prefix?: string) => {
   for (const key in data) {
     if(typeof data[key] !== 'object' || data[key] === null) {
-      data[key] = (nullables.includes(key) && data[key] === null) ? '' : data[key];
+      data[key] = (nullables.includes(prefix ? `${prefix}.${key}` : key) && data[key] === null) ? '' : data[key];
     }else{
-      data[key] = replaceNullables(data[key], nullables);
+      data[key] = replaceNullables(data[key], nullables, prefix ? prefix + '.' + key : key);
     }
   }
   return data;
 };
 
+export const makeNullable = (schema: z.AnyZodObject, found? = false) => {
+
+  if(!(schema instanceof ZodObject) && !schema?._def.innerType){
+    return found ? schema.nullish() : schema;
+  }
+  if (schema instanceof ZodObject){
+    for(const key in schema.shape){
+      schema.shape[key] = makeNullable(schema.shape[key], false);
+    }  
+    return schema;
+  }
+  return makeNullable(schema._def.innerType, found || schema instanceof z.ZodNullable || schema instanceof z.ZodOptional);
+}
+
 export const transformZodNullables = (schema: z.ZodObject<any>) => {
-  const nonNullableFields = extractZodNullables(schema);
-  return schema.transform((data) => replaceNullables(data, nonNullableFields));
+  const nonNullableFields = extractZodNonNullables(schema);
+  return makeNullable(schema).transform((data) => replaceNullables(data, nonNullableFields));
 };
-
-
-  //return Object.entries(data).map(([key, value]) => (nonNullableFields.includes(key) && value === null) ? { [key]: '' } : { [key]: value } );
-// export const checkNullable = <T extends {[key:string]: unknown}>(data: T, nonNullableFields: string[]) => T {
-//   const keys = Object.keys(data);
-//   for (const key of keys) {
-//     if(typeof data[key] !== 'object' || data[key] === null) {
-//       return { ...data, [key]: (nonNullableFields.includes(key) && data[key] === null) ? '' : data[key] };
-//     }
-//     return { ...data, [key]: checkNullable(data[key] as T, nonNullableFields) };
-//   }
-// };
