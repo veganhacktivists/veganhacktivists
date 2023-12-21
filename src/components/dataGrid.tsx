@@ -7,6 +7,7 @@ import type {
   FilterChangedEvent,
   SortChangedEvent,
   SortController,
+  SortModelItem,
 } from 'ag-grid-community';
 
 import 'ag-grid-community/styles/ag-grid.css';
@@ -75,8 +76,8 @@ const DataGrid = <T,>({
 
   const handleSortChanged = useCallback(
     (e: SortChangedEvent) => {
-      const sortController = e.api.sortController() as SortController;
-      const sorting = sortController.getSortModel()[0] ?? null;
+      const state = e.api.getColumnState();
+      const sorting = state.find((column) => column.sort) as SortModelItem ?? null;
       onSortChange?.(
         sorting ? { column: sorting.colId, order: sorting.sort } : null
       );
