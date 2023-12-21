@@ -30,6 +30,7 @@ import {
   buildSearchQuery,
   buildSortingQuery,
   buildUpdateQuery,
+  transformZodNullables,
 } from 'lib/helpers/datagrid';
 
 const applicationSchema = PlaygroundApplicationSchema.omit({
@@ -208,7 +209,7 @@ const adminRouter = t.router({
       return { total, content: data };
     }),
   updateApplication: adminProcedure
-    .input(applicationSchema.omit({ request: true }).partial())
+    .input(transformZodNullables(applicationSchema.omit({ request: true }).partial()))
     .mutation(async ({ input }) => {
       const { id, ...data } = input;
       const dataQuery = buildUpdateQuery(data);
