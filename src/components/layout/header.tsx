@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useSession } from 'next-auth/react';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
@@ -20,7 +21,7 @@ const LeftSide: React.FC = () => {
   return (
     <div
       className={classNames(
-        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
+        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max',
       )}
     >
       {/* root */}
@@ -68,7 +69,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 
   const classes = classNames(
     'p-5 py-6 transition duration-500 text-center whitespace-nowrap',
-    className
+    className,
   );
 
   return (
@@ -81,6 +82,8 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 };
 
 const NavbarItems: React.FC = () => {
+  const { status } = useSession();
+
   return (
     <>
       {['about', 'services', 'work', 'people', 'blog'].map((menuElem) => (
@@ -105,10 +108,15 @@ const NavbarItems: React.FC = () => {
         Donate
       </NavBarItem>
       <NavBarItem
-        href={'/playground'}
+        href={
+          status === 'authenticated'
+            ? // TODO: replace once we have a profile page
+              '/playground'
+            : '/playground'
+        }
         className="font-bold bg-green hover:bg-green-dark"
       >
-        Get Help
+        {status === 'authenticated' ? 'My Account' : 'Get Help'}
       </NavBarItem>
       <a
         className="p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark"
