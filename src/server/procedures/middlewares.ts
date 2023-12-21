@@ -1,17 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TRPCError, experimental_standaloneMiddleware } from '@trpc/server';
+import { TRPCError } from '@trpc/server';
+
+import { t } from 'server/trpc';
 
 import type { Context } from 'server/context';
 import type { z } from 'zod';
 
-export const ctxInput = <T extends z.ZodTypeAny, C extends Context>(
-  getZodType: (ctx: C) => T
+export const ctxInput = <T extends z.ZodTypeAny>(
+  getZodType: (ctx: Context) => T
 ) =>
-  experimental_standaloneMiddleware<{
-    ctx: C;
-    rawInput: unknown;
-    meta: any;
-  }>().create(async ({ next, ctx, rawInput }) => {
+  t.middleware(async ({ next, ctx, rawInput }) => {
     const result = await getZodType(ctx).safeParseAsync(rawInput);
 
     if (result.success) {
