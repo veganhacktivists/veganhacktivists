@@ -139,6 +139,22 @@ export const extractZodNullables = (schema: z.ZodObject<any>, prefix?: string) =
   return nullables;
 };
 
+export const replaceNullables = (data: {[string]: unknown}, nullables: string[]) => {
+  for (const key in data) {
+    if(typeof data[key] !== 'object' || data[key] === null) {
+      data[key] = (nullables.includes(key) && data[key] === null) ? '' : data[key];
+    }else{
+      data[key] = replaceNullables(data[key], nullables);
+    }
+  }
+  return data;
+};
+
+export const transformZodNullables = (schema: z.ZodObject<any>) => {
+  const nonNullableFields = extractZodNullables(schema);
+  return schema.transform((data) => replaceNullables(data, nonNullableFields));
+};
+
 
   //return Object.entries(data).map(([key, value]) => (nonNullableFields.includes(key) && value === null) ? { [key]: '' } : { [key]: value } );
 // export const checkNullable = <T extends {[key:string]: unknown}>(data: T, nonNullableFields: string[]) => T {
