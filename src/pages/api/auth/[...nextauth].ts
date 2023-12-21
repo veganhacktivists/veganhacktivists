@@ -17,7 +17,7 @@ import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
 const sendVerificationRequest = async (
-  params: SendVerificationRequestParams,
+  params: SendVerificationRequestParams
 ) => {
   const { identifier, url } = params;
   const { searchParams } = new URL(url);
@@ -57,7 +57,7 @@ const getPrismaAdapter = (req: NextApiRequest) => {
 
     if (
       [UserRole.Applicant, UserRole.Requestor].includes(
-        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>,
+        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>
       )
     ) {
       const role = callbackUrl?.searchParams.get('role') as Exclude<

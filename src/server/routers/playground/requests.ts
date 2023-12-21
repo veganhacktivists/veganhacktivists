@@ -37,8 +37,8 @@ const checkForProfitRequestHasBudgetMiddleware = ctxInput((ctx: Context) =>
     {
       message: 'Request for for-profit organizations must be paid',
       path: ['budget'],
-    },
-  ),
+    }
+  )
 );
 
 const requestsRouter = t.router({
@@ -117,7 +117,7 @@ const requestsRouter = t.router({
       }
 
       return request;
-    },
+    }
   ),
 });
 

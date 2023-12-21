@@ -37,7 +37,7 @@ superjson.registerCustom<Decimal, string>(
     serialize: (v) => v.toJSON(),
     deserialize: (v) => new Decimal(v),
   },
-  'decimal.js',
+  'decimal.js'
 );
 
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
