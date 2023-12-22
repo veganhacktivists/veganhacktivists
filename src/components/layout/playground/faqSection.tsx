@@ -2,8 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import SquareField from '../../decoration/squares';
-
-import Accordion from './accordion';
+import Accordion from '../accordion';
 
 import CustomLink from 'components/decoration/link';
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
