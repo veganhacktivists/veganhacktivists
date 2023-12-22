@@ -177,20 +177,6 @@ export const submitRequestSchema = z
       .boolean()
       .refine((x) => !!x)
       .transform(() => undefined),
-    providedEmail: z.string().trim().email(),
-    website: z
-      .string()
-      .trim()
-      .min(1)
-      .refine((url) => !url.includes(' '), {
-        message: "The URL can't contain spaces",
-      })
-      .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
-    calendlyUrl: z
-      .string()
-      .trim()
-      .min(1, { message: 'This value is required' }),
-    devRequestWebsiteExists: z.boolean().optional(),
     devRequestWebsiteUrl: z.string().optional(),
     designRequestType: z
       .nativeEnum(PlaygroundRequestDesignRequestType)

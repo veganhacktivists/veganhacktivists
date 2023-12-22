@@ -231,14 +231,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   useOnce(
     () => {
       if (!session?.user || requestId) return;
-      const { name, email } = session.user;
+      const { name } = session.user;
       if (name && !watch('name')) {
         setValue('name', name);
         setFormData({ name });
-      }
-      if (email && !watch('providedEmail')) {
-        setValue('providedEmail', email);
-        setFormData({ providedEmail: email });
       }
     },
     {
@@ -428,7 +424,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
         {!isFirstRender && requestCategory === 'Developer' && (
           <>
-            <div className="md:col-span-2 col-span-full">
+          {/*  <div className="md:col-span-2 col-span-full">
               <Label name="devRequestWebsiteExists">
                 Do you have an existing website?
               </Label>
@@ -454,7 +450,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                   />
                 )}
               />
-            </div>
+            </div>*/}
             <TextInput
               className="md:col-span-4 col-span-full"
               placeholder="www.website…"
@@ -704,13 +700,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="request" />
-      <SignInPrompt
-        isOpen={isSignInModalOpen}
-        type="request"
-        onClose={onModalClose}
-        email={watch('providedEmail')}
-        submitOnVerify
-      />
     </div>
   );
 };

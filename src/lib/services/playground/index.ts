@@ -91,23 +91,15 @@ export const getRequestById = async (
       dueDate: true,
       description: true,
       id: true,
-      estimatedTimeDays: true,
       neededVolunteers: true,
-      name: true,
       organization: true,
       requiredSkills: true,
       title: true,
       status: true,
       updatedAt: true,
-      website: true,
-      organizationDescription: true,
       designRequestCurrentDesignExists: true,
       designRequestType: true,
-      devRequestWebsiteExists: true,
       devRequestWebsiteUrl: true,
-      providedEmail: user?.role === UserRole.Admin || ownRequest,
-      calendlyUrl: user?.role === UserRole.Admin || ownRequest,
-      phone: user?.role === UserRole.Admin || ownRequest,
       requester:
         user?.role === UserRole.Admin || ownRequest
           ? true
@@ -249,10 +241,19 @@ export const submitRequest = async ({
   requesterId,
   ...params
 }: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
+  const user = await prisma.user.findUnique({ where: { id: requesterId } });
+  if (!user?.organizationId) {
+    throw new Error('User does not belong to an organization');
+  }
   const [newRequest] = await prisma.$transaction([
     prisma.playgroundRequest.create({
       data: {
         ...params,
+        organization: {
+          connect: {
+            id: user.organizationId,
+          },
+        },
         requester: {
           connect: {
             id: requesterId,
