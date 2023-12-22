@@ -59,7 +59,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
   {
     title: 'Design',
     content:
-      "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence.",
+      "Our sister organization, Violet Studios, offers several design services across branding, web design, document design, and more. They collaborate closely with you to understand who you are and what your needs are, so that they can best curate your digital presence.",
     icon: designIcon,
     iconBgColor: 'yellow-dark',
     iconAccentColor: 'yellow-orange',
