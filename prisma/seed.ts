@@ -9,6 +9,7 @@ import {
   Source,
   PlaygroundRequestOrganizationType,
   PlaygroundRequestDesignRequestType,
+  UserRole,
 } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { DateTime } from 'luxon';
@@ -28,6 +29,9 @@ const seedUsers = async (n: number = NUMBER) => {
       const name = faker.name.fullName({ firstName, lastName });
 
       return {
+        role: faker.datatype.boolean()
+          ? UserRole.Requestor
+          : UserRole.Applicant,
         email: faker.internet.email(firstName, lastName),
         name,
       };
@@ -38,7 +42,9 @@ const seedUsers = async (n: number = NUMBER) => {
 };
 
 const seedRequests = async (n: number = NUMBER) => {
-  const users = await prisma.user.findMany();
+  const possibleRequestors = await prisma.user.findMany({
+    where: { role: UserRole.Requestor },
+  });
   const requests: Prisma.PlaygroundRequestCreateArgs['data'][] = Array(n)
     .fill(null)
     .map(() => {
@@ -79,8 +85,8 @@ const seedRequests = async (n: number = NUMBER) => {
                 ? faker.date.future(undefined, createdAt)
                 : faker.date.soon(30, createdAt)
               : faker.datatype.boolean()
-              ? faker.date.past(undefined, createdAt)
-              : faker.date.recent(30, createdAt)
+                ? faker.date.past(undefined, createdAt)
+                : faker.date.recent(30, createdAt)
             : new Date(),
         requiredSkills: faker.helpers.uniqueArray(
           () => faker.hacker.ingverb(),
@@ -88,7 +94,7 @@ const seedRequests = async (n: number = NUMBER) => {
         ),
         website: faker.internet.url(),
         title: faker.hacker.phrase(),
-        requesterId: faker.helpers.arrayElement(users).id,
+        requesterId: faker.helpers.arrayElement(possibleRequestors).id,
         phone: faker.phone.number(),
         organization: faker.company.name(),
         organizationType: faker.helpers.objectValue(
@@ -131,8 +137,8 @@ const seedRequests = async (n: number = NUMBER) => {
 };
 
 const seedApplications = async (n: number = NUMBER) => {
-  const [users, requests] = await Promise.all([
-    prisma.user.findMany(),
+  const [possibleApplicants, requests] = await Promise.all([
+    prisma.user.findMany({ where: { role: UserRole.Applicant } }),
     prisma.playgroundRequest.findMany(),
   ]);
 
@@ -141,7 +147,7 @@ const seedApplications = async (n: number = NUMBER) => {
       Array(faker.datatype.number({ min: 0, max: n }))
         .fill(null)
         .map(() => {
-          const user = faker.helpers.arrayElement(users);
+          const user = faker.helpers.arrayElement(possibleApplicants);
           return {
             createdAt: faker.date.soon(2, request.createdAt),
             acceptedAt: faker.date.soon(2, request.createdAt),

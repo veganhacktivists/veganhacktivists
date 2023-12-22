@@ -44,27 +44,70 @@ model Session {
 }
 
 enum UserRole {
-  User
+  Requestor
+  Applicant
   Admin
 }
 
 model User {
-  id            String    @id @default(cuid()) @db.VarChar(30)
-  role          UserRole  @default(User)
-  name          String?
-  pronouns      String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
+  id             String    @id @default(cuid()) @db.VarChar(30)
+  role           UserRole
+  name           String?
+  pronouns       String?
+  email          String    @unique
+  emailVerified  DateTime?
+  image          String?
+  organizationId String?
 
   accounts Account[]
   sessions Session[]
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  requestorInformation RequestorInformation?
+  applicantInformation ApplicantInformation?
 
   playgroudRequests      PlaygroundRequest[]
   playgroundApplications PlaygroundApplication[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum OrganizationType {
+  Activism
+  Profit
+}
+
+model Organization {
+  id          String           @id @default(cuid()) @db.VarChar(30)
+  type        OrganizationType
+  name        String           @unique
+  description String
+  website     String
+  members     User[]
+}
+
+model RequestorInformation {
+  id           String @id @default(cuid()) @db.VarChar(30)
+  userId       String @unique
+  phone        String
+  contactEmail String
+  contactLink  String
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ApplicantInformation {
+  id           String @id @default(cuid()) @db.VarChar(30)
+  userId       String @unique
+  contactEmail String
+  contactLink  String
+  website      String
+  origin       String
+
+  availableTimePerWeek TimePerWeek
+  socialMedia          Json        @db.Json
+  user                 User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

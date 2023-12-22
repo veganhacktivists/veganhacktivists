@@ -46,8 +46,8 @@ export const getPlaygroundRequests = async ({
       ...(isPaidRequest === undefined
         ? {}
         : isPaidRequest
-        ? { budget: { isNot: null } }
-        : { budget: { is: null } }),
+          ? { budget: { isNot: null } }
+          : { budget: { is: null } }),
       category: {
         in: categories,
       },

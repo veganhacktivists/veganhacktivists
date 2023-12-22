@@ -25,6 +25,7 @@ import { DarkButton, OutlineButton } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import Spinner from 'components/decoration/spinner';
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
+import YoutubeVideo from 'components/decoration/youtubeVideo';
 
 import type { NextSeoProps } from 'next-seo';
 import type { Layout } from 'types/persistentLayout';
@@ -126,8 +127,8 @@ const PlaygroundLayout: Layout = ({ children }) => {
           router.pathname === '/playground/submit'
             ? 'dark'
             : router.pathname === '/playground'
-            ? undefined
-            : 'light'
+              ? undefined
+              : 'light'
         }
       />
       <SquareField
@@ -135,10 +136,25 @@ const PlaygroundLayout: Layout = ({ children }) => {
         squares={[
           { color: '#949494', size: 16, left: 0, top: 0 },
           { color: '#B6B6B6', size: 16, left: 16, top: 0 },
-          { color: '#B3B3B3', size: 28, right: 0, top: 0 },
-          { color: '#D9D9D9', size: 14, right: 28, top: 0 },
         ]}
       />
+
+      <div className="relative w-full overflow-hidden text-2xl text-white bg-grey">
+        <div className="relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8">
+          <div className="py-2">
+            <YoutubeVideo id="yk5pwbtgmp4" />
+          </div>
+        </div>
+      </div>
+
+      <SquareField
+        className="hidden md:block"
+        squares={[
+          { color: '#B3B3B3', size: 28, right: 0, bottom: 0 },
+          { color: '#D9D9D9', size: 14, right: 28, bottom: 0 },
+        ]}
+      />
+
       <div
         className={classNames({
           dark: router.pathname === '/playground/request/[id]',

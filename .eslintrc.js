@@ -3,6 +3,12 @@ module.exports = {
   plugins: ['import'],
   ignorePatterns: ['.eslintrc.js'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        trailingComma: 'es5',
+      },
+    ],
     'react/button-has-type': ['error'],
     'no-console': ['warn'],
     'react/self-closing-comp': ['warn'],

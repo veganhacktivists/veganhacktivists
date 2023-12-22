@@ -250,13 +250,13 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text>We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
       application.request.name
     }&apos;s Calendy link <a href="${
-    // TODO: sanitize this and all the other data?
-    application.request.calendlyUrl
-  }">here</a>${
-    application.calendlyUrl
-      ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
-      : ''
-  }.</mj-text>
+      // TODO: sanitize this and all the other data?
+      application.request.calendlyUrl
+    }">here</a>${
+      application.calendlyUrl
+        ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+        : ''
+    }.</mj-text>
     <mj-text><b>Important notice:</b></mj-text>
     <mj-text><i>While we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers. Is someone not responding at all? Or any other issues? Get in touch!</i></mj-text>
     <mj-text>Thank you so much for helping the animals, and for using Playground!</mj-text>

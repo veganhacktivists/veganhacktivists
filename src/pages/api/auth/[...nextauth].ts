@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { UserRole } from '@prisma/client';
 
 import {
   verificationMail,
@@ -11,6 +12,7 @@ import { OUR_EMAIL_FROM_FORMATTED } from '../../../lib/mail/router';
 import emailClient from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
+import type { NextApiHandler, NextApiRequest } from 'next';
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
@@ -34,8 +36,47 @@ const sendVerificationRequest = async (
   });
 };
 
-export const nextAuthOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+const getPrismaAdapter = (req: NextApiRequest) => {
+  const adapter = PrismaAdapter(prisma);
+
+  const nextQuery = req.query.nextauth as string | undefined;
+
+  if (!nextQuery) {
+    return adapter;
+  }
+
+  if (
+    nextQuery.includes('callback') &&
+    // All this logic can probably be avoided with the profile callback of the other OAuth methods
+    // So we're just going to apply it to the email login for now
+    nextQuery.includes('email')
+  ) {
+    const callbackUrl = req.query.callbackUrl
+      ? new URL(req.query.callbackUrl as string)
+      : undefined;
+
+    if (
+      [UserRole.Applicant, UserRole.Requestor].includes(
+        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>
+      )
+    ) {
+      const role = callbackUrl?.searchParams.get('role') as Exclude<
+        UserRole,
+        'Admin'
+      >;
+      adapter.createUser = async (data) => {
+        return await prisma.user.create({
+          data: { ...data, role },
+        });
+      };
+    }
+  }
+
+  return adapter;
+};
+
+export const getNextAuthOptions = (req: NextApiRequest): NextAuthOptions => ({
+  adapter: getPrismaAdapter(req),
   session: {
     strategy: 'jwt',
   },
@@ -61,6 +102,10 @@ export const nextAuthOptions: NextAuthOptions = {
       });
 
       if (user) {
+        token.isRequestor =
+          user.role === UserRole.Admin || user.role === UserRole.Requestor;
+        token.isApplicant =
+          user.role === UserRole.Admin || user.role === UserRole.Applicant;
         token.role = user.role;
         token.email = user.email;
         token.name = user.name;
@@ -77,12 +122,18 @@ export const nextAuthOptions: NextAuthOptions = {
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.role = token.role;
+        session.user.isApplicant = token.isApplicant;
+        session.user.isRequestor = token.isRequestor;
       }
 
       delete session.user?.image;
       return session;
     },
   },
+});
+
+const handle: NextApiHandler = async (req, res) => {
+  return await NextAuth(req, res, getNextAuthOptions(req));
 };
 
-export default NextAuth(nextAuthOptions);
+export default handle;

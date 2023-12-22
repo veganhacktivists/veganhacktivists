@@ -8,9 +8,9 @@ import { codeBlock, EmbedBuilder, hyperlink, roleMention } from 'discord.js';
 
 import { CATEGORY_COLORS } from '../../../../prisma/constants';
 import {
-  JESS_EMAIL,
   OUR_EMAIL_TO,
   PLAYGROUND_EMAIL_FORMATTED,
+  PLAYGROUND_TO_CC,
 } from '../../mail/router';
 import {
   playgroundApplicantIntroductionEmail,
@@ -343,8 +343,8 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
         err instanceof Error
           ? err
           : typeof err === 'string'
-          ? new Error(err)
-          : new Error(JSON.stringify(err));
+            ? new Error(err)
+            : new Error(JSON.stringify(err));
       throw new Error(`Failed to send Playground message. ${cause.message}`, {
         cause,
       });
@@ -427,8 +427,8 @@ export const repostRequest = async ({
         e instanceof Error
           ? e
           : typeof e === 'string'
-          ? new Error(e)
-          : new Error(JSON.stringify(e));
+            ? new Error(e)
+            : new Error(JSON.stringify(e));
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }
@@ -493,11 +493,16 @@ export const setRequestStatus = async ({
 
         if (shouldPost) {
           console.info('Trying to post to reddit and discord', id, Date.now());
-          redditSubmissions = await postPlaygroundRequestOnReddit(
-            updatedRequest
+          redditSubmissions =
+            await postPlaygroundRequestOnReddit(updatedRequest);
+          console.info('Successfully posted request to reddit', id, Date.now());
+          discordMessages = await postRequestOnDiscord(updatedRequest);
+          console.info(
+            'Successfully posted request to discord',
+            id,
+            Date.now()
           );
 
-          discordMessages = await postRequestOnDiscord(updatedRequest);
           updatedRequest = await prisma.playgroundRequest.update({
             where: { id },
             include: { budget: true },
@@ -514,7 +519,7 @@ export const setRequestStatus = async ({
 
         return updatedRequest;
       },
-      { timeout: 30000 }
+      { timeout: 60000 }
     );
     if (shouldPost) {
       await sendAcceptedEmail(updatedRequest);
@@ -537,8 +542,8 @@ export const setRequestStatus = async ({
         e instanceof Error
           ? e
           : typeof e === 'string'
-          ? new Error(e)
-          : new Error(JSON.stringify(e));
+            ? new Error(e)
+            : new Error(JSON.stringify(e));
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }
@@ -581,7 +586,7 @@ const sendCompletionEmail = (
   return emailClient.sendMail({
     to: request.providedEmail,
     from: PLAYGROUND_EMAIL_FORMATTED,
-    cc: JESS_EMAIL,
+    cc: PLAYGROUND_TO_CC,
     subject: 'Help Us Improve! Rate Your Experience with Playground',
     text: playgroundRequestCompletedSurvey(request, true),
     html: playgroundRequestCompletedSurvey(request),

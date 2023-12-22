@@ -1,41 +1,83 @@
 import { getProviders, signIn, useSession } from 'next-auth/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import { UserRole } from '@prisma/client';
 
 import TextInput from '../../components/forms/inputs/textInput';
 import { DarkButton } from '../../components/decoration/buttons';
-import { NavButton } from '../../components/decoration/buttons';
 
 import useOnce from 'hooks/useOnce';
 import Spinner from 'components/decoration/spinner';
 
+import type { BuiltInProviderType } from 'next-auth/providers';
 import type { NextPage } from 'next';
-import type { SignInResponse } from 'next-auth/react';
+import type {
+  ClientSafeProvider,
+  LiteralUnion,
+  SignInResponse,
+} from 'next-auth/react';
 
-interface SignInForm {
-  email: string;
-  // name: string;
-}
-
-const signInSchema = z.object({
+const emailSignInSchema = z.object({
   email: z.string().email(),
-  // name: Joi.string().required(),
 });
 
-const resolver = zodResolver(signInSchema);
+interface AuthProviderProps {
+  callbackUrl?: string;
+}
+
+type EmailSignInForm = z.infer<typeof emailSignInSchema>;
+
+const resolver = zodResolver(emailSignInSchema);
+
+type AuthProviders = Record<
+  LiteralUnion<BuiltInProviderType, string>,
+  ClientSafeProvider
+>;
+
+const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { handleSubmit, register } = useForm<EmailSignInForm>({ resolver });
+  const onSubmit = useCallback(
+    async ({ email }: EmailSignInForm) => {
+      setIsLoading(true);
+
+      const { ok } = (await signIn('email', {
+        email,
+        callbackUrl,
+      })) as SignInResponse;
+      if (!ok) {
+        setIsLoading(false);
+      }
+    },
+    [callbackUrl]
+  );
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="w-1/2 mx-auto h-max">
+        <TextInput {...register('email')} type="email">
+          Email
+        </TextInput>
+      </div>
+      <DarkButton type="submit" disabled={isLoading}>
+        Sign in!
+      </DarkButton>
+    </form>
+  );
+};
 
 const SignIn: NextPage = () => {
+  const { query, isReady, push } = useRouter();
+  const { user: queryUser } = query;
+
   const [isLoading, setIsLoading] = useState(true);
   const { status } = useSession();
-  const router = useRouter();
 
-  const [providers, setProviders] =
-    useState<Awaited<ReturnType<typeof getProviders>>>(null);
-
-  const { handleSubmit, register } = useForm<SignInForm>({ resolver });
+  const [providers, setProviders] = useState<AuthProviders | null>();
 
   useOnce(() => {
     void getProviders()
@@ -47,60 +89,73 @@ const SignIn: NextPage = () => {
       });
   });
 
-  const onSubmit = useCallback<Parameters<typeof handleSubmit>[0]>(
-    async ({ email }) => {
-      const callbackUrl = router.query.callbackUrl as string;
-      setIsLoading(true);
+  const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
 
-      const { ok } = (await signIn<'email'>('email', {
-        email,
-        callbackUrl,
-      })) as SignInResponse;
-      if (!ok) {
-        setIsLoading(false);
+  useOnce(
+    () => {
+      if (queryUser === UserRole.Requestor) {
+        setSelectedRole(UserRole.Requestor);
+      } else {
+        setSelectedRole(UserRole.Applicant);
       }
     },
-    [router.query]
+    { enabled: isReady }
+  );
+
+  const callbackUrl = useMemo(() => {
+    if (typeof document === 'undefined') {
+      return undefined;
+    }
+    const url = new URL(
+      (query.callbackUrl as string) ?? '/playground/signup',
+      (query.callbackUrl as string) ?? (document.location as unknown as URL)
+    );
+
+    if (selectedRole) {
+      url.searchParams.set('role', selectedRole);
+    }
+    return url.toString();
+  }, [query.callbackUrl, selectedRole]);
+
+  useOnce(
+    () => {
+      if (typeof query.callbackUrl === 'string' && query.callbackUrl) {
+        void push(query.callbackUrl);
+      } else {
+        void push('/playground');
+      }
+    },
+    { enabled: status === 'authenticated' && isReady }
   );
 
   if (isLoading || status === 'loading') {
     return <Spinner />;
   }
 
-  if (status === 'authenticated') {
-    if (
-      typeof router.query.callbackUrl === 'string' &&
-      router.query.callbackUrl
-    ) {
-      void router.push(router.query.callbackUrl);
-      return null;
-    }
-
-    return (
-      <div>
-        You are already logged in. No callbackUrl provided.
-        <NavButton href="/playground">Go to Playground</NavButton>
-      </div>
-    );
-  }
-
-  if (!providers?.email) {
-    return null;
-  }
-
   return (
-    <div className="p-10 bg-grey-background">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="w-1/2 mx-auto">
-          <TextInput {...register('email')} type="email">
-            Email
-          </TextInput>
+    <>
+      <NextSeo title="Sign In" />
+      <div className="p-10 bg-grey-background h-max">
+        <div className="flex flex-wrap justify-center mt-10 mb-5">
+          <DarkButton
+            onClick={() => setSelectedRole(UserRole.Applicant)}
+            active={selectedRole === UserRole.Applicant}
+            className="m-5 font-mono"
+          >
+            I&apos;m an applicant
+          </DarkButton>
+          <DarkButton
+            onClick={() => setSelectedRole(UserRole.Requestor)}
+            className="m-5 font-mono"
+            active={selectedRole === UserRole.Requestor}
+          >
+            I&apos;m a requestor
+          </DarkButton>
         </div>
-        <DarkButton type="submit" disabled={isLoading}>
-          Sign in!
-        </DarkButton>
-      </form>
-    </div>
+
+        {providers?.email && <SignInWithEmail callbackUrl={callbackUrl} />}
+      </div>
+    </>
   );
 };
 

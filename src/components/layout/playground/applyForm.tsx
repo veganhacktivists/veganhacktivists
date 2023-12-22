@@ -165,9 +165,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               <div className="inline-block">
                 {request.organizationDescription
                   ?.split('\n')
-                  .map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
+                  .map((paragraph, i) => <p key={i}>{paragraph}</p>)}
               </div>
             </div>
           </Field>
@@ -183,10 +181,10 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               hasNoDue
                 ? 'Due Date'
                 : dueDateFormatted
-                ? isDue
-                  ? 'Was due'
+                  ? isDue
+                    ? 'Was due'
+                    : 'Due'
                   : 'Due'
-                : 'Due'
             }`}
           >
             {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
