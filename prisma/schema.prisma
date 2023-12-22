@@ -86,6 +86,7 @@ model Organization {
   description String
   website     String
   members     User[]
+  playgroudRequests      PlaygroundRequest[]
 }
 
 model RequestorInformation {
@@ -103,7 +104,7 @@ model ApplicantInformation {
   contactEmail String
   contactLink  String
   website      String
-  origin       String
+  origin       Origin
 
   availableTimePerWeek TimePerWeek
   socialMedia          Json        @db.Json
@@ -139,7 +140,7 @@ enum TimePerWeek {
   TenPlus
 }
 
-enum Source {
+enum Origin{
   SearchEngine
   Reddit
   SocialMediaPost
@@ -147,11 +148,6 @@ enum Source {
   WordOfMouth
   WebsiteOrBlog
   None
-}
-
-enum PlaygroundRequestOrganizationType {
-  Activism
-  Profit
 }
 
 enum BudgetType {
@@ -171,20 +167,8 @@ model Budget {
 
 model PlaygroundApplication {
   id                   String            @id @default(cuid()) @db.VarChar(30)
-  providedEmail        String
   applicantId          String
-  name                 String
-  pronouns             String?
-  availableTimePerWeek TimePerWeek
   estimatedTimeDays    Int?
-  source               Source?
-  portfolioLink        String
-  twitterUrl           String?
-  instagramUrl         String?
-  linkedinUrl          String?
-  hasAppliedInThePast  Boolean
-  isVegan              Boolean
-  calendlyUrl          String?
   moreInfo             String
   requestId            String
   status               ApplicationStatus @default(Pending)
@@ -239,31 +223,22 @@ model DiscordMessage {
 
 model PlaygroundRequest {
   id                      String                             @id @default(cuid()) @db.VarChar(30)
-  phone                   String?
-  name                    String
-  pronouns                String?
-  providedEmail           String
-  organization            String?
-  organizationType        PlaygroundRequestOrganizationType?
-  organizationDescription String?
-  website                 String
-  calendlyUrl             String
+  organizationId          String
   title                   String                             @db.VarChar(200)
   requiredSkills          String[]                           @default([])
   neededVolunteers        Int                                @default(1)
   description             String                             @db.Text
   dueDate                 DateTime?                          @db.Date
-  estimatedTimeDays       Int? // TODO: remvoe
   requesterId             String
   status                  RequestStatus                      @default(Pending)
   category                PlaygroundRequestCategory
 
   discordMessages DiscordMessage[]
-  requester       User                    @relation(fields: [requesterId], references: [id])
+  requester       User                    @relation(fields: [requesterId], references: [id], onDelete: SetNull)
+  organization    Organization            @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   applications    PlaygroundApplication[]
   budget          Budget?
 
-  devRequestWebsiteExists          Boolean?
   devRequestWebsiteUrl             String?
   designRequestType                PlaygroundRequestDesignRequestType?
   designRequestCurrentDesignExists Boolean?
