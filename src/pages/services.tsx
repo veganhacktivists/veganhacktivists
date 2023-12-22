@@ -65,7 +65,7 @@ const SERVICE_BLOCKS: Omit<ServiceProps, 'align'>[] = [
     iconAccentColor: 'yellow-orange',
     button: {
       text: 'Apply for free design support',
-      href: 'https://veganhacktivists.org/playground',
+      href: 'https://violetstudios.org',
     },
   },
   {
