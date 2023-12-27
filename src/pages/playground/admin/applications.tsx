@@ -20,7 +20,7 @@ const Applications: NextPage = () => {
     { sort: sorting, pageSize, page: currentPage, filters, search },
     { keepPreviousData: true }
   );
-  const { mutate } = trpc.playground.admin.updateApplication.useMutation();
+  const { mutateAsync } = trpc.playground.admin.updateApplication.useMutation();
   const columns: ColDef<ApplicationEntry>[] = [
     { field: 'id', hide: true },
     {
@@ -68,10 +68,11 @@ const Applications: NextPage = () => {
   const handleValueChange = useCallback(
     async (data: ApplicationEntry) => {
       const { request, ...rest } = data;
-      mutate(rest);
+
+      await mutateAsync(rest);
       await refetch();
     },
-    [mutate, refetch]
+    [mutateAsync, refetch]
   );
 
   const handlePaginationChange = useCallback(
