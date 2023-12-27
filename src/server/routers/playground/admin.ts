@@ -32,6 +32,7 @@ import {
   buildUpdateQuery,
   transformZodNullables,
 } from 'lib/helpers/datagrid';
+import prisma from 'lib/db/prisma';
 
 const applicationSchema = PlaygroundApplicationSchema.omit({
   applicantId: true,
@@ -82,6 +83,7 @@ const adminRouter = t.router({
   setRequestStatus: adminProcedure
     .input(setRequestStatusSchema)
     .mutation(async ({ input }) => {
+      // eslint-disable-next-line no-console
       console.info('setRequestStatus', JSON.stringify(input), Date.now());
       const request = await setRequestStatus(input);
 
@@ -165,8 +167,8 @@ const adminRouter = t.router({
         filters && input.search && input.search.length > 0
           ? { AND: [filters, search] }
           : filters
-          ? filters
-          : search;
+            ? filters
+            : search;
       const data: ApplicationEntry[] =
         await prisma.playgroundApplication.findMany({
           select: {
@@ -209,12 +211,14 @@ const adminRouter = t.router({
       return { total, content: data };
     }),
   updateApplication: adminProcedure
-    .input(transformZodNullables(applicationSchema.omit({ request: true }).partial()))
+    .input(
+      transformZodNullables(applicationSchema.omit({ request: true }).partial())
+    )
     .mutation(async ({ input }) => {
       const { id, ...data } = input;
       const dataQuery = buildUpdateQuery(data);
       await prisma.playgroundApplication.update({
-        where: { id: id as string },
+        where: { id },
         data: dataQuery,
       });
     }),

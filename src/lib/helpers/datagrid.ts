@@ -1,5 +1,12 @@
-import type { FilterOption } from 'lib/services/playground/schemas';
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ZodObject, z } from 'zod';
+
+import type { User } from '@prisma/client';
+import type { FieldPath, FieldPathValue, FieldValue } from 'react-hook-form';
+import type { FilterOption } from 'lib/services/playground/schemas';
 
 interface SortingQuery {
   [key: string]: 'asc' | 'desc' | SortingQuery;
@@ -115,19 +122,34 @@ export const buildSearchQuery = (
   return { OR: columns.map((column) => getSearchEntry(column, search)) };
 };
 
+type AnyObject = Record<string, unknown>;
 
+// type MakeNullable<T> = T extends AnyObject
+//   ? {
+//       [Key in keyof T]: MakeNullable<T[Key]> | null;
+//     }
+//   : T | null;
 
-export const extractZodNonNullables = (schema: z.ZodObject<any>, prefix?: string) => {
+export const extractZodNonNullables = <S extends z.AnyZodObject>(
+  schema: S,
+  prefix?: string
+) => {
   let NonNullables: string[] = [];
-  for (const key in schema.shape){
+  for (const key in schema.shape) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const entry = schema.shape[key];
     let level = 0;
     let innerElement = entry;
     let found = false;
     while (!!innerElement._def.innerType && level < 5) {
       innerElement = innerElement._def.innerType;
-      if(innerElement instanceof z.ZodObject){
-        NonNullables = NonNullables.concat(extractZodNonNullables(innerElement, prefix ? prefix + '.' + key : key));
+      if (innerElement instanceof z.ZodObject) {
+        NonNullables = NonNullables.concat(
+          extractZodNonNullables(
+            innerElement,
+            prefix ? prefix + '.' + key : key
+          )
+        );
       }
       if (innerElement instanceof z.ZodNullable) {
         found = true;
@@ -135,41 +157,143 @@ export const extractZodNonNullables = (schema: z.ZodObject<any>, prefix?: string
       }
       level++;
     }
-    
-    if(!found && !(entry instanceof z.ZodNullable))
-    {
+
+    if (!found && !(entry instanceof z.ZodNullable)) {
       NonNullables.push(prefix ? prefix + '.' + key : key);
     }
   }
   return NonNullables;
 };
 
-export const replaceNullables = (data: {[string]: unknown}, nullables: string[], prefix?: string) => {
+type ReplaceNullables<T extends AnyObject> = {
+  [Key in keyof T]: NonNullable<
+    T[Key] extends Record<string, unknown> ? ReplaceNullables<T[Key]> : T[Key]
+  >;
+};
+
+export const replaceNullables = <T extends Record<string, unknown>>(
+  data: T,
+  nullables: FieldPath<T>[],
+  prefix?: string
+): ReplaceNullables<T> => {
   for (const key in data) {
-    if(typeof data[key] !== 'object' || data[key] === null) {
-      data[key] = (nullables.includes(prefix ? `${prefix}.${key}` : key) && data[key] === null) ? '' : data[key];
-    }else{
-      data[key] = replaceNullables(data[key], nullables, prefix ? prefix + '.' + key : key);
+    if (typeof data[key] !== 'object' || data[key] === null) {
+      data[key] =
+        nullables.includes(prefix ? `${prefix}.${key}` : key) &&
+        data[key] === null
+          ? ''
+          : data[key];
+    } else {
+      data[key] = replaceNullables(
+        data[key],
+        nullables,
+        prefix ? prefix + '.' + key : key
+      );
     }
   }
   return data;
 };
 
-export const makeNullable = (schema: z.AnyZodObject, found? = false) => {
+type DeepZodPartial<T extends z.ZodTypeAny> = T extends ZodObject<z.ZodRawShape>
+  ? ZodObject<
+      { [k in keyof T['shape']]: z.ZodNullable<DeepZodPartial<T['shape'][k]>> },
+      T['_def']['unknownKeys'],
+      T['_def']['catchall']
+    >
+  : T extends z.ZodArray<infer Type, infer Card>
+    ? z.ZodArray<DeepZodPartial<Type>, Card>
+    : T extends z.ZodOptional<infer Type>
+      ? z.ZodNullable<DeepZodPartial<Type>>
+      : T extends z.ZodNullable<infer Type>
+        ? z.ZodNullable<DeepZodPartial<Type>>
+        : T extends z.ZodTuple<infer Items>
+          ? {
+              [k in keyof Items]: Items[k] extends z.ZodTypeAny
+                ? DeepZodPartial<Items[k]>
+                : never;
+            } extends infer PI
+            ? PI extends z.ZodTupleItems
+              ? z.ZodTuple<PI>
+              : never
+            : never
+          : T; // z.ZodNullable<T> if the list element is nullable too
 
-  if(!(schema instanceof ZodObject) && !schema?._def.innerType){
-    return found ? schema.nullish() : schema;
-  }
-  if (schema instanceof ZodObject){
-    for(const key in schema.shape){
-      schema.shape[key] = makeNullable(schema.shape[key], false);
-    }  
-    return schema;
-  }
-  return makeNullable(schema._def.innerType, found || schema instanceof z.ZodNullable || schema instanceof z.ZodOptional);
-}
+const deepPartialify = <T extends z.ZodTypeAny>(
+  schema: T
+): DeepZodPartial<T> => {
+  if (schema instanceof z.ZodObject) {
+    const newShape: any = {};
 
-export const transformZodNullables = (schema: z.ZodObject<any>) => {
+    for (const key in schema.shape) {
+      const fieldSchema = schema.shape[key];
+      // newShape[key] = z.ZodOptional.create(deepPartialify(fieldSchema));
+      newShape[key] = z.ZodNullable.create(deepPartialify(fieldSchema));
+    }
+    return new ZodObject({
+      ...schema._def,
+      shape: () => newShape,
+    }) as any;
+  } else if (schema instanceof z.ZodArray) {
+    return new z.ZodArray({
+      ...schema._def,
+      type: deepPartialify(schema.element),
+    }) as DeepZodPartial<T>;
+  } else if (schema instanceof z.ZodOptional) {
+    return z.ZodNullable.create(
+      deepPartialify(schema.unwrap())
+    ) as DeepZodPartial<T>;
+  } else if (schema instanceof z.ZodNullable) {
+    return z.ZodNullable.create(
+      deepPartialify(schema.unwrap())
+    ) as DeepZodPartial<T>;
+  } else if (schema instanceof z.ZodTuple) {
+    return z.ZodTuple.create(
+      schema.items.map((item: any) => deepPartialify(item))
+    ) as DeepZodPartial<T>;
+  } else {
+    return schema as DeepZodPartial<T>;
+  }
+};
+
+export const makeNullable = deepPartialify;
+
+const testSchema = z.object({
+  a: z.object({ b: z.object({ c: z.object({ x: z.number() }) }) }),
+});
+
+const x = makeNullable(testSchema);
+
+// const x: DeepPartial<typeof testSchema> = {
+//   a: { b: { c: { x: null } } },
+// };
+
+type X = z.infer<typeof x>;
+
+// export const makeNullable2 = <T extends z.AnyZodObject>(
+//   schema: T,
+//   found = false
+// ) => {
+//   if (!(schema instanceof ZodObject) && !schema?._def.innerType) {
+//     return found ? schema.nullish() : schema;
+//   }
+//   if (schema instanceof ZodObject) {
+//     for (const key in schema.shape) {
+//       schema.shape[key] = makeNullable2(schema.shape[key], false);
+//     }
+//     return schema;
+//   }
+//   return makeNullable2(
+//     schema._def.innerType,
+//     found || schema instanceof z.ZodNullable || schema instanceof z.ZodOptional
+//   );
+// };
+
+export const transformZodNullables = <T extends z.ZodTypeAny>(
+  schema: T
+): ReplaceNullables<DeepZodPartial<T>> => {
   const nonNullableFields = extractZodNonNullables(schema);
-  return makeNullable(schema).transform((data) => replaceNullables(data, nonNullableFields));
+
+  return makeNullable(schema).transform((data) =>
+    replaceNullables(data, nonNullableFields)
+  );
 };
