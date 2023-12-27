@@ -123,7 +123,7 @@ export const buildSearchQuery = (
 
 type AnyObject = Record<string, unknown>;
 
-export const extractZodNonNullables = <S extends z.AnyZodObject>(
+const extractZodNonNullables = <S extends z.AnyZodObject>(
   schema: S,
   prefix?: string
 ) => {
@@ -173,7 +173,7 @@ type ReplaceNullables<T> = T extends AnyObject
 /**
  * Replaces null fields with the default empty value
  */
-export const replaceNullables = <T extends AnyObject>(
+const replaceNullables = <T extends AnyObject>(
   data: T,
   nullables: FieldPath<T>[],
   prefix?: string
@@ -262,25 +262,6 @@ const deepPartialify = <T extends z.ZodTypeAny>(
     return schema as DeepZodPartial<T>;
   }
 };
-
-// export const makeNullable= <T extends z.AnyZodObject>(
-//   schema: T,
-//   found = false
-// ) => {
-//   if (!(schema instanceof ZodObject) && !schema?._def.innerType) {
-//     return found ? schema.nullish() : schema;
-//   }
-//   if (schema instanceof ZodObject) {
-//     for (const key in schema.shape) {
-//       schema.shape[key] = makeNullable2(schema.shape[key], false);
-//     }
-//     return schema;
-//   }
-//   return makeNullable2(
-//     schema._def.innerType,
-//     found || schema instanceof z.ZodNullable || schema instanceof z.ZodOptional
-//   );
-// };
 
 export const transformZodNullables = <T extends z.AnyZodObject>(schema: T) => {
   const nonNullableFields = extractZodNonNullables(schema);
