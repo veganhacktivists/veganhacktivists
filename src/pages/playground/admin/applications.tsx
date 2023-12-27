@@ -1,192 +1,105 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { useCallback } from 'react';
-import { ApplicationStatus, RequestStatus } from '@prisma/client';
-import { NextSeo } from 'next-seo';
+import { ApplicationStatus } from '@prisma/client';
+import { useCallback, useState } from 'react';
 
-import {
-  DarkButton,
-  DenyButton,
-  ExternalLinkButton,
-  LogoutButton,
-  OutlineButton,
-} from 'components/decoration/buttons';
+import DataGrid from 'components/dataGrid';
 import { trpc } from 'lib/client/trpc';
-import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
-import ApplicationCard from 'components/layout/playground/applicationCard';
-import Spinner from 'components/decoration/spinner';
 
+import type { SortingOptions } from 'components/dataGrid';
+import type { ApplicationEntry } from 'server/routers/playground/admin';
 import type { NextPage } from 'next';
+import type { ColDef } from 'ag-grid-community';
+import type { FilterOption } from 'lib/services/playground/schemas';
 
-const AdminPage: NextPage = ({}) => {
-  const utils = trpc.useContext();
-  const {
-    data,
-    isSuccess,
-    isLoading: isQueryLoading,
-  } = trpc.playground.admin.requestsWithPendingApplications.useQuery();
-  const [animatedRef] = useAutoAnimate<HTMLDivElement>();
+const Applications: NextPage = () => {
+  const [pageSize, setPageSize] = useState(20);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [sorting, setSorting] = useState<SortingOptions | null>(null);
+  const [filters, setFilters] = useState<FilterOption[]>([]);
+  const [search, setSearch] = useState('');
+  const { data, refetch } = trpc.playground.admin.allApplications.useQuery(
+    { sort: sorting, pageSize, page: currentPage, filters, search },
+    { keepPreviousData: true }
+  );
+  const { mutateAsync } = trpc.playground.admin.updateApplication.useMutation();
+  const columns: ColDef<ApplicationEntry>[] = [
+    { field: 'id', hide: true },
+    {
+      field: 'request.title',
+      headerName: 'Request',
+      editable: false,
+      filter: 'agTextColumnFilter',
+    },
+    {
+      field: 'request.category',
+      headerName: 'Category',
+      editable: false,
+      filter: 'agTextColumnFilter',
+    },
+    {
+      field: 'applicant.name',
+      headerName: 'Applicant',
+      filter: 'agTextColumnFilter',
+    },
+    {
+      field: 'moreInfo',
+      headerName: 'Description',
+      filter: 'agTextColumnFilter',
+    },
+    {
+      field: 'estimatedTimeDays',
+      headerName: 'Estimated Time (Days)',
+      cellEditor: 'agNumberCellEditor',
+      cellEditorParams: { min: 1, valueParser: (val: string) => parseInt(val) },
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      cellEditor: 'agSelectCellEditor',
+      cellEditorParams: { values: Object.keys(ApplicationStatus) },
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Applied At',
+      cellEditor: 'agDateCellEditor',
+      cellEditorParams: { dateFormat: 'dd/mm/yyyy' },
+    },
+  ];
 
-  const invalidateQuery = useCallback(
-    () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
-    [utils.playground.admin.requestsWithPendingApplications]
+  const handleValueChange = useCallback(
+    async (data: ApplicationEntry) => {
+      const { request, ...rest } = data;
+
+      await mutateAsync(rest);
+      await refetch();
+    },
+    [mutateAsync, refetch]
   );
 
-  const { mutate: mutateDelete, isLoading: isDeletionLoading } =
-    trpc.playground.admin.deleteApplication.useMutation({
-      onSuccess: async () => {
-        await invalidateQuery();
-      },
-    });
+  const handlePaginationChange = useCallback(
+    (page: number, pageSize: number) => {
+      setCurrentPage(page);
+      setPageSize(pageSize);
+    },
+    []
+  );
 
-  const { mutate, isLoading: isMutationLoading } =
-    trpc.playground.admin.setApplicationStatus.useMutation({
-      onSuccess: async () => {
-        await invalidateQuery();
-      },
-    });
-
-  const isLoading = isMutationLoading || isDeletionLoading;
-
-  if (isQueryLoading) {
-    return <Spinner />;
+  if (!data) {
+    return <div>Loading...</div>;
   }
-  if (!isSuccess) return null;
 
   return (
-    <>
-      <NextSeo title="Applications - Admin Panel" />
-      <div>
-        <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
-          {Object.values(RequestStatus)
-            .filter((status) => status !== RequestStatus.Rejected)
-            .map((status) => (
-              <OutlineButton
-                href={{ pathname: '/playground/admin', query: { status } }}
-                key={status}
-              >
-                {status === RequestStatus.Accepted ? 'Live' : status} requests
-              </OutlineButton>
-            ))}
-          <OutlineButton
-            href="/playground/admin/applications"
-            className="mx-5 w-fit"
-            active
-          >
-            See applications
-          </OutlineButton>
-          <LogoutButton href="/auth/signout" className="mx-5 w-fit">
-            Logout
-          </LogoutButton>
-        </div>
-        <div
-          className="flex flex-row flex-wrap justify-center gap-5"
-          ref={animatedRef}
-        >
-          {data.length === 0 && (
-            <div className="text-center">There are no pending requests</div>
-          )}
-          {data.map((request) => (
-            <div key={request.id}>
-              <div className="h-full max-w-xl">
-                <PlaygroundRequestCard request={request}>
-                  <b>
-                    {request._count.applications > 0 ? (
-                      <>
-                        There are {request._count.applications} accepted
-                        applications for this request
-                      </>
-                    ) : (
-                      <>There are no accepted applications in this request</>
-                    )}
-                  </b>
-                  <div className="pt-5 text-xl font-bold border-b">
-                    Applications
-                  </div>
-                  <div className="flex flex-col gap-5 divide-y">
-                    {request.applications.map((app) => (
-                      <ApplicationCard key={app.id} application={app}>
-                        <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
-                          <DarkButton
-                            className="w-full"
-                            disabled={isLoading}
-                            onClick={() => {
-                              if (
-                                confirm(
-                                  `Are you sure you want to accept ${app.name}'s application?`
-                                )
-                              ) {
-                                mutate({
-                                  id: app.id,
-                                  status: ApplicationStatus.Accepted,
-                                });
-                              }
-                            }}
-                          >
-                            ✔️ Accept
-                          </DarkButton>
-                          <DenyButton
-                            className="w-full"
-                            disabled={isLoading}
-                            onClick={() => {
-                              if (
-                                confirm(
-                                  `Are you sure you want to deny ${app.name}'s application?`
-                                )
-                              ) {
-                                mutate({
-                                  id: app.id,
-                                  status: ApplicationStatus.Rejected,
-                                });
-                              }
-                            }}
-                          >
-                            ❌ Deny
-                          </DenyButton>
-                          <ExternalLinkButton
-                            className="w-full"
-                            disabled={isLoading}
-                            onClick={() => {
-                              if (
-                                confirm(
-                                  `Are you sure you want to delete ${app.name}'s application?`
-                                )
-                              ) {
-                                mutateDelete(app.id);
-                              }
-                            }}
-                          >
-                            🤫 Delete
-                          </ExternalLinkButton>
-                          <ExternalLinkButton
-                            className="w-full"
-                            disabled={isLoading}
-                            onClick={() => {
-                              if (
-                                confirm(
-                                  `Are you sure you want to block ${app.name} from taking on future applications?`
-                                )
-                              ) {
-                                mutate({
-                                  id: app.id,
-                                  status: ApplicationStatus.Blocked,
-                                });
-                              }
-                            }}
-                          >
-                            ⛔ Block
-                          </ExternalLinkButton>
-                        </div>
-                      </ApplicationCard>
-                    ))}
-                  </div>
-                </PlaygroundRequestCard>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+    <div className="w-full h-full">
+      <DataGrid
+        data={data}
+        columns={columns}
+        onUpdate={handleValueChange}
+        onSortChange={setSorting}
+        onPaginationChange={handlePaginationChange}
+        onFilterChange={setFilters}
+        onSearchChange={setSearch}
+      />
+    </div>
   );
 };
 
-export default AdminPage;
+export default Applications;

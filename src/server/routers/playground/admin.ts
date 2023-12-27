@@ -16,9 +16,37 @@ import {
   repostRequestSchema,
   setApplicationStatusSchema,
   setRequestStatusSchema,
+  datagridParamsSchema,
 } from 'lib/services/playground/schemas';
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
+import {
+  PlaygroundApplicationSchema,
+  PlaygroundRequestSchema,
+  UserSchema,
+} from 'generated/schemas';
+import {
+  buildFilterQuery,
+  buildSearchQuery,
+  buildSortingQuery,
+  buildUpdateQuery,
+  transformZodNullables,
+} from 'lib/helpers/datagrid';
+import prisma from 'lib/db/prisma';
+
+const applicationSchema = PlaygroundApplicationSchema.omit({
+  applicantId: true,
+  requestId: true,
+})
+  .extend({
+    request: PlaygroundRequestSchema.omit({ requesterId: true })
+      .extend({ requester: UserSchema.partial() })
+      .partial(),
+    applicant: UserSchema.partial(),
+  })
+  .partial();
+
+export type ApplicationEntry = z.infer<typeof applicationSchema>;
 
 const adminRouter = t.router({
   pendingApplications: adminProcedure
@@ -55,6 +83,7 @@ const adminRouter = t.router({
   setRequestStatus: adminProcedure
     .input(setRequestStatusSchema)
     .mutation(async ({ input }) => {
+      // eslint-disable-next-line no-console
       console.info('setRequestStatus', JSON.stringify(input), Date.now());
       const request = await setRequestStatus(input);
 
@@ -117,6 +146,82 @@ const adminRouter = t.router({
       });
     }
   ),
+  allApplications: adminProcedure
+    .input(datagridParamsSchema.partial())
+    .query(async ({ input, ctx: { prisma } }) => {
+      const total: number = await prisma.playgroundApplication.count();
+      const skip = (input.page ?? 0) * (input.pageSize ?? 20);
+      const filters =
+        input.filters && input.filters.length > 0
+          ? buildFilterQuery(input.filters)
+          : undefined;
+      const search =
+        input.search && input.search.length > 0
+          ? buildSearchQuery(input.search, [
+              'applicant.name',
+              'request.title',
+              'moreInfo',
+            ])
+          : undefined;
+      const where =
+        filters && input.search && input.search.length > 0
+          ? { AND: [filters, search] }
+          : filters
+            ? filters
+            : search;
+      const data: ApplicationEntry[] =
+        await prisma.playgroundApplication.findMany({
+          select: {
+            id: true,
+            status: true,
+            estimatedTimeDays: true,
+            moreInfo: true,
+            createdAt: true,
+            applicant: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            },
+            request: {
+              select: {
+                id: true,
+                title: true,
+                category: true,
+                requiredSkills: true,
+                status: true,
+                requester: {
+                  select: {
+                    id: true,
+                    name: true,
+                    email: true,
+                  },
+                },
+              },
+            },
+          },
+          take: input.pageSize ?? 20,
+          skip: skip,
+          orderBy: input.sort
+            ? buildSortingQuery(input.sort.column, input.sort.order)
+            : undefined,
+          where,
+        });
+      return { total, content: data };
+    }),
+  updateApplication: adminProcedure
+    .input(
+      transformZodNullables(applicationSchema.omit({ request: true }).partial())
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      const dataQuery = buildUpdateQuery(data);
+      await prisma.playgroundApplication.update({
+        where: { id },
+        data: dataQuery,
+      });
+    }),
 });
 
 export default adminRouter;

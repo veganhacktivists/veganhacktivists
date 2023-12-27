@@ -109,6 +109,7 @@ module.exports = {
           'warn',
           {
             varsIgnorePattern: '^_',
+            ignoreRestSiblings: true,
           },
         ],
         '@typescript-eslint/no-non-null-assertion': ['off'],
