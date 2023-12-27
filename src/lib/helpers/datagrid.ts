@@ -210,21 +210,21 @@ type DeepZodPartial<T extends z.ZodTypeAny> =
       >
     : T extends z.ZodArray<infer Type, infer Card>
       ? z.ZodArray<DeepZodPartial<Type>, Card>
-      : T extends z.ZodOptional<infer Type>
+      : // : T extends z.ZodOptional<infer Type>
+        //   ? z.ZodNullable<DeepZodPartial<Type>>
+        T extends z.ZodNullable<infer Type>
         ? z.ZodNullable<DeepZodPartial<Type>>
-        : T extends z.ZodNullable<infer Type>
-          ? z.ZodNullable<DeepZodPartial<Type>>
-          : T extends z.ZodTuple<infer Items>
-            ? {
-                [k in keyof Items]: Items[k] extends z.ZodTypeAny
-                  ? DeepZodPartial<Items[k]>
-                  : never;
-              } extends infer PI
-              ? PI extends z.ZodTupleItems
-                ? z.ZodTuple<PI>
-                : never
+        : T extends z.ZodTuple<infer Items>
+          ? {
+              [k in keyof Items]: Items[k] extends z.ZodTypeAny
+                ? DeepZodPartial<Items[k]>
+                : never;
+            } extends infer PI
+            ? PI extends z.ZodTupleItems
+              ? z.ZodTuple<PI>
               : never
-            : T; // z.ZodNullable<T> if the list element is nullable too
+            : never
+          : T; // z.ZodNullable<T> if the list element is nullable too
 
 // Taken from the zod source code, as deepPartial() is deprecated
 const deepPartialify = <T extends z.ZodTypeAny>(
@@ -246,10 +246,10 @@ const deepPartialify = <T extends z.ZodTypeAny>(
       ...schema._def,
       type: deepPartialify(schema.element),
     }) as DeepZodPartial<T>;
-  } else if (schema instanceof z.ZodOptional) {
-    return z.ZodNullable.create(
-      deepPartialify(schema.unwrap())
-    ) as DeepZodPartial<T>;
+    // } else if (schema instanceof z.ZodOptional) {
+    //   return z.ZodNullable.create(
+    //     deepPartialify(schema.unwrap())
+    //   ) as DeepZodPartial<T>;
   } else if (schema instanceof z.ZodNullable) {
     return z.ZodNullable.create(
       deepPartialify(schema.unwrap())
@@ -266,7 +266,8 @@ const deepPartialify = <T extends z.ZodTypeAny>(
 export const transformZodNullables = <T extends z.AnyZodObject>(schema: T) => {
   const nonNullableFields = extractZodNonNullables(schema);
 
-  return deepPartialify(schema).transform((data) =>
-    replaceNullables(data, nonNullableFields)
+  return deepPartialify(schema).transform(
+    (data) =>
+      replaceNullables(data, nonNullableFields) as ReplaceNullables<z.infer<T>>
   );
 };

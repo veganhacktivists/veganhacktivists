@@ -66,10 +66,10 @@ const Applications: NextPage = () => {
   ];
 
   const handleValueChange = useCallback(
-    (data: ApplicationEntry) => {
+    async (data: ApplicationEntry) => {
       const { request, ...rest } = data;
       mutate(rest);
-      refetch();
+      await refetch();
     },
     [mutate, refetch]
   );
