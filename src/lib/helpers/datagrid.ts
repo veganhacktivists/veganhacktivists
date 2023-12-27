@@ -129,7 +129,6 @@ const extractZodNonNullables = <S extends z.AnyZodObject>(
 ) => {
   let NonNullables: string[] = [];
   for (const key in schema.shape) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const entry = schema.shape[key];
     let level = 0;
     let innerElement = entry;
