@@ -165,13 +165,22 @@ export const extractZodNonNullables = <S extends z.AnyZodObject>(
   return NonNullables;
 };
 
-type ReplaceNullables<T extends AnyObject> = {
-  [Key in keyof T]: NonNullable<
-    T[Key] extends Record<string, unknown> ? ReplaceNullables<T[Key]> : T[Key]
-  >;
-};
+type RemoveNull<T> = Exclude<T, null>;
 
-export const replaceNullables = <T extends Record<string, unknown>>(
+type ReplaceNullables<T> = T extends AnyObject
+  ? {
+      [Key in keyof T]: RemoveNull<
+        T[Key] extends Record<string, unknown>
+          ? ReplaceNullables<T[Key]>
+          : T[Key]
+      >;
+    }
+  : RemoveNull<T>;
+
+/**
+ * Replaces null fields with the default empty value
+ */
+export const replaceNullables = <T extends AnyObject>(
   data: T,
   nullables: FieldPath<T>[],
   prefix?: string
