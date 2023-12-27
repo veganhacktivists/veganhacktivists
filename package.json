@@ -1,4 +1,9 @@
 {
+  "pnpm": {
+    "overrides": {
+      "zod": "3.21.1"
+    }
+  },
   "name": "vh-site",
   "version": "0.1.0",
   "private": true,

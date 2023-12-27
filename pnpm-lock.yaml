@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  zod: 3.21.1
+
 dependencies:
   '@contentful/rich-text-plain-text-renderer':
     specifier: ^15.12.1
@@ -192,8 +195,8 @@ dependencies:
     specifier: ^3.2.4
     version: 3.2.4(postcss@8.4.19)(ts-node@10.9.1)
   zod:
-    specifier: ^3.22.4
-    version: 3.22.4
+    specifier: 3.21.1
+    version: 3.21.1
   zod-prisma-types:
     specifier: ^3.1.6
     version: 3.1.6
@@ -11136,11 +11139,11 @@ packages:
       '@prisma/generator-helper': 5.7.0
       code-block-writer: 12.0.0
       lodash: 4.17.21
-      zod: 3.22.4
+      zod: 3.21.1
     dev: false
 
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  /zod@3.21.1:
+    resolution: {integrity: sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==}
     dev: false
 
   /zustand@4.1.1(react@18.2.0):
