@@ -16,7 +16,7 @@
     "start": "next start",
     "lint": "next lint --dir . --report-unused-disable-directives warn",
     "test": "jest --watch",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc",
     "contentful-typescript-codegen": "export $(grep -v '^#' .env | xargs -d '\n') && contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
