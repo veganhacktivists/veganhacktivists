@@ -77,7 +77,8 @@ const DataGrid = <T,>({
   const handleSortChanged = useCallback(
     (e: SortChangedEvent) => {
       const state = e.api.getColumnState();
-      const sorting = state.find((column) => column.sort) as SortModelItem ?? null;
+      const sorting =
+        (state.find((column) => column.sort) as SortModelItem) ?? null;
       onSortChange?.(
         sorting ? { column: sorting.colId, order: sorting.sort } : null
       );

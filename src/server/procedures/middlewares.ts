@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TRPCError } from '@trpc/server';
 
 import { t } from 'server/trpc';
