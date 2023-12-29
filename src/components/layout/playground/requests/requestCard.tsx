@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { RequestStatus } from '@prisma/client';
-import { useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { PlaygroundRequestCategory } from '@prisma/client';
 
 import {
@@ -98,10 +98,12 @@ const PlaygroundRequestCard: React.FC<
     () => (budget ? formatCurrency(budget.quantity.toNumber()) : null),
     [budget]
   );
-  const { data: session } = useSession();
+  const { data: session, status: sessionStatus } = useSession();
+
   const canEdit =
-    status !== RequestStatus.Completed &&
-    (session?.user?.role === 'Admin' || requester?.id === session?.user?.id);
+    true ||
+    (status !== RequestStatus.Completed &&
+      (session?.user?.role === 'Admin' || requester?.id === session?.user?.id));
 
   return (
     <div
@@ -139,7 +141,6 @@ const PlaygroundRequestCard: React.FC<
             </div>
           </div>
         </div>
-
         <div className="mt-4 mb-4 line-clamp-5">{description}</div>
         <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
           <Li
@@ -245,43 +246,39 @@ const PlaygroundRequestCard: React.FC<
             </>
           )}
         </ul>
-        <div
-          className={`${
-            canEdit
-              ? 'flex flex-row flex-wrap-reverse md:flex-nowrap justify-between gap-5'
-              : ''
-          }`}
-        >
-          <DarkButton
-            href={{
-              pathname: '/playground/request/[id]',
-              query: { id },
-            }}
-            className={`text-center text-md flex-grow ${
-              canEdit ? 'w-1/2' : ''
-            }`}
-            disabled={disabled}
-          >
-            {`Read more${
-              session?.user?.role !== 'Admin' &&
-              requester?.id !== session?.user?.id
-                ? ' / apply'
-                : ''
-            }`}
+        {sessionStatus === 'unauthenticated' ? (
+          <DarkButton onClick={() => signIn()} className="text-center">
+            Sign in to apply!
           </DarkButton>
-          {canEdit && (
-            <GreyButton
+        ) : (
+          <div className="flex flex-col md:flex-row gap-5">
+            <DarkButton
               href={{
-                pathname: '/playground/request/edit/[id]',
+                pathname: '/playground/request/[id]',
                 query: { id },
               }}
-              className="flex-grow w-1/2 text-md text-center"
+              className="text-center text-md flex-grow flex-1"
               disabled={disabled}
             >
-              Edit request
-            </GreyButton>
-          )}
-        </div>
+              Read more
+              {session?.user?.role !== 'Admin' &&
+                requester?.id !== session?.user?.id &&
+                ' / apply'}
+            </DarkButton>
+            {canEdit && (
+              <GreyButton
+                href={{
+                  pathname: '/playground/request/edit/[id]',
+                  query: { id },
+                }}
+                className="flex-grow text-md text-center flex-1"
+                disabled={disabled}
+              >
+                Edit request
+              </GreyButton>
+            )}
+          </div>
+        )}
         {children}
       </div>
     </div>
