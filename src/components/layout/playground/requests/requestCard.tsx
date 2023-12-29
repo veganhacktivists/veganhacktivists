@@ -247,7 +247,12 @@ const PlaygroundRequestCard: React.FC<
           )}
         </ul>
         {sessionStatus === 'unauthenticated' ? (
-          <DarkButton onClick={() => signIn()} className="text-center">
+          <DarkButton
+            onClick={() =>
+              signIn(undefined, { callbackUrl: `/playground/request/${id}` })
+            }
+            className="text-center"
+          >
             Sign in to apply!
           </DarkButton>
         ) : (
