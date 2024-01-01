@@ -5,8 +5,8 @@ import { LightButton } from 'components/decoration/buttons';
 
 const VioletStudios: React.FC = () => {
   return (
-    <div className="bg-black">
-      <div className="py-36 w-full 2xl:w-3/4 pl-10 m-auto flex flex-col-reverse md:flex-row text-white text-left gap-16 max-w-7xl">
+    <div className="bg-black px-4 md:px-0">
+      <div className="py-36 w-full 2xl:w-3/4 md:pl-10 m-auto flex flex-col-reverse md:flex-row text-white text-left gap-16 max-w-7xl">
         <div className="basis-[calc(50%-1rem)] lg:basis-1/2">
           <h2 className="text-4xl font-bold mb-4">Support Two Orgs At Once</h2>
           <div className="text-lg">

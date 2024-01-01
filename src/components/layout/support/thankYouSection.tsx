@@ -140,7 +140,7 @@ const ThankYouSection: React.FC = () => {
   }));
 
   return (
-    <div className="px-10 pt-10 pb-20 mx-auto bg-gray-background">
+    <div className="pt-10 pb-20 mx-auto bg-gray-background">
       <div className="max-w-7xl m-auto">
         <CustomImage
           src={pixelHeart.src}
