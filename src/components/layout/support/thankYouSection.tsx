@@ -156,7 +156,7 @@ const ThankYouSection: React.FC = () => {
           vision and support for our work.
         </Paragraph>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:block px-10">
           <OrganizationCardContainer>
             {orgs.map((org) => (
               <OrganizationCard key={org.title} {...org} />

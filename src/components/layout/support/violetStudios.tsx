@@ -1,6 +1,8 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
+import VSLogoLottieFile from '../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
+
 import { LightButton } from 'components/decoration/buttons';
 
 const VioletStudios: React.FC = () => {
@@ -30,7 +32,7 @@ const VioletStudios: React.FC = () => {
           <Player
             autoplay
             loop
-            src="https://raw.githubusercontent.com/hillmotion/Lottietestpublic/main/VS_logoAnim_Minimal.json"
+            src={VSLogoLottieFile}
             className="w-3/5 md:w-[290px]"
           />
         </div>
