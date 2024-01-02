@@ -72,7 +72,7 @@ const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
 
 const SignIn: NextPage = () => {
   const { query, isReady, push } = useRouter();
-  const { user: queryUser } = query;
+  const { role: queryRole } = query;
 
   const [isLoading, setIsLoading] = useState(true);
   const { status } = useSession();
@@ -93,7 +93,7 @@ const SignIn: NextPage = () => {
 
   useOnce(
     () => {
-      if (queryUser === UserRole.Requestor) {
+      if (queryRole === UserRole.Requestor) {
         setSelectedRole(UserRole.Requestor);
       } else {
         setSelectedRole(UserRole.Applicant);
@@ -106,9 +106,12 @@ const SignIn: NextPage = () => {
     if (typeof document === 'undefined') {
       return undefined;
     }
+    const isRelative = ((query.callbackUrl as string) ?? '/').startsWith('/');
     const url = new URL(
       (query.callbackUrl as string) ?? '/playground/signup',
-      (query.callbackUrl as string) ?? (document.location as unknown as URL)
+      isRelative
+        ? (document.location as unknown as URL)
+        : (query.callbackUrl as string)
     );
 
     if (selectedRole) {

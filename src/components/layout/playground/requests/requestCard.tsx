@@ -2,8 +2,8 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
-import { RequestStatus } from '@prisma/client';
-import { signIn, useSession } from 'next-auth/react';
+import { RequestStatus, UserRole } from '@prisma/client';
+import { useSession } from 'next-auth/react';
 import { PlaygroundRequestCategory } from '@prisma/client';
 
 import {
@@ -248,9 +248,13 @@ const PlaygroundRequestCard: React.FC<
         </ul>
         {sessionStatus === 'unauthenticated' ? (
           <DarkButton
-            onClick={() =>
-              signIn(undefined, { callbackUrl: `/playground/request/${id}` })
-            }
+            href={{
+              pathname: '/auth/signin',
+              query: {
+                role: UserRole.Applicant,
+                callbackUrl: `/playground/request/${id}`,
+              },
+            }}
             className="text-center"
           >
             Sign in to apply!
