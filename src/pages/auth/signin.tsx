@@ -53,7 +53,7 @@ const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
         setIsLoading(false);
       }
     },
-    [callbackUrl]
+    [callbackUrl],
   );
 
   return (
@@ -99,25 +99,25 @@ const SignIn: NextPage = () => {
         setSelectedRole(UserRole.Applicant);
       }
     },
-    { enabled: isReady }
+    { enabled: isReady },
   );
 
   const callbackUrl = useMemo(() => {
     if (typeof document === 'undefined') {
       return undefined;
     }
-    const isRelative = ((query.callbackUrl as string) ?? '/').startsWith('/');
-    const url = new URL(
-      (query.callbackUrl as string) ?? '/playground/signup',
-      isRelative
-        ? (document.location as unknown as URL)
-        : (query.callbackUrl as string)
+    const signupUrl = new URL(
+      '/playground/signup',
+      document.location as unknown as URL,
     );
 
     if (selectedRole) {
-      url.searchParams.set('role', selectedRole);
+      signupUrl.searchParams.set('role', selectedRole);
     }
-    return url.toString();
+    if (query.callbackUrl) {
+      signupUrl.searchParams.set('callbackUrl', query.callbackUrl as string);
+    }
+    return signupUrl.toString();
   }, [query.callbackUrl, selectedRole]);
 
   useOnce(
@@ -128,7 +128,7 @@ const SignIn: NextPage = () => {
         void push('/playground');
       }
     },
-    { enabled: status === 'authenticated' && isReady }
+    { enabled: status === 'authenticated' && isReady },
   );
 
   if (isLoading || status === 'loading') {

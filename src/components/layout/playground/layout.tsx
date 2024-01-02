@@ -219,6 +219,7 @@ export const PlaygroundStats = ({
 }) => {
   const { data } = trpc.playground.getPlaygroundStats.useQuery(undefined, {
     staleTime: 10000,
+    enabled: false,
   });
   return (
     <>

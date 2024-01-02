@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { TimePerWeek } from '@prisma/client';
+import { useRouter } from 'next/router';
 
 import { SourceLabel, TimePerWeekLabel } from '../playground/applyForm';
 
@@ -17,7 +18,7 @@ import type { z } from 'zod';
 
 type ApplicantSignupPayload = z.infer<typeof applicantSignupSchema>;
 
-const ApplicantSignup = () => {
+const ApplicantSignup = ({ callbackUrl }: { callbackUrl?: string }) => {
   const {
     control,
     register,
@@ -27,11 +28,20 @@ const ApplicantSignup = () => {
     resolver: zodResolver(applicantSignupSchema),
   });
 
-  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation();
+  const router = useRouter();
+  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation({
+    onSuccess: async () => {
+      if (callbackUrl) {
+        await router.push(callbackUrl);
+      }
+    },
+  });
 
   const onSubmit = useCallback(
     (data: ApplicantSignupPayload) => {
       mutate(data);
+
+      // TODO: Add redirect to the next page
     },
     [mutate]
   );

@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { OrganizationType } from '@prisma/client';
+import { useRouter } from 'next/router';
 
 import { requestorSignupSchema } from 'lib/services/playground/schemas';
 import TextInput from 'components/forms/inputs/textInput';
@@ -22,7 +23,7 @@ const ORGANIZATION_TYPE_OPTIONS: OptionType<OrganizationType>[] = [
 
 type RequestorSignupPayload = z.infer<typeof requestorSignupSchema>;
 
-const RequestorSignup = () => {
+const RequestorSignup = ({ callbackUrl }: { callbackUrl?: string }) => {
   const {
     control,
     watch,
@@ -32,13 +33,20 @@ const RequestorSignup = () => {
   } = useForm<RequestorSignupPayload>({
     resolver: zodResolver(requestorSignupSchema),
   });
+  const router = useRouter();
 
-  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation();
+  const { mutate, isLoading, isSuccess } = trpc.playground.signup.useMutation({
+    onSuccess: async () => {
+      if (callbackUrl) {
+        await router.push(callbackUrl);
+      }
+    },
+  });
 
   const onSubmit = useCallback(
     (data: RequestorSignupPayload) => {
       mutate(data);
-      //todo: Add redirect to the next page
+      // TODO: Add redirect to the next page
     },
     [mutate]
   );
