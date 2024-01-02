@@ -114,11 +114,8 @@ const SignIn: NextPage = () => {
         : (query.callbackUrl as string)
     );
 
-    if (selectedRole) {
-      url.searchParams.set('role', selectedRole);
-    }
     return url.toString();
-  }, [query.callbackUrl, selectedRole]);
+  }, [query.callbackUrl]);
 
   useOnce(
     () => {
