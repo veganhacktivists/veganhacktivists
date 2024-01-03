@@ -30,21 +30,21 @@ const orgs: Org[] = [
   {
     title: 'Greenbaum Foundation',
     description:
-      'A foundation dedicated to alleviating suffering with an emphasis on human rights, women and girls, non-human animals, and promoting whole foods plant-based diets.',
+      'The Greenbaum Foundation focuses their funding on effective and efficient projects working to bring about the end of suffering (human and non-human) in areas of the highest need and where they can have the most impact. They assist organizations with guidance, networking and funding. ',
     linkLabel: 'Learn more',
     linkUrl: 'https://www.greenbaumfoundation.org/',
   },
   {
     title: 'Animal Charity Evaluators',
     description:
-      'An organization dedicated to helping people help animals more effectively. They evaluate animal charities, prioritize causes, and offer resources and advice for effective animal advocacy. Their Movement Grants program is aimed at building and strengthening the global animal advocacy movement.',
+      'ACE is an organization dedicated to helping people help animals more effectively. They evaluate animal charities, prioritize causes, and offer resources and advice for effective animal advocacy. Their Movement Grants program is aimed at building and strengthening the global animal advocacy movement.',
     linkLabel: 'Learn more',
     linkUrl: 'https://animalcharityevaluators.org/',
   },
   {
     title: 'Lush Charity Pot',
     description:
-      'Supports small, grassroots organizations in areas of animal protection, environmental justice, and human rights through its grant program.',
+      'Lush supports small, grassroots organizations in areas of animal protection, environmental justice, and human rights through its grant program.',
     linkLabel: 'Learn more',
     linkUrl: 'https://www.lush.com/us/en_us/a/na-donation-funding-application',
   },
@@ -58,7 +58,7 @@ const orgs: Org[] = [
   {
     title: 'EA Animal Welfare Fund',
     description:
-      'Managed by Effective Altruism Funds, this fund focuses on improving the well-being of nonhuman animals. It supports a variety of initiatives including research into animal advocacy, welfare, and activities that could make it easier to help animals in the future. Website​​.',
+      'Managed by Effective Altruism Funds, this fund focuses on improving the well-being of nonhuman animals. It supports a variety of initiatives including research into animal advocacy, welfare, and activities that could make it easier to help animals in the future.',
     linkLabel: 'Learn more',
     linkUrl: 'https://funds.effectivealtruism.org/funds/animal-welfare',
   },
@@ -72,7 +72,7 @@ const orgs: Org[] = [
   {
     title: 'Phauna Project',
     description:
-      'This organization funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change. Visit their website​​.',
+      'Phauna funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change.',
     linkLabel: 'Learn more',
     linkUrl: 'https://www.phaunaproject.org/',
   },
@@ -150,7 +150,7 @@ const ThankYouSection: React.FC = () => {
         />
         <h2 className="mb-8 text-4xl font-bold">Thank You</h2>
         <Paragraph>
-          We want to take a moment to thank the people below for their
+          We want to take a moment to thank the organizations below for their
           support—for those who have awarded us grants or contributed donations,
           whether one-time or recurring. We are grateful for your belief in our
           vision and support for our work.
