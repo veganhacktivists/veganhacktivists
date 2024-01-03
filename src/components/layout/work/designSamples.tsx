@@ -79,7 +79,7 @@ const BOTTOM_DECORATION_SQUARES = [
 const DesignSamples: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<StaticImageData>();
-  const handleOpenImage = useCallback((image: typeof images[number][0]) => {
+  const handleOpenImage = useCallback((image: (typeof images)[number][0]) => {
     setIsModalOpen(true);
     setCurrentImage(image);
   }, []);
