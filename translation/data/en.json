@@ -555,13 +555,13 @@
     "message": "Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more."
   },
   "page.join.section.job-roles.description.4": {
-    "message": "Create high-quality and innovative designs that include logo and branding, social media visuals, and UI components."
+    "message": "Apply to join our design team at Violet Studios, our sister organization for graphic design and branding."
   },
   "page.join.section.job-roles.title.0": {
     "message": "Developers"
   },
   "page.join.section.job-roles.title.1": {
-    "message": "UI Designers"
+    "message": "UI/UX Designers"
   },
   "page.join.section.job-roles.title.2": {
     "message": "Social Media Manager"
@@ -885,7 +885,7 @@
     "message": "Apply for free design support"
   },
   "page.services.section.service-block.1.content": {
-    "message": "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence."
+    "message": "Our sister organization, Violet Studios, offers several design services across branding, web design, document design, and more. They collaborate closely with you to understand who you are and what your needs are, so that they can best curate your digital presence."
   },
   "page.services.section.service-block.1.title": {
     "message": "Design"
@@ -961,12 +961,6 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
-  },
-  "page.support.section.thank-you.introduction": {
-    "message": "We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
-  },
-  "page.support.section.thank-you.title": {
-    "message": "Thank You"
   },
   "page.verify-request.button.go-back": {
     "message": "Go back"
