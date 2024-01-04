@@ -11,7 +11,6 @@ import {
 } from '@prisma/client';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
-import { PlaygroundRequestOrganizationType } from '@prisma/client';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -20,8 +19,6 @@ import TextInput from '../../forms/inputs/textInput';
 import Label from '../../forms/inputs/label';
 import SelectInput from '../../forms/inputs/selectInput';
 import Checkbox from '../../forms/inputs/checkbox';
-import ToolTip from '../../decoration/tooltip';
-import CustomLink from '../../decoration/link';
 import useOnce from '../../../hooks/useOnce';
 import {
   CATEGORY_DESCRIPTION,
@@ -38,9 +35,9 @@ import { useIsFirstRender } from 'hooks/useIsFirstRender';
 
 import type { PlaygroundRequestDesignRequestType } from '@prisma/client';
 import type { z } from 'zod';
-import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import type { submitRequestSchema } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
-import type { FieldError } from 'react-hook-form';
+import type { FieldError, FieldPath, SubmitHandler } from 'react-hook-form';
 import type { RefCallback } from 'react';
 
 const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
@@ -49,12 +46,6 @@ const CATEGORIES = Object.keys(PlaygroundRequestCategory).map((cat) => ({
     CATEGORY_DESCRIPTION[cat as PlaygroundRequestCategory]
   })`,
 }));
-
-const IS_FOR_PROFIT_ORGANIZATION_OPTIONS: OptionType<PlaygroundRequestOrganizationType>[] =
-  [
-    { label: 'No', value: PlaygroundRequestOrganizationType.Activism },
-    { label: 'Yes', value: PlaygroundRequestOrganizationType.Profit },
-  ];
 
 const DEV_REQUEST_WEBSITE_EXISTS_OPTIONS: OptionType<boolean>[] = [
   { label: 'Yes', value: true },
@@ -90,8 +81,8 @@ const BUDGET_TYPE_OPTIONS: OptionType<BudgetType>[] = [
   { label: BudgetType.Monthly, value: BudgetType.Monthly },
 ];
 
-type FormInput = z.input<typeof submitRequestSchemaClient>;
-type FormOutput = z.infer<typeof submitRequestSchemaClient>;
+type FormInput = z.input<typeof submitRequestSchema>;
+type FormOutput = z.infer<typeof submitRequestSchema>;
 
 interface SubmitRequestFormParam {
   requestId?: string;
@@ -99,7 +90,7 @@ interface SubmitRequestFormParam {
 
 const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
-  const utils = trpc.useContext();
+  const utils = trpc.useUtils();
 
   const { budget: storedBudget, ...storedForm } =
     usePlaygroundSubmitRequestStore((state) => state.form);
@@ -150,42 +141,45 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         return;
       }
       const skills = request.requiredSkills.join(', ');
-      type RequestFormData = Pick<
-        typeof request,
-        | 'providedEmail'
-        | 'name'
-        | 'phone'
-        | 'website'
-        | 'calendlyUrl'
-        | 'title'
-        | 'category'
-        | 'description'
-        | 'neededVolunteers'
-      >;
-      const requestData: RequestFormData = {
+      // type RequestFormData = Pick<
+      //   typeof request,
+      //   | 'providedEmail'
+      //   | 'name'
+      //   | 'phone'
+      //   | 'website'
+      //   | 'calendlyUrl'
+      //   | 'title'
+      //   | 'category'
+      //   | 'description'
+      //   | 'neededVolunteers'
+      // >;
+      // const requestData: RequestFormData = request;
+
+      const formData = {
         ...request,
+        // ...requestData,
+        dueDate: request?.dueDate
+          ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
+              'yyyy-LL-dd'
+            )
+          : '',
+        budget: request?.budget
+          ? {
+              type: request?.budget.type,
+              quantity: request?.budget?.quantity.toNumber(),
+            }
+          : undefined,
+        // phone: request?.phone ?? undefined,
+        // organization: request?.organization ?? undefined,
+        requiredSkills: skills,
       };
-      const formData: Partial<z.infer<typeof verifyRequestFormRequestSchema>> =
-        {
-          ...requestData,
-          dueDate: request?.dueDate
-            ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-                'yyyy-LL-dd'
-              )
-            : '',
-          budget: request?.budget
-            ? {
-                type: request?.budget.type,
-                quantity: request?.budget?.quantity.toNumber(),
-              }
-            : undefined,
-          phone: request?.phone ?? undefined,
-          organization: request?.organization ?? undefined,
-          requiredSkills: skills,
-        };
+
       Object.keys(formData).forEach((keystring) => {
-        const key = keystring as keyof typeof formData;
-        setValue(key, formData[key]);
+        const key = keystring as FieldPath<FormInput>;
+        setValue(
+          key,
+          formData[key as keyof typeof formData] as unknown as string
+        );
       });
       if (formData.budget?.type) {
         setIsFree(false);
@@ -308,8 +302,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     [mutateAsync, requestId]
   );
 
-  const onSubmit = useCallback(
-    async (values: FormOutput) => {
+  const onSubmit = useCallback<SubmitHandler<FormOutput>>(
+    async (values) => {
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {
@@ -322,7 +316,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         });
       }
 
-      await mutate(values);
+      await mutate(
+        values as unknown as trpc['playground']['submitRequest']['input']
+      );
       await utils.playground.getRequest.invalidate({ id: requestId });
     },
     [mutate, reset, sessionStatus, requestId, utils.playground.getRequest]
@@ -333,7 +329,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       formRef!.scrollIntoView({
         block: 'end',
       });
-      void handleSubmit(onSubmit)();
+      void handleSubmit(onSubmit as unknown as SubmitHandler<FormInput>)();
     },
     {
       enabled:
@@ -350,10 +346,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue('budget', undefined);
   }, [isFree, setValue]);
 
-  const [requestCategory, organizationType] = watch([
-    'category',
-    'organizationType',
-  ]);
+  const requestCategory = watch('category');
 
   // reset category specific values
   useEffect(() => {
@@ -379,141 +372,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       <form
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit as unknown as SubmitHandler<FormInput>)}
         className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
       >
-        <div className="text-xl col-span-full">Personal Information</div>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Name"
-          showRequiredMark
-          {...myRegister('name', { required: 'Please enter a name' })}
-          error={errors.name?.message}
-        />
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="they/them"
-          {...myRegister('pronouns')}
-          error={errors.pronouns?.message}
-        >
-          Pronouns
-        </TextInput>
-        <TextInput
-          className="col-span-full"
-          placeholder="Email"
-          showRequiredMark
-          {...myRegister('providedEmail', {
-            required: 'The email is required',
-          })}
-          error={errors.providedEmail?.message}
-        >
-          Email
-        </TextInput>
-        <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Phone"
-          showRequiredMark
-          type="tel"
-          {...myRegister('phone', { required: 'The phone is required' })}
-          error={errors.phone?.message}
-        />
-        <TextInput
-          placeholder="www.website..."
-          showRequiredMark
-          {...myRegister('website', {
-            required: 'Please enter a valid website',
-          })}
-          className="w-full col-span-full"
-          error={errors.website?.message}
-        />
-        <TextInput
-          showRequiredMark
-          placeholder="Calendly"
-          className="col-span-full"
-          {...myRegister('calendlyUrl')}
-          error={errors.calendlyUrl?.message}
-        >
-          Link to your Calendly
-          <ToolTip
-            placement="top-end"
-            content={
-              <p>
-                <CustomLink href="https://calendly.com/" className="text-green">
-                  Calendly
-                </CustomLink>
-                &nbsp;is your hub for scheduling meetings professionally and
-                efficiently, eliminating the hassle of back-and-forth emails so
-                you can get back to work.
-              </p>
-            }
-          >
-            <sup className="ml-1">?</sup>
-          </ToolTip>
-        </TextInput>
-        <div className="text-xl col-span-full">Organization Information</div>
-        <TextInput
-          className="col-span-full"
-          placeholder="Organization"
-          {...myRegister('organization', { required: false })}
-          error={errors.organization?.message}
-        />
-        <div className="col-span-full">
-          <Label name="organizationType">
-            Is your organization or activism for profit?
-          </Label>
-
-          <Controller
-            name="organizationType"
-            control={control}
-            rules={{
-              required: 'Please select the best option for your organization',
-            }}
-            render={({ field: { value: current, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  IS_FOR_PROFIT_ORGANIZATION_OPTIONS.find(
-                    (c) => c.value === current
-                  ) || null
-                }
-                error={errors.organizationType?.message}
-                options={IS_FOR_PROFIT_ORGANIZATION_OPTIONS}
-                onChange={(option) => {
-                  onChange(option?.value || null);
-                  setFormData({
-                    organizationType:
-                      option?.value as PlaygroundRequestOrganizationType,
-                  });
-                }}
-              />
-            )}
-          />
-        </div>
-        {!isFirstRender &&
-          organizationType === PlaygroundRequestOrganizationType.Profit && (
-            <div className="col-span-full">
-              Playground is a platform that primarily supports not-for-profit
-              organizations and activism. As a for-profit, we require you to
-              offer compensation for your project. Please add this information
-              to your post by selecting &ldquo;Paid&rdquo; in the request
-              information section. We want to support as many vegan endeavors as
-              possible, but also try our best to ensure the equitable
-              distribution of limited volunteer labor. Thank you for your
-              cooperation!
-            </div>
-          )}
-        <TextArea
-          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
-          error={errors.organizationDescription?.message}
-          {...myRegister('organizationDescription', {
-            required: 'Organization description is required',
-          })}
-          style={{ resize: 'vertical' }}
-          className="col-span-full"
-          showRequiredMark
-        >
-          About your organization
-        </TextArea>
         <div className="text-xl col-span-full">Request Information</div>
         <TextInput
           placeholder="Title of Request"

@@ -127,8 +127,8 @@ const PlaygroundLayout: Layout = ({ children }) => {
           router.pathname === '/playground/submit'
             ? 'dark'
             : router.pathname === '/playground'
-            ? undefined
-            : 'light'
+              ? undefined
+              : 'light'
         }
       />
       <SquareField

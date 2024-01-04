@@ -5,8 +5,8 @@ import {
   Source,
   RequestStatus,
   ApplicationStatus,
-  PlaygroundRequestOrganizationType,
   PlaygroundRequestDesignRequestType,
+  OrganizationType,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -116,86 +116,98 @@ const otherRequestCategorySchema = z.object({
   category: z.nativeEnum(PlaygroundRequestCategory),
 });
 
-const submitRequestSchemaBase = z.object({
-  id: z.string().cuid().optional(),
-  name: z.string().trim().min(1, { message: 'This value is required' }),
-  pronouns: z.string().trim().optional(),
-  providedEmail: z.string().trim().email(),
-  phone: z.string().trim().min(1, { message: 'This value is required' }),
-  organization: z.string().trim().optional(),
-  organizationType: z.nativeEnum(PlaygroundRequestOrganizationType),
-  organizationDescription: z.string().trim().min(1),
-  website: z
-    .string()
-    .trim()
-    .min(1)
-    .refine((url) => !url.includes(' '), {
-      message: "The URL can't contain spaces",
-    })
-    .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
+export const applicantSignupSchema = z.object({
+  name: z.string().min(1, { message: 'This value is required' }),
+  pronouns: z.string().optional(),
+  contactEmail: z.string().trim().email(),
+  website: z.string().trim(),
+  twitter: z.string().trim().optional(),
+  instagram: z.string().trim().optional(),
+  linkedin: z.string().trim().optional(),
   calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
-  title: z.string().trim().min(1).max(200),
-  category: z.nativeEnum(PlaygroundRequestCategory),
-  // Transform the string of skills separated by a comma in an array of strings
-  requiredSkills: z.string().transform((x) =>
-    x
-      .split(',')
-      .map((x) => x.trim())
-      .filter((x) => x.length > 0)
-  ),
-  description: z.string().trim().min(1),
-  budget: budgetSchema.optional(),
-  dueDate: z.date().optional().nullable(),
-  estimatedTimeDays: z.number().nonnegative().int().nullish(),
-  neededVolunteers: z.number().nonnegative().int(),
-  agreeToTerms: z
-    .boolean()
-    .refine((x) => !!x)
-    .transform(() => undefined),
-  devRequestWebsiteExists: z.boolean().optional(),
-  devRequestWebsiteUrl: z.string().optional(),
-  designRequestType: z
-    .nativeEnum(PlaygroundRequestDesignRequestType)
-    .optional(),
-  designRequestCurrentDesignExists: z.boolean().optional(),
+  availableTimePerWeek: z.nativeEnum(TimePerWeek),
+  source: z.nativeEnum(Source),
 });
 
-export const submitRequestSchema = submitRequestSchemaBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
-);
+export const requestorSignupSchema = z.object({
+  personal: z.object({
+    name: z.string().trim().min(1, { message: 'This value is required' }),
+    pronouns: z.string().trim().optional(),
+    contactEmail: z.string().trim().email(),
+    phone: z.string().trim().min(1, { message: 'This value is required' }),
+    calendlyUrl: z
+      .string()
+      .trim()
+      .min(1, { message: 'This value is required' }),
+  }),
+  organization: z.object({
+    name: z.string().trim().optional(),
+    description: z.string().trim().min(1),
+    organizationType: z.nativeEnum(OrganizationType),
+    website: z
+      .string()
+      .trim()
+      .min(1)
+      .refine((url) => !url.includes(' '), {
+        message: "The URL can't contain spaces",
+      })
+      .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
+  }),
+});
 
-const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
-  z.object({
-    requiredSkills: z.string().trim().min(1),
+export const submitRequestSchema = z
+  .object({
+    id: z.string().cuid().optional(),
+    title: z.string().trim().min(1).max(200),
+    category: z.nativeEnum(PlaygroundRequestCategory),
+    name: z.string().trim().min(1, { message: 'This value is required' }),
+    // Transform the string of skills separated by a comma in an array of strings
+    requiredSkills: z.string().transform((x) =>
+      x
+        .split(',')
+        .map((x) => x.trim())
+        .filter((x) => x.length > 0)
+    ),
+    description: z.string().trim().min(1),
+    budget: budgetSchema.optional(),
+    dueDate: z.date().optional().nullable(),
+    estimatedTimeDays: z.number().nonnegative().int().nullish(),
+    neededVolunteers: z.number().nonnegative().int(),
     agreeToTerms: z
       .boolean()
-      .refine((x) => !!x, { message: 'You must agree to the terms' }),
+      .refine((x) => !!x)
+      .transform(() => undefined),
+    providedEmail: z.string().trim().email(),
+    website: z
+      .string()
+      .trim()
+      .min(1)
+      .refine((url) => !url.includes(' '), {
+        message: "The URL can't contain spaces",
+      })
+      .transform((url) => (url.match(/^https?:\/\//) ? url : `http://${url}`)),
+    calendlyUrl: z
+      .string()
+      .trim()
+      .min(1, { message: 'This value is required' }),
+    devRequestWebsiteExists: z.boolean().optional(),
+    devRequestWebsiteUrl: z.string().optional(),
+    designRequestType: z
+      .nativeEnum(PlaygroundRequestDesignRequestType)
+      .optional(),
+    designRequestCurrentDesignExists: z.boolean().optional(),
   })
-);
+  .and(devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema));
 
-export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
-);
-
-export const verifyRequestFormRequestSchema = submitRequestSchemaClientBase
-  .extend({
+export const verifyRequestFormRequestSchema = submitRequestSchema.and(
+  z.object({
     dueDate: z
       .string()
       .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
         message: 'Due date must be in the future',
       }),
   })
-  .refine(
-    ({ organizationType, budget }) => {
-      return !(
-        organizationType === PlaygroundRequestOrganizationType.Profit && !budget
-      );
-    },
-    {
-      message: 'Request for for-profit organizations must be paid',
-      path: ['budget'],
-    }
-  );
+);
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 

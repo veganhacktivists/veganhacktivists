@@ -19,12 +19,10 @@ export const protectedProcedure = baseProcedure.use(
   })
 );
 
-export const adminProcedure = protectedProcedure.use(
-  t.middleware(async ({ ctx, next }) => {
-    if (ctx.user?.role !== UserRole.Admin) {
-      throw new TRPCError({ code: 'UNAUTHORIZED' });
-    }
+export const adminProcedure = protectedProcedure.use(async ({ ctx, next }) => {
+  if (ctx.user.role !== UserRole.Admin) {
+    throw new TRPCError({ code: 'UNAUTHORIZED' });
+  }
 
-    return next();
-  })
-);
+  return next();
+});

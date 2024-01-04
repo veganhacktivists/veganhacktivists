@@ -5,6 +5,8 @@ import type { DefaultSession, DefaultUser } from 'next-auth';
 interface UserCustomFields {
   id: string;
   role: UserRole;
+  isApplicant: boolean;
+  isRequestor: boolean;
 }
 
 declare module 'next-auth' {
@@ -19,6 +21,8 @@ declare module 'next-auth' {
 
 declare module 'next-auth/jwt' {
   interface JWT extends DefaultJWT {
+    isApplicant: boolean;
+    isRequestor: boolean;
     role: UserRole;
   }
 }

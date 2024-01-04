@@ -5,9 +5,9 @@ import type { DeepPartial } from 'react-hook-form';
 import type { Dispatch } from 'react';
 import type { SetStateAction } from 'react';
 import type { z } from 'zod';
-import type { submitRequestSchemaClient } from 'lib/services/playground/schemas';
+import type { submitRequestSchema } from 'lib/services/playground/schemas';
 
-type FormProps = DeepPartial<z.input<typeof submitRequestSchemaClient>>;
+type FormProps = DeepPartial<z.input<typeof submitRequestSchema>>;
 
 interface PlaygroundSubmitRequestProps {
   form: FormProps;

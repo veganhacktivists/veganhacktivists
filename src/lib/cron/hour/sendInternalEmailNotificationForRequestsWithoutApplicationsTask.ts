@@ -54,9 +54,8 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
 
   const results = await Promise.all(
     activeRequestsWithoutApplications.map(async (request) => {
-      const success = await sendInternalEmailForRequestsWithoutApplications(
-        request
-      );
+      const success =
+        await sendInternalEmailForRequestsWithoutApplications(request);
       if (!success) {
         return false;
       }

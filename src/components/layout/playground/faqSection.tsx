@@ -161,8 +161,8 @@ const FaqSection: React.FC<FaqSectionProps> = ({ design }) => {
               design === 'dark'
                 ? 'grey'
                 : design === 'light'
-                ? 'grey-light'
-                : 'white'
+                  ? 'grey-light'
+                  : 'white'
             }`,
             size: 16,
             right: 0,
@@ -180,8 +180,8 @@ const FaqSection: React.FC<FaqSectionProps> = ({ design }) => {
           design === 'dark'
             ? 'bg-[#3D3D3D]'
             : design === 'light'
-            ? 'bg-white'
-            : 'bg-grey-background',
+              ? 'bg-white'
+              : 'bg-grey-background',
           'py-10'
         )}
       >
