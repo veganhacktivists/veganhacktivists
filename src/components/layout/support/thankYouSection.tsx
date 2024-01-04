@@ -148,7 +148,7 @@ const ThankYouSection: React.FC = () => {
           height={pixelHeart.height / 3}
           alt='Our community'
         />
-        <h2 className='mb-8 text-4xl font-bold'>Thank You</h2>
+        <h2 className='mb-8 mt-4 text-4xl font-bold'>Thank You</h2>
         <Paragraph>
           We want to take a moment to thank the organizations below for their
           support—for those who have awarded us grants or contributed donations,

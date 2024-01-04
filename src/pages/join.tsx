@@ -271,7 +271,7 @@ const Join: React.FC = () => {
           height={pixelFlower.height / 3}
           alt=''
         />
-        <p>
+        <p className='mt-4'>
           <FormattedMessage
             id='page.join.section.join-our-team.footer'
             defaultMessage='Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration.'
