@@ -21,10 +21,11 @@ const nextConfig = {
     },
   },
   i18n: {
-    // disable languages other than english until the translation feature is fully integrated
     locales: ['en' /**, 'de', 'zh', 'dev' */],
     defaultLocale: 'en',
-    localeDetection: true,
+
+    // disable localeDetection to avoid automatic redirects until the translation feature is fully integrated
+    localeDetection: false,
   },
   redirects() {
     return [
