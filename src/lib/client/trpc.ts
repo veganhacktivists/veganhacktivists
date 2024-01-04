@@ -61,10 +61,7 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
 });
 
 type HandleInferenceHelpers<
-  TRouterOrProcedure extends
-    | AnyRouter
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-    | Procedure<any, any>
+  TRouterOrProcedure extends AnyRouter | Procedure<any, any>
 > = TRouterOrProcedure extends AnyRouter
   ? GetInferenceHelpers<TRouterOrProcedure>
   : TRouterOrProcedure extends Procedure<any, any>

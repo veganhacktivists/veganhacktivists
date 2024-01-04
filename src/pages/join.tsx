@@ -165,7 +165,8 @@ const JOB_ROLES: JobRoleProps[] = [
     href: 'https://violetstudios.org',
     description: (
       <>
-        Apply to join our design team at Violet Studios, our sister organization for graphic design and branding.
+        Apply to join our design team at Violet Studios, our sister organization
+        for graphic design and branding.
       </>
     ),
   },
