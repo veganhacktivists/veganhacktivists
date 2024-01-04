@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Sprite, { chicken } from '../../../decoration/sprite';
 import SquareField from '../../../decoration/squares';
@@ -11,6 +12,7 @@ import teamPlayground from '../../../../../public/images/yearInReview/2022/team-
 import TeamBlock from './teamBlock';
 
 const MoreEffectiveTeams: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SquareField
@@ -33,33 +35,43 @@ const MoreEffectiveTeams: React.FC = () => {
       >
         <div className="md:w-2/3 xl:w-1/2 mx-auto mb-20">
           <TeamBlock
-            team="Communication Team"
+            team={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.building-effective-teams.comms.heading',
+              defaultMessage: 'Communication Team',
+            })}
             image={teamCommunication}
             color="orange"
           >
-            We are excited to have a dedicated comms team led by Malina Tran,
-            our Director of Communications. This versatile team manages our
-            blog, software content, social media, marketing, fundraising and
-            grant application— and has been vital to our success and growth in
-            showcasing the work we do to the public.
-          </TeamBlock>
-          <TeamBlock team="Core Team" image={teamCore} color="red">
-            We&apos;ve also made several changes to our team structure! We now
-            have a leadership team that includes key roles such as
-            communications, product management, operations, engineering, design
-            and lead architect supporting various teams and the organization as
-            a whole. Branded with an apple (core), of course!
+            <FormattedMessage
+              id="page.year-in-review.2022.section.building-effective-teams.comms.paragraph"
+              defaultMessage="We are excited to have a dedicated comms team led by Malina Tran, our Director of Communications. This versatile team manages our blog, software content, social media, marketing, fundraising and grant application— and has been vital to our success and growth in showcasing the work we do to the public."
+            />
           </TeamBlock>
           <TeamBlock
-            team="Playground Teams"
+            team={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.building-effective-teams.core.heading',
+              defaultMessage: 'Core Team',
+            })}
+            image={teamCore}
+            color="red"
+          >
+            <FormattedMessage
+              id="page.year-in-review.2022.section.building-effective-teams.core.paragraph"
+              defaultMessage="We've also made several changes to our team structure! We now have a leadership team that includes key roles such as communications, product management, operations, engineering, design and lead architect supporting various teams and the organization as a whole. Branded with an apple (core), of course!"
+            />
+          </TeamBlock>
+          <TeamBlock
+            team={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.building-effective-teams.playground.heading',
+              defaultMessage: 'Playground Teams',
+            })}
             image={teamPlayground}
             color="yellow"
           >
-            As our volunteer community has grown, we&apos;ve moved our signature
-            team branding to Playground! Each team will specialize in a specific
-            role which will allow us to connect volunteers with requests much
-            easier. We&apos;re looking forward to building the community further
-            there!
+            <FormattedMessage
+              id="page.year-in-review.2022.section.building-effective-teams.playground.paragraph"
+              defaultMessage="As our volunteer community has grown, we've moved our signature team branding to Playground! Each team will specialize in a specific role which will allow us to connect volunteers with requests much easier. We're looking forward to building the community further there!"
+            />
           </TeamBlock>
         </div>
       </SectionContainer>

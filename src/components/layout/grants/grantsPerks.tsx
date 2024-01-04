@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import callImage from '../../../../public/images/grants/call.jpg';
 import squarespaceImage from '../../../../public/images/grants/squarespace.jpg';
@@ -19,48 +20,72 @@ type PerkProps = React.PropsWithChildren<{
 const PERKS: PerkProps[] = [
   {
     image: squarespaceImage,
-    title: 'Squarespace Website Subscription',
+    title: (
+      <FormattedMessage
+        id="page.grants.section.perks.squarespace.heading"
+        defaultMessage="<no-localization>Squarespace</no-localization> Website Subscription"
+      />
+    ),
     children: (
       <>
-        <div>
-          Valued at $200, we cover the subscription cost for the first year.
-        </div>
-        <div>You own it, and we help you design and maintain it.</div>
-        <div>Easy to update with little to no experience.</div>
+        <FormattedMessage
+          id="page.grants.section.perks.squarespace.paragraph"
+          defaultMessage="<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
+          values={{
+            div: (chunks) => <div>{chunks}</div>,
+          }}
+        />
       </>
     ),
   },
   {
     image: designerImage,
-    title: 'Design Creation',
+    title: (
+      <FormattedMessage
+        id="page.grants.section.perks.design-creation.heading"
+        defaultMessage="Design Creation"
+      />
+    ),
     children: (
       <>
-        Depending on your needs, we design (or redesign) the branding and logo
-        for your organization or project. We also provide digital assets, such
-        as banners, icons, and any custom elements, for social media and your
-        website.
+        <FormattedMessage
+          id="page.grants.section.perks.design-creation.paragraph"
+          defaultMessage="Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
+        />
       </>
     ),
   },
   {
     image: contentImage,
-    title: 'Content Development',
+    title: (
+      <FormattedMessage
+        id="page.grants.section.perks.content-dev.heading"
+        defaultMessage="Content Development"
+      />
+    ),
     children: (
       <>
-        We help craft any public-facing messages, including website copy. We
-        offer our writing and editing skills at any stage of the process: from
-        initial brainstorming to reviewing copy that helps promote your work.
+        <FormattedMessage
+          id="page.grants.section.perks.content-dev.paragraph"
+          defaultMessage="We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
+        />
       </>
     ),
   },
   {
     image: callImage,
-    title: 'Monthly Advisory Check-ins',
+    title: (
+      <FormattedMessage
+        id="page.grants.section.perks.check-ins.heading"
+        defaultMessage="Monthly Advisory Check-ins"
+      />
+    ),
     children: (
       <>
-        A monthly 30-minute Zoom call to help advise you and your team. Topics
-        include but are not limited to technology, marketing, strategy, and
-        other aspects of your organization&apos;s growth and development.
+        <FormattedMessage
+          id="page.grants.section.perks.check-ins.paragraph"
+          defaultMessage="A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
+        />
       </>
     ),
   },
@@ -81,6 +106,7 @@ const Perk: React.FC<PerkProps> = ({ image, title, children }) => {
 };
 
 const GrantsPerks: React.FC = () => {
+  const intl = useIntl();
   const [perks, setPerks] = useState<PerkProps[]>([]);
   useOnce(() => {
     setPerks(PERKS);
@@ -91,10 +117,16 @@ const GrantsPerks: React.FC = () => {
         src={pixelHeart.src}
         width={pixelHeart.width * 0.5}
         height={pixelHeart.height * 0.5}
-        alt="Heart icon"
+        alt={intl.formatMessage({
+          id: 'page.grants.section.perks.heading',
+          defaultMessage: 'Heart icon',
+        })}
       />
       <h3 className="p-4 mt-12 mb-10 text-4xl font-semibold md:p-0">
-        In addition to seed funding, succesful applicants can receive:
+        <FormattedMessage
+          id="page.grants.section.perks.heading.image.alt-text"
+          defaultMessage="In addition to seed funding, succesful applicants can receive:"
+        />
       </h3>
 
       <div className="text-center md:text-left">

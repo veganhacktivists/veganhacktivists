@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
@@ -14,9 +15,24 @@ import type { Layout } from '../../types/persistentLayout';
 const AboutButtons: React.FC = () => {
   return (
     <div className="flex flex-wrap justify-center mt-10 mb-5">
-      <NavButton href="/about/our-mission">OUR MISSION</NavButton>
-      <NavButton href="/about/our-story">OUR STORY</NavButton>
-      <NavButton href="/about/our-values">OUR VALUES</NavButton>
+      <NavButton href="/about/our-mission">
+        <FormattedMessage
+          id="page.about.section.navigation.button.label.mission"
+          defaultMessage="OUR MISSION"
+        />
+      </NavButton>
+      <NavButton href="/about/our-story">
+        <FormattedMessage
+          id="page.about.section.navigation.button.label.story"
+          defaultMessage="OUR STORY"
+        />
+      </NavButton>
+      <NavButton href="/about/our-values">
+        <FormattedMessage
+          id="page.about.section.navigation.button.label.values"
+          defaultMessage="OUR VALUES"
+        />
+      </NavButton>
     </div>
   );
 };
@@ -31,13 +47,17 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const AboutHero: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <Hero
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'Data-Driven Activism',
+          alt: intl.formatMessage({
+            id: 'page.about.hero.alt-text',
+            defaultMessage: 'Data-Driven Activism',
+          }),
         }}
         alignment="left"
         classNameMapping={{

@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { useIntl } from 'react-intl';
 
 import SquareField from '../components/decoration/squares';
 import Newsletter from '../components/layout/newsletter';
@@ -7,9 +8,16 @@ import { pixelHeart } from '../images/separators';
 import CustomImage from 'components/decoration/customImage';
 
 const Contact: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Our Newsletter" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.newsletter.next-seo.title',
+          defaultMessage: 'Our Newsletter',
+        })}
+      />
       <SquareField
         squares={[
           { size: 16, top: 0, color: 'grey-light' },

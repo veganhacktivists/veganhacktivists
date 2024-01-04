@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import vcj from '../../../../../public/images/yearInReview/2021/DesignedLogo_VCJ.png';
 import sv from '../../../../../public/images/yearInReview/2021/DesignedLogo_SV.png';
 import ivff from '../../../../../public/images/yearInReview/2021/DesignedLogo_IVFF.png';
@@ -8,6 +10,7 @@ import SquareField from '../../../decoration/squares';
 import CustomImage from 'components/decoration/customImage';
 
 const DesignsForVeganOrgs: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer
@@ -18,9 +21,10 @@ const DesignsForVeganOrgs: React.FC = () => {
             header={['Designs', 'for', 'Vegan Orgs']}
             startWithBoldFont
           >
-            We had the chance to provide on-the-house design support to vegan
-            organizations that needed to create their brand and identity, as
-            well as stand out in the competitive digital landscape.
+            <FormattedMessage
+              id="page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph"
+              defaultMessage="We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the competitive digital landscape."
+            />
           </SectionHeader>
         }
       >

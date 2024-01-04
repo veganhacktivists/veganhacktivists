@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 
@@ -34,7 +35,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={1}
             totalAmount={goal}
           >
-            This will cover some of our most basic needs!
+            <FormattedMessage
+              id="section.support-progess-bar.goal.0.label"
+              defaultMessage="This will cover some of our most basic needs!"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={500}
@@ -43,7 +47,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={2}
             totalAmount={goal}
           >
-            We can utilize more useful services and tech
+            <FormattedMessage
+              id="section.support-progess-bar.goal.1.label"
+              defaultMessage="We can utilize more useful services and tech"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={750}
@@ -52,7 +59,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={3}
             totalAmount={goal}
           >
-            We can ramp up value and services offered
+            <FormattedMessage
+              id="section.support-progess-bar.goal.2.label"
+              defaultMessage="We can ramp up value and services offered"
+            />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={1000}
@@ -61,7 +71,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
             goalOrder={4}
             totalAmount={goal}
           >
-            We&apos;ve hit our monthly contribution goal, thanks!
+            <FormattedMessage
+              id="section.support-progess-bar.goal.3.label"
+              defaultMessage="We've hit our monthly contribution goal, thanks!"
+            />
           </PatreonGoal>
         </div>
       </div>

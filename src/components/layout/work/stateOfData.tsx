@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import TechAndDataInTheMovement from '../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
 
@@ -45,15 +46,10 @@ const StateOfData: React.FC = () => {
             <div className="flex flex-col lg:flex-row items-center justify-start gap-20 mt-10 lg:mt-20">
               <div className="max-w-prose space-y-10 lg:basis-[55%]">
                 <p className="text-xl">
-                  We launched the first-of-its-kind study to understand how our
-                  movement leverages technology. With guidance from Faunalytics
-                  and research conducted by Animetrics, our 50-page report
-                  explores challenges and opportunities across various topics
-                  such as employment and workforce, websites and applications,
-                  social media, data collection and analysis, and security. Our
-                  recommendations are meant to provide actionable solutions for
-                  stakeholders and community members on how we can become a more
-                  technological, data-driven movement.
+                  <FormattedMessage
+                    id="page.our-work.section.state-of-data.content"
+                    defaultMessage="We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from <no-localization>Faunalytics</no-localization> and research conducted by <no-localization>Animetrics</no-localization>, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
+                  />
                 </p>
 
                 <DarkButton
@@ -61,7 +57,10 @@ const StateOfData: React.FC = () => {
                   newTab
                   className="w-fit mx-auto lg:mx-0"
                 >
-                  Read the report
+                  <FormattedMessage
+                    id="page.our-work.section.state-of-data.cta"
+                    defaultMessage="Read the report"
+                  />
                 </DarkButton>
               </div>
               <div className="w-full md:w-[50%] lg:w-full lg:basis-[45%]">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
 
 import {
   ExternalLinkButton,
@@ -11,11 +12,18 @@ const Social: React.FC = () => {
   return (
     <div className="pt-10 text-left">
       <div className="text-4xl font-semibold uppercase mb-1">
-        <code>Contact Us</code>
+        <code>
+          <FormattedMessage
+            id="layout.footer.navigation-item.social.headline"
+            defaultMessage="Contact Us"
+          />
+        </code>
       </div>
       <div className="max-w-xs m-auto">
-        If you have project ideas, suggestions, questions or anything else, get
-        in touch!
+        <FormattedMessage
+          id="layout.footer.navigation-item.social.description"
+          defaultMessage="If you have project ideas, suggestions, questions or anything else, get in touch!"
+        />
       </div>
       <div className="font-bold pt-5 text-lg">
         <Link href="/contact">hello@veganhacktivists.org</Link>
@@ -27,12 +35,22 @@ const Social: React.FC = () => {
       </div>
       <div className="pt-10 text-center">
         <ExternalLinkButton href="https://veganhacktivists.org/support">
-          <div className="font-serif italic text-xl capitalize">
-            Support our work
-          </div>
-          <div className="text-4xl uppercase font-mono font-semibold">
-            Donate
-          </div>
+          <FormattedMessage
+            id="layout.footer.navigation-item.support.label"
+            defaultMessage="<top>Support our work</top> <bottom>Donate</bottom>"
+            values={{
+              top: (chunk) => (
+                <div className="font-serif italic text-xl capitalize">
+                  {chunk}
+                </div>
+              ),
+              bottom: (chunk) => (
+                <div className="text-4xl uppercase font-mono font-semibold">
+                  {chunk}
+                </div>
+              ),
+            }}
+          />
         </ExternalLinkButton>
       </div>
     </div>

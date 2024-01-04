@@ -7,6 +7,7 @@ import {
   faLongArrowAltRight as rightArrow,
 } from '@fortawesome/free-solid-svg-icons';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import useFuse from '../../hooks/useFuse';
 import BlogEntrySummary from '../../components/layout/blog/blogEntrySummary';
@@ -151,10 +152,15 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   }, []);
 
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
-
+  const intl = useIntl();
   return (
     <>
-      <NextSeo title="Blog" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.blog.next-seo.title',
+          defaultMessage: 'Blog',
+        })}
+      />
       <SquareField
         squares={[
           { color: 'grey', size: 32, top: 0, left: 0 },
@@ -184,7 +190,12 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       />
       <div className="pt-20 pb-20" ref={blogContainer}>
         {!filteredFirstBlog.length && !filteredEntries.length ? (
-          <div className="mx-auto text-xl">No entries match your query</div>
+          <div className="mx-auto text-xl">
+            <FormattedMessage
+              id="page.blog.section.container.no-match"
+              defaultMessage="No entries match your query"
+            />
+          </div>
         ) : (
           <div
             ref={animatedRef}
@@ -222,7 +233,12 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             <div>
               <FontAwesomeIcon icon={leftArrow} size="xs" />
             </div>
-            <span className="hidden pl-3 md:block">Previous</span>
+            <span className="hidden pl-3 md:block">
+              <FormattedMessage
+                id="page.blog.section.navigation.btn.previous"
+                defaultMessage="Previous"
+              />
+            </span>
           </DarkButton>
           <DarkButton
             onClick={useCallback(() => {
@@ -234,7 +250,12 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             disabled={!nextEnabled}
           >
             <div className="flex">
-              <span className="hidden pr-3 md:block">Next</span>
+              <span className="hidden pr-3 md:block">
+                <FormattedMessage
+                  id="page.blog.section.navigation.btn.next"
+                  defaultMessage="Next"
+                />
+              </span>
               <div>
                 <FontAwesomeIcon icon={rightArrow} size="xs" />
               </div>

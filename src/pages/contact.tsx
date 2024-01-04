@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { pixelHeart } from '../images/separators';
 
@@ -8,9 +9,16 @@ import { FirstSubSection } from 'components/decoration/textBlocks';
 import SquareField from 'components/decoration/squares';
 
 const Contact: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Contact Us" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.contact.next-seo.title',
+          defaultMessage: 'Contact Us',
+        })}
+      />
       <SquareField
         squares={[
           { size: 16, top: 0, color: 'grey-light' },
@@ -29,13 +37,17 @@ const Contact: React.FC = () => {
           />
         </div>
         <FirstSubSection
-          header="Get in contact"
+          header={intl.formatMessage({
+            id: 'page.contact.section.get-in-contact.headline',
+            defaultMessage: 'Get in contact',
+          })}
           firstWordsNum={2}
           className="my-0"
         >
-          If you&apos;d like to get in touch with us, please use our contact
-          form below! We do our best to respond to every email within 48 hours.
-          Please make sure to check your spam folder!
+          <FormattedMessage
+            id="page.contact.section.get-in-contact.content"
+            defaultMessage="If you'd like to get in touch with us, please use our contact form below! We do our best to respond to every email within 48 hours. Please make sure to check your spam folder!"
+          />
         </FirstSubSection>
 
         <ContactUsForm />

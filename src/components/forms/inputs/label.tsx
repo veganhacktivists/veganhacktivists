@@ -4,26 +4,26 @@ import type { HTMLAttributes } from 'react';
 
 interface LabelProps
   extends React.PropsWithChildren<HTMLAttributes<HTMLLabelElement>> {
-  name: string;
+  htmlFor?: string;
   showRequiredMark?: boolean;
   error?: string;
 }
 
 const Label: React.FC<LabelProps> = ({
-  name,
+  htmlFor,
   error,
-  children,
   showRequiredMark,
   className,
+  children,
   ...props
 }) => {
   return (
     <label
       className={classNames('block mb-2 font-bold text-left', className)}
-      htmlFor={name}
+      htmlFor={htmlFor}
       {...props}
     >
-      {children || <span className="capitalize">{name}</span>}
+      {children}
       {showRequiredMark && <span className="text-red">*</span>}
       {error && <span className="font-normal text-red">⚠ {error}</span>}
     </label>

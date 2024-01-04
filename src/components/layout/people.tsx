@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
@@ -31,10 +32,30 @@ export interface SocialLink {
 const PeopleButtons: React.FC = () => {
   return (
     <div className="flex flex-wrap justify-center mt-10 mb-5">
-      <NavButton href="/people/team">OUR TEAM</NavButton>
-      <NavButton href="/people/volunteers">OUR VOLUNTEERS</NavButton>
-      <NavButton href="/people/advisors">OUR ADVISORS</NavButton>
-      <NavButton href="/people/partners">OUR PARTNERS</NavButton>
+      <NavButton href="/people/team">
+        <FormattedMessage
+          id="page.people.section.navigation.button.label.team"
+          defaultMessage="OUR TEAM"
+        />
+      </NavButton>
+      <NavButton href="/people/volunteers">
+        <FormattedMessage
+          id="page.people.section.navigation.button.label.volunteers"
+          defaultMessage="OUR VOLUNTEERS"
+        />
+      </NavButton>
+      <NavButton href="/people/advisors">
+        <FormattedMessage
+          id="page.people.section.navigation.button.label.advisors"
+          defaultMessage="OUR ADVISORS"
+        />
+      </NavButton>
+      <NavButton href="/people/partners">
+        <FormattedMessage
+          id="page.people.section.navigation.button.label.partners"
+          defaultMessage="OUR PARTNERS"
+        />
+      </NavButton>
     </div>
   );
 };
@@ -49,13 +70,17 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const PeopleHero: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <Hero
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'Our Community of Passionate Activists',
+          alt: intl.formatMessage({
+            id: 'page.people.hero.alt-text',
+            defaultMessage: 'Our Community of Passionate Activists',
+          }),
         }}
         alignment="left"
         classNameMapping={{

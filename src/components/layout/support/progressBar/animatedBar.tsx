@@ -1,5 +1,6 @@
 import { animated, useSpring, config } from '@react-spring/web';
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Waypoint } from 'react-waypoint';
 
 import useReduceMotion from '../../../../hooks/useReduceMotion';
@@ -40,7 +41,10 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
               </animated.h1>
             </div>
             <p className="w-full text-lg text-left text-white md:text-xl">
-              Current monthly donations
+              <FormattedMessage
+                id="section.support-progess-bar.current.label"
+                defaultMessage="Current monthly donations"
+              />
             </p>
           </div>
         </animated.div>

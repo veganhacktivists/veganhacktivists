@@ -27,7 +27,7 @@ interface SelectInputProps<T>
   onChange?: (value: OptionType<T> | null) => void;
   placeholder?: string;
   showError?: boolean;
-  theme?: string;
+  theme?: 'default' | 'data' | 'dark';
 }
 
 const grey = getThemeColor('grey');
@@ -174,29 +174,26 @@ const SelectInput = <T,>({
     },
   };
 
-  const SelectComponent = () =>
-    creatable ? (
-      <CreatableSelect
-        {...commonProps}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ref={ref as any}
-        onCreateOption={(value) => {
-          const newOption = { label: value, value: value as T };
-          setAllOptions((options) => [...options, newOption]);
-          onChange?.(newOption);
-        }}
-      />
-    ) : (
-      <Select
-        {...commonProps}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ref={ref as any}
-      />
-    );
-
   return (
     <>
-      <SelectComponent />
+      {creatable ? (
+        <CreatableSelect
+          {...commonProps}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ref={ref as any}
+          onCreateOption={(value) => {
+            const newOption = { label: value, value: value as T };
+            setAllOptions((options) => [...options, newOption]);
+            onChange?.(newOption);
+          }}
+        />
+      ) : (
+        <Select
+          {...commonProps}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ref={ref as any}
+        />
+      )}
       {error && <div className="text-red">⚠ {error}</div>}
     </>
   );

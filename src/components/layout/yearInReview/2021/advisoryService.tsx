@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SectionContainer from '../sectionContainer';
 import advisorService from '../../../../../public/images/yearInReview/2021/advisory.png';
@@ -9,6 +10,7 @@ import SquareField from '../../../decoration/squares';
 import CustomImage from 'components/decoration/customImage';
 
 const AdvisoryService: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SectionContainer>
@@ -21,26 +23,23 @@ const AdvisoryService: React.FC = () => {
               header={['Our new', 'advisory service']}
               className="text-grey"
             />
-            <p>
-              We launched our newest service to connect people with our team of
-              experts who have a wide range of experience and skills. We welcome
-              vegan activists and organizations to count us as a resource for
-              their tech, org structure, strategy, marketing, grant requests,
-              and more.
-            </p>
-            <p>
-              We&apos;ve been very happy with this launch and we&apos;ve
-              received over 100+ requests for advice! We have been able to
-              assist organizations such as Sinergia Animal, The Humane League,
-              Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates,
-              among many others.
-            </p>
+            <FormattedMessage
+              id="page.year-in-review.2021.section.advisory-service.paragraph"
+              defaultMessage="<p>We launched our newest service to connect people with our team of experts who have a wide range of experience and skills. We welcome vegan activists and organizations to count us as a resource for their tech, org structure, strategy, marketing, grant requests, and more.</p> <p>We've been very happy with this launch and we've received over 100+ requests for advice! We have been able to assist organizations such as <no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization>, among many others.</p>"
+              values={{
+                p: (chunks) => <p>{chunks}</p>,
+              }}
+            />
+
             <div className="pb-10 pt-5">
               <DarkButton
                 href="/services"
                 className="font-semibold font-mono w-min mx-auto md:mx-0 mt-5"
               >
-                Check out our services
+                <FormattedMessage
+                  id="page.year-in-review.2021.section.advisory-service.btn.cta"
+                  defaultMessage="Check out our services"
+                />
               </DarkButton>
             </div>
           </div>

@@ -20,6 +20,12 @@ const nextConfig = {
       exclude: ['error', 'info', 'warn'],
     },
   },
+  i18n: {
+    // disable languages other than english until the translation feature is fully integrated
+    locales: ['en' /**, 'de', 'zh', 'dev' */],
+    defaultLocale: 'en',
+    localeDetection: true,
+  },
   redirects() {
     return [
       {

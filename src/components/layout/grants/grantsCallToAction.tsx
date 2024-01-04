@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
@@ -31,7 +32,6 @@ const Info: React.FC<InfoProps> = ({
   button,
 }) => {
   const color = getThemeColor(backgroundColor);
-
   return (
     <div style={{ backgroundColor: color }} className="flex flex-col gap-14">
       <div className="w-full overflow-hidden">
@@ -63,6 +63,7 @@ const Info: React.FC<InfoProps> = ({
 };
 
 const GrantsCallToAction: React.FC = () => {
+  const intl = useIntl();
   return (
     <div className="pb-10 bg-gray-background pt-14">
       <div className="grid grid-cols-1 gap-0 mx-auto mb-20 md:grid md:grid-cols-2 md:w-2/3 auto-rows-fr">
@@ -70,24 +71,47 @@ const GrantsCallToAction: React.FC = () => {
           image={beeImage}
           boxicon={beeIcon}
           backgroundColor="white"
-          title="Apply for a seed grant"
-          button={{ content: <>Apply&nbsp;Now</>, href: '/grants' }}
+          title={intl.formatMessage({
+            id: 'section.grants-cta.apply.heading',
+            defaultMessage: 'Apply for a seed grant',
+          })}
+          button={{
+            content: (
+              <FormattedMessage
+                id="section.grants-cta.apply.cta"
+                defaultMessage="Apply Now"
+              />
+            ),
+            href: '/grants',
+          }}
         >
-          We connect you with funders for impactful work in animal advocacy and
-          activism.
+          <FormattedMessage
+            id="section.grants-cta.apply.paragraph"
+            defaultMessage="We connect you with funders for impactful work in animal advocacy and activism."
+          />
         </Info>
         <Info
           image={impactReviewImage}
           boxicon={pixelFlower}
-          title="See our 2022 impact review"
+          title={intl.formatMessage({
+            id: 'section.grants-cta.visit-year-review.heading',
+            defaultMessage: 'See our 2022 impact review',
+          })}
           backgroundColor="grey-over-background"
           button={{
-            content: <>See&nbsp;our&nbsp;impact</>,
+            content: (
+              <FormattedMessage
+                id="section.grants-cta.visit-year-review.cta"
+                defaultMessage="See our impact"
+              />
+            ),
             href: '/year-in-review/2022',
           }}
         >
-          Read our annual impact review and see what we&apos;ve accomplished
-          last year.
+          <FormattedMessage
+            id="section.grants-cta.visit-year-review.paragraph"
+            defaultMessage="Read our annual impact review and see what we've accomplished last year."
+          />
         </Info>
       </div>
     </div>

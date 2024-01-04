@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SquareField from '../../components/decoration/squares';
 import Sprite, { pig, chicks } from '../../components/decoration/sprite';
@@ -38,9 +39,15 @@ const GRANTS_QUALIFICATIONS_SQUARES = [
 ];
 
 const Grants: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
-      <NextSeo title="Seed Funding Grants" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.grants.next-seo.title',
+          defaultMessage: 'Seed Funding Grants',
+        })}
+      />
       <GrantsHero />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
@@ -54,10 +61,13 @@ const Grants: React.FC = () => {
 
       <div className="p-12 pb-20 bg-yellow">
         <p className="max-w-screen-md mx-auto font-mono text-2xl text-center">
-          We connect you with funders providing up to{' '}
-          <b>$1,000 USD in seed funding</b> for animal rights activism! We seek
-          individual and grassroots groups whose primary purpose is to help
-          reduce suffering for farmed animals.
+          <FormattedMessage
+            id="page.grants.content"
+            defaultMessage="We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
+            values={{
+              b: (chunks) => <b>{chunks}</b>,
+            }}
+          />
         </p>
       </div>
       <Sprite image={pig} />

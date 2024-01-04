@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
@@ -220,6 +221,8 @@ interface TeamProps {
 }
 
 const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
+  const intl = useIntl();
+
   const [team] = useHash();
 
   const teamStore = useTeamStore();
@@ -254,12 +257,25 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
 
   return (
     <>
-      <NextSeo title="Our Volunteers" />
-      <FirstSubSection header="Our volunteers">
-        Our volunteer community is at the heart of our organization, and enables
-        us to build innovative projects and contribute to the movement in
-        meaningful ways.{' '}
-        <b>Click on an icon to meet the volunteers in each team!</b>
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.people.section.volunteers.next-seo.title',
+          defaultMessage: 'Our Volunteers',
+        })}
+      />
+      <FirstSubSection
+        header={intl.formatMessage({
+          id: 'page.people.section.volunteers.intro.heading',
+          defaultMessage: 'Our volunteers',
+        })}
+      >
+        <FormattedMessage
+          id="page.people.section.volunteers.intro.paragraph"
+          defaultMessage="Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
+          values={{
+            b: (chunks) => <b>{chunks}</b>,
+          }}
+        />
       </FirstSubSection>
       <div className="m-10">
         <TeamSelector selectedTeam={team} teams={teamStore.teamOrder} />
@@ -270,7 +286,10 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
               className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
             >
-              Load more
+              <FormattedMessage
+                id="page.people.section.volunteers.button.load-more"
+                defaultMessage="Load more"
+              />
             </WhiteButton>
           </div>
         )}
@@ -281,14 +300,21 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
-          alt="Our community"
+          alt={intl.formatMessage({
+            id: 'page.people.section.volunteers.community.image.alt-text',
+            defaultMessage: 'Our community',
+          })}
         />
-        <FirstSubSection header="Our community">
-          We are more than a group of volunteers; we are a community tethered by
-          shared values and invested in a vision of a better world for animals.
-          We believe in a community-first approach: one that is supportive,
-          growth-oriented, and accountable to each other. If this resonates with
-          you, scroll down to learn more.
+        <FirstSubSection
+          header={intl.formatMessage({
+            id: 'page.people.section.volunteers.community.heading',
+            defaultMessage: 'Our community',
+          })}
+        >
+          <FormattedMessage
+            id="page.people.section.volunteers.community.paragraph"
+            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+          />
         </FirstSubSection>
       </div>
     </>

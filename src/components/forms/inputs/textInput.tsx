@@ -10,6 +10,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   showRequiredMark?: boolean;
   showLabel?: boolean;
+  name?: string;
 }
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
@@ -20,6 +21,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       className,
       showRequiredMark,
       showLabel = true,
+      name,
       ...props
     },
     ref
@@ -27,23 +29,19 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     return (
       <div className={classNames(className, { hidden: props.hidden })}>
         {showLabel && (
-          <Label name={props.name || ''} showRequiredMark={showRequiredMark}>
+          <Label htmlFor={name} showRequiredMark={showRequiredMark}>
             {children}
           </Label>
         )}
         <input
           ref={ref}
-          className={classNames(
-            inputClassNames,
-            'w-full',
-            {
-              'ring-2 ring-red focus:ring-red focus:ring-2 focus-visible:outline-none focus-visible:ring-[3px]':
-                error,
-            }
-            // className
-          )}
+          className={classNames(inputClassNames, 'w-full', {
+            'ring-2 ring-red focus:ring-red focus:ring-2 focus-visible:outline-none focus-visible:ring-[3px]':
+              error,
+          })}
           {...props}
-          id={props.id || props.name}
+          name={name}
+          id={props.id || name}
         />
         {error && <div className="text-red">⚠ {error}</div>}
       </div>

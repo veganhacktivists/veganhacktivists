@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import family from '../../../../public/images/yearInReview/2022/vh-family.jpg';
 import malina from '../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
 import james from '../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
@@ -23,6 +25,7 @@ const BOTTOM_DECORATION_SQUARES = [
 ];
 
 const SharingKnowledgeAndSupport: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SquareField
@@ -40,14 +43,17 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               stackEntries
             >
               <p className="text-xl max-w-prose">
-                We&apos;re often speaking at animal protection and EA related
-                conferences every year and around the world! Be sure to look out
-                for our booth or speakers, we&apos;d love to meet you and see
-                where we might be able to support your work. Follow us on{' '}
-                <CustomLink href="https://instagram.com/veganhacktivists">
-                  Instagram
-                </CustomLink>{' '}
-                to see where we&apos;ll be next!
+                <FormattedMessage
+                  id="page.our-work.section.sharing-knowledge-and-support.section-header.content"
+                  defaultMessage="We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
+                  values={{
+                    link: (chunk) => (
+                      <CustomLink href="https://instagram.com/veganhacktivists">
+                        {chunk}
+                      </CustomLink>
+                    ),
+                  }}
+                />
               </p>
             </SectionHeader>
           </div>
@@ -59,16 +65,30 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               <ImageWithCaption
                 bgColor="yellow"
                 image={malina}
-                caption={'Malina Tran at CARE Conference'}
-                subcaption={'Data & Tech in Animal Rights Activism'}
+                caption={intl.formatMessage({
+                  id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.caption',
+                  defaultMessage:
+                    '<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference',
+                })}
+                subcaption={intl.formatMessage({
+                  id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption',
+                  defaultMessage: 'Data & Tech in Animal Rights Activism',
+                })}
               />
             </div>
             <div className="flex">
               <ImageWithCaption
                 bgColor="green"
                 image={james}
-                caption={'James Morgan at AVA Summit'}
-                subcaption={'Tech Innovation in Animal Protection'}
+                caption={intl.formatMessage({
+                  id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.caption',
+                  defaultMessage:
+                    '<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>',
+                })}
+                subcaption={intl.formatMessage({
+                  id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption',
+                  defaultMessage: 'Tech Innovation in Animal Protection',
+                })}
               />
             </div>
           </div>

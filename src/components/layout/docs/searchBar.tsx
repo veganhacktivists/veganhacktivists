@@ -52,7 +52,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
               setSearchTerm(e.currentTarget.value);
             }}
             value={searchTerm}
-          />
+          >
+            Search
+          </TextInput>
         </div>
         <FillBackground base="grey-dark" fill="green">
           <button

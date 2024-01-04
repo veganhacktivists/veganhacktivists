@@ -1,5 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import HeartLogo from '../../public/images/support/heart-icon.png';
 import PayPalLogo from '../../public/images/support/paypal-logo.png';
@@ -32,14 +33,24 @@ const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
 );
 
 const Support: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
-      <NextSeo title="Support Us" />
+      <NextSeo
+        title={intl.formatMessage({
+          id: 'page.support.next-seo.title',
+          defaultMessage: 'Support Us',
+        })}
+      />
       <Hero
         imageBackground={heroBackground}
         tagline={{
           image: heroTagline,
-          alt: 'You are their voice',
+          alt: intl.formatMessage({
+            id: 'page.support.section.hero.image-alt',
+            defaultMessage: 'You are their voice',
+          }),
         }}
         alignment="left"
       />
@@ -48,10 +59,16 @@ const Support: React.FC = () => {
         className="hidden md:block"
       />
       <div className="px-10">
-        <PlainHeader header="Support Us">
-          If you believe in the work we do and would like to support us, please
-          consider making a donation. With your gift, we can make a greater
-          impact and change the world for our animal friends.
+        <PlainHeader
+          header={intl.formatMessage({
+            id: 'page.support.section.support-us.header.title',
+            defaultMessage: 'Support Us',
+          })}
+        >
+          <FormattedMessage
+            id="page.support.section.support-us.header.content"
+            defaultMessage="If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
+          />
         </PlainHeader>
       </div>
       <div className="mx-auto my-16 md:w-fit">
@@ -59,38 +76,59 @@ const Support: React.FC = () => {
           <DonationCard
             color="blue"
             image={PayPalLogo}
-            title="PayPal"
-            buttonText="donate"
+            title={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.0.title',
+              defaultMessage: 'PayPal',
+            })}
+            buttonText={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.0.button-label',
+              defaultMessage: 'donate',
+            })}
             buttonHref="https://paypal.me/veganhacktivists"
           >
-            For one-time, smaller donations
+            <FormattedMessage
+              id="page.support.section.support-us.donation-card.0.content"
+              defaultMessage="For one-time, smaller donations"
+            />
           </DonationCard>
           <DonorBoxCard color="orange" large />
           <DonationCard
             color="green"
             image={HeartLogo}
-            title="Other"
-            buttonText="contact us"
+            title={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.2.title',
+              defaultMessage: 'Other',
+            })}
+            buttonText={intl.formatMessage({
+              id: 'page.support.section.support-us.donation-card.2.button-label',
+              defaultMessage: 'contact us',
+            })}
             buttonHref="https://veganhacktivists.org/contact"
           >
-            For larger donations (US tax-deductible)
+            <FormattedMessage
+              id="page.support.section.support-us.donation-card.2.content"
+              defaultMessage="For larger donations (US tax-deductible)"
+            />
           </DonationCard>
         </div>
-        <div className="">
+        <div>
           <Crypto />
         </div>
       </div>
 
       <Paragraph>
-        We prefer a{' '}
-        <span className="font-bold">monthly donation via Donorbox</span> as that
-        gives us the most stability, but we also appreciate one-time donations!
-        If you would like to make a larger contribution of $1,000 or more
-        (thanks!), please{' '}
-        <CustomLink href="https://veganhacktivists.org/contact">
-          contact us
-        </CustomLink>{' '}
-        for tax deductible options via our fiscal sponsor.
+        <FormattedMessage
+          id="page.support.section.support-us.subtitle"
+          defaultMessage="We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+          values={{
+            bold: (chunks) => <span className="font-bold">{chunks}</span>,
+            'contact-link': (chunks) => (
+              <CustomLink href="mailto:hello@veganhacktivists.org">
+                {chunks}
+              </CustomLink>
+            ),
+          }}
+        />
       </Paragraph>
       <SquareField
         squares={[

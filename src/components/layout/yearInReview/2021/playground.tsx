@@ -1,3 +1,5 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import { SectionHeader } from '../../../decoration/textBlocks';
 import SectionContainer from '../sectionContainer';
 import { DarkButton } from '../../../decoration/buttons';
@@ -7,6 +9,7 @@ import discord from '../../../../../public/images/yearInReview/2021/discord.png'
 import CustomImage from 'components/decoration/customImage';
 
 const Playground: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <SquareField
@@ -26,24 +29,22 @@ const Playground: React.FC = () => {
               startWithBoldFont
             />
             <div className="space-y-5">
-              <p>
-                We launched an open-source community available to the public
-                called VH: Playground! Playground allows developers who
-                don&apos;t have the time or specific skills to join the core
-                Vegan Hacktivists team to still contribute to the movement,
-                whether that be on our open source projects or their own!
-              </p>
-              <p>
-                In short, we wanted to build and foster a community of vegan
-                developers in order to support folks outside of our network—so
-                far we&apos;ve attracted over 400 members, and counting!
-              </p>
+              <FormattedMessage
+                id="page.year-in-review.2021.section.playground.paragraph"
+                defaultMessage="<p>We launched an open-source community available to the public called <no-localization>VH: Playground</no-localization>! <no-localization>Playground</no-localization> allows developers who don't have the time or specific skills to join the core <no-localization>Vegan Hacktivists</no-localization> team to still contribute to the movement, whether that be on our open source projects or their own!</p> <p>In short, we wanted to build and foster a community of vegan developers in order to support folks outside of our network—so far we've attracted over 400 members, and counting!</p>"
+                values={{
+                  p: (chunks) => <p>{chunks}</p>,
+                }}
+              />
               <div className="mt-5 pt-5 w-min mx-auto md:mx-0">
                 <DarkButton
                   href="https://discord.gg/cRqJBmUR9b"
                   className="w-min font-semibold"
                 >
-                  Join the playground
+                  <FormattedMessage
+                    id="page.year-in-review.2021.section.playground.btn.cta"
+                    defaultMessage="Join the playground"
+                  />
                 </DarkButton>
               </div>
             </div>
