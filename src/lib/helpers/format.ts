@@ -1,6 +1,6 @@
 export const formatCurrency = (
   value: number | bigint,
-  currency = 'USD'
+  currency = 'USD',
 ): string => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',

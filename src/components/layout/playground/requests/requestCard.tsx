@@ -40,14 +40,14 @@ const Li: React.FC<
       {...props}
       className={classNames(
         'max-w-fit flex flex-row gap-2 justify-start items-center break-words',
-        className
+        className,
       )}
     >
       <span
         style={{ backgroundColor: CATEGORY_COLORS[category] }}
-        className="w-1.5 h-1.5 my-auto aspect-square"
+        className='w-1.5 h-1.5 my-auto aspect-square'
       />
-      <span className="my-auto h-min">
+      <span className='my-auto h-min'>
         <b>{name}:</b> {children}
       </span>
     </li>
@@ -80,12 +80,12 @@ const PlaygroundRequestCard: React.FC<
 }) => {
   const [timeSinceCreated] = useMemo(
     () => readableTimeDiff(createdAt),
-    [createdAt]
+    [createdAt],
   );
 
   const timeSinceLastManuallyPushed = useMemo(
     () => lastManuallyPushed && readableTimeDiff(lastManuallyPushed)[0],
-    [lastManuallyPushed]
+    [lastManuallyPushed],
   );
 
   const [timeUntilDue, isDue, hasNoDue] = useMemo(() => {
@@ -96,7 +96,7 @@ const PlaygroundRequestCard: React.FC<
 
   const formattedBudget = useMemo(
     () => (budget ? formatCurrency(budget.quantity.toNumber()) : null),
-    [budget]
+    [budget],
   );
   const { data: session } = useSession();
   const canEdit =
@@ -105,7 +105,7 @@ const PlaygroundRequestCard: React.FC<
 
   return (
     <div
-      className="bg-grey-background border-l-[10px]"
+      className='bg-grey-background border-l-[10px]'
       style={{
         borderColor: categoryColor,
       }}
@@ -113,25 +113,25 @@ const PlaygroundRequestCard: React.FC<
       <SquareField
         squares={[{ top: 0, right: 0, color: categoryColor, size: 6 }]}
       />
-      <div className="flex flex-col h-full gap-2 p-4 text-left">
-        <div className="space-y-1">
+      <div className='flex flex-col h-full gap-2 p-4 text-left'>
+        <div className='space-y-1'>
           <h3
-            className="mb-2 mr-12 font-mono text-xl font-bold capitalize break-words md:text-2xl line-clamp-6 md:line-clamp-4"
+            className='mb-2 mr-12 font-mono text-xl font-bold capitalize break-words md:text-2xl line-clamp-6 md:line-clamp-4'
             title={title}
           >
             {title}
           </h3>
-          <div className="flex flex-row justify-start gap-2">
+          <div className='flex flex-row justify-start gap-2'>
             <div
               style={{
                 borderColor: categoryColor,
               }}
-              className="px-2 py-0.5 border-[3px] rounded-xl capitalize my-auto"
+              className='px-2 py-0.5 border-[3px] rounded-xl capitalize my-auto'
             >
               {CATEGORY_LABELS[category]}
             </div>
-            <div className="flex flex-row items-center gap-2 my-auto">
-              <FontAwesomeIcon icon={faClock} size="sm" />{' '}
+            <div className='flex flex-row items-center gap-2 my-auto'>
+              <FontAwesomeIcon icon={faClock} size='sm' />{' '}
               <div>
                 <strong>Posted: </strong>
                 {timeSinceCreated ? `${timeSinceCreated} ago` : 'Today'}
@@ -140,10 +140,10 @@ const PlaygroundRequestCard: React.FC<
           </div>
         </div>
 
-        <div className="mt-4 mb-4 line-clamp-5">{description}</div>
-        <ul className="grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1">
+        <div className='mt-4 mb-4 line-clamp-5'>{description}</div>
+        <ul className='grid content-end flex-grow grid-cols-1 mb-2 lg:grid-cols-2 gap-x-1'>
           <Li
-            name="Requestor"
+            name='Requestor'
             category={category}
             title={requester.name || undefined}
           >
@@ -151,8 +151,8 @@ const PlaygroundRequestCard: React.FC<
           </Li>
           {'email' in requester && (
             <Li
-              className="break-all"
-              name="Requestor email"
+              className='break-all'
+              name='Requestor email'
               category={category}
               title={requester.email || undefined}
             >
@@ -164,19 +164,19 @@ const PlaygroundRequestCard: React.FC<
               hasNoDue
                 ? 'Due Date'
                 : timeUntilDue
-                ? isDue
-                  ? 'Was due'
-                  : 'Due in'
-                : 'Due'
+                  ? isDue
+                    ? 'Was due'
+                    : 'Due in'
+                  : 'Due'
             }`}
             name={`${
               hasNoDue
                 ? 'Due Date'
                 : timeUntilDue
-                ? isDue
-                  ? 'Was due'
-                  : 'Due in'
-                : 'Due'
+                  ? isDue
+                    ? 'Was due'
+                    : 'Due in'
+                  : 'Due'
             }`}
             category={category}
           >
@@ -184,14 +184,14 @@ const PlaygroundRequestCard: React.FC<
             {!hasNoDue ? (timeUntilDue ? (isDue ? ' ago' : '') : 'Today') : ''}
           </Li>
           <Li
-            name="Organization"
+            name='Organization'
             title={organization || undefined}
             category={category}
           >
             {organization}
           </Li>
           <Li
-            name="Compensation"
+            name='Compensation'
             title={`${!!budget ? 'Volunteer' : 'Paid'} role`}
             category={category}
           >
@@ -202,11 +202,11 @@ const PlaygroundRequestCard: React.FC<
             <>
               {category === PlaygroundRequestCategory.Designer && (
                 <>
-                  <Li name="Current design exists" category={category}>
+                  <Li name='Current design exists' category={category}>
                     {designRequestCurrentDesignExists ? 'Yes' : 'No'}
                   </Li>
                   <Li
-                    name="Design request type"
+                    name='Design request type'
                     title={designRequestType ?? ''}
                     category={category}
                   >
@@ -216,11 +216,11 @@ const PlaygroundRequestCard: React.FC<
               )}
               {category === PlaygroundRequestCategory.Developer && (
                 <>
-                  <Li name="Website exists" category={category}>
+                  <Li name='Website exists' category={category}>
                     {devRequestWebsiteExists ? 'Yes' : 'No'}
                   </Li>
                   <Li
-                    name="Concerned website url"
+                    name='Concerned website url'
                     title={devRequestWebsiteUrl ?? ''}
                     category={category}
                   >
@@ -229,14 +229,14 @@ const PlaygroundRequestCard: React.FC<
                 </>
               )}
               <Li
-                name="Needed volunteers"
+                name='Needed volunteers'
                 title={`${neededVolunteers ?? '1'}`}
                 category={category}
               >
                 {`${neededVolunteers ?? '1'}`}
               </Li>
               <Li
-                name="Last manually pushed"
+                name='Last manually pushed'
                 title={timeSinceLastManuallyPushed ?? 'Never'}
                 category={category}
               >
@@ -275,7 +275,7 @@ const PlaygroundRequestCard: React.FC<
                 pathname: '/playground/request/edit/[id]',
                 query: { id },
               }}
-              className="flex-grow w-1/2 text-md text-center"
+              className='flex-grow w-1/2 text-md text-center'
               disabled={disabled}
             >
               Edit request

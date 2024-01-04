@@ -29,7 +29,7 @@ r.config({ proxies: false, continueAfterRatelimitError: true });
 const subredditsToPost = getListFromEnv('PLAYGROUND_SUBREDDITS');
 
 export const postPlaygroundRequestOnReddit = async (
-  request: RequestWithBudget
+  request: RequestWithBudget,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return [];

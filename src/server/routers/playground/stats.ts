@@ -28,7 +28,7 @@ const statsRouter = t.router({
           },
         }),
         getDiscordServer(process.env.DISCORD_PLAYGROUND_SERVER_ID!).then(
-          (server) => server.approximateMemberCount
+          (server) => server.approximateMemberCount,
         ),
       ]);
 
@@ -55,7 +55,7 @@ const statsRouter = t.router({
           (hours / 7) * (request.estimatedTimeDays ?? estimatedTimeDays ?? 0)
         );
       },
-      0
+      0,
     );
 
     return {

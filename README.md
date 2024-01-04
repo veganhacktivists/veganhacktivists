@@ -96,8 +96,8 @@ There are three key concepts at play here: `generate`, `migrate` and `seed`.
 - Running `pnpm prisma generate` will create the client that connects to the database, as well as the types to access them safely from the code. For example, given a `User` model, it will allow this:
 
   ```ts
-  import type { User } from "@prisma/client";
-  import prisma from "lib/db/prisma";
+  import type { User } from '@prisma/client';
+  import prisma from 'lib/db/prisma';
   const users = prisma.findMany(); // users is of User[] type!
   ```
 
@@ -151,16 +151,16 @@ Use [TSDoc](https://tsdoc.org) as commenting style.
  * Because it is required in HTML email bodies, <br/> tags are used instead of line separators.
  */
 export const createFormattedHTMLMessage: (
-  data: Record<string, string>
+  data: Record<string, string>,
 ) => string = (data) => {
   return Object.entries(data)
     .map(([field, value]) => {
       field = firstLetterUppercase(field);
       return `<b>${
-        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(" ") ?? field
-      }:</b> ${String(value).trim().split("\n").join("<br/>")}`;
+        field.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ') ?? field
+      }:</b> ${String(value).trim().split('\n').join('<br/>')}`;
     })
-    .join("<br/>");
+    .join('<br/>');
 };
 ```
 
@@ -205,7 +205,7 @@ Translations are implemented with [react-intl](https://formatjs.io/docs/getting-
 
 ```typescript
 const intl = useIntl();
-intl.formatMessage({ id: "page.example.headline", defaultMessage: "Example" });
+intl.formatMessage({ id: 'page.example.headline', defaultMessage: 'Example' });
 ```
 
 ### Ids

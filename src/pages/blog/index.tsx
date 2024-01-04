@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const filterByTag: (entry: IBlogEntry, tagQuery?: string | null) => boolean = (
   entry,
-  tagQuery
+  tagQuery,
 ) => {
   if (tagQuery === undefined) return true;
 
@@ -79,7 +79,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
 
   const [firstBlog, ...otherBlogs] = blogs;
   const [tagQuery, setTagQuery] = useState<string | null | undefined>(
-    hash || undefined
+    hash || undefined,
   );
   const filteredFirstBlog = useFuse({
     data: [firstBlog],
@@ -126,7 +126,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         }
       }
     },
-    { enabled: router.isReady }
+    { enabled: router.isReady },
   );
 
   const updateSearchParam = useCallback(() => {
@@ -139,7 +139,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
         },
       },
       undefined,
-      { shallow: true }
+      { shallow: true },
     );
   }, [router, searchQuery]);
 
@@ -167,7 +167,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           { color: 'grey-dark', size: 16, top: 0, left: 32 },
           { color: 'grey-dark', size: 16, top: 0, right: 0 },
         ]}
-        className="z-10 hidden md:block"
+        className='z-10 hidden md:block'
       />
       <BlogsHeader
         tags={tags}
@@ -186,25 +186,25 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           { color: 'orange', size: 16, top: 0, right: 0 },
           { color: 'white', size: 16, bottom: 0, right: 0 },
         ]}
-        className="hidden lg:block"
+        className='hidden lg:block'
       />
-      <div className="pt-20 pb-20" ref={blogContainer}>
+      <div className='pt-20 pb-20' ref={blogContainer}>
         {!filteredFirstBlog.length && !filteredEntries.length ? (
-          <div className="mx-auto text-xl">
+          <div className='mx-auto text-xl'>
             <FormattedMessage
-              id="page.blog.section.container.no-match"
-              defaultMessage="No entries match your query"
+              id='page.blog.section.container.no-match'
+              defaultMessage='No entries match your query'
             />
           </div>
         ) : (
           <div
             ref={animatedRef}
-            className="grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min"
+            className='grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min'
           >
             {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
               <SubtleBorder
                 key={filteredFirstBlog[0].fields.slug}
-                className="col-span-full"
+                className='col-span-full'
               >
                 <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
               </SubtleBorder>
@@ -212,7 +212,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
               <SubtleBorder
                 key={blog.fields.slug}
-                className="col-span-full md:col-span-1"
+                className='col-span-full md:col-span-1'
               >
                 <BlogEntrySummary blog={blog} />
               </SubtleBorder>
@@ -220,23 +220,23 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           </div>
         )}
 
-        <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
+        <div className='flex flex-row justify-center gap-10 p-16 mx-auto'>
           <DarkButton
             onClick={useCallback(() => {
               decreasePageParam();
               setPreviousPage();
               scrollUp();
             }, [decreasePageParam, scrollUp, setPreviousPage])}
-            className="flex font-mono font-bold uppercase"
+            className='flex font-mono font-bold uppercase'
             disabled={!previousEnabled}
           >
             <div>
-              <FontAwesomeIcon icon={leftArrow} size="xs" />
+              <FontAwesomeIcon icon={leftArrow} size='xs' />
             </div>
-            <span className="hidden pl-3 md:block">
+            <span className='hidden pl-3 md:block'>
               <FormattedMessage
-                id="page.blog.section.navigation.btn.previous"
-                defaultMessage="Previous"
+                id='page.blog.section.navigation.btn.previous'
+                defaultMessage='Previous'
               />
             </span>
           </DarkButton>
@@ -246,18 +246,18 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
               setNextPage();
               scrollUp();
             }, [increasePageParam, scrollUp, setNextPage])}
-            className="font-mono font-bold uppercase"
+            className='font-mono font-bold uppercase'
             disabled={!nextEnabled}
           >
-            <div className="flex">
-              <span className="hidden pr-3 md:block">
+            <div className='flex'>
+              <span className='hidden pr-3 md:block'>
                 <FormattedMessage
-                  id="page.blog.section.navigation.btn.next"
-                  defaultMessage="Next"
+                  id='page.blog.section.navigation.btn.next'
+                  defaultMessage='Next'
                 />
               </span>
               <div>
-                <FontAwesomeIcon icon={rightArrow} size="xs" />
+                <FontAwesomeIcon icon={rightArrow} size='xs' />
               </div>
             </div>
           </DarkButton>
@@ -269,9 +269,9 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
           { color: 'grey-light', size: 16, top: 0, right: 0 },
           { color: 'grey-background', size: 16, bottom: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
-      <div className="bg-grey-background">
+      <div className='bg-grey-background'>
         <Newsletter />
       </div>
     </>

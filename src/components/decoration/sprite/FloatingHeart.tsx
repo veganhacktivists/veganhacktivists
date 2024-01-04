@@ -46,7 +46,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
     <div
       className={classNames(
         'absolute z-20 select-none',
-        floating ? '' : 'hidden'
+        floating ? '' : 'hidden',
       )}
       style={{ left: left }}
     >
@@ -61,7 +61,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
           src={heartImg.src}
           height={heartImg.height / 3}
           width={heartImg.width / 3}
-          alt=""
+          alt=''
         />
       </div>
     </div>

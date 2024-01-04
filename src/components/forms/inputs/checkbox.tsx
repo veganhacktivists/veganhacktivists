@@ -30,7 +30,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       name,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <div className={className}>
@@ -39,11 +39,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             'flex gap-5',
             labelPosition === 'right'
               ? 'flex-row-reverse justify-end'
-              : 'flex-row justify-start'
+              : 'flex-row justify-start',
           )}
         >
-          <div className="w-fit">
-            <Label className="mt-2" htmlFor={name}>
+          <div className='w-fit'>
+            <Label className='mt-2' htmlFor={name}>
               {children}
             </Label>
           </div>
@@ -63,19 +63,19 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               'block focus:!ring-0 appearance-none checked:bg-gray active:bg-grey-light border-grey border before:absolute relative checked:before:content-["✓"] before:inset-0 before:text-grey-background before:text-center before:my-auto pl-0 pr-0 pt-0 pb-0 before:w-full before:h-full box-content before:-translate-y-0.5 my-auto',
               {
                 'ring-2 ring-red': error,
-              }
+              },
             )}
             {...props}
             name={name}
             id={props.id || name}
-            type="checkbox"
+            type='checkbox'
           />
         </div>
-        <div className="text-left">{description}</div>
-        {error && <div className="text-red">⚠ {error}</div>}
+        <div className='text-left'>{description}</div>
+        {error && <div className='text-red'>⚠ {error}</div>}
       </div>
     );
-  }
+  },
 );
 
 export default Checkbox;

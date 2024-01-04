@@ -46,21 +46,21 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
         <LinkToBlog>
           <ContentfulImage
             image={featuredImage}
-            alt=""
-            className="h-full object-contain object-top"
+            alt=''
+            className='h-full object-contain object-top'
           />
         </LinkToBlog>
         {heading && (
-          <div className="p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0">
+          <div className='p-1 md:p-2 bottom-0 text-white uppercase md:text-xl absolute bg-black border-white border-[3px] border-l-0 border-b-0'>
             <FormattedMessage
-              id="page.blog.section.blog-summary.heading-fallback"
-              defaultMessage="Latest post"
+              id='page.blog.section.blog-summary.heading-fallback'
+              defaultMessage='Latest post'
             />
           </div>
         )}
       </div>
-      <div className="flex flex-col">
-        <div className="p-5 my-auto">
+      <div className='flex flex-col'>
+        <div className='p-5 my-auto'>
           <div
             className={classNames('text-xl font-mono font-bold', {
               'mb-3': !heading,
@@ -74,21 +74,21 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
           </div>
           <LinkToBlog>
             <b
-              className="font-mono text-2xl font-semibold md:line-clamp-2 break-words"
+              className='font-mono text-2xl font-semibold md:line-clamp-2 break-words'
               title={title}
             >
               {title}
             </b>
           </LinkToBlog>
-          <div className="text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5">
+          <div className='text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5'>
             {documentToReactComponents(excerpt)}
           </div>
         </div>
         {heading || (
-          <DarkButton className="mb-0" href={`/blog/${slug}`}>
+          <DarkButton className='mb-0' href={`/blog/${slug}`}>
             <FormattedMessage
-              id="page.blog.section.blog-summary.read-more"
-              defaultMessage="Read More"
+              id='page.blog.section.blog-summary.read-more'
+              defaultMessage='Read More'
             />
           </DarkButton>
         )}

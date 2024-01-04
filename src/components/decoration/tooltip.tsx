@@ -62,7 +62,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     <>
       <span
         {...getReferenceProps({ ref: reference })}
-        className="relative cursor-pointer"
+        className='relative cursor-pointer'
       >
         {children}
       </span>
@@ -80,7 +80,7 @@ const Tooltip: React.FC<TooltipProps> = ({
             },
           })}
         >
-          <div className="z-10">{content}</div>
+          <div className='z-10'>{content}</div>
           <div
             ref={arrowRef}
             style={{

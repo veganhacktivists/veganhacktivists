@@ -28,17 +28,17 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
       <SectionContainer
         header={
           <SectionHeader
-            className="text-grey"
+            className='text-grey'
             header={['Featured', 'blog posts']}
           >
             <FormattedMessage
-              id="page.year-in-review.2021.section.featured-blog-posts.intro.paragraph"
+              id='page.year-in-review.2021.section.featured-blog-posts.intro.paragraph'
               defaultMessage="We've been having fun with our blog! We launched our “Meet The Team” series so we could feature the incredible work done by our team and spotlight the dedicated volunteers behind the scenes. We plan to deliver more amazing content in 2022. Stay tuned!"
             />
           </SectionHeader>
         }
       >
-        <div className="flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto md:pb-20 mb-10 md:mt-5">
+        <div className='flex flex-col flex-wrap md:flex-row gap-5 justify-center mx-auto md:pb-20 mb-10 md:mt-5'>
           {featuredBlogPosts.map(({ member, blogEntry }) => {
             const { name, team, image } = member.fields;
             const color = team?.fields.color;
@@ -54,11 +54,11 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                   query: { slug: blogEntry.fields.slug },
                 }}
                 key={blogEntry.fields.slug}
-                target="_blank"
+                target='_blank'
               >
-                <div className="w-64 md:w-52 mx-auto">
-                  <div className="flex justify-end group aspect-square">
-                    <div className="relative h-min">
+                <div className='w-64 md:w-52 mx-auto'>
+                  <div className='flex justify-end group aspect-square'>
+                    <div className='relative h-min'>
                       <ContentfulImage image={image} alt={name} />
                       <div
                         className={
@@ -76,11 +76,11 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
                   </div>
                   <div
                     style={{ backgroundColor: color }}
-                    className="font-bold p-5 mt-2"
+                    className='font-bold p-5 mt-2'
                   >
                     <FormattedMessage
-                      id="page.year-in-review.2021.section.featured-blog-posts.team-member-introduction"
-                      defaultMessage="Meet <no-localization>{name}</no-localization>"
+                      id='page.year-in-review.2021.section.featured-blog-posts.team-member-introduction'
+                      defaultMessage='Meet <no-localization>{name}</no-localization>'
                       values={{
                         name: name.includes('Suan')
                           ? name.split(' ').slice(0, 2).join(' ')
@@ -95,7 +95,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
         </div>
       </SectionContainer>
       <SquareField
-        className="hidden md:block"
+        className='hidden md:block'
         squares={[
           { color: 'grey-background', left: 0, bottom: 0 },
           { color: 'white', left: 32, top: 0 },

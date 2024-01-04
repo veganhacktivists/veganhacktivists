@@ -51,8 +51,8 @@ const usePlaygroundSubmitRequestStore = create<
     {
       name: 'playground-submit-request', // name of item in the storage (must be unique)
       getStorage: () => localStorage, // (optional) by default the 'localStorage' is used
-    }
-  )
+    },
+  ),
 );
 
 export default usePlaygroundSubmitRequestStore;

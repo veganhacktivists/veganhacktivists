@@ -84,14 +84,14 @@ const Section: React.FC<SectionProps> = ({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const selectedSectionSlug = useDocsStore(
-    (state) => state.selectedSectionSlug
+    (state) => state.selectedSectionSlug,
   );
 
   const isSelected = selectedSectionSlug === slug;
 
   return (
     <div
-      className="pl-5 my-2 border-l-4"
+      className='pl-5 my-2 border-l-4'
       style={{ borderColor: isSelected ? color : lightGrey }}
       ref={sectionRef}
     >
@@ -101,11 +101,11 @@ const Section: React.FC<SectionProps> = ({
           query: { category: categorySlug, section: slug },
         }}
       >
-        <div className="py-1 text-xl font-bold cursor-pointer">{title}</div>
+        <div className='py-1 text-xl font-bold cursor-pointer'>{title}</div>
       </Link>
 
       {subsections && (
-        <ul className="px-1 mx-4 list-outside">
+        <ul className='px-1 mx-4 list-outside'>
           {subsections.map((doc) => (
             <Documentation
               key={doc.fields.slug}
@@ -138,9 +138,9 @@ const Category: React.FC<CategoryProps> = ({ name, slug, color, sections }) => {
   }, [selectedCategory, slug]);
 
   return (
-    <details className="pl-5" ref={detailsRef}>
+    <details className='pl-5' ref={detailsRef}>
       <summary
-        className="box-border px-2 py-1 font-mono text-2xl font-bold text-white cursor-pointer"
+        className='box-border px-2 py-1 font-mono text-2xl font-bold text-white cursor-pointer'
         style={{
           backgroundColor: color || lightGrey,
         }}
@@ -167,7 +167,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ categories }) => {
   return (
-    <div className="md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-[calc(100vh-40px)] space-y-4 py-12">
+    <div className='md:sticky md:left-0 md:top-0 md:w-1/4 overflow-auto text-left p-10 md:h-[calc(100vh-40px)] space-y-4 py-12'>
       <SearchBar categories={categories} />
       {categories.map((cat) => (
         <Category key={cat.slug} {...cat} />

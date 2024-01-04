@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const members = sortByArray(
       unorderedMembers,
       memberSlugs,
-      (member) => member.fields.slug
+      (member) => member.fields.slug,
     );
 
     const meetTheMembers = await getContents<IBlogEntryFields>({
@@ -91,7 +91,7 @@ export const getStaticProps: GetStaticProps = async () => {
       .map((member) => ({
         member,
         blogEntry: meetTheMembers.find((blogEntry) =>
-          blogEntry.fields.title.includes(member.fields.name.split(' ')[0])
+          blogEntry.fields.title.includes(member.fields.name.split(' ')[0]),
         ),
       }))
       .filter(({ blogEntry }) => blogEntry);
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const projectsSorted = sortByArray(
       projects,
       Object.keys(projectDescriptions),
-      (project) => project.fields.name
+      (project) => project.fields.name,
     );
 
     return projectsSorted.map((project) => project.fields);
@@ -144,7 +144,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
           defaultMessage: '2021 in Review',
         })}
       />
-      <div className="text-2xl">
+      <div className='text-2xl'>
         <YearInReviewHeader
           year={2021}
           hero={
@@ -157,7 +157,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
                   defaultMessage: '2021 year in review',
                 }),
               }}
-              alignment="left"
+              alignment='left'
               classNameMapping={{
                 container: 'bg-center',
               }}
@@ -176,7 +176,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
         <Rebrand
           kate={
             featuredBlogPosts.find(
-              (post) => post.member.fields.name === 'Kate Rodman'
+              (post) => post.member.fields.name === 'Kate Rodman',
             ) as BlogPostItem
           }
         />

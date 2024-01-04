@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
       'justify-center': alignment === 'center',
       'md:h-[calc(100vh-74px)] md:min-h-[40rem] md:-top-20 md:-mb-20': main,
     },
-    classNameMapping?.container
+    classNameMapping?.container,
   );
   const contentClasses = classNames(
     'flex',
@@ -57,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({
     tagline?.biggerOnMobile ? 'w-3/4' : 'w-1/2',
     'z-10',
     { 'py-10 xl:mt-0': main },
-    classNameMapping?.content
+    classNameMapping?.content,
   );
 
   const taglineHeight = 566 * 0.6;
@@ -89,15 +89,15 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <div className={containerClasses} ref={ref}>
       <CustomImage
-        alt=""
+        alt=''
         src={imageBackground}
         priority
         {...backgroundImageProps}
         fill
-        sizes="100vw"
+        sizes='100vw'
         className={classNames(
           'object-cover',
-          main ? 'object-top' : objectPositionMap[imageAlignment]
+          main ? 'object-top' : objectPositionMap[imageAlignment],
         )}
       />
 
@@ -119,16 +119,16 @@ const Hero: React.FC<HeroProps> = ({
                 height: `${taglineHeight}px`,
                 width: `${tagLineWidth}px`,
               }}
-              className="object-contain"
+              className='object-contain'
             />
           </div>
         )}
         {children}
       </h1>
       {main && <ScrollDownIndicator onClick={scrollToContent} />}
-      <div className="absolute inset-0 overflow-hidden">
-        <Circle xAlign="right" radius={30} opacity={0.1} />
-        <Circle yAlign="bottom" radius={34} opacity={0.2} />
+      <div className='absolute inset-0 overflow-hidden'>
+        <Circle xAlign='right' radius={30} opacity={0.1} />
+        <Circle yAlign='bottom' radius={34} opacity={0.2} />
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const AnimatedNumber: React.FC<{
 
   const [sizeClasses, classesWithoutSize] = useMemo(() => {
     const sizeClasses = Array.from(className.matchAll(sizeRegex)).map(
-      ([result]) => result
+      ([result]) => result,
     );
 
     const classesWithoutSize = className.replace(sizeRegex, '');
@@ -37,7 +37,7 @@ const AnimatedNumber: React.FC<{
   const classes = classNames(
     'font-bold font-mono',
     classesWithoutSize,
-    sizeClasses.length ? sizeClasses : 'text-7xl md:text-8xl'
+    sizeClasses.length ? sizeClasses : 'text-7xl md:text-8xl',
   );
 
   return (
@@ -53,7 +53,7 @@ const AnimatedNumber: React.FC<{
           {interpolatedNumber.to((x) =>
             Math.floor(x)
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ','),
           )}
         </animated.span>
         {suffix}

@@ -51,19 +51,19 @@ const Grants: React.FC = () => {
       <GrantsHero />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <GrantsHeading />
       <SquareField
         squares={GRANTS_HEADING_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="p-12 pb-20 bg-yellow">
-        <p className="max-w-screen-md mx-auto font-mono text-2xl text-center">
+      <div className='p-12 pb-20 bg-yellow'>
+        <p className='max-w-screen-md mx-auto font-mono text-2xl text-center'>
           <FormattedMessage
-            id="page.grants.content"
-            defaultMessage="We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
+            id='page.grants.content'
+            defaultMessage='We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals.'
             values={{
               b: (chunks) => <b>{chunks}</b>,
             }}
@@ -73,18 +73,18 @@ const Grants: React.FC = () => {
       <Sprite image={pig} />
       <SquareField
         squares={GRANTS_SUBHEADING_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
       <GrantsQualifications />
       <SquareField
         squares={GRANTS_QUALIFICATIONS_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
       <GrantsPerks />
 
-      <div className="mb-24">
+      <div className='mb-24'>
         <GrantsPollinationProject />
       </div>
       <Sprite image={chicks} pixelsLeft={1} pixelsRight={3} />
@@ -96,7 +96,7 @@ const Grants: React.FC = () => {
           { size: 16, color: 'grey-light', top: 0, right: 0 },
           { size: 16, color: 'grey-background', bottom: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <GrantsApplication />
 

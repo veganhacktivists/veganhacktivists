@@ -29,7 +29,7 @@ const NewsletterPopup: React.FC = () => {
         maxAge: signedUp ? 60 * 60 * 24 * 360 * 10 : 60 * 60 * 24 * 14, // 10 years or 2 weeks
       });
     },
-    [setCookies]
+    [setCookies],
   );
 
   if (userHasSignedUp) {

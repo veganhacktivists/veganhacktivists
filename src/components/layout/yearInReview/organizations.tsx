@@ -74,7 +74,7 @@ export const Organizations: React.FC = () => {
   const organization = Object.values(ORGANIZATIONS)[currentOrgIndex];
 
   return (
-    <div className="pt-8 pb-20 bg-grey-background">
+    <div className='pt-8 pb-20 bg-grey-background'>
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.year-in-review.2020.section.working-with-organizations.heading',
@@ -82,9 +82,9 @@ export const Organizations: React.FC = () => {
         })}
         firstWordsNum={2}
       />
-      <div className="flex flex-col justify-center mx-auto md:flex-row gap-x-16">
+      <div className='flex flex-col justify-center mx-auto md:flex-row gap-x-16'>
         <div>
-          <div className="overflow-hidden pb-80">
+          <div className='overflow-hidden pb-80'>
             {Object.values(ORGANIZATIONS).map(({ title, image }, i) => (
               <ContentButton
                 white
@@ -99,13 +99,13 @@ export const Organizations: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="w-3/4 mx-auto mt-8 md:w-1/2 lg:w-1/3 md:text-left gap-y-4 md:mt-0 md:mx-0">
-          <h1 className="mb-8 text-4xl font-bold">{organization.title}</h1>
-          <p className="text-2xl">{organization.content}</p>
-          <div className="flex mt-10">
+        <div className='w-3/4 mx-auto mt-8 md:w-1/2 lg:w-1/3 md:text-left gap-y-4 md:mt-0 md:mx-0'>
+          <h1 className='mb-8 text-4xl font-bold'>{organization.title}</h1>
+          <p className='text-2xl'>{organization.content}</p>
+          <div className='flex mt-10'>
             <DarkButton
               href={'https://' + organization.url}
-              className="normal-case"
+              className='normal-case'
             >
               {firstLetterUppercase(organization.url)}
             </DarkButton>

@@ -30,10 +30,10 @@ const Modal: React.FC<ModalProps> = ({
   overlayClassName,
 }) => {
   const [transitionClasses, setTransitionClasses] = useState(
-    INITIAL_CONTENT_CLASS
+    INITIAL_CONTENT_CLASS,
   );
   const [overlayTransitionClasses, setOverlayTransitionClasses] = useState(
-    INITIAL_OVERLAY_CLASS
+    INITIAL_OVERLAY_CLASS,
   );
 
   const closeModal = useCallback(() => {
@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     setTransitionClasses(isOpen ? '-translate-y-1/2' : INITIAL_CONTENT_CLASS);
     setOverlayTransitionClasses(
-      isOpen ? 'bg-opacity-75' : INITIAL_OVERLAY_CLASS
+      isOpen ? 'bg-opacity-75' : INITIAL_OVERLAY_CLASS,
     );
   }, [isOpen]);
 
@@ -57,12 +57,12 @@ const Modal: React.FC<ModalProps> = ({
       className={classNames(
         modalClassName,
         'overflow-y-auto max-h-screen fixed w-full md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 z-[9999] transition-all motion-reduce:transition-none duration-700',
-        transitionClasses
+        transitionClasses,
       )}
       overlayClassName={classNames(
         overlayClassName,
         'bg-black inset-0 fixed transition-all motion-reduce:transition-none duration-700 z-[9998]',
-        overlayTransitionClasses
+        overlayTransitionClasses,
       )}
       onRequestClose={closeModal}
       closeTimeoutMS={reduceMotion ? 0 : 700}
@@ -73,7 +73,7 @@ const Modal: React.FC<ModalProps> = ({
         {onClose && (
           <div
             onClick={closeModal}
-            className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
+            className='absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]'
           >
             &#10005;
           </div>

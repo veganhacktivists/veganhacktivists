@@ -46,7 +46,7 @@ type Email = MailgunMessageData &
   Required<Pick<MailgunMessageData, 'html' | 'to' | 'subject'>>;
 
 export const createFormattedHTMLMessage: (
-  data: Record<string, string>
+  data: Record<string, string>,
 ) => string = (data) => {
   return Object.entries(data)
     .map(([field, value]) => {
@@ -59,7 +59,7 @@ export const createFormattedHTMLMessage: (
 };
 
 export const createFormattedTextMessage: (
-  data: Record<string, string>
+  data: Record<string, string>,
 ) => string = (data) => {
   return Object.entries(data)
     .map(([field, value]) => {
@@ -84,7 +84,7 @@ const emailClient = new EmailClient(
     tls: {
       rejectUnauthorized: false,
     },
-  })
+  }),
 );
 
 export default emailClient;

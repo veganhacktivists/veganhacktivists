@@ -105,7 +105,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     usePlaygroundSubmitRequestStore((state) => state.form);
   const setFormData = usePlaygroundSubmitRequestStore((state) => state.setForm);
   const clearFormData = usePlaygroundSubmitRequestStore(
-    (state) => state.resetForm
+    (state) => state.resetForm,
   );
 
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
@@ -135,7 +135,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     { id: requestId, extended: true },
     {
       enabled: !!requestId,
-    }
+    },
   );
 
   useEffect(() => {
@@ -170,7 +170,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           ...requestData,
           dueDate: request?.dueDate
             ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
-                'yyyy-LL-dd'
+                'yyyy-LL-dd',
               )
             : '',
           budget: request?.budget
@@ -207,7 +207,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     (name: keyof FormInput) => (value: unknown) => {
       setFormData({ [name]: value });
     },
-    [setFormData]
+    [setFormData],
   );
 
   const myRegister = useCallback<typeof register>(
@@ -221,7 +221,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         },
       });
     },
-    [onChangeValue, register]
+    [onChangeValue, register],
   );
 
   const { data: lastSubmittedRequest } =
@@ -253,7 +253,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.isReady &&
         router.query.submit !== 'true' &&
         filledDataFromStorage,
-    }
+    },
   );
 
   useOnce(
@@ -274,7 +274,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.isReady &&
         router.query.submit !== 'true' &&
         filledDataFromStorage,
-    }
+    },
   );
 
   const { mutateAsync, isLoading, isSuccess } =
@@ -305,7 +305,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           "There's been an error submitting your application. Please try again later.",
       });
     },
-    [mutateAsync, requestId]
+    [mutateAsync, requestId],
   );
 
   const onSubmit = useCallback(
@@ -325,7 +325,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       await mutate(values);
       await utils.playground.getRequest.invalidate({ id: requestId });
     },
-    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest]
+    [mutate, reset, sessionStatus, requestId, utils.playground.getRequest],
   );
 
   useOnce(
@@ -342,7 +342,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         router.query.submit === 'true' &&
         !!formRef &&
         filledDataFromStorage,
-    }
+    },
   );
 
   useEffect(() => {
@@ -375,17 +375,17 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   };
 
   return (
-    <div className="px-10 bg-grey-background" id="contact-us">
+    <div className='px-10 bg-grey-background' id='contact-us'>
       <form
         ref={setFormRef as RefCallback<HTMLElement>}
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl"
+        className='grid grid-cols-1 gap-5 py-10 mx-auto text-left lg:grid-cols-6 md:max-w-3xl'
       >
-        <div className="text-xl col-span-full">Personal Information</div>
+        <div className='text-xl col-span-full'>Personal Information</div>
         <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Name"
+          className='lg:col-span-3 col-span-full'
+          placeholder='Name'
           showRequiredMark
           {...myRegister('name', { required: 'Please enter a name' })}
           error={errors.name?.message}
@@ -393,16 +393,16 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           Name
         </TextInput>
         <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="they/them"
+          className='lg:col-span-3 col-span-full'
+          placeholder='they/them'
           {...myRegister('pronouns')}
           error={errors.pronouns?.message}
         >
           Pronouns
         </TextInput>
         <TextInput
-          className="col-span-full"
-          placeholder="Email"
+          className='col-span-full'
+          placeholder='Email'
           showRequiredMark
           {...myRegister('providedEmail', {
             required: 'The email is required',
@@ -412,39 +412,39 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           Email
         </TextInput>
         <TextInput
-          className="lg:col-span-3 col-span-full"
-          placeholder="Phone"
+          className='lg:col-span-3 col-span-full'
+          placeholder='Phone'
           showRequiredMark
-          type="tel"
+          type='tel'
           {...myRegister('phone', { required: 'The phone is required' })}
           error={errors.phone?.message}
         >
           Phone
         </TextInput>
         <TextInput
-          placeholder="www.website..."
+          placeholder='www.website...'
           showRequiredMark
           {...myRegister('website', {
             required: 'Please enter a valid website',
           })}
-          className="w-full col-span-full"
+          className='w-full col-span-full'
           error={errors.website?.message}
         >
           Website
         </TextInput>
         <TextInput
           showRequiredMark
-          placeholder="Calendly"
-          className="col-span-full"
+          placeholder='Calendly'
+          className='col-span-full'
           {...myRegister('calendlyUrl')}
           error={errors.calendlyUrl?.message}
         >
           Link to your Calendly
           <ToolTip
-            placement="top-end"
+            placement='top-end'
             content={
               <p>
-                <CustomLink href="https://calendly.com/" className="text-green">
+                <CustomLink href='https://calendly.com/' className='text-green'>
                   Calendly
                 </CustomLink>
                 &nbsp;is your hub for scheduling meetings professionally and
@@ -453,25 +453,25 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               </p>
             }
           >
-            <sup className="ml-1">?</sup>
+            <sup className='ml-1'>?</sup>
           </ToolTip>
         </TextInput>
-        <div className="text-xl col-span-full">Organization Information</div>
+        <div className='text-xl col-span-full'>Organization Information</div>
         <TextInput
-          className="col-span-full"
-          placeholder="Organization"
+          className='col-span-full'
+          placeholder='Organization'
           {...myRegister('organization', { required: false })}
           error={errors.organization?.message}
         >
           Organization
         </TextInput>
-        <div className="col-span-full">
-          <Label htmlFor="organizationType">
+        <div className='col-span-full'>
+          <Label htmlFor='organizationType'>
             Is your organization or activism for profit?
           </Label>
 
           <Controller
-            name="organizationType"
+            name='organizationType'
             control={control}
             rules={{
               required: 'Please select the best option for your organization',
@@ -481,7 +481,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                 {...field}
                 current={
                   IS_FOR_PROFIT_ORGANIZATION_OPTIONS.find(
-                    (c) => c.value === current
+                    (c) => c.value === current,
                   ) || null
                 }
                 error={errors.organizationType?.message}
@@ -499,7 +499,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
         {!isFirstRender &&
           organizationType === PlaygroundRequestOrganizationType.Profit && (
-            <div className="col-span-full">
+            <div className='col-span-full'>
               Playground is a platform that primarily supports not-for-profit
               organizations and activism. As a for-profit, we require you to
               offer compensation for your project. Please add this information
@@ -511,50 +511,50 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             </div>
           )}
         <TextArea
-          placeholder="Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause."
+          placeholder='Please briefly describe your organization (e.g. your vision and mission, your impact, which countries you operate in, etc). By providing some context, you help the volunteers better understand how they will contribute towards your cause.'
           error={errors.organizationDescription?.message}
           {...myRegister('organizationDescription', {
             required: 'Organization description is required',
           })}
           style={{ resize: 'vertical' }}
-          className="col-span-full"
+          className='col-span-full'
           showRequiredMark
         >
           About your organization
         </TextArea>
-        <div className="text-xl col-span-full">Request Information</div>
+        <div className='text-xl col-span-full'>Request Information</div>
         <TextInput
-          placeholder="Title of Request"
+          placeholder='Title of Request'
           {...myRegister('title', {
             required: 'Please enter the title of the request',
           })}
-          className="col-span-full"
+          className='col-span-full'
           error={errors.title?.message}
         >
-          Title of Request<span className="text-red">*</span>&nbsp;
-          <span className="font-thin">
+          Title of Request<span className='text-red'>*</span>&nbsp;
+          <span className='font-thin'>
             Make it short and clear e.g. “Looking for developer to update
             Wordpress website” or “Logo design for new nonprofit”
           </span>
         </TextInput>
-        <div className="col-span-full">
-          <div className="flex flex-col md:flex-row">
-            <Label htmlFor="category">
-              Category<span className="text-red">*</span>&nbsp;
+        <div className='col-span-full'>
+          <div className='flex flex-col md:flex-row'>
+            <Label htmlFor='category'>
+              Category<span className='text-red'>*</span>&nbsp;
             </Label>
-            <p className="font-thin mb-2">
+            <p className='font-thin mb-2'>
               For translators: check out our free content translation
               service,&nbsp;
               <Link
-                href="https://veganlinguists.org/"
-                className="font-bold whitespace-nowrap"
+                href='https://veganlinguists.org/'
+                className='font-bold whitespace-nowrap'
               >
                 Vegan Linguists
               </Link>
             </p>
           </div>
           <Controller
-            name="category"
+            name='category'
             control={control}
             rules={{ required: 'Please select a category of the request' }}
             render={({ field: { value: current, onChange, ...field } }) => (
@@ -575,19 +575,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
         {!isFirstRender && requestCategory === 'Developer' && (
           <>
-            <div className="md:col-span-2 col-span-full">
-              <Label htmlFor="devRequestWebsiteExists">
+            <div className='md:col-span-2 col-span-full'>
+              <Label htmlFor='devRequestWebsiteExists'>
                 Do you have an existing website?
               </Label>
               <Controller
-                name="devRequestWebsiteExists"
+                name='devRequestWebsiteExists'
                 control={control}
                 render={({ field: { value: current, onChange, ...field } }) => (
                   <SelectInput
                     {...field}
                     current={
                       DEV_REQUEST_WEBSITE_EXISTS_OPTIONS.find(
-                        (c) => c.value === current
+                        (c) => c.value === current,
                       ) || null
                     }
                     error={errors.devRequestWebsiteExists?.message}
@@ -603,8 +603,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               />
             </div>
             <TextInput
-              className="md:col-span-4 col-span-full"
-              placeholder="www.website…"
+              className='md:col-span-4 col-span-full'
+              placeholder='www.website…'
               {...myRegister('devRequestWebsiteUrl', { required: false })}
               error={errors.devRequestWebsiteUrl?.message}
             >
@@ -614,19 +614,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         )}
         {!isFirstRender && requestCategory === 'Designer' && (
           <>
-            <div className="md:col-span-4 col-span-full">
-              <Label htmlFor="designRequestType">
+            <div className='md:col-span-4 col-span-full'>
+              <Label htmlFor='designRequestType'>
                 What type of design request is this?
               </Label>
               <Controller
-                name="designRequestType"
+                name='designRequestType'
                 control={control}
                 render={({ field: { value: current, onChange, ...field } }) => (
                   <SelectInput
                     {...field}
                     current={
                       DESIGN_REQUEST_TYPE_OPTIONS.find(
-                        (c) => c.value === current
+                        (c) => c.value === current,
                       ) || null
                     }
                     error={errors.designRequestType?.message}
@@ -641,19 +641,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                 )}
               />
             </div>
-            <div className="md:col-span-2 col-span-full">
-              <Label htmlFor="designRequestCurrentDesignExists">
+            <div className='md:col-span-2 col-span-full'>
+              <Label htmlFor='designRequestCurrentDesignExists'>
                 Do you have a current design?
               </Label>
               <Controller
-                name="designRequestCurrentDesignExists"
+                name='designRequestCurrentDesignExists'
                 control={control}
                 render={({ field: { value: current, onChange, ...field } }) => (
                   <SelectInput
                     {...field}
                     current={
                       DESIGN_REQUEST_CURRENT_DESIGN_EXISTS_OPTIONS.find(
-                        (c) => c.value === current
+                        (c) => c.value === current,
                       ) || null
                     }
                     error={errors.designRequestCurrentDesignExists?.message}
@@ -671,26 +671,26 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           </>
         )}
         <TextInput
-          className="lg:col-span-4 w-full col-span-full"
-          placeholder="Communication, ..."
+          className='lg:col-span-4 w-full col-span-full'
+          placeholder='Communication, ...'
           {...myRegister('requiredSkills', {
             required: 'Please select the skills required for the request',
           })}
           error={errors.requiredSkills?.message}
         >
-          <div className="flex flex-col md:flex-row">
+          <div className='flex flex-col md:flex-row'>
             <p>
-              Skills Required<span className="text-red">*</span>&nbsp;
+              Skills Required<span className='text-red'>*</span>&nbsp;
             </p>
-            <p className="font-thin">(separate by comma)</p>
+            <p className='font-thin'>(separate by comma)</p>
           </div>
         </TextInput>
         <TextInput
-          placeholder="Volunteer amount"
+          placeholder='Volunteer amount'
           showRequiredMark
-          className="lg:col-span-2 col-span-full"
-          type="number"
-          inputMode="numeric"
+          className='lg:col-span-2 col-span-full'
+          type='number'
+          inputMode='numeric'
           min={1}
           defaultValue={1}
           {...myRegister('neededVolunteers', { valueAsNumber: true })}
@@ -698,12 +698,12 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         >
           Volunteers required
         </TextInput>
-        <div className="lg:col-span-2 col-span-full">
-          <Label htmlFor="isFree" showRequiredMark>
+        <div className='lg:col-span-2 col-span-full'>
+          <Label htmlFor='isFree' showRequiredMark>
             Volunteer or Paid?
           </Label>
           <SelectInput
-            name="isFree"
+            name='isFree'
             current={IS_FREE_OPTIONS.find((c) => c.value === isFree) || null}
             onChange={(option) => {
               const value = (option?.value as boolean) ?? null;
@@ -715,17 +715,17 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
         {!isFree && (
           <Controller
-            name="budget"
+            name='budget'
             control={control}
             render={({ field: { value, onChange } }) => {
               return (
                 <>
-                  <div className="lg:col-span-2 col-span-full">
+                  <div className='lg:col-span-2 col-span-full'>
                     <Label showRequiredMark>Rate?</Label>
                     <SelectInput
                       current={
                         BUDGET_TYPE_OPTIONS.find(
-                          (c) => c.value === value?.type
+                          (c) => c.value === value?.type,
                         ) || null
                       }
                       error={(errors.budget?.type as FieldError)?.message}
@@ -734,7 +734,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                         onChange(
                           option?.value
                             ? { ...value, type: option.value }
-                            : null
+                            : null,
                         );
                         setFormData((state) => ({
                           budget: { ...state.budget, type: option?.value },
@@ -743,12 +743,12 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
                     />
                   </div>
                   {!!value?.type && (
-                    <div key="budget.quantity" className="lg:col-span-2">
+                    <div key='budget.quantity' className='lg:col-span-2'>
                       <TextInput
-                        className="col-span-2"
-                        placeholder="Budget"
-                        type="number"
-                        inputMode="numeric"
+                        className='col-span-2'
+                        placeholder='Budget'
+                        type='number'
+                        inputMode='numeric'
                         step={50}
                         min={0}
                         showRequiredMark
@@ -786,19 +786,19 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
             required: 'Issue description is required',
           })}
           style={{ resize: 'vertical' }}
-          className="col-span-full"
+          className='col-span-full'
         >
           Describe the project/task you need help with
-          <span className="text-red">*</span>&nbsp;
-          <span className="font-thin">
+          <span className='text-red'>*</span>&nbsp;
+          <span className='font-thin'>
             Please be as detailed as possible. The more detail your request has,
             the easier it will be to find a volunteer.
           </span>
         </TextArea>
-        <div className="col-span-full">
-          <Label htmlFor="dueDate">
+        <div className='col-span-full'>
+          <Label htmlFor='dueDate'>
             Desired due date&nbsp;
-            <span className="font-thin">
+            <span className='font-thin'>
               Please be thoughtful about this, keep in mind that Playground
               volunteers often have full-time jobs and they are helping in their
               spare time.
@@ -806,10 +806,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           </Label>
           <div>
             <TextInput
-              className="w-full lg:w-1/2"
+              className='w-full lg:w-1/2'
               min={new Date().toISOString().split('T')[0]}
-              type="date"
-              placeholder="Due date"
+              type='date'
+              placeholder='Due date'
               error={errors.dueDate?.message}
               {...myRegister('dueDate', { required: false })}
             >
@@ -819,8 +819,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
 
         <Checkbox
-          labelPosition="right"
-          className="col-span-full"
+          labelPosition='right'
+          className='col-span-full'
           error={errors.agreeToTerms?.message}
           {...myRegister('agreeToTerms')}
           onChange={(checked) => {
@@ -829,7 +829,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           }}
         >
           I agree to the{' '}
-          <span className="text-green">
+          <span className='text-green'>
             <Link href={'/playground/terms-and-conditions'}>
               VH: Playground terms and conditions
             </Link>
@@ -837,9 +837,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           .
         </Checkbox>
         <DarkButton
-          className="mb-10 text-center w-fit md:w-72"
+          className='mb-10 text-center w-fit md:w-72'
           disabled={isLoading || isSuccess}
-          type="submit"
+          type='submit'
         >
           {isLoading ? (
             <Spinner />
@@ -850,10 +850,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           )}
         </DarkButton>
       </form>
-      <ConfirmationModal isOpen={isSuccess} type="request" />
+      <ConfirmationModal isOpen={isSuccess} type='request' />
       <SignInPrompt
         isOpen={isSignInModalOpen}
-        type="request"
+        type='request'
         onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify

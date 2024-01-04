@@ -30,25 +30,25 @@ const SharingKnowledgeAndSupport: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="xl:w-2/3 mx-auto mt-20 px-5">
-        <div className="flex flex-col md:flex-row justify-between">
+      <div className='xl:w-2/3 mx-auto mt-20 px-5'>
+        <div className='flex flex-col md:flex-row justify-between'>
           <div>
             <SectionHeader
               header={['sharing our', 'knowledge & support']}
               newDesign
-              rootClassName="text-left mx-auto text-center md:text-left"
+              rootClassName='text-left mx-auto text-center md:text-left'
               stackEntries
             >
-              <p className="text-xl max-w-prose">
+              <p className='text-xl max-w-prose'>
                 <FormattedMessage
-                  id="page.our-work.section.sharing-knowledge-and-support.section-header.content"
+                  id='page.our-work.section.sharing-knowledge-and-support.section-header.content'
                   defaultMessage="We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
                   values={{
                     link: (chunk) => (
-                      <CustomLink href="https://instagram.com/veganhacktivists">
+                      <CustomLink href='https://instagram.com/veganhacktivists'>
                         {chunk}
                       </CustomLink>
                     ),
@@ -59,11 +59,11 @@ const SharingKnowledgeAndSupport: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 pb-20">
-          <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-10 justify-start md:justify-between">
-            <div className="flex">
+        <div className='flex flex-col md:flex-row gap-10 pb-20'>
+          <div className='flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-10 justify-start md:justify-between'>
+            <div className='flex'>
               <ImageWithCaption
-                bgColor="yellow"
+                bgColor='yellow'
                 image={malina}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.caption',
@@ -76,9 +76,9 @@ const SharingKnowledgeAndSupport: React.FC = () => {
                 })}
               />
             </div>
-            <div className="flex">
+            <div className='flex'>
               <ImageWithCaption
-                bgColor="green"
+                bgColor='green'
                 image={james}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.caption',
@@ -92,11 +92,11 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               />
             </div>
           </div>
-          <div className="flex flex-grow">
-            <div className="flex flex-grow items-center justify-end">
+          <div className='flex flex-grow'>
+            <div className='flex flex-grow items-center justify-end'>
               <CustomImage
                 src={family}
-                alt="Vegan Hacktivists team at the Animal & Vegan Advocacy Summit"
+                alt='Vegan Hacktivists team at the Animal & Vegan Advocacy Summit'
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
     </>
   );
@@ -131,11 +131,11 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
         className={'text-left flex-x-grow flex-x-shrink flex flex-col h-auto'}
       >
         <div className={`bg-${bgColor} items-center`}>
-          <div className="p-5 md:p-3 lg:p-5">
-            <span className="font-bold text-xl leading-5 md:text-lg md:leading-4 lg:text-xl lg:leading-5 block pb-2">
+          <div className='p-5 md:p-3 lg:p-5'>
+            <span className='font-bold text-xl leading-5 md:text-lg md:leading-4 lg:text-xl lg:leading-5 block pb-2'>
               {caption}
             </span>
-            <span className="italic text-lg leading-5 md:text-base md:leading-4 lg:text-lg lg:leading-5 block">
+            <span className='italic text-lg leading-5 md:text-base md:leading-4 lg:text-lg lg:leading-5 block'>
               {subcaption}
             </span>
           </div>

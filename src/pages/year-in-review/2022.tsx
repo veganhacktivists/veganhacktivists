@@ -31,7 +31,7 @@ const YearInReview2022: React.FC = ({}) => {
           defaultMessage: '2022 in Review',
         })}
       />
-      <div className="text-2xl">
+      <div className='text-2xl'>
         <YearInReviewHeader
           year={2022}
           hero={
@@ -44,7 +44,7 @@ const YearInReview2022: React.FC = ({}) => {
                   defaultMessage: '2022 year in review',
                 }),
               }}
-              alignment="left"
+              alignment='left'
               classNameMapping={{
                 container: 'bg-center',
               }}

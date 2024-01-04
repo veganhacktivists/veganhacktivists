@@ -53,10 +53,10 @@ const TeamMemberCardPhoto: React.FC<{
   const { name, image, isTeamLeader } = member.fields;
 
   return (
-    <div className="flex-none w-64 h-64">
-      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
+    <div className='flex-none w-64 h-64'>
+      <div className='flex justify-end h-64 mb-2 bg-grey w-100 group'>
         {image && (
-          <div className="relative w-full filter">
+          <div className='relative w-full filter'>
             <ContentfulImage
               downloadwidth={500}
               image={image}
@@ -87,19 +87,19 @@ const TeamMemberCardBody: React.FC<{
   const { name: teamName, sprite: teamSprite } = team!.fields;
 
   return (
-    <div className="grow shrink lg:text-left justify-center lg:justify-start">
-      <div className="text-2xl mb-[-6px] font-bold text-grey">{name}</div>
+    <div className='grow shrink lg:text-left justify-center lg:justify-start'>
+      <div className='text-2xl mb-[-6px] font-bold text-grey'>{name}</div>
       <div>
         <div
           className={
             'flex flex-row justify-center lg:justify-start items-center'
           }
         >
-          <span className="flex flex-col lg:flex-row items-center">
-            <span className="font-bold float-left text-lg uppercase text-grey text-opacity-80">
+          <span className='flex flex-col lg:flex-row items-center'>
+            <span className='font-bold float-left text-lg uppercase text-grey text-opacity-80'>
               {position}
             </span>
-            <span className="mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative">
+            <span className='mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative'>
               &bull;
             </span>
             <div className={'ml-[-2px] float-left'}>
@@ -115,13 +115,13 @@ const TeamMemberCardBody: React.FC<{
             </div>
           </span>
         </div>
-        <div className="mt-2 text-justify lg:text-left">
+        <div className='mt-2 text-justify lg:text-left'>
           {bio && <RichText document={bio} />}
         </div>
       </div>
       {socialLinks && (
         <div className={'mt-6'}>
-          <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
+          <SocialLinks socialLinks={socialLinks.fields} className='mt-2' />
         </div>
       )}
     </div>
@@ -165,18 +165,21 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
 }) => {
   const colorMap = useMemo(() => {
     if (!teams) return {};
-    return teams.reduce((acc, curr) => {
-      const { name: teamName, color } = curr.fields;
+    return teams.reduce(
+      (acc, curr) => {
+        const { name: teamName, color } = curr.fields;
 
-      acc[teamName] = color;
-      return acc;
-    }, {} as Record<string, string>);
+        acc[teamName] = color;
+        return acc;
+      },
+      {} as Record<string, string>,
+    );
   }, [teams]);
 
   return (
-    <div className="md:mx-auto md:w-4/6">
+    <div className='md:mx-auto md:w-4/6'>
       {members.map((m, index) => (
-        <div className="m-5" key={m.sys.id}>
+        <div className='m-5' key={m.sys.id}>
           <TeamMemberCard
             member={m}
             teamColor={colorMap[m.fields.team!.fields.name]}
@@ -211,11 +214,11 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           defaultMessage: 'Our Team',
         })}
       />
-      <div className="m-10">
+      <div className='m-10'>
         <MemberList members={members} teams={teams} />
       </div>
-      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="px-10 pt-16 pb-10 bg-gray-background">
+      <SquareField squares={TEAM_SQUARES} className='hidden md:block' />
+      <div className='px-10 pt-16 pb-10 bg-gray-background'>
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -232,8 +235,8 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.team.community.paragraph"
-            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+            id='page.people.section.team.community.paragraph'
+            defaultMessage='We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more.'
           />
         </FirstSubSection>
       </div>

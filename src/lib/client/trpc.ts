@@ -37,7 +37,7 @@ superjson.registerCustom<Decimal, string>(
     serialize: (v) => v.toJSON(),
     deserialize: (v) => new Decimal(v),
   },
-  'decimal.js'
+  'decimal.js',
 );
 
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
@@ -61,15 +61,15 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
 });
 
 type HandleInferenceHelpers<
-  TRouterOrProcedure extends AnyRouter | Procedure<any, any>
+  TRouterOrProcedure extends AnyRouter | Procedure<any, any>,
 > = TRouterOrProcedure extends AnyRouter
   ? GetInferenceHelpers<TRouterOrProcedure>
   : TRouterOrProcedure extends Procedure<any, any>
-  ? {
-      input: inferProcedureInput<TRouterOrProcedure>;
-      output: inferProcedureOutput<TRouterOrProcedure>;
-    }
-  : never;
+    ? {
+        input: inferProcedureInput<TRouterOrProcedure>;
+        output: inferProcedureOutput<TRouterOrProcedure>;
+      }
+    : never;
 
 type GetInferenceHelpers<TRouter extends AnyRouter> = {
   [TKey in keyof TRouter['_def']['record']]: HandleInferenceHelpers<

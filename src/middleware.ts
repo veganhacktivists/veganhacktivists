@@ -20,7 +20,7 @@ const middleware: NextMiddleware = async (request, event) => {
   ) {
     const autMwResponse = await authMiddleware(
       request as NextRequestWithAuth,
-      event
+      event,
     );
 
     if (autMwResponse) {

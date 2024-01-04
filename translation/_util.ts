@@ -24,7 +24,7 @@ export const validationSchemaInternal = z.record(
   z.object({
     message: z.string(),
     description: z.string().optional(),
-  })
+  }),
 );
 
 export const validationSchemaFormatJS = z.record(
@@ -32,7 +32,7 @@ export const validationSchemaFormatJS = z.record(
   z.object({
     defaultMessage: z.string(),
     description: z.string().optional(),
-  })
+  }),
 );
 
 export type TranslationFileStructureInternal = z.infer<
@@ -47,7 +47,7 @@ type TranslationFileStructureFormatJS = z.infer<
  * https://docs.weblate.org/en/latest/formats/webextension.html
  */
 export function mapFormatJSTranslationsToInternalFormat(
-  translations: TranslationFileStructureFormatJS
+  translations: TranslationFileStructureFormatJS,
 ): TranslationFileStructureInternal {
   return validationSchemaInternal.parse(
     Object.fromEntries(
@@ -55,14 +55,14 @@ export function mapFormatJSTranslationsToInternalFormat(
         ([key, { defaultMessage: message, description }]) => [
           key,
           { message, description },
-        ]
-      )
-    )
+        ],
+      ),
+    ),
   );
 }
 
 export async function getTranslationsFromFile(
-  path: string
+  path: string,
 ): Promise<TranslationFileStructureInternal> {
   try {
     const contents = await readFile(path, { encoding });
@@ -82,19 +82,19 @@ export function resolveCompiledTranslationFilePath(locale: string) {
 }
 
 export async function readTranslationFile(
-  locale: string
+  locale: string,
 ): Promise<TranslationFileStructureInternal> {
   return getTranslationsFromFile(resolveTranslationFilePath(locale));
 }
 
 export async function writeTranslationFile(
   translations: TranslationFileStructureInternal,
-  locale: string
+  locale: string,
 ) {
   await writeFile(
     resolveTranslationFilePath(locale),
     JSON.stringify(sortTranslations(translations), undefined, 2) + '\n',
-    { encoding }
+    { encoding },
   );
 }
 
@@ -106,26 +106,26 @@ export function warnIfIdInvalid(id: string) {
   if (!validateTranslationId(id)) {
     console.warn(
       'id must be lower cased in kebab-style and may not contain white spaces, invalid id:',
-      id
+      id,
     );
   }
 }
 
 export function sortTranslations(
-  translations: TranslationFileStructureInternal
+  translations: TranslationFileStructureInternal,
 ) {
   return Object.fromEntries(
     Object.entries(translations).sort(([keya], [keyb]) =>
-      keya.localeCompare(keyb, 'en-US')
-    )
+      keya.localeCompare(keyb, 'en-US'),
+    ),
   );
 }
 
 export function stripObsoleteTranslations(
   translations: TranslationFileStructureInternal,
-  validIds: string[]
+  validIds: string[],
 ) {
   return Object.fromEntries(
-    Object.entries(translations).filter(([id]) => validIds.includes(id))
+    Object.entries(translations).filter(([id]) => validIds.includes(id)),
   );
 }

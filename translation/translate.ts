@@ -31,7 +31,7 @@ async function translateLocalMessages() {
 
         const translationFile = stripObsoleteTranslations(
           await readTranslationFile(locale),
-          translationIds
+          translationIds,
         );
 
         for (const translationId of translationIds) {
@@ -43,7 +43,7 @@ async function translateLocalMessages() {
             translationFile[translationId] = {
               message: await translate(
                 referenceTranslationFile[translationId].message,
-                locale
+                locale,
               ),
             };
           } catch (error) {
@@ -53,7 +53,7 @@ async function translateLocalMessages() {
 
           await writeTranslationFile(translationFile, locale);
         }
-      })
+      }),
   );
 }
 
@@ -96,6 +96,6 @@ async function ensureTranslationFileAvailability() {
       if (translationFileNotExistsOrInvalid) {
         await writeTranslationFile({}, locale);
       }
-    })
+    }),
   );
 }

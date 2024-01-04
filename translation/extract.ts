@@ -32,18 +32,18 @@ async function main() {
   const resultAsString = await extract(files, {});
 
   const extractedTranslations = mapFormatJSTranslationsToInternalFormat(
-    validationSchemaFormatJS.parse(JSON.parse(resultAsString))
+    validationSchemaFormatJS.parse(JSON.parse(resultAsString)),
   );
   const currentTranslations = await getTranslationsFromFile(
-    defaultTranslationPath
+    defaultTranslationPath,
   );
   const mergedTranslations = addNewTranslationsToCurrent(
     currentTranslations,
-    extractedTranslations
+    extractedTranslations,
   );
   const updatedTranslations = stripObsoleteTranslations(
     mergedTranslations,
-    Object.keys(extractedTranslations)
+    Object.keys(extractedTranslations),
   );
 
   await writeTranslationFile(updatedTranslations, defaultLocale);
@@ -51,7 +51,7 @@ async function main() {
 
 function addNewTranslationsToCurrent(
   currentTranslations: TranslationFileStructureInternal = {},
-  extractedTranslations: TranslationFileStructureInternal
+  extractedTranslations: TranslationFileStructureInternal,
 ): TranslationFileStructureInternal {
   // used to warn about changed translations
   const changedTranslations: Record<
@@ -75,7 +75,7 @@ function addNewTranslationsToCurrent(
       }
       return translations;
     },
-    currentTranslations
+    currentTranslations,
   );
 
   const changedTranslationsEntries = Object.entries(changedTranslations);
@@ -84,11 +84,11 @@ function addNewTranslationsToCurrent(
     console.error(
       `message of existing translation(s) changed:\n${changedTranslationsEntries
         .map(
-          ([id, [current, changed]]) => `[${id}]: "${current}" -> "${changed}"`
+          ([id, [current, changed]]) => `[${id}]: "${current}" -> "${changed}"`,
         )
         .join(
-          '\n'
-        )}\n\nExisting translation messages must be set in ${defaultTranslationPath}\n`
+          '\n',
+        )}\n\nExisting translation messages must be set in ${defaultTranslationPath}\n`,
     );
   }
 
@@ -96,7 +96,7 @@ function addNewTranslationsToCurrent(
 }
 
 async function getTranslationsFromFile(
-  path: string
+  path: string,
 ): Promise<TranslationFileStructureInternal> {
   try {
     const contents = await readFile(path, { encoding });

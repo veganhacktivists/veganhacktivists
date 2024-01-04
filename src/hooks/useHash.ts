@@ -10,9 +10,9 @@ interface UseHashProps {
 }
 
 export const useHash: (
-  props?: UseHashProps
+  props?: UseHashProps,
 ) => readonly [string, (newHash?: string | null) => void] = (
-  { shallow } = { shallow: true }
+  { shallow } = { shallow: true },
 ) => {
   const [hash, setHash] = useState<string>('');
   const router = useRouter();
@@ -41,7 +41,7 @@ export const useHash: (
         });
       }
     },
-    [hash, shallow, router]
+    [hash, shallow, router],
   );
 
   return [hash, _setHash] as const;

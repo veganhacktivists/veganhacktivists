@@ -47,7 +47,7 @@ const handler: NextApiHandler = async (req, res) => {
           email,
           service,
           message,
-        })
+        }),
       ),
     });
   } catch (e: unknown) {

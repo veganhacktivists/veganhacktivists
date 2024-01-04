@@ -7,15 +7,15 @@ const tickLabelStyles =
 
 const TickMarks: React.FC = ({}) => {
   return (
-    <div className="h-full absolute bottom-0 right-0 z-20">
-      <div className="h-full border-white box-border border-b-[3px] flex flex-col">
+    <div className='h-full absolute bottom-0 right-0 z-20'>
+      <div className='h-full border-white box-border border-b-[3px] flex flex-col'>
         <div className={tickMarkStyles} />
         <div className={tickMarkStyles} />
         <div className={tickMarkStyles} />
         <div className={tickMarkStyles} />
         <div className={tickMarkStyles} />
       </div>
-      <div className="h-[120%] absolute left-4 pl-2 bottom-[-10%] flex flex-col-reverse">
+      <div className='h-[120%] absolute left-4 pl-2 bottom-[-10%] flex flex-col-reverse'>
         <div className={tickLabelStyles}>&#36;0</div>
         <div className={tickLabelStyles}>&#36;1,000</div>
         <div className={tickLabelStyles}>&#36;2,000</div>

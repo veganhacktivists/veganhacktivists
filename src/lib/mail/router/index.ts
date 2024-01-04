@@ -40,6 +40,6 @@ export const determineEmailRecipients = (message: string) => {
   const tokens = message.toLocaleLowerCase().split(/[^\d\w]/gi);
 
   return Object.keys(projectSpecificEmails).filter((email) =>
-    doesContainKeywords(tokens, projectSpecificEmails[email])
+    doesContainKeywords(tokens, projectSpecificEmails[email]),
   );
 };

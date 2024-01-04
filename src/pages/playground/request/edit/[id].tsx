@@ -15,7 +15,7 @@ import type PageWithLayout from 'types/persistentLayout';
 const Header: React.FC = () => {
   return (
     <div>
-      <SectionHeader className="-mb-10" startWithBoldFont header="Edit request">
+      <SectionHeader className='-mb-10' startWithBoldFont header='Edit request'>
         Update your request information in the form below.
       </SectionHeader>
     </div>
@@ -36,11 +36,11 @@ const EditRequestPage: PageWithLayout = ({}) => {
       await router.push('/playground');
       toast.error(data.error.issues.map((issue) => issue.message).join('\n'));
     },
-    { enabled: router.isReady }
+    { enabled: router.isReady },
   );
   return (
     <>
-      <NextSeo title="Submit Your Request" />
+      <NextSeo title='Submit Your Request' />
       <Header />
       <SquareField
         squares={[
@@ -48,7 +48,7 @@ const EditRequestPage: PageWithLayout = ({}) => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <SubmitRequestForm
         requestId={`${

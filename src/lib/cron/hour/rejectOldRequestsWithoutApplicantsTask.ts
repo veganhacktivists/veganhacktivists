@@ -45,7 +45,7 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
   });
 
   const oldRequestsWithoutApplications = oldRequests.filter(
-    (request) => !request._count.applications
+    (request) => !request._count.applications,
   );
 
   const results = await Promise.all(
@@ -70,12 +70,12 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
         console.error(
           'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
           request,
-          error
+          error,
         );
 
         return false;
       }
-    })
+    }),
   );
 
   const successfulRejections = results.filter(Boolean).length;
@@ -85,12 +85,12 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
     'exit rejectOldRequestsWithoutApplicantsTask',
     `successfulRejections ${successfulRejections}`,
     `failedRejections ${failedRejections}`,
-    startTimeStamp
+    startTimeStamp,
   );
 }
 
 const sendAutomaticallyRejectedEmail = async (
-  request: Pick<PlaygroundRequest, 'id' | 'name' | 'title' | 'providedEmail'>
+  request: Pick<PlaygroundRequest, 'id' | 'name' | 'title' | 'providedEmail'>,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return false;
@@ -111,7 +111,7 @@ const sendAutomaticallyRejectedEmail = async (
     console.error(
       'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
       request,
-      error
+      error,
     );
 
     return false;

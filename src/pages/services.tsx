@@ -46,7 +46,7 @@ interface ServiceProps {
 }
 
 const getServiceBlockProps = (
-  intl: IntlShape
+  intl: IntlShape,
 ): Omit<ServiceProps, 'align'>[] => [
   {
     title: intl.formatMessage({
@@ -174,9 +174,9 @@ const Service: React.FC<ServiceProps> = ({
         iconAccentColor={iconAccentColor}
         align={align}
       >
-        <p className="mt-3 mb-7">{content}</p>
+        <p className='mt-3 mb-7'>{content}</p>
         {button && (
-          <DarkButton className="max-w-sm" href={button.href}>
+          <DarkButton className='max-w-sm' href={button.href}>
             {button.text}
           </DarkButton>
         )}
@@ -206,14 +206,14 @@ const Services: React.FC = () => {
               defaultMessage: 'Supporting the Animal Protection Movement',
             }),
           }}
-          alignment="left"
+          alignment='left'
           classNameMapping={{
             container: 'bg-center',
           }}
         />
         <SquareField
           squares={HERO_DECORATION_SQUARES}
-          className="hidden md:block"
+          className='hidden md:block'
         />
         <FirstSubSection
           header={intl.formatMessage({
@@ -222,11 +222,11 @@ const Services: React.FC = () => {
           })}
         >
           <FormattedMessage
-            id="page.services.section.our-services.content.0"
+            id='page.services.section.our-services.content.0'
             defaultMessage="As capacity builders, we offer our skills and services to the animal protection movement. From development and design to content creation, volunteers, and operational advice, we're here to help elevate your work for the animals."
           />
         </FirstSubSection>
-        <div className="flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20">
+        <div className='flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20'>
           {getServiceBlockProps(intl).map((service, index) => (
             <Service
               key={service.title}
@@ -235,18 +235,18 @@ const Services: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex flex-col items-center justify-center w-full mx-auto mb-20 text-2xl gap-y-4 xl:w-3/5">
+        <div className='flex flex-col items-center justify-center w-full mx-auto mb-20 text-2xl gap-y-4 xl:w-3/5'>
           <CustomImage
             src={PixelBulb}
-            alt=""
+            alt=''
             height={PixelBulb.height / 3}
             width={PixelBulb.width / 3}
           />
 
-          <div className="px-3 text-center text-grey-darker md:w-2/3">
+          <div className='px-3 text-center text-grey-darker md:w-2/3'>
             <FormattedMessage
-              id="page.services.section.our-services.content.1"
-              defaultMessage="Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget."
+              id='page.services.section.our-services.content.1'
+              defaultMessage='Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget.'
             />
           </div>
         </div>
@@ -259,12 +259,12 @@ const Services: React.FC = () => {
           { size: 16, color: 'grey-background', bottom: 0, right: 0 },
           { size: 16, color: 'white', top: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
-      <div className="px-10 pt-10 bg-grey-background md:px-0">
-        <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
+      <div className='px-10 pt-10 bg-grey-background md:px-0'>
+        <div className='py-5 mx-auto text-xl md:w-1/2 text-grey-dark'>
           <FormattedMessage
-            id="page.services.section.contact.content"
+            id='page.services.section.contact.content'
             defaultMessage="If you'd like to discuss any of our service offerings, please use our our contact form to get in touch. We do our best to promptly respond to every inquiry."
           />
         </div>

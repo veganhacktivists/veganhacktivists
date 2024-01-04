@@ -44,7 +44,7 @@ export type RequestWithBudget = Prisma.PlaygroundRequestGetPayload<{
 }>;
 
 export const getPendingApplications = async (
-  params: z.infer<typeof getPendingApplicationsSchema>
+  params: z.infer<typeof getPendingApplicationsSchema>,
 ) => {
   const applications = await prisma.playgroundApplication.findMany({
     where: {
@@ -189,11 +189,11 @@ export const setApplicationStatus = ({
         text: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts,
-          true
+          true,
         ),
         html: playgroundApplicantIntroductionEmail(
           updatedApplication,
-          optionalMessageParts
+          optionalMessageParts,
         ),
       });
     } else if (shouldNotifyDenialToApplicant) {
@@ -215,7 +215,7 @@ const getMessageDescription = (request: PlaygroundRequest) => {
 
   const truncatedDescription = request.description.slice(
     0,
-    DESCRIPTION_CHAR_LIMIT
+    DESCRIPTION_CHAR_LIMIT,
   );
   const description =
     truncatedDescription.length < request.description.length
@@ -279,7 +279,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
       })
       .setDescription(getMessageDescription(request))
       .setImage(
-        'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png'
+        'https://veganhacktivists.org/images/playground/VH_Playground_FullLogoWithBackground.png',
       )
       .addFields([
         {
@@ -296,7 +296,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
           name: "What's next?",
           value: `Read the request, if interested, apply on the Playground website to be introduced 👉 ${hyperlink(
             'Click here!',
-            `https://veganhacktivists.org/playground/request/${request.id}`
+            `https://veganhacktivists.org/playground/request/${request.id}`,
           )}`,
         },
       ])
@@ -315,7 +315,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
           .setDescription(
             `Hi ${roleToMention ? roleMention(roleToMention) : 'everyone'}! ${
               basicEmbed.description || ''
-            }`
+            }`,
           )
           .toJSON(),
       ],
@@ -343,8 +343,8 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
         err instanceof Error
           ? err
           : typeof err === 'string'
-          ? new Error(err)
-          : new Error(JSON.stringify(err));
+            ? new Error(err)
+            : new Error(JSON.stringify(err));
       throw new Error(`Failed to send Playground message. ${cause.message}`, {
         cause,
       });
@@ -411,7 +411,7 @@ export const repostRequest = async ({
         });
         return updatedRequest;
       },
-      { timeout: 30000 }
+      { timeout: 30000 },
     );
     return updatedRequest;
   } catch (e) {
@@ -427,8 +427,8 @@ export const repostRequest = async ({
         e instanceof Error
           ? e
           : typeof e === 'string'
-          ? new Error(e)
-          : new Error(JSON.stringify(e));
+            ? new Error(e)
+            : new Error(JSON.stringify(e));
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }
@@ -493,15 +493,14 @@ export const setRequestStatus = async ({
 
         if (shouldPost) {
           console.info('Trying to post to reddit and discord', id, Date.now());
-          redditSubmissions = await postPlaygroundRequestOnReddit(
-            updatedRequest
-          );
+          redditSubmissions =
+            await postPlaygroundRequestOnReddit(updatedRequest);
           console.info('Successfully posted request to reddit', id, Date.now());
           discordMessages = await postRequestOnDiscord(updatedRequest);
           console.info(
             'Successfully posted request to discord',
             id,
-            Date.now()
+            Date.now(),
           );
 
           updatedRequest = await prisma.playgroundRequest.update({
@@ -520,7 +519,7 @@ export const setRequestStatus = async ({
 
         return updatedRequest;
       },
-      { timeout: 60000 }
+      { timeout: 60000 },
     );
     if (shouldPost) {
       await sendAcceptedEmail(updatedRequest);
@@ -543,15 +542,15 @@ export const setRequestStatus = async ({
         e instanceof Error
           ? e
           : typeof e === 'string'
-          ? new Error(e)
-          : new Error(JSON.stringify(e));
+            ? new Error(e)
+            : new Error(JSON.stringify(e));
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }
 };
 
 const sendAcceptedEmail = (
-  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'id'>
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'id'>,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
@@ -579,7 +578,7 @@ const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
 };
 
 const sendCompletionEmail = (
-  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'title'>
+  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'title'>,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;

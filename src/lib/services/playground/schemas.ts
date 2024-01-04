@@ -81,7 +81,7 @@ export const applyToRequestSchemaClient = applyToRequestSchema.merge(
     agreeToTerms: z
       .boolean()
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
-  })
+  }),
 );
 
 const budgetSchema = z.object({
@@ -141,7 +141,7 @@ const submitRequestSchemaBase = z.object({
     x
       .split(',')
       .map((x) => x.trim())
-      .filter((x) => x.length > 0)
+      .filter((x) => x.length > 0),
   ),
   description: z.string().trim().min(1),
   budget: budgetSchema.optional(),
@@ -161,7 +161,7 @@ const submitRequestSchemaBase = z.object({
 });
 
 export const submitRequestSchema = submitRequestSchemaBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema),
 );
 
 const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
@@ -170,11 +170,11 @@ const submitRequestSchemaClientBase = submitRequestSchemaBase.merge(
     agreeToTerms: z
       .boolean()
       .refine((x) => !!x, { message: 'You must agree to the terms' }),
-  })
+  }),
 );
 
 export const submitRequestSchemaClient = submitRequestSchemaClientBase.and(
-  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema)
+  devRequestSchema.or(designRequestSchema).or(otherRequestCategorySchema),
 );
 
 export const verifyRequestFormRequestSchema = submitRequestSchemaClientBase
@@ -194,7 +194,7 @@ export const verifyRequestFormRequestSchema = submitRequestSchemaClientBase
     {
       message: 'Request for for-profit organizations must be paid',
       path: ['budget'],
-    }
+    },
   );
 
 export const getPendingApplicationsSchema = paginationSchema.optional();

@@ -25,13 +25,13 @@ const Contact: React.FC = () => {
           { size: 16, top: 16, left: 16, color: 'grey-light' },
           { size: 24, top: 0, right: 0, color: 'grey' },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
-      <div className="px-5 bg-grey-background">
-        <div className="pt-10">
+      <div className='px-5 bg-grey-background'>
+        <div className='pt-10'>
           <CustomImage
             src={pixelHeart}
-            alt=""
+            alt=''
             height={pixelHeart.height / 2}
             width={pixelHeart.width / 2}
           />
@@ -42,10 +42,10 @@ const Contact: React.FC = () => {
             defaultMessage: 'Get in contact',
           })}
           firstWordsNum={2}
-          className="my-0"
+          className='my-0'
         >
           <FormattedMessage
-            id="page.contact.section.get-in-contact.content"
+            id='page.contact.section.get-in-contact.content'
             defaultMessage="If you'd like to get in touch with us, please use our contact form below! We do our best to respond to every email within 48 hours. Please make sure to check your spam folder!"
           />
         </FirstSubSection>

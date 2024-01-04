@@ -10,7 +10,7 @@ const LIST_ID = process.env.MAILCHIMP_AUDIENCE_ID || '';
 const TAG = 'VH Newsletter';
 
 export const subscribeToNewsletter: (email: string) => Promise<void> = async (
-  email
+  email,
 ) => {
   const hash = MD5(email.toLowerCase()).toString();
 

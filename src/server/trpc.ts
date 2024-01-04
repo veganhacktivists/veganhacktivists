@@ -10,7 +10,7 @@ superjson.registerCustom<Prisma.Decimal, string>(
     serialize: (v) => v.toJSON(),
     deserialize: (v) => new Prisma.Decimal(v),
   },
-  'decimal.js'
+  'decimal.js',
 );
 
 export const t = initTRPC.context<Context>().create({ transformer: superjson });

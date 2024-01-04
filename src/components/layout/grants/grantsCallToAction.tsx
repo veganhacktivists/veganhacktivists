@@ -33,25 +33,25 @@ const Info: React.FC<InfoProps> = ({
 }) => {
   const color = getThemeColor(backgroundColor);
   return (
-    <div style={{ backgroundColor: color }} className="flex flex-col gap-14">
-      <div className="w-full overflow-hidden">
-        <CustomImage src={image} alt="" />
+    <div style={{ backgroundColor: color }} className='flex flex-col gap-14'>
+      <div className='w-full overflow-hidden'>
+        <CustomImage src={image} alt='' />
       </div>
-      <div className="items-center">
-        <div className="max-w-sm px-10 text-left break-words md:pb-8">
-          <div className="pt-10 mb-10 font-mono text-3xl font-semibold uppercase text-grey-dark md:text-4xl md:px-2">
+      <div className='items-center'>
+        <div className='max-w-sm px-10 text-left break-words md:pb-8'>
+          <div className='pt-10 mb-10 font-mono text-3xl font-semibold uppercase text-grey-dark md:text-4xl md:px-2'>
             {title}
           </div>
-          <div className="mb-8 text-2xl md:mb-0">{children}</div>
+          <div className='mb-8 text-2xl md:mb-0'>{children}</div>
         </div>
-        <div className="flex flex-row justify-between px-10 h-">
-          <DarkButton className="md:max-w-72 h-fit" href={button.href}>
+        <div className='flex flex-row justify-between px-10 h-'>
+          <DarkButton className='md:max-w-72 h-fit' href={button.href}>
             {button.content}
           </DarkButton>
-          <div className="w-1/4">
+          <div className='w-1/4'>
             <CustomImage
               src={boxicon}
-              alt=""
+              alt=''
               height={(boxicon.height / boxicon.width) * 100}
               width={100}
             />
@@ -65,12 +65,12 @@ const Info: React.FC<InfoProps> = ({
 const GrantsCallToAction: React.FC = () => {
   const intl = useIntl();
   return (
-    <div className="pb-10 bg-gray-background pt-14">
-      <div className="grid grid-cols-1 gap-0 mx-auto mb-20 md:grid md:grid-cols-2 md:w-2/3 auto-rows-fr">
+    <div className='pb-10 bg-gray-background pt-14'>
+      <div className='grid grid-cols-1 gap-0 mx-auto mb-20 md:grid md:grid-cols-2 md:w-2/3 auto-rows-fr'>
         <Info
           image={beeImage}
           boxicon={beeIcon}
-          backgroundColor="white"
+          backgroundColor='white'
           title={intl.formatMessage({
             id: 'section.grants-cta.apply.heading',
             defaultMessage: 'Apply for a seed grant',
@@ -78,16 +78,16 @@ const GrantsCallToAction: React.FC = () => {
           button={{
             content: (
               <FormattedMessage
-                id="section.grants-cta.apply.cta"
-                defaultMessage="Apply Now"
+                id='section.grants-cta.apply.cta'
+                defaultMessage='Apply Now'
               />
             ),
             href: '/grants',
           }}
         >
           <FormattedMessage
-            id="section.grants-cta.apply.paragraph"
-            defaultMessage="We connect you with funders for impactful work in animal advocacy and activism."
+            id='section.grants-cta.apply.paragraph'
+            defaultMessage='We connect you with funders for impactful work in animal advocacy and activism.'
           />
         </Info>
         <Info
@@ -97,19 +97,19 @@ const GrantsCallToAction: React.FC = () => {
             id: 'section.grants-cta.visit-year-review.heading',
             defaultMessage: 'See our 2022 impact review',
           })}
-          backgroundColor="grey-over-background"
+          backgroundColor='grey-over-background'
           button={{
             content: (
               <FormattedMessage
-                id="section.grants-cta.visit-year-review.cta"
-                defaultMessage="See our impact"
+                id='section.grants-cta.visit-year-review.cta'
+                defaultMessage='See our impact'
               />
             ),
             href: '/year-in-review/2022',
           }}
         >
           <FormattedMessage
-            id="section.grants-cta.visit-year-review.paragraph"
+            id='section.grants-cta.visit-year-review.paragraph'
             defaultMessage="Read our annual impact review and see what we've accomplished last year."
           />
         </Info>

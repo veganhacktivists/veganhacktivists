@@ -37,7 +37,7 @@ const adminRouter = t.router({
       prisma.playgroundApplication.update({
         where: { id },
         data: { status: ApplicationStatus.Rejected },
-      })
+      }),
     ),
 
   getRequests: adminProcedure
@@ -115,7 +115,7 @@ const adminRouter = t.router({
           },
         },
       });
-    }
+    },
   ),
 });
 

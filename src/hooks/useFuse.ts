@@ -22,7 +22,7 @@ const useFuse: <T>(params: {
       ...options,
       shouldSort: sort,
     }),
-    [options, sort]
+    [options, sort],
   );
 
   const fuse = useMemo(() => new Fuse(data, fuseOptions), [data, fuseOptions]);

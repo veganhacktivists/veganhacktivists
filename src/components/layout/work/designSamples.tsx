@@ -94,16 +94,16 @@ const DesignSamples: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="relative w-full overflow-hidden text-xl bg-white">
-        <div className="relative flex flex-col px-2 py-20 gap-y-8">
-          <div className="md:w-1/2 mx-auto">
+      <div className='relative w-full overflow-hidden text-xl bg-white'>
+        <div className='relative flex flex-col px-2 py-20 gap-y-8'>
+          <div className='md:w-1/2 mx-auto'>
             <SectionHeader header={['See our', 'branding work']}>
-              <p className="text-xl">
+              <p className='text-xl'>
                 <FormattedMessage
-                  id="page.our-work.section.design-samples.section-header.content"
+                  id='page.our-work.section.design-samples.section-header.content'
                   defaultMessage="Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
                 />
               </p>
@@ -111,40 +111,40 @@ const DesignSamples: React.FC = () => {
           </div>
           <Carousel
             itemWidth={300}
-            layout="grid"
-            theme="dark"
+            layout='grid'
+            theme='dark'
             items={images.map(([image, thumbnail]) => (
               <button
                 key={thumbnail.src}
-                type="button"
+                type='button'
                 onClick={() => {
                   handleOpenImage(image);
                 }}
               >
-                <CustomImage src={thumbnail} alt="" />
+                <CustomImage src={thumbnail} alt='' />
               </button>
             ))}
           />
           <Modal
             isOpen={isModalOpen && !!currentImage}
             onClose={handleModalClose}
-            modalClassName="!w-5/6 md:!w-3/4 "
+            modalClassName='!w-5/6 md:!w-3/4 '
           >
             {/* TODO: image gallery */}
             {currentImage && (
               <div>
-                <CustomImage placeholder="blur" src={currentImage} alt="" />
+                <CustomImage placeholder='blur' src={currentImage} alt='' />
               </div>
             )}
           </Modal>
-          <div className="relative mx-auto md:w-1/3">
+          <div className='relative mx-auto md:w-1/3'>
             <DarkButton
-              href="https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view"
-              className="md:w-fit mx-auto"
+              href='https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view'
+              className='md:w-fit mx-auto'
             >
               <FormattedMessage
-                id="page.our-work.section.design-samples.cta-button.label"
-                defaultMessage="View our branding work"
+                id='page.our-work.section.design-samples.cta-button.label'
+                defaultMessage='View our branding work'
               />
             </DarkButton>
           </div>
@@ -153,7 +153,7 @@ const DesignSamples: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
     </>
   );

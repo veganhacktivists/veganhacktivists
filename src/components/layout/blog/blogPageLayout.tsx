@@ -13,7 +13,7 @@ const BlogContentContainer: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-x-10 mt-10 w-3/4 mx-auto">
+    <div className='flex flex-col lg:flex-row gap-x-10 mt-10 w-3/4 mx-auto'>
       {children}
     </div>
   );
@@ -25,7 +25,7 @@ export const Body: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
   return (
-    <div className="bg-grey-background mb-10 h-full">
+    <div className='bg-grey-background mb-10 h-full'>
       {blogs.map((blog) => {
         const { title, slug, featuredImage } = blog.fields;
 
@@ -33,21 +33,21 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
           <div
             key={blog.fields.slug}
             title={blog.fields.title}
-            className="p-5 w-full lg:w-96"
+            className='p-5 w-full lg:w-96'
           >
-            <div className="mb-4">
+            <div className='mb-4'>
               <Link href={`/blog/${slug}`}>
-                <ContentfulImage image={featuredImage} alt="" />
-                <div className="font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5">
+                <ContentfulImage image={featuredImage} alt='' />
+                <div className='font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5'>
                   {title}
                 </div>
               </Link>
             </div>
 
-            <DarkButton href={`/blog/${slug}`} className="w-full">
+            <DarkButton href={`/blog/${slug}`} className='w-full'>
               <FormattedMessage
-                id="page.blog.section.blog-page.btn.read-more"
-                defaultMessage="Read more"
+                id='page.blog.section.blog-page.btn.read-more'
+                defaultMessage='Read more'
               />
             </DarkButton>
           </div>

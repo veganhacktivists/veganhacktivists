@@ -92,7 +92,7 @@ const requestsRouter = t.router({
       }
 
       return request;
-    }
+    },
   ),
 });
 

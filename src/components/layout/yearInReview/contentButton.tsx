@@ -31,18 +31,18 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
   setContent,
 }) => {
   const backgroundColor = getThemeColor(
-    active ? 'grey-dark' : white ? 'white' : 'grey-background'
+    active ? 'grey-dark' : white ? 'white' : 'grey-background',
   );
 
   const borderColor = getThemeColor(
-    active ? 'grey-dark' : !white ? 'white' : 'grey-background'
+    active ? 'grey-dark' : !white ? 'white' : 'grey-background',
   );
 
   return (
     <div
       className={classNames(
         'flex justify-center items-center h-12 w-80 mx-auto relative mb-[4px]',
-        down ? '-bottom-80' : 'bottom-0'
+        down ? '-bottom-80' : 'bottom-0',
       )}
       style={{
         transition: 'bottom 700ms ease 0s',
@@ -54,7 +54,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         }
       }}
     >
-      <div className="cursor-pointer select-none">
+      <div className='cursor-pointer select-none'>
         <div
           className={`text-2xl font-semibold font-mono text-${
             active ? 'white' : 'black'
@@ -68,7 +68,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
           }
         >
           <FontAwesomeIcon
-            size="lg"
+            size='lg'
             icon={faChevronDown}
             color={active ? 'white' : 'black'}
             className={`transition-transform duration-700 ${
@@ -78,7 +78,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         </div>
       </div>
       <div
-        className="absolute -bottom-80 w-80 h-80 border-t-4"
+        className='absolute -bottom-80 w-80 h-80 border-t-4'
         style={{ borderColor }}
       >
         {isContentfulImage(content.image) ? (

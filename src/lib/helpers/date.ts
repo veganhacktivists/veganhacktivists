@@ -34,7 +34,7 @@ export const readableTimeDiff = (date: Date) => {
   });
 
   const diffWithoutZeroes = Object.fromEntries(
-    Object.entries(roundedDiff).filter(([, value]) => value >= 1)
+    Object.entries(roundedDiff).filter(([, value]) => value >= 1),
   );
 
   if (Object.keys(diffWithoutZeroes).length === 0) {

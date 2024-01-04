@@ -22,10 +22,10 @@ const NotFound: React.FC = () => {
           defaultMessage:
             'The page you requested (<no-localization>{path}</no-localization>) does not exist',
         },
-        { path: asPath }
+        { path: asPath },
       ),
     }),
-    [asPath, intl]
+    [asPath, intl],
   );
 
   return (

@@ -21,7 +21,7 @@ const Number: React.FC<NumberProps> = ({
     <div className={classNames({ 'w-full xl:w-1/2 2xl:w-1/3 p-5': !header })}>
       <div>
         <div>{number}</div>
-        <div className="">{children}</div>
+        <div className=''>{children}</div>
       </div>
     </div>
   );
@@ -32,8 +32,8 @@ const ByTheNumbers: React.FC = () => {
   return (
     <>
       <SectionContainer
-        className="text-white uppercase"
-        color="grey-darker"
+        className='text-white uppercase'
+        color='grey-darker'
         header={
           <SectionHeader
             header={intl.formatMessage({
@@ -44,33 +44,33 @@ const ByTheNumbers: React.FC = () => {
           />
         }
       >
-        <div className="md:w-3/4 mx-auto text-left font-mono text-3xl pb-10">
+        <div className='md:w-3/4 mx-auto text-left font-mono text-3xl pb-10'>
           <Number
             number={
               <AnimatedNumber
-                className="text-7xl md:text-9xl text-magenta"
+                className='text-7xl md:text-9xl text-magenta'
                 number={3e6}
                 approx
               />
             }
           >
             <FormattedMessage
-              id="page.year-in-review.2021.section.by-the-numbers.statistic.0"
-              defaultMessage="<b>Total unique page views</b> for all projects"
+              id='page.year-in-review.2021.section.by-the-numbers.statistic.0'
+              defaultMessage='<b>Total unique page views</b> for all projects'
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
             />
           </Number>
-          <div className="flex flex-col md:flex-row flex-wrap mt-5">
+          <div className='flex flex-col md:flex-row flex-wrap mt-5'>
             <Number
               number={
-                <AnimatedNumber number={13100} className="text-green" approx />
+                <AnimatedNumber number={13100} className='text-green' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.1"
-                defaultMessage="Tweets by our <b>5 Minutes 5 Vegans</b> support bot"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.1'
+                defaultMessage='Tweets by our <b>5 Minutes 5 Vegans</b> support bot'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
@@ -78,15 +78,15 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={93432} className="text-green" approx />
+                <AnimatedNumber number={93432} className='text-green' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.2"
-                defaultMessage="Clicks directing activists to orgs <no-localization><link>veganactivism.org</link></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.2'
+                defaultMessage='Clicks directing activists to orgs <no-localization><link>veganactivism.org</link></no-localization>'
                 values={{
                   link: (chunks) => (
-                    <Link href="https://veganactivism.org">
+                    <Link href='https://veganactivism.org'>
                       <b>{chunks}</b>
                     </Link>
                   ),
@@ -95,12 +95,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={500000} className="text-green" approx />
+                <AnimatedNumber number={500000} className='text-green' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.3"
-                defaultMessage="Unique page visits for <no-localization><project>Vegan Bootcamp</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.3'
+                defaultMessage='Unique page visits for <no-localization><project>Vegan Bootcamp</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -108,12 +108,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={21000} className="text-yellow" approx />
+                <AnimatedNumber number={21000} className='text-yellow' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.4"
-                defaultMessage="Total sign ups for <no-localization><project>Vegan Bootcamp</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.4'
+                defaultMessage='Total sign ups for <no-localization><project>Vegan Bootcamp</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -121,12 +121,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={625} className="text-yellow" approx />
+                <AnimatedNumber number={625} className='text-yellow' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.5"
-                defaultMessage="New grassroots groups on <no-localization><project>Activist Hub</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.5'
+                defaultMessage='New grassroots groups on <no-localization><project>Activist Hub</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -134,12 +134,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={134} className="text-yellow" approx />
+                <AnimatedNumber number={134} className='text-yellow' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.6"
-                defaultMessage="New resources added to <no-localization><project>Vegan Cheat Sheet</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.6'
+                defaultMessage='New resources added to <no-localization><project>Vegan Cheat Sheet</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -150,14 +150,14 @@ const ByTheNumbers: React.FC = () => {
               number={
                 <AnimatedNumber
                   number={95}
-                  className="text-orange-light"
+                  className='text-orange-light'
                   approx
                 />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.7"
-                defaultMessage="Groups added to <no-localization><project>Animal Rights Map</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.7'
+                defaultMessage='Groups added to <no-localization><project>Animal Rights Map</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -167,14 +167,14 @@ const ByTheNumbers: React.FC = () => {
               number={
                 <AnimatedNumber
                   number={103000}
-                  className="text-orange-light"
+                  className='text-orange-light'
                   approx
                 />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.8"
-                defaultMessage="New comments made by our <no-localization><project>Reddit Bot</project></no-localization>"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.8'
+                defaultMessage='New comments made by our <no-localization><project>Reddit Bot</project></no-localization>'
                 values={{
                   project: (chunks) => <b>{chunks}</b>,
                 }}
@@ -184,14 +184,14 @@ const ByTheNumbers: React.FC = () => {
               number={
                 <AnimatedNumber
                   number={40}
-                  className="text-orange-light"
+                  className='text-orange-light'
                   approx
                 />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.9"
-                defaultMessage="<b>New team members</b> have joined us"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.9'
+                defaultMessage='<b>New team members</b> have joined us'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
@@ -199,12 +199,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={28} className="text-orange" approx />
+                <AnimatedNumber number={28} className='text-orange' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.10"
-                defaultMessage="<b>New blog posts</b> from our content team"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.10'
+                defaultMessage='<b>New blog posts</b> from our content team'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
@@ -212,12 +212,12 @@ const ByTheNumbers: React.FC = () => {
             </Number>
             <Number
               number={
-                <AnimatedNumber number={29} className="text-orange" approx />
+                <AnimatedNumber number={29} className='text-orange' approx />
               }
             >
               <FormattedMessage
-                id="page.year-in-review.2021.section.by-the-numbers.statistic.11"
-                defaultMessage="<b>Grants requested</b> of us within the first 45 days"
+                id='page.year-in-review.2021.section.by-the-numbers.statistic.11'
+                defaultMessage='<b>Grants requested</b> of us within the first 45 days'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}

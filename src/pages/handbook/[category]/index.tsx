@@ -13,7 +13,7 @@ import type {
 
 const getCategoryOrPreview: (
   slug: IDocsCategoryFields['slug'],
-  preview: boolean
+  preview: boolean,
 ) => Promise<IDocsCategory> = async (slug, preview) => {
   if (preview) {
     return await getDocCategoryPreviewBySlug(slug);
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const category = await getCategoryOrPreview(
     params.category as string,
-    preview
+    preview,
   );
 
   return {

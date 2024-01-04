@@ -54,11 +54,11 @@ export async function requestPlaygroundApplicantFeedbackTask() {
           feedbackRequested: true,
         },
       });
-    })
+    }),
   );
 
   const successfulFeedbackRequests = result.filter(
-    (promise) => promise.status === 'fulfilled'
+    (promise) => promise.status === 'fulfilled',
   ).length;
   const failedFeedbackRequests =
     applicationsReadyForFeedback.length - successfulFeedbackRequests;
@@ -67,13 +67,13 @@ export async function requestPlaygroundApplicantFeedbackTask() {
     'exit requestPlaygroundApplicantFeedbackTask',
     `successfully sent ${successfulFeedbackRequests} emails.`,
     `failed to send ${failedFeedbackRequests} emails,`,
-    startTimeStamp
+    startTimeStamp,
   );
 }
 
 const sendFeedbackRequestEmail = (
   request: Pick<PlaygroundRequest, 'name' | 'title' | 'providedEmail'>,
-  applicantName: string
+  applicantName: string,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return false;
@@ -85,11 +85,11 @@ const sendFeedbackRequestEmail = (
     text: playgroundRequestFeedbackAboutVolunteerAfter1Week(
       request,
       applicantName,
-      true
+      true,
     ),
     html: playgroundRequestFeedbackAboutVolunteerAfter1Week(
       request,
-      applicantName
+      applicantName,
     ),
   });
 };

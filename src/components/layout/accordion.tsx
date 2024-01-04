@@ -42,15 +42,15 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   });
 
   return (
-    <div className="w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0" ref={animatedRef}>
+    <div className='w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0' ref={animatedRef}>
       <div
         className={classNames(
           'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
-          expanded ? 'bg-green' : bgColorClass
+          expanded ? 'bg-green' : bgColorClass,
         )}
         onClick={onExpandedChange}
       >
-        <span className="font-serif text-xl font-medium text-black select-none">
+        <span className='font-serif text-xl font-medium text-black select-none'>
           {title}
         </span>
         <FontAwesomeIcon icon={expanded ? faAngleUp : faAngleDown} />
@@ -59,7 +59,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
         <div
           className={classNames(
             'p-2.5 px-5 text-black text-left mt-1.5 font-sans text-lg',
-            design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]'
+            design === 'light' ? 'bg-white' : 'bg-[#EAEAEA]',
           )}
         >
           {children}
@@ -71,7 +71,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
 
 const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
   const [expandedEntryIndex, setExpandedEntryIndex] = useState<number | null>(
-    0
+    0,
   );
 
   const onChangeEntryExpanded = useCallback(
@@ -82,7 +82,7 @@ const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
         setExpandedEntryIndex(index);
       }
     },
-    [expandedEntryIndex]
+    [expandedEntryIndex],
   );
 
   const accordionEntries = useMemo(
@@ -98,7 +98,7 @@ const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
           />
         );
       }),
-    [design, entries, expandedEntryIndex, onChangeEntryExpanded]
+    [design, entries, expandedEntryIndex, onChangeEntryExpanded],
   );
 
   if (!entries) {
@@ -106,7 +106,7 @@ const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
   }
 
   return (
-    <div className="flex flex-col items-center content-center justify-center">
+    <div className='flex flex-col items-center content-center justify-center'>
       {accordionEntries}
     </div>
   );

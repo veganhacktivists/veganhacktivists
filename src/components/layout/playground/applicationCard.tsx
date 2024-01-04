@@ -20,7 +20,7 @@ const Data: React.FC<{
 
   return (
     <div>
-      <span className="font-bold">{name}:</span> <span>{value || 'None'}</span>
+      <span className='font-bold'>{name}:</span> <span>{value || 'None'}</span>
     </div>
   );
 };
@@ -30,17 +30,17 @@ const ApplicationCard: React.FC<
 > = ({ children, application: app }) => {
   const [timeSinceCreated] = useMemo(
     () => readableTimeDiff(app.createdAt),
-    [app.createdAt]
+    [app.createdAt],
   );
   return (
-    <div className="py-5">
+    <div className='py-5'>
       <div>
-        <span className="font-bold">{app.name}</span> ({app.providedEmail})
+        <span className='font-bold'>{app.name}</span> ({app.providedEmail})
         {app.providedEmail !== app.applicant.email && (
           <> &rArr; (logs in as {app.applicant.email})</>
         )}
       </div>
-      <Data name="Pronouns" value={app.pronouns} />
+      <Data name='Pronouns' value={app.pronouns} />
       <div>
         Applied {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
@@ -53,27 +53,27 @@ const ApplicationCard: React.FC<
         {app.isVegan ? 'Vegan :D' : 'Not vegan D:'}
       </div>
       <Data
-        name="Available time per week"
+        name='Available time per week'
         value={TimePerWeekLabel[app.availableTimePerWeek]}
       />
-      <Data name="Estimated Time in Days" value={app.estimatedTimeDays} />
-      <Data name="Source" value={app.source ? SourceLabel[app.source] : null} />
-      <Data name="Portfolio" value={app.portfolioLink} />
-      <Data name="Calendly" value={app.calendlyUrl} />
-      <Data name="Instagram" value={app.instagramUrl} />
-      <Data name="Twitter" value={app.twitterUrl} />
-      <Data name="LinkedIn" value={app.linkedinUrl} />
+      <Data name='Estimated Time in Days' value={app.estimatedTimeDays} />
+      <Data name='Source' value={app.source ? SourceLabel[app.source] : null} />
+      <Data name='Portfolio' value={app.portfolioLink} />
+      <Data name='Calendly' value={app.calendlyUrl} />
+      <Data name='Instagram' value={app.instagramUrl} />
+      <Data name='Twitter' value={app.twitterUrl} />
+      <Data name='LinkedIn' value={app.linkedinUrl} />
       <Data
-        name="Applied in the past"
+        name='Applied in the past'
         value={JSON.stringify(app.hasAppliedInThePast)}
       />
       <Data
-        name="Comments"
+        name='Comments'
         value={
           app.moreInfo && (
             <>
               {app.moreInfo?.split('\n').map((paragraph, i) => (
-                <div className="mb-2" key={i}>
+                <div className='mb-2' key={i}>
                   {paragraph}
                 </div>
               ))}

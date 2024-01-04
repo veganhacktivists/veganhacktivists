@@ -36,7 +36,7 @@ interface DocsProps {
 
 const getCategoryOrPreview: (
   slug: IDocsCategoryFields['slug'] | undefined,
-  preview: boolean
+  preview: boolean,
 ) => Promise<IDocsCategory> = async (slug, preview) => {
   if (preview) {
     if (!slug) {
@@ -74,12 +74,12 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const category = await getCategoryOrPreview(
     params?.category as string | undefined,
-    preview
+    preview,
   );
 
   const section = params?.section
     ? category.fields.sections.find(
-        (section) => section.fields.slug === params?.section
+        (section) => section.fields.slug === params?.section,
       )
     : category.fields.sections[0];
 
@@ -125,14 +125,14 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
 
     const mostRecentDate = [categoryDate, sectionDate, ...docDates].reduce(
       (date, mostRecent) => (date > mostRecent ? date : mostRecent),
-      categoryDate
+      categoryDate,
     );
 
     return mostRecentDate;
   }, [category.sys.updatedAt, section.sys.updatedAt, subsections]);
 
   const sectionIndex = category.fields.sections.findIndex(
-    (section) => section.fields.slug === slug
+    (section) => section.fields.slug === slug,
   );
 
   const prev =
@@ -143,30 +143,30 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       : undefined;
 
   return (
-    <div className="w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white">
-      <div className="flex flex-row justify-between mb-5">
+    <div className='w-full md:flex-[3] py-10 text-left px-10 md:pr-48 bg-white'>
+      <div className='flex flex-row justify-between mb-5'>
         <div id={slug}>
           <h2
-            className="font-mono text-xl font-bold"
+            className='font-mono text-xl font-bold'
             style={{ color: category.fields.color }}
           >
             {category.fields.name}
           </h2>
-          <h3 className="text-3xl font-bold">{section.fields.title}</h3>
+          <h3 className='text-3xl font-bold'>{section.fields.title}</h3>
         </div>
-        <div className="text-right text-normal md:text-left">
-          <span className="font-bold">Last updated:</span>{' '}
-          <span className="block md:inline">
+        <div className='text-right text-normal md:text-left'>
+          <span className='font-bold'>Last updated:</span>{' '}
+          <span className='block md:inline'>
             {new Intl.DateTimeFormat('en', {
               month: 'long',
               year: 'numeric',
               day: 'numeric',
             }).format(updatedAt)}
           </span>
-          <span className="hidden md:inline"> | </span>
+          <span className='hidden md:inline'> | </span>
           <Link
-            href="/contact"
-            className="underline opacity-100 text-green hover:opacity-70"
+            href='/contact'
+            className='underline opacity-100 text-green hover:opacity-70'
           >
             Suggest Updates
           </Link>
@@ -179,12 +179,12 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
       )}
       {subsections?.map((doc) => (
         <Fragment key={doc.fields.slug}>
-          <hr className="mt-10 text-grey-light first-of-type:hidden" />
+          <hr className='mt-10 text-grey-light first-of-type:hidden' />
           <SubSection key={doc.fields.slug} {...doc.fields} />
         </Fragment>
       ))}
-      <div className="flex items-center justify-center mt-10 space-x-4">
-        <p className="hidden lg:block">{prev && prev.fields.title}</p>
+      <div className='flex items-center justify-center mt-10 space-x-4'>
+        <p className='hidden lg:block'>{prev && prev.fields.title}</p>
         <DarkButton
           disabled={prev === undefined}
           href={
@@ -199,7 +199,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
               : undefined
           }
         >
-          <FontAwesomeIcon size="sm" icon={faArrowLeft} />
+          <FontAwesomeIcon size='sm' icon={faArrowLeft} />
           &nbsp; Previous
         </DarkButton>
         &nbsp; &nbsp;
@@ -218,9 +218,9 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
           }
         >
           Next &nbsp;
-          <FontAwesomeIcon size="sm" icon={faArrowRight} />
+          <FontAwesomeIcon size='sm' icon={faArrowRight} />
         </DarkButton>
-        <p className="hidden lg:block">{next && next.fields.title}</p>
+        <p className='hidden lg:block'>{next && next.fields.title}</p>
       </div>
     </div>
   );
@@ -243,7 +243,7 @@ const SubSection: React.FC<IDocumentationFields> = ({
         }}
       />
       <div key={slug} id={slug} ref={ref}>
-        <h2 className="pt-10 text-2xl font-bold">{title}</h2>
+        <h2 className='pt-10 text-2xl font-bold'>{title}</h2>
         <RichText document={content} />
       </div>
     </>
@@ -270,8 +270,8 @@ const Docs: React.FC<DocsProps> = ({ categories = [], category, section }) => {
 
   return (
     <>
-      <NextSeo title="Docs" noindex />
-      <div className="flex flex-col md:flex-row bg-grey-over-background">
+      <NextSeo title='Docs' noindex />
+      <div className='flex flex-col md:flex-row bg-grey-over-background'>
         <Sidebar categories={categories.map((cat) => cat.fields)} />
         {section && category && (
           <Content section={section} category={category} />

@@ -56,27 +56,27 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
     <div
       className={classNames(
         'flex flex-row gap-2 flex-wrap text-2xl',
-        className
+        className,
       )}
     >
       {Object.entries({ ...socialLinks }).map(([key, value]) => (
         <a
           key={key}
           href={key === 'email' ? 'mailto:' + value : value}
-          target="_blank"
-          rel="noreferrer"
+          target='_blank'
+          rel='noreferrer'
         >
           <div
             className={classNames(
               theme === 'light' ? 'bg-grey-background' : 'bg-grey',
               theme === 'light' ? 'text-grey-dark' : 'text-grey-background',
-              'p-1'
+              'p-1',
             )}
           >
             {key === 'activistHub' ? (
               <CustomImage
                 src={ahIcon as StaticImageData}
-                alt=""
+                alt=''
                 width={30}
                 height={24}
               />

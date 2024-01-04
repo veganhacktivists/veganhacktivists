@@ -21,11 +21,11 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
 }) => {
   const backgroundColor = getThemeColor(color);
   return (
-    <div className="flex flex-col md:flex-row items-center gap-10 px-2 md:px-0">
-      <div style={{ backgroundColor }} className="p-3">
+    <div className='flex flex-col md:flex-row items-center gap-10 px-2 md:px-0'>
+      <div style={{ backgroundColor }} className='p-3'>
         <CustomImage
           src={image}
-          alt=""
+          alt=''
           width={iconSize}
           height={iconSize}
           priority
@@ -34,7 +34,7 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
           }}
         />
       </div>
-      <p className="w-5/8 text-center md:text-left md:text-2xl">
+      <p className='w-5/8 text-center md:text-left md:text-2xl'>
         {description}
       </p>
     </div>

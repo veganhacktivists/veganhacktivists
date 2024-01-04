@@ -28,7 +28,7 @@ const stringRecordSchema = z.record(z.string(), z.string());
 async function main() {
   const defaultTranslationMessages = await readTranslationFile(defaultLocale);
   const compiledDefaultTranslationMessages = compile(
-    defaultTranslationMessages
+    defaultTranslationMessages,
   );
 
   await Promise.all(
@@ -41,7 +41,7 @@ async function main() {
 
       applyTranslationFallback(
         compiledMessages,
-        compiledDefaultTranslationMessages
+        compiledDefaultTranslationMessages,
       );
 
       const updatedMessages =
@@ -52,17 +52,19 @@ async function main() {
       await writeFile(
         resolveCompiledTranslationFilePath(locale),
         JSON.stringify(updatedMessages),
-        { encoding }
+        {
+          encoding,
+        },
       );
 
       await ensureTranslationFileUsage(locale);
-    })
+    }),
   );
 }
 
 function applyTranslationFallback(
   compiledMessages: Record<string, string>,
-  fallbackMessages: Record<string, string>
+  fallbackMessages: Record<string, string>,
 ): void {
   Object.entries(fallbackMessages).forEach(([id, message]) => {
     if (!compiledMessages[id]) {
@@ -72,20 +74,20 @@ function applyTranslationFallback(
 }
 
 function compile(
-  translations: TranslationFileStructureInternal
+  translations: TranslationFileStructureInternal,
 ): Record<string, string> {
   return stringRecordSchema.parse(
     Object.fromEntries(
-      Object.entries(translations).map(([key, { message }]) => [key, message])
-    )
+      Object.entries(translations).map(([key, { message }]) => [key, message]),
+    ),
   );
 }
 
 function createDevTranslations(
-  compiledMessages: Record<string, string>
+  compiledMessages: Record<string, string>,
 ): Record<string, string> {
   return Object.fromEntries(
-    Object.keys(compiledMessages).map((key) => [key, key])
+    Object.keys(compiledMessages).map((key) => [key, key]),
   );
 }
 
@@ -98,14 +100,14 @@ const project = new Project({
 });
 const messagesSourceFilePath = resolve(
   repoDirectory,
-  'src/lib/translation/messages.ts'
+  'src/lib/translation/messages.ts',
 );
 project.addSourceFileAtPath(messagesSourceFilePath);
 
 async function ensureTranslationFileUsage(locale: string) {
   const filepath = relative(
     dirname(messagesSourceFilePath),
-    resolveCompiledTranslationFilePath(locale)
+    resolveCompiledTranslationFilePath(locale),
   );
 
   const sourceFile = project.getSourceFiles()[0];
@@ -145,20 +147,20 @@ async function ensureTranslationFileUsage(locale: string) {
 }
 
 function removeTranslationIgnoreTagsFromCompiledMessages(
-  messages: Record<string, string>
+  messages: Record<string, string>,
 ) {
   return Object.entries(messages).reduce(
     (msgs, [key, msg]) => ({
       ...msgs,
       [key]: removeTranslationIgnoreTags(msg),
     }),
-    {}
+    {},
   );
 }
 
 function removeTranslationIgnoreTags(messageContent: string) {
   return messageContent.replaceAll(
     /< *no-localization *>(.*?)<\/ *no-localization *>/g,
-    '$1'
+    '$1',
   );
 }

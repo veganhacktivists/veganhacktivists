@@ -29,7 +29,7 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <p className="px-10 mx-auto mb-20 text-xl md:w-3/4">{children}</p>
+  <p className='px-10 mx-auto mb-20 text-xl md:w-3/4'>{children}</p>
 );
 
 const Support: React.FC = () => {
@@ -52,13 +52,13 @@ const Support: React.FC = () => {
             defaultMessage: 'You are their voice',
           }),
         }}
-        alignment="left"
+        alignment='left'
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
-      <div className="px-10">
+      <div className='px-10'>
         <PlainHeader
           header={intl.formatMessage({
             id: 'page.support.section.support-us.header.title',
@@ -66,15 +66,15 @@ const Support: React.FC = () => {
           })}
         >
           <FormattedMessage
-            id="page.support.section.support-us.header.content"
-            defaultMessage="If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
+            id='page.support.section.support-us.header.content'
+            defaultMessage='If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends.'
           />
         </PlainHeader>
       </div>
-      <div className="mx-auto my-16 md:w-fit">
-        <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
+      <div className='mx-auto my-16 md:w-fit'>
+        <div className='flex flex-wrap items-end justify-center gap-10 mb-5'>
           <DonationCard
-            color="blue"
+            color='blue'
             image={PayPalLogo}
             title={intl.formatMessage({
               id: 'page.support.section.support-us.donation-card.0.title',
@@ -84,16 +84,16 @@ const Support: React.FC = () => {
               id: 'page.support.section.support-us.donation-card.0.button-label',
               defaultMessage: 'donate',
             })}
-            buttonHref="https://paypal.me/veganhacktivists"
+            buttonHref='https://paypal.me/veganhacktivists'
           >
             <FormattedMessage
-              id="page.support.section.support-us.donation-card.0.content"
-              defaultMessage="For one-time, smaller donations"
+              id='page.support.section.support-us.donation-card.0.content'
+              defaultMessage='For one-time, smaller donations'
             />
           </DonationCard>
-          <DonorBoxCard color="orange" large />
+          <DonorBoxCard color='orange' large />
           <DonationCard
-            color="green"
+            color='green'
             image={HeartLogo}
             title={intl.formatMessage({
               id: 'page.support.section.support-us.donation-card.2.title',
@@ -103,11 +103,11 @@ const Support: React.FC = () => {
               id: 'page.support.section.support-us.donation-card.2.button-label',
               defaultMessage: 'contact us',
             })}
-            buttonHref="https://veganhacktivists.org/contact"
+            buttonHref='https://veganhacktivists.org/contact'
           >
             <FormattedMessage
-              id="page.support.section.support-us.donation-card.2.content"
-              defaultMessage="For larger donations (US tax-deductible)"
+              id='page.support.section.support-us.donation-card.2.content'
+              defaultMessage='For larger donations (US tax-deductible)'
             />
           </DonationCard>
         </div>
@@ -118,12 +118,12 @@ const Support: React.FC = () => {
 
       <Paragraph>
         <FormattedMessage
-          id="page.support.section.support-us.subtitle"
-          defaultMessage="We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+          id='page.support.section.support-us.subtitle'
+          defaultMessage='We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor.'
           values={{
-            bold: (chunks) => <span className="font-bold">{chunks}</span>,
+            bold: (chunks) => <span className='font-bold'>{chunks}</span>,
             'contact-link': (chunks) => (
-              <CustomLink href="mailto:hello@veganhacktivists.org">
+              <CustomLink href='mailto:hello@veganhacktivists.org'>
                 {chunks}
               </CustomLink>
             ),
@@ -137,7 +137,7 @@ const Support: React.FC = () => {
           { color: 'white', size: 16, top: 0, left: 0 },
           { color: 'white', size: 16, top: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <VioletStudios />
       <SquareField
@@ -146,12 +146,12 @@ const Support: React.FC = () => {
           { color: '#BCBCBC', size: 16, top: 0, left: 0 },
           { color: 'black', size: 16, top: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <ThankYouSection />
       <SquareField
         squares={[{ color: 'grey-light', size: 16, bottom: 0, left: 0 }]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
     </>

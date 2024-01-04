@@ -55,7 +55,7 @@ const applicationsRouter = t.router({
       }
 
       return application;
-    }
+    },
   ),
 });
 

@@ -20,7 +20,7 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   const startTimeStamp = Date.now();
   console.info(
     'enter sendInternalEmailNotificationForRequestsWithoutApplicationsTask',
-    startTimeStamp
+    startTimeStamp,
   );
 
   const fourteenDaysAgo = new Date(Date.now() - FOURTEEN_DAYS_IN_MS);
@@ -49,14 +49,13 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   });
 
   const activeRequestsWithoutApplications = activeRequests.filter(
-    (request) => !request._count.applications
+    (request) => !request._count.applications,
   );
 
   const results = await Promise.all(
     activeRequestsWithoutApplications.map(async (request) => {
-      const success = await sendInternalEmailForRequestsWithoutApplications(
-        request
-      );
+      const success =
+        await sendInternalEmailForRequestsWithoutApplications(request);
       if (!success) {
         return false;
       }
@@ -76,12 +75,12 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
         console.error(
           'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: update db noApplicationsNotificationEmailSent failed for request',
           request,
-          error
+          error,
         );
 
         return false;
       }
-    })
+    }),
   );
 
   const successfulRejections = results.filter(Boolean).length;
@@ -91,7 +90,7 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
     'exit sendInternalEmailNotificationForRequestsWithoutApplicationsTask',
     `successfully sent ${successfulRejections} emails.`,
     `failed to send ${failedRejections} emails,`,
-    startTimeStamp
+    startTimeStamp,
   );
 }
 
@@ -99,7 +98,7 @@ const sendInternalEmailForRequestsWithoutApplications = async (
   request: Pick<
     PlaygroundRequest,
     'id' | 'title' | 'description' | 'category' | 'acceptedAt' | 'createdAt'
-  >
+  >,
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return false;
@@ -122,10 +121,10 @@ const sendInternalEmailForRequestsWithoutApplications = async (
       subject: 'Reminder for an unanswered playground request',
       text: playgroundInternalNotificationForRequestsWithoutApplications(
         request,
-        true
+        true,
       ),
       html: playgroundInternalNotificationForRequestsWithoutApplications(
-        request
+        request,
       ),
     });
 
@@ -134,7 +133,7 @@ const sendInternalEmailForRequestsWithoutApplications = async (
     console.error(
       'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
       request,
-      error
+      error,
     );
 
     return false;

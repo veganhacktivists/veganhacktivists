@@ -57,7 +57,7 @@ export const Carousel = ({
 
       setCurrentPage(page);
     },
-    [numPages, pageBreakpoints]
+    [numPages, pageBreakpoints],
   );
 
   const getHandlePageChange = useCallback(
@@ -70,12 +70,12 @@ export const Carousel = ({
         inline: 'start',
       });
     },
-    [itemsPerPage]
+    [itemsPerPage],
   );
 
   return (
     <div
-      className="space-y-16 mx-auto w-full"
+      className='space-y-16 mx-auto w-full'
       style={{
         // (16rem w + 1rem gap) * items x - 1rem gap
         maxWidth: `${
@@ -90,7 +90,7 @@ export const Carousel = ({
           {
             'flex flex-row flex-nowrap': layout === 'horizontal',
             'grid grid-rows-3 grid-flow-col': layout === 'grid',
-          }
+          },
         )}
       >
         {items.map((item, i) => (
@@ -110,12 +110,12 @@ export const Carousel = ({
           </li>
         ))}
       </ul>
-      <div className="flex flex-row gap-4 justify-center items-center flex-wrap">
+      <div className='flex flex-row gap-4 justify-center items-center flex-wrap'>
         {[...Array(numPages)].map((_, i) => (
           <button
             aria-label={`Scroll to page ${i + 1}`}
             onClick={getHandlePageChange(i)}
-            type="button"
+            type='button'
             key={i}
             className={classNames(
               'w-4 h-4 flex-shrink-0',
@@ -123,7 +123,7 @@ export const Carousel = ({
                 ? theme === 'light'
                   ? 'bg-white'
                   : 'bg-gray-dark'
-                : 'bg-[#737373]'
+                : 'bg-[#737373]',
             )}
           />
         ))}

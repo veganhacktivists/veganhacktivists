@@ -20,7 +20,7 @@ const SubtleBorder: React.FC<SubtleBorderProps> = ({
           'border-grey-border border-[0.5px]': border,
           'drop-shadow-border': shadow,
         },
-        className
+        className,
       )}
     >
       {children}

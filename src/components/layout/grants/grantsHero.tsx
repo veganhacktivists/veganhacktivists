@@ -16,7 +16,7 @@ const GrantsHero: React.FC = () => {
           defaultMessage: 'Grants for a kinder world',
         }),
       }}
-      alignment="left"
+      alignment='left'
       classNameMapping={{
         container: 'bg-center',
       }}

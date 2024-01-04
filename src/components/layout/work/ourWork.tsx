@@ -160,7 +160,7 @@ const imageRows = [...new Array(numberOfRows)].map((_, i) => {
   return images
     .slice(i * itemsPerRow, (i + 1) * itemsPerRow)
     .map((image) => (
-      <CustomImage priority key={image.src} src={image} alt="" />
+      <CustomImage priority key={image.src} src={image} alt='' />
     ));
 });
 
@@ -184,17 +184,17 @@ const OurWork: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="w-full bg-white">
-        <div className="flex flex-col py-20">
-          <div className="md:w-1/2 mx-auto -mb-10 px-5">
+      <div className='w-full bg-white'>
+        <div className='flex flex-col py-20'>
+          <div className='md:w-1/2 mx-auto -mb-10 px-5'>
             {/* TODO: translate section header */}
-            <SectionHeader className="mb-2" header={['Our', 'WORK']}>
+            <SectionHeader className='mb-2' header={['Our', 'WORK']}>
               <FormattedMessage
-                id="page.our-work.section.our-work.section-header.content"
-                defaultMessage="We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services."
+                id='page.our-work.section.our-work.section-header.content'
+                defaultMessage='We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
@@ -202,23 +202,23 @@ const OurWork: React.FC = () => {
             </SectionHeader>
           </div>
           <Autoscroll items={imageRows} />
-          <div className="mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5">
-            <DarkButton href="/services" className="font-mono md:w-fit">
+          <div className='mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5'>
+            <DarkButton href='/services' className='font-mono md:w-fit'>
               <FormattedMessage
-                id="page.our-work.section.our-work.cta.services"
-                defaultMessage="Explore our services"
+                id='page.our-work.section.our-work.cta.services'
+                defaultMessage='Explore our services'
               />
             </DarkButton>
-            <DarkButton href="/join" className="font-mono md:w-fit">
+            <DarkButton href='/join' className='font-mono md:w-fit'>
               <FormattedMessage
-                id="page.our-work.section.our-work.cta.join"
-                defaultMessage="Volunteer with us"
+                id='page.our-work.section.our-work.cta.join'
+                defaultMessage='Volunteer with us'
               />
             </DarkButton>
-            <DarkButton href="/support" className="font-mono md:w-fit">
+            <DarkButton href='/support' className='font-mono md:w-fit'>
               <FormattedMessage
-                id="page.our-work.section.our-work.cta.support"
-                defaultMessage="Support our work"
+                id='page.our-work.section.our-work.cta.support'
+                defaultMessage='Support our work'
               />
             </DarkButton>
           </div>
@@ -229,7 +229,7 @@ const OurWork: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
     </>
   );

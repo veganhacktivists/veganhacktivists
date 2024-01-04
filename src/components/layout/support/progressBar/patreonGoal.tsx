@@ -21,19 +21,19 @@ const PatreonGoal: React.FC<PatreonGoalProps> = ({
 
   return (
     <div
-      className="w-36 md:w-auto relative flex flex-col items-end z-10 box-border border-white border-r-[3px] text-right px-4"
+      className='w-36 md:w-auto relative flex flex-col items-end z-10 box-border border-white border-r-[3px] text-right px-4'
       style={{ width: percentage }}
     >
-      <div className="w-full h-24 md:h-36">
+      <div className='w-full h-24 md:h-36'>
         <h1
-          className="mb-2 font-mono text-4xl md:text-5xl"
+          className='mb-2 font-mono text-4xl md:text-5xl'
           style={{ color: getThemeColor(goalColor) }}
         >
           &#36;{goalAmount.toLocaleString('en-US')}
         </h1>
-        <p className="text-lg text-white md:text-xl">{children}</p>
+        <p className='text-lg text-white md:text-xl'>{children}</p>
       </div>
-      <div className="h-24" />
+      <div className='h-24' />
     </div>
   );
 };

@@ -23,8 +23,8 @@ const CustomLink: React.FC<LinkProps> = ({
   return url?.startsWith('http://') || url?.startsWith('https://') ? (
     <a
       className={classes}
-      target="_blank"
-      rel="noreferrer"
+      target='_blank'
+      rel='noreferrer'
       // eslint-disable-next-line
       href={href.toString()}
       {...props}

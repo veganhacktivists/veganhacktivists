@@ -12,7 +12,7 @@ const colors = fullConfig.theme!.colors!;
 
 const byString: (
   object: string | Record<string, string>,
-  path: string
+  path: string,
 ) => string | Record<'DEFAULT', string> | undefined = (object, path) => {
   path = path.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
   path = path.replace(/^\./, ''); // strip a leading dot
@@ -37,8 +37,8 @@ const getThemeColor: (color: string) => `#${string}` = (color) => {
     colors as unknown as Record<string, string>,
     color.replace(
       /([a-z]+)-(light|dark|background|over-background|border)/g,
-      '$1.$2'
-    )
+      '$1.$2',
+    ),
   );
 
   if (typeof obj !== 'object') {

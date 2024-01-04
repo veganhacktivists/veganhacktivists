@@ -21,119 +21,119 @@ const BonusProjects: React.FC = () => {
         ]}
       />
       <SectionContainer
-        color="grey-background"
+        color='grey-background'
         header={
           <SectionHeader newDesign={true} header={['Bonus', 'projects']} />
         }
       >
-        <div className="pb-20">
-          <div className="xl:w-1/2 mx-auto">
-            <span className="text-xl">
+        <div className='pb-20'>
+          <div className='xl:w-1/2 mx-auto'>
+            <span className='text-xl'>
               <FormattedMessage
-                id="page.year-in-review.2022.section.bonus-projects.paragraph"
-                defaultMessage="The team gathered together to build two mini projects before the end of the year that we thought would provide value to other movements and help promote our work."
+                id='page.year-in-review.2022.section.bonus-projects.paragraph'
+                defaultMessage='The team gathered together to build two mini projects before the end of the year that we thought would provide value to other movements and help promote our work.'
               />
             </span>
           </div>
-          <div className="xl:w-2/3 mx-auto mt-10">
-            <div className="flex flex-col md:flex-row gap-10 lg:gap-20 pb-20">
+          <div className='xl:w-2/3 mx-auto mt-10'>
+            <div className='flex flex-col md:flex-row gap-10 lg:gap-20 pb-20'>
               <div>
-                <div className="flex md:w-[420px] md:h-[420px] max-w-[420px] max-h-[420px] mx-auto md:mx-0">
-                  <CustomImage src={PitchFTA} alt="PitchFTA" />
+                <div className='flex md:w-[420px] md:h-[420px] max-w-[420px] max-h-[420px] mx-auto md:mx-0'>
+                  <CustomImage src={PitchFTA} alt='PitchFTA' />
                 </div>
               </div>
-              <div className="text-center md:text-left">
-                <span className="text-4xl mb-2 block font-bold">
+              <div className='text-center md:text-left'>
+                <span className='text-4xl mb-2 block font-bold'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.pitchfta.heading"
-                    defaultMessage="<no-localization>PitchFTA.org</no-localization>"
+                    id='page.year-in-review.2022.section.bonus-projects.pitchfta.heading'
+                    defaultMessage='<no-localization>PitchFTA.org</no-localization>'
                   />
                 </span>
-                <span className="text-xl block mb-5">
+                <span className='text-xl block mb-5'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.pitchfta.paragraph"
-                    defaultMessage="<no-localization>Pitch for the Animals</no-localization> is a mobile-friendly app that crowdsources innovative ideas for the movement. The winning app idea, determined by popular vote at the inaugural <no-localization>AVA Summit</no-localization>, will be built by our team. Users participate in various in-app and in-person activities — such as quizzes, games, attending events, and participating in a scavenger hunt to find QR codes at the conference — to earn votes."
+                    id='page.year-in-review.2022.section.bonus-projects.pitchfta.paragraph'
+                    defaultMessage='<no-localization>Pitch for the Animals</no-localization> is a mobile-friendly app that crowdsources innovative ideas for the movement. The winning app idea, determined by popular vote at the inaugural <no-localization>AVA Summit</no-localization>, will be built by our team. Users participate in various in-app and in-person activities — such as quizzes, games, attending events, and participating in a scavenger hunt to find QR codes at the conference — to earn votes.'
                   />
                 </span>
-                <span className="text-2xl block font-bold">
+                <span className='text-2xl block font-bold'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.featured"
-                    defaultMessage="Featured"
+                    id='page.year-in-review.2022.section.bonus-projects.featured'
+                    defaultMessage='Featured'
                   />
                 </span>
-                <span className="text-xl block">
+                <span className='text-xl block'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.pitchfta.featured.0"
-                    defaultMessage="2022 <no-localization>AVA Summit</no-localization>"
+                    id='page.year-in-review.2022.section.bonus-projects.pitchfta.featured.0'
+                    defaultMessage='2022 <no-localization>AVA Summit</no-localization>'
                   />
                 </span>
-                <div className="flex">
+                <div className='flex'>
                   <DarkButton
-                    href="https://pitchfta.org"
-                    className="mt-5 mx-auto md:mx-0 !normal-case"
+                    href='https://pitchfta.org'
+                    className='mt-5 mx-auto md:mx-0 !normal-case'
                   >
                     <FormattedMessage
-                      id="page.year-in-review.2022.section.bonus-projects.pitchfta.btn.cta"
-                      defaultMessage="<no-localization>PitchFTA.org</no-localization>"
+                      id='page.year-in-review.2022.section.bonus-projects.pitchfta.btn.cta'
+                      defaultMessage='<no-localization>PitchFTA.org</no-localization>'
                     />
                   </DarkButton>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-10 lg:gap-20">
+            <div className='flex flex-col md:flex-row gap-10 lg:gap-20'>
               <div>
-                <div className="flex md:w-[420px] max-w-[420px] max-h-[420px] md:h-[420px] mx-auto md:mx-0">
+                <div className='flex md:w-[420px] max-w-[420px] max-h-[420px] md:h-[420px] mx-auto md:mx-0'>
                   <CustomImage
                     src={WildAnimalSuffering}
-                    alt="WildAnimalSuffering"
+                    alt='WildAnimalSuffering'
                   />
                 </div>
               </div>
-              <div className="text-center md:text-left">
-                <span className="text-4xl mb-2 block font-bold break-all">
+              <div className='text-center md:text-left'>
+                <span className='text-4xl mb-2 block font-bold break-all'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.heading"
-                    defaultMessage="<no-localization>WildAnimalSuffering.org</no-localization>"
+                    id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.heading'
+                    defaultMessage='<no-localization>WildAnimalSuffering.org</no-localization>'
                   />
                 </span>
-                <span className="text-xl block mb-5">
+                <span className='text-xl block mb-5'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.paragraph"
-                    defaultMessage="This educational website presents the many issues facing wild animals and how people can make a difference in an accessible, visually-stunning format. From custom illustrations to educational resources, this site brings value to the conversation of wild animals. Special thanks to our friends at <no-localization>Animal Ethics</no-localization>, <no-localization>Wild Animal Initiative</no-localization>, <no-localization>Rethink Priorities</no-localization>, for lending their expertise for this project."
+                    id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.paragraph'
+                    defaultMessage='This educational website presents the many issues facing wild animals and how people can make a difference in an accessible, visually-stunning format. From custom illustrations to educational resources, this site brings value to the conversation of wild animals. Special thanks to our friends at <no-localization>Animal Ethics</no-localization>, <no-localization>Wild Animal Initiative</no-localization>, <no-localization>Rethink Priorities</no-localization>, for lending their expertise for this project.'
                   />
                 </span>
-                <span className="text-2xl block font-bold">
+                <span className='text-2xl block font-bold'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.featured"
-                    defaultMessage="Featured"
+                    id='page.year-in-review.2022.section.bonus-projects.featured'
+                    defaultMessage='Featured'
                   />
                 </span>
-                <span className="text-xl block">
+                <span className='text-xl block'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.0"
-                    defaultMessage="<no-localization>80,000 Hours</no-localization> Website"
+                    id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.0'
+                    defaultMessage='<no-localization>80,000 Hours</no-localization> Website'
                   />
                 </span>
-                <span className="text-xl block">
+                <span className='text-xl block'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.1"
-                    defaultMessage="<no-localization>Effective Altruism</no-localization> Newsletter"
+                    id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.1'
+                    defaultMessage='<no-localization>Effective Altruism</no-localization> Newsletter'
                   />
                 </span>
-                <span className="text-xl block">
+                <span className='text-xl block'>
                   <FormattedMessage
-                    id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.2"
-                    defaultMessage="<no-localization>Animal Charity Evaluators</no-localization> Newsletter"
+                    id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.featured.2'
+                    defaultMessage='<no-localization>Animal Charity Evaluators</no-localization> Newsletter'
                   />
                 </span>
-                <div className="flex">
+                <div className='flex'>
                   <DarkButton
-                    href="https://wildanimalsuffering.org"
-                    className="mt-5 mx-auto md:mx-0 !normal-case"
+                    href='https://wildanimalsuffering.org'
+                    className='mt-5 mx-auto md:mx-0 !normal-case'
                   >
                     <FormattedMessage
-                      id="page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.btn.cta"
-                      defaultMessage="<no-localization>WildAnimalSuffering.org</no-localization>"
+                      id='page.year-in-review.2022.section.bonus-projects.wild-animal-suffering.btn.cta'
+                      defaultMessage='<no-localization>WildAnimalSuffering.org</no-localization>'
                     />
                   </DarkButton>
                 </div>

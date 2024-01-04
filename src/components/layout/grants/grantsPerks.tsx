@@ -22,15 +22,15 @@ const PERKS: PerkProps[] = [
     image: squarespaceImage,
     title: (
       <FormattedMessage
-        id="page.grants.section.perks.squarespace.heading"
-        defaultMessage="<no-localization>Squarespace</no-localization> Website Subscription"
+        id='page.grants.section.perks.squarespace.heading'
+        defaultMessage='<no-localization>Squarespace</no-localization> Website Subscription'
       />
     ),
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.squarespace.paragraph"
-          defaultMessage="<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>"
+          id='page.grants.section.perks.squarespace.paragraph'
+          defaultMessage='<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>'
           values={{
             div: (chunks) => <div>{chunks}</div>,
           }}
@@ -42,15 +42,15 @@ const PERKS: PerkProps[] = [
     image: designerImage,
     title: (
       <FormattedMessage
-        id="page.grants.section.perks.design-creation.heading"
-        defaultMessage="Design Creation"
+        id='page.grants.section.perks.design-creation.heading'
+        defaultMessage='Design Creation'
       />
     ),
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.design-creation.paragraph"
-          defaultMessage="Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
+          id='page.grants.section.perks.design-creation.paragraph'
+          defaultMessage='Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website.'
         />
       </>
     ),
@@ -59,15 +59,15 @@ const PERKS: PerkProps[] = [
     image: contentImage,
     title: (
       <FormattedMessage
-        id="page.grants.section.perks.content-dev.heading"
-        defaultMessage="Content Development"
+        id='page.grants.section.perks.content-dev.heading'
+        defaultMessage='Content Development'
       />
     ),
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.content-dev.paragraph"
-          defaultMessage="We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work."
+          id='page.grants.section.perks.content-dev.paragraph'
+          defaultMessage='We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work.'
         />
       </>
     ),
@@ -76,14 +76,14 @@ const PERKS: PerkProps[] = [
     image: callImage,
     title: (
       <FormattedMessage
-        id="page.grants.section.perks.check-ins.heading"
-        defaultMessage="Monthly Advisory Check-ins"
+        id='page.grants.section.perks.check-ins.heading'
+        defaultMessage='Monthly Advisory Check-ins'
       />
     ),
     children: (
       <>
         <FormattedMessage
-          id="page.grants.section.perks.check-ins.paragraph"
+          id='page.grants.section.perks.check-ins.paragraph'
           defaultMessage="A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
         />
       </>
@@ -93,13 +93,13 @@ const PERKS: PerkProps[] = [
 
 const Perk: React.FC<PerkProps> = ({ image, title, children }) => {
   return (
-    <div className="grid grid-cols-1 py-10 md:grid-cols-2">
+    <div className='grid grid-cols-1 py-10 md:grid-cols-2'>
       <div>
-        <CustomImage src={image} alt="" sizes="100vw" />
+        <CustomImage src={image} alt='' sizes='100vw' />
       </div>
-      <div className="flex flex-col justify-center px-4 mt-6 ml-0 md:ml-8 md:mt-0 md:px-0">
-        <h4 className="text-3xl font-semibold">{title}</h4>
-        <div className="mt-6 text-xl leading-loose">{children}</div>
+      <div className='flex flex-col justify-center px-4 mt-6 ml-0 md:ml-8 md:mt-0 md:px-0'>
+        <h4 className='text-3xl font-semibold'>{title}</h4>
+        <div className='mt-6 text-xl leading-loose'>{children}</div>
       </div>
     </div>
   );
@@ -112,7 +112,7 @@ const GrantsPerks: React.FC = () => {
     setPerks(PERKS);
   });
   return (
-    <div className="max-w-screen-lg p-0 px-5 pt-12 mx-auto mt-10 md:p-12 lg:p-0">
+    <div className='max-w-screen-lg p-0 px-5 pt-12 mx-auto mt-10 md:p-12 lg:p-0'>
       <CustomImage
         src={pixelHeart.src}
         width={pixelHeart.width * 0.5}
@@ -122,14 +122,14 @@ const GrantsPerks: React.FC = () => {
           defaultMessage: 'Heart icon',
         })}
       />
-      <h3 className="p-4 mt-12 mb-10 text-4xl font-semibold md:p-0">
+      <h3 className='p-4 mt-12 mb-10 text-4xl font-semibold md:p-0'>
         <FormattedMessage
-          id="page.grants.section.perks.heading.image.alt-text"
-          defaultMessage="In addition to seed funding, succesful applicants can receive:"
+          id='page.grants.section.perks.heading.image.alt-text'
+          defaultMessage='In addition to seed funding, succesful applicants can receive:'
         />
       </h3>
 
-      <div className="text-center md:text-left">
+      <div className='text-center md:text-left'>
         {perks.map(({ image, title, children }, i) => (
           <Perk key={i} image={image} title={title}>
             {children}

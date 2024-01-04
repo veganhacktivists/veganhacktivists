@@ -25,20 +25,20 @@ const HoursVolunteered: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="relative w-full overflow-hidden text-2xl bg-white">
+      <div className='relative w-full overflow-hidden text-2xl bg-white'>
         <div>
-          <div className="bg-magenta flex flex-col lg:flex-row justify-center md:first-letter:flex-wrap p-12 px-2">
-            <div className="flex items-center flex-wrap  text-white text-8xl font-mono px-2 justify-center">
-              <span className="font-bold">9600+</span>{' '}
-              <span className="uppercase font-light">Hours</span>
+          <div className='bg-magenta flex flex-col lg:flex-row justify-center md:first-letter:flex-wrap p-12 px-2'>
+            <div className='flex items-center flex-wrap  text-white text-8xl font-mono px-2 justify-center'>
+              <span className='font-bold'>9600+</span>{' '}
+              <span className='uppercase font-light'>Hours</span>
             </div>
-            <div className="flex items-center flex-wrap max-w-lg mx-auto lg:mx-0 lg:max-w-[27rem] text-white text-3xl font-serif italic font-bold text-center lg:text-left px-2 justify-center">
+            <div className='flex items-center flex-wrap max-w-lg mx-auto lg:mx-0 lg:max-w-[27rem] text-white text-3xl font-serif italic font-bold text-center lg:text-left px-2 justify-center'>
               <FormattedMessage
-                id="page.our-work.section.hours-volunteered.cta-button.label"
-                defaultMessage="volunteered in 2022 for the animal protection movement"
+                id='page.our-work.section.hours-volunteered.cta-button.label'
+                defaultMessage='volunteered in 2022 for the animal protection movement'
               />
             </div>
           </div>
@@ -47,7 +47,7 @@ const HoursVolunteered: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
     </>
   );

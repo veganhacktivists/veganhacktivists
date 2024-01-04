@@ -70,7 +70,7 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
     <IconButton
       className={classNames(
         className,
-        'bg-gray text-white rounded-full p-2.5 m-1 w-min aspect-square'
+        'bg-gray text-white rounded-full p-2.5 m-1 w-min aspect-square',
       )}
       href={href}
       onClick={onClick}
@@ -87,8 +87,8 @@ const BaseShareButton: React.FC<BaseShareButtonProps> = ({
         return props?.onPointerLeave?.(e as React.PointerEvent<unknown>);
       }}
     >
-      <div className="flex items-center justify-center mx-auto w-fit aspect-square">
-        <FontAwesomeIcon size="2x" fixedWidth icon={faIcon} />
+      <div className='flex items-center justify-center mx-auto w-fit aspect-square'>
+        <FontAwesomeIcon size='2x' fixedWidth icon={faIcon} />
       </div>
     </IconButton>
   );
@@ -105,13 +105,13 @@ const EmailButton: React.FC<ShareButtonProps> = ({ shareInfo, onClick }) => {
   }`;
   return (
     <BaseShareButton
-      aria-label="Share the project via Email"
+      aria-label='Share the project via Email'
       onClick={() => {
         window.open(href, '_blank');
         onClick();
       }}
       faIcon={faEnvelope}
-      bgHoverColor="#BB001B"
+      bgHoverColor='#BB001B'
     />
   );
 };
@@ -124,7 +124,7 @@ const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on Facebook"
+      aria-label='Share the project on Facebook'
       href={{
         protocol: 'https',
         pathname: 'facebook.com/sharer/sharer.php',
@@ -132,7 +132,7 @@ const FacebookButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faFacebook}
-      bgHoverColor="#4267B2"
+      bgHoverColor='#4267B2'
     />
   );
 };
@@ -145,7 +145,7 @@ const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on Twitter"
+      aria-label='Share the project on Twitter'
       href={{
         protocol: 'https',
         pathname: 'twitter.com/share',
@@ -158,7 +158,7 @@ const TwitterButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faTwitter}
-      bgHoverColor="#00acee"
+      bgHoverColor='#00acee'
     />
   );
 };
@@ -176,7 +176,7 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on WhatsApp"
+      aria-label='Share the project on WhatsApp'
       href={{
         protocol: 'https',
         pathname: `${isMobile ? 'api' : 'web'}.whatsapp.com/send`,
@@ -184,7 +184,7 @@ const WhatsappButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faWhatsapp}
-      bgHoverColor="#25D366"
+      bgHoverColor='#25D366'
     />
   );
 };
@@ -197,7 +197,7 @@ const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on Telegram"
+      aria-label='Share the project on Telegram'
       href={{
         protocol: 'https',
         pathname: 'telegram.me/share/url',
@@ -208,7 +208,7 @@ const TelegramButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faTelegram}
-      bgHoverColor="#0088cc"
+      bgHoverColor='#0088cc'
     />
   );
 };
@@ -241,7 +241,7 @@ const CopyButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       className={classNames(isSuccess && 'bg-green')}
       bgHoverColor={isSuccess ? undefined : '#BB001B'}
-      aria-label="Copy the project url on clipboard"
+      aria-label='Copy the project url on clipboard'
       faIcon={isSuccess ? faCheck : faCopy}
     />
   );
@@ -255,7 +255,7 @@ const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on Reddit"
+      aria-label='Share the project on Reddit'
       href={{
         protocol: 'https',
         pathname: 'reddit.com/submit',
@@ -266,7 +266,7 @@ const RedditButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faReddit}
-      bgHoverColor="#FF4500"
+      bgHoverColor='#FF4500'
     />
   );
 };
@@ -279,7 +279,7 @@ const LinkedinButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
 
   return (
     <BaseShareButton
-      aria-label="Share the project on LinkedIn"
+      aria-label='Share the project on LinkedIn'
       href={{
         protocol: 'https',
         pathname: 'linkedin.com/shareArticle',
@@ -290,7 +290,7 @@ const LinkedinButton: React.FC<ShareButtonProps> = ({ onClick, shareInfo }) => {
       }}
       onClick={onClick}
       faIcon={faLinkedin}
-      bgHoverColor="#0A66C2"
+      bgHoverColor='#0A66C2'
     />
   );
 };

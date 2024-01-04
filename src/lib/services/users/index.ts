@@ -7,7 +7,7 @@ type UserId = z.infer<typeof getUserSchema>['id'];
 
 export const updateUser = async (
   id: UserId,
-  user: z.infer<typeof updateUserSchema>
+  user: z.infer<typeof updateUserSchema>,
 ) => {
   return await prisma.user.update({
     where: { id },

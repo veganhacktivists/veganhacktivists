@@ -56,7 +56,7 @@ export const SectionHeader = ({
     'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1';
   const italicClasses = classNames(
     'font-serif italic text-4xl mx-1',
-    newDesign && 'font-bold'
+    newDesign && 'font-bold',
   );
 
   return (
@@ -89,7 +89,7 @@ export const SectionHeader = ({
           </span>
         )}
       </h2>
-      {children && <div className="mt-5 mb-20 text-2xl">{children}</div>}
+      {children && <div className='mt-5 mb-20 text-2xl'>{children}</div>}
     </div>
   );
 };
@@ -100,7 +100,7 @@ export const BoldHeaderText: React.FC<SubSectionContent> = ({
 }) => {
   const classes = classNames(
     'font-mono font-bold text-5xl uppercase',
-    className
+    className,
   );
   return <span className={classes}>{children}</span>;
 };
@@ -112,10 +112,10 @@ export const HeaderContainer: React.FC<
     <div
       className={classNames(
         'content-center px-5 mx-auto my-12 md:w-1/2 text-2xl',
-        className
+        className,
       )}
     >
-      <h1 className="mb-10">{children}</h1>
+      <h1 className='mb-10'>{children}</h1>
     </div>
   );
 };
@@ -132,8 +132,8 @@ export const FirstSubSection: React.FC<SubSectionContent> = ({
 
   return (
     <HeaderContainer className={className}>
-      <div className="pb-[15px]">
-        <span className="font-serif italic text-3xl">{firstWords}</span>{' '}
+      <div className='pb-[15px]'>
+        <span className='font-serif italic text-3xl'>{firstWords}</span>{' '}
         <BoldHeaderText className={className}>{remainingWords}</BoldHeaderText>
       </div>
       <div>{children}</div>
@@ -148,7 +148,7 @@ export const PlainHeader: React.FC<SubSectionContent> = ({
   return (
     <HeaderContainer>
       <BoldHeaderText>{header}</BoldHeaderText>
-      <p className="text-2xl">{children}</p>
+      <p className='text-2xl'>{children}</p>
     </HeaderContainer>
   );
 };

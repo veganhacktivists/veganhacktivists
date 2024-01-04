@@ -51,28 +51,28 @@ const BlogsHeader: React.FC<HeaderProps> = ({
   };
 
   return (
-    <div className="flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden">
+    <div className='flex relative flex-col md:flex-row bg-black justify-around text-white md:px-20 pt-10 pb-0 overflow-hidden'>
       <Circle opacity={0.1} radius={33} />
-      <Circle opacity={0.05} xAlign="right" yAlign="bottom" radius={16} />
-      <div className="flex flex-col justify-center md:w-1/2 z-10 pb-10">
-        <div className="w-48 mx-auto my-10">
-          <CustomImage src={roundLogo} alt="" />
+      <Circle opacity={0.05} xAlign='right' yAlign='bottom' radius={16} />
+      <div className='flex flex-col justify-center md:w-1/2 z-10 pb-10'>
+        <div className='w-48 mx-auto my-10'>
+          <CustomImage src={roundLogo} alt='' />
         </div>
-        <div className="text-2xl px-16 font-mono">
+        <div className='text-2xl px-16 font-mono'>
           <FormattedMessage
-            id="page.blog.section.header.intro"
-            defaultMessage="Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"
+            id='page.blog.section.header.intro'
+            defaultMessage='Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!'
           />
         </div>
       </div>
-      <div className="bg-grey-dark mt-10">
-        <div className="px-10 pt-10">
-          <label className="border-2 border-grey-lighter p-2 text-xl w-full flex justify-around">
+      <div className='bg-grey-dark mt-10'>
+        <div className='px-10 pt-10'>
+          <label className='border-2 border-grey-lighter p-2 text-xl w-full flex justify-around'>
             <input
-              className="bg-invisible outline-none pr-2 w-full"
-              type="text"
-              name="query"
-              id="blogQuery"
+              className='bg-invisible outline-none pr-2 w-full'
+              type='text'
+              name='query'
+              id='blogQuery'
               value={query}
               onBlur={onLeaveInput}
               onChange={(e) => {
@@ -84,11 +84,11 @@ const BlogsHeader: React.FC<HeaderProps> = ({
             </div>
           </label>
         </div>
-        <div className="my-5 text-left text-xl">
-          <div className="font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10">
+        <div className='my-5 text-left text-xl'>
+          <div className='font-bold uppercase text-3xl font-mono mb-5 mt-10 px-10'>
             <FormattedMessage
-              id="page.blog.section.header.categories"
-              defaultMessage="Categories"
+              id='page.blog.section.header.categories'
+              defaultMessage='Categories'
             />
           </div>
           <div>
@@ -99,7 +99,7 @@ const BlogsHeader: React.FC<HeaderProps> = ({
                 active={tag.fields.slug === currentTag}
               />
             ))}
-            <Tag name="Other" slug="other" active={currentTag === null} />
+            <Tag name='Other' slug='other' active={currentTag === null} />
           </div>
         </div>
       </div>

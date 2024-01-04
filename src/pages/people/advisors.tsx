@@ -40,19 +40,19 @@ export const getStaticProps: GetStaticProps = async () => {
 const AdvisorCard: React.FC<{ advisor: ITeamMember }> = ({ advisor }) => {
   const { name, image, socialLinks, position } = advisor.fields;
   return (
-    <div className="w-64">
-      <div className="flex justify-end mb-2 bg-grey">
+    <div className='w-64'>
+      <div className='flex justify-end mb-2 bg-grey'>
         {image && <ContentfulImage image={image} alt={name} />}
         <div className={'absolute w-8 h-8'} />
       </div>
-      <div className="w-5/6 mx-auto my-0 text-left">
-        <div className="text-2xl font-bold">{name}</div>
-        <div className="font-serif italic">{position}</div>
+      <div className='w-5/6 mx-auto my-0 text-left'>
+        <div className='text-2xl font-bold'>{name}</div>
+        <div className='font-serif italic'>{position}</div>
         {socialLinks && (
-          <div className="mt-2">
+          <div className='mt-2'>
             <SocialLinks
               socialLinks={socialLinks.fields}
-              className="justify-start"
+              className='justify-start'
             />
           </div>
         )}
@@ -81,21 +81,21 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
         })}
       >
         <FormattedMessage
-          id="page.people.section.advisors.intro.paragraph"
-          defaultMessage="We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
+          id='page.people.section.advisors.intro.paragraph'
+          defaultMessage='We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects.'
         />
       </FirstSubSection>
-      <div className="mx-auto my-10 lg:w-2/3">
-        <div className="grid justify-center md:grid-cols-3 ">
+      <div className='mx-auto my-10 lg:w-2/3'>
+        <div className='grid justify-center md:grid-cols-3 '>
           {advisors.map((advisor) => (
-            <div className="mx-auto my-5" key={advisor.sys.id}>
+            <div className='mx-auto my-5' key={advisor.sys.id}>
               <AdvisorCard advisor={advisor} />
             </div>
           ))}
         </div>
       </div>
-      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="pt-16 pb-10 bg-grey-light">
+      <SquareField squares={TEAM_SQUARES} className='hidden md:block' />
+      <div className='pt-16 pb-10 bg-grey-light'>
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -112,8 +112,8 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.advisors.community.paragraph"
-            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+            id='page.people.section.advisors.community.paragraph'
+            defaultMessage='We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more.'
           />
         </FirstSubSection>
       </div>

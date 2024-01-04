@@ -14,7 +14,7 @@ import type PageWithLayout from '../../types/persistentLayout';
 const TermsAndConditions: PageWithLayout = () => {
   return (
     <>
-      <NextSeo title="Terms And Conditions" />
+      <NextSeo title='Terms And Conditions' />
       <SectionHeader header={['Terms', 'And', 'Conditions']} startWithBoldFont>
         By participating in Playground, you agree to abide by the following
         guidelines.
@@ -25,12 +25,12 @@ const TermsAndConditions: PageWithLayout = () => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
-      <div className="pb-10">
+      <div className='pb-10'>
         <div>
-          <SubSection header="In this document:">
-            <ul className="text-xl list-disc text-left lg:ml-7">
+          <SubSection header='In this document:'>
+            <ul className='text-xl list-disc text-left lg:ml-7'>
               <li>
                 <b>Volunteer</b> refers to any individual working or seeking to
                 work on a task or project, whether compensated or working on a
@@ -43,7 +43,7 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
               <li>
                 <b>Website</b> refers to{' '}
-                <span className="text-green">
+                <span className='text-green'>
                   <Link href={'https://www.veganhacktivists.org/playground'}>
                     veganhacktivists.org/playground
                   </Link>
@@ -51,8 +51,8 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
             </ul>
           </SubSection>
-          <SubSection header="When using our website, you agree that:">
-            <ol className="text-xl list-decimal text-left lg:ml-7">
+          <SubSection header='When using our website, you agree that:'>
+            <ol className='text-xl list-decimal text-left lg:ml-7'>
               <li>
                 Any information submitted on the website is true and accurate.
               </li>
@@ -70,8 +70,8 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
             </ol>
           </SubSection>
-          <SubSection header="Compensated Work:">
-            <ol className="text-xl list-decimal text-left lg:ml-7">
+          <SubSection header='Compensated Work:'>
+            <ol className='text-xl list-decimal text-left lg:ml-7'>
               <li>
                 Some organizations may provide paid work, in which case this
                 will be made explicit in the request itself, but this should not
@@ -85,8 +85,8 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
             </ol>
           </SubSection>
-          <SubSection header="Volunteer Expectations:">
-            <ol className="text-xl list-decimal text-left lg:ml-7">
+          <SubSection header='Volunteer Expectations:'>
+            <ol className='text-xl list-decimal text-left lg:ml-7'>
               <li>
                 Understand that the work is voluntary and there will be no
                 compensation.
@@ -122,8 +122,8 @@ const TermsAndConditions: PageWithLayout = () => {
               </li>
             </ol>
           </SubSection>
-          <SubSection header="Requestor Expectations:">
-            <ol className="text-xl list-decimal text-left lg:ml-7">
+          <SubSection header='Requestor Expectations:'>
+            <ol className='text-xl list-decimal text-left lg:ml-7'>
               <li>
                 Please be patient. We will do our best to match a volunteer with
                 your work request in a timely manner.
@@ -136,7 +136,7 @@ const TermsAndConditions: PageWithLayout = () => {
               <li>
                 Give due credit on the work produced by volunteers, according to
                 the{' '}
-                <span className="text-green">
+                <span className='text-green'>
                   <Link
                     href={
                       'https://wiki.creativecommons.org/wiki/best_practices_for_attribution'

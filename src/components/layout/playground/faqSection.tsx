@@ -56,7 +56,7 @@ const faqEntries = [
         <p>
           All vegans who can code, design, edit, translate, research, analyze
           data, or contribute other skills are welcome! Simply browse the list
-          of requests <CustomLink href="/playground">here</CustomLink> and apply
+          of requests <CustomLink href='/playground'>here</CustomLink> and apply
           to the ones most relevant to your skill set. Make sure you can commit
           a reasonable amount of time and have the ability or qualifications to
           do the work properly. If you&apos;re matched with a project, remember
@@ -100,7 +100,7 @@ const faqEntries = [
           and specialists are dedicated to various priority projects. Given that
           we review each request on Playground, we will reach out if we believe
           that your needs can be met by our core team. Please take a look at our{' '}
-          <CustomLink href="https://veganhacktivists.org/services">
+          <CustomLink href='https://veganhacktivists.org/services'>
             service offerings
           </CustomLink>{' '}
           to learn more about VH&apos;s areas of specialty.
@@ -144,7 +144,7 @@ const faqEntries = [
   },
 ].map((entry) => ({
   ...entry,
-  children: <div className="flex flex-col gap-5">{entry.children}</div>,
+  children: <div className='flex flex-col gap-5'>{entry.children}</div>,
 }));
 interface FaqSectionProps {
   design?: 'dark' | 'light';
@@ -154,15 +154,15 @@ const FaqSection: React.FC<FaqSectionProps> = ({ design }) => {
   return (
     <div>
       <SquareField
-        className="hidden md:block"
+        className='hidden md:block'
         squares={[
           {
             color: `${
               design === 'dark'
                 ? 'grey'
                 : design === 'light'
-                ? 'grey-light'
-                : 'white'
+                  ? 'grey-light'
+                  : 'white'
             }`,
             size: 16,
             right: 0,
@@ -180,21 +180,21 @@ const FaqSection: React.FC<FaqSectionProps> = ({ design }) => {
           design === 'dark'
             ? 'bg-[#3D3D3D]'
             : design === 'light'
-            ? 'bg-white'
-            : 'bg-grey-background',
-          'py-10'
+              ? 'bg-white'
+              : 'bg-grey-background',
+          'py-10',
         )}
       >
         <span
-          id="faq"
+          id='faq'
           className={classNames(
             design === 'dark' ? 'text-white' : 'text-black',
-            'text-3xl font-bold font-mono'
+            'text-3xl font-bold font-mono',
           )}
         >
           Frequently Asked Questions
         </span>
-        <div className="mb-4 mt-9">
+        <div className='mb-4 mt-9'>
           <Accordion entries={faqEntries} design={design} />
         </div>
       </div>

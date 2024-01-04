@@ -27,7 +27,7 @@ const WorkHero: React.FC = () => {
           image: heroTagline,
           alt: 'WE ARE CAPACITY BUILDERS',
         }}
-        alignment="left"
+        alignment='left'
         classNameMapping={{
           tagline: 'md:scale-75',
         }}
@@ -35,7 +35,7 @@ const WorkHero: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
     </>
   );

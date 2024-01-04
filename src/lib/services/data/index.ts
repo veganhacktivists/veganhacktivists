@@ -6,7 +6,7 @@ import type { getDataDashboardProjectByLabelSchema } from './schemas';
 import type { z } from 'zod';
 
 export const getDataDashboardProject = async (
-  label: z.infer<typeof getDataDashboardProjectByLabelSchema>
+  label: z.infer<typeof getDataDashboardProjectByLabelSchema>,
 ) => {
   const request = await prisma.dataDashboardProject.findFirst({
     where: {

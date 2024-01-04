@@ -29,7 +29,7 @@ export const useExtendedPagination = (props: ExtendedPaginationProps) => {
         }
       }
     },
-    { enabled: router.isReady }
+    { enabled: router.isReady },
   );
   /*
    * Is needed in order to not rerender on param change

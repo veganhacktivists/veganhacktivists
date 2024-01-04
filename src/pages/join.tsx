@@ -37,7 +37,7 @@ import type { JobRoleProps } from '../components/layout/join/jobRole';
 import type { CandidateRequirementProps } from '../components/layout/join/candidateRequirement';
 
 const getCandidateRequirementProps = (
-  intl: IntlShape
+  intl: IntlShape,
 ): CandidateRequirementProps[] => [
   {
     description: intl.formatMessage({
@@ -86,8 +86,8 @@ const getPriorityRoleProps = (intl: IntlShape): PriorityRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.priority-roles.description.0"
-        defaultMessage="Recruit, onboard, and engage our growing VH community on Discord. Candidate will host events, facilitate interactions, and support our growing community of volunteers."
+        id='page.join.section.priority-roles.description.0'
+        defaultMessage='Recruit, onboard, and engage our growing VH community on Discord. Candidate will host events, facilitate interactions, and support our growing community of volunteers.'
       />
     ),
   },
@@ -102,8 +102,8 @@ const getPriorityRoleProps = (intl: IntlShape): PriorityRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.priority-roles.description.1"
-        defaultMessage="Manage and oversee grantwriting and fundraising pipeline. Candidate must exemplify strong organizational and writing skills, with excellent grammar and spelling."
+        id='page.join.section.priority-roles.description.1'
+        defaultMessage='Manage and oversee grantwriting and fundraising pipeline. Candidate must exemplify strong organizational and writing skills, with excellent grammar and spelling.'
       />
     ),
   },
@@ -118,8 +118,8 @@ const getPriorityRoleProps = (intl: IntlShape): PriorityRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.priority-roles.description.2"
-        defaultMessage="Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising."
+        id='page.join.section.priority-roles.description.2'
+        defaultMessage='Support our advertising efforts, including developing campaigns, manage budgets, and analyzing metrics. Candidate should have a background in marketing, media or advertising.'
       />
     ),
   },
@@ -137,8 +137,8 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.job-roles.description.0"
-        defaultMessage="Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS."
+        id='page.join.section.job-roles.description.0'
+        defaultMessage='Write quality, clean code for projects at various stages of development. We use Laravel for most projects, and expect you to be familiar or interested in levelling up in PHP, JS, and CSS.'
       />
     ),
   },
@@ -153,7 +153,7 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.job-roles.description.1"
+        id='page.join.section.job-roles.description.1'
         defaultMessage="Define the user's experience and interface for our projects by producing modern, visually-appealing web designs—from wireframes and mockups to the app's final look and feel."
       />
     ),
@@ -169,7 +169,7 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <FormattedMessage
-        id="page.join.section.job-roles.description.2"
+        id='page.join.section.job-roles.description.2'
         defaultMessage="Craft our voice and brand on social media, whether it's through developing content strategy, analyzing engagement data, or interacting with followers."
       />
     ),
@@ -185,8 +185,8 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     href: 'https://forms.gle/RAhPpLyxpYcTNPpQ7',
     description: (
       <FormattedMessage
-        id="page.join.section.job-roles.description.3"
-        defaultMessage="Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more."
+        id='page.join.section.job-roles.description.3'
+        defaultMessage='Produce original and well-written content for a variety of medium—our blog, newsletter, social media, software copy, and more.'
       />
     ),
   },
@@ -201,8 +201,8 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     href: 'https://violetstudios.org',
     description: (
       <FormattedMessage
-        id="page.join.section.job-roles.description.4"
-        defaultMessage="Apply to join our design team at Violet Studios, our sister organization for graphic design and branding."
+        id='page.join.section.job-roles.description.4'
+        defaultMessage='Apply to join our design team at Violet Studios, our sister organization for graphic design and branding.'
       />
     ),
   },
@@ -238,11 +238,11 @@ const Join: React.FC = () => {
             defaultMessage: 'You are their voice',
           }),
         }}
-        alignment="left"
+        alignment='left'
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <FirstSubSection
         header={intl.formatMessage({
@@ -251,50 +251,50 @@ const Join: React.FC = () => {
         })}
       >
         <FormattedMessage
-          id="page.join.section.join-our-team.subline"
-          defaultMessage="We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway."
+          id='page.join.section.join-our-team.subline'
+          defaultMessage='We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway.'
         />
       </FirstSubSection>
       <div>
-        <div className="p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl">
-          <div className="flex flex-col gap-4">
+        <div className='p-8 bg-gray-background content-center mx-auto my-16 md:w-1/2 text-2xl'>
+          <div className='flex flex-col gap-4'>
             {getCandidateRequirementProps(intl).map((requirement, i) => (
               <CandidateRequirement key={i} {...requirement} />
             ))}
           </div>
         </div>
       </div>
-      <div className="text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10">
+      <div className='text-grey content-center mx-auto my-12 md:w-1/2 drop-shadow-2xl text-2xl px-10'>
         <CustomImage
           src={pixelFlower.src}
           width={pixelFlower.width / 3}
           height={pixelFlower.height / 3}
-          alt=""
+          alt=''
         />
         <p>
           <FormattedMessage
-            id="page.join.section.join-our-team.footer"
-            defaultMessage="Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration."
+            id='page.join.section.join-our-team.footer'
+            defaultMessage='Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration.'
           />
         </p>
       </div>
       <JoinPlayground />
       <Sprite image={sheep} pixelsLeft={1} pixelsRight={0} />
-      <div className="lg:h-[500px] py-16 lg:py-20 px-5 relative pb-[300px]">
-        <h2 className="text-4xl font-modo font-bold mb-10">
+      <div className='lg:h-[500px] py-16 lg:py-20 px-5 relative pb-[300px]'>
+        <h2 className='text-4xl font-modo font-bold mb-10'>
           <FormattedMessage
-            id="page.join.section.priority-positions.headline"
-            defaultMessage="High Priority Positions"
+            id='page.join.section.priority-positions.headline'
+            defaultMessage='High Priority Positions'
           />
         </h2>
-        <h4 className="text-2xl">
+        <h4 className='text-2xl'>
           <FormattedMessage
-            id="page.join.section.priority-positions.subline"
+            id='page.join.section.priority-positions.subline'
             defaultMessage="We're actively seeking skilled volunteers to fulfill the following positions:"
           />
         </h4>
       </div>
-      <div className="bg-pink">
+      <div className='bg-pink'>
         <SquareField
           squares={[
             {
@@ -310,13 +310,13 @@ const Join: React.FC = () => {
               right: 0,
             },
           ]}
-          className="hidden md:block"
+          className='hidden md:block'
         />
-        <div className="flex flex-col lg:flex-row justify-center content-center flex-wrap gap-2 lg:gap-6 xl:gap-10 pb-16">
+        <div className='flex flex-col lg:flex-row justify-center content-center flex-wrap gap-2 lg:gap-6 xl:gap-10 pb-16'>
           {getPriorityRoleProps(intl).map((role) => (
             <div
               key={role.title}
-              className="w-[400px] lg:w-[320px] xl:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] "
+              className='w-[400px] lg:w-[320px] xl:w-[375px] first-of-type:mt-[-260px] lg:mt-[-260px] '
             >
               <PriorityRole key={role.title} {...role} />
             </div>
@@ -343,47 +343,47 @@ const Join: React.FC = () => {
               left: 0,
             },
           ]}
-          className="hidden md:block"
+          className='hidden md:block'
         />
       </div>
-      <div className="mt-16 md:max-w-5xl mx-auto mb-16">
-        <h2 className="mb-16 text-4xl font-bold">
+      <div className='mt-16 md:max-w-5xl mx-auto mb-16'>
+        <h2 className='mb-16 text-4xl font-bold'>
           <FormattedMessage
-            id="page.join.section.available-positions.headline"
-            defaultMessage="Available Positions"
+            id='page.join.section.available-positions.headline'
+            defaultMessage='Available Positions'
           />
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20">
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20'>
           {getJobRoleProps(intl).map((role) => (
             <JobRole key={role.title} {...role} />
           ))}
-          <div className="md:col-span-2 bg-gray-background py-8 md:px-40 text-grey-dark">
-            <h2 className="text-4xl font-modo font-bold mb-10">
+          <div className='md:col-span-2 bg-gray-background py-8 md:px-40 text-grey-dark'>
+            <h2 className='text-4xl font-modo font-bold mb-10'>
               <FormattedMessage
-                id="page.join.section.other-roles.headline"
-                defaultMessage="Other Talents & Specialists"
+                id='page.join.section.other-roles.headline'
+                defaultMessage='Other Talents & Specialists'
               />
             </h2>
             <CustomImage
               src={PixelBulb}
               width={PixelBulb.width / 3}
               height={PixelBulb.height / 3}
-              alt=""
+              alt=''
             />
-            <p className="mt-4 mb-4 text-2xl px-10 md:px-0">
+            <p className='mt-4 mb-4 text-2xl px-10 md:px-0'>
               <FormattedMessage
-                id="page.join.section.other-roles.content"
+                id='page.join.section.other-roles.content'
                 defaultMessage="Don't see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!"
               />
             </p>
-            <div className="w-2/3 mx-auto">
+            <div className='w-2/3 mx-auto'>
               <LightButton
-                href="https://forms.gle/zN5rYjZ8nLXXgktZA"
-                className="font-semibold font-mono px-16 py-2"
+                href='https://forms.gle/zN5rYjZ8nLXXgktZA'
+                className='font-semibold font-mono px-16 py-2'
               >
                 <FormattedMessage
-                  id="page.join.section.other-roles.cta"
-                  defaultMessage="Apply Now"
+                  id='page.join.section.other-roles.cta'
+                  defaultMessage='Apply Now'
                 />
               </LightButton>
             </div>
@@ -396,7 +396,7 @@ const Join: React.FC = () => {
           { color: 'grey-light', size: 16, bottom: 0, left: 0 },
           { color: 'grey-light', size: 16, bottom: 0, right: 0 },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <Sprite image={chicks} pixelsLeft={1} pixelsRight={1} />
       <MeetOurTeam />

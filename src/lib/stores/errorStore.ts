@@ -43,7 +43,7 @@ Thanks!`
         : undefined;
       return defaultErrorMessage;
     },
-  })
+  }),
 );
 
 export default useErrorStore;

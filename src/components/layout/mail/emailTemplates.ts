@@ -186,7 +186,7 @@ export const playgroundApplicantIntroductionEmail = (
     request: Pick<PlaygroundRequest, 'name' | 'title' | 'calendlyUrl'>;
   },
   optionalMessageParts: string,
-  textonly = false
+  textonly = false,
 ) => {
   if (textonly) {
     return `Hi ${application.request.name},
@@ -250,13 +250,13 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text>We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
       application.request.name
     }&apos;s Calendy link <a href="${
-    // TODO: sanitize this and all the other data?
-    application.request.calendlyUrl
-  }">here</a>${
-    application.calendlyUrl
-      ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
-      : ''
-  }.</mj-text>
+      // TODO: sanitize this and all the other data?
+      application.request.calendlyUrl
+    }">here</a>${
+      application.calendlyUrl
+        ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+        : ''
+    }.</mj-text>
     <mj-text><b>Important notice:</b></mj-text>
     <mj-text><i>While we try our best to screen all applicants who applied to your request, we cannot guarantee the quality of work done by Playground volunteers. Is someone not responding at all? Or any other issues? Get in touch!</i></mj-text>
     <mj-text>Thank you so much for helping the animals, and for using Playground!</mj-text>
@@ -316,7 +316,7 @@ Thank you so much for considering VH: Playground for your request!`;
 
 export const playgroundRequestApprovalEmail = (
   request: Pick<PlaygroundRequest, 'name' | 'id'>,
-  textonly = false
+  textonly = false,
 ) => {
   if (textonly) {
     return `
@@ -342,10 +342,10 @@ Thank you so much! `;
 
 export const playgroundRequestRejectedDueToInactivity = (
   request: Pick<PlaygroundRequest, 'id' | 'name' | 'title'>,
-  textonly = false
+  textonly = false,
 ) => {
   const createNewRequestUrl = `${url}/auth/signin?callbackUrl=${encodeURIComponent(
-    url
+    url,
   )}%2Fplayground%2Fsubmit%3Fid%3D${request.id}`;
 
   if (textonly) {
@@ -380,7 +380,7 @@ Resubmit your request: ${createNewRequestUrl}
 
 export const playgroundRequestCompletedSurvey = (
   request: Pick<PlaygroundRequest, 'name' | 'title'>,
-  textonly = false
+  textonly = false,
 ) => {
   const surveyUrl =
     'https://docs.google.com/forms/d/e/1FAIpQLSc_FrluU7o0q4sUT4v8uTWkC6J2mi7b_h3x1pq6o5UqlBjI9Q/viewform';
@@ -417,10 +417,10 @@ export const playgroundInternalNotificationForRequestsWithoutApplications = (
     PlaygroundRequest,
     'id' | 'title' | 'description' | 'category' | 'acceptedAt' | 'createdAt'
   >,
-  textonly = false
+  textonly = false,
 ) => {
   const formattedDiff = readableTimeDiff(
-    request.acceptedAt ?? request.createdAt
+    request.acceptedAt ?? request.createdAt,
   )[0]!;
 
   const viewRequestUrl = `${url}/playground/request/${request.id}`;
@@ -449,7 +449,7 @@ View request: ${viewRequestUrl}`;
 export const playgroundRequestFeedbackAboutVolunteerAfter1Week = (
   request: Pick<PlaygroundRequest, 'name' | 'title' | 'providedEmail'>,
   applicantName: string,
-  textonly = false
+  textonly = false,
 ) => {
   const positiveFeedback =
     'https://docs.google.com/forms/d/e/1FAIpQLSdyEH7tYlo1r3dC6ea8njsFY-gJnW-CBxn9wHr3-K88kSFY5Q/viewform';

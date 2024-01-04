@@ -16,7 +16,7 @@ export const protectedProcedure = baseProcedure.use(
         user: ctx.user,
       },
     });
-  })
+  }),
 );
 
 export const adminProcedure = protectedProcedure.use(
@@ -26,5 +26,5 @@ export const adminProcedure = protectedProcedure.use(
     }
 
     return next();
-  })
+  }),
 );

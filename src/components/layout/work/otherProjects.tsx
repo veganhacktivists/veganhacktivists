@@ -20,13 +20,13 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
 
-      <div className="relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]">
-        <div className="relative flex flex-col px-2 py-20 gap-y-8">
-          <SectionHeader className="mb-2" header={['Other', 'projects']} />
-          <div className="mx-auto">
+      <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
+        <div className='relative flex flex-col px-2 py-20 gap-y-8'>
+          <SectionHeader className='mb-2' header={['Other', 'projects']} />
+          <div className='mx-auto'>
             <Carousel
               pageWidth={5}
               items={projects.map(
@@ -37,7 +37,7 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
                   <Link key={id} href={retiredInfo?.fields?.archiveUrl ?? url}>
                     <ContentfulImage title={name} image={image} alt={name} />
                   </Link>
-                )
+                ),
               )}
             />
           </div>

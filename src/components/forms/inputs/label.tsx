@@ -24,8 +24,8 @@ const Label: React.FC<LabelProps> = ({
       {...props}
     >
       {children}
-      {showRequiredMark && <span className="text-red">*</span>}
-      {error && <span className="font-normal text-red">⚠ {error}</span>}
+      {showRequiredMark && <span className='text-red'>*</span>}
+      {error && <span className='font-normal text-red'>⚠ {error}</span>}
     </label>
   );
 };

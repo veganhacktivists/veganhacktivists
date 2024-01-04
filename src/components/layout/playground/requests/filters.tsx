@@ -37,7 +37,7 @@ const FilterBy: React.FC<{
     () =>
       (filters.categories?.length || 0) +
       (filters.isPaidRequest !== undefined ? 1 : 0),
-    [filters.categories?.length, filters.isPaidRequest]
+    [filters.categories?.length, filters.isPaidRequest],
   );
   return (
     <div
@@ -46,7 +46,7 @@ const FilterBy: React.FC<{
         'px-4 py-2 border border-grey w-fit text-left select-none',
         {
           'cursor-pointer': !isOpen,
-        }
+        },
       )}
     >
       {!isOpen &&
@@ -56,29 +56,31 @@ const FilterBy: React.FC<{
       {isOpen && (
         <div>
           <div>
-            <div className="mb-2 font-bold">Category</div>
-            <div className="flex flex-row flex-wrap gap-2">
+            <div className='mb-2 font-bold'>Category</div>
+            <div className='flex flex-row flex-wrap gap-2'>
               {Object.keys(PlaygroundRequestCategory).map((category) => {
                 const isSelected = localFilters.categories?.includes(
-                  category as PlaygroundRequestCategory
+                  category as PlaygroundRequestCategory,
                 );
                 return (
                   <div
                     className={classNames(
                       `px-2 py-1 border cursor-pointer select-none ${
                         isHexDark(
-                          CATEGORY_COLORS[category as PlaygroundRequestCategory]
+                          CATEGORY_COLORS[
+                            category as PlaygroundRequestCategory
+                          ],
                         ) && isSelected
                           ? 'text-white'
                           : 'text-black'
-                      }`
+                      }`,
                     )}
                     onClick={() => {
                       if (isSelected) {
                         setLocalFilters((filters) => ({
                           ...filters,
                           categories: filters.categories?.filter(
-                            (x) => x !== category
+                            (x) => x !== category,
                           ),
                         }));
                       } else {
@@ -107,14 +109,14 @@ const FilterBy: React.FC<{
             </div>
           </div>
           <div>
-            <div className="my-2 font-bold">Job Type</div>
-            <div className="flex flex-row flex-wrap gap-2 ">
+            <div className='my-2 font-bold'>Job Type</div>
+            <div className='flex flex-row flex-wrap gap-2 '>
               <div
                 className={classNames(
                   'px-2 py-1 border cursor-pointer bg-yellow border-yellow',
                   localFilters.isPaidRequest === false
                     ? 'bg-opacity-80'
-                    : 'bg-opacity-10'
+                    : 'bg-opacity-10',
                 )}
                 onClick={() => {
                   setLocalFilters((filters) => ({
@@ -135,7 +137,7 @@ const FilterBy: React.FC<{
                   }`,
                   localFilters.isPaidRequest === true
                     ? 'bg-opacity-80'
-                    : 'bg-opacity-10'
+                    : 'bg-opacity-10',
                 )}
                 onClick={() => {
                   setLocalFilters((filters) => ({
@@ -148,9 +150,9 @@ const FilterBy: React.FC<{
                 Paid
               </div>
             </div>
-            <div className="flex flex-col justify-end gap-2 mt-5 sm:flex-row place-items-center">
+            <div className='flex flex-col justify-end gap-2 mt-5 sm:flex-row place-items-center'>
               <div
-                className="cursor-pointer"
+                className='cursor-pointer'
                 onClick={() => {
                   setLocalFilters({});
                 }}
@@ -162,7 +164,7 @@ const FilterBy: React.FC<{
                   onFiltersChange(localFilters);
                   setIsOpen(false);
                 }}
-                className="text-lg"
+                className='text-lg'
               >
                 Apply
               </GreyButton>
@@ -235,7 +237,7 @@ const SortBy: React.FC<{
   };
   return (
     <SelectInput
-      className="max-w-fit"
+      className='max-w-fit'
       current={sortOption}
       options={sortOptions}
       onChange={(option) => {
@@ -259,12 +261,12 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
   return (
     <div
       className={classNames(
-        'flex flex-col sm:flex-row p-6 justify-start sm:justify-between gap-3'
+        'flex flex-col sm:flex-row p-6 justify-start sm:justify-between gap-3',
       )}
     >
       <div
         className={classNames(
-          'flex flex-col sm:flex-row w-auto sm:max-w-[70%]'
+          'flex flex-col sm:flex-row w-auto sm:max-w-[70%]',
         )}
       >
         <span
@@ -281,12 +283,12 @@ const RequestFilters: React.FC<RequestFiltersProps> = ({
       </div>
       <div
         className={classNames(
-          'flex min-w-[300px] justify-end w-fit flex-col sm:flex-row h-fit'
+          'flex min-w-[300px] justify-end w-fit flex-col sm:flex-row h-fit',
         )}
       >
         <span
           className={classNames(
-            'flex uppercase mr-2 whitespace-nowrap my-auto'
+            'flex uppercase mr-2 whitespace-nowrap my-auto',
           )}
         >
           Sort by:

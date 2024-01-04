@@ -62,12 +62,12 @@ const Newsletter: React.FC<NewsletterProps> = ({
           //ignore
         });
     },
-    [intl, onChange]
+    [intl, onChange],
   );
 
   return (
-    <div className="w-full p-8 mx-auto bg-grey-background text-grey">
-      <div className="flex justify-center">
+    <div className='w-full p-8 mx-auto bg-grey-background text-grey'>
+      <div className='flex justify-center'>
         <CustomImage
           src={pixelEnvelope.src}
           height={pixelEnvelope.height}
@@ -79,7 +79,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
           })}
         />
       </div>
-      <h1 className="mb-4 text-center">
+      <h1 className='mb-4 text-center'>
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.blog.section.newsletter.heading',
@@ -87,10 +87,10 @@ const Newsletter: React.FC<NewsletterProps> = ({
           })}
         />
       </h1>
-      <div className="mx-auto mb-8 text-2xl text-center">
+      <div className='mx-auto mb-8 text-2xl text-center'>
         <FormattedMessage
-          id="page.blog.section.newsletter.intro"
-          defaultMessage="Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive..."
+          id='page.blog.section.newsletter.intro'
+          defaultMessage='Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive...'
           values={{
             br: <br />,
           }}
@@ -99,7 +99,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
       <div
         className={classNames('mx-auto text-xl font-serif italic mb-8 w-fit')}
       >
-        <ul className="list-none">
+        <ul className='list-none'>
           {[
             intl.formatMessage({
               id: 'page.blog.section.newsletter.features.0',
@@ -120,7 +120,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
             }),
           ].map((bulletText, i) => (
             <li
-              className="flex flex-row items-baseline p-1 text-left before:bg-green before:shrink-0 before:basis-2 before:inline-block before:w-2 before:h-2 gap-x-2 w-fit"
+              className='flex flex-row items-baseline p-1 text-left before:bg-green before:shrink-0 before:basis-2 before:inline-block before:w-2 before:h-2 gap-x-2 w-fit'
               key={i}
             >
               {bulletText}
@@ -129,9 +129,9 @@ const Newsletter: React.FC<NewsletterProps> = ({
         </ul>
       </div>
 
-      <form className="text-2xl" onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col items-center justify-center space-x-2 gap-y-8">
-          <div className="w-2/3 xl:w-1/2">
+      <form className='text-2xl' onSubmit={handleSubmit(onSubmit)}>
+        <div className='flex flex-col items-center justify-center space-x-2 gap-y-8'>
+          <div className='w-2/3 xl:w-1/2'>
             <TextInput
               {...register('email', {
                 required: intl.formatMessage({
@@ -156,19 +156,19 @@ const Newsletter: React.FC<NewsletterProps> = ({
               Email
             </TextInput>
           </div>
-          <div className="flex flex-col justify-center align-baseline md:flex-row gap-x-10 gap-y-2">
-            <DarkButton className="w-full mx-auto md:w-auto" type="submit">
+          <div className='flex flex-col justify-center align-baseline md:flex-row gap-x-10 gap-y-2'>
+            <DarkButton className='w-full mx-auto md:w-auto' type='submit'>
               {isSubmitting ? (
                 <Spinner />
               ) : (
                 <FormattedMessage
-                  id="page.blog.section.newsletter.form.btn.sign-up"
-                  defaultMessage="Sign up!"
+                  id='page.blog.section.newsletter.form.btn.sign-up'
+                  defaultMessage='Sign up!'
                 />
               )}
             </DarkButton>
             {showCancelButton && (
-              <div className="m-auto">
+              <div className='m-auto'>
                 <p
                   onClick={() => {
                     if (!isSubmitting) {
@@ -181,8 +181,8 @@ const Newsletter: React.FC<NewsletterProps> = ({
                   })}
                 >
                   <FormattedMessage
-                    id="page.blog.section.newsletter.form.btn.cancel"
-                    defaultMessage="No thanks"
+                    id='page.blog.section.newsletter.form.btn.cancel'
+                    defaultMessage='No thanks'
                   />
                 </p>
               </div>

@@ -13,11 +13,11 @@ interface FillBackgroundProps extends React.PropsWithChildren {
 
 const fillStyle: (from: string, to: string) => React.CSSProperties = (
   from,
-  to
+  to,
 ) => {
   return {
     backgroundImage: `linear-gradient(to right, ${getThemeColor(
-      to
+      to,
     )},  50%, ${getThemeColor(from)} 50%)`,
     backgroundSize: '250% 100%',
     backgroundPosition: 'right',
@@ -40,7 +40,7 @@ export const FillBackground: React.FC<FillBackgroundProps> = ({
         'transition-background-position duration-[400ms] ease-linear',
         {
           'hover:!bg-left group-hover:!bg-left': !disabled,
-        }
+        },
       ),
       style: { ...style, ...(disabled ? {} : fillStyle(base, fill)) },
     });

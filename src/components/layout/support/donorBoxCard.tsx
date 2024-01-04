@@ -30,30 +30,30 @@ const DonorBoxCard: React.FC<DonorCardProps> = ({ image, color, large }) => {
       style={{
         width: `${large ? '400px' : '300px'}`,
       }}
-      className="flex flex-col bg-white"
+      className='flex flex-col bg-white'
     >
       {image && (
         <div style={{ backgroundColor }}>
           <div className={'absolute w-8 h-8 transparent'} />
-          <div className="p-12">
+          <div className='p-12'>
             <CustomImage
               src={image.src}
               width={image.width / 3}
               height={image.height / 3}
-              alt="Patreon"
+              alt='Patreon'
             />
           </div>
         </div>
       )}
-      <div className="flex flex-grow">
-        <Script src="https://donorbox.org/widget.js" {...scriptProps} />
+      <div className='flex flex-grow'>
+        <Script src='https://donorbox.org/widget.js' {...scriptProps} />
         <DonorBoxIframe
-          src="https://donorbox.org/embed/veganhacktivists"
-          name="donorbox"
+          src='https://donorbox.org/embed/veganhacktivists'
+          name='donorbox'
           scrolling={'no'}
-          allowpaymentrequest="allowpaymentrequest"
+          allowpaymentrequest='allowpaymentrequest'
           seamless={true}
-          width="100%"
+          width='100%'
         />
       </div>
     </div>

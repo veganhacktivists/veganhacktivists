@@ -41,7 +41,7 @@ export interface ButtonProps
 }
 
 const baseButtonClasses = classNames(
-  'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring'
+  'p-3 px-4 py-2 text-2xl border-l-8 transition-shadow font-mono cursor-pointer disabled:bg-grey-light disabled:cursor-not-allowed disabled:hover:shadow-none truncate focus:ring',
 );
 
 const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
@@ -55,7 +55,7 @@ const isExternalLink: (href: ButtonProps['href']) => boolean = (href) => {
   return (
     protocol?.startsWith('mailto') ||
     [protocol, pathname, hostname].some(
-      (x) => x?.startsWith('http') || x?.startsWith('https')
+      (x) => x?.startsWith('http') || x?.startsWith('https'),
     )
   );
 };
@@ -70,7 +70,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
       newTab = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     const classes = classNames(className, 'block', { capitalize });
 
@@ -78,7 +78,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
 
     const openInNewTab = useMemo(
       () => newTab || linkProps?.target || isExternal,
-      [isExternal, linkProps?.target, newTab]
+      [isExternal, linkProps?.target, newTab],
     );
 
     return (
@@ -92,7 +92,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
             ref={ref as Ref<HTMLAnchorElement>}
             className={classNames(
               classes,
-              `${props.disabled ? 'bg-gray-light text-black' : ''}`
+              `${props.disabled ? 'bg-gray-light text-black' : ''}`,
             )}
             target={openInNewTab ? '_blank' : undefined}
             rel={openInNewTab ? 'noreferrer' : undefined}
@@ -101,7 +101,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
           </Link>
         ) : (
           <button
-            type="button"
+            type='button'
             {...props}
             className={classes}
             ref={ref as Ref<HTMLButtonElement>}
@@ -111,7 +111,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
         )}
       </>
     );
-  }
+  },
 );
 
 const LightButton: React.FC<ButtonProps> = ({
@@ -121,14 +121,14 @@ const LightButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="green" disabled={props.disabled}>
+    <FillBackground base='white' fill='green' disabled={props.disabled}>
       <BaseButton
         {...props}
         className={classNames(
           baseButtonClasses,
           'text-grey-dark border-green bg-w-x2 bg-white font-mono font-semibold',
           primary ? 'border-pink' : '',
-          className
+          className,
         )}
       >
         {children}
@@ -152,14 +152,14 @@ const DarkButton = React.forwardRef<HTMLElement, ButtonProps>(
             baseButtonClasses,
             'transition-all overflow-hidden text-white',
             active ? 'border-pink' : 'border-green',
-            className
+            className,
           )}
         >
           {children}
         </BaseButton>
       </FillBackground>
     );
-  }
+  },
 );
 
 const DenyButton = React.forwardRef<HTMLElement, ButtonProps>(
@@ -177,14 +177,14 @@ const DenyButton = React.forwardRef<HTMLElement, ButtonProps>(
             baseButtonClasses,
             'transition-all overflow-hidden text-white',
             active ? 'border-pink' : 'border-[#FF1B18]',
-            className
+            className,
           )}
         >
           {children}
         </BaseButton>
       </FillBackground>
     );
-  }
+  },
 );
 
 const GreyButton: React.FC<ButtonProps> = ({
@@ -198,7 +198,7 @@ const GreyButton: React.FC<ButtonProps> = ({
       className={classNames(
         baseButtonClasses,
         'bg-grey text-white border-none overflow-hidden',
-        className
+        className,
       )}
     >
       {children}
@@ -223,7 +223,7 @@ const GreenButton: React.FC<ButtonProps> = ({
         className={classNames(
           baseButtonClasses,
           'text-white border-green-dark',
-          className
+          className,
         )}
       >
         {children}
@@ -244,7 +244,7 @@ const BlueButton: React.FC<ButtonProps> = ({
         className={classNames(
           baseButtonClasses,
           'text-white border-blue-dark',
-          className
+          className,
         )}
       >
         {children}
@@ -259,13 +259,13 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground disabled={props.disabled} base="magenta" fill="pink-dark">
+    <FillBackground disabled={props.disabled} base='magenta' fill='pink-dark'>
       <BaseButton
         {...props}
         className={classNames(
           baseButtonClasses,
           className,
-          'py-2 border-l-8 border-pink-dark'
+          'py-2 border-l-8 border-pink-dark',
         )}
       >
         {children}
@@ -281,15 +281,15 @@ const IconButton: React.FC<ButtonProps> = (props) => {
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label="Support us on Patreon!"
+      aria-label='Support us on Patreon!'
       {...props}
       className={classNames(
         'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-2 py-2',
-        className
+        className,
       )}
     >
-      <div className="flex items-center justify-center w-8 h-8">
-        <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
+      <div className='flex items-center justify-center w-8 h-8'>
+        <FontAwesomeIcon size='2x' fixedWidth icon={faPatreon} />
       </div>
     </IconButton>
   );
@@ -298,15 +298,15 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label="Subscribe to our Youtube channel!"
+      aria-label='Subscribe to our Youtube channel!'
       {...props}
       className={classNames(
         'bg-white hover:bg-red text-grey hover:text-white rounded-full px-2 py-2',
-        className
+        className,
       )}
     >
-      <div className="flex items-center justify-center w-8 h-8">
-        <FontAwesomeIcon size="2x" fixedWidth icon={faYoutube} />
+      <div className='flex items-center justify-center w-8 h-8'>
+        <FontAwesomeIcon size='2x' fixedWidth icon={faYoutube} />
       </div>
     </IconButton>
   );
@@ -315,15 +315,15 @@ const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label="Follow us on Instagram!"
+      aria-label='Follow us on Instagram!'
       {...props}
       className={classNames(
         'bg-white hover:bg-blue text-grey hover:text-white rounded-full px-2 py-2',
-        className
+        className,
       )}
     >
-      <div className="flex items-center justify-center w-8 h-8">
-        <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
+      <div className='flex items-center justify-center w-8 h-8'>
+        <FontAwesomeIcon size='2x' fixedWidth icon={faInstagram} />
       </div>
     </IconButton>
   );
@@ -361,8 +361,8 @@ const ShareButton: React.FC<
       }}
       linkProps={{ scroll: false }}
     >
-      <div className="flex items-center justify-center gap-2">
-        <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
+      <div className='flex items-center justify-center gap-2'>
+        <FontAwesomeIcon size='1x' fixedWidth icon={faShare} />
         <div>Share</div>
       </div>
     </DarkButton>
@@ -381,11 +381,11 @@ const WhiteButton: React.FC<ButtonProps> = ({
       'bg-gray text-white border-grey': active,
       'text-black': !active,
     },
-    className
+    className,
   );
 
   return (
-    <FillBackground base="white" fill="green" disabled={props.disabled}>
+    <FillBackground base='white' fill='green' disabled={props.disabled}>
       <BaseButton {...props}>
         <div className={classes}>{children}</div>
       </BaseButton>
@@ -430,7 +430,7 @@ const OutlineButton: React.FC<ButtonProps> = ({
         {
           'text-grey-dark': !active,
           'text-white bg-grey-dark': active,
-        }
+        },
       )}
     />
   );
@@ -443,14 +443,14 @@ const LogoutButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base="white" fill="#FF1A18" disabled={props.disabled}>
+    <FillBackground base='white' fill='#FF1A18' disabled={props.disabled}>
       <BaseButton
         {...props}
         className={classNames(
           baseButtonClasses,
           'text-grey-dark border-[#FF1A18] bg-w-x2 bg-white font-mono font-semibold',
           primary ? 'border-pink' : '',
-          className
+          className,
         )}
       >
         {children}

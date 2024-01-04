@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps = async ({
 
 const getEntryOrPreview: (
   slug: string,
-  preview: boolean
+  preview: boolean,
 ) => Promise<IBlogEntry> = async (slug, preview) => {
   if (preview) {
     return await getBlogPreviewBySlug(slug);
@@ -81,13 +81,13 @@ const getEntryOrPreview: (
 
 const Header: React.FC = () => {
   return (
-    <div className="absolute w-full overflow-hidden -z-10">
-      <div className="relative z-10">
-        <Circle opacity={0.1} xAlign="left" yAlign="top" radius={16} />
-        <Circle opacity={0.05} xAlign="right" yAlign="bottom" radius={11} />
+    <div className='absolute w-full overflow-hidden -z-10'>
+      <div className='relative z-10'>
+        <Circle opacity={0.1} xAlign='left' yAlign='top' radius={16} />
+        <Circle opacity={0.05} xAlign='right' yAlign='bottom' radius={11} />
       </div>
-      <div className="relative bg-black h-36 lg:h-80" />
-      <div className="z-20">
+      <div className='relative bg-black h-36 lg:h-80' />
+      <div className='z-20'>
         <SquareField
           squares={[
             // TODO tweak
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             { color: 'red', size: 32, right: 0, top: -16 },
             { color: 'white', size: 16, right: 32, bottom: 0 },
           ]}
-          className="hidden md:block"
+          className='hidden md:block'
         />
       </div>
     </div>
@@ -138,35 +138,35 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
             },
           ],
         }}
-        titleTemplate="%s | Vegan Hacktivists Blog"
+        titleTemplate='%s | Vegan Hacktivists Blog'
       />
       <div>
         <Header />
-        <div className="mx-auto">
-          <div className="px-5 pt-20 mx-auto lg:w-3/5">
+        <div className='mx-auto'>
+          <div className='px-5 pt-20 mx-auto lg:w-3/5'>
             {featuredImage && (
-              <div className="mx-auto border-2 border-white">
+              <div className='mx-auto border-2 border-white'>
                 <ContentfulImage
                   image={featuredImage}
-                  alt=""
+                  alt=''
                   priority
-                  className="w-full"
+                  className='w-full'
                 />
               </div>
             )}
           </div>
-          <div className="mt-20">
-            <h1 className="w-3/4 mx-auto text-5xl font-bold text-left break-words">
+          <div className='mt-20'>
+            <h1 className='w-3/4 mx-auto text-5xl font-bold text-left break-words'>
               {title}
             </h1>
-            <div className="md:divide-y divide-grey-light">
+            <div className='md:divide-y divide-grey-light'>
               <BlogContentContainer>
-                <div className="space-y-4 overflow-x-auto text-xl leading-relaxed text-left md:flex-grow">
+                <div className='space-y-4 overflow-x-auto text-xl leading-relaxed text-left md:flex-grow'>
                   {author && (
                     <div>
                       Written by{' '}
-                      <span className="font-bold">{author.fields.name}</span>{' '}
-                      <span className="font-bold">|</span>{' '}
+                      <span className='font-bold'>{author.fields.name}</span>{' '}
+                      <span className='font-bold'>|</span>{' '}
                       <span>
                         {new Intl.DateTimeFormat('en', {
                           month: 'long',
@@ -176,14 +176,14 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                       </span>
                     </div>
                   )}
-                  <div className="divide-y lg:divide-none divide-grey-light">
+                  <div className='divide-y lg:divide-none divide-grey-light'>
                     <div>
-                      <div className="pb-10">
+                      <div className='pb-10'>
                         <RichText document={content} />
                       </div>
                     </div>
                     {author && (
-                      <div className="pt-5 mx-auto lg:hidden">
+                      <div className='pt-5 mx-auto lg:hidden'>
                         <AuthorCard author={author} />
                       </div>
                     )}
@@ -193,7 +193,7 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 <Sidebar blogs={otherBlogs} />
               </BlogContentContainer>
               {author && (
-                <div className="hidden lg:block pt-5 ml-[12.5vw] w-3/4 xl:max-w-6xl">
+                <div className='hidden lg:block pt-5 ml-[12.5vw] w-3/4 xl:max-w-6xl'>
                   <AuthorCard author={author} />
                 </div>
               )}
@@ -213,29 +213,29 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
   const { image, name, description, socialLinks } = author.fields;
 
   return (
-    <div className="w-full mx-auto mb-14 md:w-2/3 lg:w-full">
-      <div className="mb-10 text-3xl font-bold text-left text-grey-dark">
+    <div className='w-full mx-auto mb-14 md:w-2/3 lg:w-full'>
+      <div className='mb-10 text-3xl font-bold text-left text-grey-dark'>
         About the Author
       </div>
-      <SubtleBorder className="flex flex-col lg:flex-row bg-grey-background">
+      <SubtleBorder className='flex flex-col lg:flex-row bg-grey-background'>
         {image && (
-          <div className="aspect-square lg:h-64">
-            <ContentfulImage image={image} alt="" />
+          <div className='aspect-square lg:h-64'>
+            <ContentfulImage image={image} alt='' />
           </div>
         )}
-        <div className="w-full h-full p-5 pt-8 pl-10 text-center lg:text-left lg:h-64">
-          <div className="pb-4 text-3xl font-bold">{name}</div>
+        <div className='w-full h-full p-5 pt-8 pl-10 text-center lg:text-left lg:h-64'>
+          <div className='pb-4 text-3xl font-bold'>{name}</div>
           {description && (
-            <div className="text-xl">
+            <div className='text-xl'>
               <RichText document={description} />
             </div>
           )}
           {socialLinks && (
-            <div className="pt-5 md:ml-auto -px-5 md:w-fit">
+            <div className='pt-5 md:ml-auto -px-5 md:w-fit'>
               <SocialLinks
                 socialLinks={socialLinks.fields}
-                className="justify-center"
-                theme="dark"
+                className='justify-center'
+                theme='dark'
               />
             </div>
           )}

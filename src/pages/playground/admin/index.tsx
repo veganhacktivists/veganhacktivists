@@ -27,7 +27,7 @@ const AdminPage: NextPage = () => {
   const utils = trpc.useContext();
   const router = useRouter();
   const [statusFilter, setStatusFilter] = useState<RequestStatus>(
-    RequestStatus.Pending
+    RequestStatus.Pending,
   );
 
   const readFromQuery = useOnce(
@@ -37,7 +37,7 @@ const AdminPage: NextPage = () => {
         setStatusFilter(status);
       }
     },
-    { enabled: router.isReady }
+    { enabled: router.isReady },
   );
 
   useOnce(
@@ -45,7 +45,7 @@ const AdminPage: NextPage = () => {
       Object.values(RequestStatus)
         .filter(
           (status) =>
-            status !== statusFilter && !STATES_TO_HIDE.includes(status)
+            status !== statusFilter && !STATES_TO_HIDE.includes(status),
         )
         .forEach(async (status) => {
           await utils.playground.admin.getRequests.prefetch({
@@ -53,12 +53,12 @@ const AdminPage: NextPage = () => {
           });
         });
     },
-    { enabled: readFromQuery }
+    { enabled: readFromQuery },
   );
 
   const invalidateQuery = useCallback(
     () => utils.playground.admin.getRequests.invalidate(),
-    [utils.playground.admin.getRequests]
+    [utils.playground.admin.getRequests],
   );
 
   const { data, isSuccess, isLoading } =
@@ -105,7 +105,7 @@ const AdminPage: NextPage = () => {
         </OutlineButton>
       );
     },
-    [statusFilter]
+    [statusFilter],
   );
 
   const isActionLoading =
@@ -121,27 +121,27 @@ const AdminPage: NextPage = () => {
     <>
       <NextSeo title={`${statusFilter} Requests - Admin panel`} />
       <div>
-        <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
+        <div className='flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center'>
           {Object.values(RequestStatus)
             .filter((status) => !STATES_TO_HIDE.includes(status))
             .map((status) => (
               <RequestFilterButton key={status} status={status} />
             ))}
           <OutlineButton
-            href="/playground/admin/applications"
-            className="mx-5 w-fit"
+            href='/playground/admin/applications'
+            className='mx-5 w-fit'
           >
             See applications
           </OutlineButton>
-          <LogoutButton href="/auth/signout" className="mx-5 w-fit">
+          <LogoutButton href='/auth/signout' className='mx-5 w-fit'>
             Logout
           </LogoutButton>
         </div>
         {data.length === 0 && (
-          <div className="text-center">There are no available requests</div>
+          <div className='text-center'>There are no available requests</div>
         )}
         <div
-          className="grid gap-5 mx-auto my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40"
+          className='grid gap-5 mx-auto my-5 md:mb-20 sm:px-10 md:grid-cols-2 lg:px-40'
           ref={animatedRef}
         >
           {data.map((request) => (
@@ -151,16 +151,16 @@ const AdminPage: NextPage = () => {
                 disabled={isActionLoading}
               >
                 <b>This request is {request.status}!</b>
-                <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
+                <div className='grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2'>
                   {request.status === RequestStatus.Pending ? (
                     <>
                       <LightButton
-                        className="w-full"
+                        className='w-full'
                         disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
-                              `Are you sure you want to accept '${request.title}'?`
+                              `Are you sure you want to accept '${request.title}'?`,
                             )
                           ) {
                             mutate({
@@ -173,12 +173,12 @@ const AdminPage: NextPage = () => {
                         Accept
                       </LightButton>
                       <DenyButton
-                        className="w-full text-xl text-white"
+                        className='w-full text-xl text-white'
                         disabled={isActionLoading}
                         onClick={() => {
                           if (
                             confirm(
-                              `Are you sure you want to reject '${request.title}'?`
+                              `Are you sure you want to reject '${request.title}'?`,
                             )
                           ) {
                             mutate({
@@ -193,12 +193,12 @@ const AdminPage: NextPage = () => {
                     </>
                   ) : (
                     <BlueButton
-                      className="w-full px-2 text-xl"
+                      className='w-full px-2 text-xl'
                       disabled={isActionLoading}
                       onClick={() => {
                         if (
                           confirm(
-                            `Are you sure you want to repost '${request.title}'?`
+                            `Are you sure you want to repost '${request.title}'?`,
                           )
                         ) {
                           mutateRepost({
@@ -218,12 +218,12 @@ const AdminPage: NextPage = () => {
                   )}
                   {request.status !== RequestStatus.Completed ? (
                     <GreenButton
-                      className="w-full px-2 text-xl"
+                      className='w-full px-2 text-xl'
                       disabled={isActionLoading}
                       onClick={() => {
                         if (
                           confirm(
-                            `Are you sure you want to complete '${request.title}'?`
+                            `Are you sure you want to complete '${request.title}'?`,
                           )
                         ) {
                           mutate({
@@ -237,12 +237,12 @@ const AdminPage: NextPage = () => {
                     </GreenButton>
                   ) : null}
                   <ExternalLinkButton
-                    className="w-full px-2 text-xl text-white"
+                    className='w-full px-2 text-xl text-white'
                     disabled={isActionLoading}
                     onClick={() => {
                       if (
                         confirm(
-                          `Are you sure you want to delete '${request.title}'?`
+                          `Are you sure you want to delete '${request.title}'?`,
                         )
                       ) {
                         mutateDelete({ id: request.id });
@@ -260,10 +260,10 @@ const AdminPage: NextPage = () => {
                         There are {request._count.applications} accepted
                         applications for this request
                       </b>
-                      <div className="pt-5 text-xl font-bold border-b">
+                      <div className='pt-5 text-xl font-bold border-b'>
                         Applications
                       </div>
-                      <div className="flex flex-col gap-5 divide-y">
+                      <div className='flex flex-col gap-5 divide-y'>
                         {request.applications.map((app) => (
                           <ApplicationCard key={app.id} application={app} />
                         ))}

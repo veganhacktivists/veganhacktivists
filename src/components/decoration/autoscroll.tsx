@@ -12,18 +12,18 @@ interface AnimatedRowProps {
 
 const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
   return (
-    <div className="overflow-hidden">
+    <div className='overflow-hidden'>
       <div
         className={classNames(
           'flex flex-row w-fit gap-8 place-items-center',
           backwards
             ? 'animate-infinite-scroll-reverse'
-            : 'animate-infinite-scroll'
+            : 'animate-infinite-scroll',
         )}
       >
         {[...items, ...items].map((item, i) => (
-          <li key={i} className="w-max max-w-[15rem] flex-shrink-0 last:mr-8">
-            <div className="grayscale hover:grayscale-0 transition-[filter] ease-out">
+          <li key={i} className='w-max max-w-[15rem] flex-shrink-0 last:mr-8'>
+            <div className='grayscale hover:grayscale-0 transition-[filter] ease-out'>
               {item}
             </div>
           </li>
@@ -36,11 +36,11 @@ const AnimatedRow = ({ items, backwards }: AnimatedRowProps) => {
 export const Autoscroll = ({ items }: AutoScrollProps) => {
   const rows = useMemo(
     () => (Array.isArray(items[0]) ? items : [items]) as React.ReactNode[][],
-    [items]
+    [items],
   );
 
   return (
-    <ul className="space-y-12">
+    <ul className='space-y-12'>
       {rows.map((row, i) => (
         <AnimatedRow key={i} items={row} backwards={i % 2 === 0} />
       ))}

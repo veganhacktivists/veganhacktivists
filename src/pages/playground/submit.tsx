@@ -13,9 +13,9 @@ const Header: React.FC = () => {
   return (
     <div>
       <SectionHeader
-        className="-mb-10"
+        className='-mb-10'
         startWithBoldFont
-        header="Need support? Let us know!"
+        header='Need support? Let us know!'
       >
         Please fill in the form below.
       </SectionHeader>
@@ -27,7 +27,7 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
   const router = useRouter();
   return (
     <>
-      <NextSeo title="Submit Your Request" />
+      <NextSeo title='Submit Your Request' />
       <Header />
       <SquareField
         squares={[
@@ -35,7 +35,7 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       <SubmitRequestForm
         requestId={`${

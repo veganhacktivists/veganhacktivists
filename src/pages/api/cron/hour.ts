@@ -18,7 +18,7 @@ const handler: NextApiHandler = async function (req, res) {
     process.env.CRON_API_AUTH &&
     (await bcrypt.compare(
       req.headers.authorization,
-      process.env.CRON_API_AUTH
+      process.env.CRON_API_AUTH,
     ));
 
   if (!isAuthorized) {

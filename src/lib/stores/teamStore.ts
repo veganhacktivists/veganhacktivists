@@ -16,5 +16,5 @@ export const useTeamStore = create<TeamStoreProps & TeamStoreMethods>(
     setTeamOrder: (teams) => {
       set({ teamOrder: teams });
     },
-  })
+  }),
 );

@@ -6,7 +6,7 @@ import heartLogo from '../../public/images/joinUs/VH-join-mini-icon-heart.png';
 
 it('should render correctly', () => {
   const { asFragment } = render(
-    <CandidateRequirement color="orange" description="foo" image={heartLogo} />
+    <CandidateRequirement color='orange' description='foo' image={heartLogo} />,
   );
   expect(asFragment()).toMatchSnapshot();
 });

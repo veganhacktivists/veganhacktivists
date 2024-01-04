@@ -136,7 +136,7 @@ const Links: React.FC = () => {
   const intl = useIntl();
 
   return (
-    <ul className="text-xl text-left">
+    <ul className='text-xl text-left'>
       {getLinks(intl).map((link, i) => (
         <MyLink key={i} {...link} />
       ))}

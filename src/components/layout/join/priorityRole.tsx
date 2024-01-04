@@ -28,14 +28,14 @@ const JobRole: React.FC<PriorityRoleProps> = ({
   const backgroundColor = getThemeColor(color);
 
   return (
-    <div className="bg-gray-background text-grey-dark pb-1">
+    <div className='bg-gray-background text-grey-dark pb-1'>
       <SquareField
         squares={[{ color: squareColor, size: 8, right: 0 }]}
-        className=""
+        className=''
       />
       <div
         style={{ backgroundColor }}
-        className="md:h-52 flex flex-col justify-center py-8"
+        className='md:h-52 flex flex-col justify-center py-8'
       >
         <CustomImage
           alt={title}
@@ -47,14 +47,14 @@ const JobRole: React.FC<PriorityRoleProps> = ({
           }}
         />
       </div>
-      <h2 className="text-xl font-modo font-bold my-6 md:px-8">{title}</h2>
-      <p className="px-10 md:px-8 text-lg text-center min-h-[140px] lg:min-h-[230px] xl:min-h-[170px]">
+      <h2 className='text-xl font-modo font-bold my-6 md:px-8'>{title}</h2>
+      <p className='px-10 md:px-8 text-lg text-center min-h-[140px] lg:min-h-[230px] xl:min-h-[170px]'>
         {description}
       </p>
-      <div className="my-8 w-3/4 mx-auto">
+      <div className='my-8 w-3/4 mx-auto'>
         <DarkButton
           href={href}
-          className="font-semibold text-lg font-mono px-16 py-4 my-4"
+          className='font-semibold text-lg font-mono px-16 py-4 my-4'
         >
           Apply Now
         </DarkButton>

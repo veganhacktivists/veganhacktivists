@@ -29,12 +29,12 @@ const OurMission: PageWithLayout = () => {
         })}
       >
         <FormattedMessage
-          id="page.about.section.our-mission.section-header.content"
-          defaultMessage="Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work."
+          id='page.about.section.our-mission.section-header.content'
+          defaultMessage='Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work.'
         />
       </FirstSubSection>
-      <div className="pb-10 m-10">
-        <div className="pb-5">
+      <div className='pb-10 m-10'>
+        <div className='pb-5'>
           <CustomImage
             src={PixelCow.src}
             width={PixelCow.width / 3}
@@ -53,8 +53,8 @@ const OurMission: PageWithLayout = () => {
             })}
           >
             <FormattedMessage
-              id="page.about.section.our-mission.subsection-0.paragraph"
-              defaultMessage="To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
+              id='page.about.section.our-mission.subsection-0.paragraph'
+              defaultMessage='To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others.'
             />
           </SubSection>
           <SubSection
@@ -64,7 +64,7 @@ const OurMission: PageWithLayout = () => {
             })}
           >
             <FormattedMessage
-              id="page.about.section.our-mission.subsection-1.paragraph"
+              id='page.about.section.our-mission.subsection-1.paragraph'
               defaultMessage="We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
             />
           </SubSection>
@@ -75,8 +75,8 @@ const OurMission: PageWithLayout = () => {
             })}
           >
             <FormattedMessage
-              id="page.about.section.our-mission.subsection-2.paragraph"
-              defaultMessage="We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
+              id='page.about.section.our-mission.subsection-2.paragraph'
+              defaultMessage='We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes.'
             />
           </SubSection>
           <SubSection
@@ -86,8 +86,8 @@ const OurMission: PageWithLayout = () => {
             })}
           >
             <FormattedMessage
-              id="page.about.section.our-mission.subsection-3.paragraph"
-              defaultMessage="We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
+              id='page.about.section.our-mission.subsection-3.paragraph'
+              defaultMessage='We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges.'
             />
           </SubSection>
           <SubSection
@@ -98,8 +98,8 @@ const OurMission: PageWithLayout = () => {
             })}
           >
             <FormattedMessage
-              id="page.about.section.our-mission.subsection-4.paragraph"
-              defaultMessage="Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
+              id='page.about.section.our-mission.subsection-4.paragraph'
+              defaultMessage='Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals.'
             />
           </SubSection>
         </div>

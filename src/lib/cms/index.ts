@@ -20,13 +20,13 @@ export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
 
 const normalizeFilter: (
   filterType: string,
-  filter: Record<string, unknown>
+  filter: Record<string, unknown>,
 ) => Record<string, unknown> = (filterType, filter) => {
   return Object.fromEntries(
     Object.entries(filter || {}).map(([value, filter]) => [
       `${value}[${filterType}]`,
       Array.isArray(filter) ? filter.join(',') : filter,
-    ])
+    ]),
   );
 };
 
@@ -62,15 +62,15 @@ export const getContents: <T>(options: {
 
   const otherFilters = Object.fromEntries(
     Object.entries(filters || {}).flatMap(([filter, value]) =>
-      Object.entries(normalizeFilter(filter, value))
-    )
+      Object.entries(normalizeFilter(filter, value)),
+    ),
   );
 
   const fieldsQuery = Object.fromEntries(
     Object.entries({
       ...eqFilter,
       ...otherFilters,
-    }).map(([field, value]) => [`fields.${field}`, value])
+    }).map(([field, value]) => [`fields.${field}`, value]),
   );
 
   const response = await client.getEntries({
@@ -90,7 +90,7 @@ export const getContents: <T>(options: {
   For more info: https://www.contentful.com/developers/docs/tutorials/general/determine-entry-asset-state/
 */
 const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
-  entry
+  entry,
 ) => {
   if ('sys' in entry && Object.keys(entry).length === 1) {
     return null;
@@ -127,7 +127,7 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
 };
 
 export const getAllIdsOfType: (
-  pageContentType: CONTENT_TYPE
+  pageContentType: CONTENT_TYPE,
 ) => Promise<Entry<unknown>['sys']['id'][]> = async (pageContentType) => {
   const entries = await client.getEntries({
     content_type: pageContentType,

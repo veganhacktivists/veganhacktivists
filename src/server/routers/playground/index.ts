@@ -11,7 +11,7 @@ const playgroundRouter = t.mergeRouters(
   }),
   requestsRouter,
   applicationsRouter,
-  statsRouter
+  statsRouter,
 );
 
 export default playgroundRouter;

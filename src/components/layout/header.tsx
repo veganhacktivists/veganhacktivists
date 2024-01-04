@@ -23,11 +23,11 @@ const LeftSide: React.FC = () => {
   return (
     <div
       className={classNames(
-        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max'
+        'flex items-center flex-shrink p-5 pr-5 align-middle bg-black md:pr-10 md:pl-10 xl:w-max',
       )}
     >
       {/* root */}
-      <Link href="/" className={classNames({ hidden: !isRootPage })}>
+      <Link href='/' className={classNames({ hidden: !isRootPage })}>
         <Player
           autoplay
           loop
@@ -40,12 +40,12 @@ const LeftSide: React.FC = () => {
       </Link>
       {/* others */}
       <Link
-        href="/"
+        href='/'
         className={classNames('flex items-center', { hidden: isRootPage })}
       >
         <CustomImage
           src={logoOneLine}
-          alt="Vegan Hacktivists Logo"
+          alt='Vegan Hacktivists Logo'
           width={logoOneLine.width * ratio}
           height={logoOneLine.height * ratio}
           priority
@@ -71,7 +71,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 
   const classes = classNames(
     'p-5 py-6 transition duration-500 text-center whitespace-nowrap xl:max-w-[15rem] truncate',
-    className
+    className,
   );
 
   return (
@@ -113,49 +113,49 @@ const NavbarItems: React.FC = () => {
     <>
       {(
         Object.keys(
-          navItemRouteLabelMapping
+          navItemRouteLabelMapping,
         ) as (keyof typeof navItemRouteLabelMapping)[]
       ).map((menuElem) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
-          className="hover:bg-gray-dark"
+          className='hover:bg-gray-dark'
         >
           {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
       ))}
       <NavBarItem
         href={'/join'}
-        className="font-bold bg-gray hover:bg-gray-dark"
+        className='font-bold bg-gray hover:bg-gray-dark'
       >
         <FormattedMessage
-          id="layout.header.navigation-item.join.label"
-          defaultMessage="Join"
+          id='layout.header.navigation-item.join.label'
+          defaultMessage='Join'
         />
       </NavBarItem>
       <NavBarItem
         href={'/support'}
-        className="font-bold bg-pink hover:bg-pink-dark"
+        className='font-bold bg-pink hover:bg-pink-dark'
       >
         <FormattedMessage
-          id="layout.header.navigation-item.donate.label"
-          defaultMessage="Donate"
+          id='layout.header.navigation-item.donate.label'
+          defaultMessage='Donate'
         />
       </NavBarItem>
       <NavBarItem
         href={'/playground'}
-        className="font-bold bg-green hover:bg-green-dark"
+        className='font-bold bg-green hover:bg-green-dark'
       >
         <FormattedMessage
-          id="layout.header.navigation-item.playground.label"
-          defaultMessage="Get Help"
+          id='layout.header.navigation-item.playground.label'
+          defaultMessage='Get Help'
         />
       </NavBarItem>
       <a
-        className="p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark"
-        href="https://www.instagram.com/veganhacktivists/"
-        target="_blank"
-        rel="noreferrer"
+        className='p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark'
+        href='https://www.instagram.com/veganhacktivists/'
+        target='_blank'
+        rel='noreferrer'
         aria-label={intl.formatMessage({
           id: 'layout.header.navigation-item.instagram.aria-label',
           defaultMessage: 'Follow us on Instagram',
@@ -189,32 +189,32 @@ const RightSide: React.FC = () => {
 
   return (
     <>
-      <div className="flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden">
+      <div className='flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
         <input
-          type="checkbox"
+          type='checkbox'
           hidden
           ref={menuInputCheckRef}
           id={buttonMenuId}
-          className="peer"
+          className='peer'
         />
         <label
           htmlFor={buttonMenuId}
-          className="cursor-pointer"
+          className='cursor-pointer'
           aria-haspopup
-          aria-controls="mobile-menu"
+          aria-controls='mobile-menu'
         >
-          <FontAwesomeIcon icon={faBars} size="2x" />
+          <FontAwesomeIcon icon={faBars} size='2x' />
         </label>
         <div
-          id="mobile-menu"
-          className="z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex"
+          id='mobile-menu'
+          className='z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex'
         >
-          <div className="absolute z-30 flex flex-col bg-black left-10 right-10">
+          <div className='absolute z-30 flex flex-col bg-black left-10 right-10'>
             <NavbarItems />
           </div>
         </div>
       </div>
-      <div className="justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap">
+      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap'>
         <NavbarItems />
       </div>
     </>
@@ -223,7 +223,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className="z-20 flex w-full">
+    <nav className='z-20 flex w-full'>
       <LeftSide />
       <RightSide />
     </nav>

@@ -14,34 +14,34 @@ const DesignsForVeganOrgs: React.FC = () => {
   return (
     <>
       <SectionContainer
-        color="grey-background"
+        color='grey-background'
         header={
           <SectionHeader
-            className="text-grey-dark"
+            className='text-grey-dark'
             header={['Designs', 'for', 'Vegan Orgs']}
             startWithBoldFont
           >
             <FormattedMessage
-              id="page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph"
-              defaultMessage="We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the competitive digital landscape."
+              id='page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph'
+              defaultMessage='We had the chance to provide on-the-house design support to vegan organizations that needed to create their brand and identity, as well as stand out in the competitive digital landscape.'
             />
           </SectionHeader>
         }
       >
-        <div className="md:w-1/2 mx-auto">
-          <div className="mb-10">
-            <CustomImage src={vcj} alt="Vegan Consulting Japan design" />
+        <div className='md:w-1/2 mx-auto'>
+          <div className='mb-10'>
+            <CustomImage src={vcj} alt='Vegan Consulting Japan design' />
           </div>
-          <div className="mb-10">
+          <div className='mb-10'>
             <CustomImage
               src={ivff}
-              alt="International Vegan Film Festival design"
+              alt='International Vegan Film Festival design'
             />
           </div>
-          <div className="mb-10">
+          <div className='mb-10'>
             <CustomImage
               src={sv}
-              alt="Solutionary Vegan design"
+              alt='Solutionary Vegan design'
               style={{
                 maxWidth: '100%',
                 height: 'auto',
@@ -51,7 +51,7 @@ const DesignsForVeganOrgs: React.FC = () => {
         </div>
       </SectionContainer>
       <SquareField
-        className="hidden md:block"
+        className='hidden md:block'
         squares={[
           { color: 'grey-background', left: 0, top: 0 },
           { color: 'white', right: 0, bottom: 0 },

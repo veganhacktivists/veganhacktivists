@@ -12,7 +12,7 @@ interface YearButtonProps {
 
 const YearButton: React.FC<YearButtonProps> = ({ year }) => {
   return (
-    <NavButton className="w-48 font-bold" href={`/year-in-review/${year}`}>
+    <NavButton className='w-48 font-bold' href={`/year-in-review/${year}`}>
       {year}
     </NavButton>
   );
@@ -63,11 +63,11 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
 }) => {
   const intl = useIntl();
   return (
-    <div className="bg-grey-background">
+    <div className='bg-grey-background'>
       {hero}
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className="hidden md:block"
+        className='hidden md:block'
       />
       {customMainSection ?? (
         <FirstSubSection
@@ -79,10 +79,10 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
             })
             .replace('{year}', String(year))}
           firstWordsNum={2}
-          className="pt-5"
+          className='pt-5'
         >
           <FormattedMessage
-            id="page.year-in-review.section.header.content"
+            id='page.year-in-review.section.header.content'
             defaultMessage="We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
             values={{ year }}
           />

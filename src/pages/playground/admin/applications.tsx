@@ -28,7 +28,7 @@ const AdminPage: NextPage = ({}) => {
 
   const invalidateQuery = useCallback(
     () => utils.playground.admin.requestsWithPendingApplications.invalidate(),
-    [utils.playground.admin.requestsWithPendingApplications]
+    [utils.playground.admin.requestsWithPendingApplications],
   );
 
   const { mutate: mutateDelete, isLoading: isDeletionLoading } =
@@ -54,9 +54,9 @@ const AdminPage: NextPage = ({}) => {
 
   return (
     <>
-      <NextSeo title="Applications - Admin Panel" />
+      <NextSeo title='Applications - Admin Panel' />
       <div>
-        <div className="flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center">
+        <div className='flex flex-col justify-center gap-10 p-10 mx-auto md:flex-row place-items-center'>
           {Object.values(RequestStatus)
             .filter((status) => status !== RequestStatus.Rejected)
             .map((status) => (
@@ -68,26 +68,26 @@ const AdminPage: NextPage = ({}) => {
               </OutlineButton>
             ))}
           <OutlineButton
-            href="/playground/admin/applications"
-            className="mx-5 w-fit"
+            href='/playground/admin/applications'
+            className='mx-5 w-fit'
             active
           >
             See applications
           </OutlineButton>
-          <LogoutButton href="/auth/signout" className="mx-5 w-fit">
+          <LogoutButton href='/auth/signout' className='mx-5 w-fit'>
             Logout
           </LogoutButton>
         </div>
         <div
-          className="flex flex-row flex-wrap justify-center gap-5"
+          className='flex flex-row flex-wrap justify-center gap-5'
           ref={animatedRef}
         >
           {data.length === 0 && (
-            <div className="text-center">There are no pending requests</div>
+            <div className='text-center'>There are no pending requests</div>
           )}
           {data.map((request) => (
             <div key={request.id}>
-              <div className="h-full max-w-xl">
+              <div className='h-full max-w-xl'>
                 <PlaygroundRequestCard request={request}>
                   <b>
                     {request._count.applications > 0 ? (
@@ -99,20 +99,20 @@ const AdminPage: NextPage = ({}) => {
                       <>There are no accepted applications in this request</>
                     )}
                   </b>
-                  <div className="pt-5 text-xl font-bold border-b">
+                  <div className='pt-5 text-xl font-bold border-b'>
                     Applications
                   </div>
-                  <div className="flex flex-col gap-5 divide-y">
+                  <div className='flex flex-col gap-5 divide-y'>
                     {request.applications.map((app) => (
                       <ApplicationCard key={app.id} application={app}>
-                        <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
+                        <div className='grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2'>
                           <DarkButton
-                            className="w-full"
+                            className='w-full'
                             disabled={isLoading}
                             onClick={() => {
                               if (
                                 confirm(
-                                  `Are you sure you want to accept ${app.name}'s application?`
+                                  `Are you sure you want to accept ${app.name}'s application?`,
                                 )
                               ) {
                                 mutate({
@@ -125,12 +125,12 @@ const AdminPage: NextPage = ({}) => {
                             ✔️ Accept
                           </DarkButton>
                           <DenyButton
-                            className="w-full"
+                            className='w-full'
                             disabled={isLoading}
                             onClick={() => {
                               if (
                                 confirm(
-                                  `Are you sure you want to deny ${app.name}'s application?`
+                                  `Are you sure you want to deny ${app.name}'s application?`,
                                 )
                               ) {
                                 mutate({
@@ -143,12 +143,12 @@ const AdminPage: NextPage = ({}) => {
                             ❌ Deny
                           </DenyButton>
                           <ExternalLinkButton
-                            className="w-full"
+                            className='w-full'
                             disabled={isLoading}
                             onClick={() => {
                               if (
                                 confirm(
-                                  `Are you sure you want to delete ${app.name}'s application?`
+                                  `Are you sure you want to delete ${app.name}'s application?`,
                                 )
                               ) {
                                 mutateDelete(app.id);
@@ -158,12 +158,12 @@ const AdminPage: NextPage = ({}) => {
                             🤫 Delete
                           </ExternalLinkButton>
                           <ExternalLinkButton
-                            className="w-full"
+                            className='w-full'
                             disabled={isLoading}
                             onClick={() => {
                               if (
                                 confirm(
-                                  `Are you sure you want to block ${app.name} from taking on future applications?`
+                                  `Are you sure you want to block ${app.name} from taking on future applications?`,
                                 )
                               ) {
                                 mutate({

@@ -49,26 +49,26 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
   const domain = website?.match(domainRegEx)?.groups?.domain;
 
   return (
-    <div className="flex flex-col justify-between mx-auto mb-10 lg:flex-row">
-      <div className="">
+    <div className='flex flex-col justify-between mx-auto mb-10 lg:flex-row'>
+      <div className=''>
         {image && (
-          <div className="w-full mx-auto sm:w-72 xl:w-96 aspect-square">
-            <ContentfulImage image={image} alt="" />
+          <div className='w-full mx-auto sm:w-72 xl:w-96 aspect-square'>
+            <ContentfulImage image={image} alt='' />
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-around w-full px-10 py-10 bg-gray-background">
-        <div className="mb-2 text-center lg:text-left">
-          <span className="text-2xl font-bold">{name}</span>{' '}
-          <span className="block ml-2 font-bold uppercase text-m text-grey md:inline">
+      <div className='flex flex-col justify-around w-full px-10 py-10 bg-gray-background'>
+        <div className='mb-2 text-center lg:text-left'>
+          <span className='text-2xl font-bold'>{name}</span>{' '}
+          <span className='block ml-2 font-bold uppercase text-m text-grey md:inline'>
             {position}
           </span>
         </div>
-        <div className="mb-5 text-xl text-center lg:text-left">
+        <div className='mb-5 text-xl text-center lg:text-left'>
           {description && documentToReactComponents(description)}
         </div>
         <DarkButton
-          className="max-w-md mx-auto overflow-hidden font-mono overflow-ellipsis whitespace-nowrap xl:ml-0"
+          className='max-w-md mx-auto overflow-hidden font-mono overflow-ellipsis whitespace-nowrap xl:ml-0'
           href={website}
           capitalize={false}
         >
@@ -81,7 +81,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
 
 const PartnerList: React.FC<{ partners: ITeamMember[] }> = ({ partners }) => {
   return (
-    <div className="mx-auto lg:px-32 2xl:px-60">
+    <div className='mx-auto lg:px-32 2xl:px-60'>
       {partners.map((p) => (
         <PartnerCard key={p.sys.id} partner={p} />
       ))}
@@ -110,15 +110,15 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
         })}
       >
         <FormattedMessage
-          id="page.people.section.partners.intro.paragraph"
-          defaultMessage="Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
+          id='page.people.section.partners.intro.paragraph'
+          defaultMessage='Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!'
         />
       </FirstSubSection>
-      <div className="m-10 mb-36">
+      <div className='m-10 mb-36'>
         <PartnerList partners={partners} />
       </div>
-      <SquareField squares={TEAM_SQUARES} className="hidden md:block" />
-      <div className="px-10 pt-16 pb-10 bg-grey-light">
+      <SquareField squares={TEAM_SQUARES} className='hidden md:block' />
+      <div className='px-10 pt-16 pb-10 bg-grey-light'>
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
@@ -135,8 +135,8 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
           })}
         >
           <FormattedMessage
-            id="page.people.section.partners.community.paragraph"
-            defaultMessage="We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
+            id='page.people.section.partners.community.paragraph'
+            defaultMessage='We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more.'
           />
         </FirstSubSection>
       </div>

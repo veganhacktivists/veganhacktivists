@@ -17,7 +17,7 @@ export const useFAQDetect = () => {
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setMessage(e.target.value);
     },
-    [setMessage]
+    [setMessage],
   );
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export const useFAQDetect = () => {
         .flatMap(({ suggestions }) =>
           suggestions
             .filter(({ keywords }) => doesContainKeywords(tokens, keywords))
-            .map(({ text }) => text)
-        )
+            .map(({ text }) => text),
+        ),
     );
   }, [debouncedMessage]);
 

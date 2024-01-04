@@ -10,18 +10,18 @@ interface TopPostsProps {
 const TopPosts: React.FC<TopPostsProps> = ({ topPosts }) => {
   return (
     <>
-      <h2 className="text-3xl font-mono font-bold text-white mb-8">
+      <h2 className='text-3xl font-mono font-bold text-white mb-8'>
         <FormattedMessage
-          id="page.year-in-review.2020.section.by-the-numbers.top-posts"
-          defaultMessage="TOP POSTS"
+          id='page.year-in-review.2020.section.by-the-numbers.top-posts'
+          defaultMessage='TOP POSTS'
         />
       </h2>
-      <div className="flex flex-col normal-case">
+      <div className='flex flex-col normal-case'>
         {topPosts.map(({ title, slug }) => (
           <Link
             key={slug}
             href={`/blog/${slug}`}
-            className="text-white text-2xl underline active:opacity-50 cursor-pointer truncate"
+            className='text-white text-2xl underline active:opacity-50 cursor-pointer truncate'
           >
             {title}
           </Link>

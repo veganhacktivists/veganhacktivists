@@ -50,8 +50,8 @@ const usePlaygroundApplyStore = create<
     {
       name: 'playground-application', // name of item in the storage (must be unique)
       getStorage: () => localStorage, // (optional) by default the 'localStorage' is used
-    }
-  )
+    },
+  ),
 );
 
 export default usePlaygroundApplyStore;

@@ -22,7 +22,7 @@ void main();
 
 async function main() {
   const currentTranslations = await getTranslationsFromFile(
-    defaultTranslationPath
+    defaultTranslationPath,
   );
 
   updateFormattedMessageComponent(currentTranslations);
@@ -34,11 +34,12 @@ async function main() {
 function getNamedImportReferences(importName: string) {
   const formatMessageNamedImport = project
     .getSourceFiles()
-    .map((file) =>
-      file
-        .getImportDeclaration('react-intl')
-        ?.getNamedImports()
-        .find((namedImport) => namedImport.getName().includes(importName))
+    .map(
+      (file) =>
+        file
+          .getImportDeclaration('react-intl')
+          ?.getNamedImports()
+          .find((namedImport) => namedImport.getName().includes(importName)),
     )
     .find(isDefined);
 
@@ -50,12 +51,12 @@ function getNamedImportReferences(importName: string) {
 }
 
 function updateFormattedMessageComponent(
-  translations: TranslationFileStructureInternal
+  translations: TranslationFileStructureInternal,
 ) {
   const references = getNamedImportReferences('FormattedMessage');
 
-  const formatMessageNodes = references?.filter((x) =>
-    x.getParent()?.getKindName().includes('Jsx')
+  const formatMessageNodes = references?.filter(
+    (x) => x.getParent()?.getKindName().includes('Jsx'),
   );
 
   const attributesNode = formatMessageNodes
@@ -70,10 +71,10 @@ function updateFormattedMessageComponent(
       const parsedAttributes = attributes.map((x) => x.getChildren());
 
       const idAttribute = parsedAttributes.find(
-        ([key]) => key.getText() === 'id'
+        ([key]) => key.getText() === 'id',
       );
       const defaultMessageAttribute = parsedAttributes.find(
-        ([key]) => key.getText() === 'defaultMessage'
+        ([key]) => key.getText() === 'defaultMessage',
       );
 
       if (!idAttribute || !defaultMessageAttribute) {
@@ -103,11 +104,11 @@ function updateUseIntlHook(translations: TranslationFileStructureInternal) {
           .map((x) => x.getChildren());
 
         const idProperty = syntaxListEntries.find(
-          ([key]) => key?.getText() === 'id'
+          ([key]) => key?.getText() === 'id',
         );
 
         const defaultMessageProperty = syntaxListEntries.find(
-          ([key]) => key?.getText() === 'defaultMessage'
+          ([key]) => key?.getText() === 'defaultMessage',
         );
 
         if (!idProperty || !defaultMessageProperty) {
@@ -122,7 +123,7 @@ function updateUseIntlHook(translations: TranslationFileStructureInternal) {
 function replaceDefaultValue(
   idPropTuple: Node<ts.Node>[],
   defaultValuePropTuple: Node<ts.Node>[],
-  translations: TranslationFileStructureInternal
+  translations: TranslationFileStructureInternal,
 ) {
   const idNodeValue = idPropTuple?.[2].getText();
   const defaultMessageNodeValue = defaultValuePropTuple?.[2].getText();
@@ -138,7 +139,7 @@ function replaceDefaultValue(
     translations[idStringValue].message !== defaultMessageNodeValue.slice(1, -1)
   ) {
     defaultValuePropTuple?.[2].replaceWithText(
-      quotes + translations[idStringValue].message + quotes
+      quotes + translations[idStringValue].message + quotes,
     );
   }
 }

@@ -9,12 +9,12 @@ export const toBaseUrl: (url: string) => string = (url) => {
 
 export const doesContainKeywords = (
   tokens: string[],
-  keywords: (string | string[])[]
+  keywords: (string | string[])[],
 ) => {
   return keywords.some((keyword) =>
     Array.isArray(keyword)
       ? keyword.every((k) => doesContainKeyword(tokens, k))
-      : doesContainKeyword(tokens, keyword)
+      : doesContainKeyword(tokens, keyword),
   );
 };
 
@@ -34,7 +34,7 @@ const getLevenshteinDistance = (a: string, b: string): number => {
       } else {
         matrix[i][j] = Math.min(
           matrix[i - 1][j - 1] + 1,
-          Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1)
+          Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1),
         );
       }
     }
@@ -47,7 +47,7 @@ const doesContainKeyword = (tokens: string[], keyword: string) => {
   const match = tokens.some(
     (token) =>
       getLevenshteinDistance(token, keyword) <=
-      MAX_LEVENSHTEIN_DISTANCE_MATCHING_TOKENS
+      MAX_LEVENSHTEIN_DISTANCE_MATCHING_TOKENS,
   );
 
   return match;

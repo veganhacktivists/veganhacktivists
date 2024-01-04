@@ -12,7 +12,7 @@ import type {
 } from '../../types/generated/contentful';
 
 export const getDocCategoryPreviewBySlug: (
-  slug: IDocsCategoryFields['slug']
+  slug: IDocsCategoryFields['slug'],
 ) => Promise<IDocsCategory> = async (slug) => {
   const response = await previewClient.getEntries({
     'fields.slug': slug,
@@ -25,7 +25,7 @@ export const getDocCategoryPreviewBySlug: (
 };
 
 export const getBlogPreviewBySlug: (
-  slug: string
+  slug: string,
 ) => Promise<IBlogEntry> = async (slug) => {
   const response = await previewClient.getEntries({
     'fields.slug': slug,
@@ -45,7 +45,7 @@ export const getAllBlogSlugs: () => Promise<
   });
 
   return (entries.items as Entry<IBlogEntryFields>[]).map(
-    (entry) => entry.fields.slug
+    (entry) => entry.fields.slug,
   );
 };
 
@@ -97,7 +97,7 @@ export const getFeaturedProjects = async () => {
 };
 
 export const getBlogEntries: (
-  limit?: number
+  limit?: number,
 ) => Promise<Entry<IBlogEntryFields>[]> = async (limit) => {
   const fields =
     'sys.createdAt,fields.publishDate,fields.featuredImage,fields.title,fields.slug,fields.excerpt,fields.tags';

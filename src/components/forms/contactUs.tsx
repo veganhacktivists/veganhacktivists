@@ -46,7 +46,7 @@ const ContactUsForm: React.FC = () => {
   const { reload } = useRouter();
 
   const defaultErrorMessage = useErrorStore(
-    (state) => state.generateErrorMessage
+    (state) => state.generateErrorMessage,
   )();
 
   // Clear error data on unmount so if they don't submit
@@ -82,7 +82,7 @@ const ContactUsForm: React.FC = () => {
           }, 5000);
         });
     },
-    [intl, reload, reset]
+    [intl, reload, reset],
   );
 
   const inputLabels = useMemo(
@@ -104,12 +104,12 @@ const ContactUsForm: React.FC = () => {
         defaultMessage: 'Message',
       }),
     }),
-    [intl]
+    [intl],
   );
 
   return (
-    <div className="pt-5 mx-auto md:w-2/3" id="contact-us">
-      <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
+    <div className='pt-5 mx-auto md:w-2/3' id='contact-us'>
+      <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
         <div>
           <TextInput
             placeholder={inputLabels.name}
@@ -126,7 +126,7 @@ const ContactUsForm: React.FC = () => {
         </div>
         <div>
           <TextInput
-            placeholder="yourname@example.com"
+            placeholder='yourname@example.com'
             {...register('email', {
               required: intl.formatMessage({
                 id: 'section.contact-us-form.input-field.empty-error.email',
@@ -147,9 +147,9 @@ const ContactUsForm: React.FC = () => {
           </TextInput>
         </div>
         <div>
-          <Label htmlFor="service">{inputLabels.service}</Label>
+          <Label htmlFor='service'>{inputLabels.service}</Label>
           <Controller
-            name="service"
+            name='service'
             control={control}
             rules={{
               required: intl.formatMessage({
@@ -182,7 +182,7 @@ const ContactUsForm: React.FC = () => {
           <TextArea
             error={errors.message?.message}
             {...register('message')}
-            name="message"
+            name='message'
             defaultValue={defaultErrorMessage}
             onChange={onMessageChange}
           >
@@ -191,24 +191,24 @@ const ContactUsForm: React.FC = () => {
         </div>
         {suggestions.map((suggestion, i) => (
           <div
-            className="text-left border-l-8 border-l-yellow bg-white p-4"
+            className='text-left border-l-8 border-l-yellow bg-white p-4'
             key={i}
           >
             {suggestion}
           </div>
         ))}
-        <div className="pt-5 pb-10">
+        <div className='pt-5 pb-10'>
           <DarkButton
-            type="submit"
+            type='submit'
             disabled={isSubmitting || isSubmitSuccessful}
-            className="px-10 w-52"
+            className='px-10 w-52'
           >
             {isSubmitting ? (
               <Spinner />
             ) : (
               <FormattedMessage
-                id="section.contact-us-form.submit-button.label"
-                defaultMessage="Submit"
+                id='section.contact-us-form.submit-button.label'
+                defaultMessage='Submit'
               />
             )}
           </DarkButton>

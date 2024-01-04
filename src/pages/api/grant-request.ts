@@ -54,7 +54,7 @@ const handler: NextApiHandler = async (req, res) => {
       subject: `Grant request from ${name}`,
       text: createFormattedTextMessage(req.body as Record<string, string>),
       html: grantRequestEmail(
-        createFormattedHTMLMessage(req.body as Record<string, string>)
+        createFormattedHTMLMessage(req.body as Record<string, string>),
       ),
     });
   } catch (e: unknown) {

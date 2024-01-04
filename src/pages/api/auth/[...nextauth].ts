@@ -15,7 +15,7 @@ import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
 const sendVerificationRequest = async (
-  params: SendVerificationRequestParams
+  params: SendVerificationRequestParams,
 ) => {
   const { identifier, url } = params;
   const { searchParams } = new URL(url);

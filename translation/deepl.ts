@@ -23,14 +23,14 @@ const translationApiReturnSchema = z.object({
     .array(
       z.object({
         text: z.string(),
-      })
+      }),
     )
     .length(1),
 });
 
 export async function translate(
   text: string,
-  target_lang: string
+  target_lang: string,
 ): Promise<string> {
   const [apiUrl, apiToken] = getEnv();
 

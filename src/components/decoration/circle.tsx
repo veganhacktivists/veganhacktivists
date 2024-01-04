@@ -48,7 +48,7 @@ const Circle: React.FC<CircleProps> = ({
         className,
         'rounded-full overflow-visible absolute transform pointer-events-none',
         xTransform,
-        yTransform
+        yTransform,
       )}
     />
   );
