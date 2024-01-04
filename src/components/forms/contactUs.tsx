@@ -22,7 +22,7 @@ const SERVICES = ['website', 'project', 'funding', 'advice'] as const;
 interface ContactUsSubmission {
   name: string;
   email: string;
-  service: typeof SERVICES[number] | null;
+  service: (typeof SERVICES)[number] | null;
   message: string;
 }
 

@@ -127,7 +127,7 @@ const CryptoWallet: React.FC<CryptoWalletProps> = ({
 
 const Crypto: React.FC = () => {
   return (
-    <div className="py-5 mx-auto space-y-5 text-xl bg-grey-background">
+    <div className="px-8 md:mx-0 py-5 mx-auto space-y-5 text-xl bg-grey-background">
       <h3 className="pt-5 font-mono text-3xl font-bold">
         <FormattedMessage
           id="section.crypto-donation.headline"

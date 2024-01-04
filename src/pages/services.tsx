@@ -77,7 +77,7 @@ const getServiceBlockProps = (
     content: intl.formatMessage({
       id: 'page.services.section.service-block.1.content',
       defaultMessage:
-        "We have a dedicated team to help design your brand's identity, logo, social media assets, website, and more. We collaborate closely with you to understand who you are and what your needs are, so that we can best curate your digital presence.",
+        'Our sister organization, Violet Studios, offers several design services across branding, web design, document design, and more. They collaborate closely with you to understand who you are and what your needs are, so that they can best curate your digital presence.',
     }),
     icon: designIcon,
     iconBgColor: 'yellow-dark',
@@ -87,7 +87,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.1.button-label',
         defaultMessage: 'Apply for free design support',
       }),
-      href: 'https://veganhacktivists.org/playground',
+      href: 'https://violetstudios.org',
     },
   },
   {

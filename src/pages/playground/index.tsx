@@ -193,6 +193,7 @@ const Playground: PageWithLayout = ({}) => {
           )}
         </div>
         <SquareField
+          className="hidden md:block"
           squares={[
             { bottom: 0, left: 0, color: 'grey', size: 16 },
             { top: 0, right: 0, color: 'white', size: 16 },

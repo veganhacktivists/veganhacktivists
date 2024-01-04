@@ -7,21 +7,16 @@ import PayPalLogo from '../../public/images/support/paypal-logo.png';
 import heroBackground from '../../public/images/support/VH-pig2-hero-nocircles.jpg';
 import heroTagline from '../../public/images/support/VH-support-hero-text.png';
 import Hero from '../components/decoration/hero';
-import Sprite, { chicken, pig } from '../components/decoration/sprite';
+import Sprite, { pig } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { PlainHeader } from '../components/decoration/textBlocks';
-import JoinOurTeam from '../components/layout/support/joinOurTeam';
-import PatreonSupporters from '../components/layout/support/patreonSupporters';
-import { getPatrons } from '../lib/patreon';
 import CustomLink from '../components/decoration/link';
-import { pixelHeart } from '../images/separators';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
 import DonorBoxCard from '../components/layout/support/donorBoxCard';
 
-import CustomImage from 'components/decoration/customImage';
-
-import type { GetStaticProps } from 'next';
+import ThankYouSection from 'components/layout/support/thankYouSection';
+import VioletStudios from 'components/layout/support/violetStudios';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'white', size: 16, left: 0, bottom: 0 },
@@ -37,9 +32,7 @@ const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
   <p className="px-10 mx-auto mb-20 text-xl md:w-3/4">{children}</p>
 );
 
-const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
-  patrons,
-}) => {
+const Support: React.FC = () => {
   const intl = useIntl();
 
   return (
@@ -137,60 +130,32 @@ const Support: React.FC<{ patrons: string[]; patreonFunding: number }> = ({
           }}
         />
       </Paragraph>
-      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
       <SquareField
         squares={[
-          { color: 'gray-background', size: 16, bottom: 0, left: 0 },
+          { color: 'gray-background', size: 16, bottom: 0, left: 16 },
           { color: 'gray-background', size: 16, bottom: 0, right: 0 },
+          { color: 'white', size: 16, top: 0, left: 0 },
           { color: 'white', size: 16, top: 0, right: 0 },
         ]}
         className="hidden md:block"
       />
-      <div className="px-10 pt-10 pb-20 mx-auto bg-gray-background">
-        <CustomImage
-          src={pixelHeart.src}
-          width={pixelHeart.width / 3}
-          height={pixelHeart.height / 3}
-          alt="Our community"
-        />
-
-        <h2 className="mb-8 text-4xl font-bold">
-          <FormattedMessage
-            id="page.support.section.thank-you.title"
-            defaultMessage="Thank You"
-          />
-        </h2>
-        <Paragraph>
-          <FormattedMessage
-            id="page.support.section.thank-you.introduction"
-            defaultMessage="We want to take a moment to thank the people below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
-          />
-        </Paragraph>
-        <PatreonSupporters patrons={patrons} />
-      </div>
+      <VioletStudios />
       <SquareField
         squares={[
-          { color: 'white', size: 16, top: 0, left: 0 },
-          { color: 'grey-light', size: 16, bottom: 0, left: 0 },
-          { color: 'grey-light', size: 16, bottom: 0, right: 0 },
+          { color: 'gray', size: 16, bottom: 0, right: 16 },
+          { color: '#BCBCBC', size: 16, top: 0, left: 0 },
+          { color: 'black', size: 16, top: 0, right: 0 },
         ]}
         className="hidden md:block"
       />
-      <JoinOurTeam />
-      <Sprite image={chicken} pixelsLeft={2} pixelsRight={0} />
+      <ThankYouSection />
+      <SquareField
+        squares={[{ color: 'grey-light', size: 16, bottom: 0, left: 0 }]}
+        className="hidden md:block"
+      />
+      <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const patrons = await getPatrons();
-
-  return {
-    props: {
-      patrons,
-    },
-    revalidate: 480,
-  };
 };
 
 export default Support;

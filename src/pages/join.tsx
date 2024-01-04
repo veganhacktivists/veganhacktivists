@@ -148,7 +148,7 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
     squareColor: '#eb7d23',
     title: intl.formatMessage({
       id: 'page.join.section.job-roles.title.1',
-      defaultMessage: 'UI Designers',
+      defaultMessage: 'UI/UX Designers',
     }),
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
@@ -198,11 +198,11 @@ const getJobRoleProps = (intl: IntlShape): JobRoleProps[] => [
       id: 'page.join.section.job-roles.title.4',
       defaultMessage: 'Graphic Designers',
     }),
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    href: 'https://violetstudios.org',
     description: (
       <FormattedMessage
         id="page.join.section.job-roles.description.4"
-        defaultMessage="Create high-quality and innovative designs that include logo and branding, social media visuals, and UI components."
+        defaultMessage="Apply to join our design team at Violet Studios, our sister organization for graphic design and branding."
       />
     ),
   },

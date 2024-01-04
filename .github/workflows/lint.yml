@@ -67,19 +67,4 @@ jobs:
 
       - name: Lint project
         id: lint
-        run: pnpm lint --fix
-
-      - name: Create Pull Request
-        if: ${{ failure() && steps.lint.outcome == 'failure' }}
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: autofix/${{ github.event.pull_request.head.ref }}
-          base: ${{ github.head_ref }}
-          reviewers: ${{ github.actor }}
-          delete-branch: true
-          title: "Auto fix code style"
-
-      - name: Fail if lint errors
-        if: ${{ failure() && steps.lint.outcome == 'failure' }}
-        run: exit 1
+        run: pnpm lint
