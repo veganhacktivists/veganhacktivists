@@ -43,3 +43,6 @@ yarn-error.log*
 
 # generated zod schemas
 /src/generated
+
+# typescript incremental compilation artifacts
+*.tsbuildinfo
