@@ -234,6 +234,12 @@ Wrap the part of the message in a `no-localization` tag:
 `Donate <no-localization>{currencyName}</no-localization>`  
 The `no-localization` tag will exclude it from translation and keep the variable name.
 
+### Weblate
+
+Weblate is running at [localize.veganhacktivists.org](https://localize.veganhacktivists.org)  
+Weblate is used to manage translations.  
+The configured file format is [WebExtension JSON](https://docs.weblate.org/en/latest/formats/webextension.html).
+
 ## Grab a card
 
 Steps for working on a card from [our Trello board](https://trello.com/b/7FMaTCuc/veganhacktivistsorg):
