@@ -53,7 +53,7 @@ const SignInWithEmail = ({ callbackUrl }: AuthProviderProps) => {
         setIsLoading(false);
       }
     },
-    [callbackUrl],
+    [callbackUrl]
   );
 
   return (
@@ -99,7 +99,7 @@ const SignIn: NextPage = () => {
         setSelectedRole(UserRole.Applicant);
       }
     },
-    { enabled: isReady },
+    { enabled: isReady }
   );
 
   const callbackUrl = useMemo(() => {
@@ -108,7 +108,7 @@ const SignIn: NextPage = () => {
     }
     const signupUrl = new URL(
       '/playground/signup',
-      document.location as unknown as URL,
+      document.location as unknown as URL
     );
 
     if (selectedRole) {
@@ -128,7 +128,7 @@ const SignIn: NextPage = () => {
         void push('/playground');
       }
     },
-    { enabled: status === 'authenticated' && isReady },
+    { enabled: status === 'authenticated' && isReady }
   );
 
   if (isLoading || status === 'loading') {

@@ -46,7 +46,6 @@ const RequestorSignup = ({ callbackUrl }: { callbackUrl?: string }) => {
   const onSubmit = useCallback(
     (data: RequestorSignupPayload) => {
       mutate(data);
-      // TODO: Add redirect to the next page
     },
     [mutate]
   );

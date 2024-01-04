@@ -1,4 +1,8 @@
-const twColors = require('tailwindcss/colors');
+import twColors from 'tailwindcss/colors';
+import typographyPlugin from '@tailwindcss/typography';
+import scrollbarPlugin from 'tailwind-scrollbar';
+
+import type { Config } from 'tailwindcss';
 
 const colors = {
   // Grays
@@ -56,20 +60,7 @@ const colors = {
   },
 };
 
-colors.broccoli = colors.green.DEFAULT;
-colors.banana = colors.yellow.DEFAULT;
-colors.carrot = colors.orange.DEFAULT;
-colors.watermelon = colors.magenta.DEFAULT;
-
-// Synonymous Colors (adds verbosity for spelling and ease of memory)
-colors.gray = colors.grey;
-colors.pink = colors.magenta;
-colors.fuchsia = colors.magenta;
-
-/**
- * @type import("tailwindcss").Config
- */
-module.exports = {
+const config = {
   darkMode: 'class',
   content: [
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -108,7 +99,18 @@ module.exports = {
         'background-position': 'background-position',
       },
     },
-    colors,
+    colors: {
+      ...colors,
+      broccoli: colors.green.DEFAULT,
+      banana: colors.yellow.DEFAULT,
+      carrot: colors.orange.DEFAULT,
+      watermelon: colors.magenta.DEFAULT,
+
+      // Synonymous Colors (adds verbosity for spelling and ease of memory)
+      gray: colors.grey,
+      pink: colors.magenta,
+      fuchsia: colors.magenta,
+    },
     fontFamily: {
       mono: ['Rajdhani', 'monospace'],
       sans: 'PT Sans',
@@ -118,9 +120,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/typography'),
-    require('tailwind-scrollbar'),
-  ],
-};
+  plugins: [typographyPlugin, scrollbarPlugin],
+} satisfies Config;
+
+export default config;

@@ -40,8 +40,6 @@ const ApplicantSignup = ({ callbackUrl }: { callbackUrl?: string }) => {
   const onSubmit = useCallback(
     (data: ApplicantSignupPayload) => {
       mutate(data);
-
-      // TODO: Add redirect to the next page
     },
     [mutate]
   );

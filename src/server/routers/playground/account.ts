@@ -18,8 +18,6 @@ const accountRouter = t.router({
   signup: protectedProcedure
     .input(requestorSignupSchema.or(applicantSignupSchema))
     .mutation(async ({ input, ctx }) => {
-      console.log(ctx);
-
       const session = await getSession({ ctx });
       if (!session?.user) return;
       const isRequestor = session.user?.isRequestor ?? false;

@@ -17,7 +17,7 @@ import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
 const sendVerificationRequest = async (
-  params: SendVerificationRequestParams,
+  params: SendVerificationRequestParams
 ) => {
   const { identifier, url } = params;
   // http://localhost:3000/api/auth/callback/email?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2Fplayground%2Frequest%2Fclqwi0muu0024yebzhxrg2lnu%3Frole%3DApplicant&token=daca16cbfde3e23a7347aecce83c3e0f6658b3f0108bfc95c8a3c90d660c6c86&email=joaquin%40veganhacktivists.org
@@ -58,7 +58,7 @@ const getPrismaAdapter = (req: NextApiRequest) => {
 
     if (
       [UserRole.Applicant, UserRole.Requestor].includes(
-        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>,
+        callbackUrl?.searchParams.get('role') as Exclude<UserRole, 'Admin'>
       )
     ) {
       const role = callbackUrl?.searchParams.get('role') as Exclude<

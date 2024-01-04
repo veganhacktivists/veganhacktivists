@@ -120,7 +120,7 @@ const JOB_ROLES: JobRoleProps[] = [
     image: designLogo,
     color: 'yellow-orange',
     squareColor: '#eb7d23',
-    title: 'UI Designers',
+    title: 'UI/UX Designers',
     href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
     description: (
       <>
@@ -162,11 +162,11 @@ const JOB_ROLES: JobRoleProps[] = [
     color: 'pink',
     squareColor: '#d31679',
     title: 'Graphic Designers',
-    href: 'https://forms.gle/zN5rYjZ8nLXXgktZA',
+    href: 'https://violetstudios.org',
     description: (
       <>
-        Create high-quality and innovative designs that include logo and
-        branding, social media visuals, and UI components.
+        Apply to join our design team at Violet Studios, our sister organization
+        for graphic design and branding.
       </>
     ),
   },
