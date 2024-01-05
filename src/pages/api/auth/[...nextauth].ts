@@ -41,7 +41,6 @@ export const nextAuthOptions: NextAuthOptions = {
   },
   providers: [
     EmailProvider({
-      name: 'magic link',
       server: process.env.EMAIL_SERVER_URL,
       from: OUR_EMAIL_FROM_FORMATTED,
       sendVerificationRequest,
