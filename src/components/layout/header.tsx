@@ -17,7 +17,7 @@ import CustomImage from 'components/decoration/customImage';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
-  const { pathname, locale, defaultLocale } = useRouter();
+  const { pathname } = useRouter();
   const isRootPage = pathname === '/';
 
   return (
@@ -41,7 +41,6 @@ const LeftSide: React.FC = () => {
       {/* others */}
       <Link
         href='/'
-        locale={locale !== defaultLocale ? locale : undefined}
         className={classNames('flex items-center', { hidden: isRootPage })}
       >
         <CustomImage
