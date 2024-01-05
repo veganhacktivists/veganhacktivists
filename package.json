@@ -6,7 +6,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "scripts": {
-    "postinstall": "(test -f ./scripts/postinstall.sh && ./scripts/postinstall.sh || true) && pnpm translation:compile",
+    "postinstall": "test -f ./scripts/postinstall.sh && ./scripts/postinstall.sh || true",
     "preinstall": "npx only-allow pnpm",
     "dev": "pnpm translation:compile && NODE_OPTIONS='--inspect' next dev",
     "build": "pnpm translation:compile && next build",

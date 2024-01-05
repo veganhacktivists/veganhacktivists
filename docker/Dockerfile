@@ -17,10 +17,9 @@ ENV CI=1
 COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
-COPY package.json ./
-RUN pnpm install --offline --no-optional --no-verify-store-integrity
-
 COPY . .
+
+RUN pnpm install --offline --no-optional --no-verify-store-integrity
 
 ARG DATABASE_URL
 RUN pnpm prisma generate
