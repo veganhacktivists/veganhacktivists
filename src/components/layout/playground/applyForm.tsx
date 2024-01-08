@@ -38,7 +38,7 @@ import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { Source } from '@prisma/client';
+import type { Origin } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -48,7 +48,7 @@ export const TimePerWeekLabel: Record<TimePerWeek, string> = {
   TenPlus: '10+ hours/week',
 };
 
-export const SourceLabel: Record<Source, string> = {
+export const SourceLabel: Record<Origin, string> = {
   SearchEngine: 'Google / searching',
   Reddit: 'Reddit community',
   SocialMediaPost: 'Social media posts',
@@ -163,7 +163,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           <Field title="About the organization">
             <div className="font-sans break-words">
               <div className="inline-block">
-                {request.organizationDescription
+                {request.organization.description
                   ?.split('\n')
                   .map((paragraph, i) => <p key={i}>{paragraph}</p>)}
               </div>
@@ -198,7 +198,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
-          <Field title="Website">{request.website}</Field>
+          <Field title="Website">{request.organization.website}</Field>
           {request.category === PlaygroundRequestCategory.Designer && (
             <>
               <Field title="Current design exists">
@@ -214,7 +214,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           {request.category === PlaygroundRequestCategory.Developer && (
             <>
               <Field title="Website exists">
-                {request.devRequestWebsiteExists ? 'Yes' : 'No'}
+                {!!request.devRequestWebsiteUrl ? 'Yes' : 'No'}
               </Field>
               {request.devRequestWebsiteUrl && (
                 <Field title="Concerned website url">
@@ -224,11 +224,11 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
             </>
           )}
           {request.organization && (
-            <Field title="Organization name">{request.organization}</Field>
+            <Field title="Organization name">{request.organization.name}</Field>
           )}
           {session?.user?.role === UserRole.Admin && (
             <>
-              <Field title="Provided email">{request.providedEmail}</Field>
+              <Field title="Provided email">{request.requester.email}</Field>
               <Field title="Registered email">
                 {request.requester.email ?? ''}
               </Field>
@@ -246,13 +246,13 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
 
 const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   const initials = useMemo(() => {
-    const [first, second] = request.name.split(/\s+/);
+    const [first, second] = request.title.split(/\s+/);
     if (second) {
       return `${first[0]}${second[0]}`.toUpperCase();
     }
 
     return `${first[0].toUpperCase()}${first?.[1] || ''}`;
-  }, [request.name]);
+  }, [request.title]);
 
   return (
     <aside className="text-center truncate lg:text-left">
@@ -261,9 +261,9 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
         <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div>
-        <div className="text-lg font-bold truncate">{request.name}</div>
-        <div title={request.organization || undefined} className="truncate">
-          {request.organization}
+        <div className="text-lg font-bold truncate">{request.title}</div>
+        <div title={request.organization.name || undefined} className="truncate">
+          {request.organization.name}
         </div>
         <div className="truncate">
           <a
@@ -271,12 +271,12 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
             rel="noreferrer"
             className="font-bold underline truncate hover:text-grey visited:text-grey"
             href={
-              request.website.match(/^https?:\/\//)
-                ? request.website
-                : `http://${request.website}`
+              request.organization.website.match(/^https?:\/\//)
+                ? request.organization.website
+                : `http://${request.organization.website}`
             }
           >
-            {request.website.replace(/^https?:\/\//i, '')}
+            {request.organization.website.replace(/^https?:\/\//i, '')}
           </a>
         </div>
       </div>
@@ -630,7 +630,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                 }
                 onChange={(value) => {
                   setFormData({
-                    source: value?.value as Source,
+                    source: value?.value as Origin,
                   });
                   onChange(value ? value.value : null);
                 }}

@@ -100,12 +100,24 @@ const requestsRouter = t.router({
           requesterId: user.id,
         },
         select: {
-          name: true,
+          title: true,
           organization: true,
-          calendlyUrl: true,
-          phone: true,
-          providedEmail: true,
-          website: true,
+          requester: {
+            select: {
+              requestorInformation: {
+                select: {
+                  contactLink: true,
+                  contactEmail: true,
+                  phone: true,
+                }
+              },
+              organization: {
+                select: {
+                  website: true,
+                }
+              }
+            }
+          },
         },
         orderBy: {
           createdAt: 'desc',
