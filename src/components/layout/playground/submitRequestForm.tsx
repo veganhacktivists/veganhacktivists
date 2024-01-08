@@ -114,7 +114,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm.id ? undefined : { ...storedForm, agreeToTerms: false, requiredSkills: Array.isArray(storedForm.requiredSkills) ? storedForm.requiredSkills.join(', ') : storedForm.requiredSkills },
+    defaultValues: storedForm.id ? undefined : { ...storedForm, requiredSkills: Array.isArray(storedForm.requiredSkills) ? storedForm.requiredSkills.join(', ') : storedForm.requiredSkills },
     resolver: zodResolver(submitRequestSchema),
   });
 

@@ -239,6 +239,7 @@ export const updateRequest = async ({
 export const submitRequest = async ({
   budget,
   requesterId,
+  agreeToTerms,
   ...params
 }: z.infer<typeof submitRequestSchema> & { requesterId: string }) => {
   const user = await prisma.user.findUnique({ where: { id: requesterId } });
@@ -262,14 +263,6 @@ export const submitRequest = async ({
         budget: {
           create: budget,
         },
-      },
-    }),
-    prisma.user.update({
-      where: {
-        id: requesterId,
-      },
-      data: {
-        name: params.name,
       },
     }),
   ]);
