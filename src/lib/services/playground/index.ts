@@ -133,22 +133,11 @@ export const getRequestById = async (
 export const applyToHelp = async (
   params: z.infer<typeof applyToRequestSchema> & { applicantId: string }
 ) => {
-  const [newRequest] = await prisma.$transaction([
-    prisma.playgroundApplication.create({
+  const newApplication = await prisma.playgroundApplication.create({
       data: {
         ...params,
       },
-    }),
-    prisma.user.update({
-      where: {
-        id: params.applicantId,
-      },
-      data: {
-        name: params.name,
-        pronouns: params.pronouns,
-      },
-    }),
-  ]);
+    });
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({
@@ -161,13 +150,14 @@ export const applyToHelp = async (
     });
   }
 
-  return newRequest;
+  return newApplication;
 };
 
 export const updateRequest = async ({
   id,
   budget,
   requesterId,
+  agreeToTerms,
   role,
   ...params
 }: z.infer<typeof submitRequestSchema> & {
@@ -209,30 +199,19 @@ export const updateRequest = async ({
     }),
   };
 
-  return prisma.$transaction(async (prisma) => {
-    await prisma.user.update({
-      where: {
-        id: requesterId,
+  return await prisma.playgroundRequest.update({
+    where: {
+      id: id,
+    },
+    data: {
+      ...params,
+      budget: {
+        ...operation,
       },
-      data: {
-        name: params.name,
-      },
-    });
-
-    return await prisma.playgroundRequest.update({
-      where: {
-        id: id,
-      },
-      data: {
-        ...params,
-        budget: {
-          ...operation,
-        },
-      },
-      include: {
-        budget: true,
-      },
-    });
+    },
+    include: {
+      budget: true,
+    },
   });
 };
 
