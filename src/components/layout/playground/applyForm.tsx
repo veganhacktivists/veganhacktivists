@@ -336,7 +336,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         onChange: (value) => {
           options?.onChange?.(value);
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          onChangeValue(name)(value.currentTarget.value);
+          onChangeValue(name as keyof FormInput)(value.currentTarget.value);
         },
       });
     },
@@ -626,7 +626,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
               <SelectInput
                 {...field}
                 current={
-                  value ? { value: value, label: SourceLabel[value] } : null
+                  value ? { value: value, label: SourceLabel[value as Origin] } : null
                 }
                 onChange={(value) => {
                   setFormData({

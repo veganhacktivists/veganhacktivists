@@ -2,11 +2,11 @@ import {
   BudgetType,
   PlaygroundRequestCategory,
   TimePerWeek,
-  Source,
   RequestStatus,
   ApplicationStatus,
   PlaygroundRequestDesignRequestType,
   OrganizationType,
+  Origin,
 } from '@prisma/client';
 import { z } from 'zod';
 
@@ -49,7 +49,7 @@ export const applyToRequestSchema = z.object({
   pronouns: z.string().optional(),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
   estimatedTimeDays: z.number().nonnegative().int(),
-  source: z.nativeEnum(Source).optional(),
+  source: z.nativeEnum(Origin).optional(),
   providedEmail: z.string().trim().email(),
   portfolioLink: z
     .string()
@@ -126,7 +126,7 @@ export const applicantSignupSchema = z.object({
   linkedin: z.string().trim().optional(),
   calendlyUrl: z.string().trim().min(1, { message: 'This value is required' }),
   availableTimePerWeek: z.nativeEnum(TimePerWeek),
-  source: z.nativeEnum(Source),
+  origin: z.nativeEnum(Origin),
 });
 
 export const requestorSignupSchema = z.object({
