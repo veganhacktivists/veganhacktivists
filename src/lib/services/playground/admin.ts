@@ -42,6 +42,7 @@ import type {
 export type RequestWithBudget = Prisma.PlaygroundRequestGetPayload<{
   include: { budget: { select: { quantity: true; type: true } } };
 }>;
+export type RequestInfo = Prisma.PlaygroundRequestGetPayload<{ include: { budget: true; organization: true; requester: { include: { requestorInformation: true } } } }>;
 
 export const getPendingApplications = async (
   params: z.infer<typeof getPendingApplicationsSchema>
@@ -122,6 +123,8 @@ export const getRequests = async ({
   return requests;
 };
 
+export type ApplicationInfo = Prisma.PlaygroundApplicationGetPayload<{ include: { applicant: { include: { applicantInformation: true } }, request: { include: { requester: { include: { requestorInformation: true } } } } } }>;
+
 export const setApplicationStatus = ({
   id,
   status,
@@ -151,7 +154,8 @@ export const setApplicationStatus = ({
         ...acceptedAt,
       },
       include: {
-        request: true,
+        request: { include: { budget: true, requester: { include: { requestorInformation: true } } } },
+        applicant: { include: { applicantInformation: true } }
       },
     });
 
@@ -168,10 +172,10 @@ export const setApplicationStatus = ({
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
         [
-          ['Website / Portfolio', updatedApplication.portfolioLink],
-          ['Twitter', updatedApplication.twitterUrl],
-          ['Instagram', updatedApplication.instagramUrl],
-          ['LinkedIn', updatedApplication.linkedinUrl],
+          ['Website / Portfolio', updatedApplication.applicant.applicantInformation?.website],
+          ['Twitter', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['twitter']],
+          ['Instagram', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['instagram']],
+          ['LinkedIn', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['linkedin']],
           ['Message', updatedApplication.moreInfo.replace(/\r?\n/g, '<br/>')],
         ].filter(([, value]) => !!value) as [string, string][]
       )
@@ -180,12 +184,12 @@ export const setApplicationStatus = ({
 
       await emailClient.sendMail({
         to: [
-          updatedApplication.providedEmail,
-          updatedApplication.request.providedEmail,
+          updatedApplication.applicant.email,
+          updatedApplication.request.requester.email,
         ],
         cc: OUR_EMAIL_TO,
         from: PLAYGROUND_EMAIL_FORMATTED,
-        subject: `We'd like to introduce ${updatedApplication.name}, from VH: Playground!`,
+        subject: `We'd like to introduce ${updatedApplication.applicant.name}, from VH: Playground!`,
         text: playgroundApplicantIntroductionEmail(
           updatedApplication,
           optionalMessageParts,
@@ -198,7 +202,7 @@ export const setApplicationStatus = ({
       });
     } else if (shouldNotifyDenialToApplicant) {
       await emailClient.sendMail({
-        to: updatedApplication.providedEmail,
+        to: updatedApplication.applicant.email,
         from: PLAYGROUND_EMAIL_FORMATTED,
         subject:
           'Thanks so much for submitting your request to support with Playground!',
@@ -210,7 +214,7 @@ export const setApplicationStatus = ({
     return updatedApplication;
   });
 
-const getMessageDescription = (request: PlaygroundRequest) => {
+const getMessageDescription = (request: RequestInfo) => {
   const DESCRIPTION_CHAR_LIMIT = 3000;
 
   const truncatedDescription = request.description.slice(
@@ -223,7 +227,7 @@ const getMessageDescription = (request: PlaygroundRequest) => {
       : truncatedDescription;
 
   return `${
-    request.organization || request.name
+    request.organization.name || request.requester.name
   } needs help, if you're interested in taking on this job, please apply to help with your resume, website, or linkedin, your email, and a little bit about you - thanks for your activism! 🐤
 
 ${codeBlock(description)}`;
@@ -256,13 +260,13 @@ const playgroundChannelIdByCategory = (request: PlaygroundRequest) => {
 
 const DISCORD_CHANNEL_IDS = getListFromEnv('DISCORD_CHANNEL_IDS');
 
-const postRequestOnDiscord = async (request: RequestWithBudget) => {
+const postRequestOnDiscord = async (request: RequestInfo) => {
   const playgroundChannelId = playgroundChannelIdByCategory(request);
 
   const roleToMention = ROLE_ID_BY_CATEGORY[request.category];
-  const correctedWebsite = /https?:\/\//.test(request.website)
-    ? request.website
-    : `http://${request.website}`;
+  const correctedWebsite = /https?:\/\//.test(request.organization.website)
+    ? request.organization.website
+    : `http://${request.organization.website}`;
 
   const sentMessages: Message[] = [];
 
@@ -386,20 +390,16 @@ export const repostRequest = async ({
           where: { id },
           data: { status: RequestStatus.Accepted, lastManuallyPushed },
           include: {
-            budget: {
-              select: {
-                quantity: true,
-                type: true,
-              },
-            },
+            budget: true,
+            organization: true,
           },
-        });
+        }) as RequestInfo;
 
         redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          include: { budget: true },
+          include: { budget: true, organization: true, requester: { include: { requestorInformation: true } } },
           data: {
             discordMessages: {
               create: discordMessages.map((msg) => ({
@@ -482,12 +482,13 @@ export const setRequestStatus = async ({
             ...acceptedAt,
           },
           include: {
-            budget: {
-              select: {
-                quantity: true,
-                type: true,
-              },
+            budget: true,
+            requester: {
+              include: {
+                requestorInformation: true,
+              }
             },
+            organization: true,
           },
         });
 
@@ -505,7 +506,7 @@ export const setRequestStatus = async ({
 
           updatedRequest = await prisma.playgroundRequest.update({
             where: { id },
-            include: { budget: true },
+            include: { budget: true, organization: true, requester: { include: { requestorInformation: true } } },
             data: {
               discordMessages: {
                 create: discordMessages.map((msg) => ({
@@ -549,14 +550,15 @@ export const setRequestStatus = async ({
   }
 };
 
+
 const sendAcceptedEmail = (
-  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'id'>
+  request: RequestInfo
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
   return emailClient.sendMail({
-    to: request.providedEmail,
+    to: request?.requester?.email,
     from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'Your request is now live on Playground!',
     text: playgroundRequestApprovalEmail(request, true),
@@ -564,12 +566,12 @@ const sendAcceptedEmail = (
   });
 };
 
-const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
+const sendDenialEmail = (request: RequestInfo) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
   return emailClient.sendMail({
-    to: request.providedEmail,
+    to: request?.requester?.email,
     from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'Thanks so much for submitting your request to Playground!',
     text: playgroundRequestDenialEmail(true),
@@ -578,13 +580,13 @@ const sendDenialEmail = (request: Pick<PlaygroundRequest, 'providedEmail'>) => {
 };
 
 const sendCompletionEmail = (
-  request: Pick<PlaygroundRequest, 'providedEmail' | 'name' | 'title'>
+  request: RequestInfo
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
   return emailClient.sendMail({
-    to: request.providedEmail,
+    to: request?.requester?.email,
     from: PLAYGROUND_EMAIL_FORMATTED,
     cc: PLAYGROUND_TO_CC,
     subject: 'Help Us Improve! Rate Your Experience with Playground',

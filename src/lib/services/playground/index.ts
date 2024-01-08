@@ -134,10 +134,10 @@ export const applyToHelp = async (
   params: z.infer<typeof applyToRequestSchema> & { applicantId: string }
 ) => {
   const newApplication = await prisma.playgroundApplication.create({
-      data: {
-        ...params,
-      },
-    });
+    data: {
+      ...params,
+    },
+  });
 
   if (process.env.NODE_ENV === 'production') {
     await emailClient.sendMail({

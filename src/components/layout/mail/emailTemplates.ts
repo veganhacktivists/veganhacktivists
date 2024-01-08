@@ -2,7 +2,7 @@ import mjml2html from 'mjml';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
-import type { PlaygroundApplication, PlaygroundRequest } from '@prisma/client';
+import { RequestInfo, ApplicationInfo } from 'lib/services/playground/admin';
 
 const host =
   process.env.NODE_ENV === 'production'
@@ -182,14 +182,12 @@ export const playgroundReviewRequestEmail = (textonly = false) => {
 };
 
 export const playgroundApplicantIntroductionEmail = (
-  application: Pick<PlaygroundApplication, 'name' | 'calendlyUrl'> & {
-    request: Pick<PlaygroundRequest, 'name' | 'title' | 'calendlyUrl'>;
-  },
+  application: ApplicationInfo,
   optionalMessageParts: string,
   textonly = false
 ) => {
   if (textonly) {
-    return `Hi ${application.request.name},
+    return `Hi ${application.request.requester.name},
 <br />
 <br />
 We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
@@ -200,7 +198,7 @@ We&apos;re excited to let you know that we&apos;ve been able to find someone to 
 Meet the person (cc&apos;ed to this email) below that applied to your request!
 <br />
 <br />
-<b>Name:</b> ${application.name}
+<b>Name:</b> ${application.applicant.name}
 <br />
 <br />
 ${optionalMessageParts}
@@ -213,13 +211,13 @@ ${optionalMessageParts}
 <br />
 <br />
 We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
-      application.request.name
+      application.request.requester.name
     }&apos;s Calendy link <a href="${
       // TODO: sanitize this and all the other data?
-      application.request.calendlyUrl
+      application.request.requester.requestorInformation?.contactLink
     }">here</a>${
-      application.calendlyUrl
-        ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+      application.applicant.applicantInformation?.contactLink
+        ? ` or ${application.applicant.name}&apos;s Calendy link <a href="${application.applicant.applicantInformation.contactLink}">here</a>`
         : ''
     }.
 <br />
@@ -237,24 +235,24 @@ Thank you so much for helping the animals, and for using Playground!
 `;
   }
   const body = `
-    <mj-text>Hi ${application.request.name},</mj-text>
+    <mj-text>Hi ${application.request.requester.name},</mj-text>
     <mj-text>
       We&apos;re excited to let you know that we&apos;ve been able to find someone to help you with &ldquo;${
         application.request.title
       }&rdquo;!</mj-text>
     <mj-text>Meet the person (cc&apos;ed to this email) below that applied to your request!</mj-text>
-    <mj-text><b>Name:</b> ${application.name}</mj-text>
+    <mj-text><b>Name:</b> ${application.applicant.name}</mj-text>
     <mj-text>${optionalMessageParts}</mj-text>
     <mj-text><b>Note:</b> Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit time to help you, they are often juggling multiple commitments so please be patient.</mj-text>
     <mj-text><b>What&apos;s next?</b></mj-text>
     <mj-text>We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
-      application.request.name
+      application.request.requester.name
     }&apos;s Calendy link <a href="${
       // TODO: sanitize this and all the other data?
-      application.request.calendlyUrl
+      application.request.requester.requestorInformation?.contactLink
     }">here</a>${
-      application.calendlyUrl
-        ? ` or ${application.name}&apos;s Calendy link <a href="${application.calendlyUrl}">here</a>`
+      application.applicant.applicantInformation?.contactLink
+        ? ` or ${application.applicant.name}&apos;s Calendy link <a href="${application.applicant.applicantInformation.contactLink}">here</a>`
         : ''
     }.</mj-text>
     <mj-text><b>Important notice:</b></mj-text>
@@ -315,14 +313,14 @@ Thank you so much for considering VH: Playground for your request!`;
 };
 
 export const playgroundRequestApprovalEmail = (
-  request: Pick<PlaygroundRequest, 'name' | 'id'>,
+  request: RequestInfo,
   textonly = false
 ) => {
   if (textonly) {
     return `
    Your request is now live on Playground!
 <br /><br />
-Hey ${request.name}!
+Hey ${request.requester.name}!
 <br /><br />
 Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>. Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit a reasonable amount of time to help you, they are often juggling multiple commitments so please be patient.
 <br /><br />
@@ -332,7 +330,7 @@ Thank you so much! `;
   }
   const body = `
     <mj-text font-weight="bold">Your request is now live on Playground!</mj-text>
-    <mj-text>Hey ${request.name}!</mj-text>
+    <mj-text>Hey ${request.requester.name}!</mj-text>
     <mj-text>Thanks for submitting your request to VH: Playground! We're happy to let you know that our team has reviewed and accepted your request, which means you can now view and share it online by <a href="${url}/playground/request/${request.id}">clicking this link</a>. Please keep in mind that Playground volunteers often have full-time jobs and are helping in their spare time. While they have agreed to commit a reasonable amount of time to help you, they are often juggling multiple commitments so please be patient.</mj-text>
     <mj-text>Playground is still growing! If you have any feedback or questions, feel free to reply to this email to get in touch, or visit our FAQ <a href="${url}/playground#faq">over here</a>.</mj-text>
     <mj-text>Thank you so much!</mj-text>
@@ -341,7 +339,7 @@ Thank you so much! `;
 };
 
 export const playgroundRequestRejectedDueToInactivity = (
-  request: Pick<PlaygroundRequest, 'id' | 'name' | 'title'>,
+  request: RequestInfo,
   textonly = false
 ) => {
   const createNewRequestUrl = `${url}/auth/signin?callbackUrl=${encodeURIComponent(
@@ -350,7 +348,7 @@ export const playgroundRequestRejectedDueToInactivity = (
 
   if (textonly) {
     return `
-Hey ${request.name}!
+Hey ${request.requester.name}!
 <br /><br />
 We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.
 <br /><br />
@@ -367,7 +365,7 @@ Resubmit your request: ${createNewRequestUrl}
   }
 
   const body = `
-<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>Hey ${request.requester.name}!</mj-text>
 <mj-text>We're sorry to inform you that due to inactivity, your request "${request.title}" opened in "VH: Playground" has been automatically closed.</mj-text>
 <mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
 <mj-text>Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
@@ -379,18 +377,18 @@ Resubmit your request: ${createNewRequestUrl}
 };
 
 export const playgroundRequestCompletedSurvey = (
-  request: Pick<PlaygroundRequest, 'name' | 'title'>,
+  request: RequestInfo,
   textonly = false
 ) => {
   const surveyUrl =
     'https://docs.google.com/forms/d/e/1FAIpQLSc_FrluU7o0q4sUT4v8uTWkC6J2mi7b_h3x1pq6o5UqlBjI9Q/viewform';
 
   if (textonly) {
-    return `Hey ${request.name}!
+    return `Hey ${request.requester.name}!
 <br /><br />
-We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with! 
+We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with!
 <br /><br />
-We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals. 
+We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals.
 <br /><br />
 Rest assured that your responses will remain confidential, and your personal information will not be shared with any third parties.
 <br /><br />
@@ -402,7 +400,7 @@ Have a question? Contact us at hello@veganhacktivists.org.`;
   }
 
   const html = `
-<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>Hey ${request.requester.name}!</mj-text>
 <mj-text>We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with!</mj-text>
 <mj-text>We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals.</mj-text>
 <mj-text>Rest assured that your responses will remain confidential, and your personal information will not be shared with any third parties.</mj-text>
@@ -413,10 +411,7 @@ Have a question? Contact us at hello@veganhacktivists.org.`;
 };
 
 export const playgroundInternalNotificationForRequestsWithoutApplications = (
-  request: Pick<
-    PlaygroundRequest,
-    'id' | 'title' | 'description' | 'category' | 'acceptedAt' | 'createdAt'
-  >,
+  request: RequestInfo,
   textonly = false
 ) => {
   const formattedDiff = readableTimeDiff(
@@ -447,7 +442,7 @@ View request: ${viewRequestUrl}`;
 };
 
 export const playgroundRequestFeedbackAboutVolunteerAfter1Week = (
-  request: Pick<PlaygroundRequest, 'name' | 'title' | 'providedEmail'>,
+  request: RequestInfo,
   applicantName: string,
   textonly = false
 ) => {
@@ -457,7 +452,7 @@ export const playgroundRequestFeedbackAboutVolunteerAfter1Week = (
     'https://docs.google.com/forms/d/e/1FAIpQLSc0aQRvRY0pN6WeFuaR59OnjPH9vAIm2d6OSoDzhpbhP03FIg/viewform';
 
   if (textonly) {
-    return `Hey ${request.name}!
+    return `Hey ${request.requester.name}!
 <br /><br />
 It’s been a week since we have connected you with a volunteer “${applicantName}” to help with your request "${request.title}" opened in "VH: Playground".
 <br /><br />
@@ -471,7 +466,7 @@ Have a question? Contact us at hello@veganhacktivists.org.`;
   }
 
   const body = `
-<mj-text>Hey ${request.name}!</mj-text>
+<mj-text>Hey ${request.requester.name}!</mj-text>
 <mj-text>It’s been a week since we have connected you with a volunteer “${applicantName}” to help with your request "${request.title}" opened in "VH: Playground".</mj-text>
 <mj-text>Is this volunteer working out for you?</mj-text>
 <mj-table align="center" width="60px">

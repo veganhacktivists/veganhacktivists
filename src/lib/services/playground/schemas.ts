@@ -118,37 +118,45 @@ export const requestorSignupSchema = z.object({
   }),
 });
 
-export const submitRequestSchema = z
-  .object({
-    id: z.string().cuid().optional(),
-    title: z.string().trim().min(1).max(200),
-    category: z.nativeEnum(PlaygroundRequestCategory),
-    // Transform the string of skills separated by a comma in an array of strings
-    requiredSkills: z.union([z.string().transform((x) =>
+export const submitRequestSchema = z.object({
+  id: z.string().cuid().optional(),
+  title: z.string().trim().min(1).max(200),
+  category: z.nativeEnum(PlaygroundRequestCategory),
+  // Transform the string of skills separated by a comma in an array of strings
+  requiredSkills: z.union([
+    z.string().transform((x) =>
       x
         .split(',')
         .map((x) => x.trim())
         .filter((x) => x.length > 0)
-    ), z.array(z.string())]),
-    description: z.string().trim().min(1),
-    budget: budgetSchema.optional(),
-    dueDate: z.union([z.date().refine((x) => x.getTime() > Date.now(), {
-      message: 'Due date must be in the future',
-    }), z.string()
-      .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+    ),
+    z.array(z.string()),
+  ]),
+  description: z.string().trim().min(1),
+  budget: budgetSchema.optional(),
+  dueDate: z
+    .union([
+      z.date().refine((x) => x.getTime() > Date.now(), {
         message: 'Due date must be in the future',
-      })]).nullish()
-      ,
-    estimatedTimeDays: z.number().nonnegative().int().nullish(),
-    neededVolunteers: z.number().nonnegative().int(),
-    agreeToTerms: z
-      .boolean().refine((x) => !!x, { message: 'You must agree to the terms' }),
-    devRequestWebsiteUrl: z.string().optional(),
-    designRequestType: z
-      .nativeEnum(PlaygroundRequestDesignRequestType)
-      .optional(),
-    designRequestCurrentDesignExists: z.boolean().optional(),
-  });
+      }),
+      z
+        .string()
+        .refine((x) => new Date(x).getTime() > Date.now() || x.length === 0, {
+          message: 'Due date must be in the future',
+        }),
+    ])
+    .nullish(),
+  estimatedTimeDays: z.number().nonnegative().int().nullish(),
+  neededVolunteers: z.number().nonnegative().int(),
+  agreeToTerms: z
+    .boolean()
+    .refine((x) => !!x, { message: 'You must agree to the terms' }),
+  devRequestWebsiteUrl: z.string().optional(),
+  designRequestType: z
+    .nativeEnum(PlaygroundRequestDesignRequestType)
+    .optional(),
+  designRequestCurrentDesignExists: z.boolean().optional(),
+});
 
 export const getPendingApplicationsSchema = paginationSchema.optional();
 

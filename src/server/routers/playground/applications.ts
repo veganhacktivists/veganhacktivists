@@ -33,18 +33,18 @@ const applicationsRouter = t.router({
           applicantId: user.id,
         },
         select: {
-          applicant: { 
+          applicant: {
             select: {
               name: true,
               applicantInformation: {
                 select: {
-                 website: true,
+                  website: true,
                   socialMedia: true,
                   contactLink: true,
                   contactEmail: true,
-                }
+                },
               },
-            }
+            },
           },
           status: true,
         },

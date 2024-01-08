@@ -114,7 +114,14 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm.id ? undefined : { ...storedForm, requiredSkills: Array.isArray(storedForm.requiredSkills) ? storedForm.requiredSkills.join(', ') : storedForm.requiredSkills },
+    defaultValues: storedForm.id
+      ? undefined
+      : {
+          ...storedForm,
+          requiredSkills: Array.isArray(storedForm.requiredSkills)
+            ? storedForm.requiredSkills.join(', ')
+            : storedForm.requiredSkills,
+        },
     resolver: zodResolver(submitRequestSchema),
   });
 
@@ -126,7 +133,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       enabled: !!requestId && requestId.length > 0,
     }
   );
-
 
   useEffect(() => {
     if (request && sessionStatus !== 'loading' && !requestLoaded) {
@@ -172,9 +178,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     }
   }, [request, setValue, session, router, sessionStatus, requestLoaded]);
 
-  useEffect(() => {
-
-  }, [])
+  useEffect(() => {}, []);
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
@@ -393,7 +397,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </div>
         {!isFirstRender && requestCategory === 'Developer' && (
           <>
-          {/*  <div className="md:col-span-2 col-span-full">
+            {/*  <div className="md:col-span-2 col-span-full">
               <Label name="devRequestWebsiteExists">
                 Do you have an existing website?
               </Label>

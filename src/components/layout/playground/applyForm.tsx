@@ -12,7 +12,6 @@ import {
   ApplicationStatus,
   PlaygroundRequestCategory,
   RequestStatus,
-  TimePerWeek,
   UserRole,
 } from '@prisma/client';
 import Link from 'next/link';
@@ -34,7 +33,7 @@ import TextArea from 'components/forms/inputs/textArea';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { Origin } from '@prisma/client';
+import type { Origin, TimePerWeek } from '@prisma/client';
 import type { z } from 'zod';
 
 export const TimePerWeekLabel: Record<TimePerWeek, string> = {
@@ -258,7 +257,10 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
       </div>
       <div>
         <div className="text-lg font-bold truncate">{request.title}</div>
-        <div title={request.organization.name || undefined} className="truncate">
+        <div
+          title={request.organization.name || undefined}
+          className="truncate"
+        >
           {request.organization.name}
         </div>
         <div className="truncate">
@@ -343,7 +345,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     trpc.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
-
 
   useOnce(
     () => {

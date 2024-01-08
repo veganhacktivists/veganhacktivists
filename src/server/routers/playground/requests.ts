@@ -109,14 +109,14 @@ const requestsRouter = t.router({
                   contactLink: true,
                   contactEmail: true,
                   phone: true,
-                }
+                },
               },
               organization: {
                 select: {
                   website: true,
-                }
-              }
-            }
+                },
+              },
+            },
           },
         },
         orderBy: {
