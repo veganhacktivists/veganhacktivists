@@ -45,22 +45,7 @@ export const getPlaygroundRequestsSchema = requestFilterSchema
 
 export const applyToRequestSchema = z.object({
   requestId: z.string().cuid(),
-  name: z.string().min(1, { message: 'This value is required' }),
-  pronouns: z.string().optional(),
-  availableTimePerWeek: z.nativeEnum(TimePerWeek),
   estimatedTimeDays: z.number().nonnegative().int(),
-  source: z.nativeEnum(Origin).optional(),
-  providedEmail: z.string().trim().email(),
-  portfolioLink: z
-    .string()
-    .trim()
-    .min(1, { message: 'This value is required' }),
-  twitterUrl: z.string().trim().optional(),
-  instagramUrl: z.string().trim().optional(),
-  linkedinUrl: z.string().trim().optional(),
-  hasAppliedInThePast: z.boolean(),
-  isVegan: z.boolean(),
-  calendlyUrl: z.string().trim().optional(),
   moreInfo: z.string().trim().min(1, { message: 'This value is required' }),
 
   // Check those parameters are set, and delete them from the request aferwards

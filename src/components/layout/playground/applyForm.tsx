@@ -19,7 +19,6 @@ import Link from 'next/link';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
-import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
 import { readableTimeDiff } from 'lib/helpers/date';
@@ -27,14 +26,11 @@ import { DarkButton, WhiteButton } from 'components/decoration/buttons';
 import { applyToRequestSchemaClient } from 'lib/services/playground/schemas';
 import useOnce from 'hooks/useOnce';
 import TextInput from 'components/forms/inputs/textInput';
-import RadioButton from 'components/forms/inputs/radioButton';
 import Checkbox from 'components/forms/inputs/checkbox';
 import SubtleBorder from 'components/decoration/subtleBorder';
 import usePlaygroundApplyStore from 'lib/stores/playground/applyStore';
 import Spinner from 'components/decoration/spinner';
 import TextArea from 'components/forms/inputs/textArea';
-import SelectInput from 'components/forms/inputs/selectInput';
-import Label from 'components/forms/inputs/label';
 import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
 
@@ -316,7 +312,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   } = useForm<trpc['playground']['apply']['input']>({
     defaultValues: {
       ...storedForm,
-      hasAppliedInThePast: request.userAlreadyApplied,
       requestId: request.id,
     },
     resolver: zodResolver(applyToRequestSchemaClient),
@@ -349,25 +344,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       enabled: sessionStatus === 'authenticated',
     });
 
-  useOnce(
-    () => {
-      if (!session?.user) return;
-      const { name, email } = session.user;
-      if (name && !watch('name')) {
-        setValue('name', name);
-        setFormData({ name });
-      }
-
-      if (email && !watch('providedEmail')) {
-        setValue('providedEmail', email);
-        setFormData({ providedEmail: email });
-      }
-    },
-    {
-      enabled:
-        sessionStatus === 'authenticated' && !shouldSubmit && router.isReady,
-    }
-  );
 
   useOnce(
     () => {
@@ -437,169 +413,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           Interested in applying to help with this project?
         </div>
         <TextInput
-          showRequiredMark
-          className="col-span-full"
-          error={errors.name?.message}
-          {...myRegister('name')}
-          placeholder="Your name"
-        >
-          Name
-        </TextInput>
-        <TextInput
-          className="col-span-full"
-          error={errors.pronouns?.message}
-          {...myRegister('pronouns')}
-          placeholder="Your pronouns"
-        >
-          Pronouns
-        </TextInput>
-        <TextInput
-          showRequiredMark
-          className="flex flex-col md:col-span-3"
-          error={errors.providedEmail?.message}
-          {...myRegister('providedEmail')}
-          placeholder="name@example.com"
-        >
-          Email
-        </TextInput>
-        <TextInput
-          showRequiredMark
-          className="md:col-span-3"
-          error={errors.portfolioLink?.message}
-          {...myRegister('portfolioLink')}
-          placeholder="yourwebsite.com"
-        >
-          <span className="hidden lg:inline">Personal website or p</span>
-          <span className="inline lg:hidden">P</span>ortfolio link
-        </TextInput>
-        <TextInput
-          className="md:col-span-2"
-          error={errors.twitterUrl?.message}
-          {...myRegister('twitterUrl')}
-          placeholder="@yourhandle"
-        >
-          Twitter
-        </TextInput>
-        <TextInput
-          className="md:col-span-2"
-          error={errors.instagramUrl?.message}
-          {...myRegister('instagramUrl')}
-          placeholder="@yourhandle"
-        >
-          Instagram
-        </TextInput>
-        <TextInput
-          className="md:col-span-2"
-          error={errors.linkedinUrl?.message}
-          {...myRegister('linkedinUrl')}
-          placeholder="linkedin.com/in/"
-        >
-          LinkedIn
-        </TextInput>
-        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
-          <div className="font-bold">
-            Have you applied for a Playground project in the past?
-          </div>
-          <Controller
-            control={control}
-            name="hasAppliedInThePast"
-            render={({ field: { value, onChange } }) => (
-              <>
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ hasAppliedInThePast: true });
-                    onChange(true);
-                  }}
-                  checked={value === true}
-                  label="Yes"
-                />
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ hasAppliedInThePast: false });
-
-                    onChange(false);
-                  }}
-                  checked={value === false}
-                  label="No"
-                />
-                {errors.hasAppliedInThePast?.message && (
-                  <span className="text-red">
-                    {errors.hasAppliedInThePast.message}
-                  </span>
-                )}
-              </>
-            )}
-          />
-        </div>
-        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
-          <div className="font-bold">Are you vegan?</div>
-          <Controller
-            control={control}
-            name="isVegan"
-            render={({ field: { value, onChange } }) => (
-              <>
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ isVegan: true });
-                    onChange(true);
-                  }}
-                  checked={value === true}
-                  label="Yes"
-                />
-                <RadioButton
-                  onChange={() => {
-                    setFormData({ isVegan: true });
-                    onChange(false);
-                  }}
-                  checked={value === false}
-                  label="No"
-                />
-                {errors.isVegan?.message && (
-                  <span className="text-red">{errors.isVegan.message}</span>
-                )}
-              </>
-            )}
-          />
-        </div>
-        <TextInput
-          className="col-span-full md:col-span-3"
-          error={errors.calendlyUrl?.message}
-          {...myRegister('calendlyUrl')}
-          placeholder="calendly.com/yourname"
-        >
-          Calendly link (or alternative scheduling link)
-        </TextInput>
-        <div className="relative bottom-0 self-end col-span-full md:col-span-3">
-          <Label
-            name="availableTimePerWeek"
-            error={errors.availableTimePerWeek?.message}
-            showRequiredMark
-          >
-            Available time per week
-          </Label>
-          <Controller
-            control={control}
-            name="availableTimePerWeek"
-            render={({ field: { value: current, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                placeholder="Select an option"
-                onChange={(value) => {
-                  setFormData({
-                    availableTimePerWeek: value?.value as TimePerWeek,
-                  });
-                  onChange(value ? value.value : null);
-                }}
-                current={{ value: current, label: TimePerWeekLabel[current] }}
-                options={Object.keys(TimePerWeek).map((time) => ({
-                  value: time,
-                  label: TimePerWeekLabel[time as TimePerWeek],
-                }))}
-              />
-            )}
-          />
-        </div>
-        <TextInput
           className="col-span-full"
           type="number"
           inputMode="numeric"
@@ -615,33 +428,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             take
           </span>
         </TextInput>
-        <div className="col-span-full">
-          <Label error={errors.source?.message} name="source">
-            Where did you hear about Playground?
-          </Label>
-          <Controller
-            name="source"
-            control={control}
-            render={({ field: { value, onChange, ...field } }) => (
-              <SelectInput
-                {...field}
-                current={
-                  value ? { value: value, label: SourceLabel[value as Origin] } : null
-                }
-                onChange={(value) => {
-                  setFormData({
-                    source: value?.value as Origin,
-                  });
-                  onChange(value ? value.value : null);
-                }}
-                options={Object.entries(SourceLabel).map(([value, label]) => ({
-                  value,
-                  label,
-                }))}
-              />
-            )}
-          />
-        </div>
         <TextArea
           error={errors.moreInfo?.message}
           showRequiredMark
@@ -713,13 +499,15 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         </DarkButton>
       </form>
       <ConfirmationModal isOpen={isSuccess} type="application" />
+      {/*
+      Todo: this area should only be visible to logged-in users anyway
       <SignInPrompt
         isOpen={isSignInModalOpen}
         type="application"
-        onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify
       />
+        */}
     </>
   );
 };
