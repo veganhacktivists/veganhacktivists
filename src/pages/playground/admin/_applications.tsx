@@ -2,6 +2,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useCallback } from 'react';
 import { ApplicationStatus, RequestStatus } from '@prisma/client';
 import { NextSeo } from 'next-seo';
+import ApplicationCard from 'components/layout/playground/applicationCard';
 
 import {
   DarkButton,
@@ -12,7 +13,6 @@ import {
 } from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
-import ApplicationCard from 'components/layout/playground/applicationCard';
 import Spinner from 'components/decoration/spinner';
 
 import type { NextPage } from 'next';

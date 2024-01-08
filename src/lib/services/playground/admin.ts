@@ -42,7 +42,13 @@ import type {
 export type RequestWithBudget = Prisma.PlaygroundRequestGetPayload<{
   include: { budget: { select: { quantity: true; type: true } } };
 }>;
-export type RequestInfo = Prisma.PlaygroundRequestGetPayload<{ include: { budget: true; organization: true; requester: { include: { requestorInformation: true } } } }>;
+export type RequestInfo = Prisma.PlaygroundRequestGetPayload<{
+  include: {
+    budget: true;
+    organization: true;
+    requester: { include: { requestorInformation: true } };
+  };
+}>;
 
 export const getPendingApplications = async (
   params: z.infer<typeof getPendingApplicationsSchema>
@@ -123,7 +129,14 @@ export const getRequests = async ({
   return requests;
 };
 
-export type ApplicationInfo = Prisma.PlaygroundApplicationGetPayload<{ include: { applicant: { include: { applicantInformation: true } }, request: { include: { requester: { include: { requestorInformation: true } } } } } }>;
+export type ApplicationInfo = Prisma.PlaygroundApplicationGetPayload<{
+  include: {
+    applicant: { include: { applicantInformation: true } };
+    request: {
+      include: { requester: { include: { requestorInformation: true } } };
+    };
+  };
+}>;
 
 export const setApplicationStatus = ({
   id,
@@ -154,8 +167,13 @@ export const setApplicationStatus = ({
         ...acceptedAt,
       },
       include: {
-        request: { include: { budget: true, requester: { include: { requestorInformation: true } } } },
-        applicant: { include: { applicantInformation: true } }
+        request: {
+          include: {
+            budget: true,
+            requester: { include: { requestorInformation: true } },
+          },
+        },
+        applicant: { include: { applicantInformation: true } },
       },
     });
 
@@ -172,10 +190,25 @@ export const setApplicationStatus = ({
     if (shouldNotifyBoth) {
       const optionalMessageParts = (
         [
-          ['Website / Portfolio', updatedApplication.applicant.applicantInformation?.website],
-          ['Twitter', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['twitter']],
-          ['Instagram', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['instagram']],
-          ['LinkedIn', updatedApplication.applicant.applicantInformation?.socialMedia as Record<string, string>['linkedin']],
+          [
+            'Website / Portfolio',
+            updatedApplication.applicant.applicantInformation?.website,
+          ],
+          [
+            'Twitter',
+            updatedApplication.applicant.applicantInformation
+              ?.socialMedia as Record<string, string>['twitter'],
+          ],
+          [
+            'Instagram',
+            updatedApplication.applicant.applicantInformation
+              ?.socialMedia as Record<string, string>['instagram'],
+          ],
+          [
+            'LinkedIn',
+            updatedApplication.applicant.applicantInformation
+              ?.socialMedia as Record<string, string>['linkedin'],
+          ],
           ['Message', updatedApplication.moreInfo.replace(/\r?\n/g, '<br/>')],
         ].filter(([, value]) => !!value) as [string, string][]
       )
@@ -386,20 +419,24 @@ export const repostRequest = async ({
   try {
     const updatedRequest = await prisma.$transaction(
       async (prisma) => {
-        let updatedRequest = await prisma.playgroundRequest.update({
+        let updatedRequest = (await prisma.playgroundRequest.update({
           where: { id },
           data: { status: RequestStatus.Accepted, lastManuallyPushed },
           include: {
             budget: true,
             organization: true,
           },
-        }) as RequestInfo;
+        })) as RequestInfo;
 
         redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
-          include: { budget: true, organization: true, requester: { include: { requestorInformation: true } } },
+          include: {
+            budget: true,
+            organization: true,
+            requester: { include: { requestorInformation: true } },
+          },
           data: {
             discordMessages: {
               create: discordMessages.map((msg) => ({
@@ -486,7 +523,7 @@ export const setRequestStatus = async ({
             requester: {
               include: {
                 requestorInformation: true,
-              }
+              },
             },
             organization: true,
           },
@@ -506,7 +543,11 @@ export const setRequestStatus = async ({
 
           updatedRequest = await prisma.playgroundRequest.update({
             where: { id },
-            include: { budget: true, organization: true, requester: { include: { requestorInformation: true } } },
+            include: {
+              budget: true,
+              organization: true,
+              requester: { include: { requestorInformation: true } },
+            },
             data: {
               discordMessages: {
                 create: discordMessages.map((msg) => ({
@@ -550,10 +591,7 @@ export const setRequestStatus = async ({
   }
 };
 
-
-const sendAcceptedEmail = (
-  request: RequestInfo
-) => {
+const sendAcceptedEmail = (request: RequestInfo) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
@@ -579,9 +617,7 @@ const sendDenialEmail = (request: RequestInfo) => {
   });
 };
 
-const sendCompletionEmail = (
-  request: RequestInfo
-) => {
+const sendCompletionEmail = (request: RequestInfo) => {
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }

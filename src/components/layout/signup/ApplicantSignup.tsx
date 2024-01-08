@@ -141,11 +141,11 @@ const ApplicantSignup = () => {
             />
           </div>
           <div className="col-span-full">
-            <Label error={errors.source?.message} name="source">
+            <Label error={errors.origin?.message} name="source">
               Where did you hear about Playground?
             </Label>
             <Controller
-              name="source"
+              name="origin"
               control={control}
               render={({ field: { value, onChange, ...field } }) => (
                 <SelectInput

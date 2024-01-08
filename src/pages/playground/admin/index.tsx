@@ -3,6 +3,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { RequestStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
+import ApplicationCard from 'components/layout/playground/applicationCard';
 
 import {
   DenyButton,
@@ -17,7 +18,6 @@ import { trpc } from 'lib/client/trpc';
 import PlaygroundRequestCard from 'components/layout/playground/requests/requestCard';
 import Spinner from 'components/decoration/spinner';
 import useOnce from 'hooks/useOnce';
-import ApplicationCard from 'components/layout/playground/applicationCard';
 
 import type { NextPage } from 'next';
 

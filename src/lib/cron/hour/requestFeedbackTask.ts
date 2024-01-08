@@ -6,7 +6,7 @@ import { playgroundRequestFeedbackAboutVolunteerAfter1Week } from 'components/la
 import emailClient from 'lib/mail';
 import { PLAYGROUND_EMAIL_FORMATTED } from 'lib/mail/router';
 
-import type { PlaygroundRequest } from '@prisma/client';
+import type { RequestInfo } from 'lib/services/playground/admin';
 
 const WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -30,13 +30,12 @@ export async function requestPlaygroundApplicantFeedbackTask() {
       },
       select: {
         id: true,
-        name: true,
+        applicant: true,
         request: {
-          select: {
-            id: true,
-            name: true,
-            title: true,
-            providedEmail: true,
+          include: {
+            budget: true,
+            requester: { include: { requestorInformation: true } },
+            organization: true,
           },
         },
       },
@@ -44,7 +43,10 @@ export async function requestPlaygroundApplicantFeedbackTask() {
 
   const result = await Promise.allSettled(
     applicationsReadyForFeedback.map(async (application) => {
-      await sendFeedbackRequestEmail(application.request, application.name);
+      await sendFeedbackRequestEmail(
+        application.request,
+        application.applicant.name ?? ''
+      );
 
       await prisma.playgroundApplication.update({
         where: {
@@ -72,14 +74,14 @@ export async function requestPlaygroundApplicantFeedbackTask() {
 }
 
 const sendFeedbackRequestEmail = (
-  request: Pick<PlaygroundRequest, 'name' | 'title' | 'providedEmail'>,
+  request: RequestInfo,
   applicantName: string
 ) => {
   if (process.env.NODE_ENV !== 'production') {
     return false;
   }
   return emailClient.sendMail({
-    to: request.providedEmail,
+    to: request.requester.email,
     from: PLAYGROUND_EMAIL_FORMATTED,
     subject: 'Please let us know how it’s going with the Playground volunteer!',
     text: playgroundRequestFeedbackAboutVolunteerAfter1Week(

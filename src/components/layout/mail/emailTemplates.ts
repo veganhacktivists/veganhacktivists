@@ -2,7 +2,10 @@ import mjml2html from 'mjml';
 
 import { readableTimeDiff } from 'lib/helpers/date';
 
-import { RequestInfo, ApplicationInfo } from 'lib/services/playground/admin';
+import type {
+  RequestInfo,
+  ApplicationInfo,
+} from 'lib/services/playground/admin';
 
 const host =
   process.env.NODE_ENV === 'production'
@@ -212,10 +215,8 @@ ${optionalMessageParts}
 <br />
 We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
       application.request.requester.name
-    }&apos;s Calendy link <a href="${
-      // TODO: sanitize this and all the other data?
-      application.request.requester.requestorInformation?.contactLink
-    }">here</a>${
+    }&apos;s Calendy link <a href="${// TODO: sanitize this and all the other data?
+    application.request.requester.requestorInformation?.contactLink}">here</a>${
       application.applicant.applicantInformation?.contactLink
         ? ` or ${application.applicant.name}&apos;s Calendy link <a href="${application.applicant.applicantInformation.contactLink}">here</a>`
         : ''
@@ -247,10 +248,8 @@ Thank you so much for helping the animals, and for using Playground!
     <mj-text><b>What&apos;s next?</b></mj-text>
     <mj-text>We highly recommend you schedule a call as soon as possible to talk about the project&apos;s needs and expectations. You can do so by scheduling a call using ${
       application.request.requester.name
-    }&apos;s Calendy link <a href="${
-      // TODO: sanitize this and all the other data?
-      application.request.requester.requestorInformation?.contactLink
-    }">here</a>${
+    }&apos;s Calendy link <a href="${// TODO: sanitize this and all the other data?
+    application.request.requester.requestorInformation?.contactLink}">here</a>${
       application.applicant.applicantInformation?.contactLink
         ? ` or ${application.applicant.name}&apos;s Calendy link <a href="${application.applicant.applicantInformation.contactLink}">here</a>`
         : ''
