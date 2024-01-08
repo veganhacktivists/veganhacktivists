@@ -25,17 +25,15 @@ import {
   CATEGORY_LABELS,
 } from '../../../../prisma/constants';
 
-import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
 import { trpc } from 'lib/client/trpc';
-import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 import { useIsFirstRender } from 'hooks/useIsFirstRender';
+import { submitRequestSchema } from 'lib/services/playground/schemas';
 
 import type { PlaygroundRequestDesignRequestType } from '@prisma/client';
 import type { z } from 'zod';
-import type { submitRequestSchema } from 'lib/services/playground/schemas';
 import type { OptionType } from '../../forms/inputs/selectInput';
 import type { FieldError, FieldPath, SubmitHandler } from 'react-hook-form';
 import type { RefCallback } from 'react';
@@ -116,8 +114,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     setValue,
     watch,
   } = useForm<FormInput>({
-    defaultValues: storedForm.id ? undefined : storedForm,
-    resolver: zodResolver(verifyRequestFormRequestSchema),
+    defaultValues: storedForm.id ? undefined : { ...storedForm, agreeToTerms: false, requiredSkills: Array.isArray(storedForm.requiredSkills) ? storedForm.requiredSkills.join(', ') : storedForm.requiredSkills },
+    resolver: zodResolver(submitRequestSchema),
   });
 
   const [isFree, setIsFree] = useState(false);
@@ -125,9 +123,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: request } = trpc.playground.getRequest.useQuery(
     { id: requestId, extended: true },
     {
-      enabled: !!requestId,
+      enabled: !!requestId && requestId.length > 0,
     }
   );
+
 
   useEffect(() => {
     if (request && sessionStatus !== 'loading' && !requestLoaded) {
@@ -141,23 +140,9 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         return;
       }
       const skills = request.requiredSkills.join(', ');
-      // type RequestFormData = Pick<
-      //   typeof request,
-      //   | 'providedEmail'
-      //   | 'name'
-      //   | 'phone'
-      //   | 'website'
-      //   | 'calendlyUrl'
-      //   | 'title'
-      //   | 'category'
-      //   | 'description'
-      //   | 'neededVolunteers'
-      // >;
-      // const requestData: RequestFormData = request;
 
       const formData = {
         ...request,
-        // ...requestData,
         dueDate: request?.dueDate
           ? DateTime.fromISO(request.dueDate.toISOString()).toFormat(
               'yyyy-LL-dd'
@@ -169,8 +154,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
               quantity: request?.budget?.quantity.toNumber(),
             }
           : undefined,
-        // phone: request?.phone ?? undefined,
-        // organization: request?.organization ?? undefined,
         requiredSkills: skills,
       };
 
@@ -188,6 +171,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       setRequestLoaded(true);
     }
   }, [request, setValue, session, router, sessionStatus, requestLoaded]);
+
+  useEffect(() => {
+
+  }, [])
 
   const filledDataFromStorage = useOnce(() => {
     if (!storedBudget) {
@@ -227,24 +214,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
       staleTime: Infinity,
       retry: 1,
     });
-
-  useOnce(
-    () => {
-      if (!session?.user || requestId) return;
-      const { name } = session.user;
-      if (name && !watch('name')) {
-        setValue('name', name);
-        setFormData({ name });
-      }
-    },
-    {
-      enabled:
-        sessionStatus === 'authenticated' &&
-        router.isReady &&
-        router.query.submit !== 'true' &&
-        filledDataFromStorage,
-    }
-  );
 
   useOnce(
     () => {
@@ -300,6 +269,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   const onSubmit = useCallback<SubmitHandler<FormOutput>>(
     async (values) => {
+      console.log(values);
       if (sessionStatus === 'unauthenticated') {
         setIsSignInModalOpen(true);
         reset(undefined, {
@@ -346,7 +316,6 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   // reset category specific values
   useEffect(() => {
-    setValue('devRequestWebsiteExists', undefined);
     setValue('devRequestWebsiteUrl', undefined);
     setValue('designRequestType', undefined);
     setValue('designRequestCurrentDesignExists', undefined);
@@ -671,7 +640,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
           labelPosition="right"
           className="col-span-full"
           error={errors.agreeToTerms?.message}
-          {...myRegister('agreeToTerms')}
+          {...register('agreeToTerms')}
           onChange={(checked) => {
             setFormData({ agreeToTerms: checked });
             setValue('agreeToTerms', checked);
