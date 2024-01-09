@@ -21,6 +21,7 @@ import {
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 import {
+    OrganizationSchema,
   PlaygroundApplicationSchema,
   PlaygroundRequestSchema,
   UserSchema,
@@ -46,7 +47,7 @@ const applicationSchema = PlaygroundApplicationSchema.omit({
   })
   .partial();
 
-const requestSchema = PlaygroundRequestSchema.partial();
+const requestSchema = PlaygroundRequestSchema.extend({ requester: UserSchema.partial(), organization: OrganizationSchema.partial() }).partial();
 
 export type RequestEntry = z.infer<typeof requestSchema>;
 export type ApplicationEntry = z.infer<typeof applicationSchema>;
@@ -103,11 +104,19 @@ const adminRouter = t.router({
             category: true,
             requiredSkills: true,
             status: true,
+            dueDate: true,
+            neededVolunteers: true,
             requester: {
               select: {
                 id: true,
                 name: true,
                 email: true,
+              },
+            },
+            organization: {
+              select: {
+                id: true,
+                name: true,
               },
             },
             createdAt: true,
