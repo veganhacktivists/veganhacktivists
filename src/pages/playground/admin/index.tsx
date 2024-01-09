@@ -1,6 +1,6 @@
 import { RequestStatus } from '@prisma/client';
 import { ColDef } from 'ag-grid-community';
-import DataGrid, { SortingOptions } from 'components/dataGrid';
+import DataGrid, { SortingOptions } from 'components/dataGrid/index';
 import SubMenu from 'components/layout/submenu';
 import { trpc } from 'lib/client/trpc';
 import { FilterOption } from 'lib/services/playground/schemas';

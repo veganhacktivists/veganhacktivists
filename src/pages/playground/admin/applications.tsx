@@ -1,7 +1,7 @@
 import { ApplicationStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 
-import DataGrid from 'components/dataGrid';
+import DataGrid from 'components/dataGrid/index';
 import { trpc } from 'lib/client/trpc';
 
 import type { SortingOptions } from 'components/dataGrid';
