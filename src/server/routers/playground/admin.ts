@@ -129,6 +129,18 @@ const adminRouter = t.router({
         });
       return { total, content: data };
     }),
+  updateRequest: adminProcedure
+    .input(
+      transformZodNullables(requestSchema.omit({ organization: true, requester: true, requiredSkills: true }).partial())
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      const dataQuery = buildUpdateQuery(data);
+      await prisma.playgroundRequest.update({
+        where: { id },
+        data: dataQuery,
+      });
+    }),
   deleteRequest: adminProcedure
     .input(deleteRequestSchema)
     .mutation(async ({ input }) => {

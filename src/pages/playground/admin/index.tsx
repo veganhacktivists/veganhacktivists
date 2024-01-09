@@ -18,6 +18,7 @@ const RequestOverview: NextPage = () => {
     { sort: sorting, pageSize, page: currentPage, filters, search },
     { keepPreviousData: true }
   );
+  const { mutateAsync } = trpc.playground.admin.updateRequest.useMutation();
   const columns: ColDef<RequestEntry>[] = [
     { field: 'id', hide: true },
     { field: 'title', headerName: 'Title' },
@@ -32,9 +33,9 @@ const RequestOverview: NextPage = () => {
 
   const handleValueChange = useCallback(
     async (data: RequestEntry) => {
-      // const { request, ...rest } = data;
+      const { organization, requester, requiredSkills, ...rest } = data;
 
-      // await mutateAsync(rest);
+      await mutateAsync(rest);
       await refetch();
     },
     [refetch]
