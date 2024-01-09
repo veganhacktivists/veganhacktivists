@@ -9,6 +9,7 @@ import type { ApplicationEntry } from 'server/routers/playground/admin';
 import type { NextPage } from 'next';
 import type { ColDef } from 'ag-grid-community';
 import type { FilterOption } from 'lib/services/playground/schemas';
+import SubMenu from 'components/layout/submenu';
 
 const Applications: NextPage = () => {
   const [pageSize, setPageSize] = useState(20);
@@ -88,6 +89,8 @@ const Applications: NextPage = () => {
   }
 
   return (
+    <>
+    <SubMenu title="Applications" entries={[{ title: 'Requests', link: '/playground/admin' }, { title: 'Applications', link: '', active: true }]}/>
     <div className="w-full h-full">
       <DataGrid
         data={data}
@@ -99,6 +102,7 @@ const Applications: NextPage = () => {
         onSearchChange={setSearch}
       />
     </div>
+    </>
   );
 };
 
