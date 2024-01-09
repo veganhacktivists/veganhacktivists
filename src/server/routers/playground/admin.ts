@@ -46,6 +46,9 @@ const applicationSchema = PlaygroundApplicationSchema.omit({
   })
   .partial();
 
+const requestSchema = PlaygroundRequestSchema.partial();
+
+export type RequestEntry = z.infer<typeof requestSchema>;
 export type ApplicationEntry = z.infer<typeof applicationSchema>;
 
 const adminRouter = t.router({
@@ -69,10 +72,54 @@ const adminRouter = t.router({
     ),
 
   getRequests: adminProcedure
-    .input(getRequestsAdminSchema)
-    .query(async ({ input }) => {
-      const result = await getRequests(input);
-      return result;
+    .input(datagridParamsSchema.partial())
+    .query(async ({ input, ctx: { prisma } }) => {
+      const total: number = await prisma.playgroundRequest.count();
+      const skip = (input.page ?? 0) * (input.pageSize ?? 20);
+      const filters =
+        input.filters && input.filters.length > 0
+          ? buildFilterQuery(input.filters)
+          : undefined;
+      // const search =
+      //   input.search && input.search.length > 0
+      //     ? buildSearchQuery(input.search, [
+      //         'applicant.name',
+      //         'request.title',
+      //         'moreInfo',
+      //       ])
+      //     : undefined;
+      const search = undefined;
+      const where =
+        filters && input.search && input.search.length > 0
+          ? { AND: [filters, search] }
+          : filters
+            ? filters
+            : search;
+      const data: RequestEntry[] =
+        await prisma.playgroundRequest.findMany({
+          select: {
+            id: true,
+            title: true,
+            category: true,
+            requiredSkills: true,
+            status: true,
+            requester: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            },
+            createdAt: true,
+          },
+          take: input.pageSize ?? 20,
+          skip: skip,
+          orderBy: input.sort
+            ? buildSortingQuery(input.sort.column, input.sort.order)
+            : undefined,
+          where,
+        });
+      return { total, content: data };
     }),
   deleteRequest: adminProcedure
     .input(deleteRequestSchema)
