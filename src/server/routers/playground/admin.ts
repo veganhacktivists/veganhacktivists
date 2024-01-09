@@ -81,15 +81,14 @@ const adminRouter = t.router({
         input.filters && input.filters.length > 0
           ? buildFilterQuery(input.filters)
           : undefined;
-      // const search =
-      //   input.search && input.search.length > 0
-      //     ? buildSearchQuery(input.search, [
-      //         'applicant.name',
-      //         'request.title',
-      //         'moreInfo',
-      //       ])
-      //     : undefined;
-      const search = undefined;
+      const search =
+        input.search && input.search.length > 0
+          ? buildSearchQuery(input.search, [
+              'title',
+              'organization.name',
+              'requester.name',
+            ])
+          : undefined;
       const where =
         filters && input.search && input.search.length > 0
           ? { AND: [filters, search] }
