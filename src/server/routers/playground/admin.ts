@@ -225,15 +225,17 @@ const adminRouter = t.router({
         input.filters && input.filters.length > 0
           ? buildFilterQuery(input.filters)
           : undefined;
-      // const search =
-      //   input.search && input.search.length > 0
-      //     ? buildSearchQuery(input.search, [
-      //         'title',
-      //         'organization.name',
-      //         'requester.name',
-      //       ])
-      //     : undefined;
-      const search = undefined;
+      const search =
+        input.search && input.search.length > 0
+          ? buildSearchQuery(input.search, [
+              'name',
+              'organization.name',
+              'organization.website',
+              'organization.description',
+              'requestorInformation.contactLink',
+              'requestorInformation.contactEmail',
+            ])
+          : undefined;
       const where =
         filters && input.search && input.search.length > 0
           ? { AND: [filters, search] }
@@ -244,14 +246,15 @@ const adminRouter = t.router({
         await prisma.user.findMany({
           select: {
             id: true,
-            name: true, 
+            name: true,
             email: true,
-            requestorInformation: true,
+            requestorInformation: { select: { id: true, phone: true, contactLink: true, contactEmail: true } },
             organization: {
               select: {
                 name: true,
                 type: true,
                 website: true,
+                description: true,
               },
             },
             createdAt: true,

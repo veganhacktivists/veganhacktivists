@@ -5,7 +5,6 @@ import SubMenu from 'components/layout/submenu';
 import { trpc } from 'lib/client/trpc';
 import { FilterOption } from 'lib/services/playground/schemas';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
 import { RequestEntry } from 'server/routers/playground/admin';
 
@@ -57,7 +56,7 @@ const RequestOverview: NextPage = () => {
 
   return (
     <>
-    <SubMenu title="Requests" entries={[{ title: 'Requests', link: '', active: true }, { title: 'Applications', link: '/playground/admin/applications' }]}/>
+    <SubMenu title="Requests" entries={[{ title: 'Requests', link: '', active: true }, { title: 'Applications', link: '/playground/admin/applications' }, { title: 'Requestors', link: '/playground/admin/requestors' }]}/>
     <div className="w-full h-full">
       <DataGrid
         data={data}

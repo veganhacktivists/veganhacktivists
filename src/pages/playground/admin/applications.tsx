@@ -90,7 +90,7 @@ const Applications: NextPage = () => {
 
   return (
     <>
-    <SubMenu title="Applications" entries={[{ title: 'Requests', link: '/playground/admin' }, { title: 'Applications', link: '', active: true }]}/>
+    <SubMenu title="Applications" entries={[{ title: 'Requests', link: '/playground/admin' }, { title: 'Applications', link: '', active: true }, { title: 'Requestors', link: '/playground/admin/requestors' }]}/>
     <div className="w-full h-full">
       <DataGrid
         data={data}
