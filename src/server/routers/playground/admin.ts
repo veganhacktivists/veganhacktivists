@@ -21,6 +21,7 @@ import {
 import { adminProcedure } from 'server/procedures/auth';
 import { t } from 'server/trpc';
 import {
+    ApplicantInformationSchema,
     OrganizationSchema,
   PlaygroundApplicationSchema,
   PlaygroundRequestSchema,
@@ -50,9 +51,11 @@ const applicationSchema = PlaygroundApplicationSchema.omit({
 
 const requestSchema = PlaygroundRequestSchema.extend({ requester: UserSchema.partial(), organization: OrganizationSchema.partial() }).partial();
 const requestorSchema = UserSchema.extend({ organization: OrganizationSchema.partial().nullish(), requestorInformation: RequestorInformationSchema.partial().nullish() }).partial();
+const applicantSchema = UserSchema.extend({ applicantInformation: ApplicantInformationSchema.partial().nullish() }).partial();
 
 export type RequestEntry = z.infer<typeof requestSchema>;
 export type RequestorEntry = z.infer<typeof requestorSchema>;
+export type ApplicantEntry = z.infer<typeof applicantSchema>;
 export type ApplicationEntry = z.infer<typeof applicationSchema>;
 
 const adminRouter = t.router({
@@ -271,6 +274,61 @@ const adminRouter = t.router({
   updateRequestor: adminProcedure
     .input(
       transformZodNullables(requestorSchema.partial())
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      const dataQuery = buildUpdateQuery(data);
+      await prisma.user.update({
+        where: { id },
+        data: dataQuery,
+      });
+    }),
+  getApplicants: adminProcedure
+    .input(datagridParamsSchema.partial())
+    .query(async ({ input, ctx: { prisma } }) => {
+      const total: number = await prisma.user.count({ where: { role: UserRole.Applicant }});
+      const skip = (input.page ?? 0) * (input.pageSize ?? 20);
+      const filters =
+        input.filters && input.filters.length > 0
+          ? buildFilterQuery(input.filters)
+          : undefined;
+      const search =
+        input.search && input.search.length > 0
+          ? buildSearchQuery(input.search, [
+              'name',
+              'email',
+              'applicantInformation.contactLink',
+              'applicantInformation.contactEmail',
+              'applicantInformation.website',
+            ])
+          : undefined;
+      const where =
+        filters && input.search && input.search.length > 0
+          ? { AND: [filters, search] }
+          : filters
+            ? filters
+            : search;
+      const data: ApplicantEntry[] =
+        await prisma.user.findMany({
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            applicantInformation: { select: { id: true, contactLink: true, contactEmail: true, socialMedia: true, website: true, availableTimePerWeek: true } },
+            createdAt: true,
+          },
+          take: input.pageSize ?? 20,
+          skip: skip,
+          orderBy: input.sort
+            ? buildSortingQuery(input.sort.column, input.sort.order)
+            : undefined,
+          where: !!where ? { AND: [{ role: UserRole.Applicant }, where] } : { role: UserRole.Applicant }
+        });
+      return { total, content: data };
+    }),
+  updateApplicant: adminProcedure
+    .input(
+      transformZodNullables(applicantSchema.partial())
     )
     .mutation(async ({ input }) => {
       const { id, ...data } = input;

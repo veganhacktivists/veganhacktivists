@@ -56,7 +56,7 @@ const RequestOverview: NextPage = () => {
 
   return (
     <>
-    <SubMenu title="Requests" entries={[{ title: 'Requests', link: '', active: true }, { title: 'Applications', link: '/playground/admin/applications' }, { title: 'Requestors', link: '/playground/admin/requestors' }]}/>
+    <SubMenu title="Requests" entries={[{ title: 'Requests', link: '', active: true }, { title: 'Applications', link: '/playground/admin/applications' }, { title: 'Requestors', link: '/playground/admin/requestors' }, { title: 'Applicants', link: '/playground/admin/applicants' }]}/>
     <div className="w-full h-full">
       <DataGrid
         data={data}
