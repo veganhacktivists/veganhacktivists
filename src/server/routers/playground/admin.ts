@@ -1,4 +1,4 @@
-import { ApplicationStatus, RequestStatus } from '@prisma/client';
+import { ApplicationStatus, RequestStatus, UserRole } from '@prisma/client';
 import { z } from 'zod';
 
 import {
@@ -24,6 +24,7 @@ import {
     OrganizationSchema,
   PlaygroundApplicationSchema,
   PlaygroundRequestSchema,
+  RequestorInformationSchema,
   UserSchema,
 } from 'generated/schemas';
 import {
@@ -48,8 +49,10 @@ const applicationSchema = PlaygroundApplicationSchema.omit({
   .partial();
 
 const requestSchema = PlaygroundRequestSchema.extend({ requester: UserSchema.partial(), organization: OrganizationSchema.partial() }).partial();
+const requestorSchema = UserSchema.extend({ organization: OrganizationSchema.partial().nullish(), requestorInformation: RequestorInformationSchema.partial().nullish() }).partial();
 
 export type RequestEntry = z.infer<typeof requestSchema>;
+export type RequestorEntry = z.infer<typeof requestorSchema>;
 export type ApplicationEntry = z.infer<typeof applicationSchema>;
 
 const adminRouter = t.router({
@@ -213,6 +216,67 @@ const adminRouter = t.router({
       });
     }
   ),
+  getRequestors: adminProcedure
+    .input(datagridParamsSchema.partial())
+    .query(async ({ input, ctx: { prisma } }) => {
+      const total: number = await prisma.user.count({ where: { role: UserRole.Requestor }});
+      const skip = (input.page ?? 0) * (input.pageSize ?? 20);
+      const filters =
+        input.filters && input.filters.length > 0
+          ? buildFilterQuery(input.filters)
+          : undefined;
+      // const search =
+      //   input.search && input.search.length > 0
+      //     ? buildSearchQuery(input.search, [
+      //         'title',
+      //         'organization.name',
+      //         'requester.name',
+      //       ])
+      //     : undefined;
+      const search = undefined;
+      const where =
+        filters && input.search && input.search.length > 0
+          ? { AND: [filters, search] }
+          : filters
+            ? filters
+            : search;
+      const data: RequestorEntry[] =
+        await prisma.user.findMany({
+          select: {
+            id: true,
+            name: true, 
+            email: true,
+            requestorInformation: true,
+            organization: {
+              select: {
+                name: true,
+                type: true,
+                website: true,
+              },
+            },
+            createdAt: true,
+          },
+          take: input.pageSize ?? 20,
+          skip: skip,
+          orderBy: input.sort
+            ? buildSortingQuery(input.sort.column, input.sort.order)
+            : undefined,
+          where: !!where ? { AND: [{ role: UserRole.Requestor }, where] } : { role: UserRole.Requestor }
+        });
+      return { total, content: data };
+    }),
+  updateRequestor: adminProcedure
+    .input(
+      transformZodNullables(requestorSchema.partial())
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      const dataQuery = buildUpdateQuery(data);
+      await prisma.user.update({
+        where: { id },
+        data: dataQuery,
+      });
+    }),
   allApplications: adminProcedure
     .input(datagridParamsSchema.partial())
     .query(async ({ input, ctx: { prisma } }) => {
