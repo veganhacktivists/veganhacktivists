@@ -635,11 +635,11 @@
   "page.not-found.next-seo.title": {
     "message": "Seite nicht gefunden"
   },
-  "page.our-work.section.design-samples.cta-button.label": {
-    "message": "Unsere Branding-Arbeiten ansehen"
+  "page.our-work.section.design-work.button.label": {
+    "message": "Besuchen Sie <no-localization>violetstudios.org</no-localization>"
   },
-  "page.our-work.section.design-samples.section-header.content": {
-    "message": "Ob es sich um Branding, Dokumentendesign, Webdesign, Infografiken oder andere wirkungsvolle Designbereiche handelt, wir helfen veganen Organisationen, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen. Hier ein paar Beispiele für unsere Arbeit!"
+  "page.our-work.section.design-work.content": {
+    "message": "Unsere Schwesterorganisation <highlight><no-localization>Violet Studios</no-localization></highlight> bietet kostenlose Designdienstleistungen für Tierschützer und Organisationen an. Ob es um Branding, Dokumentendesign, Webdesign oder andere wirkungsvolle Designbereiche geht, wir helfen veganen Organisationen dabei, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen."
   },
   "page.our-work.section.featured-projects.section-header.content": {
     "message": "Hier sind nur einige der Projekte, die wir für die Bewegung und in Zusammenarbeit mit anderen Partnern entwickelt haben."
@@ -961,6 +961,15 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>wenden Sie sich</contact-link> bitte <contact-link>an</contact-link> unseren steuerlichen Sponsor, um die steuerliche Absetzbarkeit zu erfragen."
+  },
+  "page.support.section.violet-studios.button": {
+    "message": "Besuchen Sie <no-localization>violetstudios.org</no-localization>"
+  },
+  "page.support.section.violet-studios.content": {
+    "message": "Ihre großzügige Spende unterstützt auch <no-localization>Violet Studios</no-localization>, unsere Schwesterorganisation. Vegan Hacktivists und Violet Studios arbeiten bei technischen und Design-Projekten eng zusammen. Beide Organisationen engagieren sich für die Förderung der Tierschutzbewegung, indem sie unentgeltliche Dienstleistungen zum Aufbau von Kapazitäten von höchster Qualität anbieten. Wir danken Ihnen!"
+  },
+  "page.support.section.violet-studios.headline": {
+    "message": "Zwei Organisationen auf einmal unterstützen"
   },
   "page.verify-request.button.go-back": {
     "message": "Zurückgehen"

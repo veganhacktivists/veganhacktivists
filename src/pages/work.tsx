@@ -5,7 +5,7 @@ import WorkHero from 'components/layout/work/workHero';
 import OurWork from 'components/layout/work/ourWork';
 import FeaturedProjects from 'components/layout/work/featuredProjects';
 import OtherProjects from 'components/layout/work/otherProjects';
-import DesignSamples from 'components/layout/work/designSamples';
+import DesignWork from 'components/layout/work/designWork';
 import HoursVolunteered from 'components/layout/work/hoursVolunteered';
 import KindWords from 'components/layout/work/kindWords';
 import OurCommunities from 'components/layout/work/ourCommunities';
@@ -70,7 +70,7 @@ const Work = ({
 
       <OtherProjects projects={otherProjects} />
 
-      <DesignSamples />
+      <DesignWork />
 
       <HoursVolunteered />
 

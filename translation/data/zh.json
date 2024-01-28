@@ -635,11 +635,11 @@
   "page.not-found.next-seo.title": {
     "message": "页面未找到"
   },
-  "page.our-work.section.design-samples.cta-button.label": {
-    "message": "查看我们的品牌设计作品"
+  "page.our-work.section.design-work.button.label": {
+    "message": "参观<no-localization>violetstudios.org</no-localization>"
   },
-  "page.our-work.section.design-samples.section-header.content": {
-    "message": "无论是品牌设计、文档设计、网页设计、信息图表，还是其他极具影响力的设计领域，我们都能帮助素食组织焕发光彩，建立信任，提高声誉，团结员工。以下是我们所做工作的几个例子！"
+  "page.our-work.section.design-work.content": {
+    "message": "我们的姊妹组织<highlight><no-localization>Violet Studios</no-localization></highlight> 免费为动物倡导者和组织提供设计服务。无论是品牌设计、文件设计、网页设计，还是其他具有影响力的设计领域，我们都能帮助素食主义者组织形象鲜明、建立信任、提高声誉并团结人们。"
   },
   "page.our-work.section.featured-projects.section-header.content": {
     "message": "以下是我们与其他合作伙伴合作，为运动开展的几个项目。"
@@ -961,6 +961,15 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "我们更倾向于<bold>通过 \"捐助箱 \"每月捐款</bold>，因为这能给我们带来最大的稳定性，但我们也感谢您的一次性捐款！如果您想捐助 1000 美元或更多，请通过我们的财务赞助商<contact-link>联系我们</contact-link>，以了解免税方案。"
+  },
+  "page.support.section.violet-studios.button": {
+    "message": "参观<no-localization>violetstudios.org</no-localization>"
+  },
+  "page.support.section.violet-studios.content": {
+    "message": "您的慷慨捐赠还将支持我们的姊妹组织<no-localization>Violet Studios</no-localization> 。Vegan Hacktivists 和 Violet Studios 在技术和设计项目上密切合作。两个组织都致力于通过提供最高质量的无偿能力建设服务来推动动物保护运动。谢谢"
+  },
+  "page.support.section.violet-studios.headline": {
+    "message": "同时支持两个机构"
   },
   "page.verify-request.button.go-back": {
     "message": "返回"

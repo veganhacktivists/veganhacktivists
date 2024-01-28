@@ -635,11 +635,11 @@
   "page.not-found.next-seo.title": {
     "message": "Page not found"
   },
-  "page.our-work.section.design-samples.cta-button.label": {
-    "message": "View our branding work"
+  "page.our-work.section.design-work.button.label": {
+    "message": "Visit <no-localization>violetstudios.org</no-localization>"
   },
-  "page.our-work.section.design-samples.section-header.content": {
-    "message": "Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
+  "page.our-work.section.design-work.content": {
+    "message": "Our sister organization, <highlight><no-localization>Violet Studios</no-localization></highlight>, provides design services at no charge for animal advocates and organizations. Whether it’s branding, document design, web design, or other high-impact areas of design, we’re here to help vegan organizations look sharp, build trust, increase reputation, and unite people."
   },
   "page.our-work.section.featured-projects.section-header.content": {
     "message": "Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
@@ -961,6 +961,15 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+  },
+  "page.support.section.violet-studios.button": {
+    "message": "Visit <no-localization>violetstudios.org</no-localization>"
+  },
+  "page.support.section.violet-studios.content": {
+    "message": "Your generous donation also supports <no-localization>Violet Studios</no-localization>, our sister organization. Vegan Hacktivists and Violet Studios collaborate closely on tech and design projects. Both organizations are committed to advancing the animal protection movement by providing pro-bono capacity building services of the highest quality. Thank you!"
+  },
+  "page.support.section.violet-studios.headline": {
+    "message": "Support Two Orgs At Once"
   },
   "page.verify-request.button.go-back": {
     "message": "Go back"
