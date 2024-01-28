@@ -7,13 +7,7 @@ import SquareField from 'components/decoration/squares';
 import { DarkButton, LightButton } from 'components/decoration/buttons';
 import { SectionHeader } from 'components/decoration/textBlocks';
 
-const TOP_DECORATION_SQUARES = [
-  { color: '#3D3D3D', size: 16, left: 0, top: 0 },
-];
-
-const BOTTOM_DECORATION_SQUARES = [
-  { color: 'grey-background', size: 16, left: 0, bottom: 0 },
-];
+const TOP_DECORATION_SQUARES = [{ color: 'grey', size: 16, right: 0, top: 0 }];
 
 const DesignWork: React.FC = () => {
   const intl = useIntl();
@@ -80,11 +74,6 @@ const DesignWork: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <SquareField
-        squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
-      />
     </>
   );
 };

@@ -9,6 +9,12 @@ const TOP_DECORATION_SQUARES = [
     color: '#d31679',
     size: 16,
   },
+  {
+    top: 0,
+    right: 0,
+    color: '#171919',
+    size: 16,
+  },
 ];
 
 const BOTTOM_DECORATION_SQUARES = [

@@ -11,6 +11,11 @@ const TOP_DECORATION_SQUARES = [
   { color: 'gray-background', size: 16, right: 0, top: 0 },
 ];
 
+const BOTTOM_DECORATION_SQUARES = [
+  { color: '#BCBCBC', size: 16, left: 0, bottom: 0 },
+  { color: '#171919', size: 16, right: 0, bottom: 0 },
+];
+
 interface OtherProjectsProps {
   projects: IProject[];
 }
@@ -43,6 +48,11 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
           </div>
         </div>
       </div>
+
+      <SquareField
+        squares={BOTTOM_DECORATION_SQUARES}
+        className='hidden md:block'
+      />
     </>
   );
 };
