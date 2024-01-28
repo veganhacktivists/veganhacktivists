@@ -190,8 +190,7 @@ const OurWork: React.FC = () => {
       <div className='w-full bg-white'>
         <div className='flex flex-col py-20'>
           <div className='md:w-1/2 mx-auto -mb-10 px-5'>
-            {/* TODO: translate section header */}
-            <SectionHeader className='mb-2' header={['Our', 'WORK']}>
+            <SectionHeader className='mb-2' header={'Our <b>WORK</b>'}>
               <FormattedMessage
                 id='page.our-work.section.our-work.section-header.content'
                 defaultMessage='We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.'

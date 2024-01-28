@@ -78,7 +78,7 @@ const CommunityGrowth: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={['Encouraging', 'community growth']}
+            header={'Encouraging <b>community growth</b>'}
             className='text-grey'
           />
         }

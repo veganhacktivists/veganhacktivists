@@ -247,7 +247,7 @@ const Join: React.FC = () => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.join.section.join-our-team.headline',
-          defaultMessage: 'Join our team',
+          defaultMessage: 'Join <b>our team</b>',
         })}
       >
         <FormattedMessage

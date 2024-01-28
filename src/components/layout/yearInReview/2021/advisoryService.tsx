@@ -20,7 +20,7 @@ const AdvisoryService: React.FC = () => {
           </div>
           <div className='mx-auto md:text-left space-y-5 text-2xl px-5'>
             <SectionHeader
-              header={['Our new', 'advisory service']}
+              header={'Our new <b>advisory service</b>'}
               className='text-grey'
             />
             <FormattedMessage

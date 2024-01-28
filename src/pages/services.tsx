@@ -218,7 +218,7 @@ const Services: React.FC = () => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.services.section.our-services.header.text',
-            defaultMessage: 'Our services',
+            defaultMessage: 'Our <b>services</b>',
           })}
         >
           <FormattedMessage

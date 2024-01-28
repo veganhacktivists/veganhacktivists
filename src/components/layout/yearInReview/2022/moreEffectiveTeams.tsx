@@ -26,7 +26,7 @@ const MoreEffectiveTeams: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={['Building more', 'effective teams']}
+            header={'Building more <b>effective teams</b>'}
             newDesign={true}
           />
         }

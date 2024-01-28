@@ -78,9 +78,8 @@ export const Organizations: React.FC = () => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.year-in-review.2020.section.working-with-organizations.heading',
-          defaultMessage: 'Working with ORGANIZATIONS',
+          defaultMessage: 'Working with <b>ORGANIZATIONS</b>',
         })}
-        firstWordsNum={2}
       />
       <div className='flex flex-col justify-center mx-auto md:flex-row gap-x-16'>
         <div>

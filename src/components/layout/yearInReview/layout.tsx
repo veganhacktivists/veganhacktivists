@@ -75,10 +75,9 @@ export const YearInReviewHeader: React.FC<YearInReviewHeaderProps> = ({
             .formatMessage({
               id: 'page.year-in-review.section.header.title',
               defaultMessage:
-                'Our <no-localization>{year}</no-localization> year in review',
+                'Our <no-localization>{year}</no-localization> <b>year in review</b>',
             })
             .replace('{year}', String(year))}
-          firstWordsNum={2}
           className='pt-5'
         >
           <FormattedMessage

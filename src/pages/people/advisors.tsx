@@ -77,7 +77,7 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.people.section.advisors.intro.heading',
-          defaultMessage: 'Our advisors',
+          defaultMessage: 'Our <b>advisors</b>',
         })}
       >
         <FormattedMessage
@@ -108,7 +108,7 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.people.section.advisors.community.heading',
-            defaultMessage: 'Our community',
+            defaultMessage: 'Our <b>community</b>',
           })}
         >
           <FormattedMessage

@@ -28,7 +28,10 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
     <>
       <SectionContainer
         header={
-          <SectionHeader header={['Featured', 'interviews']} newDesign={true} />
+          <SectionHeader
+            header={'Featured <b>interviews</b>'}
+            newDesign={true}
+          />
         }
       >
         <div className='text-xl md:w-2/3 mx-auto pb-16'>

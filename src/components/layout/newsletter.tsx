@@ -83,7 +83,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.blog.section.newsletter.heading',
-            defaultMessage: 'Our newsletter',
+            defaultMessage: 'Our <b>newsletter</b>',
           })}
         />
       </h1>

@@ -17,11 +17,7 @@ const LikeWhatYouSee: React.FC = () => {
 
       <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
         <div className='relative flex flex-col items-center px-2 py-20 gap-y-8'>
-          <SectionHeader
-            className='mb-2'
-            header='LIKE WHAT YOU SEE?'
-            startWithBoldFont
-          />
+          <SectionHeader className='mb-2' header='<b>LIKE WHAT YOU SEE?</b>' />
 
           <div className='text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4'>
             <FormattedMessage

@@ -1,30 +1,27 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { LightButton } from '../../decoration/buttons';
 import BlogEntrySummary from '../blog/blogEntrySummary';
 import SubtleBorder from '../../decoration/subtleBorder';
 
+import { SectionHeader } from 'components/decoration/textBlocks';
+
 import type { IBlogEntry } from '../../../types/generated/contentful';
 
 const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
+  const intl = useIntl();
   return (
     <>
       <div className='content-center mx-auto md:w-1/2 text-2xl pt-16'>
-        <p className='text-grey-dark pb-5'>
-          <FormattedMessage
-            id='section.blog-teaser.headline'
-            defaultMessage='<left>On the</left> <right>BLOG</right>'
-            values={{
-              left: (chunks) => (
-                <span className='font-serif italic font-semibold text-3xl'>
-                  {chunks}{' '}
-                </span>
-              ),
-              right: (chunks) => <b className='text-5xl font-mono'>{chunks}</b>,
-            }}
+        <div className='text-grey-dark pb-5'>
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'section.blog-teaser.headline',
+              defaultMessage: 'On the <b>BLOG</b>',
+            })}
           />
-        </p>
+        </div>
         <p className='pb-16'>
           <FormattedMessage
             id='section.blog-teaser.paragraph'

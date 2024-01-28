@@ -96,7 +96,7 @@
     "message": "Unser Ziel ist es, datengestützte, innovative Projekte zu entwickeln, die der Ausbeutung von Tieren ein Ende setzen. Wir sind der Meinung, dass die Tierschutzbewegung in fünf grundlegenden Bereichen Verbesserungsbedarf hat, den wir durch unsere Arbeit lösen wollen."
   },
   "page.about.section.our-mission.section-header.heading": {
-    "message": "Unser Auftrag"
+    "message": "Unser <b>Auftrag</b>"
   },
   "page.about.section.our-mission.section-header.image.alt-text": {
     "message": "Unser Auftrag"
@@ -135,7 +135,7 @@
     "message": "Unsere Geschichte"
   },
   "page.about.section.our-story.intro.heading": {
-    "message": "Unsere Geschichte"
+    "message": "Unsere <b>Geschichte</b>"
   },
   "page.about.section.our-story.intro.paragraph": {
     "message": "Im Jahr 2019 starteten wir unser erstes Projekt mit ein paar Freiwilligen, die sich für Aktivismus begeisterten. Seitdem sind wir zu einer Gemeinschaft hochqualifizierter und professioneller Software-Ingenieure, Designer, Datenwissenschaftler und Inhaltsersteller gewachsen, die die Bewegung unterstützen. Wir sind mit der Hoffnung angetreten, Menschen zum Handeln zu bewegen und sie zu inspirieren, sich für Tiere einzusetzen - und diesem Grundprinzip sind wir verpflichtet. Unsere digitalen Fähigkeiten beflügeln unseren Aktivismus."
@@ -144,7 +144,7 @@
     "message": "Unsere Geschichte"
   },
   "page.about.section.our-story.paragraph.0": {
-    "message": "Wir sind die Vegan Hacktivists. Unsere Fähigkeiten - sei es das Schreiben von Code, die Entwicklung einer Markenidentität oder die Analyse von Daten - sind so vielfältig wie die Regionen, aus denen wir kommen und in denen wir leben. Wir arbeiten zusammen, um Projekte zu entwickeln, die datengesteuert, experimentell und effektiv sind. Unser Kernteam besteht aus Direktoren und hochrangigen Teammitgliedern, die über Erfahrung und Fachwissen in den Bereichen Technik, Architektur, Design, Daten, Betrieb und Kommunikation verfügen. Unsere Freiwilligenbasis besteht aus Teams, die von Leitern geführt werden; jedes Team ist für ein Projekt verantwortlich, das es aktiv aufbaut und pflegt."
+    "message": "Wir sind die <no-localization>Vegan Hacktivists</no-localization>. Unsere Fähigkeiten - sei es das Schreiben von Code, die Entwicklung einer Markenidentität oder die Analyse von Daten - sind so vielfältig wie die Regionen, aus denen wir kommen und in denen wir leben. Wir arbeiten zusammen, um Projekte zu entwickeln, die datengesteuert, experimentell und effektiv sind. Unser Kernteam besteht aus Direktoren und hochrangigen Teammitgliedern, die über Erfahrung und Fachwissen in den Bereichen Technik, Architektur, Design, Daten, Betrieb und Kommunikation verfügen. Unsere Freiwilligenbasis besteht aus Teams, die von Leitern geführt werden; jedes Team ist für ein Projekt verantwortlich, das es aktiv aufbaut und pflegt."
   },
   "page.about.section.our-story.paragraph.1": {
     "message": "Unsere Organisation verfolgt einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht. Da unsere Arbeit Geduld und Engagement erfordert, regen wir unsere Freiwilligen an, indem wir ein unterstützendes Umfeld schaffen, das es ihnen ermöglicht, sich zu engagieren, effektiv und wirkungsvoll zu sein. Als dezentrale Organisation wollen wir ein Gemeinschaftsgefühl aufbauen, das sich an Werten orientiert und durch sinnvolle und spielerische Interaktionen verbunden ist. Jedes Team wird durch eine <link>Frucht oder ein Gemüse</link> repräsentiert (pflanzenbasiert auf einer anderen Ebene), und wir gleichen unsere Arbeit mit Spielen, Zusammenkünften und Gemeinschaftsanrufen aus. Unsere Freiwilligen sind schließlich das Herzstück unserer Organisation."
@@ -153,7 +153,7 @@
     "message": "Im Laufe der Jahre hat sich unsere Organisation mit den Bedürfnissen unserer Bewegung verändert. Während wir uns jetzt in erster Linie auf die Bereitstellung von Dienstleistungen zum Aufbau von Kapazitäten konzentrieren, entwickeln wir weiterhin Technologien, die wir für innovativ halten und die in der Bewegung dringend benötigt werden. Jetzt arbeiten wir intensiv mit Anwälten, Organisationen und denjenigen, die an vorderster Front arbeiten, zusammen, um ihren täglichen Betrieb, ihre Marke und Identität sowie ihre Technologie zu verbessern. Auf diese Weise tragen wir dazu bei, ihre Botschaft zu verbreiten und ihre Arbeit einem breiteren Publikum zugänglich zu machen."
   },
   "page.about.section.our-story.paragraph.3": {
-    "message": "Trotz allem bleibt unser Nordstern derselbe: <no-localization>{break}</no-localization> Wir tun es für die Tiere."
+    "message": "Bei all dem bleibt unser Nordstern derselbe: <no-localization>{break}</no-localization> wir tun es für die Tiere."
   },
   "page.about.section.our-values.next-seo.title": {
     "message": "Unsere Werte"
@@ -162,7 +162,7 @@
     "message": "Wir haben starke Grundwerte für unsere Organisation, die bestimmen, was wir tun, wie wir es tun und wie wir eine Gemeinschaft aufbauen."
   },
   "page.about.section.our-values.section-header.heading": {
-    "message": "Unsere Werte"
+    "message": "Unsere <b>Werte</b>"
   },
   "page.about.section.our-values.section-header.image.alt-text": {
     "message": "Unsere Werte"
@@ -261,7 +261,7 @@
     "message": "Willkommen zum Newsletter!"
   },
   "page.blog.section.newsletter.heading": {
-    "message": "Unser Newsletter"
+    "message": "Unser <b>Newsletter</b>"
   },
   "page.blog.section.newsletter.image.alt-text": {
     "message": "Pixelgrafik eines grünen Herzens, das aus einem offenen Umschlag hervorgeht, umgeben von Glitzern"
@@ -276,7 +276,7 @@
     "message": "Wenn Sie sich mit uns in Verbindung setzen möchten, verwenden Sie bitte unser Kontaktformular unten! Wir tun unser Bestes, um jede E-Mail innerhalb von 48 Stunden zu beantworten. Bitte stellen Sie sicher, dass Sie Ihren Spam-Ordner überprüfen!"
   },
   "page.contact.section.get-in-contact.headline": {
-    "message": "Nehmen Sie Kontakt auf"
+    "message": "Nehmen Sie <b>Kontakt auf</b>"
   },
   "page.grants.content": {
     "message": "Wir bringen Sie mit Geldgebern zusammen, die bis zu <b> 1.000 USD als Anschubfinanzierung</b> für Tierrechtsaktivismus bereitstellen! Wir suchen Einzelpersonen und Basisgruppen, deren Hauptziel es ist, das Leiden von Nutztieren zu verringern."
@@ -387,13 +387,13 @@
     "message": "Bitte bestätigen Sie, dass Sie die Finanzierung akzeptieren können"
   },
   "page.grants.section.application.form.c.input.can-accept-funding.text": {
-    "message": "Ich bestätige, dass ich über ein Bank- oder PayPal-Konto verfüge, das auf meinen Namen oder den Namen meiner Organisation lautet und auf das Zuschusszahlungen in US-Dollar überwiesen werden können. Ich bestätige, dass ich verstanden habe, dass - mit Ausnahme meines steuerlichen Sponsors, falls zutreffend - TPP nicht in der Lage ist, Zuschusszahlungen an eine andere Person oder Einrichtung in meinem Namen zu leisten. Ich verstehe, dass, wenn TPP meinen Vorschlag prüft und beschließt, ein Finanzierungsangebot zu machen, dieses Angebot an die Fähigkeit gebunden ist, Gelder auf ein Konto in meinem Namen oder im Namen meiner Organisation zu akzeptieren."
+    "message": "Ich bestätige, dass ich über ein Bank- oder <no-localization>PayPal</no-localization> Konto verfüge, das auf meinen Namen oder den Namen meiner Organisation lautet und auf das Zuschusszahlungen in US-Dollar überwiesen werden können. Ich bestätige, dass ich verstanden habe, dass - mit Ausnahme meines steuerlichen Sponsors, falls zutreffend - <no-localization>TPP</no-localization> nicht in der Lage ist, Zuschusszahlungen an andere Personen oder Organisationen in meinem Namen zu leisten. Mir ist bekannt, dass, wenn <no-localization>TPP</no-localization> meinen Vorschlag prüft und beschließt, ein Finanzierungsangebot zu unterbreiten, dieses Angebot an die Bedingung geknüpft ist, dass ich in der Lage bin, Gelder auf ein Konto in meinem Namen oder im Namen meiner Organisation einzuzahlen."
   },
   "page.grants.section.application.form.c.input.funds-usage.label": {
     "message": "Wofür sollen die Mittel verwendet werden?"
   },
   "page.grants.section.application.form.c.input.funds-usage.text": {
-    "message": "Bitte listen Sie jeden Budgetposten und die damit verbundenen Kosten auf. Die Gesamtsumme sollte dem Gesamtbetrag entsprechen, den Sie bei TPP beantragen. Beispiel: <ul> <li>1 1lb Sack Mais - $5</li> <li>3 Gartenschaufeln - $35</li> </ul>"
+    "message": "Bitte listen Sie jeden Budgetposten und die damit verbundenen Kosten auf. Die Gesamtsumme sollte dem Gesamtbetrag entsprechen, den Sie bei <no-localization>TPP</no-localization> beantragen. Beispiel: <ul> <li>1 Sack Mais (1 lb) - $5</li> <li>3 Gartenschaufeln - $35</li> </ul>"
   },
   "page.grants.section.application.form.c.input.total-budget.error": {
     "message": "Bitte geben Sie einen positiven Wert ein"
@@ -405,7 +405,7 @@
     "message": "Bitte nennen Sie uns die Gesamtkosten des Projekts. Dieser Betrag sollte die Ausgaben für alle mit dem Projekt verbundenen Aktivitäten umfassen"
   },
   "page.grants.section.application.form.c.intro": {
-    "message": "<div> Das Budget für Ihr Projekt ist ein sehr wichtiger Teil Ihres Antrags. Unser Team stützt sich bei seiner endgültigen Entscheidung häufig auf diese Angaben. Denken Sie daran, dass die von Ihnen aufgelisteten Budgetposten dazu dienen, Ihr vorgeschlagenes Projekt zu verwirklichen, seien Sie also sehr genau, wie die beantragte Finanzierung verwendet werden soll. </div> <div> Bitte beachten Sie, dass alle Angaben in diesem Abschnitt in <b>US-Dollar</b> (US$) gemacht werden müssen. </div>"
+    "message": "<div>Das Budget für Ihr Projekt ist ein sehr wichtiger Teil Ihres Antrags. Unser Team stützt sich bei seiner endgültigen Entscheidung häufig auf diese Angaben. Denken Sie daran, dass die von Ihnen aufgelisteten Budgetposten dazu dienen, Ihr vorgeschlagenes Projekt zu verwirklichen, seien Sie also sehr genau, wie die beantragte Finanzierung verwendet werden soll.</div> <div>Bitte beachten Sie, dass alle Angaben in diesem Abschnitt in <b>US-Dollar</b> (US$) gemacht werden müssen.</div>"
   },
   "page.grants.section.application.form.message.error": {
     "message": "Bei der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten! Bitte versuchen Sie es später noch einmal"
@@ -432,7 +432,7 @@
     "message": "Monatliche Beratungsbesuche"
   },
   "page.grants.section.perks.check-ins.paragraph": {
-    "message": "Ein monatlicher 30-minütiger Zoom-Anruf, um Sie und Ihr Team zu beraten. Die Themen umfassen unter anderem Technologie, Marketing, Strategie und andere Aspekte des Wachstums und der Entwicklung Ihrer Organisation."
+    "message": "Eine monatliche 30-minütige Telefonkonferenz <no-localization>Zoom</no-localization>, um Sie und Ihr Team zu beraten. Die Themen umfassen unter anderem Technologie, Marketing, Strategie und andere Aspekte des Wachstums und der Entwicklung Ihres Unternehmens."
   },
   "page.grants.section.perks.content-dev.heading": {
     "message": "Entwicklung von Inhalten"
@@ -453,22 +453,22 @@
     "message": "Zusätzlich zur Startfinanzierung können erfolgreiche Antragsteller Folgendes erhalten:"
   },
   "page.grants.section.perks.squarespace.heading": {
-    "message": "Squarespace Website-Abonnement"
+    "message": "<no-localization>Squarespace</no-localization> Website-Abonnement"
   },
   "page.grants.section.perks.squarespace.paragraph": {
     "message": "<div>Im Wert von 200 $ übernehmen wir die Abonnementkosten für das erste Jahr.</div> <div>Sie sind der Eigentümer, und wir helfen Ihnen bei der Gestaltung und Pflege der Website.</div> <div>Einfach zu aktualisieren mit wenig bis gar keiner Erfahrung.</div>"
   },
   "page.grants.section.pollination-project.button": {
-    "message": "DasBestäubungsprojekt.org"
+    "message": "<no-localization>ThePollinationProject.org</no-localization>"
   },
   "page.grants.section.pollination-project.image.alt-text": {
-    "message": "Logo von The Pollination Project"
+    "message": "Logo der <no-localization>The Pollination Project</no-localization>"
   },
   "page.grants.section.pollination-project.paragraph.0": {
-    "message": "Unser Zuschussvermittlungsdienst wird großzügig von The Pollination Project (TPP) und anderen privaten Spendern finanziert - bitte halten Sie in Ihrem Posteingang Ausschau und vergessen Sie nicht, Ihre Spam-Mails zu überprüfen!"
+    "message": "Unser Zuschussvermittlungsdienst wird großzügig von <no-localization>The Pollination Project (TPP)</no-localization> und anderen privaten Spendern finanziert - bitte halten Sie in Ihrem Posteingang Ausschau und vergessen Sie nicht, Ihre Spam-Mails zu überprüfen!"
   },
   "page.grants.section.pollination-project.paragraph.1": {
-    "message": "Wenn Ihr Hauptaugenmerk nicht auf Nutztiere gerichtet ist, können Sie trotzdem für einen Zuschuss direkt von TPP in Frage kommen. Wir empfehlen Ihnen, sich über die Website zu bewerben."
+    "message": "Wenn Ihr Hauptaugenmerk nicht auf Nutztiere gerichtet ist, können Sie trotzdem einen Zuschuss direkt von <no-localization>TPP</no-localization> erhalten. Wir empfehlen Ihnen, sich über die Website zu bewerben."
   },
   "page.grants.section.qualifications.cta.paragraph.0": {
     "message": "<b>Erfüllen Sie die oben genannten Voraussetzungen nicht?</b> Sie könnten trotzdem für eine Förderung in Frage kommen! Bewerben Sie sich und wir leiten Ihre Bewerbung an andere potenzielle Geldgeber weiter."
@@ -495,7 +495,7 @@
     "message": "<no-localization>%s | Compassion, Creativity, Code!</no-localization>"
   },
   "page.index.section.introduction.headline": {
-    "message": "<left>Wir sind</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
+    "message": "Wir sind <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>"
   },
   "page.index.section.introduction.paragraph1": {
     "message": "Wir sind eine globale Gemeinschaft leidenschaftlicher Tierschützer, die ihre Fähigkeiten im Aufbau von Technologien für die Tierschutzbewegung durch <b>Design, Entwicklung und Daten</b> zur Verfügung stellen. Als Kapazitätsentwickler bieten wir innovative und hochwertige Dienstleistungen an, die für Tierschützer und Organisationen kostenlos sind."
@@ -507,13 +507,13 @@
     "message": "Mit unseren <b>Dienstleistungen zum Aufbau von Kapazitäten</b> leisten wir einen Beitrag zu dieser Bewegung. Wir nutzen unser umfangreiches Netzwerk von Freiwilligen und arbeiten mit Einzelpersonen und Organisationen zusammen, um Webentwicklung, Branding und Beratungsdienste anzubieten."
   },
   "page.index.section.projects.cta": {
-    "message": "Alle Projekte anzeigen"
+    "message": "Siehe unsere Arbeit"
   },
   "page.index.section.projects.headline": {
-    "message": "<left>Ausgewählte</left> <right>PROJEKTE</right>"
+    "message": "Ausgewählte <b>PROJEKTE</b>"
   },
   "page.index.section.projects.paragraph": {
-    "message": "Jedes Projekt, das wir veröffentlichen, ist zu <b>100 % kostenlos für alle</b>. Wir glauben an Zugänglichkeit und Transparenz, und unsere Projekte spiegeln diese Werte wider."
+    "message": "Jedes Projekt, das wir veröffentlichen, ist zu <b>100 % kostenlos für jedermann</b>. Wir glauben an Zugänglichkeit und Transparenz, und unsere Projekte spiegeln diese Werte wider."
   },
   "page.index.section.stage.cta": {
     "message": "Mehr erfahren"
@@ -546,7 +546,7 @@
     "message": "Schreiben Sie hochwertigen, sauberen Code für Projekte in verschiedenen Entwicklungsstadien. Wir verwenden Laravel für die meisten Projekte und erwarten, dass Sie mit PHP, JS und CSS vertraut sind oder daran interessiert sind, sich darin weiterzuentwickeln."
   },
   "page.join.section.job-roles.description.1": {
-    "message": "Definieren Sie das Nutzererlebnis und die Benutzeroberfläche für unsere Projekte, indem Sie moderne, visuell ansprechende Webdesigns erstellen - von Wireframes und Mockups bis hin zum endgültigen Look and Feel der App."
+    "message": "Definieren Sie das Benutzererlebnis und die Benutzeroberfläche für unsere Projekte, indem Sie moderne, visuell ansprechende Webdesigns erstellen - von Wireframes und Mockups bis hin zum endgültigen Look and Feel der App."
   },
   "page.join.section.job-roles.description.2": {
     "message": "Gestalten Sie unsere Stimme und unsere Marke in den sozialen Medien, sei es durch die Entwicklung einer Inhaltsstrategie, die Analyse von Interaktionsdaten oder die Interaktion mit unseren Followern."
@@ -555,13 +555,13 @@
     "message": "Erstellen Sie originelle und gut geschriebene Inhalte für eine Vielzahl von Medien - unseren Blog, Newsletter, soziale Medien, Softwaretexte und mehr."
   },
   "page.join.section.job-roles.description.4": {
-    "message": "Erstellen Sie hochwertige und innovative Designs, die Logo und Branding, Social Media Visuals und UI-Komponenten umfassen."
+    "message": "Bewerben Sie sich bei Violet Studios, unserem Schwesterunternehmen für Grafikdesign und Branding, um einen Platz in unserem Designteam."
   },
   "page.join.section.job-roles.title.0": {
     "message": "Entwickler"
   },
   "page.join.section.job-roles.title.1": {
-    "message": "UI-Designer"
+    "message": "UI/UX-Designer"
   },
   "page.join.section.job-roles.title.2": {
     "message": "Manager für soziale Medien"
@@ -576,7 +576,7 @@
     "message": "Unser Team nutzt Discord für die interne Kommunikation, Trello für den Projekt- und Aufgaben-Workflow, Figma für das Design und GitHub für die Code-Verwaltung und Zusammenarbeit."
   },
   "page.join.section.join-our-team.headline": {
-    "message": "Werden Sie Mitglied unseres Teams"
+    "message": "Werden Sie Mitglied <b>unseres Teams</b>"
   },
   "page.join.section.join-our-team.subline": {
     "message": "Wir wachsen! Wenn Sie an unseren Auftrag glauben und Tieren mit Hilfe von Technologie helfen wollen, kommen Sie zu uns. Auch wenn Sie nicht alle Qualifikationen erfüllen, möchten wir Sie ermutigen, sich trotzdem zu bewerben."
@@ -600,7 +600,7 @@
     "message": "Rekrutieren, einbinden und engagieren Sie unsere wachsende VH-Community auf Discord. Der Kandidat wird Veranstaltungen ausrichten, Interaktionen erleichtern und unsere wachsende Gemeinschaft von Freiwilligen unterstützen."
   },
   "page.join.section.priority-roles.description.1": {
-    "message": "Verwaltung und Beaufsichtigung der Zuschussvergabe und des Fundraising. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
+    "message": "Verwaltung und Beaufsichtigung der Zuschussvergabe und der Mittelbeschaffungspipeline. Die Bewerberin/der Bewerber muss über gute organisatorische und schriftliche Fähigkeiten verfügen und eine ausgezeichnete Grammatik und Rechtschreibung aufweisen."
   },
   "page.join.section.priority-roles.description.2": {
     "message": "Unterstützung unserer Werbemaßnahmen, einschließlich der Entwicklung von Kampagnen, Verwaltung von Budgets und Analyse von Metriken. Die Bewerberin/der Bewerber sollte einen Hintergrund in den Bereichen Marketing, Medien oder Werbung haben."
@@ -651,7 +651,7 @@
     "message": "Antragsteller"
   },
   "page.our-work.section.grant-program.section-header.content": {
-    "message": "Letztes Jahr haben wir eine Partnerschaft mit dem Pollination Project angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
+    "message": "Letztes Jahr haben wir eine Partnerschaft mit <no-localization>The Pollination Project</no-localization> angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
   },
   "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
     "message": "Mehr erfahren"
@@ -669,7 +669,7 @@
     "message": "<no-localization>Mercy for Animals</no-localization>"
   },
   "page.our-work.section.kind-words[0].content": {
-    "message": "Was mich an den Vegan Hacktivists am meisten beeindruckt, ist ihr hohes Maß an kritischem Denken in Bezug auf die Ideenfindung und ihre konsequente Durchsetzung. Dies hat zu mehreren hochwertigen Ergebnissen geführt, die ich nutzen konnte und anderen sehr empfehlen kann."
+    "message": "Was mich an <no-localization>Vegan Hacktivists</no-localization> am meisten beeindruckt, ist ihr hohes Maß an kritischem Denken bei der Ideenfindung und ihre konsequente Umsetzung. Dies hat zu mehreren hochwertigen Ergebnissen geführt, die ich nutzen konnte und anderen sehr empfehlen kann."
   },
   "page.our-work.section.kind-words[1].author": {
     "message": "<no-localization>Ben Williamson</no-localization>"
@@ -678,7 +678,7 @@
     "message": "<no-localization>Compassion In World Farming</no-localization>"
   },
   "page.our-work.section.kind-words[1].content": {
-    "message": "Ich bin wirklich begeistert von dem Potenzial, das Vegan Hacktivists für die Tierschutzbewegung haben. Der Fortschritt ist voller Wendepunkte, und ich bin sicher, dass mindestens einer davon in einer technologischen Lösung liegt, die von dieser erfahrenen Gemeinschaft von Befürwortern angeboten wird."
+    "message": "Ich bin wirklich begeistert von dem Potenzial, das <no-localization>Vegan Hacktivists</no-localization> für die Tierschutzbewegung hat. Der Fortschritt ist voller Wendepunkte, und ich bin sicher, dass mindestens einer davon in einer technologischen Lösung liegt, die von dieser erfahrenen Gemeinschaft von Befürwortern angeboten wird."
   },
   "page.our-work.section.kind-words[2].author": {
     "message": "<no-localization>AJ Dahiya</no-localization>"
@@ -687,7 +687,7 @@
     "message": "<no-localization>The Pollination Project</no-localization>"
   },
   "page.our-work.section.kind-words[2].content": {
-    "message": "Vegan Hacktivists ist eine innovative Organisation, die Technologie einsetzt, um sich in großem Umfang für die Rechte und die Würde von Tieren einzusetzen. Sie haben unsere Organisation mit ihrem Fachwissen weit mehr als nur unterstützt. Ihre Arbeit ist äußerst notwendig und für die Zeit, in der wir leben, hochaktuell."
+    "message": "<no-localization>Vegan Hacktivists</no-localization> ist eine innovative Organisation, die Technologie einsetzt, um sich in großem Umfang für die Rechte und die Würde von Tieren einzusetzen. Sie haben unsere Organisation mit ihrem Fachwissen weit mehr als nur unterstützt. Ihre Arbeit ist äußerst notwendig und in der heutigen Zeit hochaktuell."
   },
   "page.our-work.section.kind-words[3].author": {
     "message": "<no-localization>Brooke Haggerty</no-localization>"
@@ -696,7 +696,7 @@
     "message": "<no-localization>Faunalytics</no-localization>"
   },
   "page.our-work.section.kind-words[3].content": {
-    "message": "Vegan Hacktivists ist ein verstecktes Juwel in der Tierschutzbewegung. Sie bauen Kapazitäten auf, um andere Tierschützer zu unterstützen. Wir hatten das Glück, ihre Hilfe bei mehreren Projekten hinter den Kulissen zu erhalten, und ich bin immer wieder beeindruckt von ihrer Leidenschaft und Professionalität."
+    "message": "<no-localization>Vegan Hacktivists</no-localization> ist ein verstecktes Juwel in der Tierschutzbewegung. Sie bauen Kapazitäten auf, um andere Tierschützer zu unterstützen. Wir hatten das Glück, dass sie uns bei mehreren Projekten hinter den Kulissen geholfen haben, und ich bin immer wieder beeindruckt von ihrer Leidenschaft und Professionalität."
   },
   "page.our-work.section.like-what-you-see.contact.cta-button.label": {
     "message": "Kontakt"
@@ -717,7 +717,7 @@
     "message": "<no-localization>Animal Rights Advocates</no-localization>"
   },
   "page.our-work.section.our-communities.cta.reddit": {
-    "message": "Veganer auf Reddit"
+    "message": "Veganer der <no-localization>Reddit</no-localization>"
   },
   "page.our-work.section.our-communities.member-count.ara": {
     "message": "<no-localization>{count}</no-localization> Mitglieder"
@@ -729,10 +729,10 @@
     "message": "Wir verwalten diese großen Gemeinschaften leidenschaftlicher Veganer und Aktivisten, die uns dabei helfen, ein neues Zeitalter von Freiwilligen und Aktivisten zu schaffen."
   },
   "page.our-work.section.our-work.cta.join": {
-    "message": "Mitarbeiten"
+    "message": "Freiwillig mitarbeiten"
   },
   "page.our-work.section.our-work.cta.services": {
-    "message": "Unsere Dienstleistungen"
+    "message": "Entdecken Sie unsere Dienstleistungen"
   },
   "page.our-work.section.our-work.cta.support": {
     "message": "Unterstützen Sie unsere Arbeit"
@@ -744,7 +744,7 @@
     "message": "Unterstützung erhalten"
   },
   "page.our-work.section.playground.introduction": {
-    "message": "<p>Playground war unsere Antwort auf die überwältigende Nachfrage nach technischer und gestalterischer Unterstützung in unserer Bewegung, während wir als Organisation mit begrenzten Kapazitäten nachhaltig bleiben wollten. Wir haben uns darauf konzentriert, den Prozess zu automatisieren, der Organisationen mit technischem, gestalterischem und anderem Unterstützungsbedarf mit qualifizierten Freiwilligen zusammenbringt.</p> <p>Diese Freiwilligen sind nicht nur in den Bereichen Design und Softwareentwicklung tätig, sondern auch in den Bereichen Datenwissenschaft, Videografie, Marketing, Sicherheit, Forschung und vielem mehr.</p>"
+    "message": "<p><no-localization>Playground</no-localization> war unsere Antwort auf die überwältigende Nachfrage nach technischer und gestalterischer Unterstützung in unserer Bewegung, während wir als Organisation mit begrenzten Kapazitäten nachhaltig bleiben wollten. Wir haben uns darauf konzentriert, den Prozess zu automatisieren, der Organisationen mit technischem, gestalterischem und anderem Unterstützungsbedarf mit qualifizierten Freiwilligen zusammenbringt.</p> <p>Diese Freiwilligen sind nicht nur in den Bereichen Design und Softwareentwicklung tätig, sondern auch in den Bereichen Datenwissenschaft, Videografie, Marketing, Sicherheit, Forschung und vielem mehr.</p>"
   },
   "page.our-work.section.playground.playground.cta-button.label": {
     "message": "Ehrenamtliche Mitarbeiterin"
@@ -762,10 +762,10 @@
     "message": "Technische Innovation im Tierschutz"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "message": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und EA-Konferenzen in der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern. Wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <link>Instagram</link>, um zu sehen, wo wir als nächstes sein werden!"
+    "message": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und <no-localization>EA</no-localization> Konferenzen auf der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern, wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <no-localization><link>Instagram</link></no-localization>, um zu sehen, wo wir als nächstes sein werden!"
   },
   "page.our-work.section.state-of-data.content": {
-    "message": "In der zweiten Jahreshälfte haben wir die erste Studie über den Stand der Daten und Technologien im Tierschutz gestartet, die ihresgleichen sucht. Mit der Unterstützung und Partnerschaft von Faunalytics bei der Konzeption dieser Studie versucht unser Forscherteam zu verstehen, welche Herausforderungen und Chancen sich den Organisationen bieten, die in verschiedenen Bereichen und Branchen innerhalb unserer breiten Bewegung tätig sind. Der in Kürze erscheinende Bericht wird Empfehlungen für die Interessengruppen enthalten und dazu beitragen, unseren organisatorischen Fahrplan voranzutreiben."
+    "message": "Wir haben die erste Studie dieser Art in Auftrag gegeben, um zu verstehen, wie unsere Bewegung die Technologie nutzt. Mit Hilfe von <no-localization>Faunalytics</no-localization> und Recherchen von <no-localization>Animetrics</no-localization> untersucht unser 50-seitiger Bericht Herausforderungen und Chancen in verschiedenen Bereichen wie Beschäftigung und Arbeitskräfte, Websites und Anwendungen, soziale Medien, Datenerfassung und -analyse sowie Sicherheit. Unsere Empfehlungen sollen Stakeholdern und Gemeindemitgliedern praktikable Lösungen bieten, wie wir zu einer stärker technologie- und datengesteuerten Bewegung werden können."
   },
   "page.our-work.section.state-of-data.cta": {
     "message": "Lesen Sie den Bericht"
@@ -774,7 +774,7 @@
     "message": "Unsere Gemeinschaft leidenschaftlicher Aktivisten"
   },
   "page.people.section.advisors.community.heading": {
-    "message": "Unsere Gemeinschaft"
+    "message": "Unsere <b>Gemeinschaft</b>"
   },
   "page.people.section.advisors.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
@@ -783,7 +783,7 @@
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.advisors.intro.heading": {
-    "message": "Unsere Berater"
+    "message": "Unsere <b>Berater</b>"
   },
   "page.people.section.advisors.intro.paragraph": {
     "message": "Wir sind sehr dankbar für unser Team von erfahrenen Beratern, die der Organisation, ihrer Strategie und ihren Projekten Orientierung geben."
@@ -804,7 +804,7 @@
     "message": "UNSERE FREIWILLIGEN"
   },
   "page.people.section.partners.community.heading": {
-    "message": "Unsere Gemeinschaft"
+    "message": "Unsere <b>Gemeinschaft</b>"
   },
   "page.people.section.partners.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
@@ -813,7 +813,7 @@
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.partners.intro.heading": {
-    "message": "Unsere Partner"
+    "message": "Unsere <b>Partner</b>"
   },
   "page.people.section.partners.intro.paragraph": {
     "message": "Hier finden Sie Partnerorganisationen, die wir unterstützen und von denen wir unterstützt werden. Werfen Sie einen Blick darauf und erfahren Sie mehr über die großartige Arbeit, die sie leisten!"
@@ -822,7 +822,7 @@
     "message": "Unsere Partner"
   },
   "page.people.section.team.community.heading": {
-    "message": "Unsere Gemeinschaft"
+    "message": "Unsere <b>Gemeinschaft</b>"
   },
   "page.people.section.team.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
@@ -837,7 +837,7 @@
     "message": "Mehr laden"
   },
   "page.people.section.volunteers.community.heading": {
-    "message": "Unsere Gemeinschaft"
+    "message": "Unsere <b>Gemeinschaft</b>"
   },
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "Unsere Gemeinschaft"
@@ -846,7 +846,7 @@
     "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Gemeinschaft, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Gemeinschaft an erster Stelle steht: eine Gemeinschaft, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
   },
   "page.people.section.volunteers.intro.heading": {
-    "message": "Unsere Freiwilligen"
+    "message": "Unsere <b>Freiwilligen</b>"
   },
   "page.people.section.volunteers.intro.paragraph": {
     "message": "Unsere Freiwilligengemeinschaft ist das Herzstück unserer Organisation und ermöglicht es uns, innovative Projekte zu entwickeln und einen sinnvollen Beitrag zur Bewegung zu leisten. <b>Klicken Sie auf ein Symbol, um die Freiwilligen der einzelnen Teams kennenzulernen!</b>"
@@ -867,25 +867,25 @@
     "message": "Als Kapazitätsaufbauer bieten wir der Tierschutzbewegung unsere Fähigkeiten und Dienstleistungen an. Von der Entwicklung und dem Design bis hin zur Erstellung von Inhalten, Freiwilligen und operativer Beratung - wir sind da, um Ihre Arbeit für die Tiere zu verbessern."
   },
   "page.services.section.our-services.content.1": {
-    "message": "In Anbetracht unserer Kapazitäten und Ihrer organisatorischen Anforderungen können wir die Übernahme von bezahlten Projekten in Betracht ziehen, die spezielle oder vorrangige Unterstützung erfordern. Wenn dies auf Sie zutrifft, nehmen Sie bitte Kontakt mit uns auf, damit wir herausfinden können, wie wir die Arbeit so gestalten können, dass sie in Ihr Budget passt."
+    "message": "In Anbetracht unserer Kapazitäten und der Bedürfnisse Ihrer Organisation können wir die Übernahme von bezahlten Projekten in Betracht ziehen, die spezielle oder vorrangige Unterstützung erfordern. Wenn dies auf Sie zutrifft, nehmen Sie bitte Kontakt mit uns auf, damit wir herausfinden können, wie wir die Arbeit so gestalten können, dass sie in Ihr Budget passt."
   },
   "page.services.section.our-services.header.text": {
-    "message": "Unsere Dienstleistungen"
+    "message": "Unsere <b>Dienstleistungen</b>"
   },
   "page.services.section.service-block.0.button-label": {
     "message": "Beantragen Sie eine kostenlose Website"
   },
   "page.services.section.service-block.0.content": {
-    "message": "Wenn Sie ein unabhängiger Aktivist oder eine Organisation mit wenig oder gar keinen finanziellen Mitteln sind, dann sind Sie diejenigen, denen wir helfen wollen! Wir unterstützen Aktivisten, die nur wenige Ressourcen für das Design und die Entwicklung einer Website haben und/oder nur über begrenzte Kenntnisse oder Zeit verfügen, um sie selbst zu erstellen."
+    "message": "Wenn Sie ein unabhängiger Aktivist oder eine Organisation mit wenig oder gar keinen finanziellen Mitteln sind, dann sind Sie diejenigen, denen wir helfen wollen! Wir unterstützen Befürworter, die nur wenige Ressourcen für das Design und die Entwicklung einer Website haben und/oder nur über begrenzte Kenntnisse oder Zeit verfügen, um sie selbst zu erstellen."
   },
   "page.services.section.service-block.0.title": {
-    "message": "Websites"
+    "message": "Webseiten"
   },
   "page.services.section.service-block.1.button-label": {
     "message": "Beantragen Sie kostenlose Designunterstützung"
   },
   "page.services.section.service-block.1.content": {
-    "message": "Wir haben ein engagiertes Team, das Sie bei der Gestaltung Ihrer Markenidentität, Ihres Logos, Ihrer Social-Media-Assets, Ihrer Website und vielem mehr unterstützt. Wir arbeiten eng mit Ihnen zusammen, um zu verstehen, wer Sie sind und was Ihre Bedürfnisse sind, damit wir Ihre digitale Präsenz optimal gestalten können."
+    "message": "Unser Schwesterunternehmen Violet Studios bietet verschiedene Designdienstleistungen in den Bereichen Branding, Webdesign, Dokumentendesign und mehr an. Sie arbeiten eng mit Ihnen zusammen, um zu verstehen, wer Sie sind und was Ihre Bedürfnisse sind, so dass sie Ihre digitale Präsenz am besten gestalten können."
   },
   "page.services.section.service-block.1.title": {
     "message": "Gestaltung"
@@ -894,7 +894,7 @@
     "message": "Lassen Sie uns über Ihre Idee sprechen"
   },
   "page.services.section.service-block.2.content": {
-    "message": "Haben Sie eine Idee, die uns einer veganen Welt näher bringen würde? Ganz gleich, ob es sich um eine App, eine Veranstaltung oder ein Medium handelt, an dessen Produktion Sie interessiert sind - wir helfen Ihnen, die Ressourcen zu beschaffen, die Sie benötigen, um Ihre Idee umzusetzen. Wenn das Konzept mit unserer Arbeit übereinstimmt, sind wir gerne bereit, Partnerschaften einzugehen."
+    "message": "Haben Sie eine Idee, die uns einer veganen Welt näher bringen würde? Ganz gleich, ob es sich um eine App, eine Veranstaltung oder ein Medium handelt, das Sie produzieren möchten, wir helfen Ihnen dabei, die nötigen Ressourcen zu beschaffen, um Ihre Idee auf den Weg zu bringen. Wenn das Konzept mit unserer Arbeit übereinstimmt, sind wir gerne bereit, Partnerschaften einzugehen."
   },
   "page.services.section.service-block.2.title": {
     "message": "Projekte"
@@ -903,7 +903,7 @@
     "message": "Erfahren Sie mehr über unser Förderprogramm"
   },
   "page.services.section.service-block.3.content": {
-    "message": "Wir bieten eine Anschubfinanzierung von bis zu $1.000 USD für effektiven Tierrechtsaktivismus! Wir suchen Einzelpersonen und Basisgruppen, deren Hauptziel es ist, das Leiden von nichtmenschlichen Nutztieren zu verringern."
+    "message": "Wir bringen Sie mit Geldgebern zusammen, die bis zu 1.000 USD als Anschubfinanzierung für Tierrechtsaktivismus bereitstellen! Wir suchen Einzelpersonen und Gruppen, deren Hauptziel es ist, das Leiden von Nutztieren zu verringern."
   },
   "page.services.section.service-block.3.title": {
     "message": "Finanzierung"
@@ -912,13 +912,13 @@
     "message": "Kontaktieren Sie uns für eine Beratung"
   },
   "page.services.section.service-block.4.content": {
-    "message": "Die Mitglieder unseres Beratungs- und Kernteams verfügen über eine Fülle von Erfahrungen in den Bereichen Technik, Design und Non-Profit-Management. Wir freuen uns, Einzelpersonen und Organisationen nach bestem Wissen und Gewissen zu beraten, sei es in den Bereichen Technologie, Organisationsstrategie, Marketing oder Fundraising."
+    "message": "Die Mitglieder unseres Beratungs- und Kernteams verfügen über eine Fülle von Erfahrungen in den Bereichen Technik, Design und Non-Profit-Management. Wir freuen uns darauf, Einzelpersonen und Organisationen nach bestem Wissen und Gewissen zu beraten, sei es in den Bereichen Technologie, Organisationsstrategie, Marketing oder Fundraising."
   },
   "page.services.section.service-block.4.title": {
     "message": "Beratung"
   },
   "page.sign-in.already-signed-in.content": {
-    "message": "Sie sind bereits eingeloggt. Keine CallbackUrl angegeben. <button>Zum Spielplatz gehen</button>"
+    "message": "Sie sind bereits eingeloggt. Keine <no-localization>callbackUrl</no-localization> vorhanden. <button>Gehe zu <no-localization>Playground</no-localization></button>"
   },
   "page.sign-in.button.sign-in": {
     "message": "Eintragen!"
@@ -960,13 +960,13 @@
     "message": "Unterstützen Sie uns"
   },
   "page.support.section.support-us.subtitle": {
-    "message": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>wenden Sie sich</contact-link> bitte <contact-link>an</contact-link> unseren steuerlichen Sponsor, um die steuerliche Absetzbarkeit zu erfragen."
+    "message": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>kontaktieren Sie uns</contact-link> bitte für steuerlich absetzbare Optionen über unseren steuerlichen Sponsor."
   },
   "page.support.section.violet-studios.button": {
     "message": "Besuchen Sie <no-localization>violetstudios.org</no-localization>"
   },
   "page.support.section.violet-studios.content": {
-    "message": "Ihre großzügige Spende unterstützt auch <no-localization>Violet Studios</no-localization>, unsere Schwesterorganisation. Vegan Hacktivists und Violet Studios arbeiten bei technischen und Design-Projekten eng zusammen. Beide Organisationen engagieren sich für die Förderung der Tierschutzbewegung, indem sie unentgeltliche Dienstleistungen zum Aufbau von Kapazitäten von höchster Qualität anbieten. Wir danken Ihnen!"
+    "message": "Mit Ihrer großzügigen Spende unterstützen Sie auch <no-localization>Violet Studios</no-localization>, unsere Schwesterorganisation. <no-localization>Vegan Hacktivists</no-localization> und <no-localization>Violet Studios</no-localization> arbeiten bei technischen und gestalterischen Projekten eng zusammen. Beide Organisationen engagieren sich für die Förderung der Tierschutzbewegung, indem sie unentgeltliche Dienstleistungen zum Aufbau von Kapazitäten auf höchstem Niveau anbieten. Wir danken Ihnen!"
   },
   "page.support.section.violet-studios.headline": {
     "message": "Zwei Organisationen auf einmal unterstützen"
@@ -987,16 +987,16 @@
     "message": "Wir haben Bot-Benachrichtigungen für Community-Events und -Aktionen aktiviert."
   },
   "page.year-in-review.2020.section.big-impact-changes.banana.paragraph": {
-    "message": "Wir haben unsere LinkedIn-Seite für unsere Freiwilligen eingerichtet."
+    "message": "Wir haben unsere Seite <no-localization>LinkedIn</no-localization> für unsere Freiwilligen eingerichtet."
   },
   "page.year-in-review.2020.section.big-impact-changes.carrot.paragraph": {
     "message": "Wir haben unseren Onboarding-Prozess und unsere Entwicklerleitfäden verbessert."
   },
   "page.year-in-review.2020.section.big-impact-changes.grape.paragraph": {
-    "message": "Wir haben Google Analytics in alle unsere Projekte integriert."
+    "message": "Wir haben <no-localization>Google Analytics</no-localization> in alle unsere Projekte integriert."
   },
   "page.year-in-review.2020.section.big-impact-changes.heading": {
-    "message": "Kleine Änderungen mit großer Wirkung"
+    "message": "Kleine Änderungen mit <b>großer Wirkung</b>"
   },
   "page.year-in-review.2020.section.big-impact-changes.kiwi.paragraph": {
     "message": "Wir haben mehrere unserer früheren Projekte veröffentlicht und als Open Source zur Verfügung gestellt."
@@ -1008,7 +1008,7 @@
     "message": "Wir haben eine fortschrittliche Software zur Serverüberwachung installiert."
   },
   "page.year-in-review.2020.section.big-impact-changes.watermelon.paragraph": {
-    "message": "Wir nehmen ab sofort Bewerbungen von Python-Entwicklern entgegen."
+    "message": "Wir haben damit begonnen, Bewerbungen von <no-localization>Python</no-localization> Entwicklern entgegenzunehmen."
   },
   "page.year-in-review.2020.section.by-the-numbers.2020-traffic.heading": {
     "message": "UNSER VERKEHR 2020"
@@ -1032,19 +1032,19 @@
     "message": "EINZELNE <b>SEITENAUFRUFE</b> AUF DEM BLOG"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.clicks": {
-    "message": "KLICKS, DIE AKTIVISTEN ZU ORGANISATIONEN LEITEN <span>VEGANACTIVISM.ORG</span>"
+    "message": "KLICKS, DIE AKTIVISTEN AN ORGANISATIONEN WEITERLEITEN <span><no-localization>VEGANACTIVISM.ORG</no-localization></span>"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.courses-done": {
-    "message": "KURSE AUF <span>VEGANBOOTCAMP.ORG</span> IN WENIGER ALS 60 TAGEN ABSOLVIERT"
+    "message": "KURSE AUF <span><no-localization>VEGANBOOTCAMP.ORG</no-localization></span> IN WENIGER ALS 60 TAGEN ABGESCHLOSSEN"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.groups-added": {
-    "message": "TIERRECHTSGRUPPEN AUF <span>ANIMALRIGHTSMAP.ORG</span> HINZUGEFÜGT"
+    "message": "TIERSCHUTZGRUPPEN HINZUGEFÜGT ZU <span><no-localization>ANIMALRIGHTSMAP.ORG</no-localization></span>"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.heading": {
     "message": "PROJEKTSTATISTIK"
   },
   "page.year-in-review.2020.section.by-the-numbers.project-statistics.tweets": {
-    "message": "TWEETS VON UNSEREM <span>5 MINUTEN 5 VEGANER</span> SUPPORT BOT"
+    "message": "TWEETS VON UNSEREM <span><no-localization>5 MINUTES 5 VEGANS</no-localization></span> SUPPORT-BOT"
   },
   "page.year-in-review.2020.section.by-the-numbers.top-posts": {
     "message": "TOP POSTS"
@@ -1062,31 +1062,31 @@
     "message": "Partnerschaften"
   },
   "page.year-in-review.2020.section.community-building.partnerships.paragraph": {
-    "message": "In diesem Jahr sind wir sehr froh, mit PETA, Beyond Animal und Project Counterglow zusammenzuarbeiten. Diese drei Partner haben uns in diesem Jahr zu neuen Höhenflügen verholfen, und wir sind sehr dankbar, dass wir ihnen dienen und uns auf sie als unsere neuen Freunde verlassen können."
+    "message": "In diesem Jahr freuen wir uns sehr über die Zusammenarbeit mit <no-localization>PETA</no-localization>, <no-localization>Beyond Animal</no-localization> und <no-localization>Project Counterglow</no-localization>. Diese drei Partner haben uns in diesem Jahr sehr geholfen, und wir sind sehr dankbar, dass wir ihnen dienen und uns auf sie als unsere neuen Freunde verlassen können."
   },
   "page.year-in-review.2020.section.community-building.volunteers.heading": {
     "message": "Ehrenamtliche Mitarbeiter"
   },
   "page.year-in-review.2020.section.community-building.volunteers.paragraph": {
-    "message": "Dieses Jahr konnten wir Freiwillige gewinnen, die für Trello, Microsoft, Etsy, Better Eating, Mercy for Animals, Save Movement und Paypal arbeiteten!"
+    "message": "Dieses Jahr haben wir Freiwillige gewonnen, die für <no-localization>Trello</no-localization>, <no-localization>Microsoft</no-localization>, <no-localization>Etsy</no-localization>, <no-localization>Better Eating</no-localization>, <no-localization>Mercy for Animals</no-localization>, <no-localization>Save Movement</no-localization> und <no-localization>Paypal</no-localization> gearbeitet haben!"
   },
   "page.year-in-review.2020.section.header.image.alt-text": {
     "message": "Jahresrückblick 2020"
   },
   "page.year-in-review.2020.section.highlighted-projects.animal-rights-map.paragraph": {
-    "message": "Mit über 2.500 Gruppen ist die Animal Rights Map eine weltweit aktualisierte Karte, die Veganern hilft, lokale Gruppen zu finden, bei denen sie aktiv werden können. Unsere Karte enthält alle, von den größten Organisationen bis hin zu den sehr kleinen Basisgruppen, die über das ganze Land verteilt sind. Wir haben mit einigen Organisationen zusammengearbeitet, um neue Gruppen automatisch zu importieren, und wir haben einen engagierten Freiwilligen (der dieses Projekt ins Leben gerufen hat), der die Karte fast jeden Tag akribisch aktualisiert. Wir haben viel tolles Feedback für die Karte von Veganern erhalten, die aktiv werden wollen - wir planen, bald mehr Daten zu sammeln und die Funktionen dieser Karte für 2021 zu erweitern!"
+    "message": "Mit über 2.500 Gruppen ist die <no-localization>Animal Rights Map</no-localization> eine weltweit aktualisierte Karte, die Veganern hilft, lokale Gruppen zu finden, in denen sie aktiv werden können. Unsere Karte enthält alle, von den größten Organisationen bis hin zu den sehr kleinen Basisgruppen, die über das ganze Land verteilt sind. Wir haben mit einigen Organisationen zusammengearbeitet, um neue Gruppen automatisch zu importieren, und wir haben einen engagierten Freiwilligen (der dieses Projekt ins Leben gerufen hat), der die Karte fast jeden Tag akribisch aktualisiert. Wir haben viel tolles Feedback für die Karte von Veganern erhalten, die aktiv werden wollen - wir planen, bald mehr Daten zu sammeln und die Funktionen dieser Karte für 2021 zu erweitern!"
   },
   "page.year-in-review.2020.section.highlighted-projects.daily-nooch.paragraph": {
-    "message": "Mit diesem Projekt wollten wir etwas schaffen, das ein wenig mehr Spaß macht und leicht ist, das Veganer gerne konsumieren und mit der Welt teilen können. Daily Nooch ist Ihre zentrale Anlaufstelle für tägliche vegane Nachrichten, Ressourcen und Inspiration. Als Startseite konzipiert, finden Sie hier jeden Tag um Mitternacht die neuesten Nachrichten, Zitate, Kunst, Memes, Fakten, Videos und mehr. Dieses Projekt ist noch sehr experimentell und wir wissen nicht, ob Veganer es konsequent nutzen werden, aber in der Zwischenzeit hatte das Team eine Menge Spaß bei der Erstellung. Wenn es den Leuten gefällt, haben wir eine Reihe lustiger Ideen, die dem Projekt mehr Interaktivität verleihen werden."
+    "message": "Mit diesem Projekt wollten wir etwas schaffen, das ein wenig mehr Spaß macht und leicht ist, damit Veganer es genießen können, es zu konsumieren und mit der Welt zu teilen. <no-localization>Daily Nooch</no-localization> ist Ihre zentrale Quelle für tägliche vegane Nachrichten, Ressourcen und Inspiration. Auf dieser Homepage finden Sie die neuesten Nachrichten, Zitate, Kunst, Memes, Fakten, Videos und mehr, die jeden Tag um Mitternacht aktualisiert werden. Dieses Projekt ist noch sehr experimentell und wir wissen nicht, ob Veganer es konsequent nutzen werden, aber in der Zwischenzeit hatte das Team eine Menge Spaß bei der Erstellung. Wenn es den Leuten gefällt, haben wir eine Reihe lustiger Ideen, die dem Projekt mehr Interaktivität verleihen werden."
   },
   "page.year-in-review.2020.section.highlighted-projects.heading": {
-    "message": "Siehe unsere HIGHLIGHTED PROJECTS"
+    "message": "Siehe unsere <b>HIGHLIGHTED PROJECTS</b>"
   },
   "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.paragraph": {
-    "message": "Dr. Greger, der Gründer von NutritionFacts.org, hat eine App mit dem Namen \"Daily Dozen\" entwickelt, mit der Sie Ihre Ernährung verfolgen und sicherstellen können, dass Sie sich optimal ernähren - und die die gesündesten Lebensmittel und die Anzahl der Portionen auflistet, die wir täglich abhaken sollten. Wir wollten dieses Konzept erweitern und eine webbasierte Version seiner App mit einigen zusätzlichen Funktionen erstellen. Mit My Daily Dozen können Sie täglich die von Dr. Greger in seinem New York Times-Bestseller How Not to Die empfohlenen Lebensmittel verfolgen. Wir hoffen, dass dieses Projekt Nicht-Veganern den Weg zum Veganismus erleichtert, indem sie einen pflanzlichen Lebensstil annehmen."
+    "message": "<no-localization>Dr. Greger</no-localization>, Gründer von <no-localization>NutritionFacts.org</no-localization>, hat eine App namens <no-localization>\"Daily Dozen\"</no-localization> entwickelt, mit der Sie Ihre Ernährung verfolgen und sicherstellen können, dass Sie sich optimal ernähren - und in der detailliert aufgeführt ist, welche Lebensmittel am gesündesten sind und wie viele Portionen wir davon täglich abhaken sollten. Wir wollten dieses Konzept ausbauen und eine webbasierte Version dieser App mit einigen zusätzlichen Funktionen erstellen. Mit My <no-localization>Daily Dozen</no-localization> können Sie täglich die von <no-localization>Dr. Greger</no-localization> in seinem <no-localization>New York Times</no-localization> Bestseller <no-localization>How Not to Die</no-localization> empfohlenen Lebensmittel verfolgen. Wir hoffen, dass dieses Projekt Nicht-Veganern den Weg zum Veganismus erleichtert, indem sie eine pflanzliche Lebensweise annehmen."
   },
   "page.year-in-review.2020.section.highlighted-projects.vegan-bootcamp.paragraph": {
-    "message": "Nach dem erfolgreichen Start des Vegan Bootcamp im Jahr 2019 mit über 5000+ Anmeldungen haben wir beschlossen, mehr Zeit in die Verbesserung des Programms zu investieren. Wir haben eine Umfrage an alle Mitglieder verschickt und eine große Menge an Feedback erhalten, das uns geholfen hat zu entscheiden, welche neuen Inhalte und Funktionen benötigt werden. Vegan Bootcamp umfasst jetzt Community-Foren, individuelle Kurse, Tags, bessere Belohnungen, erweiterte Statistiken für Empfehlungen, eine Inhaltssuche, ein Unterstützungsprogramm für vegane Ernährungsberater, ein Mentorenprogramm und ist jetzt in 10 verschiedene Sprachen übersetzt!"
+    "message": "Nach dem erfolgreichen Start von <no-localization>Vegan Bootcamp's</no-localization> im Jahr 2019 mit über 5000+ Anmeldungen haben wir beschlossen, mehr Zeit in die Verbesserung der Seite zu investieren. Wir haben eine Umfrage an alle Mitglieder verschickt und eine große Menge an Feedback erhalten, das uns geholfen hat, zu entscheiden, welche neuen Inhalte und Funktionen benötigt werden. <no-localization>Vegan Bootcamp</no-localization> umfasst nun Community-Foren, individuelle Kurse, Tags, bessere Belohnungen, erweiterte Statistiken für Empfehlungen, eine Inhaltssuche, ein Unterstützungsprogramm für vegane Diätetiker, ein Mentoren-Unterstützungsprogramm und es ist nun in 10 verschiedene Sprachen übersetzt!"
   },
   "page.year-in-review.2020.section.moving-forward.btn.text": {
     "message": "Unterstützen Sie unsere Arbeit!"
@@ -1107,16 +1107,16 @@
     "message": "<span>Fachleute</span> | Team Blueberry"
   },
   "page.year-in-review.2020.section.new-teams.blueberry.paragraph": {
-    "message": "Wir haben kürzlich das Team der Spezialisten vorgestellt! 9 neue Aktivisten sind dem Team beigetreten und jeder von ihnen erfüllt derzeit die Rollen von: Release, DevOps, Sicherheit, SEO, CSS, Kunst, Karten, Video und Audio. Dies füllte eine Lücke, in der unsere Teammitglieder gezielt Probleme in ihren Projekten durch das Team Bluebbery angegangen werden konnten."
+    "message": "Wir haben kürzlich das Team der Spezialisten vorgestellt! 9 neue Aktivisten sind dem Team beigetreten und jeder von ihnen erfüllt derzeit die Rollen von: Release, DevOps, Sicherheit, <no-localization>SEO</no-localization>, <no-localization>CSS</no-localization>, Kunst, Karten, Video und Audio. Damit wurde eine Lücke geschlossen, in der unsere Teammitglieder durch das Team Blueberry gezielt Probleme in ihren Projekten angehen konnten."
   },
   "page.year-in-review.2020.section.new-teams.strawberry.heading": {
     "message": "<span>Datenanalyse</span> | Team Strawberry"
   },
   "page.year-in-review.2020.section.new-teams.strawberry.paragraph.0": {
-    "message": "Wir haben <link>ein neues Team gegründet</link>, das sich der Sammlung und Analyse von Daten widmet, nicht nur über die Projekte, die wir entwickeln, sondern auch über Vegan Hacktivists als Organisation. Dieses Team steht für unser Engagement für Daten, ein Engagement, das sicherstellt, dass alles, was wir tun, eine große Wirkung hat, und dass wir in der Lage sind, aus unserer Arbeit in der Vergangenheit zu lernen und die Arbeit, die wir in der Zukunft tun, zu gestalten."
+    "message": "Wir haben <link>ein neues Team gegründet</link>, das sich der Sammlung und Analyse von Daten widmet, nicht nur über die Projekte, die wir durchführen, sondern auch über <no-localization>Vegan Hacktivists</no-localization> als Organisation. Dieses Team steht für unser Engagement für Daten und dafür, dass alles, was wir tun, eine große Wirkung hat, und dass wir in der Lage sind, aus unserer Arbeit in der Vergangenheit zu lernen und unsere Arbeit in der Zukunft zu gestalten."
   },
   "page.year-in-review.2020.section.new-teams.strawberry.paragraph.1": {
-    "message": "Suan Chin leitet dieses Team mit 7 weiteren Datenwissenschaftlern. Das gesamte Team finden Sie auf der <link>Teamseite hier</link>. Wir sind gespannt, wie dieses Team die Zukunft unserer Arbeit gestalten wird!"
+    "message": "<no-localization>Suan Chin</no-localization> leitet dieses Team mit 7 weiteren Datenwissenschaftlern. Das gesamte Team finden Sie auf der <link>Teamseite hier</link>. Wir sind gespannt, wie dieses Team die Zukunft unserer Arbeit gestalten wird!"
   },
   "page.year-in-review.2020.section.strategy-and-experimentation.heading": {
     "message": "Strategie und Erprobung"
@@ -1128,7 +1128,7 @@
     "message": "Wir sind dankbar, dass dies im letzten Jahr funktioniert hat, denn 3 der 6 Projekte, die wir aufgebaut haben, erfüllten unsere Erfolgsstandards, so dass wir mit dieser Methodik fortfuhren. Wir glauben fest daran, dass es für jede Bewegung wichtig ist, innovativ zu sein, neue Taktiken auszuprobieren, experimentelle Werkzeuge zu entwickeln und alternative Strategien zu entwickeln."
   },
   "page.year-in-review.2020.section.we-grew.advisory-team.content": {
-    "message": "Wir sind unglaublich dankbar, dass wir jetzt ein Team von erfahrenen veganen Beratern wie Seb Alex, Ryuji Chua, Leah Doellinger und Michael Dearborn haben, auf die wir uns stützen können. <link>Klicken Sie hier</link>, um mehr von unseren Beratern zu erfahren <link>!</link>"
+    "message": "Wir sind unglaublich dankbar, dass wir jetzt ein Team von erfahrenen veganen Beratern haben, auf die wir uns stützen können, wie <no-localization>Seb Alex</no-localization>, <no-localization>Ryuji Chua</no-localization>, <no-localization>Leah Doellinger</no-localization> und <no-localization>Michael Dearborn</no-localization>. <link>Klicken Sie hier</link>, um mehr von unseren Beratern zu erfahren <link>!</link>"
   },
   "page.year-in-review.2020.section.we-grew.expanded.content": {
     "message": "Wir sind von 3 Teams mit 28 Freiwilligen auf 7 Teams mit 80 Freiwilligen angewachsen! Wir konnten mehr Stellen schaffen, unter anderem für die Erstellung von Inhalten, Animatoren, Soziales, Marketing und Werbung!"
@@ -1140,34 +1140,34 @@
     "message": "In diesem Jahr haben wir mit einigen großartigen veganen Organisationen zusammengearbeitet, vielen Menschen bei ihrer Überzeugungsarbeit geholfen und viel Spaß dabei gehabt, interessante Projekte für die Bewegung zu entwickeln. Unser Team ist fast um das Dreifache gewachsen und es gab eine Menge neuer Herausforderungen, die mit diesem Wachstum einhergingen, aber wir sind wirklich zufrieden mit dem, was wir erreicht haben und wir können es kaum erwarten, zu sehen, was das Jahr 2021 für uns bringt!"
   },
   "page.year-in-review.2020.section.we-grew.launched.content": {
-    "message": "Vier davon waren einzigartige Projektideen von uns selbst! Wir hatten auch das Glück, an Projekten mit Animal Rebellion, Animal Save Movement, Lebanese Vegans und den Excelsior 4 zu arbeiten!"
+    "message": "Vier davon waren einzigartige Projektideen von uns selbst! Wir hatten auch das Glück, an Projekten mit <no-localization>Animal Rebellion</no-localization>, <no-localization>Animal Save Movement</no-localization>, <no-localization>Lebanese Vegans</no-localization> und <no-localization>Excelsior 4</no-localization> zu arbeiten."
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
-    "message": "Rebellion der Tiere"
+    "message": "<no-localization>Animal Rebellion</no-localization>"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.paragraph": {
-    "message": "Wir haben uns dieses Jahr mit Animal Rebellion zusammengetan, um bei der Erstellung ihrer neuen Website zu helfen, für die wir ein ganzes Team abgestellt haben, das etwa 6 Monate Arbeit benötigte. Die Zusammenarbeit mit ihrem technischen Team war fantastisch, sie waren sehr sachkundig und wir hatten das Gefühl, dass wir bei jeder Begegnung während unserer Arbeit mit einem Team von Profis zusammenarbeiteten. Animal Rebellion ist eine Massenbewegung, die mit gewaltfreiem zivilem Widerstand den Übergang zu einem gerechten und nachhaltigen pflanzlichen Lebensmittelsystem herbeiführen will, um das Massensterben zu stoppen, die schlimmsten Auswirkungen des Klimawandels abzumildern und Gerechtigkeit für Tiere zu gewährleisten."
+    "message": "Wir haben uns dieses Jahr mit <no-localization>Animal Rebellion</no-localization> zusammengetan, um bei der Erstellung ihrer neuen Website zu helfen, wofür wir ein ganzes Team abgestellt haben, das etwa 6 Monate Arbeit benötigte. Die Zusammenarbeit mit ihrem technischen Team war fantastisch, sie waren sehr sachkundig und wir hatten das Gefühl, bei jeder Begegnung während unserer Arbeit mit einem professionellen Team zusammenzuarbeiten. <no-localization>Animal Rebellion</no-localization> ist eine Massenbewegung, die gewaltlosen zivilen Widerstand einsetzt, um den Übergang zu einem gerechten und nachhaltigen pflanzenbasierten Lebensmittelsystem herbeizuführen und so zu versuchen, das Massensterben aufzuhalten, die schlimmsten Auswirkungen des Klimawandels zu lindern und Gerechtigkeit für Tiere zu gewährleisten."
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.heading": {
-    "message": "Tierschutz-Bewegung"
+    "message": "<no-localization>Animal Save Movement</no-localization>"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-save-movement.paragraph": {
-    "message": "Wir durften mit Animal Save zusammenarbeiten und ihnen bei ihrer neuen Website helfen. Wir halfen auch bei ihrer Werbekampagne und betreuten diese für einige Monate, um die Arbeit und den Newsletter von Save bekannter zu machen. Falls Sie noch nichts von Save gehört haben: Die Organisation hat es sich zur Aufgabe gemacht, vor jedem Schlachthof Mahnwachen abzuhalten und für jedes ausgebeutete Tier Zeugnis abzulegen. Sie leiten auch die Klima- und Gesundheits-Save-Bewegung, die sich für die Umkehrung des katastrophalen Klimawandels und eine pflanzliche Ernährung einsetzt. Es war eine große Freude, ihr Team von leidenschaftlichen Aktivisten kennenzulernen und mit ihnen zusammenzuarbeiten!"
+    "message": "Wir durften mit <no-localization>Animal Save</no-localization> zusammenarbeiten und ihnen bei ihrer neuen Website helfen. Wir halfen auch bei ihrer Anzeigenkampagne und verwalteten diese für einige Monate, um die Arbeit von <no-localization>Save's</no-localization> und ihren Newsletter bekannter zu machen. Falls Sie noch nichts von <no-localization>Save</no-localization> gehört haben, ihre Mission ist es, Mahnwachen an jedem Schlachthof abzuhalten und für jedes ausgebeutete Tier Zeugnis abzulegen. Sie leiten auch die Bewegung zur Rettung von Klima und Gesundheit, die sich für die Umkehrung des katastrophalen Klimawandels einsetzt und pflanzliche Ernährung zugänglich macht. Es war eine große Freude, ihr Team von leidenschaftlichen Aktivisten zu treffen und mit ihnen zu arbeiten!"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.heading": {
-    "message": "Das Excelsior 4"
+    "message": "<no-localization>The Excelsior 4</no-localization>"
   },
   "page.year-in-review.2020.section.working-with-organizations.excelsior.paragraph": {
-    "message": "Die Excelsior 4 sind vier Aktivisten, die wegen der Aufdeckung krimineller Tierquälerei auf der Excelsior Hog Farm in insgesamt 21 Fällen angeklagt sind. Wir haben mit ihnen zusammengearbeitet, um eine neue Website einzurichten, die es ihnen ermöglichen würde, so schnell wie möglich Spenden für ihre rechtliche Verteidigung zu sammeln. Wir sind der Meinung, dass die Arbeit, die sie geleistet haben, und das, was sie aufgedeckt haben, extrem wichtig ist, und wir sind sehr froh, dass wir die Möglichkeit hatten, sie zu unterstützen und ihnen dabei zu helfen, die Seite zum Laufen zu bringen. Bitte besuchen Sie sie und unterstützen Sie sie, wenn Sie können!"
+    "message": "Bei <no-localization>Excelsior 4</no-localization> handelt es sich um vier Aktivisten, die nach der Aufdeckung krimineller Tierquälerei auf der <no-localization>Excelsior</no-localization> Hog Farm in insgesamt 21 Fällen angeklagt sind. Wir haben mit ihnen zusammengearbeitet, um eine neue Website einzurichten, die es ihnen ermöglichen würde, so schnell wie möglich Spenden für ihre rechtliche Verteidigung zu sammeln. Wir sind der Meinung, dass die Arbeit, die sie geleistet haben, und das, was sie aufgedeckt haben, extrem wichtig ist, und wir sind sehr froh, dass wir die Möglichkeit hatten, sie zu unterstützen und ihnen dabei zu helfen, die Seite zum Laufen zu bringen. Bitte besuchen Sie sie und unterstützen Sie sie, wenn Sie können!"
   },
   "page.year-in-review.2020.section.working-with-organizations.heading": {
-    "message": "Arbeit mit ORGANISATIONEN"
+    "message": "Arbeit mit <b>ORGANISATIONEN</b>"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
-    "message": "Libanesische Veganer"
+    "message": "<no-localization>Lebanese Vegans</no-localization>"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.paragraph": {
-    "message": "Das soziale Zentrum der libanesischen Veganer ist das einzige Zentrum für Tierrechte und die Unterstützung von Veganern in Südwestasien und Nordafrika. Es bietet monatlich kostenlose Workshops und Vorträge über Veganismus, verteilt wöchentlich kostenlos Lebensmittel und führt monatliche Kampagnen zur Sensibilisierung für Tierrechte durch. Wir hatten das Glück, mit ihnen zusammenzuarbeiten, um ihnen sowohl bei der Einführung ihrer neuen Website als auch beim Re-Branding mit einem neuen Logo zu helfen. Die Zusammenarbeit mit unserem Berater Seb Alex, der die Arbeit von Lebanese Vegans organisiert, war sehr angenehm."
+    "message": "Das soziale Zentrum <no-localization>Lebanese Vegans</no-localization> ist das einzige Zentrum zur Unterstützung von Tierrechten und Veganern in Südwestasien und Nordafrika. Es bietet monatlich kostenlose Workshops und Vorträge über Veganismus an, verteilt wöchentlich kostenlos Lebensmittel und führt monatliche Kampagnen zur Sensibilisierung für Tierrechte durch. Wir hatten das Glück, mit ihnen zusammenzuarbeiten, um ihnen sowohl bei der Einführung ihrer neuen Website als auch beim Re-Branding mit einem neuen Logo zu helfen. Die Zusammenarbeit mit unserer Beraterin <no-localization>Seb Alex</no-localization>, die die Arbeit hinter <no-localization>Lebanese Vegans</no-localization> organisiert, war eine tolle Sache."
   },
   "page.year-in-review.2021.next-seo.title": {
     "message": "Das Jahr 2021 im Rückblick"
@@ -1209,7 +1209,7 @@
     "message": "Wir haben begonnen, wöchentliche Sprechstunden für unser Team zu veranstalten, um zu chatten, zu arbeiten und zu spielen."
   },
   "page.year-in-review.2021.section.by-the-numbers.heading": {
-    "message": "Die Zahlen"
+    "message": "<b>Die Zahlen</b>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.0": {
     "message": "<b>Gesamte eindeutige Seitenaufrufe</b> für alle Projekte"
@@ -1332,7 +1332,7 @@
     "message": "Melden Sie sich für unseren Newsletter an!"
   },
   "page.year-in-review.2021.section.newsletter-launch.heading": {
-    "message": "Einführung des Newsletters"
+    "message": "<b>Einführung des Newsletters</b>"
   },
   "page.year-in-review.2021.section.newsletter-launch.paragraph": {
     "message": "In der veganen Bewegung hat sich viel getan, und wir freuen uns, Teil dieser Veränderungen zu sein. Um Sie über unsere Fortschritte auf dem Laufenden zu halten, haben wir einen monatlichen Newsletter ins Leben gerufen, in dem wir über unsere Projekte und allgemeine Ereignisse berichten. Bis heute haben wir über 15.000 E-Mails von unserer Community erhalten. Melden Sie sich noch heute für unseren Newsletter an!"
@@ -1665,13 +1665,13 @@
     "message": "Wir freuen uns sehr, unseren <no-localization>{year}</no-localization> Jahresrückblick veröffentlichen zu können! Scrollen Sie nach unten und lesen Sie, was wir dank Ihrer großzügigen Unterstützung, unserer Partner und vor allem unserer großartigen Freiwilligen alles erreicht haben."
   },
   "page.year-in-review.section.header.title": {
-    "message": "Unser <no-localization>{year}</no-localization> Jahresrückblick"
+    "message": "Unser <no-localization>{year}</no-localization> <b>Jahresrückblick</b>"
   },
   "section.blog-teaser.cta": {
     "message": "Alle Beiträge anzeigen"
   },
   "section.blog-teaser.headline": {
-    "message": "<left>Auf dem</left> <right>BLOG</right>"
+    "message": "Auf dem <b>BLOG</b>"
   },
   "section.blog-teaser.paragraph": {
     "message": "In unserem Blog finden Sie Projekt-Updates, Ankündigungen, Interviews, Gastbeiträge und vieles mehr."
@@ -1695,7 +1695,7 @@
     "message": "Name"
   },
   "section.contact-us-form.input-field.label.service": {
-    "message": "Dienstleistung"
+    "message": "Dienst"
   },
   "section.contact-us-form.input-field.pattern-error.email": {
     "message": "Bitte geben Sie eine gültige E-Mail ein"
@@ -1740,7 +1740,7 @@
     "message": "Beantragen Sie eine Starthilfe"
   },
   "section.grants-cta.apply.paragraph": {
-    "message": "Wir bieten Zuschüsse für wirkungsvolle und effektive Arbeit im Bereich Tierschutz und Aktivismus."
+    "message": "Wir bringen Sie mit Geldgebern zusammen, die sich für eine wirkungsvolle Arbeit im Bereich Tierschutz und Aktivismus einsetzen."
   },
   "section.grants-cta.visit-year-review.cta": {
     "message": "Siehe unsere Auswirkungen"
@@ -1764,10 +1764,10 @@
     "message": "Sind Sie ein Entwickler, Designer, Autor oder ein kreativer Profi, der seine digitalen Fähigkeiten für die Tiere einsetzen möchte? Erfahren Sie mehr über unsere Teammitglieder und sehen Sie sich unsere offenen Stellen an."
   },
   "section.support-progess-bar.current.label": {
-    "message": "Aktuelle monatliche Patreon-Spenden"
+    "message": "Aktuelle monatliche Spenden"
   },
   "section.support-progess-bar.goal.0.label": {
-    "message": "Erforderlich zur Deckung der grundlegenden Betriebskosten"
+    "message": "Dies wird einige unserer grundlegendsten Bedürfnisse decken!"
   },
   "section.support-progess-bar.goal.1.label": {
     "message": "Wir können mehr nützliche Dienste und Technologien nutzen"
@@ -1776,21 +1776,21 @@
     "message": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
   },
   "section.support-progess-bar.goal.3.label": {
-    "message": "Selbsttragendes Ziel"
+    "message": "Wir haben unser monatliches Spendenziel erreicht, danke!"
   },
   "section.support-progess-bar.mobile.current.label": {
-    "message": "Aktuelle monatliche Patreon-Spenden"
+    "message": "Aktuelle monatliche Spenden"
   },
   "section.support-progess-bar.mobile.goal.0.label": {
-    "message": "Erforderlich zur Deckung der Betriebskosten"
+    "message": "Dies wird einige unserer grundlegendsten Bedürfnisse decken!"
   },
   "section.support-progess-bar.mobile.goal.1.label": {
-    "message": "Kann sich mehr nützliche Dienstleistungen und Technik leisten"
+    "message": "Wir können mehr nützliche Dienste und Technologien nutzen"
   },
   "section.support-progess-bar.mobile.goal.2.label": {
     "message": "Wir können den Wert und die angebotenen Dienstleistungen erhöhen"
   },
   "section.support-progess-bar.mobile.goal.3.label": {
-    "message": "Selbsttragendes Ziel"
+    "message": "Wir haben unser monatliches Spendenziel erreicht, danke!"
   }
 }

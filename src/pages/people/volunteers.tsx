@@ -269,7 +269,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.people.section.volunteers.intro.heading',
-          defaultMessage: 'Our volunteers',
+          defaultMessage: 'Our <b>volunteers</b>',
         })}
       >
         <FormattedMessage
@@ -311,7 +311,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.people.section.volunteers.community.heading',
-            defaultMessage: 'Our community',
+            defaultMessage: 'Our <b>community</b>',
           })}
         >
           <FormattedMessage

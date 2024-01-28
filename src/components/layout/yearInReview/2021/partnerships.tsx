@@ -44,7 +44,7 @@ const Partnerships: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={['Building meaningful', 'partnerships']}
+            header={'Building meaningful <b>partnerships</b>'}
             className='text-grey'
           >
             <FormattedMessage

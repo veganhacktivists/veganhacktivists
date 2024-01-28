@@ -96,7 +96,7 @@
     "message": "Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work."
   },
   "page.about.section.our-mission.section-header.heading": {
-    "message": "Our mission"
+    "message": "Our <b>mission</b>"
   },
   "page.about.section.our-mission.section-header.image.alt-text": {
     "message": "Our mission"
@@ -135,7 +135,7 @@
     "message": "Our story"
   },
   "page.about.section.our-story.intro.heading": {
-    "message": "Our story"
+    "message": "Our <b>story</b>"
   },
   "page.about.section.our-story.intro.paragraph": {
     "message": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
@@ -162,7 +162,7 @@
     "message": "We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
   },
   "page.about.section.our-values.section-header.heading": {
-    "message": "Our values"
+    "message": "Our <b>values</b>"
   },
   "page.about.section.our-values.section-header.image.alt-text": {
     "message": "Our values"
@@ -261,7 +261,7 @@
     "message": "Welcome to the newsletter!"
   },
   "page.blog.section.newsletter.heading": {
-    "message": "Our newsletter"
+    "message": "Our <b>newsletter</b>"
   },
   "page.blog.section.newsletter.image.alt-text": {
     "message": "Pixel art of a green heart emerging from an open envelope surrounded by sparkles"
@@ -276,7 +276,7 @@
     "message": "If you'd like to get in touch with us, please use our contact form below! We do our best to respond to every email within 48 hours. Please make sure to check your spam folder!"
   },
   "page.contact.section.get-in-contact.headline": {
-    "message": "Get in contact"
+    "message": "Get in <b>contact</b>"
   },
   "page.grants.content": {
     "message": "We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
@@ -495,7 +495,7 @@
     "message": "<no-localization>%s | Compassion, Creativity, Code!</no-localization>"
   },
   "page.index.section.introduction.headline": {
-    "message": "<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>"
+    "message": "We are <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>"
   },
   "page.index.section.introduction.paragraph1": {
     "message": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
@@ -510,7 +510,7 @@
     "message": "See Our Work"
   },
   "page.index.section.projects.headline": {
-    "message": "<left>Featured</left> <right>PROJECTS</right>"
+    "message": "Featured <b>PROJECTS</b>"
   },
   "page.index.section.projects.paragraph": {
     "message": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
@@ -576,7 +576,7 @@
     "message": "Our team uses Discord for internal communication, Trello for project and task workflow, Figma for designing, and GitHub for code management and collaboration."
   },
   "page.join.section.join-our-team.headline": {
-    "message": "Join our team"
+    "message": "Join <b>our team</b>"
   },
   "page.join.section.join-our-team.subline": {
     "message": "We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway."
@@ -774,7 +774,7 @@
     "message": "Our Community of Passionate Activists"
   },
   "page.people.section.advisors.community.heading": {
-    "message": "Our community"
+    "message": "Our <b>community</b>"
   },
   "page.people.section.advisors.community.image.alt-text": {
     "message": "Our community"
@@ -783,7 +783,7 @@
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.advisors.intro.heading": {
-    "message": "Our advisors"
+    "message": "Our <b>advisors</b>"
   },
   "page.people.section.advisors.intro.paragraph": {
     "message": "We are incredibly thankful for our team of experienced advisors who provide guidance and direction to the organization, its strategy, and projects."
@@ -804,7 +804,7 @@
     "message": "OUR VOLUNTEERS"
   },
   "page.people.section.partners.community.heading": {
-    "message": "Our community"
+    "message": "Our <b>community</b>"
   },
   "page.people.section.partners.community.image.alt-text": {
     "message": "Our community"
@@ -813,7 +813,7 @@
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.partners.intro.heading": {
-    "message": "Our partners"
+    "message": "Our <b>partners</b>"
   },
   "page.people.section.partners.intro.paragraph": {
     "message": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
@@ -822,7 +822,7 @@
     "message": "Our Partners"
   },
   "page.people.section.team.community.heading": {
-    "message": "Our community"
+    "message": "Our <b>community</b>"
   },
   "page.people.section.team.community.image.alt-text": {
     "message": "Our community"
@@ -837,7 +837,7 @@
     "message": "Load more"
   },
   "page.people.section.volunteers.community.heading": {
-    "message": "Our community"
+    "message": "Our <b>community</b>"
   },
   "page.people.section.volunteers.community.image.alt-text": {
     "message": "Our community"
@@ -846,7 +846,7 @@
     "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
   },
   "page.people.section.volunteers.intro.heading": {
-    "message": "Our volunteers"
+    "message": "Our <b>volunteers</b>"
   },
   "page.people.section.volunteers.intro.paragraph": {
     "message": "Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
@@ -870,7 +870,7 @@
     "message": "Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget."
   },
   "page.services.section.our-services.header.text": {
-    "message": "Our services"
+    "message": "Our <b>services</b>"
   },
   "page.services.section.service-block.0.button-label": {
     "message": "Apply for a free website"
@@ -966,7 +966,7 @@
     "message": "Visit <no-localization>violetstudios.org</no-localization>"
   },
   "page.support.section.violet-studios.content": {
-    "message": "Your generous donation also supports <no-localization>Violet Studios</no-localization>, our sister organization. Vegan Hacktivists and Violet Studios collaborate closely on tech and design projects. Both organizations are committed to advancing the animal protection movement by providing pro-bono capacity building services of the highest quality. Thank you!"
+    "message": "Your generous donation also supports <no-localization>Violet Studios</no-localization>, our sister organization. <no-localization>Vegan Hacktivists</no-localization> and <no-localization>Violet Studios</no-localization> collaborate closely on tech and design projects. Both organizations are committed to advancing the animal protection movement by providing pro-bono capacity building services of the highest quality. Thank you!"
   },
   "page.support.section.violet-studios.headline": {
     "message": "Support Two Orgs At Once"
@@ -996,7 +996,7 @@
     "message": "We integrated <no-localization>Google Analytics</no-localization> into all of our projects."
   },
   "page.year-in-review.2020.section.big-impact-changes.heading": {
-    "message": "Minor changes with a BIG IMPACT"
+    "message": "Minor changes with a <b>BIG IMPACT</b>"
   },
   "page.year-in-review.2020.section.big-impact-changes.kiwi.paragraph": {
     "message": "We released and open-sourced several of our past projects."
@@ -1080,7 +1080,7 @@
     "message": "With this project we wanted to create something a little more fun and light-weight that vegans could enjoy consuming and sharing with the world. <no-localization>Daily Nooch</no-localization> is your one-stop source for daily vegan news, resources and inspiration. Designed to be your homepage, get the latest news, quotes, art, memes, facts, videos, and more updated every day at midnight. This project is very experimental and we don't know if vegans will use this consistently, but in the meantime the team had a lot of fun building it. If folks like it we have a bunch of fun ideas to explore that will add more interactivity to the project."
   },
   "page.year-in-review.2020.section.highlighted-projects.heading": {
-    "message": "See our HIGHLIGHTED PROJECTS"
+    "message": "See our <b>HIGHLIGHTED PROJECTS</b>"
   },
   "page.year-in-review.2020.section.highlighted-projects.my-daily-dozen.paragraph": {
     "message": "<no-localization>Dr. Greger</no-localization>, founder of <no-localization>NutritionFacts.org</no-localization>, created an app called <no-localization>\"Daily Dozen\"</no-localization> that allows you to track your diet and make sure you get the best nutrition possible - and details the healthiest foods and how many servings of each we should try to check off every day. We wanted to expand on this concept and create a web-based version of his app with some additional features. Use My <no-localization>Daily Dozen</no-localization> to keep daily track of the foods recommended by <no-localization>Dr. Greger</no-localization> in his <no-localization>New York Times</no-localization> Bestselling book, <no-localization>How Not to Die</no-localization>. We hope that this project will give non-vegans the opportunity for an easier path to veganism by adopting a plant-based lifestyle."
@@ -1161,7 +1161,7 @@
     "message": "The <no-localization>Excelsior 4</no-localization> are four activists are facing charges, with 21 counts in total after exposing criminal animal cruelty at <no-localization>Excelsior</no-localization> Hog Farm. We worked with them to get a new site launched that would allow them to fundraise their legal defense as fast as possible. We really think that the work they did and what they exposed is extremely important and we're so happy to have had the chance to support and help them get up and running. Please do check them out and support if you can!"
   },
   "page.year-in-review.2020.section.working-with-organizations.heading": {
-    "message": "Working with ORGANIZATIONS"
+    "message": "Working with <b>ORGANIZATIONS</b>"
   },
   "page.year-in-review.2020.section.working-with-organizations.lebanese-vegans.heading": {
     "message": "<no-localization>Lebanese Vegans</no-localization>"
@@ -1209,7 +1209,7 @@
     "message": "Started hosting weekly office hours for our team to chat, work, and play"
   },
   "page.year-in-review.2021.section.by-the-numbers.heading": {
-    "message": "By the numbers"
+    "message": "<b>By the numbers</b>"
   },
   "page.year-in-review.2021.section.by-the-numbers.statistic.0": {
     "message": "<b>Total unique page views</b> for all projects"
@@ -1332,7 +1332,7 @@
     "message": "Sign up for our newsletter!"
   },
   "page.year-in-review.2021.section.newsletter-launch.heading": {
-    "message": "Newsletter Launch"
+    "message": "<b>Newsletter Launch</b>"
   },
   "page.year-in-review.2021.section.newsletter-launch.paragraph": {
     "message": "Much has been happening in the vegan movement, and we are excited to be part of those changes. To keep you up-to-date with our progress, we have launched a monthly newsletter to showcase our projects and general happenings. We've accumulated over 15,000 emails from our community to date. Sign up for our newsletter today!"
@@ -1665,13 +1665,13 @@
     "message": "We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
   },
   "page.year-in-review.section.header.title": {
-    "message": "Our <no-localization>{year}</no-localization> year in review"
+    "message": "Our <no-localization>{year}</no-localization> <b>year in review</b>"
   },
   "section.blog-teaser.cta": {
     "message": "See All Posts"
   },
   "section.blog-teaser.headline": {
-    "message": "<left>On the</left> <right>BLOG</right>"
+    "message": "On the <b>BLOG</b>"
   },
   "section.blog-teaser.paragraph": {
     "message": "Read our blog post for project updates, announcements, interviews, guest editorials, and much more."

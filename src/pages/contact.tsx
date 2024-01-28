@@ -39,9 +39,8 @@ const Contact: React.FC = () => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.contact.section.get-in-contact.headline',
-            defaultMessage: 'Get in contact',
+            defaultMessage: 'Get in <b>contact</b>',
           })}
-          firstWordsNum={2}
           className='my-0'
         >
           <FormattedMessage

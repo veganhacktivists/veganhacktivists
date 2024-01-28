@@ -14,8 +14,7 @@ const Header: React.FC = () => {
     <div>
       <SectionHeader
         className='-mb-10'
-        startWithBoldFont
-        header='Need support? Let us know!'
+        header='<b>Need support? Let us know!</b>'
       >
         Please fill in the form below.
       </SectionHeader>

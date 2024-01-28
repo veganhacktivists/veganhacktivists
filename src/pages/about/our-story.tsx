@@ -26,7 +26,7 @@ const OurStory: PageWithLayout = () => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.about.section.our-story.intro.heading',
-          defaultMessage: 'Our story',
+          defaultMessage: 'Our <b>story</b>',
         })}
       >
         <FormattedMessage

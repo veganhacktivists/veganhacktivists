@@ -46,7 +46,7 @@ const OurCommunities: React.FC = () => {
       />
 
       <div className='relative w-full overflow-hidden text-xl text-white bg-[#292929] py-20  px-5'>
-        <SectionHeader header={['Our', 'COMMUNITIES']}>
+        <SectionHeader header={'Our <b>COMMUNITIES</b>'}>
           <p className='text-xl'>
             <FormattedMessage
               id='page.our-work.section.our-communities.section-header.content'

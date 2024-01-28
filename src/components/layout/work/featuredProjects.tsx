@@ -126,7 +126,7 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
 
       <div className='relative w-full overflow-hidden text-xl bg-grey-background'>
         <div className='relative px-5 py-20 mx-auto gap-y-8'>
-          <SectionHeader className='mb-2' header={['Featured', 'PROJECTS']}>
+          <SectionHeader className='mb-2' header={'Featured <b>PROJECTS</b>'}>
             <p className='text-xl'>
               <FormattedMessage
                 id='page.our-work.section.featured-projects.section-header.content'

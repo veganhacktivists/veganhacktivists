@@ -126,7 +126,7 @@ const Playground: PageWithLayout = ({}) => {
       <NextSeo title='Requests' />
       <div>
         <div className='lg:mx-12 2xl:mx-44 xl:mx-36'>
-          <SectionHeader header={['View pending', 'requests']}>
+          <SectionHeader header={'View pending <b>requests</b>'}>
             Check out the requests below to find volunteer or paid opportunities
             to help the animals. Are you an individual or organization seeking
             support for your work?{' '}

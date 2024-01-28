@@ -443,9 +443,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.year-in-review.2020.section.big-impact-changes.heading',
-            defaultMessage: 'Minor changes with a BIG IMPACT',
+            defaultMessage: 'Minor changes with a <b>BIG IMPACT</b>',
           })}
-          firstWordsNum={4}
         />
         <div className='mx-auto space-y-6 text-2xl text-left md:w-max'>
           {[
@@ -694,9 +693,8 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.year-in-review.2020.section.highlighted-projects.heading',
-          defaultMessage: 'See our HIGHLIGHTED PROJECTS',
+          defaultMessage: 'See our <b>HIGHLIGHTED PROJECTS</b>',
         })}
-        firstWordsNum={2}
       />
       <HighlightedProjects
         darkBackground

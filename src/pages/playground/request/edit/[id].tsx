@@ -15,7 +15,7 @@ import type PageWithLayout from 'types/persistentLayout';
 const Header: React.FC = () => {
   return (
     <div>
-      <SectionHeader className='-mb-10' startWithBoldFont header='Edit request'>
+      <SectionHeader className='-mb-10' header='<b>Edit request</b>'>
         Update your request information in the form below.
       </SectionHeader>
     </div>

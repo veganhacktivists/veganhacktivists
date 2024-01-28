@@ -67,11 +67,6 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
   const intl = useIntl();
 
-  const formattedVideoSectionHeadlineText = intl.formatMessage({
-    id: 'page.index.section.video.headline',
-    defaultMessage: 'Watch our <b>intro video</b>',
-  });
-
   return (
     <>
       <NextSeo
@@ -128,24 +123,15 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           height={pixelHeart.height / 3}
           alt='Compassion, Creativity, Code'
         />
-        <p className='mb-16 text-grey-dark'>
-          <FormattedMessage
-            id='page.index.section.introduction.headline'
-            defaultMessage='<left>We are</left> <no-localization><right>VEGAN HACKTIVISTS</right></no-localization>'
-            values={{
-              left: (chunks) => (
-                <span className='font-serif text-3xl italic font-semibold'>
-                  {chunks}{' '}
-                </span>
-              ),
-              right: (chunks) => (
-                <span className='font-mono text-5xl font-semibold'>
-                  {chunks}
-                </span>
-              ),
-            }}
+        <div className='mb-16 text-grey-dark'>
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.index.section.introduction.headline',
+              defaultMessage:
+                'We are <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>',
+            })}
           />
-        </p>
+        </div>
         <p className='pb-5'>
           <FormattedMessage
             id='page.index.section.introduction.paragraph1'
@@ -195,14 +181,10 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <div className='relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8'>
           <SectionHeader
             className='mb-2'
-            header={[
-              ...formattedVideoSectionHeadlineText
-                .split(/<\/?b>/)
-                .filter(Boolean),
-            ]}
-            startWithBoldFont={formattedVideoSectionHeadlineText.startsWith(
-              '<b>',
-            )}
+            header={intl.formatMessage({
+              id: 'page.index.section.video.headline',
+              defaultMessage: 'Watch our <b>intro video</b>',
+            })}
           />
           <div className='py-2'>
             <YoutubeVideo id='jaW8n1pd97U' />
@@ -232,22 +214,14 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       />
       <div className='bg-grey-background'>
         <div className='content-center px-5 pt-16 mx-auto text-2xl md:w-1/2'>
-          <p className='pb-5 text-grey-dark'>
-            <FormattedMessage
-              id='page.index.section.projects.headline'
-              defaultMessage='<left>Featured</left> <right>PROJECTS</right>'
-              values={{
-                left: (chunks) => (
-                  <span className='font-serif text-3xl italic font-semibold'>
-                    {chunks}{' '}
-                  </span>
-                ),
-                right: (chunks) => (
-                  <b className='font-mono text-5xl'>{chunks}</b>
-                ),
-              }}
+          <div className='pb-5 text-grey-dark'>
+            <SectionHeader
+              header={intl.formatMessage({
+                id: 'page.index.section.projects.headline',
+                defaultMessage: 'Featured <b>PROJECTS</b>',
+              })}
             />
-          </p>
+          </div>
           <p>
             <FormattedMessage
               id='page.index.section.projects.paragraph'

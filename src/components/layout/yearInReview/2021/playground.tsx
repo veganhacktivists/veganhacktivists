@@ -25,8 +25,7 @@ const Playground: React.FC = () => {
           <div className='md:text-left md:w-3/4'>
             <SectionHeader
               className='mt-5 mb-10'
-              header={['VH: Playground', 'launched']}
-              startWithBoldFont
+              header={'<b>VH: Playground</b> launched'}
             />
             <div className='space-y-5'>
               <FormattedMessage

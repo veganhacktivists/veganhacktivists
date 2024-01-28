@@ -15,7 +15,7 @@ const TermsAndConditions: PageWithLayout = () => {
   return (
     <>
       <NextSeo title='Terms And Conditions' />
-      <SectionHeader header={['Terms', 'And', 'Conditions']} startWithBoldFont>
+      <SectionHeader header={'<b>Terms</b> And <b>Conditions</b>'}>
         By participating in Playground, you agree to abide by the following
         guidelines.
       </SectionHeader>

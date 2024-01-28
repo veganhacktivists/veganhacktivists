@@ -29,7 +29,7 @@ const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
         header={
           <SectionHeader
             className='text-grey'
-            header={['Featured', 'blog posts']}
+            header={'Featured <b>blog posts</b>'}
           >
             <FormattedMessage
               id='page.year-in-review.2021.section.featured-blog-posts.intro.paragraph'

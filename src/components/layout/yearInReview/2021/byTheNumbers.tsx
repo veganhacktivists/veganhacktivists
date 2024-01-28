@@ -38,9 +38,8 @@ const ByTheNumbers: React.FC = () => {
           <SectionHeader
             header={intl.formatMessage({
               id: 'page.year-in-review.2021.section.by-the-numbers.heading',
-              defaultMessage: 'By the numbers',
+              defaultMessage: '<b>By the numbers</b>',
             })}
-            startWithBoldFont
           />
         }
       >

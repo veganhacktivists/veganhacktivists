@@ -106,7 +106,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.people.section.partners.intro.heading',
-          defaultMessage: 'Our partners',
+          defaultMessage: 'Our <b>partners</b>',
         })}
       >
         <FormattedMessage
@@ -131,7 +131,7 @@ const Partners: PageWithLayout<PartnerProps> = ({ partners }) => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.people.section.partners.community.heading',
-            defaultMessage: 'Our community',
+            defaultMessage: 'Our <b>community</b>',
           })}
         >
           <FormattedMessage

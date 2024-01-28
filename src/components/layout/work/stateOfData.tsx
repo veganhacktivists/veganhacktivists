@@ -38,7 +38,7 @@ const StateOfData: React.FC = () => {
       <div className='mx-auto w-fit'>
         <div className='flex flex-col pb-20 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto'>
           <SectionHeader
-            header={['Read Our', 'Tech & Data Study']}
+            header={'Read Our <b>Tech & Data Study</b>'}
             newDesign
             stackEntries
             rootClassName='text-left mx-auto text-center lg:text-left w-full mb-0'

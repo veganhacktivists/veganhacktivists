@@ -35,7 +35,7 @@ const GrantProgram: React.FC = () => {
                   <CustomImage alt='' width={73} height={76} src={Bee} />
                 </div>
                 <SectionHeader
-                  header={['Our seed funding', 'GRANT PROGRAM']}
+                  header={'Our seed funding <b>GRANT PROGRAM</b>'}
                   stackEntries={true}
                   newDesign={true}
                   className='text-left'

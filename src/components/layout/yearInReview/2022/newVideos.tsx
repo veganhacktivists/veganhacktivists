@@ -20,7 +20,7 @@ const AnimatedVideos: React.FC = () => {
         className='hidden md:block'
       />
       <SectionContainer
-        header={<SectionHeader header={['New', 'videos']} newDesign={true} />}
+        header={<SectionHeader header={'New <b>videos</b>'} newDesign />}
       >
         <div className='text-xl mx-auto md:w-2/3 xl:w-1/2'>
           <FormattedMessage

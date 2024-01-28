@@ -22,7 +22,7 @@ const Intro: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={['Providing value through', 'Capacity-building services']}
+            header={'Providing value through <b>Capacity-building services</b>'}
             stackEntries={true}
             newDesign={true}
             className='text-black'

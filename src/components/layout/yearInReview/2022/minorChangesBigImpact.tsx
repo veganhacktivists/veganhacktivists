@@ -142,8 +142,8 @@ const MinorChangesBigImpact: React.FC = () => {
         className='text-white'
         header={
           <SectionHeader
-            newDesign={true}
-            header={['Minor changes with', 'big impact']}
+            newDesign
+            header={'Minor changes with <b>big impact</b>'}
           />
         }
       >

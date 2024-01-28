@@ -231,7 +231,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
         <FirstSubSection
           header={intl.formatMessage({
             id: 'page.people.section.team.community.heading',
-            defaultMessage: 'Our community',
+            defaultMessage: 'Our <b>community</b>',
           })}
         >
           <FormattedMessage

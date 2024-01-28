@@ -25,7 +25,7 @@ const OurMission: PageWithLayout = () => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.about.section.our-mission.section-header.heading',
-          defaultMessage: 'Our mission',
+          defaultMessage: 'Our <b>mission</b>',
         })}
       >
         <FormattedMessage

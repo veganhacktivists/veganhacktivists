@@ -52,8 +52,8 @@ const SharingKnowledgeAndSupport: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={['Sharing', 'knowledge & support']}
-            newDesign={true}
+            header={'Sharing <b>knowledge & support</b>'}
+            newDesign
           />
         }
       >

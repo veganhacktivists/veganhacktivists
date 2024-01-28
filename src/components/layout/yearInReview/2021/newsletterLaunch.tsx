@@ -19,10 +19,9 @@ const NewsletterLaunch: React.FC = () => {
             <SectionHeader
               header={intl.formatMessage({
                 id: 'page.year-in-review.2021.section.newsletter-launch.heading',
-                defaultMessage: 'Newsletter Launch',
+                defaultMessage: '<b>Newsletter Launch</b>',
               })}
               className='text-grey'
-              startWithBoldFont
             />
             <div className='mt-5 mb-10'>
               <FormattedMessage

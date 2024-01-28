@@ -22,9 +22,7 @@ const BonusProjects: React.FC = () => {
       />
       <SectionContainer
         color='grey-background'
-        header={
-          <SectionHeader newDesign={true} header={['Bonus', 'projects']} />
-        }
+        header={<SectionHeader newDesign header={'Bonus <b>projects</b>'} />}
       >
         <div className='pb-20'>
           <div className='xl:w-1/2 mx-auto'>
