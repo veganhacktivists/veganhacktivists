@@ -62,6 +62,7 @@ const AboutHero: React.FC = () => {
         alignment='left'
         classNameMapping={{
           container: 'bg-center',
+          backgroundImage: 'object-[75%_0] md:object-center',
         }}
         backgroundImageProps={{ placeholder: 'empty' }}
       />

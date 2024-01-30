@@ -12,6 +12,7 @@ interface HeroClassNames {
   container?: string;
   content?: string;
   tagline?: string;
+  backgroundImage?: string;
 }
 interface HeroProps extends React.PropsWithChildren {
   imageBackground: ImageProps['src'];
@@ -97,7 +98,9 @@ const Hero: React.FC<HeroProps> = ({
         sizes='100vw'
         className={classNames(
           'object-cover',
-          main ? 'object-top' : objectPositionMap[imageAlignment],
+          classNameMapping?.backgroundImage,
+          !classNameMapping?.backgroundImage?.includes('object-') &&
+            (main ? 'object-top' : objectPositionMap[imageAlignment]),
         )}
       />
 

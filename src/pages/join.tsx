@@ -239,6 +239,9 @@ const Join: React.FC = () => {
           }),
         }}
         alignment='left'
+        classNameMapping={{
+          backgroundImage: 'object-[75%_0] md:object-center',
+        }}
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}

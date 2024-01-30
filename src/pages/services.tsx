@@ -209,6 +209,7 @@ const Services: React.FC = () => {
           alignment='left'
           classNameMapping={{
             container: 'bg-center',
+            backgroundImage: 'object-[75%_0] md:object-center',
           }}
         />
         <SquareField

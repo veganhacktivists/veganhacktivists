@@ -30,6 +30,7 @@ const WorkHero: React.FC = () => {
         alignment='left'
         classNameMapping={{
           tagline: 'md:scale-75',
+          backgroundImage: 'object-[75%_0] md:object-center',
         }}
       />
 

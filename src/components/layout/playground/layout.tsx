@@ -77,6 +77,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
           imageAlignment='right'
           classNameMapping={{
             container: 'bg-center',
+            backgroundImage: 'object-[90%_0] md:object-center',
           }}
         />
         <SquareField
