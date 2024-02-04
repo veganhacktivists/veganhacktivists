@@ -29,7 +29,13 @@ const DesignWork: React.FC = () => {
         <div className='basis-full md:basis-1/2 bg-[#171919] md:bg-[#DDDDDD] text-white md:text-black flex justify-center md:justify-end pb-32 md:pb-0'>
           <div className='flex-grow max-w-4xl flex justify-center px-10'>
             <div className='md:py-36 lg:w-[27.25rem]'>
-              <SectionHeader header={'Our <b>Design Work</b>'} stackEntries />
+              <SectionHeader
+                header={intl.formatMessage({
+                  id: 'page.our-work.section.design-work.headline',
+                  defaultMessage: 'Our <b>Design Work</b>',
+                })}
+                stackEntries
+              />
               <div className='text-lg pt-8 pb-4'>
                 <FormattedMessage
                   id='page.our-work.section.design-work.content'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Bee from '../../../../../public/images/yearInReview/2022/bee.png';
 import GrantApplicants from '../../../../../public/images/yearInReview/2022/grant-applicants.png';
@@ -12,6 +12,8 @@ import SquareField from 'components/decoration/squares';
 import AnimatedNumber from 'components/decoration/animatedNumber';
 
 const GrantProgram: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <div>
@@ -45,9 +47,12 @@ const GrantProgram: React.FC = () => {
                   <CustomImage alt='bee' width={73} height={76} src={Bee} />
                 </div>
                 <SectionHeader
-                  header={'An update of our <b>grant program</b>'}
-                  stackEntries={true}
-                  newDesign={true}
+                  header={intl.formatMessage({
+                    id: 'page.year-in-review.2022.section.grant-program.headline',
+                    defaultMessage: 'An update of our <b>grant program</b>',
+                  })}
+                  stackEntries
+                  newDesign
                   className='text-left'
                 />
                 <div className='text-xl text-left pt-5 pb-10'>

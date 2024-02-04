@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl';
+
 import ContentfulImage from '../contentfulImage';
 
 import { Carousel } from 'components/decoration/carousel';
@@ -21,6 +23,8 @@ interface OtherProjectsProps {
 }
 
 const OtherProjects = ({ projects }: OtherProjectsProps) => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -30,7 +34,13 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
 
       <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
         <div className='relative flex flex-col px-2 py-20 gap-y-8'>
-          <SectionHeader className='mb-2' header={'Other <b>projects</b>'} />
+          <SectionHeader
+            className='mb-2'
+            header={intl.formatMessage({
+              id: 'page.our-work.section.other-projects.headline',
+              defaultMessage: 'Other <b>projects</b>',
+            })}
+          />
           <div className='mx-auto'>
             <Carousel
               pageWidth={5}

@@ -111,7 +111,14 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
   return (
     <>
       <SectionContainer
-        header={<SectionHeader header={'Featured <b>projects</b>'} />}
+        header={
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.featured-projects.headline',
+              defaultMessage: 'Featured <b>projects</b>',
+            })}
+          />
+        }
         color='grey-background'
       >
         <HighlightedProjects

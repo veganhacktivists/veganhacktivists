@@ -78,7 +78,10 @@ const CommunityGrowth: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={'Encouraging <b>community growth</b>'}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.community-growth.headline',
+              defaultMessage: 'Encouraging <b>community growth</b>',
+            })}
             className='text-grey'
           />
         }

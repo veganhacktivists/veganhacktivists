@@ -37,7 +37,10 @@ const SharingKnowledgeAndSupport: React.FC = () => {
         <div className='flex flex-col md:flex-row justify-between'>
           <div>
             <SectionHeader
-              header={'Sharing Our <b>knowledge & support</b>'}
+              header={intl.formatMessage({
+                id: 'page.our-work.section.sharing-knowledge-and-support.section-header.headline',
+                defaultMessage: 'Sharing Our <b>knowledge & support</b>',
+              })}
               newDesign
               rootClassName='text-left mx-auto text-center md:text-left'
               stackEntries

@@ -19,7 +19,14 @@ const FeedbackAndTesting: React.FC = () => {
         className='hidden md:block z-10'
       />
       <SectionContainer
-        header={<SectionHeader header={'<b>Feedback</b> and <b>testing</b>'} />}
+        header={
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.feedback-and-testing.headline',
+              defaultMessage: '<b>Feedback</b> and <b>testing</b>',
+            })}
+          />
+        }
         color='grey-dark'
         className='text-white relative'
         circles

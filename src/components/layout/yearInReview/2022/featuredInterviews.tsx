@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SectionContainer from '../sectionContainer';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -17,6 +17,8 @@ interface FeaturedInterviewsProps {
 const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
   interviews,
 }) => {
+  const intl = useIntl();
+
   const {
     data: blogs,
     isLoading,
@@ -29,8 +31,11 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
       <SectionContainer
         header={
           <SectionHeader
-            header={'Featured <b>interviews</b>'}
-            newDesign={true}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.featured-interviews.headline',
+              defaultMessage: 'Featured <b>interviews</b>',
+            })}
+            newDesign
           />
         }
       >

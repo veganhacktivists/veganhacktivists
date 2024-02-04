@@ -47,12 +47,16 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
 
 const SharingKnowledgeAndSupport: React.FC = () => {
   const intl = useIntl();
+
   return (
     <>
       <SectionContainer
         header={
           <SectionHeader
-            header={'Sharing <b>knowledge & support</b>'}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.headline',
+              defaultMessage: 'Sharing <b>knowledge & support</b>',
+            })}
             newDesign
           />
         }

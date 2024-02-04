@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -9,6 +9,8 @@ import { HighlightBlock } from './highlightBlock';
 import SquareField from 'components/decoration/squares';
 
 const Intro: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -22,9 +24,13 @@ const Intro: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={'Providing value through <b>Capacity-building services</b>'}
-            stackEntries={true}
-            newDesign={true}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.providing-value.headline',
+              defaultMessage:
+                'Providing value through <b>Capacity-building services</b>',
+            })}
+            stackEntries
+            newDesign
             className='text-black'
           />
         }

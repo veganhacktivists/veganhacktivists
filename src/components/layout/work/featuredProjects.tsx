@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import ContentfulImage from '../contentfulImage';
 import ShareDialog from '../shareDialog';
@@ -117,6 +117,8 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
 };
 
 const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -126,7 +128,13 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
 
       <div className='relative w-full overflow-hidden text-xl bg-grey-background'>
         <div className='relative px-5 py-20 mx-auto gap-y-8'>
-          <SectionHeader className='mb-2' header={'Featured <b>PROJECTS</b>'}>
+          <SectionHeader
+            className='mb-2'
+            header={intl.formatMessage({
+              id: 'page.our-work.section.featured-projects.section-header.headline',
+              defaultMessage: 'Featured <b>PROJECTS</b>',
+            })}
+          >
             <p className='text-xl'>
               <FormattedMessage
                 id='page.our-work.section.featured-projects.section-header.content'

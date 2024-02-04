@@ -11,6 +11,7 @@ import CustomImage from 'components/decoration/customImage';
 
 const NewsletterLaunch: React.FC = () => {
   const intl = useIntl();
+
   return (
     <>
       <SectionContainer color='grey-background' className='pb-0'>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -23,13 +23,18 @@ export interface FeaturedBlogPostsProps {
 const FeaturedBlogPosts: React.FC<FeaturedBlogPostsProps> = ({
   featuredBlogPosts,
 }) => {
+  const intl = useIntl();
+
   return (
     <>
       <SectionContainer
         header={
           <SectionHeader
             className='text-grey'
-            header={'Featured <b>blog posts</b>'}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.featured-blog-posts.intro.headline',
+              defaultMessage: 'Featured <b>blog posts</b>',
+            })}
           >
             <FormattedMessage
               id='page.year-in-review.2021.section.featured-blog-posts.intro.paragraph'

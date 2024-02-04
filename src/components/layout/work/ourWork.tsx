@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import CustomImage from 'components/decoration/customImage';
 import { Autoscroll } from 'components/decoration/autoscroll';
@@ -180,6 +180,8 @@ const BOTTOM_DECORATION_SQUARES = [
 ];
 
 const OurWork: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -190,7 +192,13 @@ const OurWork: React.FC = () => {
       <div className='w-full bg-white'>
         <div className='flex flex-col py-20'>
           <div className='md:w-1/2 mx-auto -mb-10 px-5'>
-            <SectionHeader className='mb-2' header={'Our <b>WORK</b>'}>
+            <SectionHeader
+              className='mb-2'
+              header={intl.formatMessage({
+                id: 'page.our-work.section.introduction.headline',
+                defaultMessage: 'Our <b>WORK</b>',
+              })}
+            >
               <FormattedMessage
                 id='page.our-work.section.our-work.section-header.content'
                 defaultMessage='We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.'

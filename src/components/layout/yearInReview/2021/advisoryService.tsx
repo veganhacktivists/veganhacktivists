@@ -11,6 +11,7 @@ import CustomImage from 'components/decoration/customImage';
 
 const AdvisoryService: React.FC = () => {
   const intl = useIntl();
+
   return (
     <>
       <SectionContainer>
@@ -20,7 +21,10 @@ const AdvisoryService: React.FC = () => {
           </div>
           <div className='mx-auto md:text-left space-y-5 text-2xl px-5'>
             <SectionHeader
-              header={'Our new <b>advisory service</b>'}
+              header={intl.formatMessage({
+                id: 'page.year-in-review.2021.section.advisory-service.headline',
+                defaultMessage: 'Our new <b>advisory service</b>',
+              })}
               className='text-grey'
             />
             <FormattedMessage

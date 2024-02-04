@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import TechAndDataInTheMovement from '../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
 
@@ -28,6 +28,8 @@ const BOTTOM_DECORATION_SQUARES = [
 ];
 
 const StateOfData: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -38,7 +40,10 @@ const StateOfData: React.FC = () => {
       <div className='mx-auto w-fit'>
         <div className='flex flex-col pb-20 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto'>
           <SectionHeader
-            header={'Read Our <b>Tech & Data Study</b>'}
+            header={intl.formatMessage({
+              id: 'page.our-work.section.state-of-data.section-header.headline',
+              defaultMessage: 'Read Our <b>Tech & Data Study</b>',
+            })}
             newDesign
             stackEntries
             rootClassName='text-left mx-auto text-center lg:text-left w-full mb-0'

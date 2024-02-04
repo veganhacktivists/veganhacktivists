@@ -2,6 +2,9 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "dialog.share.headline": {
+    "message": "<b>分享</b>此项目"
+  },
   "layout.footer.navigation-item.about.label": {
     "message": "关于"
   },
@@ -635,14 +638,23 @@
   "page.not-found.next-seo.title": {
     "message": "页面未找到"
   },
+  "page.our-work.section.communities.headline": {
+    "message": "我们的<b>社区</b>"
+  },
   "page.our-work.section.design-work.button.label": {
     "message": "参观<no-localization>violetstudios.org</no-localization>"
   },
   "page.our-work.section.design-work.content": {
     "message": "我们的姊妹组织<highlight><no-localization>Violet Studios</no-localization></highlight> 免费为动物倡导者和组织提供设计服务。无论是品牌设计、文件设计、网页设计，还是其他具有影响力的设计领域，我们都能帮助素食主义者组织形象鲜明、建立信任、提高声誉并团结人们。"
   },
+  "page.our-work.section.design-work.headline": {
+    "message": "我们的<b>设计工作</b>"
+  },
   "page.our-work.section.featured-projects.section-header.content": {
     "message": "以下是我们与其他合作伙伴合作，为运动开展的几个项目。"
+  },
+  "page.our-work.section.featured-projects.section-header.headline": {
+    "message": "特色<b>项目</b>"
   },
   "page.our-work.section.grant-program.funded-by-direct-recommendation": {
     "message": "由直接建议供资"
@@ -653,6 +665,9 @@
   "page.our-work.section.grant-program.section-header.content": {
     "message": "去年，我们宣布与<no-localization>The Pollination Project</no-localization> 合作，为个人和基层组织提供种子基金。以下是我们迄今为止取得的成就。"
   },
+  "page.our-work.section.grant-program.section-header.headline": {
+    "message": "我们的种子基金资助<b>计划</b>"
+  },
   "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
     "message": "了解更多"
   },
@@ -661,6 +676,9 @@
   },
   "page.our-work.section.hours-volunteered.cta-button.label": {
     "message": "2022 年志愿参加动物保护运动"
+  },
+  "page.our-work.section.introduction.headline": {
+    "message": "我们的<b>工作</b>"
   },
   "page.our-work.section.kind-words[0].author": {
     "message": "<no-localization>Courtney Dillard</no-localization>"
@@ -707,11 +725,17 @@
   "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
     "message": "获得支持"
   },
+  "page.our-work.section.like-what-you-see.headline": {
+    "message": "<b>喜欢吗？</b>"
+  },
   "page.our-work.section.like-what-you-see.introduction": {
     "message": "如果您想成为志愿者、支持我们的工作或使用我们的服务，请与我们联系！"
   },
   "page.our-work.section.like-what-you-see.services.cta-button.label": {
     "message": "服务"
+  },
+  "page.our-work.section.other-projects.headline": {
+    "message": "其他<b>项目</b>"
   },
   "page.our-work.section.our-communities.cta.animal-rights-advocates": {
     "message": "<no-localization>Animal Rights Advocates</no-localization>"
@@ -764,11 +788,17 @@
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
     "message": "我们每年都会在世界各地的动物保护和<no-localization>EA</no-localization> 相关会议上发言！请务必留意我们的展位或演讲者，我们很乐意与您见面，看看我们在哪些方面可以支持您的工作。请在<no-localization><link>Instagram</link></no-localization> 上关注我们，了解我们的下一个活动地点！"
   },
+  "page.our-work.section.sharing-knowledge-and-support.section-header.headline": {
+    "message": "分享我们的<b>知识和支持</b>"
+  },
   "page.our-work.section.state-of-data.content": {
     "message": "我们首次开展了一项研究，以了解我们的运动是如何利用技术的。在<no-localization>Faunalytics</no-localization> 的指导和<no-localization>Animetrics</no-localization> 的研究下，我们的报告长达 50 页，探讨了就业和劳动力、网站和应用程序、社交媒体、数据收集和分析以及安全等不同主题所面临的挑战和机遇。我们的建议旨在为利益相关者和社区成员提供可行的解决方案，帮助他们了解我们如何才能成为一个更加技术化、数据化的运动。"
   },
   "page.our-work.section.state-of-data.cta": {
     "message": "阅读报告"
+  },
+  "page.our-work.section.state-of-data.section-header.headline": {
+    "message": "阅读我们的<b>技术与数据研究</b>"
   },
   "page.people.hero.alt-text": {
     "message": "我们的热情积极分子社区"
@@ -1175,8 +1205,14 @@
   "page.year-in-review.2021.section.advisory-service.btn.cta": {
     "message": "查看我们的服务"
   },
+  "page.year-in-review.2021.section.advisory-service.headline": {
+    "message": "我们的新<b>咨询服务</b>"
+  },
   "page.year-in-review.2021.section.advisory-service.paragraph": {
     "message": "<p>我们推出了最新服务，将人们与我们拥有丰富经验和技能的专家团队联系起来。我们欢迎素食主义活动家和组织将我们作为他们在技术、组织结构、战略、营销、拨款申请等方面的资源。</p> <p>我们对这次启动非常满意，已经收到了 100 多份咨询请求！我们已经为<no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization> 等组织提供了帮助。</p>"
+  },
+  "page.year-in-review.2021.section.big-impact.headline": {
+    "message": "<b>影响巨大</b>的微小变化"
   },
   "page.year-in-review.2021.section.big-impact.paragraph.0": {
     "message": "围绕品牌、设计和内容制定指导方针"
@@ -1253,6 +1289,9 @@
   "page.year-in-review.2021.section.community-growth.documentation.paragraph": {
     "message": "增长不仅体现在数量上，还体现在结构上。我们将四个不同平台上的组织文件合并到新网站的一个用户友好型部分。"
   },
+  "page.year-in-review.2021.section.community-growth.headline": {
+    "message": "鼓励<b>社区发展</b>"
+  },
   "page.year-in-review.2021.section.community-growth.safety.heading": {
     "message": "安全"
   },
@@ -1265,8 +1304,14 @@
   "page.year-in-review.2021.section.community-growth.technology.paragraph": {
     "message": "我们采用新技术来提高项目的整体质量和稳健性，并满足开发人员的需求。"
   },
+  "page.year-in-review.2021.section.designs-for-vegan-orgs.headline": {
+    "message": "为<b>素食组织</b><b>设计</b>"
+  },
   "page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph": {
     "message": "我们有机会为素食组织提供内部设计支持，帮助他们创建品牌和形象，并在竞争激烈的数字环境中脱颖而出。"
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.intro.headline": {
+    "message": "特色<b>博客文章</b>"
   },
   "page.year-in-review.2021.section.featured-blog-posts.intro.paragraph": {
     "message": "我们的博客一直很有趣！我们推出了 \"认识我们的团队 \"系列，这样我们就可以介绍我们团队所做的令人难以置信的工作，以及幕后默默奉献的志愿者。我们计划在 2022 年推出更多精彩内容。敬请期待！"
@@ -1292,6 +1337,9 @@
   "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.2": {
     "message": "<no-localization>Activist Hub</no-localization> 也是世界上第一个动物权利社交网络！添加好友、加入群组、分享或创建帖子、制定战略并与其他积极分子交流。我们的中心对任何代表动物权益的个人或组织都是 100% 免费使用的。"
   },
+  "page.year-in-review.2021.section.featured-projects.headline": {
+    "message": "特色<b>项目</b>"
+  },
   "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.0": {
     "message": "每天，世界各地都有越来越多的人与数字世界建立联系。"
   },
@@ -1309,6 +1357,9 @@
   },
   "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.2": {
     "message": "<no-localization>Anonymous for the Voiceless</no-localization>,<no-localization>DontWatch.org</no-localization>,<no-localization>Viena Animal Save</no-localization>, 以及许多其他网站现在都使用此项目进行不间断访问。"
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.headline": {
+    "message": "<b>反馈</b>和<b>测试</b>"
   },
   "page.year-in-review.2021.section.feedback-and-testing.paragraph.0": {
     "message": "为了更有效地满足我们运动的需求，我们不仅扩大了我们的顾问团队，还扩展了我们接收反馈的方式。我们将内部民意调查、新闻通讯、顾问和测试人员结合起来，以确定开发中项目和我们自身发展的下一步措施。"
@@ -1346,6 +1397,9 @@
   "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1": {
     "message": "传统上，很难跟踪街头宣传的效果。我们很高兴能与<no-localization>AV</no-localization> 合作，为他们提供所需的工具，以便通过<link>Activist Hub</link> 监控和跟踪每个小组的成效。"
   },
+  "page.year-in-review.2021.section.partnerships.intro.headline": {
+    "message": "建立有意义的<b>伙伴关系</b>"
+  },
   "page.year-in-review.2021.section.partnerships.intro.paragraph": {
     "message": "今年，我们回顾了以往的合作伙伴关系，并共同集思广益，探讨未来的合作伙伴关系如何才能更有效、更持久。我们希望我们的合作关系能够更加复杂，对他们和我们都能产生更大的影响。"
   },
@@ -1379,14 +1433,23 @@
   "page.year-in-review.2021.section.playground.btn.cta": {
     "message": "加入游乐场"
   },
+  "page.year-in-review.2021.section.playground.headline": {
+    "message": "<b>VH：游乐场</b>启动"
+  },
   "page.year-in-review.2021.section.playground.paragraph": {
     "message": "<p>我们推出了一个面向公众的开源社区，名为<no-localization>VH: Playground</no-localization> ！<no-localization>Playground</no-localization> ，让那些没有时间或特殊技能加入<no-localization>Vegan Hacktivists</no-localization> 核心团队的开发者也能为这项运动做出贡献，无论是在我们的开源项目上，还是在他们自己的项目上！</p> <p>简而言之，我们希望建立和培养一个素食开发者社区，以便为我们网络之外的人们提供支持--到目前为止，我们已经吸引了 400 多名成员，而且还在不断增加！</p>"
   },
   "page.year-in-review.2021.section.rebrand.btn.cta": {
     "message": "请参阅我们的新品牌指南！"
   },
+  "page.year-in-review.2021.section.rebrand.headline": {
+    "message": "我们的<b>品牌重塑</b>"
+  },
   "page.year-in-review.2021.section.rebrand.paragraph": {
     "message": "<p>今年，我们决定从根本上对组织和网站进行专业的品牌重塑。我们希望我们的品牌仍能深刻地代表我们的技术背景，但同时也能更吸引人、更有趣，以更好地代表我们的工作和我们的社区。</p> <p>在我们的网站和社交平台上，我们看到有兴趣的志愿者通过这两个平台找到我们，申请人数立即增加。</p> <p>我们的品牌设计是由我们最新的团队领导<no-localization>{link}</no-localization> 完成的，她是 VH 工作方式和设计理念转变的核心人物。</p>"
+  },
+  "page.year-in-review.2021.section.videos.headline": {
+    "message": "我们的新<b>动画视频</b>"
   },
   "page.year-in-review.2021.section.videos.paragraph": {
     "message": "我们与<no-localization><link>Expanded Circle Collective</link></no-localization> 合作，为<no-localization>Activist Hub</no-localization> 和<no-localization>Vegan Bootcamp</no-localization> 制作了两部动画介绍视频！这些视频是让观众快速熟悉我们工作的绝佳资源。我们期待着在新的一年里与他们合作。"
@@ -1423,6 +1486,9 @@
   },
   "page.year-in-review.2022.section.bonus-projects.featured": {
     "message": "特色"
+  },
+  "page.year-in-review.2022.section.bonus-projects.headline": {
+    "message": "奖励<b>项目</b>"
   },
   "page.year-in-review.2022.section.bonus-projects.paragraph": {
     "message": "我们的团队聚集在一起，准备在年底前开展两个小型项目，我们认为这两个项目将为其他运动提供价值，并有助于促进我们的工作。"
@@ -1468,6 +1534,9 @@
   },
   "page.year-in-review.2022.section.building-effective-teams.core.paragraph": {
     "message": "我们的团队结构也发生了一些变化！现在，我们的领导团队包括通信、产品管理、运营、工程、设计和首席架构师等关键职位，为各个团队和整个组织提供支持。当然，是以苹果（核心）为品牌！"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.headline": {
+    "message": "建立更<b>有效的团队</b>"
   },
   "page.year-in-review.2022.section.building-effective-teams.playground.heading": {
     "message": "游乐场团队"
@@ -1517,11 +1586,17 @@
   "page.year-in-review.2022.section.featured-interviews.btn.cta": {
     "message": "在博客上阅读更多内容"
   },
+  "page.year-in-review.2022.section.featured-interviews.headline": {
+    "message": "特色<b>访谈</b>"
+  },
   "page.year-in-review.2022.section.featured-interviews.loading-spinner": {
     "message": "加载中"
   },
   "page.year-in-review.2022.section.featured-interviews.paragraph": {
     "message": "今年早些时候，我们有幸与动物保护领域的不同领袖进行了座谈。他们的起源故事、智慧之言以及与我们分享经验时的开放和坦诚让我们深受启发--希望您也一样。"
+  },
+  "page.year-in-review.2022.section.grant-program.headline": {
+    "message": "<b>赠款计划</b>的最新情况"
   },
   "page.year-in-review.2022.section.grant-program.paragraph.0": {
     "message": "去年，我们宣布与<no-localization><b>The Pollination Project</b></no-localization> 合作，为个人和新兴组织提供种子基金。以下是该计划 2022 年的情况："
@@ -1559,6 +1634,9 @@
   "page.year-in-review.2022.section.minor-changes-big-impact.grape": {
     "message": "成立动画制作团队，展示我们的作品，并为运动中的其他人提供服务"
   },
+  "page.year-in-review.2022.section.minor-changes-big-impact.headline": {
+    "message": "<b>影响巨大</b>的微小变化"
+  },
   "page.year-in-review.2022.section.minor-changes-big-impact.kiwi": {
     "message": "推出两个新的博客系列：\"Leaders in<no-localization>Animal Protection</no-localization> \"和 \"Leaders in \"。<no-localization>Byte Size</no-localization>"
   },
@@ -1595,6 +1673,9 @@
   "page.year-in-review.2022.section.new-videos.btn.cta": {
     "message": "观看更多视频"
   },
+  "page.year-in-review.2022.section.new-videos.headline": {
+    "message": "新<b>视频</b>"
+  },
   "page.year-in-review.2022.section.new-videos.paragraph": {
     "message": "查看我们 2022 年的最新视频！我们还有更多视频正在制作中，敬请关注，如果您想第一时间观看，请订阅我们的 youtube 频道。"
   },
@@ -1615,6 +1696,9 @@
   },
   "page.year-in-review.2022.section.providing-value.building-projects.paragraph": {
     "message": "<b>除了建设技术</b>，我们还努力寻找和填补我们运动中的空白。这不仅包括建设我们的项目，还包括启动我们的调查研究、参加各种国际会议以及投资于社区的发展。"
+  },
+  "page.year-in-review.2022.section.providing-value.headline": {
+    "message": "通过<b>能力建设服务</b>提供价值"
   },
   "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
     "message": "<numberSpan>9600+</numberSpan> <textSpan>小时</textSpan>"
@@ -1654,6 +1738,9 @@
   },
   "page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.subcaption": {
     "message": "动物权利活动中的数据与技术"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.headline": {
+    "message": "分享<b>知识和支持</b>"
   },
   "page.year-in-review.2022.section.sharing-knowledge-and-support.paragraph": {
     "message": "今年，我们受邀在<no-localization><b>CARE Conference</b></no-localization> in<no-localization>Warsaw, Poland</no-localization> 和首次<no-localization><b>AVA Summit</b></no-localization> in<no-localization>Washington, DC</no-localization> 上发表演讲。我们讲述了我们为动物保护运动所做的工作，以及组织和个人如何参与我们的服务，以获得他们所需的支持。"

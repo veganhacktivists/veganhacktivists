@@ -25,7 +25,10 @@ const Playground: React.FC = () => {
           <div className='md:text-left md:w-3/4'>
             <SectionHeader
               className='mt-5 mb-10'
-              header={'<b>VH: Playground</b> launched'}
+              header={intl.formatMessage({
+                id: 'page.year-in-review.2021.section.playground.headline',
+                defaultMessage: '<b>VH: Playground</b> launched',
+              })}
             />
             <div className='space-y-5'>
               <FormattedMessage

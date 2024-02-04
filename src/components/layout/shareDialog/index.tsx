@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 import SquareField from '../../decoration/squares';
 import { SectionHeader } from '../../decoration/textBlocks';
@@ -38,6 +39,8 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
   shareInfo,
   onClose,
 }) => {
+  const intl = useIntl();
+
   return (
     <Modal isOpen={open} onClose={onClose}>
       <>
@@ -60,7 +63,12 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
               <div>
                 <h1 className='mb-8 text-center'>
                   <span className='text-4xl font-bold'>
-                    <SectionHeader header={'<b>Share</b> this project'} />
+                    <SectionHeader
+                      header={intl.formatMessage({
+                        id: 'dialog.share.headline',
+                        defaultMessage: '<b>Share</b> this project',
+                      })}
+                    />
                   </span>
                 </h1>
                 <div className='grid grid-cols-4 gap-4 align-middle gap-y-8 place-items-center auto-cols-min'>

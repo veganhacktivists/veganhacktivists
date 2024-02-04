@@ -2,6 +2,9 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "dialog.share.headline": {
+    "message": "Dieses Projekt <b>teilen</b> "
+  },
   "layout.footer.navigation-item.about.label": {
     "message": "Über"
   },
@@ -635,14 +638,23 @@
   "page.not-found.next-seo.title": {
     "message": "Seite nicht gefunden"
   },
+  "page.our-work.section.communities.headline": {
+    "message": "Unsere <b>GEMEINSCHAFTEN</b>"
+  },
   "page.our-work.section.design-work.button.label": {
     "message": "Besuchen Sie <no-localization>violetstudios.org</no-localization>"
   },
   "page.our-work.section.design-work.content": {
     "message": "Unsere Schwesterorganisation <highlight><no-localization>Violet Studios</no-localization></highlight> bietet kostenlose Designdienstleistungen für Tierschützer und Organisationen an. Ob es um Branding, Dokumentendesign, Webdesign oder andere wirkungsvolle Designbereiche geht, wir helfen veganen Organisationen dabei, gut auszusehen, Vertrauen aufzubauen, ihren Ruf zu verbessern und Menschen zu vereinen."
   },
+  "page.our-work.section.design-work.headline": {
+    "message": "Unsere <b>Designarbeit</b>"
+  },
   "page.our-work.section.featured-projects.section-header.content": {
     "message": "Hier sind nur einige der Projekte, die wir für die Bewegung und in Zusammenarbeit mit anderen Partnern entwickelt haben."
+  },
+  "page.our-work.section.featured-projects.section-header.headline": {
+    "message": "Ausgewählte <b>PROJEKTE</b>"
   },
   "page.our-work.section.grant-program.funded-by-direct-recommendation": {
     "message": "Finanziert durch direkte Empfehlung"
@@ -653,6 +665,9 @@
   "page.our-work.section.grant-program.section-header.content": {
     "message": "Letztes Jahr haben wir eine Partnerschaft mit <no-localization>The Pollination Project</no-localization> angekündigt, um Einzelpersonen und Basisorganisationen eine Anschubfinanzierung zu bieten. Hier ist, was wir bis heute erreicht haben."
   },
+  "page.our-work.section.grant-program.section-header.headline": {
+    "message": "Unsere Anschubfinanzierung <b>GRANT PROGRAM</b>"
+  },
   "page.our-work.section.grant-program.section-header.learn-more.cta-button.label": {
     "message": "Mehr erfahren"
   },
@@ -661,6 +676,9 @@
   },
   "page.our-work.section.hours-volunteered.cta-button.label": {
     "message": "hat sich 2022 freiwillig für den Tierschutz engagiert"
+  },
+  "page.our-work.section.introduction.headline": {
+    "message": "Unsere <b>ARBEIT</b>"
   },
   "page.our-work.section.kind-words[0].author": {
     "message": "<no-localization>Courtney Dillard</no-localization>"
@@ -707,11 +725,17 @@
   "page.our-work.section.like-what-you-see.get-support.cta-button.label": {
     "message": "Unterstützung erhalten"
   },
+  "page.our-work.section.like-what-you-see.headline": {
+    "message": "<b>GEFÄLLT IHNEN, WAS SIE SEHEN?</b>"
+  },
   "page.our-work.section.like-what-you-see.introduction": {
     "message": "Nehmen Sie Kontakt auf, wenn Sie sich ehrenamtlich engagieren, unsere Arbeit unterstützen oder unsere Dienste in Anspruch nehmen möchten!"
   },
   "page.our-work.section.like-what-you-see.services.cta-button.label": {
     "message": "Dienstleistungen"
+  },
+  "page.our-work.section.other-projects.headline": {
+    "message": "Andere <b>Projekte</b>"
   },
   "page.our-work.section.our-communities.cta.animal-rights-advocates": {
     "message": "<no-localization>Animal Rights Advocates</no-localization>"
@@ -764,11 +788,17 @@
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
     "message": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und <no-localization>EA</no-localization> Konferenzen auf der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern, wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <no-localization><link>Instagram</link></no-localization>, um zu sehen, wo wir als nächstes sein werden!"
   },
+  "page.our-work.section.sharing-knowledge-and-support.section-header.headline": {
+    "message": "Unser <b>Wissen und unsere Unterstützung</b> teilen"
+  },
   "page.our-work.section.state-of-data.content": {
     "message": "Wir haben die erste Studie dieser Art in Auftrag gegeben, um zu verstehen, wie unsere Bewegung die Technologie nutzt. Mit Hilfe von <no-localization>Faunalytics</no-localization> und Recherchen von <no-localization>Animetrics</no-localization> untersucht unser 50-seitiger Bericht Herausforderungen und Chancen in verschiedenen Bereichen wie Beschäftigung und Arbeitskräfte, Websites und Anwendungen, soziale Medien, Datenerfassung und -analyse sowie Sicherheit. Unsere Empfehlungen sollen Stakeholdern und Gemeindemitgliedern praktikable Lösungen bieten, wie wir zu einer stärker technologie- und datengesteuerten Bewegung werden können."
   },
   "page.our-work.section.state-of-data.cta": {
     "message": "Lesen Sie den Bericht"
+  },
+  "page.our-work.section.state-of-data.section-header.headline": {
+    "message": "Lesen Sie unsere <b>Tech &amp; Data Studie</b>"
   },
   "page.people.hero.alt-text": {
     "message": "Unsere Gemeinschaft leidenschaftlicher Aktivisten"
@@ -1175,8 +1205,14 @@
   "page.year-in-review.2021.section.advisory-service.btn.cta": {
     "message": "Informieren Sie sich über unsere Dienstleistungen"
   },
+  "page.year-in-review.2021.section.advisory-service.headline": {
+    "message": "Unser neuer <b>Beratungsdienst</b>"
+  },
   "page.year-in-review.2021.section.advisory-service.paragraph": {
     "message": "<p>Wir haben unseren neuesten Dienst gestartet, um Menschen mit unserem Expertenteam zu verbinden, das über ein breites Spektrum an Erfahrungen und Fähigkeiten verfügt. Wir heißen vegane Aktivisten und Organisationen willkommen, die uns als Ressource für ihre Technik, Organisationsstruktur, Strategie, Marketing, Zuschussanträge und mehr nutzen wollen.</p> <p>Wir sind sehr zufrieden mit diesem Start und haben mehr als 100 Beratungsanfragen erhalten! Wir waren in der Lage, Organisationen wie <no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization> zu unterstützen, neben vielen anderen.</p>"
+  },
+  "page.year-in-review.2021.section.big-impact.headline": {
+    "message": "Kleine Änderungen mit <b>großer Wirkung</b>"
   },
   "page.year-in-review.2021.section.big-impact.paragraph.0": {
     "message": "Erstellung von Richtlinien für Marke, Design und Inhalt"
@@ -1253,6 +1289,9 @@
   "page.year-in-review.2021.section.community-growth.documentation.paragraph": {
     "message": "Wachstum hat nicht nur mit Zahlen zu tun, sondern auch mit Struktur. Wir haben die Dokumentation unserer Organisation aus vier verschiedenen Plattformen in einem benutzerfreundlichen Bereich unserer neuen Website zusammengefasst."
   },
+  "page.year-in-review.2021.section.community-growth.headline": {
+    "message": "Förderung des <b>Wachstums der Gemeinschaft</b>"
+  },
   "page.year-in-review.2021.section.community-growth.safety.heading": {
     "message": "Sicherheit"
   },
@@ -1265,8 +1304,14 @@
   "page.year-in-review.2021.section.community-growth.technology.paragraph": {
     "message": "Wir haben uns neue Technologien zu eigen gemacht, um die Gesamtqualität und Robustheit unserer Projekte zu verbessern und unsere Entwickler dort abzuholen, wo sie sich befinden."
   },
+  "page.year-in-review.2021.section.designs-for-vegan-orgs.headline": {
+    "message": "<b>Entwürfe</b> für <b>Veganer-Organisationen</b>"
+  },
   "page.year-in-review.2021.section.designs-for-vegan-orgs.paragraph": {
     "message": "Wir hatten die Möglichkeit, veganen Organisationen, die ihre Marke und Identität entwickeln und sich in der wettbewerbsintensiven digitalen Landschaft abheben wollten, Designunterstützung vor Ort zu bieten."
+  },
+  "page.year-in-review.2021.section.featured-blog-posts.intro.headline": {
+    "message": "Ausgewählte <b>Blogbeiträge</b>"
   },
   "page.year-in-review.2021.section.featured-blog-posts.intro.paragraph": {
     "message": "Wir haben viel Spaß mit unserem Blog! Wir haben unsere Serie \"Meet The Team\" gestartet, um die unglaubliche Arbeit unseres Teams vorzustellen und die engagierten Freiwilligen hinter den Kulissen zu beleuchten. Für das Jahr 2022 planen wir weitere tolle Inhalte. Bleiben Sie dran!"
@@ -1292,6 +1337,9 @@
   "page.year-in-review.2021.section.featured-projects.activist-hub.paragraph.2": {
     "message": "<no-localization>Activist Hub</no-localization> fungiert auch als das weltweit erste soziale Netzwerk für Tierrechte! Fügen Sie Freunde hinzu, treten Sie Gruppen bei, teilen oder erstellen Sie Beiträge, entwickeln Sie Strategien und sprechen Sie mit anderen Aktivisten. Unser Hub ist zu 100% kostenlos für jede Person oder Organisation, die sich für Tiere einsetzt."
   },
+  "page.year-in-review.2021.section.featured-projects.headline": {
+    "message": "Ausgewählte <b>Projekte</b>"
+  },
   "page.year-in-review.2021.section.featured-projects.vegan-linguists.paragraph.0": {
     "message": "Jeden Tag werden mehr und mehr Menschen auf der ganzen Welt digital vernetzt."
   },
@@ -1309,6 +1357,9 @@
   },
   "page.year-in-review.2021.section.featured-projects.watch-dominion.paragraph.2": {
     "message": "<no-localization>Anonymous for the Voiceless</no-localization>, <no-localization>DontWatch.org</no-localization>, <no-localization>Viena Animal Save</no-localization>, und viele andere nutzen dieses Projekt jetzt für einen ununterbrochenen Zugang."
+  },
+  "page.year-in-review.2021.section.feedback-and-testing.headline": {
+    "message": "<b>Feedback</b> und <b>Tests</b>"
   },
   "page.year-in-review.2021.section.feedback-and-testing.paragraph.0": {
     "message": "Um effektiver zu sein und den Bedürfnissen unserer Bewegung gerecht zu werden, haben wir nicht nur unser Beraterteam erweitert, sondern auch die Art und Weise, wie wir Feedback erhalten. Wir nutzten eine Kombination aus internen Umfragen, Newslettern, Beratern und Testern, um die nächsten Schritte sowohl für unsere Projekte in der Entwicklung als auch für unser eigenes Wachstum festzulegen."
@@ -1346,6 +1397,9 @@
   "page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1": {
     "message": "Bisher war es sehr schwierig, die Wirksamkeit von Straßeneinsätzen zu verfolgen. Wir freuen uns über die Partnerschaft mit <no-localization>AV</no-localization>, die es uns ermöglicht, ihnen die Werkzeuge zur Verfügung zu stellen, die sie benötigen, um die Effektivität jeder Gruppe mit <link>Activist Hub</link> zu überwachen und zu verfolgen."
   },
+  "page.year-in-review.2021.section.partnerships.intro.headline": {
+    "message": "Aufbau sinnvoller <b>Partnerschaften</b>"
+  },
   "page.year-in-review.2021.section.partnerships.intro.paragraph": {
     "message": "In diesem Jahr haben wir auf unsere bisherigen Partnerschaften zurückgeblickt und gemeinsam überlegt, wie unsere künftigen Partnerschaften zu effektiveren und dauerhafteren Beziehungen führen könnten. Wir wollten, dass sich unsere Partnerschaften komplexer gestalten und sowohl für die Partner als auch für uns mehr Wirkung zeigen."
   },
@@ -1379,14 +1433,23 @@
   "page.year-in-review.2021.section.playground.btn.cta": {
     "message": "Spielen Sie mit auf dem Spielplatz"
   },
+  "page.year-in-review.2021.section.playground.headline": {
+    "message": "<b>VH: Spielplatz</b> gestartet"
+  },
   "page.year-in-review.2021.section.playground.paragraph": {
     "message": "<p>Wir haben eine öffentlich zugängliche Open-Source-Community namens <no-localization>VH: Playground</no-localization> ins Leben gerufen! <no-localization>Playground</no-localization> ermöglicht es Entwicklern, die nicht die Zeit oder die spezifischen Fähigkeiten haben, um dem Kernteam von <no-localization>Vegan Hacktivists</no-localization> beizutreten, trotzdem einen Beitrag zur Bewegung zu leisten, sei es bei unseren Open-Source-Projekten oder bei ihren eigenen!</p> <p>Kurz gesagt, wir wollten eine Gemeinschaft von veganen Entwicklern aufbauen und fördern, um Leute außerhalb unseres Netzwerks zu unterstützen - bis jetzt haben wir über 400 Mitglieder, Tendenz steigend!</p>"
   },
   "page.year-in-review.2021.section.rebrand.btn.cta": {
     "message": "Siehe unseren neuen Markenleitfaden!"
   },
+  "page.year-in-review.2021.section.rebrand.headline": {
+    "message": "Unser <b>Rebranding</b>"
+  },
   "page.year-in-review.2021.section.rebrand.paragraph": {
     "message": "<p>In diesem Jahr haben wir beschlossen, sowohl die Organisation als auch unsere Website von Grund auf neu zu gestalten. Wir wollten, dass unser Branding immer noch unseren technischen Hintergrund widerspiegelt, aber auch viel einladender und unterhaltsamer ist, um unsere Arbeit und unsere Gemeinschaft besser zu repräsentieren.</p> <p>Sowohl auf unserer Website als auch auf den sozialen Plattformen konnten wir einen sofortigen Anstieg der Bewerbungen von interessierten Freiwilligen feststellen, die uns auf einer der beiden Plattformen gefunden haben.</p> <p>Unser Branding wurde von unserem neuesten Teamleiter <no-localization>{link}</no-localization> entworfen, der die Art und Weise, wie wir hier bei VH arbeiten und unser Design betrachten, maßgeblich verändert hat.</p>"
+  },
+  "page.year-in-review.2021.section.videos.headline": {
+    "message": "Unsere neuen <b>animierten Videos</b>"
   },
   "page.year-in-review.2021.section.videos.paragraph": {
     "message": "Wir haben uns mit <no-localization><link>Expanded Circle Collective</link></no-localization> zusammengetan, um zwei animierte Einführungsvideos für <no-localization>Activist Hub</no-localization> und <no-localization>Vegan Bootcamp</no-localization> zu produzieren! Diese Videos sind fantastische Hilfsmittel für die Betrachter, um sich schnell mit unserer Arbeit vertraut zu machen. Wir freuen uns darauf, im neuen Jahr mit ihnen zusammenzuarbeiten."
@@ -1423,6 +1486,9 @@
   },
   "page.year-in-review.2022.section.bonus-projects.featured": {
     "message": "Ausgewählt"
+  },
+  "page.year-in-review.2022.section.bonus-projects.headline": {
+    "message": "<b>Bonus-Projekte</b>"
   },
   "page.year-in-review.2022.section.bonus-projects.paragraph": {
     "message": "Das Team hat sich zusammengetan, um noch vor Jahresende zwei Miniprojekte zu entwickeln, von denen wir dachten, dass sie für andere Bewegungen von Nutzen sein und unsere Arbeit fördern würden."
@@ -1468,6 +1534,9 @@
   },
   "page.year-in-review.2022.section.building-effective-teams.core.paragraph": {
     "message": "Wir haben auch einige Änderungen an unserer Teamstruktur vorgenommen! Wir haben jetzt ein Führungsteam, das Schlüsselpositionen wie Kommunikation, Produktmanagement, Betrieb, Technik, Design und leitender Architekt umfasst und verschiedene Teams und die Organisation als Ganzes unterstützt. Natürlich mit einem Apfel(kern) als Markenzeichen!"
+  },
+  "page.year-in-review.2022.section.building-effective-teams.headline": {
+    "message": "Aufbau <b>effektiverer Teams</b>"
   },
   "page.year-in-review.2022.section.building-effective-teams.playground.heading": {
     "message": "Spielplatz-Teams"
@@ -1517,11 +1586,17 @@
   "page.year-in-review.2022.section.featured-interviews.btn.cta": {
     "message": "Lesen Sie mehr im Blog"
   },
+  "page.year-in-review.2022.section.featured-interviews.headline": {
+    "message": "Ausgewählte <b>Interviews</b>"
+  },
   "page.year-in-review.2022.section.featured-interviews.loading-spinner": {
     "message": "Laden"
   },
   "page.year-in-review.2022.section.featured-interviews.paragraph": {
     "message": "Anfang des Jahres hatten wir die Ehre, uns mit verschiedenen führenden Persönlichkeiten des Tierschutzes zusammenzusetzen. Wir waren inspiriert von ihren Entstehungsgeschichten, ihren weisen Worten und ihrer Offenheit und Offenheit, mit der sie ihre Erfahrungen mit uns teilten - und hoffen, dass Sie das auch tun."
+  },
+  "page.year-in-review.2022.section.grant-program.headline": {
+    "message": "Ein Update zu unserem <b>Zuschussprogramm</b>"
   },
   "page.year-in-review.2022.section.grant-program.paragraph.0": {
     "message": "Letztes Jahr kündigten wir eine Partnerschaft mit <no-localization><b>The Pollination Project</b></no-localization> an, um Einzelpersonen und aufstrebenden Organisationen eine Startfinanzierung zu bieten. So sah das Programm im Jahr 2022 aus:"
@@ -1559,6 +1634,9 @@
   "page.year-in-review.2022.section.minor-changes-big-impact.grape": {
     "message": "Gründung eines Animationsteams zur Präsentation unserer Arbeit und als Service für andere in der Bewegung"
   },
+  "page.year-in-review.2022.section.minor-changes-big-impact.headline": {
+    "message": "Kleine Änderungen mit <b>großer Wirkung</b>"
+  },
   "page.year-in-review.2022.section.minor-changes-big-impact.kiwi": {
     "message": "Start von zwei neuen Blog-Serien, Leaders in <no-localization>Animal Protection</no-localization> und <no-localization>Byte Size</no-localization>"
   },
@@ -1595,6 +1673,9 @@
   "page.year-in-review.2022.section.new-videos.btn.cta": {
     "message": "Mehr Videos ansehen"
   },
+  "page.year-in-review.2022.section.new-videos.headline": {
+    "message": "Neue <b>Videos</b>"
+  },
   "page.year-in-review.2022.section.new-videos.paragraph": {
     "message": "Sehen Sie sich unsere neuesten Videos aus dem Jahr 2022 an! Wir haben noch mehr Videos in der Pipeline, also haltet die Augen offen und abonniert unseren YouTube-Kanal, wenn ihr die Ersten sein wollt, die sie sehen."
   },
@@ -1615,6 +1696,9 @@
   },
   "page.year-in-review.2022.section.providing-value.building-projects.paragraph": {
     "message": "<b>Neben der Entwicklung von Technologien</b> arbeiten wir hart daran, Lücken in unserer Bewegung zu finden und zu schließen. Dazu gehört nicht nur der Aufbau unserer Projekte, sondern auch die Durchführung unserer Forschungsstudie, die Teilnahme an verschiedenen internationalen Konferenzen und die Investition in das Wachstum von Gemeinschaften."
+  },
+  "page.year-in-review.2022.section.providing-value.headline": {
+    "message": "Wertschöpfung durch <b>Dienstleistungen zum Aufbau von Kapazitäten</b>"
   },
   "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
     "message": "<numberSpan>9600+</numberSpan> <textSpan>Stunden</textSpan>"
@@ -1654,6 +1738,9 @@
   },
   "page.year-in-review.2022.section.sharing-knowledge-and-support.care-conference.subcaption": {
     "message": "Daten und Technik im Tierrechtsaktivismus"
+  },
+  "page.year-in-review.2022.section.sharing-knowledge-and-support.headline": {
+    "message": "<b>Wissen und Unterstützung</b> teilen"
   },
   "page.year-in-review.2022.section.sharing-knowledge-and-support.paragraph": {
     "message": "In diesem Jahr wurden wir eingeladen, auf der <no-localization><b>CARE Conference</b></no-localization> in <no-localization>Warsaw, Poland</no-localization> und auf der erstmalig stattfindenden <no-localization><b>AVA Summit</b></no-localization> in <no-localization>Washington, DC</no-localization> zu sprechen. Wir sprachen über unsere Arbeit für die Tierschutzbewegung und darüber, wie Organisationen und Einzelpersonen unsere Dienste in Anspruch nehmen können, um die Unterstützung zu erhalten, die sie benötigen."

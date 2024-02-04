@@ -39,12 +39,16 @@ const Partnership: React.FC<PartnershipProps> = ({
 
 const Partnerships: React.FC = () => {
   const intl = useIntl();
+
   return (
     <>
       <SectionContainer
         header={
           <SectionHeader
-            header={'Building meaningful <b>partnerships</b>'}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.partnerships.intro.headline',
+              defaultMessage: 'Building meaningful <b>partnerships</b>',
+            })}
             className='text-grey'
           >
             <FormattedMessage

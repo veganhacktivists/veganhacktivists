@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -9,6 +9,8 @@ import SectionContainer from '../sectionContainer';
 import { DarkButton } from 'components/decoration/buttons';
 
 const AnimatedVideos: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -20,7 +22,15 @@ const AnimatedVideos: React.FC = () => {
         className='hidden md:block'
       />
       <SectionContainer
-        header={<SectionHeader header={'New <b>videos</b>'} newDesign />}
+        header={
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.new-videos.headline',
+              defaultMessage: 'New <b>videos</b>',
+            })}
+            newDesign
+          />
+        }
       >
         <div className='text-xl mx-auto md:w-2/3 xl:w-1/2'>
           <FormattedMessage

@@ -120,7 +120,12 @@ const MinorChangesBigImpact: React.FC = () => {
         color='grey-dark'
         className='text-white'
         header={
-          <SectionHeader header={'Minor changes with a <b>big impact</b>'} />
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.big-impact.headline',
+              defaultMessage: 'Minor changes with a <b>big impact</b>',
+            })}
+          />
         }
       >
         <div className='mx-auto text-2xl md:w-2/3 space-y-3 mb-10'>

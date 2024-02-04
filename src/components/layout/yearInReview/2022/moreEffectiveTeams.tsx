@@ -26,8 +26,11 @@ const MoreEffectiveTeams: React.FC = () => {
       <SectionContainer
         header={
           <SectionHeader
-            header={'Building more <b>effective teams</b>'}
-            newDesign={true}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.building-effective-teams.headline',
+              defaultMessage: 'Building more <b>effective teams</b>',
+            })}
+            newDesign
           />
         }
         color='grey-dark'

@@ -24,7 +24,10 @@ const AnimatedVideos: React.FC = () => {
         header={
           <SectionHeader
             className='text-grey'
-            header={'Our new <b>animated videos</b>'}
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2021.section.videos.headline',
+              defaultMessage: 'Our new <b>animated videos</b>',
+            })}
           >
             <FormattedMessage
               id='page.year-in-review.2021.section.videos.paragraph'

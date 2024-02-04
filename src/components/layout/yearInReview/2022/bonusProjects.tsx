@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import SectionContainer from '../sectionContainer';
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -11,6 +11,8 @@ import SquareField from 'components/decoration/squares';
 import { DarkButton } from 'components/decoration/buttons';
 
 const BonusProjects: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -22,7 +24,15 @@ const BonusProjects: React.FC = () => {
       />
       <SectionContainer
         color='grey-background'
-        header={<SectionHeader newDesign header={'Bonus <b>projects</b>'} />}
+        header={
+          <SectionHeader
+            newDesign
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2022.section.bonus-projects.headline',
+              defaultMessage: 'Bonus <b>projects</b>',
+            })}
+          />
+        }
       >
         <div className='pb-20'>
           <div className='xl:w-1/2 mx-auto'>

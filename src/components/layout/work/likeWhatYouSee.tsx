@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { LightButton } from 'components/decoration/buttons';
 import Sprite, { duck } from 'components/decoration/sprite';
@@ -8,6 +8,8 @@ import { SectionHeader } from 'components/decoration/textBlocks';
 const TOP_DECORATION_SQUARES = [{ color: 'white', size: 16, right: 0, top: 0 }];
 
 const LikeWhatYouSee: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <>
       <SquareField
@@ -17,7 +19,13 @@ const LikeWhatYouSee: React.FC = () => {
 
       <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
         <div className='relative flex flex-col items-center px-2 py-20 gap-y-8'>
-          <SectionHeader className='mb-2' header='<b>LIKE WHAT YOU SEE?</b>' />
+          <SectionHeader
+            className='mb-2'
+            header={intl.formatMessage({
+              id: 'page.our-work.section.like-what-you-see.headline',
+              defaultMessage: '<b>LIKE WHAT YOU SEE?</b>',
+            })}
+          />
 
           <div className='text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4'>
             <FormattedMessage
