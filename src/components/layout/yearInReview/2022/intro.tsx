@@ -30,7 +30,6 @@ const Intro: React.FC = () => {
                 'Providing value through <b>Capacity-building services</b>',
             })}
             stackEntries
-            newDesign
             className='text-black'
           />
         }

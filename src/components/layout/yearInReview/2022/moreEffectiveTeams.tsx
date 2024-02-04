@@ -30,7 +30,6 @@ const MoreEffectiveTeams: React.FC = () => {
               id: 'page.year-in-review.2022.section.building-effective-teams.headline',
               defaultMessage: 'Building more <b>effective teams</b>',
             })}
-            newDesign
           />
         }
         color='grey-dark'

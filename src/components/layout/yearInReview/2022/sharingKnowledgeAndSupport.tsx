@@ -57,7 +57,6 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               id: 'page.year-in-review.2022.section.sharing-knowledge-and-support.headline',
               defaultMessage: 'Sharing <b>knowledge & support</b>',
             })}
-            newDesign
           />
         }
       >

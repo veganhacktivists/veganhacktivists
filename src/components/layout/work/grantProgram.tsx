@@ -42,7 +42,6 @@ const GrantProgram: React.FC = () => {
                     defaultMessage: 'Our seed funding <b>GRANT PROGRAM</b>',
                   })}
                   stackEntries
-                  newDesign
                   className='text-left'
                 >
                   <div className='space-y-10'>

@@ -52,7 +52,6 @@ const GrantProgram: React.FC = () => {
                     defaultMessage: 'An update of our <b>grant program</b>',
                   })}
                   stackEntries
-                  newDesign
                   className='text-left'
                 />
                 <div className='text-xl text-left pt-5 pb-10'>

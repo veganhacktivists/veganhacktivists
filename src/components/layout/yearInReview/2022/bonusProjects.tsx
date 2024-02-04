@@ -26,7 +26,6 @@ const BonusProjects: React.FC = () => {
         color='grey-background'
         header={
           <SectionHeader
-            newDesign
             header={intl.formatMessage({
               id: 'page.year-in-review.2022.section.bonus-projects.headline',
               defaultMessage: 'Bonus <b>projects</b>',

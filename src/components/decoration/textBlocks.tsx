@@ -33,7 +33,6 @@ interface SectionHeaderProps
   > {
   header: string;
   stackEntries?: boolean;
-  newDesign?: boolean;
   className?: string;
   rootClassName?: string;
 }
@@ -43,7 +42,6 @@ interface SectionHeaderProps
 export const SectionHeader = ({
   header,
   stackEntries = false,
-  newDesign = false,
   className,
   rootClassName,
   children,
@@ -66,7 +64,7 @@ export const SectionHeader = ({
     'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1';
   const italicClasses = classNames(
     'font-serif italic text-4xl mx-1',
-    newDesign && 'font-bold',
+    'font-bold',
   );
 
   return (

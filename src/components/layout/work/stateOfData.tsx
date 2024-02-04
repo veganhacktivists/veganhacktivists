@@ -44,7 +44,6 @@ const StateOfData: React.FC = () => {
               id: 'page.our-work.section.state-of-data.section-header.headline',
               defaultMessage: 'Read Our <b>Tech & Data Study</b>',
             })}
-            newDesign
             stackEntries
             rootClassName='text-left mx-auto text-center lg:text-left w-full mb-0'
           >

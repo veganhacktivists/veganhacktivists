@@ -142,7 +142,6 @@ const MinorChangesBigImpact: React.FC = () => {
         className='text-white'
         header={
           <SectionHeader
-            newDesign
             header={intl.formatMessage({
               id: 'page.year-in-review.2022.section.minor-changes-big-impact.headline',
               defaultMessage: 'Minor changes with <b>big impact</b>',

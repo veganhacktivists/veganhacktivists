@@ -35,7 +35,6 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
               id: 'page.year-in-review.2022.section.featured-interviews.headline',
               defaultMessage: 'Featured <b>interviews</b>',
             })}
-            newDesign
           />
         }
       >

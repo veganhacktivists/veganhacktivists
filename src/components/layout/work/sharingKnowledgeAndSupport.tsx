@@ -41,7 +41,6 @@ const SharingKnowledgeAndSupport: React.FC = () => {
                 id: 'page.our-work.section.sharing-knowledge-and-support.section-header.headline',
                 defaultMessage: 'Sharing Our <b>knowledge & support</b>',
               })}
-              newDesign
               rootClassName='text-left mx-auto text-center md:text-left'
               stackEntries
             >

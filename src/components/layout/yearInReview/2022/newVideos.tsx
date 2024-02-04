@@ -28,7 +28,6 @@ const AnimatedVideos: React.FC = () => {
               id: 'page.year-in-review.2022.section.new-videos.headline',
               defaultMessage: 'New <b>videos</b>',
             })}
-            newDesign
           />
         }
       >
