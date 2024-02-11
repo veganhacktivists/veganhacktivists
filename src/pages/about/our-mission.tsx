@@ -65,7 +65,7 @@ const OurMission: PageWithLayout = () => {
           >
             <FormattedMessage
               id='page.about.section.our-mission.subsection-1.paragraph'
-              defaultMessage="We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
+              defaultMessage="We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating - and this gives us more information on what works."
             />
           </SubSection>
           <SubSection

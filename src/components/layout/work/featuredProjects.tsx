@@ -96,7 +96,10 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
             <DarkButton href={url} capitalize={false} className='text-center'>
-              Visit
+              <FormattedMessage
+                id='page.our-work.section.featured-projects.section.button.visit-project-page.label'
+                defaultMessage='Visit'
+              />
             </DarkButton>
             <ShareButton
               shareInfo={shareInfo}

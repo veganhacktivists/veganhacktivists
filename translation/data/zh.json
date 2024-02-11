@@ -371,9 +371,6 @@
   "page.grants.section.application.form.b.input.target-audience.text": {
     "message": "您的目标是机构、个人还是其他？针对这一群体将如何为养殖动物带来改变？"
   },
-  "page.grants.section.application.form.c.heading": {
-    "message": "C 部分 - 项目"
-  },
   "page.grants.section.application.form.c.input.applied-budget.error.max": {
     "message": "我们只接受最高 1000 美元的申请"
   },
@@ -449,12 +446,6 @@
   "page.grants.section.perks.design-creation.paragraph": {
     "message": "根据您的需求，我们为您的组织或项目设计（或重新设计）品牌和徽标。我们还为您的社交媒体和网站提供数字资产，如横幅、图标和任何定制元素。"
   },
-  "page.grants.section.perks.heading": {
-    "message": "心形图标"
-  },
-  "page.grants.section.perks.heading.image.alt-text": {
-    "message": "除种子基金外，成功的申请者还可获得"
-  },
   "page.grants.section.perks.squarespace.heading": {
     "message": "<no-localization>Squarespace</no-localization> 网站订阅"
   },
@@ -500,13 +491,13 @@
   "page.index.section.introduction.headline": {
     "message": "我们是 <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>"
   },
-  "page.index.section.introduction.paragraph1": {
+  "page.index.section.introduction.paragraph.1": {
     "message": "我们是一个由热心动物保护的人士组成的全球性社区，通过<b>设计、开发和数据</b>，为动物保护运动提供技术建设方面的技能。作为能力建设者，我们免费为倡导者和组织提供创新的优质服务。"
   },
-  "page.index.section.introduction.paragraph2": {
+  "page.index.section.introduction.paragraph.2": {
     "message": "我们的团队由高技能的专业软件工程师、设计师、数据科学家和内容创作者组成。通过利用我们的不同背景和技能组合，我们设计并构建了以<b>数据为驱动的项目</b>，旨在实现高效和实验性的目标。"
   },
-  "page.index.section.introduction.paragraph3": {
+  "page.index.section.introduction.paragraph.3": {
     "message": "我们的<b>能力建设服务</b>是我们为这项运动做出贡献的方式。利用我们庞大的志愿者网络，我们与个人和组织合作，提供网站开发、品牌推广和咨询服务。"
   },
   "page.index.section.projects.cta": {
@@ -673,9 +664,6 @@
   },
   "page.our-work.section.grant-program.seed-funding-granted": {
     "message": "批准的种子基金"
-  },
-  "page.our-work.section.hours-volunteered.cta-button.label": {
-    "message": "2022 年志愿参加动物保护运动"
   },
   "page.our-work.section.introduction.headline": {
     "message": "我们的<b>工作</b>"

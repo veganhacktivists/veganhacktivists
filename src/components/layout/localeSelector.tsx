@@ -8,7 +8,7 @@ import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 /**
  * Locale selector positioned in the page header.
- * When focused options are exposed to the user to switch to a different locale.
+ * When focused, options are shown to the user to switch to a different locale.
  */
 export const LocaleSelector = () => {
   const router = useRouter();

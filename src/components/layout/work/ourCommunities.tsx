@@ -27,7 +27,7 @@ const OurCommunities: React.FC = () => {
       id: 'page.our-work.section.our-communities.member-count.reddit',
       defaultMessage: '<no-localization>{count}</no-localization> members',
     },
-    { count: formatNumber(1200000) + '+' },
+    { count: formatNumber(1400000) + '+' },
   );
 
   const araMembers = intl.formatMessage(

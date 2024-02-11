@@ -29,9 +29,9 @@ const DonationCard: React.FC<DonationCardProps> = ({
     <div
       style={{
         width: `${large ? '400px' : '300px'}`,
-        height: `${large ? '540px' : '400px'}`,
+        height: `${large ? '540px' : '460px'}`,
       }}
-      className='flex-col bg-gray-lighter'
+      className='flex flex-col bg-gray-lighter'
     >
       <div style={{ backgroundColor }}>
         <div className={'absolute w-8 h-8 transparent'} />
@@ -44,7 +44,7 @@ const DonationCard: React.FC<DonationCardProps> = ({
           />
         </div>
       </div>
-      <div className='p-8'>
+      <div className='px-4 py-8 basis-full flex flex-col justify-between'>
         <h1 className='pb-5 font-mono text-3xl font-bold'>{title}</h1>
         <p className='mx-auto mb-8 text-xl'>{children}</p>
         <LightButton href={buttonHref}>{buttonText}</LightButton>

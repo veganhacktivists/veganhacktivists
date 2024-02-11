@@ -373,7 +373,7 @@ const GrantsApplication: React.FC = () => {
         <FormSection
           sectionName={intl.formatMessage({
             id: 'page.grants.section.application.form.c.heading',
-            defaultMessage: 'Section C - Project',
+            defaultMessage: 'Section C - Budget',
           })}
         >
           <FormattedMessage

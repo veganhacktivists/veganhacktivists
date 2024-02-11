@@ -30,6 +30,7 @@ const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
       <div className='flex flex-col justify-between w-full min-h-screen'>
         {children}
       </div>
+      <ToastContainer position='bottom-right' />
     </>
   );
 };
@@ -54,7 +55,6 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
           {children}
           <CookiesCTA />
           {hideNewsletter || <NewsletterPopup />}
-          <ToastContainer position='bottom-right' />
         </>
       </ErrorBoundary>
     </main>

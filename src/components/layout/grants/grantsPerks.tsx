@@ -118,13 +118,13 @@ const GrantsPerks: React.FC = () => {
         width={pixelHeart.width * 0.5}
         height={pixelHeart.height * 0.5}
         alt={intl.formatMessage({
-          id: 'page.grants.section.perks.heading',
+          id: 'page.grants.section.perks.heading.image.alt-text',
           defaultMessage: 'Heart icon',
         })}
       />
       <h3 className='p-4 mt-12 mb-10 text-4xl font-semibold md:p-0'>
         <FormattedMessage
-          id='page.grants.section.perks.heading.image.alt-text'
+          id='page.grants.section.perks.heading'
           defaultMessage='In addition to seed funding, succesful applicants can receive:'
         />
       </h3>

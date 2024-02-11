@@ -2,6 +2,9 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "component.button.share.label": {
+    "message": "Share"
+  },
   "dialog.share.headline": {
     "message": "<b>Share</b> this project"
   },
@@ -114,7 +117,7 @@
     "message": "2. We need more competition, too."
   },
   "page.about.section.our-mission.subsection-1.paragraph": {
-    "message": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating – and this gives us more information on what works."
+    "message": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating - and this gives us more information on what works."
   },
   "page.about.section.our-mission.subsection-2.heading": {
     "message": "3. We need to be more innovative."
@@ -372,7 +375,7 @@
     "message": "Do you target institutions, individuals, or something else? How will targeting this group create change for farmed animals?"
   },
   "page.grants.section.application.form.c.heading": {
-    "message": "Section C - Project"
+    "message": "Section C - Budget"
   },
   "page.grants.section.application.form.c.input.applied-budget.error.max": {
     "message": "We can only accept applications for up to $1000 USD"
@@ -450,10 +453,10 @@
     "message": "Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website."
   },
   "page.grants.section.perks.heading": {
-    "message": "Heart icon"
+    "message": "In addition to seed funding, succesful applicants can receive:"
   },
   "page.grants.section.perks.heading.image.alt-text": {
-    "message": "In addition to seed funding, succesful applicants can receive:"
+    "message": "Heart icon"
   },
   "page.grants.section.perks.squarespace.heading": {
     "message": "<no-localization>Squarespace</no-localization> Website Subscription"
@@ -500,13 +503,13 @@
   "page.index.section.introduction.headline": {
     "message": "We are <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>"
   },
-  "page.index.section.introduction.paragraph1": {
+  "page.index.section.introduction.paragraph.1": {
     "message": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
   },
-  "page.index.section.introduction.paragraph2": {
+  "page.index.section.introduction.paragraph.2": {
     "message": "Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
   },
-  "page.index.section.introduction.paragraph3": {
+  "page.index.section.introduction.paragraph.3": {
     "message": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
   },
   "page.index.section.projects.cta": {
@@ -656,6 +659,9 @@
   "page.our-work.section.featured-projects.section-header.headline": {
     "message": "Featured <b>PROJECTS</b>"
   },
+  "page.our-work.section.featured-projects.section.button.visit-project-page.label": {
+    "message": "Visit"
+  },
   "page.our-work.section.grant-program.funded-by-direct-recommendation": {
     "message": "Funded by direct recommendation"
   },
@@ -675,7 +681,7 @@
     "message": "Seed Funding granted"
   },
   "page.our-work.section.hours-volunteered.cta-button.label": {
-    "message": "volunteered in 2022 for the animal protection movement"
+    "message": "<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>"
   },
   "page.our-work.section.introduction.headline": {
     "message": "Our <b>WORK</b>"
@@ -1700,11 +1706,8 @@
   "page.year-in-review.2022.section.providing-value.headline": {
     "message": "Providing value through <b>Capacity-building services</b>"
   },
-  "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
-    "message": "<numberSpan>9600+</numberSpan> <textSpan>Hours</textSpan>"
-  },
   "page.year-in-review.2022.section.providing-value.hours.text": {
-    "message": "volunteered in 2022 for the animal protection movement"
+    "message": "<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>"
   },
   "page.year-in-review.2022.section.providing-value.intro.paragraph": {
     "message": "This year, we leaned into our role and strength as capacity builders by expanding both our services and our professional volunteer network. We saved the movement over half a million dollars by serving over 120 organizations this year alone with our tech, design and advisory services. And we're just getting started!"
@@ -1753,6 +1756,9 @@
   },
   "page.year-in-review.section.header.title": {
     "message": "Our <no-localization>{year}</no-localization> <b>year in review</b>"
+  },
+  "page.year-in-review.section.state-of-data.headline": {
+    "message": "<prefix>Coming soon:</prefix> <main>State of data & technology</main> <sub>In the movement</sub>"
   },
   "section.blog-teaser.cta": {
     "message": "See All Posts"

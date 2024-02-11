@@ -17,15 +17,29 @@ const StateOfData: React.FC = () => {
             <div className='flex justify-center pb-14'>
               <CustomImage alt='' src={DataImage} />
             </div>
-            <span className='text-4xl block text-green font-bold uppercase font-mono pb-2'>
-              Coming soon:
-            </span>
-            <span className='text-6xl block font-bold uppercase font-mono pb-2'>
-              State of data & technology
-            </span>
-            <span className='text-4xl block font-bold italic font-serif'>
-              In the movement
-            </span>
+
+            <FormattedMessage
+              id='page.year-in-review.section.state-of-data.headline'
+              defaultMessage='<prefix>Coming soon:</prefix> <main>State of data & technology</main> <sub>In the movement</sub>'
+              values={{
+                prefix: (chunk) => (
+                  <span className='text-4xl block text-green font-bold uppercase font-mono pb-2'>
+                    {chunk}
+                  </span>
+                ),
+                main: (chunk) => (
+                  <span className='text-6xl block font-bold uppercase font-mono pb-2'>
+                    {chunk}
+                  </span>
+                ),
+                sub: (chunk) => (
+                  <span className='text-4xl block font-bold italic font-serif'>
+                    {chunk}
+                  </span>
+                ),
+              }}
+            />
+
             <span className='text-xl block pt-20'>
               <FormattedMessage
                 id='page.year-in-review.2022.section.state-of-data.paragraph'

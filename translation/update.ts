@@ -139,7 +139,9 @@ function replaceDefaultValue(
     translations[idStringValue].message !== defaultMessageNodeValue.slice(1, -1)
   ) {
     defaultValuePropTuple?.[2].replaceWithText(
-      quotes + translations[idStringValue].message + quotes,
+      quotes +
+        translations[idStringValue].message.replaceAll(quotes, '\\' + quotes) +
+        quotes,
     );
   }
 }

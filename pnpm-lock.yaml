@@ -192,8 +192,8 @@ dependencies:
     specifier: ^3.4.0
     version: 3.4.0(ts-node@10.9.1)
   ts-morph:
-    specifier: ^17.0.1
-    version: 17.0.1
+    specifier: ^21.0.1
+    version: 21.0.1
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -3474,12 +3474,12 @@ packages:
     engines: {node: '>=18.0.0'}
     dev: false
 
-  /@ts-morph/common@0.18.0:
-    resolution: {integrity: sha512-UvWF+oQdMa4qMWhXTOd2JWtAbAJGgkPMNzGHgEcfOwQRIcViKdwsSqXXjSaQCZ4fo+bZMhdfuwQCjlW5bNcqEQ==}
+  /@ts-morph/common@0.22.0:
+    resolution: {integrity: sha512-HqNBuV/oIlMKdkLshXd1zKBqNQCsuPEsgQOkfFQ/eUKjRlwndXW1AjN9LVkBEIukm00gGXSRmfkl0Wv5VXLnlw==}
     dependencies:
       fast-glob: 3.3.2
-      minimatch: 5.1.0
-      mkdirp: 1.0.4
+      minimatch: 9.0.3
+      mkdirp: 3.0.1
       path-browserify: 1.0.1
     dev: false
 
@@ -4964,8 +4964,8 @@ packages:
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
     dev: true
 
-  /code-block-writer@11.0.3:
-    resolution: {integrity: sha512-NiujjUFB4SwScJq2bwbYUtXbZhBSlY6vYzm++3Q6oC+U+injTqfPYFK8wS9COOmb2lueqp0ZRB4nK1VYeHgNyw==}
+  /code-block-writer@12.0.0:
+    resolution: {integrity: sha512-q4dMFMlXtKR3XNBHyMHt/3pwYNA69EDk00lloMOaaUMKPUXBw6lpXtbu3MMVG6/uOihGnRDOlkyqsONEUj60+w==}
     dev: false
 
   /collect-v8-coverage@1.0.1:
@@ -8801,9 +8801,10 @@ packages:
       - encoding
     dev: false
 
-  /mkdirp@1.0.4:
-    resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
+  /mkdirp@3.0.1:
+    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
     engines: {node: '>=10'}
+    hasBin: true
     dev: false
 
   /ms@2.1.2:
@@ -11012,11 +11013,11 @@ packages:
     resolution: {integrity: sha512-k43M7uCG1AkTyxgnmI5MPwKoUvS/bRvLvUb7+Pgpdlmok8AoqmUaZxUUw8zKM5B1lqZrt41GjYgnvAi0fppqgQ==}
     dev: false
 
-  /ts-morph@17.0.1:
-    resolution: {integrity: sha512-10PkHyXmrtsTvZSL+cqtJLTgFXkU43Gd0JCc0Rw6GchWbqKe0Rwgt1v3ouobTZwQzF1mGhDeAlWYBMGRV7y+3g==}
+  /ts-morph@21.0.1:
+    resolution: {integrity: sha512-dbDtVdEAncKctzrVZ+Nr7kHpHkv+0JDJb2MjjpBaj8bFeCkePU9rHfMklmhuLFnpeq/EJZk2IhStY6NzqgjOkg==}
     dependencies:
-      '@ts-morph/common': 0.18.0
-      code-block-writer: 11.0.3
+      '@ts-morph/common': 0.22.0
+      code-block-writer: 12.0.0
     dev: false
 
   /ts-node@10.9.1(@types/node@20.10.0)(typescript@5.3.2):

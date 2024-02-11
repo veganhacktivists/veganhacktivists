@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
+import { FormattedMessage } from 'react-intl';
 
 import useDeviceDetect from '../../../hooks/useDeviceDetect';
 
@@ -363,7 +364,12 @@ const ShareButton: React.FC<
     >
       <div className='flex items-center justify-center gap-2'>
         <FontAwesomeIcon size='1x' fixedWidth icon={faShare} />
-        <div>Share</div>
+        <div>
+          <FormattedMessage
+            id='component.button.share.label'
+            defaultMessage='Share'
+          />
+        </div>
       </div>
     </DarkButton>
   );

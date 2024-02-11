@@ -214,7 +214,7 @@ const RightSide: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black pr-28 xl:flex flex-nowrap'>
+      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black xl:flex flex-nowrap'>
         <NavbarItems />
       </div>
     </>

@@ -117,26 +117,23 @@ const Intro: React.FC = () => {
               ]}
             />
             <div className='bg-magenta flex flex-row flex-wrap p-12 px-2'>
-              <div className='flex items-center flex-wrap w-full md:w-1/2 text-white text-8xl font-mono px-2 justify-center'>
-                <FormattedMessage
-                  id='page.year-in-review.2022.section.providing-value.hours.number-of-hours'
-                  defaultMessage='<numberSpan>9600+</numberSpan> <textSpan>Hours</textSpan>'
-                  values={{
-                    numberSpan: (chunks) => (
-                      <span className='font-bold'>{chunks}</span>
-                    ),
-                    textSpan: (chunks) => (
-                      <span className='uppercase font-light'>{chunks}</span>
-                    ),
-                  }}
-                />
-              </div>
-              <div className='flex items-center flex-wrap w-full md:w-1/2 text-white text-3xl font-serif italic font-bold  text-center md:text-left px-2 justify-center'>
-                <FormattedMessage
-                  id='page.year-in-review.2022.section.providing-value.hours.text'
-                  defaultMessage='volunteered in 2022 for the animal protection movement'
-                />
-              </div>
+              <FormattedMessage
+                id='page.year-in-review.2022.section.providing-value.hours.text'
+                defaultMessage='<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>'
+                values={{
+                  hours: (chunk) => (
+                    <div className='flex items-center flex-wrap w-full md:w-1/2 text-white text-8xl font-mono px-2 justify-center'>
+                      <span className='font-bold'>9600+</span>{' '}
+                      <span className='uppercase font-light'>{chunk}</span>
+                    </div>
+                  ),
+                  right: (chunk) => (
+                    <div className='flex items-center flex-wrap w-full md:w-1/2 text-white text-3xl font-serif italic font-bold  text-center md:text-left px-2 justify-center'>
+                      {chunk}
+                    </div>
+                  ),
+                }}
+              />
             </div>
           </div>
           <SquareField
