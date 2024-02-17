@@ -38,7 +38,7 @@ const HoursVolunteered: React.FC = () => {
         <div>
           <div className='bg-magenta flex flex-col lg:flex-row justify-center md:first-letter:flex-wrap p-12 px-2'>
             <FormattedMessage
-              id='page.our-work.section.hours-volunteered.cta-button.label'
+              id='page.our-work.section.hours-volunteered-banner.content'
               defaultMessage='<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>'
               values={{
                 hours: (chunk) => (

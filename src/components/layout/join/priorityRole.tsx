@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { DarkButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
@@ -56,7 +57,10 @@ const JobRole: React.FC<PriorityRoleProps> = ({
           href={href}
           className='font-semibold text-lg font-mono px-16 py-4 my-4'
         >
-          Apply Now
+          <FormattedMessage
+            id='page.join.section.open-priority-positions.cta'
+            defaultMessage='Apply Now'
+          />
         </DarkButton>
       </div>
     </div>

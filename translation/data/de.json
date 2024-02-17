@@ -587,6 +587,12 @@
   "page.join.section.join-our-team.subline": {
     "message": "Wir wachsen! Wenn Sie an unseren Auftrag glauben und Tieren mit Hilfe von Technologie helfen wollen, kommen Sie zu uns. Auch wenn Sie nicht alle Qualifikationen erfüllen, möchten wir Sie ermutigen, sich trotzdem zu bewerben."
   },
+  "page.join.section.open-positions.cta": {
+    "message": "Jetzt bewerben"
+  },
+  "page.join.section.open-priority-positions.cta": {
+    "message": "Jetzt bewerben"
+  },
   "page.join.section.other-roles.content": {
     "message": "Sie sehen keine Stelle, die Ihren Fähigkeiten entspricht? Nehmen Sie trotzdem Kontakt mit uns auf. Wir würden Sie gerne kennenlernen und freuen uns über Ihr Interesse, uns zu unterstützen!"
   },
@@ -595,6 +601,15 @@
   },
   "page.join.section.other-roles.headline": {
     "message": "Andere Talente & Fachleute"
+  },
+  "page.join.section.playground.content": {
+    "message": "Du hast keine Zeit, um regelmäßig bei uns mitzuarbeiten? Wir haben eine öffentliche Open-Source-Community namens <b>VH: Playground</b> ins Leben gerufen, die auf Discord bereits über 1.000 Mitglieder hat! Übernimm ein von Organisationen angebotenes Projekt, wann immer du Zeit hast."
+  },
+  "page.join.section.playground.cta-button.label": {
+    "message": "VH beitreten: Playground"
+  },
+  "page.join.section.playground.headline": {
+    "message": "Achtung Entwickler!"
   },
   "page.join.section.priority-positions.headline": {
     "message": "Positionen mit hoher Priorität"
@@ -680,7 +695,7 @@
   "page.our-work.section.grant-program.seed-funding-granted": {
     "message": "Anschubfinanzierung gewährt"
   },
-  "page.our-work.section.hours-volunteered.cta-button.label": {
+  "page.our-work.section.hours-volunteered-banner.content": {
     "message": "<hours>Stunden</hours> <right>im Jahr 2022 ehrenamtlich für die Tierschutzbewegung geleistet</right>"
   },
   "page.our-work.section.introduction.headline": {
@@ -890,6 +905,105 @@
   "page.people.section.volunteers.next-seo.title": {
     "message": "Unsere Freiwilligen"
   },
+  "page.playground.section.aac.content": {
+    "message": "Besuchen Sie die Stellenbörse von Animal Advocacy, die Sie mit spannenden gemeinnützigen Stellen im Tierbereich mit hohem Potenzial für die Tierhilfe verbindet."
+  },
+  "page.playground.section.aac.cta-button.label": {
+    "message": "Karrieren erkunden"
+  },
+  "page.playground.section.aac.headline": {
+    "message": "Suchen Sie einen Job oder eine Karriere im Tierschutz?"
+  },
+  "page.playground.section.faq.0.answer": {
+    "message": "<p>Playground ist eine Community leidenschaftlicher veganer Freiwilliger, die Tierschützer und -organisationen unterstützen wollen, indem sie ihre Zeit und ihre Fähigkeiten zur Verfügung stellen. Ihre vielfältigen Fähigkeiten umfassen Softwareentwicklung, Design, Inhaltserstellung, Marketing und vieles mehr. Jeder kann dieser Community beitreten und sich bewerben, um Ihnen bei Ihrem Anliegen zu helfen.</p> <p>Playground ist unabhängig vom Vegan Hacktivists-Team und zielt darauf ab, die Kapazität zu erhöhen, mit der wir Ihre Arbeit für die Tiere unterstützen können.</p>"
+  },
+  "page.playground.section.faq.0.question": {
+    "message": "Was genau ist VH: Playground?"
+  },
+  "page.playground.section.faq.1.answer": {
+    "message": "<p> Wenn Sie eine Organisation sind oder sich für die Verbesserung oder Rettung des Lebens von Tieren einsetzen, möchten wir Ihre Arbeit unterstützen. </p> <p> Wenn Sie ein bestimmtes Projekt oder eine bestimmte Aufgabe im Sinn haben, klicken Sie auf \"Anfrage einreichen\" und füllen Sie das Formular aus, um uns genau mitzuteilen, wofür Sie Hilfe benötigen. Wir prüfen Ihre Anfrage, um sicherzustellen, dass sie unseren Communitystandards entspricht, und lehnen sie dann ab oder genehmigen sie. Im Falle einer Genehmigung erhalten Sie eine E-Mail, in der bestätigt wird, dass Ihre Anfrage freigeschaltet und öffentlich ist. Dann brauchen Sie nur noch darauf zu warten, dass sich Freiwillige melden! Wir werden alle Bewerbungen durchsehen, prüfen und dann die am besten geeignete genehmigen. Sie werden automatisch per E-Mail mit dem Freiwilligen verbunden und erhalten einen Calendy-Link. </p>"
+  },
+  "page.playground.section.faq.1.question": {
+    "message": "Wie funktioniert es, wenn ich einen Antrag für ein Projekt stellen möchte?"
+  },
+  "page.playground.section.faq.2.answer": {
+    "message": "<p> Alle Veganer, die programmieren, gestalten, bearbeiten, übersetzen, recherchieren, Daten analysieren oder andere Fähigkeiten einbringen können, sind willkommen! Stöbern Sie einfach in der Liste der Anfragen <link>hier</link> und bewerben Sie sich für die, die Ihren Fähigkeiten am ehesten entsprechen. Vergewissern Sie sich, dass Sie einen angemessenen Zeitaufwand aufbringen können und über die Fähigkeit oder Qualifikation verfügen, die Arbeit ordnungsgemäß auszuführen. Wenn Sie für ein Projekt ausgewählt werden, denken Sie daran, Ihre Fortschritte mitzuteilen und den Abgabetermin für das Projekt zu beachten. </p> <p> Füllen Sie die Informationen unter der Anfrage aus, und wir werden Ihre Bewerbung prüfen. Sie erhalten eine E-Mail, in der Ihnen mitgeteilt wird, ob Ihre Hilfe genehmigt oder abgelehnt wurde. Wenn Ihre Anfrage genehmigt wurde, werden Sie automatisch mit einem Calendly-Link mit dem Anfragenden verbunden, so dass Sie sofort loslegen können! </p>"
+  },
+  "page.playground.section.faq.2.question": {
+    "message": "Wie funktioniert es, wenn ich mich hier ehrenamtlich engagieren möchte?"
+  },
+  "page.playground.section.faq.3.answer": {
+    "message": "<p> Jeder kann dieser Community beitreten und sich als Freiwilliger bewerben. Wir prüfen jedoch jede Bewerbung sorgfältig. Wir können zwar nicht für die Qualität der Arbeit garantieren, aber wir tun unser Bestes, um sicherzustellen, dass der Bewerber die erforderlichen Fähigkeiten und den Hintergrund für Ihr Projekt mitbringt. Wir überprüfen unter anderem die Profile auf LinkedIn, das Portfolio, den Lebenslauf, frühere Arbeiten und die sozialen Medien. Je nach Anfrage können wir den Bewerber auch per Telefon oder E-Mail befragen.</p>"
+  },
+  "page.playground.section.faq.3.question": {
+    "message": "Sind die Bewerber für meine Anfrage qualifiziert?"
+  },
+  "page.playground.section.faq.4.answer": {
+    "message": "<p> Playground wurde entwickelt, um unsere Kapazitäten zu erhöhen, indem wir unser riesiges Netzwerk von qualifizierten Freiwilligen nutzen, die mit Begeisterung zur Bewegung beitragen. Derzeit ist das VH-Kernteam aus Entwicklern, Designern und Spezialisten mit verschiedenen vorrangigen Projekten beschäftigt. Da wir jede Anfrage auf Playground prüfen, werden wir uns mit Ihnen in Verbindung setzen, wenn wir glauben, dass Ihr Bedarf von unserem Kernteam erfüllt werden kann. Bitte werfen Sie einen Blick auf unser <link>Serviceangebot</link>, um mehr über die Spezialgebiete von VH zu erfahren.</p>"
+  },
+  "page.playground.section.faq.4.question": {
+    "message": "Ist es möglich, Unterstützung durch das VH-Team zu erhalten?"
+  },
+  "page.playground.section.faq.5.answer": {
+    "message": "<p> Wenn Sie einen Antrag auf Unterstützung einreichen, wird dieser in der Regel innerhalb von 24 Stunden geprüft und freigeschaltet. Um einen geeigneten Freiwilligen für Ihr Projekt zu finden, kann es zwischen einem und sieben Tagen dauern. Wir danken Ihnen für Ihre Geduld, denn wir sind noch neu und im Wachstum! </p> <p> Wenn Sie sich bewerben, um jemandem bei einer Anfrage zu helfen, sollten Sie innerhalb von 24 bis 48 Stunden eine E-Mail mit der Bestätigung Ihres Bewerbungsstatus erhalten.</p>"
+  },
+  "page.playground.section.faq.5.question": {
+    "message": "Wie lange dauert es, bis meine Anfrage/Bewerbung angenommen wird?"
+  },
+  "page.playground.section.faq.6.answer": {
+    "message": "<p>Unbedingt! Tritt unserem <link> Playground-Discord-Server </link> bei, um die neuesten Anfragen zu sehen. Schalten Sie die Benachrichtigungen ein, um bei jeder neuen Anfrage benachrichtigt zu werden. Sie können auch mit anderen Freiwilligen chatten, Ihre Erfahrungen diskutieren und Unterstützung von der Playground-Community erhalten. Wir freuen uns darauf, Sie bald zu sehen! </p>"
+  },
+  "page.playground.section.faq.6.question": {
+    "message": "Kann ich als Freiwilliger über neu eingehende Anfragen auf dem Laufenden bleiben?"
+  },
+  "page.playground.section.faq.headline": {
+    "message": "Häufig gestellte Fragen"
+  },
+  "page.playground.section.get-support.content": {
+    "message": "Wenn Sie eine Einzelperson oder eine Organisation sind, die Hilfe bei ihrer Arbeit für die Tiere benötigt, können Sie sich um kostenlose Unterstützung durch unsere Playground-Community bewerben."
+  },
+  "page.playground.section.get-support.cta-button.label": {
+    "message": "Ihre Anfrage abschicken"
+  },
+  "page.playground.section.get-support.headline": {
+    "message": "Brauchen Sie Unterstützung?"
+  },
+  "page.playground.section.join-community.content": {
+    "message": "Bist du ein Entwickler, Designer oder hast andere Fähigkeiten, die du für Tiere einsetzen kannst? Treten Sie unserer veganen ehrenamtlichen Discord-Community bei und treffen Sie andere in Playground!"
+  },
+  "page.playground.section.join-community.cta-button.label": {
+    "message": "Unserem Discord Server beitreten"
+  },
+  "page.playground.section.join-community.headline": {
+    "message": "Ehrenamtlich tätig? Werden Sie Teil unserer Community!"
+  },
+  "page.playground.section.navigation.submit-request.button.label": {
+    "message": "Anfrage einreichen"
+  },
+  "page.playground.section.navigation.view-requests.button.label": {
+    "message": "Anfragen ansehen"
+  },
+  "page.playground.section.open-requests.introduction.content": {
+    "message": "Schauen Sie sich die unten stehenden Anfragen an, um Möglichkeiten für freiwillige oder bezahlte Hilfe für die Tiere zu finden. Sind Sie eine Einzelperson oder eine Organisation, die Unterstützung für ihre Arbeit sucht? Stellen Sie Ihre eigene <link>Anfrage</link>!"
+  },
+  "page.playground.section.open-requests.introduction.headline": {
+    "message": "Ausstehende <b>Anfragen</b> anzeigen"
+  },
+  "page.playground.section.open-requests.next-page-button.label": {
+    "message": "Weiter"
+  },
+  "page.playground.section.open-requests.no-requests-available": {
+    "message": "Es gibt keine Anfragen, die Ihren Kriterien entsprechen"
+  },
+  "page.playground.section.open-requests.previous-page-button.label": {
+    "message": "Zurück"
+  },
+  "page.playground.section.requests.request-card.read-more": {
+    "message": "Mehr lesen"
+  },
+  "page.playground.section.requests.request-card.read-more-apply": {
+    "message": "Mehr lesen / bewerben"
+  },
   "page.services.next-seo.title": {
     "message": "Dienstleistungen"
   },
@@ -997,6 +1111,102 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "Wir bevorzugen eine <bold>monatliche Spende über Donorbox</bold>, da wir so die größte Stabilität erreichen, aber wir freuen uns auch über einmalige Spenden! Wenn Sie einen größeren Betrag von 1.000 $ oder mehr spenden möchten (vielen Dank!), <contact-link>kontaktieren Sie uns</contact-link> bitte für steuerlich absetzbare Optionen über unseren steuerlichen Sponsor."
+  },
+  "page.support.section.thank-you.headline": {
+    "message": "Dankeschön"
+  },
+  "page.support.section.thank-you.introduction": {
+    "message": "Wir möchten uns an dieser Stelle bei den unten aufgeführten Organisationen für ihre Unterstützung bedanken - bei denen, die uns Zuschüsse gewährt oder einmalige oder regelmäßige Spenden geleistet haben. Wir sind dankbar für Ihr Vertrauen in unsere Vision und Ihre Unterstützung für unsere Arbeit."
+  },
+  "page.support.section.thank-you.organizations.0.description": {
+    "message": "Das Stray Dog Institute konzentriert sich auf die Förderung von Würde, Gerechtigkeit und Nachhaltigkeit im Lebensmittelsystem und bietet Finanzmittel, strategische Forschung und Kooperationsmöglichkeiten für eine mitfühlendere Welt für Menschen, Tiere und die Umwelt."
+  },
+  "page.support.section.thank-you.organizations.0.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.0.title": {
+    "message": "Stray Dog Institute"
+  },
+  "page.support.section.thank-you.organizations.1.description": {
+    "message": "Der craigslist Charitable Fund (CCF) unterstützt Organisationen, die sich für die Verbesserung der Gesundheit und des Wohlbefindens aller Erdbewohner, einschließlich der Menschen, einsetzen, indem sie die Massentierhaltung und alle anderen Formen der Ausbeutung von Tieren beenden."
+  },
+  "page.support.section.thank-you.organizations.1.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.1.title": {
+    "message": "Craigslist Charitable Fund"
+  },
+  "page.support.section.thank-you.organizations.2.description": {
+    "message": "Die Greenbaum-Stiftung konzentriert ihre Finanzierung auf wirksame und effiziente Projekte, die sich für die Beendigung des Leidens (menschlicher und nicht-menschlicher Art) in den Bereichen einsetzen, in denen der Bedarf am größten ist und wo sie die größte Wirkung erzielen können. Sie unterstützt Organisationen mit Beratung, Vernetzung und Finanzierung."
+  },
+  "page.support.section.thank-you.organizations.2.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.2.title": {
+    "message": "Greenbaum Foundation"
+  },
+  "page.support.section.thank-you.organizations.3.description": {
+    "message": "ACE ist eine Organisation, die sich dafür einsetzt, dass Menschen Tieren effektiver helfen können. Sie bewertet Wohltätigkeitsorganisationen für Tiere, setzt Prioritäten und bietet Ressourcen und Ratschläge für eine effektive Tierhilfe. Ihr Programm \"Movement Grants\" zielt auf den Aufbau und die Stärkung der weltweiten Tierschutzbewegung ab."
+  },
+  "page.support.section.thank-you.organizations.3.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.3.title": {
+    "message": "Animal Charity Evaluators"
+  },
+  "page.support.section.thank-you.organizations.4.description": {
+    "message": "Lush unterstützt mit seinem Förderprogramm kleine Basisorganisationen in den Bereichen Tierschutz, Umweltgerechtigkeit und Menschenrechte."
+  },
+  "page.support.section.thank-you.organizations.4.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.4.title": {
+    "message": "Lush Charity Pot"
+  },
+  "page.support.section.thank-you.organizations.5.description": {
+    "message": "Tipping Point unterstützt eine Reihe von Organisationen und Initiativen, die sich für Alternativen zur Massentierhaltung einsetzen. Um unsere Wirkung zu verstärken, gehen wir Allianzen mit gleichgesinnten Institutionen ein, die unsere Vision und die gewünschten Ergebnisse teilen."
+  },
+  "page.support.section.thank-you.organizations.5.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.5.title": {
+    "message": "Tipping Point Foundation"
+  },
+  "page.support.section.thank-you.organizations.6.description": {
+    "message": "Dieser von Effective Altruism Funds verwaltete Fonds konzentriert sich auf die Verbesserung des Wohlergehens von nichtmenschlichen Tieren. Er unterstützt eine Reihe von Initiativen, darunter die Forschung im Bereich der Tierhilfe, des Tierschutzes und von Aktivitäten, die es in Zukunft leichter machen könnten, Tieren zu helfen."
+  },
+  "page.support.section.thank-you.organizations.6.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.6.title": {
+    "message": "EA Animal Welfare Fund"
+  },
+  "page.support.section.thank-you.organizations.7.description": {
+    "message": "Builders Vision ist eine Plattform, die eine Reihe von philanthropischen Aktivitäten und Investitionen unterstützt. Builders Vision zielt darauf ab, mit innovativen Denkern und Organisationen zusammenzuarbeiten, um positive Veränderungen in diesen Bereichen voranzutreiben."
+  },
+  "page.support.section.thank-you.organizations.7.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.7.title": {
+    "message": "Builders Vision"
+  },
+  "page.support.section.thank-you.organizations.8.description": {
+    "message": "Phauna finanziert und unterstützt ambitionierte Tierrechtsorganisationen und Einzelpersonen, die sich für die Beendigung der Ausbeutung anderer Arten durch den Menschen einsetzen. Ihr Schwerpunkt liegt auf der Stärkung der Kapazität, Ausdauer und Macht der Tierrechtsbewegung, mit besonderem Interesse an Befreiung und Kulturwandel."
+  },
+  "page.support.section.thank-you.organizations.8.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.8.title": {
+    "message": "Phauna Project"
+  },
+  "page.support.section.thank-you.organizations.9.description": {
+    "message": "ETC Impact ist ein Zuschussprogramm, das den Zugang zu klimafreundlichen Lebensmitteln in den Vereinigten Staaten fördern und erweitern soll. In den letzten drei Jahren haben wir mehr als 1,25 Millionen Dollar gespendet, um eine Vielzahl von gemeinnützigen Organisationen zu unterstützen, die Veränderungen bewirken."
+  },
+  "page.support.section.thank-you.organizations.9.link-label": {
+    "message": "Mehr erfahren"
+  },
+  "page.support.section.thank-you.organizations.9.title": {
+    "message": "Eat The Change"
   },
   "page.support.section.violet-studios.button": {
     "message": "<no-localization>violetstudios.org</no-localization> besuchen"
@@ -1706,9 +1916,6 @@
   "page.year-in-review.2022.section.providing-value.headline": {
     "message": "Wertschöpfung durch <b>Dienstleistungen zum Aufbau von Kapazitäten</b>"
   },
-  "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
-    "message": "<numberSpan>9600+</numberSpan> <textSpan>Stunden</textSpan>"
-  },
   "page.year-in-review.2022.section.providing-value.hours.text": {
     "message": "<hours>Stunden</hours> <right>im Jahr 2022 ehrenamtlich für die Tierschutzbewegung geleistet</right>"
   },
@@ -1858,6 +2065,24 @@
   },
   "section.join-the-team.paragraph": {
     "message": "Sind Sie ein Entwickler, Designer, Autor oder ein kreativer Profi, der digitale Fähigkeiten für die Tiere einsetzen möchte? Erfahren Sie mehr über unsere Teammitglieder und sehen Sie sich unsere offenen Stellen an."
+  },
+  "section.meet-the-team.cta-button.label": {
+    "message": "Mehr erfahren"
+  },
+  "section.meet-the-team.headline": {
+    "message": "Treffen Sie unser Team"
+  },
+  "section.playground-stats.stat.hours-volunteered.label": {
+    "message": "Freiwillig geleistete Arbeitsstunden"
+  },
+  "section.playground-stats.stat.number-of-volunteers.label": {
+    "message": "VH: Playground Freiwillige"
+  },
+  "section.playground-stats.stat.open-requests.label": {
+    "message": "Offene Anfragen"
+  },
+  "section.playground-stats.stat.requests-supported.label": {
+    "message": "Unterstützte Anfragen"
   },
   "section.support-progess-bar.current.label": {
     "message": "Aktuelle monatliche Spenden"

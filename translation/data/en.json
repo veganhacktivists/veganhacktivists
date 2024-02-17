@@ -587,6 +587,12 @@
   "page.join.section.join-our-team.subline": {
     "message": "We are growing! If you believe in our mission and want to help animals through technology, join us. Even if you do not meet all qualifications, we encourage you to apply anyway."
   },
+  "page.join.section.open-positions.cta": {
+    "message": "Apply Now"
+  },
+  "page.join.section.open-priority-positions.cta": {
+    "message": "Apply Now"
+  },
   "page.join.section.other-roles.content": {
     "message": "Don't see a role that matches your skills? Reach out to us anyway. We'd love to get to know you and appreciate your interest in supporting us!"
   },
@@ -595,6 +601,15 @@
   },
   "page.join.section.other-roles.headline": {
     "message": "Other Talents & Specialists"
+  },
+  "page.join.section.playground.content": {
+    "message": "Don't have the time to regularly volunteer with us? We've launched an open-source, public community called <b>VH: Playground</b>, which has an upward of 1,000 members on Discord! Pick up a project offered by organizations whenever you're available."
+  },
+  "page.join.section.playground.cta-button.label": {
+    "message": "Join VH: Playground"
+  },
+  "page.join.section.playground.headline": {
+    "message": "Attention Developers!"
   },
   "page.join.section.priority-positions.headline": {
     "message": "High Priority Positions"
@@ -680,7 +695,7 @@
   "page.our-work.section.grant-program.seed-funding-granted": {
     "message": "Seed Funding granted"
   },
-  "page.our-work.section.hours-volunteered.cta-button.label": {
+  "page.our-work.section.hours-volunteered-banner.content": {
     "message": "<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>"
   },
   "page.our-work.section.introduction.headline": {
@@ -890,6 +905,105 @@
   "page.people.section.volunteers.next-seo.title": {
     "message": "Our Volunteers"
   },
+  "page.playground.section.aac.content": {
+    "message": "Check out Animal Advocacy's job board which connects you to exciting animal nonprofit jobs with high potential for helping animals."
+  },
+  "page.playground.section.aac.cta-button.label": {
+    "message": "Explore Careers"
+  },
+  "page.playground.section.aac.headline": {
+    "message": "Looking for a job or career in animal advocacy?"
+  },
+  "page.playground.section.faq.0.answer": {
+    "message": "<p>Playground is a community of passionate vegan volunteers looking to support animal advocates and organizations by volunteering their time and skills. Their diverse skill sets include software development, design, content creation, marketing, and much more. Anyone can join this community and apply to help you with your request.</p> <p>Playground is separate from the Vegan Hacktivists team, and aims to increase the capacity in which we can support your work for the animals.</p>"
+  },
+  "page.playground.section.faq.0.question": {
+    "message": "What is VH: Playground exactly?"
+  },
+  "page.playground.section.faq.1.answer": {
+    "message": "<p> If you're an organization or advocate dedicated to improving or saving the lives of animals, we want to support your work. </p> <p> If you have a specific project or operational need in mind, click on &ldquo;Submit a request&rdquo; and fill out the form to let us know exactly what you need help with. We'll review your request to make sure it fits our community standards, and then approve or decline it. If approved, you will get an email confirming when your request is live and public. Then all you have to do is wait for volunteers to apply! We'll review all applications, vet them, and then approve the most suitable one. You'll automatically be connected with the volunteer over email with a Calendy link. </p>"
+  },
+  "page.playground.section.faq.1.question": {
+    "message": "How does it work if I want to submit a request for a project?"
+  },
+  "page.playground.section.faq.2.answer": {
+    "message": "<p> All vegans who can code, design, edit, translate, research, analyze data, or contribute other skills are welcome! Simply browse the list of requests <link>here</link> and apply to the ones most relevant to your skill set. Make sure you can commit a reasonable amount of time and have the ability or qualifications to do the work properly. If you're matched with a project, remember to communicate your progress and be mindful of the project's deadline. </p> <p> Fill out your information below the request and we'll review your application. You'll get an email to tell you whether your help has been approved or declined. If approved, we'll automatically connect you to the requestor with a Calendly link so that you can get started! </p>"
+  },
+  "page.playground.section.faq.2.question": {
+    "message": "How does it work if I want to volunteer my time here?"
+  },
+  "page.playground.section.faq.3.answer": {
+    "message": "<p> Anyone can join this community and apply to volunteer. However, we carefully review every application. While we can't guarantee the quality of work, we do our best to make sure the applicant has the required skills and background for your project. Our review process includes checking their LinkedIn, portfolio, resume, past work, and social media profiles. Depending on the request, we may also interview the applicant by phone or email.</p>"
+  },
+  "page.playground.section.faq.3.question": {
+    "message": "Are people applying to my request qualified?"
+  },
+  "page.playground.section.faq.4.answer": {
+    "message": "<p> Playground is designed to increase our capacity by leveraging our vast network of skilled volunteers who are enthusiastic to contribute to the movement. Currently, VH's core team of developers, designers, and specialists are dedicated to various priority projects. Given that we review each request on Playground, we will reach out if we believe that your needs can be met by our core team. Please take a look at our <link>service offerings</link> to learn more about VH's areas of specialty.</p>"
+  },
+  "page.playground.section.faq.4.question": {
+    "message": "Is it possible to get support from the VH team?"
+  },
+  "page.playground.section.faq.5.answer": {
+    "message": "<p> If you're submitting a request for support, it will usually be reviewed and live within 24 hours. To find a suitable volunteer for your project, it can take anywhere from one to seven days. We thank you for your patience as we're still new and growing! </p> <p> If you're applying to help someone with a request, you should get an email within 24 to 48 hours confirming your application status.</p>"
+  },
+  "page.playground.section.faq.5.question": {
+    "message": "How long does it take for my request/application to get accepted?"
+  },
+  "page.playground.section.faq.6.answer": {
+    "message": "<p>Absolutely! Join our <link> Playground Discord server </link> to view the latest requests. Turn on notifications to get alerts whenever a new request comes in. You can also chat with other volunteers, discuss your experiences, and get support from the Playground community. We look forward to seeing you soon! </p>"
+  },
+  "page.playground.section.faq.6.question": {
+    "message": "As a volunteer, can I stay updated on new requests that come in?"
+  },
+  "page.playground.section.faq.headline": {
+    "message": "Frequently Asked Questions"
+  },
+  "page.playground.section.get-support.content": {
+    "message": "If you are an individual or organization that needs help with your work in helping the animals, you can apply to receive free support from our Playground community."
+  },
+  "page.playground.section.get-support.cta-button.label": {
+    "message": "Submit your request"
+  },
+  "page.playground.section.get-support.headline": {
+    "message": "Need support?"
+  },
+  "page.playground.section.join-community.content": {
+    "message": "Are you a developer, designer, or have other skills to contribute for animals? Join our vegan volunteer Discord community and meet others in Playground!"
+  },
+  "page.playground.section.join-community.cta-button.label": {
+    "message": "Join us on Discord"
+  },
+  "page.playground.section.join-community.headline": {
+    "message": "Volunteer? Join our community!"
+  },
+  "page.playground.section.navigation.submit-request.button.label": {
+    "message": "Submit a request"
+  },
+  "page.playground.section.navigation.view-requests.button.label": {
+    "message": "View requests"
+  },
+  "page.playground.section.open-requests.introduction.content": {
+    "message": "Check out the requests below to find volunteer or paid opportunities to help the animals. Are you an individual or organization seeking support for your work? <link>Submit a request</link> of your own!"
+  },
+  "page.playground.section.open-requests.introduction.headline": {
+    "message": "View pending <b>requests</b>"
+  },
+  "page.playground.section.open-requests.next-page-button.label": {
+    "message": "Next"
+  },
+  "page.playground.section.open-requests.no-requests-available": {
+    "message": "There are no requests matching your criteria"
+  },
+  "page.playground.section.open-requests.previous-page-button.label": {
+    "message": "Previous"
+  },
+  "page.playground.section.requests.request-card.read-more": {
+    "message": "Read more"
+  },
+  "page.playground.section.requests.request-card.read-more-apply": {
+    "message": "Read more / apply"
+  },
   "page.services.next-seo.title": {
     "message": "Services"
   },
@@ -997,6 +1111,102 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+  },
+  "page.support.section.thank-you.headline": {
+    "message": "Thank You"
+  },
+  "page.support.section.thank-you.introduction": {
+    "message": "We want to take a moment to thank the organizations below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
+  },
+  "page.support.section.thank-you.organizations.0.description": {
+    "message": "Stray Dog Institute focuses on cultivating dignity, justice, and sustainability in the food system, providing funding, strategic research, and collaboration opportunities for a more compassionate world for people, animals, and the environment."
+  },
+  "page.support.section.thank-you.organizations.0.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.0.title": {
+    "message": "<no-localization>Stray Dog Institute</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.1.description": {
+    "message": "The craigslist Charitable Fund (CCF) supports organizations working to improve planetary health and well-being for all of earth’s inhabitants including humans — by ending factory farming and all other forms of animal exploitation."
+  },
+  "page.support.section.thank-you.organizations.1.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.1.title": {
+    "message": "<no-localization>Craigslist Charitable Fund</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.2.description": {
+    "message": "The Greenbaum Foundation focuses their funding on effective and efficient projects working to bring about the end of suffering (human and non-human) in areas of the highest need and where they can have the most impact. They assist organizations with guidance, networking and funding."
+  },
+  "page.support.section.thank-you.organizations.2.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.2.title": {
+    "message": "<no-localization>Greenbaum Foundation</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.3.description": {
+    "message": "ACE is an organization dedicated to helping people help animals more effectively. They evaluate animal charities, prioritize causes, and offer resources and advice for effective animal advocacy. Their Movement Grants program is aimed at building and strengthening the global animal advocacy movement."
+  },
+  "page.support.section.thank-you.organizations.3.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.3.title": {
+    "message": "<no-localization>Animal Charity Evaluators</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.4.description": {
+    "message": "Lush supports small, grassroots organizations in areas of animal protection, environmental justice, and human rights through its grant program."
+  },
+  "page.support.section.thank-you.organizations.4.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.4.title": {
+    "message": "<no-localization>Lush Charity Pot</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.5.description": {
+    "message": "Tipping Point supports a range of organizations and causes dedicated to factory farming alternatives. To amplify impact we pursue alliances with like-minded institutions that share our vision and desired outcomes."
+  },
+  "page.support.section.thank-you.organizations.5.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.5.title": {
+    "message": "<no-localization>Tipping Point Foundation</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.6.description": {
+    "message": "Managed by Effective Altruism Funds, this fund focuses on improving the well-being of nonhuman animals. It supports a variety of initiatives including research into animal advocacy, welfare, and activities that could make it easier to help animals in the future."
+  },
+  "page.support.section.thank-you.organizations.6.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.6.title": {
+    "message": "<no-localization>EA Animal Welfare Fund</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.7.description": {
+    "message": "Builders Vision is an impact platform that supports a range of philanthropic and investment efforts. Builders Vision aims to collaborate with innovative thinkers and organizations to drive positive change in these areas."
+  },
+  "page.support.section.thank-you.organizations.7.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.7.title": {
+    "message": "<no-localization>Builders Vision</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.8.description": {
+    "message": "Phauna funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change."
+  },
+  "page.support.section.thank-you.organizations.8.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.8.title": {
+    "message": "<no-localization>Phauna Project</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.9.description": {
+    "message": "ETC Impact is a grant program working to promote and expand access to climate-friendly foods in the United States. We've donated more than $1.25 million over the past three years to support a diverse group of changemaking nonprofit organizations."
+  },
+  "page.support.section.thank-you.organizations.9.link-label": {
+    "message": "Learn more"
+  },
+  "page.support.section.thank-you.organizations.9.title": {
+    "message": "<no-localization>Eat The Change</no-localization>"
   },
   "page.support.section.violet-studios.button": {
     "message": "Visit <no-localization>violetstudios.org</no-localization>"
@@ -1855,6 +2065,24 @@
   },
   "section.join-the-team.paragraph": {
     "message": "Are you a developer, designer, writer, or a creative professional interested in applying your digital skills for the animals? Learn more about our team members and view our openings below."
+  },
+  "section.meet-the-team.cta-button.label": {
+    "message": "Learn more"
+  },
+  "section.meet-the-team.headline": {
+    "message": "Meet our team"
+  },
+  "section.playground-stats.stat.hours-volunteered.label": {
+    "message": "Hours volunteered"
+  },
+  "section.playground-stats.stat.number-of-volunteers.label": {
+    "message": "Playground volunteers"
+  },
+  "section.playground-stats.stat.open-requests.label": {
+    "message": "Open requests"
+  },
+  "section.playground-stats.stat.requests-supported.label": {
+    "message": "Requests supported"
   },
   "section.support-progess-bar.current.label": {
     "message": "Current monthly donations"

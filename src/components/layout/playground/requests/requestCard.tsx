@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { RequestStatus } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import { PlaygroundRequestCategory } from '@prisma/client';
+import { useIntl } from 'react-intl';
 
 import {
   CATEGORY_COLORS,
@@ -78,6 +79,8 @@ const PlaygroundRequestCard: React.FC<
   disabled = false,
   children,
 }) => {
+  const intl = useIntl();
+
   const [timeSinceCreated] = useMemo(
     () => readableTimeDiff(createdAt),
     [createdAt],
@@ -262,12 +265,16 @@ const PlaygroundRequestCard: React.FC<
             }`}
             disabled={disabled}
           >
-            {`Read more${
-              session?.user?.role !== 'Admin' &&
-              requester?.id !== session?.user?.id
-                ? ' / apply'
-                : ''
-            }`}
+            {session?.user?.role === 'Admin' ||
+            requester?.id === session?.user?.id
+              ? intl.formatMessage({
+                  id: 'page.playground.section.requests.request-card.read-more',
+                  defaultMessage: 'Read more',
+                })
+              : intl.formatMessage({
+                  id: 'page.playground.section.requests.request-card.read-more-apply',
+                  defaultMessage: 'Read more / apply',
+                })}
           </DarkButton>
           {canEdit && (
             <GreyButton

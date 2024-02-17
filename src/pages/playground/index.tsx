@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { PlaygroundRequestCategory } from '@prisma/client';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
@@ -37,6 +38,8 @@ const isValidPlaygroundRequestCategoryValue = (
 };
 
 const Playground: PageWithLayout = ({}) => {
+  const intl = useIntl();
+
   const router = useRouter();
 
   const [filters, setFilters] = useState<
@@ -126,14 +129,23 @@ const Playground: PageWithLayout = ({}) => {
       <NextSeo title='Requests' />
       <div>
         <div className='lg:mx-12 2xl:mx-44 xl:mx-36'>
-          <SectionHeader header={'View pending <b>requests</b>'}>
-            Check out the requests below to find volunteer or paid opportunities
-            to help the animals. Are you an individual or organization seeking
-            support for your work?{' '}
-            <CustomLink className='font-bold' href='/playground/submit'>
-              Submit a request
-            </CustomLink>{' '}
-            of your own!
+          <SectionHeader
+            header={intl.formatMessage({
+              id: 'page.playground.section.open-requests.introduction.headline',
+              defaultMessage: 'View pending <b>requests</b>',
+            })}
+          >
+            <FormattedMessage
+              id='page.playground.section.open-requests.introduction.content'
+              defaultMessage='Check out the requests below to find volunteer or paid opportunities to help the animals. Are you an individual or organization seeking support for your work? <link>Submit a request</link> of your own!'
+              values={{
+                link: (chunk) => (
+                  <CustomLink className='font-bold' href='/playground/submit'>
+                    {chunk}
+                  </CustomLink>
+                ),
+              }}
+            />
           </SectionHeader>
         </div>
         <div
@@ -151,7 +163,10 @@ const Playground: PageWithLayout = ({}) => {
           </div>
           {requests?.length === 0 ? (
             <div className='mx-auto text-center text-gray-500'>
-              There are no requests matching your criteria
+              <FormattedMessage
+                id='page.playground.section.open-requests.no-requests-available'
+                defaultMessage='There are no requests matching your criteria'
+              />
             </div>
           ) : (
             <div className='flex flex-row justify-center gap-10 p-16 mx-auto'>
@@ -169,7 +184,12 @@ const Playground: PageWithLayout = ({}) => {
                 <div>
                   <FontAwesomeIcon icon={leftArrow} size='xs' />
                 </div>
-                <span className='hidden pl-3 md:block'>Previous</span>
+                <span className='hidden pl-3 md:block'>
+                  <FormattedMessage
+                    id='page.playground.section.open-requests.previous-page-button.label'
+                    defaultMessage='Previous'
+                  />
+                </span>
               </DarkButton>
               <DarkButton
                 className='font-mono font-bold uppercase'
@@ -183,7 +203,12 @@ const Playground: PageWithLayout = ({}) => {
                 disabled={!nextEnabled}
               >
                 <div className='flex'>
-                  <span className='hidden pr-3 md:block'>Next</span>
+                  <span className='hidden pr-3 md:block'>
+                    <FormattedMessage
+                      id='page.playground.section.open-requests.next-page-button.label'
+                      defaultMessage='Next'
+                    />
+                  </span>
                   <div>
                     <FontAwesomeIcon icon={rightArrow} size='xs' />
                   </div>
@@ -205,16 +230,25 @@ const Playground: PageWithLayout = ({}) => {
             <div className='w-20 mx-auto'>
               <CustomImage src={pixelHeart} alt='' />
             </div>
-            <h2 className='text-2xl font-bold'>Need support?</h2>
+            <h2 className='text-2xl font-bold'>
+              <FormattedMessage
+                id='page.playground.section.get-support.headline'
+                defaultMessage='Need support?'
+              />
+            </h2>
           </div>
 
           <div className='px-10 pt-4 pb-4 mx-auto text-xl md:w-1/2'>
-            If you are an individual or organization that needs help with your
-            work in helping the animals, you can apply to receive free support
-            from our Playground community.
+            <FormattedMessage
+              id='page.playground.section.get-support.content'
+              defaultMessage='If you are an individual or organization that needs help with your work in helping the animals, you can apply to receive free support from our Playground community.'
+            />
           </div>
           <LightButton href='/playground/submit' className='mx-auto w-fit'>
-            Submit your request
+            <FormattedMessage
+              id='page.playground.section.get-support.cta-button.label'
+              defaultMessage='Submit your request'
+            />
           </LightButton>
         </div>
       </div>

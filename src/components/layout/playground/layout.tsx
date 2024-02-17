@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import React from 'react';
 import classNames from 'classnames';
 import { UserRole } from '@prisma/client';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
@@ -107,16 +108,23 @@ const PlaygroundLayout: Layout = ({ children }) => {
           <div className='w-full sm:w-1/2'>
             <div className='text-left'>
               <span className='block text-3xl font-bold font-mono pb-5'>
-                Looking for a job or career in animal advocacy?
+                <FormattedMessage
+                  id='page.playground.section.aac.headline'
+                  defaultMessage='Looking for a job or career in animal advocacy?'
+                />
               </span>
               <span className='block text-xl'>
-                Check out Animal Advocacy&apos;s job board which connects you to
-                exciting animal nonprofit jobs with high potential for helping
-                animals.
+                <FormattedMessage
+                  id='page.playground.section.aac.content'
+                  defaultMessage="Check out Animal Advocacy's job board which connects you to exciting animal nonprofit jobs with high potential for helping animals."
+                />
               </span>
               <div className='flex mt-5'>
                 <DarkButton href='https://www.animaladvocacycareers.org/?ref=veganhacktivists.org'>
-                  Explore Careers
+                  <FormattedMessage
+                    id='page.playground.section.aac.cta-button.label'
+                    defaultMessage='Explore Careers'
+                  />
                 </DarkButton>
               </div>
             </div>
@@ -139,7 +147,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
           { color: '#B6B6B6', size: 16, left: 16, top: 0 },
         ]}
       />
-
       <div className='relative w-full overflow-hidden text-2xl text-white bg-grey'>
         <div className='relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8'>
           <div className='py-2'>
@@ -147,7 +154,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
           </div>
         </div>
       </div>
-
       <SquareField
         className='hidden md:block'
         squares={[
@@ -155,7 +161,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
           { color: '#D9D9D9', size: 14, right: 28, bottom: 0 },
         ]}
       />
-
       <div
         className={classNames({
           dark: router.pathname === '/playground/request/[id]',
@@ -163,7 +168,10 @@ const PlaygroundLayout: Layout = ({ children }) => {
       >
         <div className='py-10 pt-5 pb-10 dark:bg-grey'>
           <div className='mt-10 mb-8 font-mono text-3xl font-bold capitalize text-grey'>
-            Volunteer? Join our community!
+            <FormattedMessage
+              id='page.playground.section.join-community.headline'
+              defaultMessage='Volunteer? Join our community!'
+            />
           </div>
           <div className='flex flex-col justify-center gap-5 mx-auto mb-8 md:flex-row md:w-2/3 lg:w-1/2'>
             <div
@@ -175,17 +183,18 @@ const PlaygroundLayout: Layout = ({ children }) => {
                 <CustomImage src={discord} alt='Discord logo' />
               </div>
               <div className='pt-4 pb-4 text-xl text-grey'>
-                Are you a developer, designer, or have other skills to
-                contribute for animals? Join our vegan volunteer Discord
-                community and meet others in Playground!
+                <FormattedMessage
+                  id='page.playground.section.join-community.content'
+                  defaultMessage='Are you a developer, designer, or have other skills to contribute for animals? Join our vegan volunteer Discord community and meet others in Playground!'
+                />
               </div>
               <DarkButton newTab href={JOIN_PLAYGROUND_URL}>
-                Join us on Discord
+                <FormattedMessage
+                  id='page.playground.section.join-community.cta-button.label'
+                  defaultMessage='Join us on Discord'
+                />
               </DarkButton>
             </div>
-            {/* <div>
-          <Newsletter />
-        </div> */}
           </div>
         </div>
       </div>
@@ -218,30 +227,45 @@ export const PlaygroundStats = ({
 }: {
   skipOpenRequests?: boolean;
 }) => {
+  const intl = useIntl();
+
   const { data } = trpc.playground.getPlaygroundStats.useQuery(undefined, {
     staleTime: 10000,
   });
+
   return (
     <>
       {!skipOpenRequests && (
         <PlaygroundStat
-          label='Open requests'
+          label={intl.formatMessage({
+            id: 'section.playground-stats.stat.open-requests.label',
+            defaultMessage: 'Open requests',
+          })}
           icon={resumeIcon}
           value={data?.requestsOpen}
         />
       )}
       <PlaygroundStat
-        label='Requests supported'
+        label={intl.formatMessage({
+          id: 'section.playground-stats.stat.requests-supported.label',
+          defaultMessage: 'Requests supported',
+        })}
         value={data?.requestsSupported}
         icon={checkmarkIcon}
       />
       <PlaygroundStat
-        label='Playground volunteers'
+        label={intl.formatMessage({
+          id: 'section.playground-stats.stat.number-of-volunteers.label',
+          defaultMessage: 'Playground volunteers',
+        })}
         value={data?.numberOfVolunteers || undefined}
         icon={heartIcon}
       />
       <PlaygroundStat
-        label='Hours volunteered'
+        label={intl.formatMessage({
+          id: 'section.playground-stats.stat.hours-volunteered.label',
+          defaultMessage: 'Hours volunteered',
+        })}
         value={data?.hoursVolunteered}
         icon={clockIcon}
       />
@@ -269,7 +293,10 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
               href='/playground'
               linkProps={{ scroll: false }}
             >
-              View requests
+              <FormattedMessage
+                id='page.playground.section.navigation.view-requests.button.label'
+                defaultMessage='View requests'
+              />
             </OutlineButton>
             <OutlineButton
               capitalize={false}
@@ -278,7 +305,10 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
               href='/playground/submit'
               linkProps={{ scroll: false }}
             >
-              Submit a request
+              <FormattedMessage
+                id='page.playground.section.navigation.submit-request.button.label'
+                defaultMessage='Submit a request'
+              />
             </OutlineButton>
             {status === 'authenticated' &&
               session.user?.role === UserRole.Admin && (

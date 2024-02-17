@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
 
@@ -13,15 +15,18 @@ const JoinPlayground: React.FC = () => {
       <div className='pt-16 pb-20 text-xl text-white bg-grey-darker px-5'>
         <div className='mx-auto md:w-1/2'>
           <h2 className='mb-8 font-mono text-6xl font-bold'>
-            Attention Developers!
+            <FormattedMessage
+              id='page.join.section.playground.headline'
+              defaultMessage='Attention Developers!'
+            />
           </h2>
           <div className='text-2xl'>
             <p className='mb-4'>
-              Don&apos;t have the time to regularly volunteer with us?
-              We&apos;ve launched an open-source, public community called{' '}
-              <b>VH: Playground</b>, which has an upward of 1,000 members on
-              Discord! Pick up a project offered by organizations whenever
-              you&apos;re available.
+              <FormattedMessage
+                id='page.join.section.playground.content'
+                defaultMessage="Don't have the time to regularly volunteer with us? We've launched an open-source, public community called <b>VH: Playground</b>, which has an upward of 1,000 members on Discord! Pick up a project offered by organizations whenever you're available."
+                values={{ b: (chunk) => <b>{chunk}</b> }}
+              />
             </p>
           </div>
           <div className='relative mt-10 mx-auto md:w-64'>
@@ -30,7 +35,10 @@ const JoinPlayground: React.FC = () => {
               href={JOIN_PLAYGROUND_URL}
               className='mt-10 font-mono font-semibold'
             >
-              Join VH: Playground
+              <FormattedMessage
+                id='page.join.section.playground.cta-button.label'
+                defaultMessage='Join VH: Playground'
+              />
             </LightButton>
           </div>
         </div>

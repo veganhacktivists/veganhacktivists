@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { LightButton } from '../../decoration/buttons';
 import SquareField from '../../decoration/squares';
@@ -53,7 +54,10 @@ const JobRole: React.FC<JobRoleProps> = ({
           href={href}
           className='font-semibold font-mono px-8 py-2 my-4'
         >
-          Apply Now
+          <FormattedMessage
+            id='page.join.section.open-positions.cta'
+            defaultMessage='Apply Now'
+          />
         </LightButton>
       </div>
     </div>

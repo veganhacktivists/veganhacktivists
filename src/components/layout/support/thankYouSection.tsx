@@ -1,9 +1,12 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+import { useMemo, type PropsWithChildren } from 'react';
+
 import { pixelHeart } from '../../../images/separators';
 import Accordion from '../accordion';
 
 import CustomImage from 'components/decoration/customImage';
 
-import type { PropsWithChildren } from 'react';
+import type { IntlShape } from 'react-intl';
 
 interface Org {
   title: string;
@@ -12,75 +15,169 @@ interface Org {
   linkUrl: string;
 }
 
-const orgs: Org[] = [
+const getOrgs = (intl: IntlShape): Org[] => [
   {
-    title: 'Stray Dog Institute',
-    description:
-      'Stray Dog Institute focuses on cultivating dignity, justice, and sustainability in the food system, providing funding, strategic research, and collaboration opportunities for a more compassionate world for people, animals, and the environment.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.0.title',
+      defaultMessage: '<no-localization>Stray Dog Institute</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.0.description',
+      defaultMessage:
+        'Stray Dog Institute focuses on cultivating dignity, justice, and sustainability in the food system, providing funding, strategic research, and collaboration opportunities for a more compassionate world for people, animals, and the environment.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.0.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://straydoginstitute.org/',
   },
   {
-    title: 'Craigslist Charitable Fund',
-    description:
-      'The craigslist Charitable Fund (CCF) supports organizations working to improve planetary health and well-being for all of earth’s inhabitants including humans — by ending factory farming and all other forms of animal exploitation.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.1.title',
+      defaultMessage:
+        '<no-localization>Craigslist Charitable Fund</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.1.description',
+      defaultMessage:
+        'The craigslist Charitable Fund (CCF) supports organizations working to improve planetary health and well-being for all of earth’s inhabitants including humans — by ending factory farming and all other forms of animal exploitation.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.1.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.craigslistfund.org/',
   },
   {
-    title: 'Greenbaum Foundation',
-    description:
-      'The Greenbaum Foundation focuses their funding on effective and efficient projects working to bring about the end of suffering (human and non-human) in areas of the highest need and where they can have the most impact. They assist organizations with guidance, networking and funding. ',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.2.title',
+      defaultMessage: '<no-localization>Greenbaum Foundation</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.2.description',
+      defaultMessage:
+        'The Greenbaum Foundation focuses their funding on effective and efficient projects working to bring about the end of suffering (human and non-human) in areas of the highest need and where they can have the most impact. They assist organizations with guidance, networking and funding.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.2.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.greenbaumfoundation.org/',
   },
   {
-    title: 'Animal Charity Evaluators',
-    description:
-      'ACE is an organization dedicated to helping people help animals more effectively. They evaluate animal charities, prioritize causes, and offer resources and advice for effective animal advocacy. Their Movement Grants program is aimed at building and strengthening the global animal advocacy movement.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.3.title',
+      defaultMessage:
+        '<no-localization>Animal Charity Evaluators</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.3.description',
+      defaultMessage:
+        'ACE is an organization dedicated to helping people help animals more effectively. They evaluate animal charities, prioritize causes, and offer resources and advice for effective animal advocacy. Their Movement Grants program is aimed at building and strengthening the global animal advocacy movement.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.3.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://animalcharityevaluators.org/',
   },
   {
-    title: 'Lush Charity Pot',
-    description:
-      'Lush supports small, grassroots organizations in areas of animal protection, environmental justice, and human rights through its grant program.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.4.title',
+      defaultMessage: '<no-localization>Lush Charity Pot</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.4.description',
+      defaultMessage:
+        'Lush supports small, grassroots organizations in areas of animal protection, environmental justice, and human rights through its grant program.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.4.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.lush.com/us/en_us/a/na-donation-funding-application',
   },
   {
-    title: 'Tipping Point Foundation',
-    description:
-      'Tipping Point supports a range of organizations and causes dedicated to factory farming alternatives. To amplify impact we pursue alliances with like-minded institutions that share our vision and desired outcomes.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.5.title',
+      defaultMessage:
+        '<no-localization>Tipping Point Foundation</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.5.description',
+      defaultMessage:
+        'Tipping Point supports a range of organizations and causes dedicated to factory farming alternatives. To amplify impact we pursue alliances with like-minded institutions that share our vision and desired outcomes.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.5.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.tpprivatefoundation.org/',
   },
   {
-    title: 'EA Animal Welfare Fund',
-    description:
-      'Managed by Effective Altruism Funds, this fund focuses on improving the well-being of nonhuman animals. It supports a variety of initiatives including research into animal advocacy, welfare, and activities that could make it easier to help animals in the future.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.6.title',
+      defaultMessage:
+        '<no-localization>EA Animal Welfare Fund</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.6.description',
+      defaultMessage:
+        'Managed by Effective Altruism Funds, this fund focuses on improving the well-being of nonhuman animals. It supports a variety of initiatives including research into animal advocacy, welfare, and activities that could make it easier to help animals in the future.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.6.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://funds.effectivealtruism.org/funds/animal-welfare',
   },
   {
-    title: 'Builders Vision',
-    description:
-      'Builders Vision is an impact platform that supports a range of philanthropic and investment efforts. Builders Vision aims to collaborate with innovative thinkers and organizations to drive positive change in these areas.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.7.title',
+      defaultMessage: '<no-localization>Builders Vision</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.7.description',
+      defaultMessage:
+        'Builders Vision is an impact platform that supports a range of philanthropic and investment efforts. Builders Vision aims to collaborate with innovative thinkers and organizations to drive positive change in these areas.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.7.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.buildersvision.com/',
   },
   {
-    title: 'Phauna Project',
-    description:
-      'Phauna funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change.',
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.8.title',
+      defaultMessage: '<no-localization>Phauna Project</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.8.description',
+      defaultMessage:
+        'Phauna funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change.',
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.8.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://www.phaunaproject.org/',
   },
   {
-    title: 'Eat The Change',
-    description:
-      "ETC Impact is a grant program working to promote and expand access to climate-friendly foods in the United States. We've donated more than $1.25 million over the past three years to support a diverse group of changemaking nonprofit organizations.",
-    linkLabel: 'Learn more',
+    title: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.9.title',
+      defaultMessage: '<no-localization>Eat The Change</no-localization>',
+    }),
+    description: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.9.description',
+      defaultMessage:
+        "ETC Impact is a grant program working to promote and expand access to climate-friendly foods in the United States. We've donated more than $1.25 million over the past three years to support a diverse group of changemaking nonprofit organizations.",
+    }),
+    linkLabel: intl.formatMessage({
+      id: 'page.support.section.thank-you.organizations.9.link-label',
+      defaultMessage: 'Learn more',
+    }),
     linkUrl: 'https://eatthechange.org/',
   },
 ];
@@ -123,6 +220,10 @@ const OrganizationCardContainer: React.FC<React.PropsWithChildren> = ({
 };
 
 const ThankYouSection: React.FC = () => {
+  const intl = useIntl();
+
+  const orgs = useMemo(() => getOrgs(intl), [intl]);
+
   const accordionEntries = orgs.map((org) => ({
     title: org.title,
     children: (
@@ -148,12 +249,17 @@ const ThankYouSection: React.FC = () => {
           height={pixelHeart.height / 3}
           alt='Our community'
         />
-        <h2 className='mb-8 mt-4 text-4xl font-bold'>Thank You</h2>
+        <h2 className='mb-8 mt-4 text-4xl font-bold'>
+          <FormattedMessage
+            id='page.support.section.thank-you.headline'
+            defaultMessage='Thank You'
+          />
+        </h2>
         <Paragraph>
-          We want to take a moment to thank the organizations below for their
-          support—for those who have awarded us grants or contributed donations,
-          whether one-time or recurring. We are grateful for your belief in our
-          vision and support for our work.
+          <FormattedMessage
+            id='page.support.section.thank-you.introduction'
+            defaultMessage='We want to take a moment to thank the organizations below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work.'
+          />
         </Paragraph>
 
         <div className='hidden lg:block px-10'>

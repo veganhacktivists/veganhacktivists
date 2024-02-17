@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { LightButton } from '../decoration/buttons';
 import teamIcons from '../../../public/images/VH-team-icons.png';
@@ -11,7 +12,10 @@ const MeetOurTeam: React.FC = () => {
       <div className='content-center mx-auto md:w-1/2 text-2xl pb-12'>
         <p className='mb-12 text-grey-dark pt-16'>
           <span className='text-5xl font-mono uppercase text-white'>
-            Meet our team
+            <FormattedMessage
+              id='section.meet-the-team.headline'
+              defaultMessage='Meet our team'
+            />
           </span>
         </p>
         <CustomImage src={teamIcons} alt='Compassion, Creativity, Code' />
@@ -20,7 +24,10 @@ const MeetOurTeam: React.FC = () => {
             href='/people/team'
             className='font-semibold m-5 font-mono'
           >
-            Learn more
+            <FormattedMessage
+              id='section.meet-the-team.cta-button.label'
+              defaultMessage='Learn more'
+            />
           </LightButton>
         </div>
       </div>
