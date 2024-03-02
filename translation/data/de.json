@@ -1004,6 +1004,15 @@
   "page.playground.section.requests.request-card.read-more-apply": {
     "message": "Mehr lesen / bewerben"
   },
+  "page.playground.section.submit-request.form.headline": {
+    "message": "<b>Brauchen Sie Unterstützung? Lassen Sie es uns wissen!</b>"
+  },
+  "page.playground.section.submit-request.form.subline": {
+    "message": "Bitte füllen Sie das nachstehende Formular aus."
+  },
+  "page.playground.section.submit-request.next-seo.title": {
+    "message": "Ihre Anfrage einreichen"
+  },
   "page.services.next-seo.title": {
     "message": "Dienstleistungen"
   },

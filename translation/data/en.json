@@ -1004,6 +1004,15 @@
   "page.playground.section.requests.request-card.read-more-apply": {
     "message": "Read more / apply"
   },
+  "page.playground.section.submit-request.form.headline": {
+    "message": "<b>Need support? Let us know!</b>"
+  },
+  "page.playground.section.submit-request.form.subline": {
+    "message": "Please fill in the form below."
+  },
+  "page.playground.section.submit-request.next-seo.title": {
+    "message": "Submit Your Request"
+  },
   "page.services.next-seo.title": {
     "message": "Services"
   },
