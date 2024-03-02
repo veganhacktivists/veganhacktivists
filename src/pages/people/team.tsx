@@ -13,6 +13,7 @@ import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
+import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamFields } from '../../types/generated/contentful';
@@ -116,7 +117,13 @@ const TeamMemberCardBody: React.FC<{
           </span>
         </div>
         <div className='mt-2 text-justify lg:text-left'>
-          {bio && <RichText document={bio} />}
+          {bio && (
+            <TranslatableContentfulEntryField
+              contentfulId={member.sys.id}
+              fieldId='bio'
+              contentType='teamMember'
+            />
+          )}
         </div>
       </div>
       {socialLinks && (

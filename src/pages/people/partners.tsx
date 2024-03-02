@@ -13,6 +13,7 @@ import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { pixelHeart } from '../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
+import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type {
@@ -65,7 +66,13 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
           </span>
         </div>
         <div className='mb-5 text-xl text-center lg:text-left'>
-          {description && documentToReactComponents(description)}
+          {description && (
+            <TranslatableContentfulEntryField
+              contentfulId={partner.sys.id}
+              fieldId='description'
+              contentType='teamMember'
+            />
+          )}
         </div>
         <DarkButton
           className='max-w-md mx-auto overflow-hidden font-mono overflow-ellipsis whitespace-nowrap xl:ml-0'

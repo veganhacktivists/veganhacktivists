@@ -1,5 +1,3 @@
-// import type { IBlogEntry } from '../../../types/generated/contentful';
-
 import Link from 'next/link';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';

@@ -41,6 +41,7 @@ superjson.registerCustom<Decimal, string>(
 );
 
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
+  ssr: true,
   config: ({ ctx }) => {
     const url = `${getBaseUrl()}/api/trpc`;
     return {

@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import ContentfulImage from '../contentfulImage';
 
 import { DarkButton } from 'components/decoration/buttons';
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 import type { IBlogEntry } from 'types/generated/contentful';
 
@@ -31,6 +32,8 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
   );
 
   const { slug, title, featuredImage, excerpt } = blog.fields;
+
+  const locale = useRouterLocale();
 
   return (
     <div
@@ -66,7 +69,7 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
               'mb-3': !heading,
             })}
           >
-            {new Intl.DateTimeFormat('en', {
+            {new Intl.DateTimeFormat(locale, {
               month: 'long',
               year: date.getFullYear() !== currentYear ? 'numeric' : undefined,
               day: 'numeric',

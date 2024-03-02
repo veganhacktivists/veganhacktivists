@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo';
 import React from 'react';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import { FormattedMessage } from 'react-intl';
 
 import { getContents } from '../../lib/cms';
 import {
@@ -15,8 +16,10 @@ import BlogContentContainer, {
   Sidebar,
 } from '../../components/layout/blog/blogPageLayout';
 import SubtleBorder from '../../components/decoration/subtleBorder';
-import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
+
+import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 import type { IBlogEntry, ITeamMember } from '../../types/generated/contentful';
 import type { GetStaticPaths, GetStaticProps } from 'next';
@@ -106,11 +109,13 @@ const Header: React.FC = () => {
 };
 
 const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
+  const locale = useRouterLocale();
+
   if (!blog) {
     return <div>Loading...</div>;
   }
 
-  const { title, author, content, featuredImage, excerpt } = blog.fields;
+  const { title, author, featuredImage, excerpt } = blog.fields;
 
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
@@ -164,11 +169,20 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                 <div className='space-y-4 overflow-x-auto text-xl leading-relaxed text-left md:flex-grow'>
                   {author && (
                     <div>
-                      Written by{' '}
-                      <span className='font-bold'>{author.fields.name}</span>{' '}
+                      <FormattedMessage
+                        id='page.blog.section.blog-page-content.author'
+                        defaultMessage='Written by <no-localization>{name}</no-localization>'
+                        values={{
+                          name: (
+                            <span className='font-bold'>
+                              {author.fields.name}
+                            </span>
+                          ),
+                        }}
+                      />{' '}
                       <span className='font-bold'>|</span>{' '}
                       <span>
-                        {new Intl.DateTimeFormat('en', {
+                        {new Intl.DateTimeFormat(locale, {
                           month: 'long',
                           year: 'numeric',
                           day: 'numeric',
@@ -179,7 +193,11 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
                   <div className='divide-y lg:divide-none divide-grey-light'>
                     <div>
                       <div className='pb-10'>
-                        <RichText document={content} />
+                        <TranslatableContentfulEntryField
+                          contentfulId={blog.sys.id}
+                          fieldId='content'
+                          contentType='blogEntry'
+                        />
                       </div>
                     </div>
                     {author && (
@@ -217,17 +235,21 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
       <div className='mb-10 text-3xl font-bold text-left text-grey-dark'>
         About the Author
       </div>
-      <SubtleBorder className='flex flex-col lg:flex-row bg-grey-background'>
+      <SubtleBorder className='flex flex-col lg:flex-row lg:items-center bg-grey-background'>
         {image && (
           <div className='aspect-square lg:h-64'>
             <ContentfulImage image={image} alt='' />
           </div>
         )}
-        <div className='w-full h-full p-5 pt-8 pl-10 text-center lg:text-left lg:h-64'>
+        <div className='w-full h-full p-5 pt-8 pl-10 text-center lg:text-left'>
           <div className='pb-4 text-3xl font-bold'>{name}</div>
           {description && (
             <div className='text-xl'>
-              <RichText document={description} />
+              <TranslatableContentfulEntryField
+                contentfulId={author.sys.id}
+                fieldId='description'
+                contentType='teamMember'
+              />
             </div>
           )}
           {socialLinks && (

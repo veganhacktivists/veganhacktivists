@@ -3,15 +3,17 @@ import { resolve } from 'path';
 
 import { z } from 'zod';
 
+import { defaultLocale } from './defaultLocale';
+
 const nextConfig = z
   .object({
-    i18n: z.object({ locales: z.array(z.string()), defaultLocale: z.string() }),
+    i18n: z.object({ locales: z.array(z.string()) }),
   })
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   .parse(require('../next.config.js'));
 
 export const filesGlob = 'src/**/*.tsx';
-export const defaultLocale = nextConfig.i18n.defaultLocale;
+export { defaultLocale };
 export const locales = nextConfig.i18n.locales;
 export const defaultTranslationPath = resolveTranslationFilePath(defaultLocale);
 export const defaultCompiledTranslationPath =

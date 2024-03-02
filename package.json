@@ -22,8 +22,8 @@
     "translation:translate": "export $(grep -v '^#' .env | xargs -d '\n') && ts-node translation/translate.ts && pnpm translation:compile"
   },
   "dependencies": {
-    "@contentful/rich-text-plain-text-renderer": "^15.12.1",
-    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-plain-text-renderer": "^16.0.11",
+    "@contentful/rich-text-react-renderer": "^15.19.4",
     "@floating-ui/react-dom-interactions": "^0.9.3",
     "@formatjs/cli-lib": "^6.3.6",
     "@formkit/auto-animate": "1.0.0-beta.6",
@@ -90,7 +90,7 @@
   },
   "devDependencies": {
     "@axe-core/react": "4.4.4",
-    "@contentful/rich-text-types": "^15.14.0",
+    "@contentful/rich-text-types": "^16.3.4",
     "@faker-js/faker": "^7.6.0",
     "@tailwindcss/typography": "^0.5.8",
     "@testing-library/dom": "^8.19.0",
@@ -106,6 +106,7 @@
     "@types/node": "^20.9.0",
     "@types/nodemailer": "^6.4.6",
     "@types/react": "18.0.18",
+    "@types/react-dom": "^18.2.19",
     "@types/react-gtm-module": "^2.0.1",
     "@types/react-highlight-words": "^0.16.4",
     "@types/react-modal": "^3.13.1",
