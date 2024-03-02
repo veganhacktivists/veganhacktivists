@@ -13,6 +13,8 @@ import { DarkButton } from '../../../components/decoration/buttons';
 import RichText from '../../../components/decoration/richText';
 import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
 
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
+
 import type {
   IDocsCategory,
   IDocsCategoryFields,
@@ -115,6 +117,8 @@ interface ContentProps {
 }
 
 const Content: React.FC<ContentProps> = ({ section, category }) => {
+  const locale = useRouterLocale();
+
   const { subsections, content, slug } = section?.fields || {};
 
   const updatedAt = useMemo(() => {
@@ -157,7 +161,7 @@ const Content: React.FC<ContentProps> = ({ section, category }) => {
         <div className='text-right text-normal md:text-left'>
           <span className='font-bold'>Last updated:</span>{' '}
           <span className='block md:inline'>
-            {new Intl.DateTimeFormat('en', {
+            {new Intl.DateTimeFormat(locale, {
               month: 'long',
               year: 'numeric',
               day: 'numeric',

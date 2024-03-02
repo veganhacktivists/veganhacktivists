@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@contentful/rich-text-plain-text-renderer':
-    specifier: ^15.12.1
-    version: 15.12.1
+    specifier: ^16.0.11
+    version: 16.0.11
   '@contentful/rich-text-react-renderer':
-    specifier: ^15.12.1
-    version: 15.12.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^15.19.4
+    version: 15.19.4(react-dom@18.2.0)(react@18.2.0)
   '@floating-ui/react-dom-interactions':
     specifier: ^0.9.3
     version: 0.9.3(@types/react@18.0.18)(react-dom@18.2.0)(react@18.2.0)
@@ -214,8 +214,8 @@ devDependencies:
     specifier: 4.4.4
     version: 4.4.4
   '@contentful/rich-text-types':
-    specifier: ^15.14.0
-    version: 15.14.0
+    specifier: ^16.3.4
+    version: 16.3.4
   '@faker-js/faker':
     specifier: ^7.6.0
     version: 7.6.0
@@ -261,6 +261,9 @@ devDependencies:
   '@types/react':
     specifier: 18.0.18
     version: 18.0.18
+  '@types/react-dom':
+    specifier: ^18.2.19
+    version: 18.2.19
   '@types/react-gtm-module':
     specifier: ^2.0.1
     version: 2.0.1
@@ -1764,35 +1767,29 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@contentful/rich-text-plain-text-renderer@15.12.1:
-    resolution: {integrity: sha512-0pDLs4V1dhK98yoIFq8e16Ey54uyAPLKeqMtry3db4X0zEuA/+6CEetoyEdJrySAaCkfB7+Y6n4vKMFUSPHs3Q==}
+  /@contentful/rich-text-plain-text-renderer@16.0.11:
+    resolution: {integrity: sha512-TlAgcJaddoKtqLJigd8hULch1hWJWTeh9q3hKtUQCWXG6aoOm/9creGYz/TYECU3nhKj+dUzCUwGlmyz1bbUmA==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@contentful/rich-text-types': 15.14.0
+      '@contentful/rich-text-types': 16.3.4
     dev: false
 
-  /@contentful/rich-text-react-renderer@15.12.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-bQ69cN51iGBTF3/nYi5MGUaDJ/lnrEXtCUBCxulIZ0fLS/AAEledZTJcEKs+PKeYYgDqiUVDsmx2xZP2QsJJ+Q==}
+  /@contentful/rich-text-react-renderer@15.19.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-pXBX0utaXLdkloQautphPi6cMWSDU99NwM8oLWwExyNhOzKB2DN0resnp/ZmXj728He7aYXX48VA1nVTRqS77g==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@contentful/rich-text-types': 15.14.0
+      '@contentful/rich-text-types': 16.3.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
-
-  /@contentful/rich-text-types@15.14.0:
-    resolution: {integrity: sha512-KvyijiWyRFYodf5wjJmeA3L1ryVej015wEVQBrKvPwG4n7itbYczEPmxC10GWhg121qb5mfYVlGEmnAIXsBmIQ==}
-    engines: {node: '>=6.0.0'}
 
   /@contentful/rich-text-types@16.3.4:
     resolution: {integrity: sha512-PyVSrQa5j1hO4grgA0Ivo/taiOvW0uFN79JB5JkTG8U7DnWGI7Ap2As6zN6/E6YvDqb7w2cYRMSGSQ3qfxu8HQ==}
     engines: {node: '>=6.0.0'}
     requiresBuild: true
-    dev: false
-    optional: true
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -3415,7 +3412,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.9
       '@testing-library/dom': 9.3.4
-      '@types/react-dom': 18.0.9
+      '@types/react-dom': 18.2.19
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -3717,8 +3714,8 @@ packages:
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom@18.0.9:
-    resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
+  /@types/react-dom@18.2.19:
+    resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
       '@types/react': 18.0.18
     dev: true

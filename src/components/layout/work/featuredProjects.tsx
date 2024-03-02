@@ -9,7 +9,8 @@ import { DarkButton, ShareButton } from 'components/decoration/buttons';
 import Sprite, { pig } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
-import RichText from 'components/decoration/richText';
+import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 import type { IProject } from 'types/generated/contentful';
 
@@ -29,7 +30,8 @@ interface FeaturedProjectsProps {
 
 const ProjectCard: React.FC<{ project: IProject }> = ({
   project: {
-    fields: { name, description, url, date: dateStr, image, team, retiredInfo },
+    fields: { name, url, date: dateStr, image, team, retiredInfo },
+    sys: { id: projectId },
   },
 }) => {
   const [shareDialogOpen, setShareDialogOpen] = useState(false);
@@ -47,18 +49,20 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
     setShareDialogOpen(true);
   }, []);
 
+  const locale = useRouterLocale();
+
   const isRetired = !!retiredInfo;
 
   const date = useMemo(() => {
     if (isRetired) {
       return 'This project has been retired';
     }
-    const formatter = new Intl.DateTimeFormat('en', {
+    const formatter = new Intl.DateTimeFormat(locale, {
       month: 'short',
       year: 'numeric',
     });
     return formatter.format(new Date(dateStr));
-  }, [dateStr, isRetired]);
+  }, [dateStr, isRetired, locale]);
 
   return (
     <>
@@ -92,7 +96,11 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
             </span>
           </div>
           <div className='text-lg'>
-            <RichText document={description} />
+            <TranslatableContentfulEntryField
+              contentfulId={projectId}
+              fieldId='description'
+              contentType='project'
+            />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
             <DarkButton href={url} capitalize={false} className='text-center'>

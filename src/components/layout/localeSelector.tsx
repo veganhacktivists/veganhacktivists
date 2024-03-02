@@ -56,8 +56,8 @@ export const LocaleSelector = () => {
             <div className='overflow-y-hidden h-0 group-focus-within:overflow-visible group-focus-within:h-auto flex flex-col center'>
               {localeOptions.map((locale) => (
                 <Link
-                  key={locale + router.pathname}
-                  href={router.pathname}
+                  key={locale + router.asPath}
+                  href={router.asPath}
                   locale={locale}
                   className='py-2 px-4 text-center bg-black'
                 >
@@ -70,8 +70,8 @@ export const LocaleSelector = () => {
           <div className='h-0 overflow-y-hidden flex flex-col center'>
             {localeOptions.map((locale) => (
               <Link
-                key={locale + router.pathname}
-                href={router.pathname}
+                key={locale + router.asPath}
+                href={router.asPath}
                 locale={locale}
                 className='px-4'
               >
