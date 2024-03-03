@@ -25,7 +25,7 @@
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@floating-ui/react-dom-interactions": "^0.9.3",
-    "@formatjs/cli-lib": "^5.1.7",
+    "@formatjs/cli-lib": "^6.3.6",
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
