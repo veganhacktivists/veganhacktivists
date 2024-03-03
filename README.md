@@ -23,7 +23,7 @@ Because this team is so new we still have to document all of this somewhere, so 
     - [Gain access to admin pages](#gain-access-to-admin-pages)
     - [Coding conventions and guidelines](#coding-conventions-and-guidelines)
     - [Configuring your editor](#configuring-your-editor)
-    - [Translations](#translations)
+    - [Localization](#localization)
   - [Grab a card](#grab-a-card)
   - [Frequently Asked Questions](#frequently-asked-questions)
   - [Resources](#resources)
@@ -189,9 +189,9 @@ It is recommended to install [EditorConfig](https://marketplace.visualstudio.com
 
 It is also recommended to activate the `Editor: Format on save` option.
 
-## Translations
+## Localization
 
-Translations are implemented with [react-intl](https://formatjs.io/docs/getting-started/installation/)
+Localization is implemented with [react-intl](https://formatjs.io/docs/getting-started/installation/)
 
 ### How to use translations
 
@@ -225,7 +225,7 @@ example for a headline on the index page:
 
 ### How to add new translations
 
-Add new translations by updating the array `nextConfig.i18n.locales` in `next.config.js`.  
+Add new locales by updating the array `nextConfig.i18n.locales` in `next.config.js`.  
 Translations will be generated in a pipeline job or by using the above scripts.
 
 ### Ignore text/variables in messages during the translation process
@@ -236,9 +236,40 @@ The `no-localization` tag will exclude it from translation and keep the variable
 
 ### Weblate
 
-Weblate is running at [localize.veganhacktivists.org](https://localize.veganhacktivists.org)  
 Weblate is used to manage translations.  
+Our instance is running at [localize.veganhacktivists.org](https://localize.veganhacktivists.org)  
 The configured file format is [WebExtension JSON](https://docs.weblate.org/en/latest/formats/webextension.html).
+
+The FormatJs format supported with Weblate 5.4 is currently unusable as the dots in the translation ids are interpreted as accessor for nested values in objects. E.g. `"page.support.title": { "defaultMessage": "abc" }` is read correctly, but written as `"page": { "support": { "title": { "defaultMessage": "abc" } } }` by weblate.
+
+#### Add a new language
+
+- Add the locale code to the `nextConfig.i18n.locales` array in `next.config.js`
+- Run `pnpm translation:translate` to generate a file for the new locale with translated messages using deepl.com. // API_KEY must be configured
+- Weblate will pick up the new locale
+
+#### How weblate is integrated
+
+- Weblate reads and updates the translation files in this repository (`translation/data/*.json`).
+- Weblate is pulling and pushing using ssh to this repository.
+- Weblate is notified of new changes via a github webhook.
+- Translations should only be changed in weblate.
+- Weblate pushes updated translations to the `weblate/translations` branch, when changes are committed. This branch must be manually merged to main.
+
+### Translation workflow
+
+#### Creation
+
+Translations are created using react-intl with `intl.formatMessage(...)` or `<FormattedMessage ... />`. Run `pnpm translation:extract` to sync code changes to the translation files.
+When committed and pushed to the main branch, new translations are registered and made available by weblate.
+
+#### Update
+
+Translations are modified in the weblate ui. Before the updated text can be published to veganhacktivists.org, it must be committed in weblate and pushed to the `weblate/translations` branch. This branch must be manually merged to main using a pull request.
+
+#### Deletion
+
+Removing a translation from the code and running `pnpm translation:extract` will also delete it from the translation files, which forces weblate to forget this translation too.
 
 ## Grab a card
 

@@ -18,6 +18,8 @@ import {
   stripObsoleteTranslations,
   validationSchemaInternal,
   mapFormatJSTranslationsToInternalFormat,
+  resolveTranslationFilePath,
+  locales,
 } from './_util';
 
 import type { TranslationFileStructureInternal } from './_util';
@@ -41,12 +43,31 @@ async function main() {
     currentTranslations,
     extractedTranslations,
   );
-  const updatedTranslations = stripObsoleteTranslations(
-    mergedTranslations,
+
+  await writeTranslationFile(mergedTranslations, defaultLocale);
+
+  await removeObsoleteTranslationsFromTranslationFiles(
     Object.keys(extractedTranslations),
   );
+}
 
-  await writeTranslationFile(updatedTranslations, defaultLocale);
+async function removeObsoleteTranslationsFromTranslationFiles(
+  currentTranslationIds: string[],
+) {
+  await Promise.all(
+    locales.map(async (locale) => {
+      const currentTranslations = await getTranslationsFromFile(
+        resolveTranslationFilePath(locale),
+      );
+
+      const updatedTranslations = stripObsoleteTranslations(
+        currentTranslations,
+        currentTranslationIds,
+      );
+
+      await writeTranslationFile(updatedTranslations, locale);
+    }),
+  );
 }
 
 function addNewTranslationsToCurrent(

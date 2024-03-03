@@ -2,6 +2,9 @@
   "app.template.next-seo.default.title-template": {
     "message": "<no-localization>%s | Vegan Hacktivists</no-localization>"
   },
+  "component.button.share.label": {
+    "message": "分享"
+  },
   "dialog.share.headline": {
     "message": "<b>分享</b>此项目"
   },
@@ -371,6 +374,9 @@
   "page.grants.section.application.form.b.input.target-audience.text": {
     "message": "您的目标是机构、个人还是其他？针对这一群体将如何为养殖动物带来改变？"
   },
+  "page.grants.section.application.form.c.heading": {
+    "message": "C 部分 - 预算"
+  },
   "page.grants.section.application.form.c.input.applied-budget.error.max": {
     "message": "我们只接受最高 1000 美元的申请"
   },
@@ -445,6 +451,12 @@
   },
   "page.grants.section.perks.design-creation.paragraph": {
     "message": "根据您的需求，我们为您的组织或项目设计（或重新设计）品牌和徽标。我们还为您的社交媒体和网站提供数字资产，如横幅、图标和任何定制元素。"
+  },
+  "page.grants.section.perks.heading": {
+    "message": "除种子基金外，成功的申请者还可获得"
+  },
+  "page.grants.section.perks.heading.image.alt-text": {
+    "message": "心形图标"
   },
   "page.grants.section.perks.squarespace.heading": {
     "message": "<no-localization>Squarespace</no-localization> 网站订阅"
@@ -575,6 +587,12 @@
   "page.join.section.join-our-team.subline": {
     "message": "我们正在成长！如果您相信我们的使命，并希望通过技术帮助动物，请加入我们。即使您不符合所有条件，我们也鼓励您申请。"
   },
+  "page.join.section.open-positions.cta": {
+    "message": "立即申请"
+  },
+  "page.join.section.open-priority-positions.cta": {
+    "message": "立即申请"
+  },
   "page.join.section.other-roles.content": {
     "message": "没有找到符合您技能的职位？请联系我们。我们很乐意了解您，并感谢您对支持我们的兴趣！"
   },
@@ -583,6 +601,15 @@
   },
   "page.join.section.other-roles.headline": {
     "message": "其他人才和专家"
+  },
+  "page.join.section.playground.content": {
+    "message": "没有时间定期为我们提供志愿服务？我们推出了一个名为 \"<b>VH：Playground</b>\"的开源公共社区，该社区在 Discord 上拥有多达 1000 名成员！只要你有时间，就可以参加组织提供的项目。"
+  },
+  "page.join.section.playground.cta-button.label": {
+    "message": "加入 VH：游乐场"
+  },
+  "page.join.section.playground.headline": {
+    "message": "开发人员请注意"
   },
   "page.join.section.priority-positions.headline": {
     "message": "高度优先职位"
@@ -647,6 +674,9 @@
   "page.our-work.section.featured-projects.section-header.headline": {
     "message": "特色<b>项目</b>"
   },
+  "page.our-work.section.featured-projects.section.button.visit-project-page.label": {
+    "message": "参观"
+  },
   "page.our-work.section.grant-program.funded-by-direct-recommendation": {
     "message": "由直接建议供资"
   },
@@ -664,6 +694,9 @@
   },
   "page.our-work.section.grant-program.seed-funding-granted": {
     "message": "批准的种子基金"
+  },
+  "page.our-work.section.hours-volunteered-banner.content": {
+    "message": "<right>2022 年为动物保护运动志愿</right>服务的<hours>小时数</hours>"
   },
   "page.our-work.section.introduction.headline": {
     "message": "我们的<b>工作</b>"
@@ -872,6 +905,114 @@
   "page.people.section.volunteers.next-seo.title": {
     "message": "我们的志愿者"
   },
+  "page.playground.section.aac.content": {
+    "message": "查看 \"动物保护协会 \"的求职栏，它将为您提供令人兴奋的非营利性动物工作机会，这些工作都极具帮助动物的潜力。"
+  },
+  "page.playground.section.aac.cta-button.label": {
+    "message": "探索职业生涯"
+  },
+  "page.playground.section.aac.headline": {
+    "message": "正在寻找动物保护方面的工作或职业？"
+  },
+  "page.playground.section.faq.0.answer": {
+    "message": "<p>Playground 是一个由充满热情的素食主义者志愿者组成的社区，他们希望通过志愿贡献自己的时间和技能来支持动物倡导者和组织。他们的技能多种多样，包括软件开发、设计、内容创建、市场营销等等。任何人都可以加入这个社区，申请帮助您完成您的请求。</p> <p>Playground 独立于 Vegan Hacktivists 团队，旨在提高我们为您的动物工作提供支持的能力。</p>"
+  },
+  "page.playground.section.faq.0.question": {
+    "message": "VH: Playground 到底是什么？"
+  },
+  "page.playground.section.faq.1.answer": {
+    "message": "<p> 如果您是致力于改善或拯救动物生命的组织或倡导者，我们希望支持您的工作。 </p> <p> 如果您有具体的项目或业务需求，请单击 \"提交请求 \"并填写表格，让我们确切了解您需要的帮助。我们将审核您的请求，确保其符合我们的社区标准，然后批准或拒绝。如果批准，您将收到一封电子邮件，确认您的请求何时上线并公开。然后，您只需等待志愿者提出申请！我们将审核所有申请，然后批准最合适的申请。您将自动通过电子邮件与志愿者联系，并获得 Calendy 链接。 </p>"
+  },
+  "page.playground.section.faq.1.question": {
+    "message": "如果我想提交项目申请，该如何操作？"
+  },
+  "page.playground.section.faq.2.answer": {
+    "message": "<p> 欢迎所有能够编码、设计、编辑、翻译、研究、分析数据或贡献其他技能的素食主义者！只需浏览<link>此处</link>的请求列表，然后申请与您的技能最相关的请求。请确保您能投入合理的时间，并有能力或资格完成工作。如果您的项目与您匹配，请记得与我们沟通您的工作进度，并注意项目的截止日期。 </p> <p> 在请求下方填写您的信息，我们将审核您的申请。您将收到一封电子邮件，告知您的帮助是被批准还是被拒绝。如果获得批准，我们将通过 Calendly 链接自动将您与请求者联系起来，这样您就可以开始工作了！ </p>"
+  },
+  "page.playground.section.faq.2.question": {
+    "message": "如果我想在这里做志愿者，该如何操作？"
+  },
+  "page.playground.section.faq.3.answer": {
+    "message": "<p> 任何人都可以加入这个社区并申请成为志愿者。但是，我们会仔细审查每一份申请。虽然我们不能保证工作质量，但我们会尽最大努力确保申请人具备项目所需的技能和背景。我们的审查过程包括查看他们的 LinkedIn、作品集、简历、过去的工作以及社交媒体资料。根据要求，我们还可能通过电话或电子邮件对申请人进行面试。</p>"
+  },
+  "page.playground.section.faq.3.question": {
+    "message": "申请我的请求的人合格吗？"
+  },
+  "page.playground.section.faq.4.answer": {
+    "message": "<p> Playground 旨在通过利用我们庞大的技术志愿者网络来提高我们的能力，这些志愿者都热衷于为这项运动做出贡献。目前，由开发人员、设计师和专家组成的 VH 核心团队正致力于各种优先项目。我们会对 Playground 上的每项请求进行审查，如果我们认为我们的核心团队可以满足您的需求，我们就会主动联系您。请查看我们<link>提供的服务</link>，了解更多有关 VH 专业领域的信息。</p>"
+  },
+  "page.playground.section.faq.4.question": {
+    "message": "有可能得到 VH 团队的支持吗？"
+  },
+  "page.playground.section.faq.5.answer": {
+    "message": "<p> 如果您提交的是支持请求，通常会在 24 小时内审核并上线。要为您的项目找到合适的志愿者，可能需要一到七天的时间。感谢您的耐心等待，因为我们仍处于成长阶段！ </p> <p> 如果您正在申请帮助他人，您应该会在 24 到 48 小时内收到一封电子邮件，确认您的申请状态。</p>"
+  },
+  "page.playground.section.faq.5.question": {
+    "message": "我的请求/申请需要多长时间才能被接受？"
+  },
+  "page.playground.section.faq.6.answer": {
+    "message": "<p>当然可以！加入我们的<link> Playground Discord 服务器 </link>，查看最新请求。打开通知功能，每当有新请求时就会收到提醒。您还可以与其他志愿者聊天，讨论您的经验，并从 Playground 社区获得支持。我们期待您的加入！ </p>"
+  },
+  "page.playground.section.faq.6.question": {
+    "message": "作为一名志愿者，我能否随时了解收到的新申请？"
+  },
+  "page.playground.section.faq.headline": {
+    "message": "常见问题"
+  },
+  "page.playground.section.get-support.content": {
+    "message": "如果您是个人或组织，在帮助动物的工作中需要帮助，您可以申请获得我们 Playground 社区的免费支持。"
+  },
+  "page.playground.section.get-support.cta-button.label": {
+    "message": "提交您的请求"
+  },
+  "page.playground.section.get-support.headline": {
+    "message": "需要支持？"
+  },
+  "page.playground.section.join-community.content": {
+    "message": "您是开发人员、设计师，还是有其他技能可以为动物做出贡献？加入我们的素食志愿者 Discord 社区，在 Playground 认识其他人！"
+  },
+  "page.playground.section.join-community.cta-button.label": {
+    "message": "在 Discord 上加入我们"
+  },
+  "page.playground.section.join-community.headline": {
+    "message": "志愿者？加入我们的社区！"
+  },
+  "page.playground.section.navigation.submit-request.button.label": {
+    "message": "提交申请"
+  },
+  "page.playground.section.navigation.view-requests.button.label": {
+    "message": "查看请求"
+  },
+  "page.playground.section.open-requests.introduction.content": {
+    "message": "请查看以下请求，寻找帮助动物的志愿者或带薪工作机会。您是寻求工作支持的个人或组织吗？请<link>提交</link>您自己的<link>申请</link>！"
+  },
+  "page.playground.section.open-requests.introduction.headline": {
+    "message": "查看待处理的<b>申请</b>"
+  },
+  "page.playground.section.open-requests.next-page-button.label": {
+    "message": "下一页"
+  },
+  "page.playground.section.open-requests.no-requests-available": {
+    "message": "没有符合您标准的请求"
+  },
+  "page.playground.section.open-requests.previous-page-button.label": {
+    "message": "上一页"
+  },
+  "page.playground.section.requests.request-card.read-more": {
+    "message": "更多信息"
+  },
+  "page.playground.section.requests.request-card.read-more-apply": {
+    "message": "更多信息/申请"
+  },
+  "page.playground.section.submit-request.form.headline": {
+    "message": "<b>需要支持？请告诉我们！</b>"
+  },
+  "page.playground.section.submit-request.form.subline": {
+    "message": "请填写下表。"
+  },
+  "page.playground.section.submit-request.next-seo.title": {
+    "message": "提交申请"
+  },
   "page.services.next-seo.title": {
     "message": "服务"
   },
@@ -979,6 +1120,102 @@
   },
   "page.support.section.support-us.subtitle": {
     "message": "我们更倾向于<bold>通过 \"捐助箱 \"每月捐款</bold>，因为这能给我们带来最大的稳定性，但我们也感谢您的一次性捐款！如果您想捐助 1000 美元或更多，请通过我们的财务赞助商<contact-link>联系我们</contact-link>，以了解免税方案。"
+  },
+  "page.support.section.thank-you.headline": {
+    "message": "谢谢"
+  },
+  "page.support.section.thank-you.introduction": {
+    "message": "在此，我们要感谢以下机构对我们的支持--感谢那些为我们提供一次性或经常性资助或捐款的机构。我们感谢你们对我们愿景的信念和对我们工作的支持。"
+  },
+  "page.support.section.thank-you.organizations.0.description": {
+    "message": "流浪狗研究所致力于在食品系统中培养尊严、正义和可持续性，提供资金、战略研究和合作机会，为人类、动物和环境创造一个更具同情心的世界。"
+  },
+  "page.support.section.thank-you.organizations.0.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.0.title": {
+    "message": "<no-localization>Stray Dog Institute</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.1.description": {
+    "message": "craigslist 慈善基金（CCF）通过结束工厂化养殖和所有其他形式的动物剥削，支持致力于改善地球健康和包括人类在内的所有地球居民福祉的组织。"
+  },
+  "page.support.section.thank-you.organizations.1.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.1.title": {
+    "message": "<no-localization>Craigslist Charitable Fund</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.2.description": {
+    "message": "格林鲍姆基金会的资助重点是在需求最大、影响最大的领域开展切实有效的项目，以消除（人类和非人类）痛苦。他们为各组织提供指导、网络和资金方面的帮助。"
+  },
+  "page.support.section.thank-you.organizations.2.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.2.title": {
+    "message": "<no-localization>Greenbaum Foundation</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.3.description": {
+    "message": "ACE 是一个致力于帮助人们更有效地帮助动物的组织。他们对动物慈善机构进行评估，确定事业的优先次序，并为有效的动物宣传提供资源和建议。他们的 \"运动资助 \"计划旨在建立和加强全球动物宣传运动。"
+  },
+  "page.support.section.thank-you.organizations.3.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.3.title": {
+    "message": "<no-localization>Animal Charity Evaluators</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.4.description": {
+    "message": "Lush 通过其赠款计划支持动物保护、环境正义和人权领域的小型基层组织。"
+  },
+  "page.support.section.thank-you.organizations.4.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.4.title": {
+    "message": "<no-localization>Lush Charity Pot</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.5.description": {
+    "message": "引爆点支持一系列致力于工厂化养殖替代方案的组织和事业。为了扩大影响，我们寻求与志同道合的机构结成联盟，这些机构与我们有着共同的愿景和预期成果。"
+  },
+  "page.support.section.thank-you.organizations.5.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.5.title": {
+    "message": "<no-localization>Tipping Point Foundation</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.6.description": {
+    "message": "该基金由有效利他主义基金（Effective Altruism Funds）管理，致力于改善非人类动物的福祉。它支持各种活动，包括研究动物宣传、动物福利以及将来更容易帮助动物的活动。"
+  },
+  "page.support.section.thank-you.organizations.6.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.6.title": {
+    "message": "<no-localization>EA Animal Welfare Fund</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.7.description": {
+    "message": "Builders Vision 是一个支持一系列慈善和投资活动的影响力平台。Builders Vision 的目标是与创新思想家和组织合作，推动这些领域的积极变革。"
+  },
+  "page.support.section.thank-you.organizations.7.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.7.title": {
+    "message": "<no-localization>Builders Vision</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.8.description": {
+    "message": "辉月基金会资助并培养雄心勃勃的动物权利组织和个人，以结束人类对其他物种的剥削。他们的工作重点包括提高动物权利运动的能力、耐力和力量，尤其关注解放和文化变革。"
+  },
+  "page.support.section.thank-you.organizations.8.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.8.title": {
+    "message": "<no-localization>Phauna Project</no-localization>"
+  },
+  "page.support.section.thank-you.organizations.9.description": {
+    "message": "ETC Impact 是一项赠款计划，致力于在美国推广和扩大气候友好型食品的供应。在过去的三年中，我们已经捐赠了 125 多万美元，用于支持不同的非营利组织。"
+  },
+  "page.support.section.thank-you.organizations.9.link-label": {
+    "message": "了解更多"
+  },
+  "page.support.section.thank-you.organizations.9.title": {
+    "message": "<no-localization>Eat The Change</no-localization>"
   },
   "page.support.section.violet-studios.button": {
     "message": "参观<no-localization>violetstudios.org</no-localization>"
@@ -1688,9 +1925,6 @@
   "page.year-in-review.2022.section.providing-value.headline": {
     "message": "通过<b>能力建设服务</b>提供价值"
   },
-  "page.year-in-review.2022.section.providing-value.hours.number-of-hours": {
-    "message": "<numberSpan>9600+</numberSpan> <textSpan>小时</textSpan>"
-  },
   "page.year-in-review.2022.section.providing-value.hours.text": {
     "message": "2022 年志愿参加动物保护运动"
   },
@@ -1741,6 +1975,9 @@
   },
   "page.year-in-review.section.header.title": {
     "message": "我们的<no-localization>{year}</no-localization> <b>年度回顾</b>"
+  },
+  "page.year-in-review.section.state-of-data.headline": {
+    "message": "<prefix>即将推出：</prefix> <sub>运动中</sub>的<main>数据和技术状况</main>"
   },
   "section.blog-teaser.cta": {
     "message": "查看所有帖子"
@@ -1837,6 +2074,24 @@
   },
   "section.join-the-team.paragraph": {
     "message": "您是开发人员、设计师、作家，还是有兴趣将自己的数字技能应用于动物事业的创意专业人士？了解更多关于我们团队成员的信息，并查看以下职位空缺。"
+  },
+  "section.meet-the-team.cta-button.label": {
+    "message": "了解更多"
+  },
+  "section.meet-the-team.headline": {
+    "message": "认识我们的团队"
+  },
+  "section.playground-stats.stat.hours-volunteered.label": {
+    "message": "志愿服务时数"
+  },
+  "section.playground-stats.stat.number-of-volunteers.label": {
+    "message": "游乐场志愿者"
+  },
+  "section.playground-stats.stat.open-requests.label": {
+    "message": "公开申请"
+  },
+  "section.playground-stats.stat.requests-supported.label": {
+    "message": "支持的请求"
   },
   "section.support-progess-bar.current.label": {
     "message": "当前每月捐款"
