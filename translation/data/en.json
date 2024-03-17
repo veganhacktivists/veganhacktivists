@@ -6,10 +6,10 @@
     "message": "Share"
   },
   "component.translatable-contentful-entry-field.translate-button.label": {
-    "message": "Translate"
+    "message": "Automatic page translation"
   },
   "component.translatable-contentful-entry-field.translate-button.show-original": {
-    "message": "Original"
+    "message": "Show original page"
   },
   "dialog.share.headline": {
     "message": "<b>Share</b> this project"
@@ -235,6 +235,9 @@
   },
   "page.blog.section.header.categories": {
     "message": "Categories"
+  },
+  "page.blog.section.header.categories.default-category": {
+    "message": "Other"
   },
   "page.blog.section.header.intro": {
     "message": "Welcome to our official blog. We regularly post news, annnouncements, project updates, interviews, editorials, and more. Stay tuned!"

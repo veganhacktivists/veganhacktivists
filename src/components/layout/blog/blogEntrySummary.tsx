@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -8,6 +7,9 @@ import ContentfulImage from '../contentfulImage';
 
 import { DarkButton } from 'components/decoration/buttons';
 import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import LocalizedContentfulEntryField, {
+  useLocalizedContentfulEntryField,
+} from 'components/localization/LocalizedContentfulEntryField';
 
 import type { IBlogEntry } from 'types/generated/contentful';
 
@@ -31,9 +33,15 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
     </Link>
   );
 
-  const { slug, title, featuredImage, excerpt } = blog.fields;
+  const { slug, featuredImage } = blog.fields;
 
   const locale = useRouterLocale();
+
+  const title = useLocalizedContentfulEntryField({
+    contentfulId: blog.sys.id,
+    fieldId: 'title',
+    contentType: 'blogEntry',
+  });
 
   return (
     <div
@@ -84,7 +92,11 @@ const BlogEntrySummary: React.FC<BlogEntrySummaryProps> = ({
             </b>
           </LinkToBlog>
           <div className='text-xl line-clamp-5 md:line-clamp-1 lg:line-clamp-2 2xl:line-clamp-4 2xl:pt-5'>
-            {documentToReactComponents(excerpt)}
+            <LocalizedContentfulEntryField
+              contentfulId={blog.sys.id}
+              fieldId='excerpt'
+              contentType='blogEntry'
+            />
           </div>
         </div>
         {heading || (

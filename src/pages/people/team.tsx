@@ -8,12 +8,11 @@ import { getContents } from '../../lib/cms';
 import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
-import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
 import { pixelHeart } from '../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
-import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
+import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamFields } from '../../types/generated/contentful';
@@ -84,7 +83,7 @@ const TeamMemberCardPhoto: React.FC<{
 const TeamMemberCardBody: React.FC<{
   member: ITeamMember;
 }> = ({ member }) => {
-  const { name, team, position, bio, socialLinks } = member.fields;
+  const { name, team, bio, socialLinks } = member.fields;
   const { name: teamName, sprite: teamSprite } = team!.fields;
 
   return (
@@ -98,7 +97,11 @@ const TeamMemberCardBody: React.FC<{
         >
           <span className='flex flex-col lg:flex-row items-center'>
             <span className='font-bold float-left text-lg uppercase text-grey text-opacity-80'>
-              {position}
+              <LocalizedContentfulEntryField
+                contentfulId={member.sys.id}
+                fieldId='position'
+                contentType='teamMember'
+              />
             </span>
             <span className='mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative'>
               &bull;
@@ -118,7 +121,7 @@ const TeamMemberCardBody: React.FC<{
         </div>
         <div className='mt-2 text-justify lg:text-left'>
           {bio && (
-            <TranslatableContentfulEntryField
+            <LocalizedContentfulEntryField
               contentfulId={member.sys.id}
               fieldId='bio'
               contentType='teamMember'

@@ -5,6 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import { DarkButton } from '../../decoration/buttons';
 import ContentfulImage from '../contentfulImage';
 
+import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
+
 import type { IBlogEntry } from '../../../types/generated/contentful';
 
 const BlogContentContainer: React.FC<React.PropsWithChildren> = ({
@@ -25,7 +27,7 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
   return (
     <div className='bg-grey-background mb-10 h-full'>
       {blogs.map((blog) => {
-        const { title, slug, featuredImage } = blog.fields;
+        const { slug, featuredImage } = blog.fields;
 
         return (
           <div
@@ -37,7 +39,11 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
               <Link href={`/blog/${slug}`}>
                 <ContentfulImage image={featuredImage} alt='' />
                 <div className='font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5'>
-                  {title}
+                  <LocalizedContentfulEntryField
+                    contentfulId={blog.sys.id}
+                    fieldId='title'
+                    contentType='blogEntry'
+                  />
                 </div>
               </Link>
             </div>
