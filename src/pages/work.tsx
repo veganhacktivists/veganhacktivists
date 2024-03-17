@@ -16,6 +16,7 @@ import SharingKnowledgeAndSupport from 'components/layout/work/sharingKnowledgeA
 import LikeWhatYouSee from 'components/layout/work/likeWhatYouSee';
 import { getFeaturedProjects } from 'lib/cms/helpers';
 import { getContents } from 'lib/cms';
+import LocalizedContentfulPage from 'components/localization/LocalizedContentfulPage';
 
 import type { IProject, IProjectFields } from 'types/generated/contentful';
 import type { InferGetStaticPropsType } from 'next';
@@ -54,7 +55,7 @@ const Work = ({
   const intl = useIntl();
 
   return (
-    <>
+    <LocalizedContentfulPage>
       <NextSeo
         title={intl.formatMessage({
           id: 'page.work.next-seo.title',
@@ -87,7 +88,7 @@ const Work = ({
       <SharingKnowledgeAndSupport />
 
       <LikeWhatYouSee />
-    </>
+    </LocalizedContentfulPage>
   );
 };
 

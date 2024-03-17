@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -13,7 +12,7 @@ import { firstLetterUppercase } from '../../lib/helpers/strings';
 import { pixelHeart } from '../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
-import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
+import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type {
@@ -59,7 +58,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         )}
       </div>
       <div className='flex flex-col justify-around w-full px-10 py-10 bg-gray-background'>
-        <div className='mb-2 text-center lg:text-left'>
+        <div className='mb-4 text-center lg:text-left'>
           <span className='text-2xl font-bold'>{name}</span>{' '}
           <span className='block ml-2 font-bold uppercase text-m text-grey md:inline'>
             {position}
@@ -67,7 +66,7 @@ const PartnerCard: React.FC<{ partner: ITeamMember }> = ({ partner }) => {
         </div>
         <div className='mb-5 text-xl text-center lg:text-left'>
           {description && (
-            <TranslatableContentfulEntryField
+            <LocalizedContentfulEntryField
               contentfulId={partner.sys.id}
               fieldId='description'
               contentType='teamMember'

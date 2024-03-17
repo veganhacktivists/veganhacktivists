@@ -10,6 +10,9 @@ import Sprite, { duck } from '../decoration/sprite';
 
 import JoinTheTeam from './joinTheTeam';
 
+import LocalizedContentfulPage from 'components/localization/LocalizedContentfulPage';
+import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
+
 import type { Layout } from '../../types/persistentLayout';
 
 export enum Site {
@@ -98,8 +101,11 @@ const PeopleHero: React.FC = () => {
 
 const PeopleLayout: Layout = ({ children }) => {
   return (
-    <>
+    <LocalizedContentfulPage>
       <PeopleHero />
+      <div className='md:mx-auto md:w-4/6'>
+        <LocalizedContentfulPageToggleButton className='mt-10 mx-12 w-fit' />
+      </div>
       <PeopleButtons />
       {children}
       <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
@@ -113,7 +119,7 @@ const PeopleLayout: Layout = ({ children }) => {
         className='hidden md:block'
       />
       <JoinTheTeam />
-    </>
+    </LocalizedContentfulPage>
   );
 };
 

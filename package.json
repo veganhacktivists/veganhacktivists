@@ -63,6 +63,7 @@
     "next-auth": "^4.23.2",
     "next-pwa": "^5.6.0",
     "next-seo": "^5.14.1",
+    "node-html-parser": "^6.1.12",
     "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-cookie": "^4.1.1",

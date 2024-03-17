@@ -6,10 +6,10 @@
     "message": "Teilen"
   },
   "component.translatable-contentful-entry-field.translate-button.label": {
-    "message": "Übersetzen"
+    "message": "Seite automatisch übersetzen"
   },
   "component.translatable-contentful-entry-field.translate-button.show-original": {
-    "message": "Original"
+    "message": "Original Seite anzeigen"
   },
   "dialog.share.headline": {
     "message": "Dieses Projekt <b>teilen</b> "
@@ -235,6 +235,9 @@
   },
   "page.blog.section.header.categories": {
     "message": "Kategorien"
+  },
+  "page.blog.section.header.categories.default-category": {
+    "message": "Andere"
   },
   "page.blog.section.header.intro": {
     "message": "Willkommen in unserem offiziellen Blog. Wir veröffentlichen regelmäßig Neuigkeiten, Ankündigungen, Projekt-Updates, Interviews, Leitartikel und mehr. Bleiben Sie auf dem Laufenden!"

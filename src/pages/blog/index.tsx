@@ -22,6 +22,9 @@ import { useHash } from '../../hooks/useHash';
 import useOnce from '../../hooks/useOnce';
 import { useExtendedPagination } from '../../hooks/useExtendedPagination';
 
+import LocalizedContentfulPage from 'components/localization/LocalizedContentfulPage';
+import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
+
 import type {
   IBlogEntry,
   ITag,
@@ -154,7 +157,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
   const [animatedRef] = useAutoAnimate<HTMLDivElement>();
   const intl = useIntl();
   return (
-    <>
+    <LocalizedContentfulPage>
       <NextSeo
         title={intl.formatMessage({
           id: 'page.blog.next-seo.title',
@@ -197,26 +200,30 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
             />
           </div>
         ) : (
-          <div
-            ref={animatedRef}
-            className='grid px-10 md:grid-cols-3 md:gap-x-12 gap-y-10 xl:px-48 auto-rows-min'
-          >
-            {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
-              <SubtleBorder
-                key={filteredFirstBlog[0].fields.slug}
-                className='col-span-full'
-              >
-                <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
-              </SubtleBorder>
-            )}
-            {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
-              <SubtleBorder
-                key={blog.fields.slug}
-                className='col-span-full md:col-span-1'
-              >
-                <BlogEntrySummary blog={blog} />
-              </SubtleBorder>
-            ))}
+          <div className='px-10 xl:px-48'>
+            <LocalizedContentfulPageToggleButton className='w-fit mb-6' />
+
+            <div
+              ref={animatedRef}
+              className='grid md:grid-cols-3 md:gap-x-12 gap-y-10  auto-rows-min'
+            >
+              {filteredFirstBlog.length !== 0 && currentPage <= 0 && (
+                <SubtleBorder
+                  key={filteredFirstBlog[0].fields.slug}
+                  className='col-span-full'
+                >
+                  <BlogEntrySummary blog={filteredFirstBlog[0]} heading />
+                </SubtleBorder>
+              )}
+              {filteredEntries.slice(startIndex, endIndex + 1).map((blog) => (
+                <SubtleBorder
+                  key={blog.fields.slug}
+                  className='col-span-full md:col-span-1'
+                >
+                  <BlogEntrySummary blog={blog} />
+                </SubtleBorder>
+              ))}
+            </div>
           </div>
         )}
 
@@ -274,7 +281,7 @@ const Blog: React.FC<BlogProps> = ({ blogs, tags }) => {
       <div className='bg-grey-background'>
         <Newsletter />
       </div>
-    </>
+    </LocalizedContentfulPage>
   );
 };
 

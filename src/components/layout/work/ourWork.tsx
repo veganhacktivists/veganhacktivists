@@ -6,6 +6,7 @@ import { DarkButton } from 'components/decoration/buttons';
 import Sprite, { goat } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
+import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
 
 import aaa from '~images/work/orgs/aaa.png';
 import aaasia from '~images/work/orgs/aaasia.png';
@@ -190,7 +191,8 @@ const OurWork: React.FC = () => {
       />
 
       <div className='w-full bg-white'>
-        <div className='flex flex-col py-20'>
+        <div className='flex flex-col py-8'>
+          <LocalizedContentfulPageToggleButton className='w-fit mx-4 my-10' />
           <div className='md:w-1/2 mx-auto -mb-10 px-5'>
             <SectionHeader
               className='mb-2'

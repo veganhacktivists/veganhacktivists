@@ -27,88 +27,95 @@ export const getLocalizedHTML = async ({
   locale,
   contentType,
 }: z.infer<typeof getLocalizedHTMLSchema>) => {
-  const cachedTranslation = await prisma.contentfulTranslationCache.findUnique({
-    where: {
-      id: {
-        contentfulId,
-        fieldId,
-        locale,
-      },
-    },
-  });
-
-  if (cachedTranslation) {
-    return cachedTranslation.translatedHTML;
-  }
-
-  const existingOriginalTranslationCache =
-    await prisma.contentfulTranslationCache.findUnique({
-      where: {
-        id: {
-          contentfulId,
-          fieldId,
-          locale: defaultLocale,
+  try {
+    const cachedTranslation =
+      await prisma.contentfulTranslationCache.findUnique({
+        where: {
+          id: {
+            contentfulId,
+            fieldId,
+            locale,
+          },
         },
-      },
-    });
+      });
 
-  let originalHTML: string;
-  let originalHTMLHash: string;
-
-  if (!existingOriginalTranslationCache) {
-    const entry = await getById<Record<string, unknown>>(contentfulId);
-
-    const originalValue = entry.fields[fieldId];
-    const extractedOriginalHTML = getHTMLStringFromFieldValue(originalValue);
-
-    if (extractedOriginalHTML === undefined) {
-      console.error(
-        `failed to get html string for contentfulId ${contentfulId}, fieldId ${fieldId}, contentType ${contentType} and locale ${locale}`,
-      );
-      throw new TRPCError({ code: 'NOT_FOUND' });
+    if (cachedTranslation) {
+      return cachedTranslation.translatedHTML;
     }
 
-    const generatedOriginalHTMLHash = getLocalizedHTMLHash(
-      extractedOriginalHTML,
-    );
+    const existingOriginalTranslationCache =
+      await prisma.contentfulTranslationCache.findUnique({
+        where: {
+          id: {
+            contentfulId,
+            fieldId,
+            locale: defaultLocale,
+          },
+        },
+      });
+
+    let originalHTML: string;
+    let originalHTMLHash: string;
+
+    if (!existingOriginalTranslationCache) {
+      const entry = await getById<Record<string, unknown>>(contentfulId);
+
+      const originalValue = entry.fields[fieldId];
+      const extractedOriginalHTML = getHTMLStringFromFieldValue(originalValue);
+
+      if (extractedOriginalHTML === undefined) {
+        console.error(
+          `failed to get html string for contentfulId ${contentfulId}, fieldId ${fieldId}, contentType ${contentType} and locale ${locale}`,
+        );
+        throw new TRPCError({ code: 'NOT_FOUND' });
+      }
+
+      const generatedOriginalHTMLHash = getLocalizedHTMLHash(
+        extractedOriginalHTML,
+      );
+
+      await prisma.contentfulTranslationCache.create({
+        data: {
+          contentfulId,
+          contentType,
+          fieldId,
+          locale: defaultLocale,
+          translatedHTML: extractedOriginalHTML,
+          originalHTMLHash: generatedOriginalHTMLHash,
+        },
+      });
+
+      if (locale === defaultLocale) {
+        return extractedOriginalHTML;
+      }
+
+      originalHTML = extractedOriginalHTML;
+      originalHTMLHash = generatedOriginalHTMLHash;
+    } else {
+      originalHTML = existingOriginalTranslationCache.translatedHTML;
+      originalHTMLHash = existingOriginalTranslationCache.originalHTMLHash;
+    }
+
+    // locale mapping required? next locale -> deepl locale
+    const translatedHTML = await translateHTML(originalHTML, locale);
 
     await prisma.contentfulTranslationCache.create({
       data: {
         contentfulId,
         contentType,
         fieldId,
-        locale: defaultLocale,
-        translatedHTML: extractedOriginalHTML,
-        originalHTMLHash: generatedOriginalHTMLHash,
+        locale,
+        translatedHTML,
+        originalHTMLHash,
       },
     });
 
-    if (locale === defaultLocale) {
-      return extractedOriginalHTML;
-    }
-
-    originalHTML = extractedOriginalHTML;
-    originalHTMLHash = generatedOriginalHTMLHash;
-  } else {
-    originalHTML = existingOriginalTranslationCache.translatedHTML;
-    originalHTMLHash = existingOriginalTranslationCache.originalHTMLHash;
+    return translatedHTML;
+  } catch (e) {
+    // return original if database is unavailable
+    const entry = await getById<Record<string, unknown>>(contentfulId);
+    return getHTMLStringFromFieldValue(entry.fields[fieldId]);
   }
-
-  // locale mapping required? next locale -> deepl locale
-  const translatedHTML = await translateHTML(originalHTML, locale);
-
-  await prisma.contentfulTranslationCache.create({
-    data: {
-      contentfulId,
-      contentType,
-      fieldId,
-      locale,
-      translatedHTML,
-      originalHTMLHash,
-    },
-  });
-
-  return translatedHTML;
 };
 
 export function getLocalizedHTMLHash(html: string): string {

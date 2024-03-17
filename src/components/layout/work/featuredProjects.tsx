@@ -9,8 +9,8 @@ import { DarkButton, ShareButton } from 'components/decoration/buttons';
 import Sprite, { pig } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
-import TranslatableContentfulEntryField from 'components/TranslatableContentfulEntryField';
 import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
 
 import type { IProject } from 'types/generated/contentful';
 
@@ -96,7 +96,7 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
             </span>
           </div>
           <div className='text-lg'>
-            <TranslatableContentfulEntryField
+            <LocalizedContentfulEntryField
               contentfulId={projectId}
               fieldId='description'
               contentType='project'
