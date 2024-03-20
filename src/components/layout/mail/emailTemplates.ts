@@ -57,13 +57,15 @@ const mail = (body: string, includeAACSection = false) => {
       </mj-column>
     </mj-section>
     <mj-section background-color="#161919">
-      <mj-text color="#ffffff" font-style="italic" font-size="12px" align="center">© 2022 Vegan Hacktivists. All rights reserved.</mj-text>
+      <mj-text color="#ffffff" font-style="italic" font-size="12px" align="center">© 2024 Vegan Hacktivists. All rights reserved.</mj-text>
       <mj-spacer height="20px" />
       <mj-text color="#ffffff" font-size="12px" align="center"><b>Our mailing address is:</b><br/>
 Vegan Hacktivists<br/>
-Da Costastraat 12<br/>
-AMSTERDAM, Noord-Holland 1053 ZB<br/>
-Netherlands</mj-text>
+505 Windy Knoll Dr. #876<br/>
+Mount Airy<br/>
+MD<br/>
+21771<br/>
+United States of America</mj-text>
     </mj-section>
     <mj-section background-color="#161919" padding="0px 100px">
       <mj-spacer height="5px" />
