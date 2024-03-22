@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import { pixelEnvelope } from '../../images/separators';
 import { DarkButton } from '../decoration/buttons';
@@ -21,12 +21,17 @@ interface NewsletterProps {
   onChange?: (signedUp: boolean) => void;
   showCancelButton?: boolean;
 }
-
+const intlCache = createIntlCache();
 const Newsletter: React.FC<NewsletterProps> = ({
   onChange,
   showCancelButton,
 }) => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   const {
     register,
     handleSubmit,
@@ -88,13 +93,16 @@ const Newsletter: React.FC<NewsletterProps> = ({
         />
       </h1>
       <div className='mx-auto mb-8 text-2xl text-center'>
-        <FormattedMessage
-          id='page.blog.section.newsletter.intro'
-          defaultMessage='Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive...'
-          values={{
+        {intl.formatMessage(
+          {
+            id: 'page.blog.section.newsletter.intro',
+            defaultMessage:
+              'Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive...',
+          },
+          {
             br: <br />,
-          }}
-        />
+          },
+        )}
       </div>
       <div
         className={classNames('mx-auto text-xl font-serif italic mb-8 w-fit')}
@@ -161,10 +169,12 @@ const Newsletter: React.FC<NewsletterProps> = ({
               {isSubmitting ? (
                 <Spinner />
               ) : (
-                <FormattedMessage
-                  id='page.blog.section.newsletter.form.btn.sign-up'
-                  defaultMessage='Sign up!'
-                />
+                <>
+                  {intl.formatMessage({
+                    id: 'page.blog.section.newsletter.form.btn.sign-up',
+                    defaultMessage: 'Sign up!',
+                  })}
+                </>
               )}
             </DarkButton>
             {showCancelButton && (
@@ -180,10 +190,10 @@ const Newsletter: React.FC<NewsletterProps> = ({
                     'cursor-not-allowed': isSubmitting,
                   })}
                 >
-                  <FormattedMessage
-                    id='page.blog.section.newsletter.form.btn.cancel'
-                    defaultMessage='No thanks'
-                  />
+                  {intl.formatMessage({
+                    id: 'page.blog.section.newsletter.form.btn.cancel',
+                    defaultMessage: 'No thanks',
+                  })}
                 </p>
               </div>
             )}

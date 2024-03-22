@@ -2,14 +2,20 @@ import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
-import { useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import ErrorPage from './_error';
 
 import type { ErrorProps } from 'components/layout/errorPage';
 
+const intlCache = createIntlCache();
 const NotFound: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   const { asPath } = useRouter();
 
   const notFoundErrorProps: ErrorProps['error'] = useMemo(

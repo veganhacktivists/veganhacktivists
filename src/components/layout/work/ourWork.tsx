@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import CustomImage from 'components/decoration/customImage';
 import { Autoscroll } from 'components/decoration/autoscroll';
@@ -178,8 +178,14 @@ const TOP_DECORATION_SQUARES = [
 const BOTTOM_DECORATION_SQUARES = [
   { color: 'gray-background', size: 16, left: 0, bottom: 0 },
 ];
-
+const intlCache = createIntlCache();
 const OurWork: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <>
       <SquareField
@@ -192,34 +198,35 @@ const OurWork: React.FC = () => {
           <div className='md:w-1/2 mx-auto -mb-10 px-5'>
             {/* TODO: translate section header */}
             <SectionHeader className='mb-2' header={['Our', 'WORK']}>
-              <FormattedMessage
-                id='page.our-work.section.our-work.section-header.content'
-                defaultMessage='We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
-                values={{
-                  b: (chunks) => <b>{chunks}</b>,
-                }}
-              />
+              {intl.formatMessage(
+                {
+                  id: 'page.our-work.section.our-work.section-header.content',
+                  defaultMessage:
+                    'We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.',
+                },
+                //{ b: (chunks) => <b>{chunks}</b> },
+              )}
             </SectionHeader>
           </div>
           <Autoscroll items={imageRows} />
           <div className='mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5'>
             <DarkButton href='/services' className='font-mono md:w-fit'>
-              <FormattedMessage
-                id='page.our-work.section.our-work.cta.services'
-                defaultMessage='Explore our services'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.our-work.cta.services',
+                defaultMessage: 'Explore our services',
+              })}
             </DarkButton>
             <DarkButton href='/join' className='font-mono md:w-fit'>
-              <FormattedMessage
-                id='page.our-work.section.our-work.cta.join'
-                defaultMessage='Volunteer with us'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.our-work.cta.join',
+                defaultMessage: 'Volunteer with us',
+              })}
             </DarkButton>
             <DarkButton href='/support' className='font-mono md:w-fit'>
-              <FormattedMessage
-                id='page.our-work.section.our-work.cta.support'
-                defaultMessage='Support our work'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.our-work.cta.support',
+                defaultMessage: 'Support our work',
+              })}
             </DarkButton>
           </div>
         </div>

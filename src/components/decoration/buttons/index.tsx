@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
@@ -398,7 +398,7 @@ const NavButton: React.FC<ButtonProps & { href: string }> = ({
   className = '',
   children,
 }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const atLocation = pathname === href;
 
   const classes = classNames('m-5 font-mono', className);

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 import { useCallback, useEffect, useMemo } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import { firstLetterUppercase } from '../../lib/helpers/strings';
 import useErrorStore from '../../lib/stores/errorStore';
@@ -25,12 +25,17 @@ interface ContactUsSubmission {
   service: (typeof SERVICES)[number] | null;
   message: string;
 }
-
+const intlCache = createIntlCache();
 const ContactUsForm: React.FC = () => {
   const { pageThatErrored, clearErrorData } = useErrorStore();
   const { onMessageChange, suggestions } = useFAQDetect();
 
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
 
   const {
     control,
@@ -206,10 +211,12 @@ const ContactUsForm: React.FC = () => {
             {isSubmitting ? (
               <Spinner />
             ) : (
-              <FormattedMessage
-                id='section.contact-us-form.submit-button.label'
-                defaultMessage='Submit'
-              />
+              <>
+                {intl.formatMessage({
+                  id: 'section.contact-us-form.submit-button.label',
+                  defaultMessage: 'Submit',
+                })}
+              </>
             )}
           </DarkButton>
         </div>

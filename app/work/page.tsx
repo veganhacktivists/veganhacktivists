@@ -1,5 +1,7 @@
-import { NextSeo } from 'next-seo';
-import { useIntl } from 'react-intl';
+//'use client';
+
+import { createIntl, createIntlCache } from 'react-intl';
+import { cache } from 'react';
 
 import WorkHero from 'components/layout/work/workHero';
 import OurWork from 'components/layout/work/ourWork';
@@ -17,11 +19,13 @@ import LikeWhatYouSee from 'components/layout/work/likeWhatYouSee';
 import { getFeaturedProjects } from 'lib/cms/helpers';
 import { getContents } from 'lib/cms';
 
+import type { Metadata } from 'next';
 import type { IProject, IProjectFields } from 'types/generated/contentful';
-import type { InferGetStaticPropsType } from 'next';
 
-export const getStaticProps = async () => {
-  const [featuredProjects, otherProjects] = await Promise.all([
+export const revalidate = 480;
+
+const getProjects = cache(async () => {
+  return await Promise.all([
     getFeaturedProjects(),
     getContents<IProjectFields>({
       contentType: 'project',
@@ -37,58 +41,37 @@ export const getStaticProps = async () => {
       },
     }) as Promise<IProject[]>,
   ]);
-
-  return {
-    props: {
-      featuredProjects,
-      otherProjects,
-    },
-    revalidate: 480,
-  };
+});
+const intlCache = createIntlCache();
+const intl = createIntl({ locale: 'en' }, intlCache);
+export const metadata: Metadata = {
+  title: intl.formatMessage({
+    id: 'page.work.next-seo.title',
+    defaultMessage: 'Our Work',
+  }),
 };
 
-const Work = ({
-  featuredProjects,
-  otherProjects,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const intl = useIntl();
+const Page = async () => {
+  const [featuredProjects, otherProjects] = await getProjects();
 
   return (
     <>
-      <NextSeo
-        title={intl.formatMessage({
-          id: 'page.work.next-seo.title',
-          defaultMessage: 'Our Work',
-        })}
-      />
-
+      <p>test</p>
       <WorkHero />
-
       <OurWork />
-
       <FeaturedProjects featuredProjects={featuredProjects} />
-
       <OtherProjects projects={otherProjects} />
-
       <DesignSamples />
-
       <HoursVolunteered />
-
       <KindWords />
-
       <OurCommunities />
-
       <StateOfData />
-
       <GrantProgram />
-
       <Playground />
-
       <SharingKnowledgeAndSupport />
-
       <LikeWhatYouSee />
     </>
   );
 };
 
-export default Work;
+export default Page;

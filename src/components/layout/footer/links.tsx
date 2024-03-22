@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import type { IntlShape } from 'react-intl';
 
@@ -131,9 +131,14 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
     </li>
   );
 };
-
+const intlCache = createIntlCache();
 const Links: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
 
   return (
     <ul className='text-xl text-left'>

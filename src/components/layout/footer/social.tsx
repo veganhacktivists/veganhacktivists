@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import {
   ExternalLinkButton,
@@ -8,22 +8,32 @@ import {
   YoutubeButton,
 } from '../../decoration/buttons';
 
+import type { ReactNode } from 'react';
+
+const intlCache = createIntlCache();
 const Social: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <div className='pt-10 text-left'>
       <div className='text-4xl font-semibold uppercase mb-1'>
         <code>
-          <FormattedMessage
-            id='layout.footer.navigation-item.social.headline'
-            defaultMessage='Contact Us'
-          />
+          {intl.formatMessage({
+            id: 'layout.footer.navigation-item.social.headline',
+            defaultMessage: 'Contact Us',
+          })}
         </code>
       </div>
       <div className='max-w-xs m-auto'>
-        <FormattedMessage
-          id='layout.footer.navigation-item.social.description'
-          defaultMessage='If you have project ideas, suggestions, questions or anything else, get in touch!'
-        />
+        {intl.formatMessage({
+          id: 'layout.footer.navigation-item.social.description',
+          defaultMessage:
+            'If you have project ideas, suggestions, questions or anything else, get in touch!',
+        })}
       </div>
       <div className='font-bold pt-5 text-lg'>
         <Link href='/contact'>hello@veganhacktivists.org</Link>
@@ -35,22 +45,25 @@ const Social: React.FC = () => {
       </div>
       <div className='pt-10 text-center'>
         <ExternalLinkButton href='https://veganhacktivists.org/support'>
-          <FormattedMessage
-            id='layout.footer.navigation-item.support.label'
-            defaultMessage='<top>Support our work</top> <bottom>Donate</bottom>'
-            values={{
-              top: (chunk) => (
+          {intl.formatMessage(
+            {
+              id: 'layout.footer.navigation-item.support.label',
+              defaultMessage:
+                '<top>Support our work</top> <bottom>Donate</bottom>',
+            },
+            {
+              top: (chunk: ReactNode) => (
                 <div className='font-serif italic text-xl capitalize'>
                   {chunk}
                 </div>
               ),
-              bottom: (chunk) => (
+              bottom: (chunk: ReactNode) => (
                 <div className='text-4xl uppercase font-mono font-semibold'>
                   {chunk}
                 </div>
               ),
-            }}
-          />
+            },
+          )}
         </ExternalLinkButton>
       </div>
     </div>

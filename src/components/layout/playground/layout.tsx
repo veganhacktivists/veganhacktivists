@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { NextSeo } from 'next-seo';
 import { useSession } from 'next-auth/react';
 import React from 'react';
@@ -54,10 +56,9 @@ const playgroundSEO: NextSeoProps = {
 };
 
 const PlaygroundLayout: Layout = ({ children }) => {
-  const router = useRouter();
+  const pathname = usePathname();
   const isSupportPage =
-    router.pathname === '/playground' ||
-    router.pathname === '/playground/submit';
+    pathname === '/playground' || pathname === '/playground/submit';
 
   return (
     <>
@@ -124,9 +125,9 @@ const PlaygroundLayout: Layout = ({ children }) => {
       </div>
       <FaqSection
         design={
-          router.pathname === '/playground/submit'
+          pathname === '/playground/submit'
             ? 'dark'
-            : router.pathname === '/playground'
+            : pathname === '/playground'
               ? undefined
               : 'light'
         }
@@ -157,7 +158,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
 
       <div
         className={classNames({
-          dark: router.pathname === '/playground/request/[id]',
+          dark: pathname === '/playground/request/[id]',
         })}
       >
         <div className='py-10 pt-5 pb-10 dark:bg-grey'>
@@ -249,8 +250,8 @@ export const PlaygroundStats = ({
 };
 
 export const PlaygroundLandingLayout: Layout = ({ children }) => {
-  const router = useRouter();
-  const showRequests = router.pathname === '/playground';
+  const pathname = usePathname();
+  const showRequests = pathname === '/playground';
   const { data: session, status } = useSession();
 
   return (

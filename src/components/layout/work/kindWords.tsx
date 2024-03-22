@@ -1,4 +1,4 @@
-import { useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import Sprite, { cow } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
@@ -115,8 +115,15 @@ const quoteColors = [
   getThemeColor('watermelon'),
 ];
 
+const intlCache = createIntlCache();
+
 const KindWords: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
 
   return (
     <>

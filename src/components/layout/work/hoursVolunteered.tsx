@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import SquareField from 'components/decoration/squares';
 
@@ -20,7 +20,15 @@ const BOTTOM_DECORATION_SQUARES = [
   },
 ];
 
+const intlCache = createIntlCache();
+
 const HoursVolunteered: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <>
       <SquareField
@@ -36,10 +44,11 @@ const HoursVolunteered: React.FC = () => {
               <span className='uppercase font-light'>Hours</span>
             </div>
             <div className='flex items-center flex-wrap max-w-lg mx-auto lg:mx-0 lg:max-w-[27rem] text-white text-3xl font-serif italic font-bold text-center lg:text-left px-2 justify-center'>
-              <FormattedMessage
-                id='page.our-work.section.hours-volunteered.cta-button.label'
-                defaultMessage='volunteered in 2022 for the animal protection movement'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.hours-volunteered.cta-button.label',
+                defaultMessage:
+                  'volunteered in 2022 for the animal protection movement',
+              })}
             </div>
           </div>
         </div>

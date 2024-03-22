@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import { LightButton } from 'components/decoration/buttons';
 import Sprite, { duck } from 'components/decoration/sprite';
@@ -7,7 +7,15 @@ import { SectionHeader } from 'components/decoration/textBlocks';
 
 const TOP_DECORATION_SQUARES = [{ color: 'white', size: 16, right: 0, top: 0 }];
 
+const intlCache = createIntlCache();
+
 const LikeWhatYouSee: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <>
       <SquareField
@@ -24,36 +32,37 @@ const LikeWhatYouSee: React.FC = () => {
           />
 
           <div className='text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4'>
-            <FormattedMessage
-              id='page.our-work.section.like-what-you-see.introduction'
-              defaultMessage='Get in touch if you’d like to volunteer, support our work, or make use of our services!'
-            />
+            {intl.formatMessage({
+              id: 'page.our-work.section.like-what-you-see.introduction',
+              defaultMessage:
+                'Get in touch if you’d like to volunteer, support our work, or make use of our services!',
+            })}
           </div>
 
           <div className='grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9'>
             <LightButton className='w-full md:w-40' href='/donate'>
-              <FormattedMessage
-                id='page.our-work.section.like-what-you-see.donate.cta-button.label'
-                defaultMessage='Donate'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.like-what-you-see.donate.cta-button.label',
+                defaultMessage: 'Donate',
+              })}
             </LightButton>
             <LightButton className='w-full md:w-40' href='/support'>
-              <FormattedMessage
-                id='page.our-work.section.like-what-you-see.get-support.cta-button.label'
-                defaultMessage='Get support'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.like-what-you-see.get-support.cta-button.label',
+                defaultMessage: 'Get support',
+              })}
             </LightButton>
             <LightButton className='w-full md:w-40' href='/services'>
-              <FormattedMessage
-                id='page.our-work.section.like-what-you-see.services.cta-button.label'
-                defaultMessage='Services'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.like-what-you-see.services.cta-button.label',
+                defaultMessage: 'Services',
+              })}
             </LightButton>
             <LightButton className='w-full md:w-40' href='/contact'>
-              <FormattedMessage
-                id='page.our-work.section.like-what-you-see.contact.cta-button.label'
-                defaultMessage='Contact us'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.like-what-you-see.contact.cta-button.label',
+                defaultMessage: 'Contact us',
+              })}
             </LightButton>
           </div>
         </div>

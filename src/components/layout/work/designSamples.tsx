@@ -1,5 +1,7 @@
+'use client';
+
 import { useCallback, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import Modal from '../modal';
 
@@ -77,6 +79,8 @@ const BOTTOM_DECORATION_SQUARES = [
   { color: 'grey-background', size: 16, left: 0, bottom: 0 },
 ];
 
+const intlCache = createIntlCache();
+
 const DesignSamples: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<StaticImageData>();
@@ -90,6 +94,13 @@ const DesignSamples: React.FC = () => {
     setCurrentImage(undefined);
   }, []);
 
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
+
   return (
     <>
       <SquareField
@@ -102,10 +113,11 @@ const DesignSamples: React.FC = () => {
           <div className='md:w-1/2 mx-auto'>
             <SectionHeader header={['See our', 'branding work']}>
               <p className='text-xl'>
-                <FormattedMessage
-                  id='page.our-work.section.design-samples.section-header.content'
-                  defaultMessage="Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!"
-                />
+                {intl.formatMessage({
+                  id: 'page.our-work.section.design-samples.section-header.content',
+                  defaultMessage:
+                    "Whether it's branding, document design, web design, infographics, or other high-impact areas of design, we're here to help vegan organizations look sharp, build trust, increase reputation, and unite people. Here's a few examples of what we've done!",
+                })}
               </p>
             </SectionHeader>
           </div>
@@ -142,10 +154,10 @@ const DesignSamples: React.FC = () => {
               href='https://drive.google.com/file/d/1j64otbbL18s7WC9bYCbNODeNgq5ColEk/view'
               className='md:w-fit mx-auto'
             >
-              <FormattedMessage
-                id='page.our-work.section.design-samples.cta-button.label'
-                defaultMessage='View our branding work'
-              />
+              {intl.formatMessage({
+                id: 'page.our-work.section.design-samples.cta-button.label',
+                defaultMessage: 'View our branding work',
+              })}
             </DarkButton>
           </div>
         </div>

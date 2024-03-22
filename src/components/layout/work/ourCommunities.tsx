@@ -1,4 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
@@ -19,8 +19,15 @@ const BOTTOM_DECORATION_SQUARES = [
 const redditLink = 'https://reddit.com/r/vegan';
 const discordLink = 'https://aramovement.org';
 
+const intlCache = createIntlCache();
+
 const OurCommunities: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
 
   const redditMembers = intl.formatMessage(
     {
@@ -48,10 +55,11 @@ const OurCommunities: React.FC = () => {
       <div className='relative w-full overflow-hidden text-xl text-white bg-[#292929] py-20  px-5'>
         <SectionHeader header={['Our', 'COMMUNITIES']}>
           <p className='text-xl'>
-            <FormattedMessage
-              id='page.our-work.section.our-communities.section-header.content'
-              defaultMessage='We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism'
-            />
+            {intl.formatMessage({
+              id: 'page.our-work.section.our-communities.section-header.content',
+              defaultMessage:
+                'We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism',
+            })}
           </p>
         </SectionHeader>
         <div className='relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8'>
@@ -63,10 +71,11 @@ const OurCommunities: React.FC = () => {
 
               <div className='font-bold'>
                 <a href={redditLink} target='_blank' rel='noreferrer'>
-                  <FormattedMessage
-                    id='page.our-work.section.our-communities.cta.reddit'
-                    defaultMessage='Vegans of <no-localization>Reddit</no-localization>'
-                  />
+                  {intl.formatMessage({
+                    id: 'page.our-work.section.our-communities.cta.reddit',
+                    defaultMessage:
+                      'Vegans of <no-localization>Reddit</no-localization>',
+                  })}
                 </a>
               </div>
               <div>{redditMembers}</div>
@@ -79,10 +88,11 @@ const OurCommunities: React.FC = () => {
               </div>
               <div className='font-bold'>
                 <a href={discordLink} target='_blank' rel='noreferrer'>
-                  <FormattedMessage
-                    id='page.our-work.section.our-communities.cta.animal-rights-advocates'
-                    defaultMessage='<no-localization>Animal Rights Advocates</no-localization>'
-                  />
+                  {intl.formatMessage({
+                    id: 'page.our-work.section.our-communities.cta.animal-rights-advocates',
+                    defaultMessage:
+                      '<no-localization>Animal Rights Advocates</no-localization>',
+                  })}
                 </a>
               </div>
               <div>{araMembers}</div>

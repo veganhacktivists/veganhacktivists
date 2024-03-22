@@ -1,4 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import family from '../../../../public/images/yearInReview/2022/vh-family.jpg';
 import malina from '../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
@@ -23,9 +23,14 @@ const BOTTOM_DECORATION_SQUARES = [
     size: 16,
   },
 ];
-
+const intlCache = createIntlCache();
 const SharingKnowledgeAndSupport: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <>
       <SquareField
@@ -43,17 +48,19 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               stackEntries
             >
               <p className='text-xl max-w-prose'>
-                <FormattedMessage
-                  id='page.our-work.section.sharing-knowledge-and-support.section-header.content'
-                  defaultMessage="We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
-                  values={{
-                    link: (chunk) => (
-                      <CustomLink href='https://instagram.com/veganhacktivists'>
-                        {chunk}
-                      </CustomLink>
-                    ),
-                  }}
-                />
+                {intl.formatMessage(
+                  {
+                    id: 'page.our-work.section.sharing-knowledge-and-support.section-header.content',
+                    defaultMessage:
+                      "We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!",
+                  },
+                  // {
+                  //   link: (chunk) => (
+                  //     <CustomLink href='https://instagram.com/veganhacktivists'>
+                  //       {chunk}
+                  //     </CustomLink>
+                  //   )},
+                )}
               </p>
             </SectionHeader>
           </div>

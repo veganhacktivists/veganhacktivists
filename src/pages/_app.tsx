@@ -4,7 +4,7 @@ import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
-import { useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import useOnce from '../hooks/useOnce';
 
@@ -74,8 +74,19 @@ const getSeo = (intl: IntlShape): DefaultSeoProps => ({
     cardType: 'summary_large_image',
   },
 });
-
-const AppDefaultSeo = () => <DefaultSeo {...getSeo(useIntl())} />;
+const intlCache = createIntlCache();
+const AppDefaultSeo = () => (
+  <DefaultSeo
+    {...getSeo(
+      createIntl(
+        {
+          locale: 'en',
+        },
+        intlCache,
+      ),
+    )}
+  />
+);
 
 const AppWrapper: React.FC<
   React.PropsWithChildren<{ session: Session | null }>

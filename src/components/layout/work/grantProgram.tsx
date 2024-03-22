@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import Bee from '../../../../public/images/yearInReview/2022/bee.png';
 import GrantApplicants from '../../../../public/images/yearInReview/2022/grant-applicants.png';
@@ -21,7 +21,16 @@ const TOP_DECORATION_SQUARES = [
   },
 ];
 
+const intlCache = createIntlCache();
+
 const GrantProgram: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
+
   return (
     <>
       <SquareField squares={TOP_DECORATION_SQUARES} />
@@ -42,16 +51,17 @@ const GrantProgram: React.FC = () => {
                 >
                   <div className='space-y-10'>
                     <p className='text-xl text-left'>
-                      <FormattedMessage
-                        id='page.our-work.section.grant-program.section-header.content'
-                        defaultMessage='Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date.'
-                      />
+                      {intl.formatMessage({
+                        id: 'page.our-work.section.grant-program.section-header.content',
+                        defaultMessage:
+                          'Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date.',
+                      })}
                     </p>
                     <DarkButton href='/grants' className='w-full lg:w-1/2'>
-                      <FormattedMessage
-                        id='page.our-work.section.grant-program.section-header.learn-more.cta-button.label'
-                        defaultMessage='Learn more'
-                      />
+                      {intl.formatMessage({
+                        id: 'page.our-work.section.grant-program.section-header.learn-more.cta-button.label',
+                        defaultMessage: 'Learn more',
+                      })}
                     </DarkButton>
                   </div>
                 </SectionHeader>
@@ -69,10 +79,10 @@ const GrantProgram: React.FC = () => {
                     <AnimatedNumber number={149} />
                   </span>
                   <span className='text-3xl leading-[1.25rem]'>
-                    <FormattedMessage
-                      id='page.our-work.section.grant-program.section-header.applicants.cta-button.label'
-                      defaultMessage='Applicants'
-                    />
+                    {intl.formatMessage({
+                      id: 'page.our-work.section.grant-program.section-header.applicants.cta-button.label',
+                      defaultMessage: 'Applicants',
+                    })}
                   </span>
                 </div>
               </div>
@@ -85,10 +95,10 @@ const GrantProgram: React.FC = () => {
                     <AnimatedNumber prefix='$' number={72584} />
                   </span>
                   <span className='text-3xl leading-[1.25rem]'>
-                    <FormattedMessage
-                      id='page.our-work.section.grant-program.seed-funding-granted'
-                      defaultMessage='Seed Funding granted'
-                    />
+                    {intl.formatMessage({
+                      id: 'page.our-work.section.grant-program.seed-funding-granted',
+                      defaultMessage: 'Seed Funding granted',
+                    })}
                   </span>
                 </div>
               </div>
@@ -101,10 +111,10 @@ const GrantProgram: React.FC = () => {
                     <AnimatedNumber prefix='$' number={170000} />
                   </span>
                   <span className='text-3xl leading-[1.25rem]'>
-                    <FormattedMessage
-                      id='page.our-work.section.grant-program.funded-by-direct-recommendation'
-                      defaultMessage='Funded by direct recommendation'
-                    />
+                    {intl.formatMessage({
+                      id: 'page.our-work.section.grant-program.funded-by-direct-recommendation',
+                      defaultMessage: 'Funded by direct recommendation',
+                    })}
                   </span>
                 </div>
               </div>

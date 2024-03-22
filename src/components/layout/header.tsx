@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
@@ -14,6 +14,8 @@ import logoBig from '../../../public/images/VH_Logo_Loop.json';
 import { LocaleSelector } from './localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
+
+const intlCache = createIntlCache();
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
@@ -84,7 +86,12 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 };
 
 const NavbarItems: React.FC = () => {
-  const intl = useIntl();
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
 
   const navItemRouteLabelMapping = {
     about: intl.formatMessage({
@@ -128,28 +135,28 @@ const NavbarItems: React.FC = () => {
         href={'/join'}
         className='font-bold bg-gray hover:bg-gray-dark'
       >
-        <FormattedMessage
-          id='layout.header.navigation-item.join.label'
-          defaultMessage='Join'
-        />
+        {intl.formatMessage({
+          id: 'layout.header.navigation-item.join.label',
+          defaultMessage: 'Join',
+        })}
       </NavBarItem>
       <NavBarItem
         href={'/support'}
         className='font-bold bg-pink hover:bg-pink-dark'
       >
-        <FormattedMessage
-          id='layout.header.navigation-item.donate.label'
-          defaultMessage='Donate'
-        />
+        {intl.formatMessage({
+          id: 'layout.header.navigation-item.donate.label',
+          defaultMessage: 'Donate',
+        })}
       </NavBarItem>
       <NavBarItem
         href={'/playground'}
         className='font-bold bg-green hover:bg-green-dark'
       >
-        <FormattedMessage
-          id='layout.header.navigation-item.playground.label'
-          defaultMessage='Get Help'
-        />
+        {intl.formatMessage({
+          id: 'layout.header.navigation-item.playground.label',
+          defaultMessage: 'Get Help',
+        })}
       </NavBarItem>
       <a
         className='p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark'

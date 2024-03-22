@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 
 import playgroundLogo from '../../../../public/images/playground/VH_Playground_Logo_Full.png';
 import { PlaygroundStats } from '../playground/layout';
@@ -7,6 +9,8 @@ import { PlaygroundStats } from '../playground/layout';
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { LightButton } from 'components/decoration/buttons';
+
+import type { ReactNode } from 'react';
 
 const TOP_DECORATION_SQUARES = [
   { color: '#454545', size: 16, left: 0, top: 0 },
@@ -27,8 +31,14 @@ const BOTTOM_DECORATION_SQUARES = [
     size: 16,
   },
 ];
-
+const intlCache = createIntlCache();
 const Playground: React.FC = () => {
+  const intl = createIntl(
+    {
+      locale: 'en',
+    },
+    intlCache,
+  );
   return (
     <>
       <SquareField
@@ -42,13 +52,16 @@ const Playground: React.FC = () => {
             <CustomImage src={playgroundLogo} alt='VH Playground' />
           </div>
           <div className='text-lg space-y-3 mx-auto'>
-            <FormattedMessage
-              id='page.our-work.section.playground.introduction'
-              defaultMessage='<p><no-localization>Playground</no-localization> was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>'
-              values={{
-                p: (chunk) => <p>{chunk}</p>,
-              }}
-            />
+            {intl.formatMessage(
+              {
+                id: 'page.our-work.section.playground.introduction',
+                defaultMessage:
+                  '<p><no-localization>Playground</no-localization> was our response to meet the overwhelming demand of tech and design support in our movement, while staying sustainable as an organization with limited capacity. We prioritized automating the process of connecting organizations with technical, design, and other support needs with skilled volunteers.</p> <p>Beyond design and software development, these volunteers are professionals with a wide array of skills and backgrounds in data science, videography, marketing, security, research, and much more.</p>',
+              },
+              {
+                p: (chunk: ReactNode) => <p>{chunk}</p>,
+              },
+            )}
           </div>
           <div className='flex flex-col md:flex-row mx-auto justify-center gap-5 py-6'>
             <PlaygroundStats skipOpenRequests />
@@ -56,10 +69,10 @@ const Playground: React.FC = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 md:w-fit mx-auto gap-9 pt-4'>
             <LightButton href='/playground' className='mx-auto w-full md:w-fit'>
               <span className='px-4'>
-                <FormattedMessage
-                  id='page.our-work.section.playground.playground.cta-button.label'
-                  defaultMessage='Volunteer'
-                />
+                {intl.formatMessage({
+                  id: 'page.our-work.section.playground.playground.cta-button.label',
+                  defaultMessage: 'Volunteer',
+                })}
               </span>
             </LightButton>
             <LightButton
@@ -67,10 +80,10 @@ const Playground: React.FC = () => {
               className='mx-auto w-full md:w-fit'
             >
               <span className='px-4'>
-                <FormattedMessage
-                  id='page.our-work.section.playground.create-request.cta-button.label'
-                  defaultMessage='Get Support'
-                />
+                {intl.formatMessage({
+                  id: 'page.our-work.section.playground.create-request.cta-button.label',
+                  defaultMessage: 'Get Support',
+                })}
               </span>
             </LightButton>
           </div>
