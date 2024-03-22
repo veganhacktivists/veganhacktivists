@@ -56,7 +56,6 @@ const Page = async () => {
 
   return (
     <>
-      <p>test</p>
       <WorkHero />
       <OurWork />
       <FeaturedProjects featuredProjects={featuredProjects} />
