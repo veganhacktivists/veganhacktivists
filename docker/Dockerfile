@@ -1,4 +1,4 @@
-FROM node:node:20.9.0-alpine3.18 AS base
+FROM node:20.9.0-alpine3.18 AS base
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG PNPM_VERSION=8.6.0
 ARG CI=1
