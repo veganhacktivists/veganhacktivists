@@ -10,8 +10,7 @@ RUN pnpm config set store-dir ./.pnpm-store
 
 # Install dependencies only when needed
 FROM base AS builder
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-# RUN apk add --no-cache libc6-compat
+
 ENV CI=1
 
 COPY pnpm-lock.yaml ./
@@ -33,8 +32,7 @@ ARG PATREON_ACCESS_TOKEN
 ARG PATREON_CAMPAIGN_ID
 ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
 ENV NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID=${GOOGLE_TAG_MANAGER_CONTAINER_ID}
-# https://nextjs.org/docs/messages/sharp-missing-in-production
-ENV NEXT_SHARP_PATH=/app/node_modules/sharp
+
 RUN pnpm build
 
 # Production image, copy all the files and run next
@@ -44,6 +42,8 @@ RUN apk add --no-cache tini
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 ENV NODE_ENV=production
+# https://nextjs.org/docs/messages/sharp-missing-in-production
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 
 EXPOSE ${PORT}
 
