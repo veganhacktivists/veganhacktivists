@@ -11,9 +11,6 @@ import type { PlaygroundRequest } from '@prisma/client';
 const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
 
 export async function rejectOldRequestsWithoutApplicantsTask() {
-  const startTimeStamp = Date.now();
-  console.info('enter rejectOldRequestsWithoutApplicantsTask', startTimeStamp);
-
   const thirtyDaysAgo = new Date(Date.now() - THIRTY_DAYS_IN_MS);
 
   const oldRequests = await prisma.playgroundRequest.findMany({
@@ -48,7 +45,7 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
     (request) => !request._count.applications,
   );
 
-  const results = await Promise.all(
+  await Promise.all(
     oldRequestsWithoutApplications.map(async (request) => {
       const success = await sendAutomaticallyRejectedEmail(request);
       if (!success) {
@@ -67,6 +64,7 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
 
         return true;
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(
           'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
           request,
@@ -76,16 +74,6 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
         return false;
       }
     }),
-  );
-
-  const successfulRejections = results.filter(Boolean).length;
-  const failedRejections = results.length - successfulRejections;
-
-  console.info(
-    'exit rejectOldRequestsWithoutApplicantsTask',
-    `successfulRejections ${successfulRejections}`,
-    `failedRejections ${failedRejections}`,
-    startTimeStamp,
   );
 }
 
@@ -108,6 +96,7 @@ const sendAutomaticallyRejectedEmail = async (
 
     return true;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(
       'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
       request,

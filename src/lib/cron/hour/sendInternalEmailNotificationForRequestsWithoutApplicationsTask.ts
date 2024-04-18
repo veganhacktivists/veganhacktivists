@@ -17,12 +17,6 @@ import type { PlaygroundRequest } from '@prisma/client';
 const FOURTEEN_DAYS_IN_MS = 14 * 24 * 60 * 60 * 1000;
 
 export async function sendInternalEmailNotificationForRequestsWithoutApplicationsTask() {
-  const startTimeStamp = Date.now();
-  console.info(
-    'enter sendInternalEmailNotificationForRequestsWithoutApplicationsTask',
-    startTimeStamp,
-  );
-
   const fourteenDaysAgo = new Date(Date.now() - FOURTEEN_DAYS_IN_MS);
 
   const activeRequests = await prisma.playgroundRequest.findMany({
@@ -72,6 +66,7 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
 
         return true;
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(
           'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: update db noApplicationsNotificationEmailSent failed for request',
           request,
@@ -86,12 +81,12 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   const successfulRejections = results.filter(Boolean).length;
   const failedRejections = results.length - successfulRejections;
 
-  console.info(
-    'exit sendInternalEmailNotificationForRequestsWithoutApplicationsTask',
-    `successfully sent ${successfulRejections} emails.`,
-    `failed to send ${failedRejections} emails,`,
-    startTimeStamp,
-  );
+  if (failedRejections > 0) {
+    // eslint-disable-next-line no-console
+    console.error(
+      `sendInternalEmailNotificationForRequestsWithoutApplicationsTask: failed to send ${failedRejections} emails`,
+    );
+  }
 }
 
 const sendInternalEmailForRequestsWithoutApplications = async (
@@ -130,6 +125,7 @@ const sendInternalEmailForRequestsWithoutApplications = async (
 
     return true;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(
       'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
       request,

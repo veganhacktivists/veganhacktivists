@@ -11,9 +11,6 @@ import type { PlaygroundRequest } from '@prisma/client';
 const WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000;
 
 export async function requestPlaygroundApplicantFeedbackTask() {
-  const startTimeStamp = Date.now();
-  console.info('enter requestPlaygroundApplicantFeedbackTask', startTimeStamp);
-
   const oneWeekAgo = new Date(Date.now() - WEEK_IN_MS);
 
   const applicationsReadyForFeedback =
@@ -63,12 +60,12 @@ export async function requestPlaygroundApplicantFeedbackTask() {
   const failedFeedbackRequests =
     applicationsReadyForFeedback.length - successfulFeedbackRequests;
 
-  console.info(
-    'exit requestPlaygroundApplicantFeedbackTask',
-    `successfully sent ${successfulFeedbackRequests} emails.`,
-    `failed to send ${failedFeedbackRequests} emails,`,
-    startTimeStamp,
-  );
+  if (failedFeedbackRequests > 0) {
+    // eslint-disable-next-line no-console
+    console.error(
+      `requestPlaygroundApplicantFeedbackTask: failed to send ${failedFeedbackRequests} emails`,
+    );
+  }
 }
 
 const sendFeedbackRequestEmail = (
