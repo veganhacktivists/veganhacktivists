@@ -1,24 +1,22 @@
-ARG IMAGE=node:20.9.0-alpine3.18
-
-FROM ${IMAGE} AS base
-WORKDIR /app
+FROM node:node:20.9.0-alpine3.18 AS base
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG PNPM_VERSION=8.6.0
+ARG CI=1
 
-RUN npm install --location=global pnpm@${PNPM_VERSION}
-RUN pnpm config set store-dir ./.pnpm-store
 
-# Install dependencies only when needed
+FROM base AS deps
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml* ./
+RUN corepack enable pnpm && pnpm i --frozen-lockfile
+
+
 FROM base AS builder
+WORKDIR /app
 
-ENV CI=1
-
-COPY pnpm-lock.yaml ./
-RUN pnpm fetch
+COPY --from=deps /app/node_modules ./node_modules
 
 COPY . .
-
-RUN pnpm install --offline --no-optional --no-verify-store-integrity
 
 ARG DATABASE_URL
 RUN pnpm prisma generate
@@ -33,7 +31,7 @@ ARG PATREON_CAMPAIGN_ID
 ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
 ENV NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID=${GOOGLE_TAG_MANAGER_CONTAINER_ID}
 
-RUN pnpm build
+RUN corepack enable pnpm && pnpm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -50,6 +48,10 @@ EXPOSE ${PORT}
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
+
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
