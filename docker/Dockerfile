@@ -18,6 +18,8 @@ COPY --from=deps /app/node_modules ./node_modules
 
 COPY . .
 
+RUN corepack enable pnpm
+
 ARG DATABASE_URL
 RUN pnpm prisma generate
 RUN pnpm prisma migrate deploy
@@ -31,7 +33,8 @@ ARG PATREON_CAMPAIGN_ID
 ARG GOOGLE_TAG_MANAGER_CONTAINER_ID
 ENV NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID=${GOOGLE_TAG_MANAGER_CONTAINER_ID}
 
-RUN corepack enable pnpm && pnpm run build
+RUN pnpm run build
+
 
 # Production image, copy all the files and run next
 FROM base AS runner
