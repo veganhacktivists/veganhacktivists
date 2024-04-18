@@ -40,8 +40,6 @@ RUN apk add --no-cache tini
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 ENV NODE_ENV=production
-# https://nextjs.org/docs/messages/sharp-missing-in-production
-ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 
 EXPOSE ${PORT}
 
