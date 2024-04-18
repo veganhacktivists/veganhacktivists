@@ -38,6 +38,9 @@ RUN pnpm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
+WORKDIR /app
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
+
 RUN apk add --no-cache tini
 
 RUN addgroup --system --gid 1001 nodejs
@@ -58,6 +61,8 @@ RUN chown nextjs:nodejs .next
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+
 
 USER nextjs
 
