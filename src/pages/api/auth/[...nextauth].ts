@@ -19,9 +19,11 @@ const sendVerificationRequest = async (
   params: SendVerificationRequestParams,
 ) => {
   const { identifier, url } = params;
-  const { searchParams } = new URL(url);
-  // the current url
-  const callbackUrl = searchParams.get('callbackUrl');
+
+  const verifyUrl = new URL(url);
+  verifyUrl.pathname = '/auth/verify-login';
+
+  const callbackUrl = verifyUrl.searchParams.get('callbackUrl');
   const getMailBody = callbackUrl?.includes('signin')
     ? verificationMail
     : verifyRequestEmail;
@@ -30,8 +32,8 @@ const sendVerificationRequest = async (
     to: identifier,
     from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
-    text: getMailBody(url, true),
-    html: getMailBody(url),
+    text: getMailBody(verifyUrl.href, true),
+    html: getMailBody(verifyUrl.href),
   });
 };
 
