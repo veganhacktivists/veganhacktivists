@@ -24,8 +24,8 @@ const ProvegIncubator: React.FC = () => {
       />
 
       <div className='mx-auto w-fit'>
-        <div className='flex flex-col pb-32 pt-20 px-5 text-left lg:max-w-[1400px] lg:mx-auto'>
-          <div className='flex flex-col lg:flex-row items-center justify-start gap-20 lg:gap-40 mt-10 lg:mt-20'>
+        <div className='flex flex-col pb-32 pt-20 px-5 text-left lg:max-w-[1000px] lg:mx-auto'>
+          <div className='flex flex-col lg:flex-row items-center justify-start gap-20 mt-10 lg:mt-20'>
             <div className='max-w-prose space-y-10 lg:basis-[50%]'>
               <SectionHeader
                 header={intl.formatMessage({
