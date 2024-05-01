@@ -16,6 +16,7 @@ import SharingKnowledgeAndSupport from 'components/layout/work/sharingKnowledgeA
 import LikeWhatYouSee from 'components/layout/work/likeWhatYouSee';
 import { getFeaturedProjects } from 'lib/cms/helpers';
 import { getContents } from 'lib/cms';
+import ProvegIncubator from 'components/layout/work/provegIncubator';
 
 import type { IProject, IProjectFields } from 'types/generated/contentful';
 import type { InferGetStaticPropsType } from 'next';
@@ -81,6 +82,8 @@ const Work = ({
       <StateOfData />
 
       <GrantProgram />
+
+      <ProvegIncubator />
 
       <Playground />
 
