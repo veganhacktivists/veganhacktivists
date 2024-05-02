@@ -37,7 +37,8 @@ const ProvegIncubator: React.FC = () => {
                 <p className='text-xl'>
                   <FormattedMessage
                     id='page.our-work.section.proveg-incubator.content'
-                    defaultMessage='Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good Incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!'
+                    defaultMessage='Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good Incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!'
+                    values={{ break: <br /> }}
                   />
                 </p>
               </SectionHeader>

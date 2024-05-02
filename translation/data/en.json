@@ -794,6 +794,15 @@
   "page.our-work.section.playground.playground.cta-button.label": {
     "message": "Volunteer"
   },
+  "page.our-work.section.proveg-incubator.content": {
+    "message": "Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good Incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!"
+  },
+  "page.our-work.section.proveg-incubator.cta": {
+    "message": "Apply now"
+  },
+  "page.our-work.section.proveg-incubator.section-header.headline": {
+    "message": "<b>ACCELERATE YOUR AI IDEA FOR ANIMALS</b>"
+  },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
     "message": "<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference"
   },
@@ -1225,6 +1234,18 @@
   },
   "page.support.section.violet-studios.headline": {
     "message": "Support Two Orgs At Once"
+  },
+  "page.verify-login.button.verify": {
+    "message": "Verify"
+  },
+  "page.verify-login.error.invalid-request": {
+    "message": "Invalid request"
+  },
+  "page.verify-login.headline": {
+    "message": "Login verification"
+  },
+  "page.verify-login.intro": {
+    "message": "Click the button below to verify your login"
   },
   "page.verify-request.button.go-back": {
     "message": "Go back"
