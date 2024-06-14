@@ -12,4 +12,5 @@ docker
 getContentfulEnvironment.js
 LICENSE
 node_modules
+prisma/seed.ts
 README.md
