@@ -4,7 +4,6 @@
 .gitignore
 .husky
 .next
-.next
 *-debug.log
 *-error.log
 *docker-compose*
@@ -13,5 +12,4 @@ docker
 getContentfulEnvironment.js
 LICENSE
 node_modules
-prisma/seed.ts
 README.md
