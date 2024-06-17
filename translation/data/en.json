@@ -41,6 +41,9 @@
   "layout.footer.navigation-item.people.team.label": {
     "message": "Our Team"
   },
+  "layout.footer.navigation-item.privacy-policy.label": {
+    "message": "Privacy Policy"
+  },
   "layout.footer.navigation-item.services.label": {
     "message": "Services"
   },
