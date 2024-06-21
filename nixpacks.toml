@@ -5,4 +5,4 @@ cmds = [
 ]
 
 [start]
-cmd = "corepack enable && pnpm prisma migrate deploy && pnpm run start"
+cmd = "pnpm run start"
