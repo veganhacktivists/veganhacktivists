@@ -5,4 +5,4 @@ cmds = [
 ]
 
 [start]
-cmd = "npm prisma migrate deploy && npm run start"
+cmd = "tail -f /dev/null"
