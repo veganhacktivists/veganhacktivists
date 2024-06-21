@@ -3,3 +3,6 @@ cmds = [
   "pnpm prisma generate",
   "..."
 ]
+
+[start]
+cmd = "npm prisma migrate deploy && npm run start"
