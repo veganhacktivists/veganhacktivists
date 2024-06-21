@@ -106,6 +106,13 @@ const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
     }),
     href: '/join',
   },
+  {
+    label: intl.formatMessage({
+      id: 'layout.footer.navigation-item.privacy-policy.label',
+      defaultMessage: 'Privacy Policy',
+    }),
+    href: '/privacy-policy',
+  },
 ];
 
 const MyLink: React.FC<ILinks & { level?: number }> = ({
