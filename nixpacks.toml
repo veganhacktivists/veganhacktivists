@@ -5,4 +5,4 @@ cmds = [
 ]
 
 [start]
-cmd = "tail -f /dev/null"
+cmd = "pnpm prisma migrate deploy && pnpm run start"
