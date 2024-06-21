@@ -3,6 +3,3 @@ cmds = [
   "pnpm prisma generate",
   "..."
 ]
-
-[start]
-cmd = "pnpm run start"
