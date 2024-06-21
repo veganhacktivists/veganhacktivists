@@ -137,6 +137,7 @@
     "contentful-management": "^10.20.1",
     "contentful-typescript-codegen": "^3.2.3"
   },
+  "packageManager": "pnpm@9.4.0",
   "engines": {
     "pnpm": ">=8.0.0"
   }
