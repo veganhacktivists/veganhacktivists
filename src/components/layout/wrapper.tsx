@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import useErrorStore from '../../lib/stores/errorStore';
 import ErrorPage from '../../pages/_error';
@@ -39,10 +41,10 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   const error = useErrorStore((state) => state.error);
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   const hideNewsletter =
-    error || asPath === '/handbook' || asPath.startsWith('/handbook/');
+    error || pathname === '/handbook' || pathname?.startsWith('/handbook/');
 
   return (
     <main id='main' className='text-center min-h-[40rem]' tabIndex={-1}>

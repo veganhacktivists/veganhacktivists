@@ -1,11 +1,12 @@
+'use server';
+
 import Link from 'next/link';
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import { DarkButton } from '../../decoration/buttons';
 import ContentfulImage from '../contentfulImage';
 
-import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
+import LocalizedContentfulEntryField from 'app/_localization/LocalizedContentfulEntryField';
+import getServerIntl from 'app/intl';
 
 import type { IBlogEntry } from '../../../types/generated/contentful';
 
@@ -23,7 +24,12 @@ export const Body: React.FC<React.PropsWithChildren> = ({ children }) => {
   return <>{children}</>;
 };
 
-export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
+export const Sidebar: React.FC<{
+  locale: string;
+  blogs: IBlogEntry[];
+}> = ({ blogs, locale }) => {
+  const intl = getServerIntl(locale);
+
   return (
     <div className='bg-grey-background mb-10 h-full'>
       {blogs.map((blog) => {
@@ -43,16 +49,17 @@ export const Sidebar: React.FC<{ blogs: IBlogEntry[] }> = ({ blogs }) => {
                     contentfulId={blog.sys.id}
                     fieldId='title'
                     contentType='blogEntry'
+                    locale={locale}
                   />
                 </div>
               </Link>
             </div>
 
             <DarkButton href={`/blog/${slug}`} className='w-full'>
-              <FormattedMessage
-                id='page.blog.section.blog-page.btn.read-more'
-                defaultMessage='Read more'
-              />
+              {intl.formatMessage({
+                id: 'page.blog.section.blog-page.btn.read-more',
+                defaultMessage: 'Read more',
+              })}
             </DarkButton>
           </div>
         );

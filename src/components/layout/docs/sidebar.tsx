@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -34,13 +36,7 @@ const Documentation: React.FC<DocumentationProps> = ({
 
   return (
     <li>
-      <Link
-        href={{
-          pathname: '/handbook/[category]/[section]',
-          query: { category: categorySlug, section: sectionSlug },
-          hash: slug,
-        }}
-      >
+      <Link href={`/handbook/${categorySlug}/${sectionSlug}/#${slug}`}>
         <div
           onClick={() => {
             setCurrentDocSlug(slug);
@@ -95,12 +91,7 @@ const Section: React.FC<SectionProps> = ({
       style={{ borderColor: isSelected ? color : lightGrey }}
       ref={sectionRef}
     >
-      <Link
-        href={{
-          pathname: '/handbook/[category]/[section]',
-          query: { category: categorySlug, section: slug },
-        }}
-      >
+      <Link href={`/handbook/${categorySlug}/${slug}`}>
         <div className='py-1 text-xl font-bold cursor-pointer'>{title}</div>
       </Link>
 

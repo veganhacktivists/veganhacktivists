@@ -1,14 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-import type { NextPageContext } from 'next';
-
-export const getInitialProps = ({ locale }: NextPageContext) => {
-  return {
-    props: { locale },
-  };
-};
-
-const Document = ({ locale }: { locale: string }) => {
+const Document = ({
+  __NEXT_DATA__: {
+    query: { locale },
+  },
+}: {
+  __NEXT_DATA__: { query: { locale: string } };
+}) => {
   return (
     <Html lang={locale}>
       <Head>

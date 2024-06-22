@@ -11,12 +11,14 @@ import useOnce from '../hooks/useOnce';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
-import { trpc } from 'lib/client/trpc';
 import { TranslationProvider } from 'lib/translation/TranslationProvider';
-
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/fonts.css';
+import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import { messages } from 'lib/translation/messages';
+import { TRPCReactProvider } from 'trpc/react';
+
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
@@ -80,15 +82,19 @@ const AppDefaultSeo = () => <DefaultSeo {...getSeo(useIntl())} />;
 const AppWrapper: React.FC<
   React.PropsWithChildren<{ session: Session | null }>
 > = ({ children, session }) => {
+  const locale = useRouterLocale();
+
   return (
-    <SessionProvider session={session}>
-      <CookiesProvider>
-        <TranslationProvider>
-          <AppDefaultSeo />
-          {children}
-        </TranslationProvider>
-      </CookiesProvider>
-    </SessionProvider>
+    <TRPCReactProvider>
+      <SessionProvider session={session}>
+        <CookiesProvider>
+          <TranslationProvider locale={locale} messages={messages[locale]}>
+            <AppDefaultSeo />
+            {children}
+          </TranslationProvider>
+        </CookiesProvider>
+      </SessionProvider>
+    </TRPCReactProvider>
   );
 };
 
@@ -150,4 +156,4 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
   );
 };
 
-export default trpc.withTRPC(MyApp);
+export default MyApp;

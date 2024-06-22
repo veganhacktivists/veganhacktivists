@@ -1,12 +1,14 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { usePathname } from 'next/navigation';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
@@ -17,7 +19,7 @@ import CustomImage from 'components/decoration/customImage';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const isRootPage = pathname === '/';
 
   return (
@@ -65,9 +67,9 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   href,
   className = '',
 }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
-  const active = pathname.startsWith(href);
+  const active = pathname?.startsWith(href);
 
   const classes = classNames(
     'p-5 py-6 transition duration-500 text-center whitespace-nowrap xl:max-w-[15rem] truncate',
@@ -169,21 +171,18 @@ const NavbarItems: React.FC = () => {
 };
 
 const RightSide: React.FC = () => {
-  const router = useRouter();
-
   const menuInputCheckRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      if (!menuInputCheckRef.current) return;
-      menuInputCheckRef.current.checked = false;
-    };
+  const pathname = usePathname();
 
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-    };
-  }, [router.events]);
+  useEffect(() => {
+    if (
+      menuInputCheckRef.current &&
+      menuInputCheckRef.current.checked !== false
+    ) {
+      menuInputCheckRef.current.checked = false;
+    }
+  }, [pathname]);
 
   const buttonMenuId = 'menu-button';
 
@@ -223,7 +222,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className='z-20 flex w-full'>
+    <nav className='relative z-20 flex w-full'>
       <LeftSide />
       <RightSide />
     </nav>

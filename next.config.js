@@ -26,12 +26,16 @@ const nextConfig = {
       exclude: ['error', 'info', 'warn'],
     },
   },
-  i18n: {
-    locales: ['en' /**, 'de', 'zh', 'dev' */],
-    defaultLocale: 'en',
+  experimental: {
+    serverComponentsExternalPackages: [
+      // remove when the wrapper is removed
+      'wrap-react-dom-server',
 
-    // disable localeDetection to avoid automatic redirects until the translation feature is fully integrated
-    localeDetection: false,
+      'mjml',
+      'snoowrap',
+      'discord.js',
+      'mailgun.js',
+    ],
   },
   redirects() {
     return [
