@@ -1,8 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import '@fontsource/pt-sans/500.css';
-import '@fontsource/bitter';
-import '@fontsource/rajdhani';
-
 import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
