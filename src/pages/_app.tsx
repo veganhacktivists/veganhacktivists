@@ -16,7 +16,6 @@ import { TranslationProvider } from 'lib/translation/TranslationProvider';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import '../styles/fonts.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
