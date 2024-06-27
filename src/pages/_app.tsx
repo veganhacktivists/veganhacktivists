@@ -1,4 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import '@fontsource/pt-sans/500.css';
+import '@fontsource/bitter';
+import '@fontsource/rajdhani';
+
 import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import TagManager from 'react-gtm-module';
@@ -16,7 +20,6 @@ import { TranslationProvider } from 'lib/translation/TranslationProvider';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import '../styles/fonts.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
