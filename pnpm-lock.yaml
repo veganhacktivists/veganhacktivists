@@ -17,15 +17,6 @@ importers:
       '@floating-ui/react-dom-interactions':
         specifier: ^0.9.3
         version: 0.9.3(@types/react@18.0.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@fontsource/bitter':
-        specifier: ^5.0.18
-        version: 5.0.18
-      '@fontsource/pt-sans':
-        specifier: ^5.0.13
-        version: 5.0.13
-      '@fontsource/rajdhani':
-        specifier: ^5.0.13
-        version: 5.0.13
       '@formatjs/cli-lib':
         specifier: ^6.3.6
         version: 6.3.6
@@ -1135,15 +1126,6 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
-
-  '@fontsource/bitter@5.0.18':
-    resolution: {integrity: sha512-DUqaee8bFGXpPwROxXl2A1TM/uMUb7+FllcMjWodYTXqT0dgmp8P91shPhS2Z02YFD1Og8pp+Cu6LemsCWad0A==}
-
-  '@fontsource/pt-sans@5.0.13':
-    resolution: {integrity: sha512-wINZg2k2SFdBEYFt3N1LQJBQtlzqhq9t1TrZPB+ChWIkoA3UQCrpc1Go9I8xeL85vk/mqwaw6EJX5ce9rNF2sw==}
-
-  '@fontsource/rajdhani@5.0.13':
-    resolution: {integrity: sha512-nFvAW3AVXz6xQ0m0X/XWb3qoEd/rFd59XPEgdZCPEQBb02FluTVqTdqCUPmKxp2Fnq32+BnSsB9JCUUbgu8BQA==}
 
   '@formatjs/cli-lib@6.3.6':
     resolution: {integrity: sha512-fb21oS6TWuM+AYhSeXSAZG7RCa6N4LmowkJnkD+GOrXADxJw+vzLIUmpL6+3j7Esog/Z0t6aUHuJaoy0upgUkw==}
@@ -7310,12 +7292,6 @@ snapshots:
       '@floating-ui/dom': 1.0.5
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-
-  '@fontsource/bitter@5.0.18': {}
-
-  '@fontsource/pt-sans@5.0.13': {}
-
-  '@fontsource/rajdhani@5.0.13': {}
 
   '@formatjs/cli-lib@6.3.6':
     dependencies:
