@@ -34,6 +34,7 @@ const middleware: NextMiddleware = async (request, event) => {
     if (autMwResponse) {
       return autMwResponse as NextResponse;
     }
+    return NextResponse.next();
   }
 
   return i18nRouter(request, i18nConfig);
@@ -43,6 +44,6 @@ export default middleware;
 
 export const config = {
   matcher: [
-    '/((?!api|fonts|_next/static|_next/image|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt).*)',
+    '/((?!api|fonts|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt).*)',
   ],
 };

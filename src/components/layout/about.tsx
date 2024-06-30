@@ -8,7 +8,7 @@ import heroBackground from '../../../public/images/VH-pigs-hero.jpg';
 import heroTagline from '../../../public/images/about/hero-tagline.png';
 import Sprite, { goat } from '../decoration/sprite';
 
-import { GrantsCallToAction } from './grants';
+import GrantsCallToAction from './grants/grantsCallToAction_pages';
 
 import type { Layout } from '../../types/persistentLayout';
 

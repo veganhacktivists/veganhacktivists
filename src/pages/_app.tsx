@@ -8,7 +8,7 @@ import { useIntl } from 'react-intl';
 
 import useOnce from '../hooks/useOnce';
 
-import Header from 'components/layout/header';
+import Header from 'components/layout/header/index_pages';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';
 import { TranslationProvider } from 'lib/translation/TranslationProvider';

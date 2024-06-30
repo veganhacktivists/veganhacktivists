@@ -1,3 +1,5 @@
+'use server';
+
 import Snoowrap from 'snoowrap';
 
 import { CATEGORY_LABELS } from '../../../prisma/constants';

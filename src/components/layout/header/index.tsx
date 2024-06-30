@@ -10,17 +10,18 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { usePathname } from 'next/navigation';
 
-import logoOneLine from '../../../public/images/VH-logo-white-text.png';
-import logoBig from '../../../public/images/VH_Logo_Loop.json';
+import logoOneLine from '../../../../public/images/VH-logo-white-text.png';
+import logoBig from '../../../../public/images/VH_Logo_Loop.json';
 
-import { LocaleSelector } from './localeSelector';
+import { LocaleSelector } from '../localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
   const pathname = usePathname();
-  const isRootPage = pathname === '/';
+  const locale = useIntl().locale;
+  const isRootPage = pathname === '/' || pathname === `/${locale}`;
 
   return (
     <div

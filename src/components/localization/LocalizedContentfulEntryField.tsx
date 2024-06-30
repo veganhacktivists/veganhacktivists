@@ -1,11 +1,12 @@
-import { type FC } from 'react';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+'use client';
 
-import { useContentfulLocalizationContext } from './useContentfulLocalizationContext';
+import { type FC, useEffect } from 'react';
 
+import { defaultLocale } from '../../../i18nConfig';
+
+import { api } from 'trpc/react';
+import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
 import { useRouterLocale } from 'lib/translation/useRouterLocale';
-import { trpc } from 'lib/client/trpc';
 
 export const useLocalizedContentfulEntryField = ({
   contentfulId,
@@ -16,15 +17,14 @@ export const useLocalizedContentfulEntryField = ({
   fieldId: string;
   contentType: string;
 }) => {
-  const { defaultLocale } = useRouter();
   const currentLocale = useRouterLocale();
 
   const { showLocalizedContent, registerChildLoadState } =
-    useContentfulLocalizationContext();
+    useDynamicTranslationStore();
 
-  const requestLocale = showLocalizedContent ? currentLocale : defaultLocale!;
+  const requestLocale = showLocalizedContent ? currentLocale : defaultLocale;
 
-  const localizedHTML = trpc.translation.getLocalizedHTML.useQuery(
+  const localizedHTML = api.translation.getLocalizedHTML.useQuery(
     {
       contentfulId,
       fieldId,

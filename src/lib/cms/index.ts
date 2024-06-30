@@ -1,4 +1,5 @@
 import { createClient } from 'contentful';
+import { cache } from 'react';
 
 import type { CONTENT_TYPE } from '../../types/generated/contentful';
 import type { Entry } from 'contentful';
@@ -14,9 +15,7 @@ export const previewClient = createClient({
   host: 'preview.contentful.com',
 });
 
-export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => {
-  return await client.getEntry(id);
-};
+export const getById: <T>(id: string) => Promise<Entry<T>> = async (id) => await client.getEntry(id);
 
 const normalizeFilter: (
   filterType: string,
@@ -39,24 +38,24 @@ export const getContents: <T>(options: {
   contentType: CONTENT_TYPE;
   query?: Record<string, unknown> & {
     filters?: Record<string, Record<string, unknown>> &
-      Partial<{
-        ne?: Record<string, unknown>;
-        exists?: Record<string, unknown>;
-        in?: Record<string, unknown>;
-        all?: Record<string, unknown>;
-      }>;
+    Partial<{
+      ne?: Record<string, unknown>;
+      exists?: Record<string, unknown>;
+      in?: Record<string, unknown>;
+      all?: Record<string, unknown>;
+    }>;
   };
   other?: Record<string, unknown> &
-    Partial<{
-      order: string | string[];
-      /**
-       * Levels of nesting
-       */
-      include: number;
-      limit: number;
-      skip: number;
-      select: string | string[];
-    }>;
+  Partial<{
+    order: string | string[];
+    /**
+     * Levels of nesting
+     */
+    include: number;
+    limit: number;
+    skip: number;
+    select: string | string[];
+  }>;
 }) => Promise<Entry<T>[]> = async ({ contentType, query = {}, other }) => {
   const { filters, ...eqFilter } = query;
 
@@ -98,26 +97,26 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
 
   const entries = entry.fields
     ? Object.entries(entry.fields)
-        .map(([key, value]) => {
-          let filteredValue;
-          if (Array.isArray(value)) {
-            if (typeof value[0] !== 'object' || !Array.isArray(value)) {
-              filteredValue = value;
-            } else {
-              filteredValue = value
-                .filter((child) => !!(child as Entry<unknown>).fields)
-                .map(removeEntriesWithoutFields);
-            }
-          } else if (value !== null && typeof value === 'object') {
-            filteredValue = removeEntriesWithoutFields(value as Entry<unknown>);
-          } else {
+      .map(([key, value]) => {
+        let filteredValue;
+        if (Array.isArray(value)) {
+          if (typeof value[0] !== 'object' || !Array.isArray(value)) {
             filteredValue = value;
+          } else {
+            filteredValue = value
+              .filter((child) => !!(child as Entry<unknown>).fields)
+              .map(removeEntriesWithoutFields);
           }
+        } else if (value !== null && typeof value === 'object') {
+          filteredValue = removeEntriesWithoutFields(value as Entry<unknown>);
+        } else {
+          filteredValue = value;
+        }
 
-          return [key, filteredValue];
-        })
+        return [key, filteredValue];
+      })
 
-        .filter(([, value]) => !!value)
+      .filter(([, value]) => !!value)
     : [];
 
   const filteredFields = Object.fromEntries(entries) as Record<string, unknown>;

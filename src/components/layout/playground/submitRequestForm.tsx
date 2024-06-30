@@ -32,9 +32,9 @@ import SignInPrompt from './siginInPrompt';
 import ConfirmationModal from './confirmationModal';
 
 import usePlaygroundSubmitRequestStore from 'lib/stores/playground/submitRequestStore';
-import { trpc } from 'lib/client/trpc';
 import { verifyRequestFormRequestSchema } from 'lib/services/playground/schemas';
 import { useIsFirstRender } from 'hooks/useIsFirstRender';
+import { api } from 'trpc/react';
 
 import type { PlaygroundRequestDesignRequestType } from '@prisma/client';
 import type { z } from 'zod';
@@ -99,7 +99,7 @@ interface SubmitRequestFormParam {
 
 const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   const { data: session, status: sessionStatus } = useSession();
-  const utils = trpc.useContext();
+  const utils = api.useUtils();
 
   const { budget: storedBudget, ...storedForm } =
     usePlaygroundSubmitRequestStore((state) => state.form);
@@ -131,7 +131,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
 
   const [isFree, setIsFree] = useState(false);
 
-  const { data: request } = trpc.playground.getRequest.useQuery(
+  const { data: request } = api.playground.getRequest.useQuery(
     { id: requestId, extended: true },
     {
       enabled: !!requestId,
@@ -225,7 +225,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   );
 
   const { data: lastSubmittedRequest } =
-    trpc.playground.getLastUserRequest.useQuery(undefined, {
+    api.playground.getLastUserRequest.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
       refetchOnMount: false,
       refetchOnReconnect: false,
@@ -277,8 +277,8 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
     },
   );
 
-  const { mutateAsync, isLoading, isSuccess } =
-    trpc.playground.submitRequest.useMutation({
+  const { mutateAsync, isPending, isSuccess } =
+    api.playground.submitRequest.useMutation({
       onSuccess: () => {
         clearFormData();
         reset();
@@ -838,10 +838,10 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         </Checkbox>
         <DarkButton
           className='mb-10 text-center w-fit md:w-72'
-          disabled={isLoading || isSuccess}
+          disabled={isPending || isSuccess}
           type='submit'
         >
-          {isLoading ? (
+          {isPending ? (
             <Spinner />
           ) : !requestId ? (
             'Submit My Request'

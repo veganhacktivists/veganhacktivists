@@ -8,7 +8,12 @@ const discordGlobal = global as typeof global & {
 
 const createClient = () => {
   const discord = new Client({ intents: [GatewayIntentBits.GuildMessages] });
-  void discord.login(process.env.DISCORD_TOKEN);
+
+  if (process.env.DISCORD_TOKEN) {
+    void discord.login(process.env.DISCORD_TOKEN);
+  } else {
+    console.error('DISCORD_TOKEN missing, not logged in to discord');
+  }
 
   return discord;
 };

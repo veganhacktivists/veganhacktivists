@@ -1,9 +1,16 @@
 import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 
 import { defaultLocale } from '../../../translation/defaultLocale';
 
 export const useRouterLocale = (): string => {
-  const { locale } = useRouter();
+  const params = useParams<{ locale: string }>();
 
-  return locale ?? defaultLocale;
+  try {
+    const router = useRouter();
+
+    return (router.query.locale as string) ?? defaultLocale;
+  } catch {
+    return params?.locale ?? defaultLocale;
+  }
 };

@@ -135,8 +135,7 @@
     "prisma": "5.6.0",
     "tailwind-scrollbar": "^3.0.4",
     "ts-node": "^10.9.1",
-    "typescript": "5.5.2",
-    "zlib-sync": "^0.1.9"
+    "typescript": "5.5.2"
   },
   "optionalDependencies": {
     "contentful-management": "^10.20.1",
@@ -144,5 +143,6 @@
   },
   "engines": {
     "pnpm": ">=8.0.0"
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha1.9217c800d4ab947a7aee520242a7b70d64fc7638"
 }

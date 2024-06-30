@@ -6,7 +6,7 @@ import { SectionHeader } from '../../../decoration/textBlocks';
 
 import SubtleBorder from 'components/decoration/subtleBorder';
 import BlogEntrySummary from 'components/layout/blog/blogEntrySummary';
-import { trpc } from 'lib/client/trpc';
+import { api } from 'trpc/react';
 import { DarkButton } from 'components/decoration/buttons';
 import Spinner from 'components/decoration/spinner';
 
@@ -23,7 +23,7 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
     data: blogs,
     isLoading,
     isError,
-  } = trpc.blog.getBlogsBySlugs.useQuery(interviews, {
+  } = api.blog.getBlogsBySlugs.useQuery(interviews, {
     keepPreviousData: true,
   });
   return (
