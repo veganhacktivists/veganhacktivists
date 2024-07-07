@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import React from 'react';
 import classNames from 'classnames';
 import { UserRole } from '@prisma/client';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
@@ -13,18 +13,13 @@ import volunteerTagline from '../../../../public/images/playground/volunteer.svg
 import discord from '../../../../public/images/yearInReview/2021/discord.png';
 import animalAdvocacyCareers from '../../../../public/images/playground/animal-advocacy-careers.png';
 import SquareField from '../../decoration/squares';
-import checkmarkIcon from '../../../../public/images/playground/icons/checkmark.svg';
-import heartIcon from '../../../../public/images/playground/icons/heart.svg';
-import resumeIcon from '../../../../public/images/playground/icons/resume.svg';
-import clockIcon from '../../../../public/images/playground/icons/clock.svg';
 
 import FaqSection from './faqSection';
+import PlaygroundStats from './playgroundStats';
 
 import CustomImage from 'components/decoration/customImage';
 import Hero from 'components/decoration/hero';
 import { DarkButton, OutlineButton } from 'components/decoration/buttons';
-import { trpc } from 'lib/client/trpc';
-import Spinner from 'components/decoration/spinner';
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
 import YoutubeVideo from 'components/decoration/youtubeVideo';
 
@@ -198,77 +193,6 @@ const PlaygroundLayout: Layout = ({ children }) => {
           </div>
         </div>
       </div>
-    </>
-  );
-};
-
-const PlaygroundStat: React.FC<{
-  label: string;
-  value?: number;
-  icon: typeof clockIcon;
-}> = ({ label, icon, value }) => {
-  return (
-    <div className='flex flex-col justify-center gap-5 mx-auto lg:flex-row place-items-center w-fit'>
-      <CustomImage src={icon} alt='' />
-      <div className='w-3/4 lg:w-1/2 font-mono text-center lg:text-left'>
-        <div className='text-3xl font-bold leading-none'>
-          {value ?? <Spinner />}
-        </div>
-        <div className='text-2xl font-light leading-none capitalize'>
-          {label}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const PlaygroundStats = ({
-  skipOpenRequests = false,
-}: {
-  skipOpenRequests?: boolean;
-}) => {
-  const intl = useIntl();
-
-  const { data } = trpc.playground.getPlaygroundStats.useQuery(undefined, {
-    staleTime: 10000,
-  });
-
-  return (
-    <>
-      {!skipOpenRequests && (
-        <PlaygroundStat
-          label={intl.formatMessage({
-            id: 'section.playground-stats.stat.open-requests.label',
-            defaultMessage: 'Open requests',
-          })}
-          icon={resumeIcon}
-          value={data?.requestsOpen}
-        />
-      )}
-      <PlaygroundStat
-        label={intl.formatMessage({
-          id: 'section.playground-stats.stat.requests-supported.label',
-          defaultMessage: 'Requests supported',
-        })}
-        value={data?.requestsSupported}
-        icon={checkmarkIcon}
-      />
-      <PlaygroundStat
-        label={intl.formatMessage({
-          id: 'section.playground-stats.stat.number-of-volunteers.label',
-          defaultMessage: 'Playground volunteers',
-        })}
-        value={data?.numberOfVolunteers || undefined}
-        icon={heartIcon}
-      />
-      <PlaygroundStat
-        label={intl.formatMessage({
-          id: 'section.playground-stats.stat.hours-volunteered.label',
-          defaultMessage: 'Hours volunteered',
-        })}
-        value={data?.hoursVolunteered}
-        icon={clockIcon}
-      />
     </>
   );
 };

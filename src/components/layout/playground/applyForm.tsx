@@ -35,9 +35,10 @@ import Spinner from 'components/decoration/spinner';
 import TextArea from 'components/forms/inputs/textArea';
 import SelectInput from 'components/forms/inputs/selectInput';
 import Label from 'components/forms/inputs/label';
-import { trpc } from 'lib/client/trpc';
 import { formatCurrency } from 'lib/helpers/format';
+import { api } from 'trpc/react';
 
+import type { RouterInputs, RouterOutputs } from 'trpc/react';
 import type { Source } from '@prisma/client';
 import type { z } from 'zod';
 
@@ -70,7 +71,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   );
 };
 interface RequestProps {
-  request: trpc['playground']['getRequest']['output'];
+  request: RouterOutputs['playground']['getRequest'];
 }
 
 export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
@@ -313,7 +314,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     reset,
     control,
     watch,
-  } = useForm<trpc['playground']['apply']['input']>({
+  } = useForm<RouterInputs['playground']['submitApplication']>({
     defaultValues: {
       ...storedForm,
       hasAppliedInThePast: request.userAlreadyApplied,
@@ -345,7 +346,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   const shouldSubmit = router.query.submit === 'true';
 
   const { data: lastApplication, isSuccess: isLastApplicationSuccess } =
-    trpc.playground.getLastUserApplication.useQuery(undefined, {
+    api.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
 
@@ -386,13 +387,16 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
     },
   );
 
-  const { mutateAsync, isLoading, isSuccess } =
-    trpc.playground.apply.useMutation({
-      onSuccess: () => {
-        clearFormData();
-        reset();
-      },
-    });
+  const {
+    mutateAsync,
+    isPending: isLoading,
+    isSuccess,
+  } = api.playground.submitApplication.useMutation({
+    onSuccess: () => {
+      clearFormData();
+      reset();
+    },
+  });
 
   const mutate = useCallback<typeof mutateAsync>(
     (params) => {
@@ -406,7 +410,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
   );
 
   const onSubmit = useCallback(
-    async (values: trpc['playground']['apply']['input']) => {
+    async (values: RouterInputs['playground']['submitApplication']) => {
       if (sessionStatus !== 'authenticated') {
         if (sessionStatus === 'unauthenticated') setIsSignInModalOpen(true);
         reset(undefined, { keepValues: true });
@@ -741,7 +745,7 @@ const RequestApplicationBlocked: React.FC = () => {
 export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
   const { status: sessionStatus } = useSession();
   const { data: lastApplication } =
-    trpc.playground.getLastUserApplication.useQuery(undefined, {
+    api.playground.getLastUserApplication.useQuery(undefined, {
       enabled: sessionStatus === 'authenticated',
     });
 

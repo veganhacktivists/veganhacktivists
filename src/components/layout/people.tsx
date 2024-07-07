@@ -8,9 +8,8 @@ import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.
 import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
 import Sprite, { duck } from '../decoration/sprite';
 
-import JoinTheTeam from './joinTheTeam';
+import JoinTheTeam from './joinTheTeam_pages';
 
-import LocalizedContentfulPage from 'components/localization/LocalizedContentfulPage';
 import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
 
 import type { Layout } from '../../types/persistentLayout';
@@ -101,7 +100,7 @@ const PeopleHero: React.FC = () => {
 
 const PeopleLayout: Layout = ({ children }) => {
   return (
-    <LocalizedContentfulPage>
+    <>
       <PeopleHero />
       <div className='md:mx-auto md:w-4/6'>
         <LocalizedContentfulPageToggleButton className='mt-10 mx-12 w-fit' />
@@ -119,7 +118,7 @@ const PeopleLayout: Layout = ({ children }) => {
         className='hidden md:block'
       />
       <JoinTheTeam />
-    </LocalizedContentfulPage>
+    </>
   );
 };
 

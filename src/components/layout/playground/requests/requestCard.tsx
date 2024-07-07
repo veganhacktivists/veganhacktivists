@@ -17,13 +17,13 @@ import { readableTimeDiff } from 'lib/helpers/date';
 import SquareField from 'components/decoration/squares';
 import { formatCurrency } from 'lib/helpers/format';
 
-import type { trpc } from 'lib/client/trpc';
+import type { RouterOutputs } from 'trpc/react';
 import type { HTMLAttributes } from 'react';
 
 interface PlaygroundRequestCardProps {
   request:
-    | trpc['playground']['getAllRequests']['output'][number]
-    | trpc['playground']['admin']['getRequests']['output'][number];
+    | RouterOutputs['playground']['getAllRequests'][number]
+    | RouterOutputs['playground']['admin']['getRequests'][number];
   disabled?: boolean;
 }
 

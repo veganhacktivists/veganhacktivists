@@ -84,8 +84,6 @@ const RootLayout = ({
 }: PropsWithChildren<Props>) => {
   const intl = getServerIntl(locale);
 
-  console.log('RootLayout', locale);
-
   return (
     <html lang={locale}>
       <head>
