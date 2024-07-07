@@ -1,17 +1,33 @@
-import { createHash } from 'node:crypto';
-
-import { renderToString } from 'react-dom/server';
 import { TRPCError } from '@trpc/server';
-import { BLOCKS, type Document } from '@contentful/rich-text-types';
-import React from 'react';
 import { z } from 'zod';
 
-import RichText from '../../../components/decoration/richText';
 import { defaultLocale } from '../../../../translation/defaultLocale';
+
+import { getHTMLStringFromFieldValue, getLocalizedHTMLHash } from './helper';
 
 import { getById } from 'lib/cms';
 
 import type { getLocalizedHTMLSchema } from './schemas';
+
+const getCachedLocalizedHTML = async ({
+  contentfulId,
+  fieldId,
+  locale,
+}: z.infer<typeof getLocalizedHTMLSchema>) => {
+  const cachedTranslation = await prisma.contentfulTranslationCache.findUnique({
+    where: {
+      id: {
+        contentfulId,
+        fieldId,
+        locale,
+      },
+    },
+  });
+
+  if (cachedTranslation) {
+    return cachedTranslation.translatedHTML;
+  }
+};
 
 /**
  * Return cached value if available.
@@ -28,19 +44,15 @@ export const getLocalizedHTML = async ({
   contentType,
 }: z.infer<typeof getLocalizedHTMLSchema>) => {
   try {
-    const cachedTranslation =
-      await prisma.contentfulTranslationCache.findUnique({
-        where: {
-          id: {
-            contentfulId,
-            fieldId,
-            locale,
-          },
-        },
-      });
+    const cachedTranslation = await getCachedLocalizedHTML({
+      contentfulId,
+      fieldId,
+      locale,
+      contentType,
+    });
 
     if (cachedTranslation) {
-      return cachedTranslation.translatedHTML;
+      return cachedTranslation;
     }
 
     const existingOriginalTranslationCache =
@@ -64,6 +76,7 @@ export const getLocalizedHTML = async ({
       const extractedOriginalHTML = getHTMLStringFromFieldValue(originalValue);
 
       if (extractedOriginalHTML === undefined) {
+        // eslint-disable-next-line no-console
         console.error(
           `failed to get html string for contentfulId ${contentfulId}, fieldId ${fieldId}, contentType ${contentType} and locale ${locale}`,
         );
@@ -74,16 +87,38 @@ export const getLocalizedHTML = async ({
         extractedOriginalHTML,
       );
 
-      await prisma.contentfulTranslationCache.create({
-        data: {
-          contentfulId,
-          contentType,
+      try {
+        await prisma.contentfulTranslationCache.upsert({
+          where: {
+            id: {
+              contentfulId,
+              fieldId,
+              locale: defaultLocale,
+            },
+          },
+          create: {
+            contentfulId,
+            contentType,
+            fieldId,
+            locale: defaultLocale,
+            translatedHTML: extractedOriginalHTML,
+            originalHTMLHash: generatedOriginalHTMLHash,
+          },
+          update: {
+            translatedHTML: extractedOriginalHTML,
+            originalHTMLHash: generatedOriginalHTMLHash,
+          },
+        });
+      } catch (error) {
+        console.log(
+          'error saving untranslated entry',
+          error,
           fieldId,
-          locale: defaultLocale,
-          translatedHTML: extractedOriginalHTML,
-          originalHTMLHash: generatedOriginalHTMLHash,
-        },
-      });
+          contentType,
+          locale,
+          contentfulId,
+        );
+      }
 
       if (locale === defaultLocale) {
         return extractedOriginalHTML;
@@ -99,49 +134,74 @@ export const getLocalizedHTML = async ({
     // locale mapping required? next locale -> deepl locale
     const translatedHTML = await translateHTML(originalHTML, locale);
 
-    await prisma.contentfulTranslationCache.create({
-      data: {
-        contentfulId,
-        contentType,
+    try {
+      await prisma.contentfulTranslationCache.upsert({
+        where: {
+          id: {
+            contentfulId,
+            fieldId,
+            locale,
+          },
+        },
+        create: {
+          contentfulId,
+          contentType,
+          fieldId,
+          locale,
+          translatedHTML,
+          originalHTMLHash,
+        },
+        update: {
+          translatedHTML,
+          originalHTMLHash,
+        },
+      });
+    } catch (error) {
+      console.log(
+        'error saving translated entry',
+        error,
         fieldId,
+        contentType,
         locale,
-        translatedHTML,
-        originalHTMLHash,
-      },
-    });
+        contentfulId,
+      );
+    }
 
     return translatedHTML;
   } catch (e) {
+    if (
+      e &&
+      typeof e === 'object' &&
+      'message' in e &&
+      typeof e.message === 'string' &&
+      e.message.includes('Unique constraint failed')
+    ) {
+      // simultanious calls of this function can result in a failing create operation of the cache entry if the unique constraint is already occupied.
+      const cachedTranslation = await getCachedLocalizedHTML({
+        contentfulId,
+        fieldId,
+        locale,
+        contentType,
+      });
+
+      if (cachedTranslation) {
+        return cachedTranslation;
+      }
+    }
+
+    console.log(
+      'error translating entry field, return original text',
+      e,
+      fieldId,
+      contentType,
+      locale,
+      contentfulId,
+    );
     // return original if database is unavailable
     const entry = await getById<Record<string, unknown>>(contentfulId);
     return getHTMLStringFromFieldValue(entry.fields[fieldId]);
   }
 };
-
-export function getLocalizedHTMLHash(html: string): string {
-  return createHash('sha256').update(html).digest('hex');
-}
-
-export function getHTMLStringFromFieldValue(
-  value: unknown,
-): string | undefined {
-  if (isContentfulRichTextDocument(value)) {
-    return renderToString(<RichText document={value} />);
-  }
-
-  if (typeof value === 'string') {
-    return value;
-  }
-}
-
-function isContentfulRichTextDocument(value: unknown): value is Document {
-  return Boolean(
-    value &&
-      typeof value === 'object' &&
-      'nodeType' in value &&
-      value.nodeType === BLOCKS.DOCUMENT,
-  );
-}
 
 const translationApiReturnSchema = z.object({
   translations: z
@@ -181,7 +241,21 @@ async function translateHTML(
     },
   });
 
-  const resJSON = await res.json();
+  let resJSON;
+  try {
+    resJSON = await res.json();
+  } catch (error) {
+    console.log('translation api: Failed to parse json response', error);
+  }
 
-  return translationApiReturnSchema.parse(resJSON).translations[0].text;
+  try {
+    return translationApiReturnSchema.parse(resJSON).translations[0].text;
+  } catch (error) {
+    console.log(
+      'translation api: Failed to parse json schema and extract the first translation',
+      error,
+      resJSON,
+    );
+    throw error;
+  }
 }

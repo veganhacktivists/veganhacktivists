@@ -21,13 +21,6 @@ import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRig
 import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
 import BonusProjects from 'components/layout/yearInReview/2022/bonusProjects';
 
-export function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
-}
-
 const YearInReview2022: React.FC = ({}) => {
   const intl = useIntl();
   return (

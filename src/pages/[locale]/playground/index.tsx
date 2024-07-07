@@ -63,9 +63,7 @@ const Playground: PageWithLayout = ({}) => {
     return { sort, ...otherFilters };
   }, [filters]);
 
-  const { data: requests } = api.playground.getAllRequests.useQuery(params, {
-    keepPreviousData: true,
-  });
+  const { data: requests } = api.playground.getAllRequests.useQuery(params);
 
   const {
     startIndex,

@@ -5,14 +5,11 @@ import { getById } from 'lib/cms';
 import {
   getHTMLStringFromFieldValue,
   getLocalizedHTMLHash,
-} from 'lib/services/translation';
+} from 'lib/services/translation/helper';
 
 import type { Entry } from 'contentful';
 
 export async function invalidateContentfulTranslationCache() {
-  const startTimeStamp = Date.now();
-  console.info('enter invalidateContentfulTranslationCache', startTimeStamp);
-
   const allCachedTranslations =
     await prisma.contentfulTranslationCache.findMany({
       where: { locale: defaultLocale },
@@ -55,6 +52,4 @@ export async function invalidateContentfulTranslationCache() {
       })),
     },
   });
-
-  console.info('exit invalidateContentfulTranslationCache', startTimeStamp);
 }

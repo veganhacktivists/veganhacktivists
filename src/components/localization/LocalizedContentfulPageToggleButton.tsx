@@ -1,13 +1,15 @@
+'use client';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useIntl } from 'react-intl';
 import { useMemo } from 'react';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
-import { useContentfulLocalizationContext } from './useContentfulLocalizationContext';
+import { defaultLocale } from '../../../i18nConfig';
 
 import Spinner from 'components/decoration/spinner';
+import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
 import { useRouterLocale } from 'lib/translation/useRouterLocale';
 
 const LocalizedContentfulPageToggleButton = ({
@@ -17,9 +19,8 @@ const LocalizedContentfulPageToggleButton = ({
 }) => {
   const intl = useIntl();
   const { showLocalizedContent, setShowLocalizedContent, loadingChildren } =
-    useContentfulLocalizationContext();
+    useDynamicTranslationStore();
 
-  const { defaultLocale } = useRouter();
   const currentLocale = useRouterLocale();
   const enabled = currentLocale !== defaultLocale;
 
