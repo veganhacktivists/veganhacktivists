@@ -50,12 +50,6 @@ const PeopleButtons: React.FC = () => {
           defaultMessage='OUR ADVISORS'
         />
       </NavButton>
-      <NavButton href='/people/partners'>
-        <FormattedMessage
-          id='page.people.section.navigation.button.label.partners'
-          defaultMessage='OUR PARTNERS'
-        />
-      </NavButton>
     </div>
   );
 };

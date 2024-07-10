@@ -35,12 +35,6 @@
   "layout.footer.navigation-item.people.label": {
     "message": "People"
   },
-  "layout.footer.navigation-item.people.partners.label": {
-    "message": "Partners"
-  },
-  "layout.footer.navigation-item.people.team.label": {
-    "message": "Our Team"
-  },
   "layout.footer.navigation-item.privacy-policy.label": {
     "message": "Privacy Policy"
   },
@@ -857,32 +851,11 @@
   "page.people.section.navigation.button.label.advisors": {
     "message": "OUR ADVISORS"
   },
-  "page.people.section.navigation.button.label.partners": {
-    "message": "OUR PARTNERS"
-  },
   "page.people.section.navigation.button.label.team": {
     "message": "OUR TEAM"
   },
   "page.people.section.navigation.button.label.volunteers": {
     "message": "OUR VOLUNTEERS"
-  },
-  "page.people.section.partners.community.heading": {
-    "message": "Our <b>community</b>"
-  },
-  "page.people.section.partners.community.image.alt-text": {
-    "message": "Our community"
-  },
-  "page.people.section.partners.community.paragraph": {
-    "message": "We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more."
-  },
-  "page.people.section.partners.intro.heading": {
-    "message": "Our <b>partners</b>"
-  },
-  "page.people.section.partners.intro.paragraph": {
-    "message": "Here are partner organizations that we support and are supported by. Take a look to learn more about the amazing work they do!"
-  },
-  "page.people.section.partners.next-seo.title": {
-    "message": "Our Partners"
   },
   "page.people.section.team.community.heading": {
     "message": "Our <b>community</b>"

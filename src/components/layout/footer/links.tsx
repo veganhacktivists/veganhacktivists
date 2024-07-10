@@ -76,13 +76,6 @@ const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
         }),
         href: '/people/advisors',
       },
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.people.partners.label',
-          defaultMessage: 'Partners',
-        }),
-        href: '/people/partners',
-      },
     ],
   },
   {
