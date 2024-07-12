@@ -35,9 +35,6 @@
   "layout.footer.navigation-item.people.label": {
     "message": "人"
   },
-  "layout.footer.navigation-item.people.partners.label": {
-    "message": "合作伙伴"
-  },
   "layout.footer.navigation-item.people.team.label": {
     "message": "我们的团队"
   },
@@ -844,9 +841,6 @@
   },
   "page.people.section.navigation.button.label.advisors": {
     "message": "我们的顾问"
-  },
-  "page.people.section.navigation.button.label.partners": {
-    "message": "我们的合作伙伴"
   },
   "page.people.section.navigation.button.label.team": {
     "message": "我们的团队"

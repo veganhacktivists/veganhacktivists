@@ -1,0 +1,8 @@
+[phases.build]
+cmds = [
+  "pnpm prisma generate",
+  "..."
+]
+
+[start]
+cmd = "pnpm prisma migrate deploy && pnpm run start"

@@ -4,7 +4,6 @@
 .gitignore
 .husky
 .next
-.next
 *-debug.log
 *-error.log
 *docker-compose*

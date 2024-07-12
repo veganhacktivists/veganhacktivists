@@ -7,6 +7,7 @@ import KindWords from './_components/kindWords';
 import OurCommunities from './_components/ourCommunities';
 import GrantProgram from './_components/grantProgram';
 import LikeWhatYouSee from './_components/likeWhatYouSee';
+import ProvegIncubator from './_components/provegIncubator';
 
 import StateOfData from 'app/[locale]/work/_components/stateOfData';
 import Playground from 'app/[locale]/work/_components/playground';
@@ -73,6 +74,8 @@ const Work = async ({ params: { locale } }: Props) => {
       <StateOfData locale={locale} />
 
       <GrantProgram locale={locale} />
+
+      <ProvegIncubator locale={locale} />
 
       <Playground locale={locale} />
 

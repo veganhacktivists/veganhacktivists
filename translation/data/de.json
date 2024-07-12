@@ -41,9 +41,6 @@
   "layout.footer.navigation-item.people.label": {
     "message": "Menschen"
   },
-  "layout.footer.navigation-item.people.partners.label": {
-    "message": "Partner"
-  },
   "layout.footer.navigation-item.people.team.label": {
     "message": "Unser Team"
   },
@@ -856,9 +853,6 @@
   },
   "page.people.section.navigation.button.label.advisors": {
     "message": "UNSERE BERATER"
-  },
-  "page.people.section.navigation.button.label.partners": {
-    "message": "UNSERE PARTNER"
   },
   "page.people.section.navigation.button.label.team": {
     "message": "UNSER TEAM"

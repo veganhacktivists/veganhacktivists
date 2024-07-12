@@ -11,6 +11,7 @@ import { OUR_EMAIL_FROM_FORMATTED } from '../../../../lib/mail/router';
 import emailClient from 'lib/mail';
 import prisma from 'lib/db/prisma';
 
+import type { NextApiRequest, NextApiResponse } from 'next';
 import type { SendVerificationRequestParams } from 'next-auth/providers/email';
 import type { NextAuthOptions } from 'next-auth';
 
@@ -18,9 +19,11 @@ const sendVerificationRequest = async (
   params: SendVerificationRequestParams,
 ) => {
   const { identifier, url } = params;
-  const { searchParams } = new URL(url);
-  // the current url
-  const callbackUrl = searchParams.get('callbackUrl');
+
+  const verifyUrl = new URL(url);
+  verifyUrl.pathname = '/auth/verify-login';
+
+  const callbackUrl = verifyUrl.searchParams.get('callbackUrl');
   const getMailBody = callbackUrl?.includes('signin')
     ? verificationMail
     : verifyRequestEmail;
@@ -29,8 +32,8 @@ const sendVerificationRequest = async (
     to: identifier,
     from: OUR_EMAIL_FROM_FORMATTED,
     subject: 'Vegan Hacktivists Playground login',
-    text: getMailBody(url, true),
-    html: getMailBody(url),
+    text: getMailBody(verifyUrl.href, true),
+    html: getMailBody(verifyUrl.href),
   });
 };
 
@@ -84,6 +87,16 @@ export const nextAuthOptions: NextAuthOptions = {
   },
 };
 
-const handler = NextAuth(nextAuthOptions);
+const handler = function auth(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'HEAD') {
+    return void res.status(200).end();
+  }
+  return (
+    NextAuth(nextAuthOptions) as (
+      req: NextApiRequest,
+      res: NextApiResponse,
+    ) => Promise<void>
+  )(req, res);
+};
 
 export { handler as GET, handler as POST };
