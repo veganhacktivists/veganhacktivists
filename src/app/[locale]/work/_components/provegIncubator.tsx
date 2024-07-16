@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProvegIncubatorImage from '../../../../public/images/work/PV_Incubator_Logo_NEW_1.png';
+import ProvegIncubatorImage from '../../../../../public/images/work/PV_Incubator_Logo_NEW_1.png';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';

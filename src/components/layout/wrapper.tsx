@@ -1,16 +1,18 @@
 'use client';
 
 import React from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+// import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 
 import useErrorStore from '../../lib/stores/errorStore';
-import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 
 import NewsletterPopup from './newsletterPopup';
+
+import ErrorPage from 'components/layout/errorPage';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -49,8 +51,8 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
   return (
     <main id='main' className='text-center min-h-[40rem]' tabIndex={-1}>
       <ErrorBoundary
-        fallbackRender={(props) => {
-          return <ErrorPage {...props} />;
+        errorComponent={(props) => {
+          return <ErrorPage {...props} resetErrorBoundary={props.reset} />;
         }}
       >
         <>

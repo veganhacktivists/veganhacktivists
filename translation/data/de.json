@@ -44,6 +44,9 @@
   "layout.footer.navigation-item.people.team.label": {
     "message": "Unser Team"
   },
+  "layout.footer.navigation-item.privacy-policy.label": {
+    "message": "Datenschutzbestimmungen"
+  },
   "layout.footer.navigation-item.services.label": {
     "message": "Dienstleistungen"
   },
@@ -803,6 +806,15 @@
   "page.our-work.section.playground.playground.cta-button.label": {
     "message": "Ehrenamtlich mitarbeiten"
   },
+  "page.our-work.section.proveg-incubator.content": {
+    "message": "Vegan Hacktivists und Violet Studios arbeiten mit dem ProVeg-Inkubator Kickstarting for Good zusammen, um Künstliche Intelligenz (KI) für die Umgestaltung unseres Lebensmittelsystems zu nutzen. Gemeinsam sind wir auf der Suche nach den wirkungsvollsten Ansätzen und den besten Talenten in diesem Bereich! {Machen Sie mit, wenn Sie bereit sind, Ideen zum Leben zu erwecken, die das globale Lebensmittel-Ökosystem erheblich verbessern können. Bewerbungen für unsere Kohorte 2024 sind jetzt bis zum 26. Mai möglich!"
+  },
+  "page.our-work.section.proveg-incubator.cta": {
+    "message": "Jetzt bewerben"
+  },
+  "page.our-work.section.proveg-incubator.section-header.headline": {
+    "message": "<b>BESCHLEUNIGEN SIE IHRE AI IDEE FÜR TIERE</b>"
+  },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
     "message": "<no-localization>Malina Tran</no-localization> bei der <no-localization>CARE</no-localization> Konferenz"
   },
@@ -859,24 +871,6 @@
   },
   "page.people.section.navigation.button.label.volunteers": {
     "message": "UNSERE FREIWILLIGEN"
-  },
-  "page.people.section.partners.community.heading": {
-    "message": "Unsere <b>Community</b>"
-  },
-  "page.people.section.partners.community.image.alt-text": {
-    "message": "Unsere Community"
-  },
-  "page.people.section.partners.community.paragraph": {
-    "message": "Wir sind mehr als eine Gruppe von Freiwilligen; wir sind eine Community, die durch gemeinsame Werte verbunden ist und in eine Vision einer besseren Welt für Tiere investiert. Wir glauben an einen Ansatz, bei dem die Community an erster Stelle steht: eine Community, die unterstützend und wachstumsorientiert ist und für die wir gegenseitig verantwortlich sind. Wenn Sie sich angesprochen fühlen, lesen Sie weiter unten mehr."
-  },
-  "page.people.section.partners.intro.heading": {
-    "message": "Unsere <b>Partner</b>"
-  },
-  "page.people.section.partners.intro.paragraph": {
-    "message": "Hier finden Sie Partnerorganisationen, die wir unterstützen und von denen wir unterstützt werden. Werfen Sie einen Blick darauf und erfahren Sie mehr über die großartige Arbeit, die sie leisten!"
-  },
-  "page.people.section.partners.next-seo.title": {
-    "message": "Unsere Partner"
   },
   "page.people.section.team.community.heading": {
     "message": "Unsere <b>Community</b>"
@@ -1231,6 +1225,18 @@
   },
   "page.support.section.violet-studios.headline": {
     "message": "Zwei Organisationen auf einmal unterstützen"
+  },
+  "page.verify-login.button.verify": {
+    "message": "Überprüfen Sie"
+  },
+  "page.verify-login.error.invalid-request": {
+    "message": "Ungültige Anfrage"
+  },
+  "page.verify-login.headline": {
+    "message": "Überprüfung der Anmeldung"
+  },
+  "page.verify-login.intro": {
+    "message": "Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu überprüfen"
   },
   "page.verify-request.button.go-back": {
     "message": "Zurück"

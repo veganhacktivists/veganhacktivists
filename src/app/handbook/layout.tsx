@@ -6,14 +6,15 @@ import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../../styles/fonts.css';
 import ClientProviders from '../_providers/clientProviders';
+import { defaultLocale } from '../../../translation/defaultLocale';
+
+import Header from 'components/layout/header';
+import { MainWrapper } from 'components/layout/wrapper';
 
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
-import { defaultLocale } from '../../../translation/defaultLocale';
-import Header from 'components/layout/header';
-import { MainWrapper } from 'components/layout/wrapper';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
