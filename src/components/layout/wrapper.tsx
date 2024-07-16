@@ -3,6 +3,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import { Rajdhani, PT_Sans, Bitter } from 'next/font/google';
+import classNames from 'classnames';
 
 import useErrorStore from '../../lib/stores/errorStore';
 import ErrorPage from '../../pages/_error';
@@ -23,11 +25,35 @@ const JumpToContent: React.FC = () => {
   );
 };
 
+const ptSans = PT_Sans({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-ptsans',
+});
+const rajdhani = Rajdhani({
+  weight: ['300', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-rajdhani',
+});
+const bitter = Bitter({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-bitter',
+});
+
 const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <JumpToContent />
-      <div className='flex flex-col justify-between w-full min-h-screen'>
+      <div
+        className={classNames(
+          ptSans.variable,
+          rajdhani.variable,
+          bitter.variable,
+          'flex flex-col justify-between w-full min-h-screen font-sans',
+        )}
+      >
         {children}
       </div>
       <ToastContainer position='bottom-right' />
