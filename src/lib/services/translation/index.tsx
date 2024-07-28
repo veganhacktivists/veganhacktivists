@@ -6,6 +6,7 @@ import { defaultLocale } from '../../../../translation/defaultLocale';
 import { getHTMLStringFromFieldValue, getLocalizedHTMLHash } from './helper';
 
 import { getById } from 'lib/cms';
+import prisma from 'lib/db/prisma';
 
 import type { getLocalizedHTMLSchema } from './schemas';
 

@@ -1,8 +1,10 @@
 'use client';
 
-import useDocsStore from 'lib/stores/docsStore';
 import { Waypoint } from 'react-waypoint';
-import { IDocumentationFields } from 'types/generated/contentful';
+
+import useDocsStore from 'lib/stores/docsStore';
+
+import type { IDocumentationFields } from 'types/generated/contentful';
 
 export const SubSectionWaypoint: React.FC<
   Pick<IDocumentationFields, 'slug'>

@@ -1,12 +1,11 @@
 import React from 'react';
 
-import getServerIntl from '../intl';
-
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../../styles/fonts.css';
 import ClientProviders from '../_providers/clientProviders';
 import { defaultLocale } from '../../../translation/defaultLocale';
+import getServerIntl from '../intl';
 
 import Header from 'components/layout/header';
 import { MainWrapper } from 'components/layout/wrapper';
@@ -39,7 +38,7 @@ export function generateMetadata(): Metadata {
         defaultMessage:
           '<no-localization>%s | Vegan Hacktivists</no-localization>',
       }),
-      absolute: 'Vegan Hacktivists',
+      default: 'Docs',
     },
     openGraph: {
       url: host,

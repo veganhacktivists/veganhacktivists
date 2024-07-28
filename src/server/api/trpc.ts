@@ -5,6 +5,7 @@ import { ZodError } from 'zod';
 import { getServerSession } from 'next-auth';
 
 import { nextAuthOptions } from 'app/api/auth/[...nextauth]/route';
+import prisma from 'lib/db/prisma';
 
 /**
  * Creates context for an incoming request

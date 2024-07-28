@@ -18,10 +18,10 @@ import { getBlogEntries, getFeaturedProjects } from '../../lib/cms/helpers';
 
 import CustomImage from 'components/decoration/customImage';
 import getServerIntl from 'app/intl';
-
-import type { IBlogEntry, IProject } from '../../types/generated/contentful';
-import type { Metadata } from 'next';
 import GrantsCallToAction from 'components/layout/grants/grantsCallToAction';
+
+import type { IBlogEntry } from '../../types/generated/contentful';
+import type { Metadata } from 'next';
 
 const HERO_DECORATION_SQUARES = [
   { color: 'green', size: 32, left: 0, bottom: 0 },
@@ -51,8 +51,6 @@ const BLOG_DECORATION_SQUARES = [
 ];
 
 interface HomeProps {
-  featuredProjects: IProject[];
-  lastBlogEntries: IBlogEntry[];
   params: { locale: string };
 }
 

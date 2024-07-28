@@ -257,8 +257,8 @@ const PlaygroundRequestCard: React.FC<
         >
           <DarkButton
             href={{
-              pathname: '/playground/request/[id]',
-              query: { id },
+              pathname: '/[locale]/playground/request/[id]',
+              query: { id, locale: intl.locale },
             }}
             className={`text-center text-md flex-grow ${
               canEdit ? 'w-1/2' : ''

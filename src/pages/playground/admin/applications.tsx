@@ -31,14 +31,14 @@ const AdminPage: NextPage = ({}) => {
     [utils.playground.admin.requestsWithPendingApplications],
   );
 
-  const { mutate: mutateDelete, isLoading: isDeletionLoading } =
+  const { mutate: mutateDelete, isPending: isDeletionLoading } =
     api.playground.admin.deleteApplication.useMutation({
       onSuccess: async () => {
         await invalidateQuery();
       },
     });
 
-  const { mutate, isLoading: isMutationLoading } =
+  const { mutate, isPending: isMutationLoading } =
     api.playground.admin.setApplicationStatus.useMutation({
       onSuccess: async () => {
         await invalidateQuery();

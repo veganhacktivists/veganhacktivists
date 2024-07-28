@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 import { LightButton } from '../decoration/buttons';
 import teamIcons from '../../../public/images/VH-team-icons.png';
 
 import CustomImage from 'components/decoration/customImage';
-import { useIntl } from 'react-intl';
 
 interface Props {}
 

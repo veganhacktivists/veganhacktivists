@@ -1,5 +1,7 @@
 'use server';
 
+import { redirect } from 'next/navigation';
+
 import { getContents } from '../../../lib/cms';
 import { getDocCategoryPreviewBySlug } from '../../../lib/cms/helpers';
 
@@ -7,7 +9,6 @@ import type {
   IDocsCategory,
   IDocsCategoryFields,
 } from '../../../types/generated/contentful';
-import { redirect } from 'next/navigation';
 
 const getCategoryOrPreview: (
   slug: IDocsCategoryFields['slug'],
@@ -30,10 +31,6 @@ const getCategoryOrPreview: (
   });
 
   return cats[0] as IDocsCategory;
-};
-
-export const metadata = {
-  title: 'Docs',
 };
 
 const Docs: React.FC<{ params: { category: string } }> = async ({

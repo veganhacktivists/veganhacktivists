@@ -4,11 +4,16 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
+import { notFound } from 'next/navigation';
 
 import { getContents } from '../../../../lib/cms';
 import { DarkButton } from '../../../../components/decoration/buttons';
 import RichText from '../../../../components/decoration/richText';
 import { getDocCategoryPreviewBySlug } from '../../../../lib/cms/helpers';
+import { defaultLocale } from '../../../../../translation/defaultLocale';
+
+import { DocsClient } from './components/clientComponent';
+import { SubSectionWaypoint } from './components/subSection';
 
 import type {
   IDocsCategory,
@@ -17,10 +22,6 @@ import type {
   IDocumentation,
   IDocumentationFields,
 } from '../../../../types/generated/contentful';
-import { notFound } from 'next/navigation';
-import { defaultLocale } from '../../../../../translation/defaultLocale';
-import { DocsClient } from './components/clientComponent';
-import { SubSectionWaypoint } from './components/subSection';
 
 interface DocsProps {
   params: { category: string; section: string };
@@ -80,7 +81,7 @@ function calculateUpdatedAt(
 const Content: React.FC<{
   category: IDocsCategory;
   section: IDocsSection;
-}> = async ({ category, section }) => {
+}> = ({ category, section }) => {
   const { subsections, content, slug } = section?.fields || {};
 
   const updatedAt = calculateUpdatedAt(category, section, subsections);

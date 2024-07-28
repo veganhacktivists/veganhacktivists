@@ -34,7 +34,7 @@ export const revalidate = 60 * 30;
 
 // TODO: deduplicate and cache requests to contentful (and db)
 
-export async function defineMetadata({
+export async function generateMetadata({
   params: { locale, slug },
 }: Props): Promise<Metadata> {
   const blog = await getEntryOrPreview(slug, false);

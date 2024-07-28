@@ -56,6 +56,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
           router.push('/playground', undefined, { shallow: true }),
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
   const truncatedDescription = request?.description.slice(0, 300);

@@ -1,10 +1,12 @@
 import { UserRole } from '@prisma/client';
 import { withAuth } from 'next-auth/middleware';
 import { i18nRouter } from 'next-i18n-router';
+import { NextResponse } from 'next/server';
+import { StatusCodes } from 'http-status-codes';
 
 import i18nConfig from '../i18nConfig';
+import { createRedirectMap } from '../redirects';
 
-import { NextResponse } from 'next/server';
 import type { NextRequestWithAuth } from 'next-auth/middleware';
 import type { NextMiddleware } from 'next/server';
 
@@ -14,7 +16,18 @@ const authMiddleware = withAuth({
   },
 });
 
+const redirectMap = createRedirectMap();
+
 const middleware: NextMiddleware = async (request, event) => {
+  const redirect = redirectMap[request.nextUrl.pathname];
+  if (redirect) {
+    return NextResponse.redirect(redirect.destination, {
+      status: redirect.permanent
+        ? StatusCodes.MOVED_PERMANENTLY
+        : StatusCodes.MOVED_TEMPORARILY,
+    });
+  }
+
   if (request.nextUrl.pathname.startsWith('/handbook')) {
     return NextResponse.next();
   }
@@ -44,6 +57,6 @@ export default middleware;
 
 export const config = {
   matcher: [
-    '/((?!api|fonts|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt).*)',
+    '/((?!api|fonts|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt|handbook).*)',
   ],
 };

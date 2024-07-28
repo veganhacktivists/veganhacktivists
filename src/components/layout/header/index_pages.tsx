@@ -10,7 +10,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { usePathname } from 'next/navigation';
 
 import logoOneLine from '../../../../public/images/VH-logo-white-text.png';
-
 import { LocaleSelector } from '../localeSelector';
 
 import CustomImage from 'components/decoration/customImage';

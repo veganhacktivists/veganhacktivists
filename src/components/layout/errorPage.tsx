@@ -1,8 +1,9 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
 import { StatusCodes } from 'http-status-codes';
 import { useEffect } from 'react';
+import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
@@ -16,40 +17,59 @@ import {
 } from '../../images/teams';
 
 import CustomImage from 'components/decoration/customImage';
+import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
 import type { FallbackProps } from 'react-error-boundary';
 import type { NextPage } from 'next';
 
-export interface ErrorProps extends Omit<FallbackProps, 'error'> {
+export interface ErrorProps
+  extends Omit<FallbackProps, 'error' | 'resetErrorBoundary'> {
   error?: FallbackProps['error'] & {
     statusCode?: number;
   };
+  reset?: () => void;
+  resetErrorBoundary?: FallbackProps['resetErrorBoundary'];
 }
 
-const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
-  const router = useRouter();
+const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary, reset }) => {
+  // reset is passed by next app router, resetErrorBoundary is passed by react-error-boundary
+  reset ??= resetErrorBoundary;
+
+  const intl = useIntl();
+  const pathname = usePathnameWithoutLocale();
 
   useEffect(() => {
     return () => {
-      resetErrorBoundary?.();
+      reset?.();
     };
-  }, [resetErrorBoundary]);
+  }, [reset]);
 
   const { setErrorData, generateErrorMessage } = useErrorStore();
 
+  if (pathname === null) {
+    return null;
+  }
+
   const handleContactClick = () => {
-    resetErrorBoundary?.();
-    setErrorData({ pageThatErrored: router.asPath, error });
+    reset?.();
+    setErrorData({ pageThatErrored: pathname, error });
   };
 
-  const contactPageError: string | boolean = router.asPath === '/contact';
+  const contactPageError: string | boolean = pathname === '/contact';
 
   const message =
-    error?.statusCode === StatusCodes.NOT_FOUND ? 'Page not found.' : 'Whoops!';
+    error?.statusCode === StatusCodes.NOT_FOUND
+      ? intl.formatMessage({
+          id: 'page.not-found.next-seo.title',
+          defaultMessage: 'Page not found',
+        })
+      : intl.formatMessage({
+          id: 'page.error.next-seo.title',
+          defaultMessage: 'Whoops!',
+        });
 
   return (
     <>
-      <NextSeo noindex title={message} />
       <article className='min-h-[40rem] flex flex-col justify-center items-center p-4'>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col justify-start gap-12 md:flex-row'>
@@ -87,7 +107,7 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
                       query: {
                         subject: 'Website error!',
                         body: generateErrorMessage({
-                          pageThatErrored: router.asPath,
+                          pageThatErrored: pathname,
                           error,
                         }),
                       },

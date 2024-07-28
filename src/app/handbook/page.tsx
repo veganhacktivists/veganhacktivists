@@ -1,9 +1,10 @@
 'use server';
 
+import { redirect } from 'next/navigation';
+
 import { getContents } from '../../lib/cms';
 
 import type { IDocsCategoryFields } from '../../types/generated/contentful';
-import { redirect } from 'next/navigation';
 
 const Docs: React.FC = async () => {
   const cats = await getContents<IDocsCategoryFields>({

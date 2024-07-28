@@ -1,10 +1,13 @@
 'use client';
 
-import { PropsWithChildren, useEffect } from 'react';
+import { useEffect } from 'react';
+
 import { useHash } from 'hooks/useHash';
-import { IDocsCategory, IDocsSection } from 'types/generated/contentful';
 import useDocsStore from 'lib/stores/docsStore';
 import Sidebar from 'components/layout/docs/sidebar';
+
+import type { IDocsCategory, IDocsSection } from 'types/generated/contentful';
+import type { PropsWithChildren } from 'react';
 
 interface DocsProps {
   category: IDocsCategory;

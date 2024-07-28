@@ -8,6 +8,7 @@ import { getContents } from '../../../lib/cms';
 import { BlogOverviewContainer } from './_components/BlogOverviewContainer';
 
 import getServerIntl from 'app/intl';
+import { getTranslatedEntryField } from 'app/_localization/getTranslatedEntry';
 
 import type {
   IBlogEntry,
@@ -15,13 +16,12 @@ import type {
   ITagFields,
 } from '../../../types/generated/contentful';
 import type { Metadata } from 'next';
-import { getTranslatedEntryField } from 'app/_localization/getTranslatedEntry';
 
 interface Props {
   params: { locale: string };
 }
 
-export function defineMetadata({ params: { locale } }: Props): Metadata {
+export function generateMetadata({ params: { locale } }: Props): Metadata {
   const intl = getServerIntl(locale);
 
   return {

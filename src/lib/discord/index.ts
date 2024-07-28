@@ -92,11 +92,11 @@ export class DiscordSendMessagesError extends Error {
     this.messages = messages;
   }
   getOkMessages() {
-    return this.messages.filter((m) => !!m) as Message[];
+    return this.messages.filter((m) => !!m);
   }
 
   getErroredMessages() {
-    return this.messages.filter((m) => !m) as false[];
+    return this.messages.filter((m) => !m);
   }
 }
 

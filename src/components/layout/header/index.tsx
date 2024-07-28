@@ -12,7 +12,6 @@ import { usePathname } from 'next/navigation';
 
 import logoOneLine from '../../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../../public/images/VH_Logo_Loop.json';
-
 import { LocaleSelector } from '../localeSelector';
 
 import CustomImage from 'components/decoration/customImage';

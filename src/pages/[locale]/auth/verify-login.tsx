@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
 
-import { DarkButton } from '../../components/decoration/buttons';
-import { FirstSubSection } from '../../components/decoration/textBlocks';
-import SquareField from '../../components/decoration/squares';
-import useOnce from '../../hooks/useOnce';
+import { DarkButton } from '../../../components/decoration/buttons';
+import { FirstSubSection } from '../../../components/decoration/textBlocks';
+import SquareField from '../../../components/decoration/squares';
+import useOnce from '../../../hooks/useOnce';
 
 const VerifyLogin: React.FC = () => {
   const intl = useIntl();

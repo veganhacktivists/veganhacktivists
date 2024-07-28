@@ -663,7 +663,7 @@
     "message": "Unser Newsletter"
   },
   "page.not-found.error-message": {
-    "message": "Die von Ihnen angeforderte Seite (<no-localization>{path}</no-localization>) existiert nicht"
+    "message": "Die von Ihnen angeforderte Seite existiert nicht"
   },
   "page.not-found.next-seo.title": {
     "message": "Seite nicht gefunden"

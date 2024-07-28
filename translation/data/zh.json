@@ -648,7 +648,7 @@
     "message": "我们的通讯"
   },
   "page.not-found.error-message": {
-    "message": "您请求的页面 (<no-localization>{path}</no-localization>) 不存在"
+    "message": "您请求的页面不存在"
   },
   "page.not-found.next-seo.title": {
     "message": "页面未找到"

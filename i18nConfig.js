@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 const { defaultLocale } = require('./translation/defaultLocale');
 
 const locales = ['en', 'de' /**, 'zh', 'dev' */];

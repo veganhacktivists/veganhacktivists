@@ -40,6 +40,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
         setLeft(parseFloat(position.get()));
       }, delay);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [float, delay, position]);
 
   return (

@@ -10,9 +10,9 @@ import getThemeColor from '../../../lib/helpers/theme';
 import { pixelFlower } from '../../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
+import getServerIntl from 'app/intl';
 
 import type { StaticImageData } from 'next/image';
-import getServerIntl from 'app/intl';
 
 interface InfoProps extends React.PropsWithChildren {
   title: string;

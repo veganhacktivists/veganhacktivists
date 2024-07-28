@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 import impactReviewImage from '../../../../public/images/grants/impact-header.png';
 import beeImage from '../../../../public/images/grants/bee-header.png';
@@ -10,7 +11,6 @@ import { pixelFlower } from '../../../images/separators';
 import CustomImage from 'components/decoration/customImage';
 
 import type { StaticImageData } from 'next/image';
-import { useIntl } from 'react-intl';
 
 interface InfoProps extends React.PropsWithChildren {
   title: string;
