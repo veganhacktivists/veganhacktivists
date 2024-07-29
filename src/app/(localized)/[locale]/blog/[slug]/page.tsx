@@ -1,19 +1,19 @@
 import { parse } from 'node-html-parser';
 import { notFound } from 'next/navigation';
 
-import { getContents } from '../../../../lib/cms';
+import { getContents } from '../../../../../lib/cms';
 import {
   getBlogEntries,
   getBlogPreviewBySlug,
-} from '../../../../lib/cms/helpers';
-import ContentfulImage from '../../../../components/layout/contentfulImage';
-import SquareField from '../../../../components/decoration/squares';
-import Circle from '../../../../components/decoration/circle';
+} from '../../../../../lib/cms/helpers';
+import ContentfulImage from '../../../../../components/layout/contentfulImage';
+import SquareField from '../../../../../components/decoration/squares';
+import Circle from '../../../../../components/decoration/circle';
 import BlogContentContainer, {
   Sidebar,
-} from '../../../../components/layout/blog/blogPageLayout';
-import SubtleBorder from '../../../../components/decoration/subtleBorder';
-import SocialLinks from '../../../../components/layout/team/socialLinks';
+} from '../../../../../components/layout/blog/blogPageLayout';
+import SubtleBorder from '../../../../../components/decoration/subtleBorder';
+import SocialLinks from '../../../../../components/layout/team/socialLinks';
 
 import { getTranslatedEntryField } from 'app/_localization/getTranslatedEntry';
 import LocalizedContentfulPageToggleButton from 'app/_localization/LocalizedContentfulPageToggleButton';
@@ -24,7 +24,7 @@ import type { Metadata } from 'next';
 import type {
   IBlogEntry,
   ITeamMember,
-} from '../../../../types/generated/contentful';
+} from '../../../../../types/generated/contentful';
 
 interface Props {
   params: { locale: string; slug: string };

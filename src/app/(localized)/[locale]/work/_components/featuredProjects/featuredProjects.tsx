@@ -1,9 +1,12 @@
+'use server';
+
 import ProjectCard from './ProjectCard';
 
 import Sprite, { pig } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import getServerIntl from 'app/intl';
+import { getTranslatedEntryField } from 'app/_localization/getTranslatedEntry';
 
 import type { IProject } from 'types/generated/contentful';
 
@@ -22,11 +25,29 @@ interface FeaturedProjectsProps {
   featuredProjects: IProject[];
 }
 
-const FeaturedProjects = ({
+const FeaturedProjects = async ({
   featuredProjects,
   locale,
 }: FeaturedProjectsProps) => {
   const intl = getServerIntl(locale);
+
+  const projectAndTranslationPairs = await Promise.all(
+    featuredProjects.map(async (project) => {
+      const translatedProjectDescription = await getTranslatedEntryField(
+        {
+          contentfulId: project.sys.id,
+          fieldId: 'description',
+          contentType: 'project',
+        },
+        locale,
+      );
+
+      return {
+        project,
+        translatedProjectDescription,
+      };
+    }),
+  );
 
   return (
     <>
@@ -53,14 +74,19 @@ const FeaturedProjects = ({
             </p>
           </SectionHeader>
           <ul className='grid grid-cols-1 xl:grid-cols-3 mx-auto w-fit gap-20 gap-y-20'>
-            {featuredProjects.map((project) => (
-              <li
-                key={project.sys.id}
-                className='mx-auto lg:even:mr-auto lg:odd:ml-auto'
-              >
-                <ProjectCard project={project} />
-              </li>
-            ))}
+            {projectAndTranslationPairs.map(
+              ({ project, translatedProjectDescription }) => (
+                <li
+                  key={project.sys.id}
+                  className='mx-auto lg:even:mr-auto lg:odd:ml-auto'
+                >
+                  <ProjectCard
+                    project={project}
+                    translatedProjectDescription={translatedProjectDescription}
+                  />
+                </li>
+              ),
+            )}
           </ul>
         </div>
       </div>

@@ -13,6 +13,7 @@ import { pixelHeart } from '../../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
 import LocalizedContentfulEntryField from 'components/localization/LocalizedContentfulEntryField';
+import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
 
 import type PageWithLayout from '../../../types/persistentLayout';
 import type { ITeamFields } from '../../../types/generated/contentful';
@@ -231,6 +232,9 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           defaultMessage: 'Our Team',
         })}
       />
+      <div className='md:mx-auto md:w-4/6 pb-10'>
+        <LocalizedContentfulPageToggleButton className='mx-12 w-fit' />
+      </div>
       <div className='m-10'>
         <MemberList members={members} teams={teams} />
       </div>

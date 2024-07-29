@@ -1,8 +1,8 @@
-import family from '../../../../../public/images/yearInReview/2022/vh-family.jpg';
-import malina from '../../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
-import james from '../../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
-import { SectionHeader } from '../../../../components/decoration/textBlocks';
-import SquareField from '../../../../components/decoration/squares';
+import family from '../../../../../../public/images/yearInReview/2022/vh-family.jpg';
+import malina from '../../../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
+import james from '../../../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
+import { SectionHeader } from '../../../../../components/decoration/textBlocks';
+import SquareField from '../../../../../components/decoration/squares';
 
 import CustomImage from 'components/decoration/customImage';
 import CustomLink from 'components/decoration/link';

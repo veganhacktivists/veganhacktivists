@@ -2,9 +2,8 @@
 
 import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 
-import { defaultLocale } from '../../translation/defaultLocale';
-
-import getServerIntl from './intl';
+import { defaultLocale } from '../../../translation/defaultLocale';
+import getServerIntl from '../intl';
 
 import ErrorPage from 'components/layout/errorPage';
 

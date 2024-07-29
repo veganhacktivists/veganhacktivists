@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { getBlogEntries } from '../../../lib/cms/helpers';
-import SquareField from '../../../components/decoration/squares';
-import Newsletter from '../../../components/layout/newsletter';
-import { getContents } from '../../../lib/cms';
+import { getBlogEntries } from '../../../../lib/cms/helpers';
+import SquareField from '../../../../components/decoration/squares';
+import Newsletter from '../../../../components/layout/newsletter';
+import { getContents } from '../../../../lib/cms';
 
 import { BlogOverviewContainer } from './_components/BlogOverviewContainer';
 
@@ -14,7 +14,7 @@ import type {
   IBlogEntry,
   ITag,
   ITagFields,
-} from '../../../types/generated/contentful';
+} from '../../../../types/generated/contentful';
 import type { Metadata } from 'next';
 
 interface Props {

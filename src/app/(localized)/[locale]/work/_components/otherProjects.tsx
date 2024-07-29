@@ -1,4 +1,4 @@
-import ContentfulImage from '../../../../components/layout/contentfulImage';
+import ContentfulImage from '../../../../../components/layout/contentfulImage';
 
 import { Carousel } from 'components/decoration/carousel';
 import SquareField from 'components/decoration/squares';

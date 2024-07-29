@@ -2,11 +2,10 @@ import React from 'react';
 
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import '../styles/fonts.css';
-import { defaultLocale } from '../../translation/defaultLocale';
-
-import ClientProviders from './_providers/clientProviders';
-import getServerIntl from './intl';
+import '../../styles/fonts.css';
+import { defaultLocale } from '../../../translation/defaultLocale';
+import ClientProviders from '../_providers/clientProviders';
+import getServerIntl from '../intl';
 
 import { MainWrapper } from 'components/layout/wrapper';
 import Header from 'components/layout/header';
@@ -21,6 +20,7 @@ import type { ReactDOM } from 'react';
 // SessionProvider
 // Google Tag Manager
 // Other imports to _app and _document
+// Page Wrapper
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires

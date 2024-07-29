@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import ProvegIncubatorImage from '../../../../../public/images/work/PV_Incubator_Logo_NEW_1.png';
+import ProvegIncubatorImage from '../../../../../../public/images/work/PV_Incubator_Logo_NEW_1.png';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
@@ -41,14 +41,19 @@ const ProvegIncubator: React.FC<ProvegIncubatorProps> = ({
                 rootClassName='text-left mx-auto text-center lg:text-left w-full mb-0'
               >
                 <p className='text-xl'>
-                  {intl.formatMessage(
-                    {
+                  {intl
+                    .formatMessage({
                       id: 'page.our-work.section.proveg-incubator.content',
                       defaultMessage:
-                        'Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!',
-                    },
-                    { break: <br /> },
-                  )}
+                        'Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! <no-localization>{break}{break}</no-localization> Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!',
+                    })
+                    .split('{break}')
+                    .map((item, index) => (
+                      <Fragment key={index}>
+                        {item}
+                        <br />
+                      </Fragment>
+                    ))}
                 </p>
               </SectionHeader>
 

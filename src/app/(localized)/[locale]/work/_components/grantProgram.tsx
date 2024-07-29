@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Bee from '../../../../../public/images/yearInReview/2022/bee.png';
-import GrantApplicants from '../../../../../public/images/yearInReview/2022/grant-applicants.png';
-import GrantGranted from '../../../../../public/images/yearInReview/2022/grant-granted.png';
-import GrantFunded from '../../../../../public/images/yearInReview/2022/grant-funded.png';
+import Bee from '../../../../../../public/images/yearInReview/2022/bee.png';
+import GrantApplicants from '../../../../../../public/images/yearInReview/2022/grant-applicants.png';
+import GrantGranted from '../../../../../../public/images/yearInReview/2022/grant-granted.png';
+import GrantFunded from '../../../../../../public/images/yearInReview/2022/grant-funded.png';
 
 import CustomImage from 'components/decoration/customImage';
 import { SectionHeader } from 'components/decoration/textBlocks';
