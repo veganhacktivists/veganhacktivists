@@ -35,6 +35,9 @@
   "layout.footer.navigation-item.people.label": {
     "message": "People"
   },
+  "layout.footer.navigation-item.people.team.label": {
+    "message": "Our Team"
+  },
   "layout.footer.navigation-item.privacy-policy.label": {
     "message": "Privacy Policy"
   },
@@ -801,16 +804,16 @@
     "message": "<b>ACCELERATE YOUR AI IDEA FOR ANIMALS</b>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
-    "message": "<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference"
+    "message": "<no-localization>James Morgan</no-localization> at <no-localization>Erasmus University</no-localization> in Rotterdam"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption": {
-    "message": "Data & Tech in Animal Rights Activism"
+    "message": "Why Animal Suffering Matters"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.caption": {
-    "message": "<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>"
+    "message": "<no-localization>James Morgan</no-localization> and <no-localization>Kate Rodman</no-localization> at <no-localization>AVA Summit</no-localization>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption": {
-    "message": "Tech Innovation in Animal Protection"
+    "message": "Capacity Building Meetup"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
     "message": "We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
