@@ -11,7 +11,12 @@ import { determineEmailRecipients, OUR_EMAIL_TO } from 'lib/mail/router';
 
 import type { NextApiHandler } from 'next';
 
-export type Service = 'Website' | 'Project' | 'Funding' | 'Advice';
+export type Service =
+  | 'Website'
+  | 'Project'
+  | 'Funding'
+  | 'Advice'
+  | 'Security Consultation';
 
 export interface ContactUsSubmission {
   name: string;
