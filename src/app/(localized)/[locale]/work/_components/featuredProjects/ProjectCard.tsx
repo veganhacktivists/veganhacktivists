@@ -4,19 +4,23 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import ContentfulImage from '../../../../../components/layout/contentfulImage';
-import ShareDialog from '../../../../../components/layout/shareDialog';
+import ContentfulImage from '../../../../../../components/layout/contentfulImage';
+import ShareDialog from '../../../../../../components/layout/shareDialog';
 
 import { DarkButton, ShareButton } from 'components/decoration/buttons';
 import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';
+import LocalizedContentfulEntryFieldClient from 'app/_localization/LocalizedContentfulEntryFieldClient';
 
 import type { IProject } from 'types/generated/contentful';
 
-const ProjectCard: React.FC<{ project: IProject }> = ({
+const ProjectCard: React.FC<{
+  project: IProject;
+  translatedProjectDescription: Record<string, string>;
+}> = ({
   project: {
     fields: { name, url, date: dateStr, image, team, retiredInfo },
-    sys: { id: projectId },
   },
+  translatedProjectDescription,
 }) => {
   const [shareDialogOpen, setShareDialogOpen] = useState(false);
   const shareInfo = useMemo(
@@ -80,11 +84,9 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
             </span>
           </div>
           <div className='text-lg'>
-            {/* <LocalizedContentfulEntryField
-              contentfulId={projectId}
-              fieldId='description'
-              contentType='project'
-            /> */}
+            <LocalizedContentfulEntryFieldClient
+              translatedEntryField={translatedProjectDescription}
+            />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
             <DarkButton href={url} capitalize={false} className='text-center'>

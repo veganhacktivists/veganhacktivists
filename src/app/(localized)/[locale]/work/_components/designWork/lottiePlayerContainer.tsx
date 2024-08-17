@@ -2,7 +2,7 @@
 
 import { Player } from '@lottiefiles/react-lottie-player';
 
-import VSLogoLottieFile from '../../../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
+import VSLogoLottieFile from '../../../../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
 
 const LottiePlayerContainer = () => {
   return (

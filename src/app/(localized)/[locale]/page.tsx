@@ -1,26 +1,29 @@
 import classNames from 'classnames';
 import { cache } from 'react';
 
-import heroBackground from '../../../public/images/VH-hero-bg.jpg';
-import heroTagline from '../../../public/images/VH-hero-tagline.png';
-import { DarkButton, LightButton } from '../../components/decoration/buttons';
-import Circle from '../../components/decoration/circle';
-import Hero from '../../components/decoration/hero';
-import Sprite, { cow, goat } from '../../components/decoration/sprite';
-import SquareField from '../../components/decoration/squares';
-import { SectionHeader } from '../../components/decoration/textBlocks';
-import YoutubeVideo from '../../components/decoration/youtubeVideo';
-import FeaturedProject from '../../components/layout/index/featuredProject';
-import LastBlogEntries from '../../components/layout/index/lastBlogEntries';
-import JoinTheTeam from '../../components/layout/joinTheTeam';
-import { pixelHeart } from '../../images/separators';
-import { getBlogEntries, getFeaturedProjects } from '../../lib/cms/helpers';
+import heroBackground from '../../../../public/images/VH-hero-bg.jpg';
+import heroTagline from '../../../../public/images/VH-hero-tagline.png';
+import {
+  DarkButton,
+  LightButton,
+} from '../../../components/decoration/buttons';
+import Circle from '../../../components/decoration/circle';
+import Hero from '../../../components/decoration/hero';
+import Sprite, { cow, goat } from '../../../components/decoration/sprite';
+import SquareField from '../../../components/decoration/squares';
+import { SectionHeader } from '../../../components/decoration/textBlocks';
+import YoutubeVideo from '../../../components/decoration/youtubeVideo';
+import FeaturedProject from '../../../components/layout/index/featuredProject';
+import LastBlogEntries from '../../../components/layout/index/lastBlogEntries';
+import JoinTheTeam from '../../../components/layout/joinTheTeam';
+import { pixelHeart } from '../../../images/separators';
+import { getBlogEntries, getFeaturedProjects } from '../../../lib/cms/helpers';
 
 import CustomImage from 'components/decoration/customImage';
 import getServerIntl from 'app/intl';
 import GrantsCallToAction from 'components/layout/grants/grantsCallToAction';
 
-import type { IBlogEntry } from '../../types/generated/contentful';
+import type { IBlogEntry } from '../../../types/generated/contentful';
 import type { Metadata } from 'next';
 
 const HERO_DECORATION_SQUARES = [

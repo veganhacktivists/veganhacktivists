@@ -9,12 +9,12 @@ import GrantProgram from './_components/grantProgram';
 import LikeWhatYouSee from './_components/likeWhatYouSee';
 import ProvegIncubator from './_components/provegIncubator';
 
-import StateOfData from 'app/[locale]/work/_components/stateOfData';
-import Playground from 'app/[locale]/work/_components/playground';
-import SharingKnowledgeAndSupport from 'app/[locale]/work/_components/sharingKnowledgeAndSupport';
+import StateOfData from 'app/(localized)/[locale]/work/_components/stateOfData';
+import Playground from 'app/(localized)/[locale]/work/_components/playground';
+import SharingKnowledgeAndSupport from 'app/(localized)/[locale]/work/_components/sharingKnowledgeAndSupport';
 import { getFeaturedProjects } from 'lib/cms/helpers';
 import { getContents } from 'lib/cms';
-import WorkHero from 'app/[locale]/work/_components/workHero';
+import WorkHero from 'app/(localized)/[locale]/work/_components/workHero';
 import getServerIntl from 'app/intl';
 
 import type { Metadata } from 'next';

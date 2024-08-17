@@ -1,7 +1,7 @@
 'use client';
 
-import heroTagline from '../../../../../public/images/work/VH-Hero-tagline.png';
-import heroBackground from '../../../../../public/images/work/VH-Hero-background.png';
+import heroTagline from '../../../../../../public/images/work/VH-Hero-tagline.png';
+import heroBackground from '../../../../../../public/images/work/VH-Hero-background.png';
 
 import SquareField from 'components/decoration/squares';
 import Hero from 'components/decoration/hero';

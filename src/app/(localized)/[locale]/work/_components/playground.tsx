@@ -1,4 +1,4 @@
-import playgroundLogo from '../../../../../public/images/playground/VH_Playground_Logo_Full.png';
+import playgroundLogo from '../../../../../../public/images/playground/VH_Playground_Logo_Full.png';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TechAndDataInTheMovement from '../../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
+import TechAndDataInTheMovement from '../../../../../../public/images/yearInReview/2022/tech-and-data-in-the-movement.jpeg';
 
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';

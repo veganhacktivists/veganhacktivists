@@ -10,8 +10,6 @@ import Sprite, { duck } from '../decoration/sprite';
 
 import JoinTheTeam from './joinTheTeam_pages';
 
-import LocalizedContentfulPageToggleButton from 'components/localization/LocalizedContentfulPageToggleButton';
-
 import type { Layout } from '../../types/persistentLayout';
 
 export enum Site {
@@ -96,9 +94,6 @@ const PeopleLayout: Layout = ({ children }) => {
   return (
     <>
       <PeopleHero />
-      <div className='md:mx-auto md:w-4/6'>
-        <LocalizedContentfulPageToggleButton className='mt-10 mx-12 w-fit' />
-      </div>
       <PeopleButtons />
       {children}
       <Sprite image={duck} pixelsLeft={1} pixelsRight={1} />
