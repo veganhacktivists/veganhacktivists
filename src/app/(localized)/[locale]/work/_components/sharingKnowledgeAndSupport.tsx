@@ -1,8 +1,8 @@
-import family from '../../../../../../public/images/yearInReview/2022/vh-family.jpg';
-import malina from '../../../../../../public/images/yearInReview/2022/malina-tran-at-care.jpg';
-import james from '../../../../../../public/images/yearInReview/2022/james-morgan-at-ava-summit.jpg';
-import { SectionHeader } from '../../../../../components/decoration/textBlocks';
-import SquareField from '../../../../../components/decoration/squares';
+import team from '../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_Team_19.png';
+import jamesErasmusUniversity from '../../../../public/images/work/knowlegeSharingAndSupport/James_Erasmus_University_Rotterdam.png';
+import avaKateAndJames from '../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_DC_Summit_2.png';
+import { SectionHeader } from '../../decoration/textBlocks';
+import SquareField from '../../decoration/squares';
 
 import CustomImage from 'components/decoration/customImage';
 import CustomLink from 'components/decoration/link';
@@ -75,30 +75,30 @@ const SharingKnowledgeAndSupport: React.FC<SharingKnowledgeAndSupportProps> = ({
             <div className='flex'>
               <ImageWithCaption
                 bgColor='yellow'
-                image={malina}
+                image={jamesErasmusUniversity}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.caption',
                   defaultMessage:
-                    '<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference',
+                    '<no-localization>James Morgan</no-localization> at <no-localization>Erasmus University</no-localization> in Rotterdam',
                 })}
                 subcaption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption',
-                  defaultMessage: 'Data & Tech in Animal Rights Activism',
+                  defaultMessage: 'Why Animal Suffering Matters',
                 })}
               />
             </div>
             <div className='flex'>
               <ImageWithCaption
                 bgColor='green'
-                image={james}
+                image={avaKateAndJames}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.caption',
                   defaultMessage:
-                    '<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>',
+                    '<no-localization>James Morgan</no-localization> and <no-localization>Kate Rodman</no-localization> at <no-localization>AVA Summit</no-localization>',
                 })}
                 subcaption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption',
-                  defaultMessage: 'Tech Innovation in Animal Protection',
+                  defaultMessage: 'Capacity Building Meetup',
                 })}
               />
             </div>
@@ -106,7 +106,7 @@ const SharingKnowledgeAndSupport: React.FC<SharingKnowledgeAndSupportProps> = ({
           <div className='flex flex-grow'>
             <div className='flex flex-grow items-center justify-end'>
               <CustomImage
-                src={family}
+                src={team}
                 alt='Vegan Hacktivists team at the Animal & Vegan Advocacy Summit'
               />
             </div>

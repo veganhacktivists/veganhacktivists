@@ -296,6 +296,9 @@
   "page.contact.section.get-in-contact.headline": {
     "message": "Nehmen Sie <b>Kontakt</b> auf"
   },
+  "page.error.next-seo.title": {
+    "message": "Hoppla!"
+  },
   "page.grants.content": {
     "message": "Wir bringen Sie mit Geldgebern zusammen, die bis zu <b> 1.000 USD als Anschubfinanzierung</b> für Tierrechtsaktivismus bereitstellen! Wir suchen Einzelpersonen und Basisgruppen, deren Hauptziel es ist, das Leiden von Nutztieren zu verringern."
   },
@@ -807,7 +810,7 @@
     "message": "Ehrenamtlich mitarbeiten"
   },
   "page.our-work.section.proveg-incubator.content": {
-    "message": "Vegan Hacktivists und Violet Studios arbeiten mit dem ProVeg-Inkubator Kickstarting for Good zusammen, um Künstliche Intelligenz (KI) für die Umgestaltung unseres Lebensmittelsystems zu nutzen. Gemeinsam sind wir auf der Suche nach den wirkungsvollsten Ansätzen und den besten Talenten in diesem Bereich! {Machen Sie mit, wenn Sie bereit sind, Ideen zum Leben zu erwecken, die das globale Lebensmittel-Ökosystem erheblich verbessern können. Bewerbungen für unsere Kohorte 2024 sind jetzt bis zum 26. Mai möglich!"
+    "message": "Vegan Hacktivists und Violet Studios arbeiten mit dem ProVeg-Inkubator Kickstarting for Good zusammen, um Künstliche Intelligenz (KI) für die Umgestaltung unseres Lebensmittelsystems zu nutzen. Gemeinsam sind wir auf der Suche nach den wirkungsvollsten Ansätzen und den besten Talenten in diesem Bereich! <no-localization>{break}{break}</no-localization> Machen Sie mit, wenn Sie bereit sind, Ideen zum Leben zu erwecken, die das globale Lebensmittel-Ökosystem erheblich verbessern können. Bewerbungen für unsere Kohorte 2024 sind jetzt bis zum 26. Mai möglich!"
   },
   "page.our-work.section.proveg-incubator.cta": {
     "message": "Jetzt bewerben"
@@ -816,16 +819,16 @@
     "message": "<b>BESCHLEUNIGEN SIE IHRE AI IDEE FÜR TIERE</b>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
-    "message": "<no-localization>Malina Tran</no-localization> bei der <no-localization>CARE</no-localization> Konferenz"
+    "message": "<no-localization>James Morgan</no-localization> unter <no-localization>Erasmus University</no-localization> in Rotterdam"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption": {
-    "message": "Daten und Technik im Tierrechtsaktivismus"
+    "message": "Warum das Leiden der Tiere wichtig ist"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.caption": {
-    "message": "<no-localization>James Morgan</no-localization> beim <no-localization>AVA Summit</no-localization>"
+    "message": "<no-localization>James Morgan</no-localization> und <no-localization>Kate Rodman</no-localization> unter <no-localization>AVA Summit</no-localization>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption": {
-    "message": "Technische Innovation im Tierschutz"
+    "message": "Treffen zum Kapazitätsaufbau"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
     "message": "Wir halten jedes Jahr viele Vorträge auf Tierschutz- und <no-localization>EA</no-localization> Konferenzen auf der ganzen Welt! Halten Sie Ausschau nach unserem Stand oder unseren Rednern, wir würden uns freuen, Sie zu treffen und zu sehen, wo wir Ihre Arbeit unterstützen können. Folgen Sie uns auf <no-localization><link>Instagram</link></no-localization>, um zu sehen, wo wir als nächstes sein werden!"

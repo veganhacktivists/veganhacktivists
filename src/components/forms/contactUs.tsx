@@ -17,7 +17,13 @@ import SelectInput from './inputs/selectInput';
 
 import { useFAQDetect } from 'hooks/useFAQDetect';
 
-const SERVICES = ['website', 'project', 'funding', 'advice'] as const;
+const SERVICES = [
+  'Website',
+  'Project',
+  'Funding',
+  'Advice',
+  'Security Consultation',
+] as const;
 
 interface ContactUsSubmission {
   name: string;
@@ -40,7 +46,7 @@ const ContactUsForm: React.FC = () => {
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactUsSubmission>({
     defaultValues: {
-      service: pageThatErrored ? 'website' : null,
+      service: pageThatErrored ? 'Website' : null,
     },
   });
   const { reload } = useRouter();

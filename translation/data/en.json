@@ -296,6 +296,9 @@
   "page.contact.section.get-in-contact.headline": {
     "message": "Get in <b>contact</b>"
   },
+  "page.error.next-seo.title": {
+    "message": "Whoops!"
+  },
   "page.grants.content": {
     "message": "We connect you with funders providing up to <b>$1,000 USD in seed funding</b> for animal rights activism! We seek individual and grassroots groups whose primary purpose is to help reduce suffering for farmed animals."
   },
@@ -807,7 +810,7 @@
     "message": "Volunteer"
   },
   "page.our-work.section.proveg-incubator.content": {
-    "message": "Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!"
+    "message": "Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! <no-localization>{break}{break}</no-localization> Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!"
   },
   "page.our-work.section.proveg-incubator.cta": {
     "message": "Apply now"
@@ -816,16 +819,16 @@
     "message": "<b>ACCELERATE YOUR AI IDEA FOR ANIMALS</b>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
-    "message": "<no-localization>Malina Tran</no-localization> at <no-localization>CARE</no-localization> Conference"
+    "message": "<no-localization>James Morgan</no-localization> at <no-localization>Erasmus University</no-localization> in Rotterdam"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.subcaption": {
-    "message": "Data & Tech in Animal Rights Activism"
+    "message": "Why Animal Suffering Matters"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.caption": {
-    "message": "<no-localization>James Morgan</no-localization> at <no-localization>AVA Summit</no-localization>"
+    "message": "<no-localization>James Morgan</no-localization> and <no-localization>Kate Rodman</no-localization> at <no-localization>AVA Summit</no-localization>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.2.subcaption": {
-    "message": "Tech Innovation in Animal Protection"
+    "message": "Capacity Building Meetup"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
     "message": "We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
