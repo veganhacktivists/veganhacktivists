@@ -14,13 +14,6 @@ const averageWeeklyHoursPerValue: Record<TimePerWeek, number> = {
 
 const statsRouter = createTRPCRouter({
   getPlaygroundStats: baseProcedure.query(async ({ ctx: { prisma } }) => {
-    return {
-      requestsOpen: 12,
-      requestsSupported: 34,
-      numberOfVolunteers: 56,
-      hoursVolunteered: 1223,
-    };
-
     const [requestsOpen, requestsSupported, numberOfVolunteers] =
       await Promise.all([
         prisma.playgroundRequest.count({
