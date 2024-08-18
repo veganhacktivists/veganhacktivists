@@ -1,12 +1,12 @@
-import team from '../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_Team_19.png';
-import jamesErasmusUniversity from '../../../../public/images/work/knowlegeSharingAndSupport/James_Erasmus_University_Rotterdam.png';
-import avaKateAndJames from '../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_DC_Summit_2.png';
-import { SectionHeader } from '../../decoration/textBlocks';
-import SquareField from '../../decoration/squares';
+import team from '../../../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_Team_19.png';
+import jamesErasmusUniversity from '../../../../../../public/images/work/knowlegeSharingAndSupport/James_Erasmus_University_Rotterdam.png';
+import avaKateAndJames from '../../../../../../public/images/work/knowlegeSharingAndSupport/AVA_2024_DC_Summit_2.png';
 
 import CustomImage from 'components/decoration/customImage';
 import CustomLink from 'components/decoration/link';
 import getServerIntl from 'app/intl';
+import SquareField from 'components/decoration/squares';
+import { SectionHeader } from 'components/decoration/textBlocks';
 
 import type { StaticImageData } from 'next/image';
 

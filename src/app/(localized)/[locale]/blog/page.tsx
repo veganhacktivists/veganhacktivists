@@ -1,4 +1,5 @@
 import React from 'react';
+import { unstable_cache } from 'next/cache';
 
 import { getBlogEntries } from '../../../../lib/cms/helpers';
 import SquareField from '../../../../components/decoration/squares';
@@ -32,18 +33,22 @@ export function generateMetadata({ params: { locale } }: Props): Metadata {
   };
 }
 
-export const revalidate = 480;
-
 export type TanslatedBlogEntry = IBlogEntry & {
   titleTranslation: Record<string, string>;
   excerptTranslation: Record<string, string>;
 };
 
+const getContent = unstable_cache(async () => {
+  return await Promise.all([
+    getBlogEntries() as Promise<IBlogEntry[]>,
+    getContents<ITagFields>({
+      contentType: 'tag',
+    }) as Promise<ITag[]>,
+  ]);
+});
+
 const Blog: React.FC<Props> = async ({ params: { locale } }) => {
-  const blogs = (await getBlogEntries()) as IBlogEntry[];
-  const tags = (await getContents<ITagFields>({
-    contentType: 'tag',
-  })) as ITag[];
+  const [blogs, tags] = await getContent();
 
   const translatedBlogEntries = await Promise.all(
     blogs.map(async (blog) => {

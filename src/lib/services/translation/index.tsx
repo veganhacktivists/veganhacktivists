@@ -1,5 +1,6 @@
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
+import { unstable_cache } from 'next/cache';
 
 import { defaultLocale } from '../../../../translation/defaultLocale';
 
@@ -9,6 +10,9 @@ import { getById } from 'lib/cms';
 import prisma from 'lib/db/prisma';
 
 import type { getLocalizedHTMLSchema } from './schemas';
+
+const getCachedById = unstable_cache(getById);
+const cachedTranslateHTML = unstable_cache(translateHTML);
 
 const getCachedLocalizedHTML = async ({
   contentfulId,
@@ -71,7 +75,7 @@ export const getLocalizedHTML = async ({
     let originalHTMLHash: string;
 
     if (!existingOriginalTranslationCache) {
-      const entry = await getById<Record<string, unknown>>(contentfulId);
+      const entry = await getCachedById<Record<string, unknown>>(contentfulId);
 
       const originalValue = entry.fields[fieldId];
       const extractedOriginalHTML = getHTMLStringFromFieldValue(originalValue);
@@ -133,7 +137,7 @@ export const getLocalizedHTML = async ({
     }
 
     // locale mapping required? next locale -> deepl locale
-    const translatedHTML = await translateHTML(originalHTML, locale);
+    const translatedHTML = await cachedTranslateHTML(originalHTML, locale);
 
     try {
       await prisma.contentfulTranslationCache.upsert({
@@ -199,7 +203,7 @@ export const getLocalizedHTML = async ({
       contentfulId,
     );
     // return original if database is unavailable
-    const entry = await getById<Record<string, unknown>>(contentfulId);
+    const entry = await getCachedById<Record<string, unknown>>(contentfulId);
     return getHTMLStringFromFieldValue(entry.fields[fieldId]);
   }
 };

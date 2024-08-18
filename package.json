@@ -55,7 +55,7 @@
     "fuse.js": "^6.6.2",
     "glob": "^8.0.3",
     "http-status-codes": "^2.2.0",
-    "luxon": "^3.2.1",
+    "luxon": "^3.4.4",
     "mailgun.js": "^8.0.2",
     "mjml": "^4.15.3",
     "next": "14.2.2",
@@ -106,7 +106,7 @@
     "@types/luxon": "^3.1.0",
     "@types/mailchimp__mailchimp_marketing": "^3.0.6",
     "@types/mjml": "^4.7.0",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.10.0",
     "@types/nodemailer": "^6.4.6",
     "@types/react": "18.2.78",
     "@types/react-dom": "^18.2.25",
@@ -138,8 +138,8 @@
     "typescript": "5.5.4"
   },
   "optionalDependencies": {
-    "contentful-management": "^10.20.1",
-    "contentful-typescript-codegen": "^3.2.3"
+    "contentful-management": "^10.46.4",
+    "contentful-typescript-codegen": "^3.4.0"
   },
   "engines": {
     "pnpm": ">=8.0.0"

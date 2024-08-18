@@ -37,6 +37,9 @@ interface Props {
   params: { locale: string };
 }
 
+// pages that use this layout inherit this revalidate value
+export const revalidate = 60 * 60; // revalidate at most every hour
+
 export function generateMetadata(props: Props): Metadata {
   const locale = props.params?.locale ?? defaultLocale;
   const intl = getServerIntl(locale);

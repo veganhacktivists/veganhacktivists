@@ -1,5 +1,6 @@
 import { parse } from 'node-html-parser';
 import { notFound } from 'next/navigation';
+import { unstable_cache } from 'next/cache';
 
 import { getContents } from '../../../../../lib/cms';
 import {
@@ -29,10 +30,6 @@ import type {
 interface Props {
   params: { locale: string; slug: string };
 }
-
-export const revalidate = 60 * 30;
-
-// TODO: deduplicate and cache requests to contentful (and db)
 
 export async function generateMetadata({
   params: { locale, slug },
@@ -120,6 +117,8 @@ const Header: React.FC = () => {
   );
 };
 
+const cachedBlogEntries = unstable_cache(getBlogEntries);
+
 const BlogEntry = async ({ params: { locale, slug } }: Props) => {
   const blog = await getEntryOrPreview(slug, false);
 
@@ -129,7 +128,7 @@ const BlogEntry = async ({ params: { locale, slug } }: Props) => {
 
   const otherBlogsToShow = 5;
 
-  const otherBlogs = (await getBlogEntries(otherBlogsToShow + 1))
+  const otherBlogs = (await cachedBlogEntries(otherBlogsToShow + 1))
     .filter((entry) => entry.fields.slug !== slug)
     .slice(0, otherBlogsToShow);
 
@@ -235,7 +234,7 @@ const BlogEntry = async ({ params: { locale, slug } }: Props) => {
 const getEntryOrPreview: (
   slug: string,
   preview: boolean,
-) => Promise<IBlogEntry> = async (slug, preview) => {
+) => Promise<IBlogEntry> = unstable_cache(async (slug, preview) => {
   if (preview) {
     return await getBlogPreviewBySlug(slug);
   }
@@ -247,7 +246,7 @@ const getEntryOrPreview: (
       other: { include: 3 },
     })
   )[0] as IBlogEntry;
-};
+});
 
 interface AuthorCardProps {
   author: ITeamMember;

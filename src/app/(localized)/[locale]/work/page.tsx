@@ -1,3 +1,5 @@
+import { unstable_cache } from 'next/cache';
+
 import OurWork from './_components/ourWork';
 import FeaturedProjects from './_components/featuredProjects/featuredProjects';
 import OtherProjects from './_components/otherProjects';
@@ -35,23 +37,28 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-const Work = async ({ params: { locale } }: Props) => {
-  const [featuredProjects, otherProjects] = await Promise.all([
-    getFeaturedProjects(),
-    getContents<IProjectFields>({
-      contentType: 'project',
-      query: {
-        isFeatured: false,
-        filters: {
-          ne: { showInWebsite: false },
-          exists: { retiredInfo: false },
+const getContent = unstable_cache(
+  async () =>
+    await Promise.all([
+      getFeaturedProjects(),
+      getContents<IProjectFields>({
+        contentType: 'project',
+        query: {
+          isFeatured: false,
+          filters: {
+            ne: { showInWebsite: false },
+            exists: { retiredInfo: false },
+          },
         },
-      },
-      other: {
-        order: '-fields.date',
-      },
-    }) as Promise<IProject[]>,
-  ]);
+        other: {
+          order: '-fields.date',
+        },
+      }) as Promise<IProject[]>,
+    ]),
+);
+
+const Work = async ({ params: { locale } }: Props) => {
+  const [featuredProjects, otherProjects] = await getContent();
 
   return (
     <>

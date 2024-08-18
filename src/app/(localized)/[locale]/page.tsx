@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { cache } from 'react';
+import { unstable_cache } from 'next/cache';
 
 import heroBackground from '../../../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../../../public/images/VH-hero-tagline.png';
@@ -77,10 +77,9 @@ export async function generateMetadata({
   });
 }
 
-const loadProjectsAndBlogs = cache(() =>
-  Promise.all([getFeaturedProjects(), getBlogEntries(3)]),
-);
-export const revalidate = 60 * 30;
+const loadProjectsAndBlogs = unstable_cache(async () => {
+  return await Promise.all([getFeaturedProjects(), getBlogEntries(3)]);
+});
 
 const Home: React.FC<HomeProps> = async ({ params: { locale } }) => {
   const [featuredProjects, lastBlogEntries] = await loadProjectsAndBlogs();
