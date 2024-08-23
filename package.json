@@ -40,6 +40,7 @@
     "@nivo/line": "^0.80.0",
     "@prisma/client": "5.6.0",
     "@react-spring/web": "^9.5.5",
+    "@sentry/nextjs": "^8",
     "@tanstack/react-query": "^4.18.0",
     "@trpc/client": "10.44.1",
     "@trpc/next": "10.44.1",
@@ -139,5 +140,6 @@
   },
   "engines": {
     "pnpm": ">=8.0.0"
-  }
+  },
+  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
 }
