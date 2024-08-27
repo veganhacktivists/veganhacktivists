@@ -1,6 +1,6 @@
 const { defaultLocale } = require('./translation/defaultLocale');
 
-const locales = ['en', 'de' /**, 'zh', 'dev' */];
+const locales = ['en' /**, 'de', 'zh', 'dev' */];
 
 if (!locales.includes(defaultLocale)) {
   console.error('defaultLocale must be one of ' + locales.join(', '));
