@@ -203,7 +203,7 @@ const OurWork: React.FC<{ locale: string }> = ({ locale }) => {
                 {
                   id: 'page.our-work.section.our-work.section-header.content',
                   defaultMessage:
-                    'We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.',
+                    'We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services.',
                 },
                 { b: (chunks) => <b>{chunks}</b> },
               )}
