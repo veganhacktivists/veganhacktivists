@@ -48,6 +48,8 @@ function redirectsForLocale(locale?: string): Redirect[] {
       permanent: true,
     },
     {
+      // this redirect is also configured in the next
+      //  config to ensure the file included in the build
       source: `${localeSegment}/research`,
       destination: '/tech-and-data-in-the-movement.pdf',
       permanent: false,
