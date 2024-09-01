@@ -4,10 +4,10 @@ During the transition, shared features are duplicated. For example the trpc inte
 
 ## trpc
 
-trpc is configured to use createTRPCReact for in the app directory.
-pages continues using the
+trpc is configured to use createTRPCReact for the client and createCaller for the server in the app directory.
+pages continues to use the old setup.
 
-example repo  
+trpc with app router example:
 https://github.com/devietti/trpc-next13-app/blob/main/src/app/servercomponent/page.tsx
 
 ## unwanted behaviour

@@ -6,8 +6,6 @@ import { useIntl } from 'react-intl';
 
 import ErrorPage from 'components/layout/errorPage';
 
-// TODO: localized title, status code
-
 const Error = ({
   error,
   reset,

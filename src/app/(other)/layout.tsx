@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../../styles/fonts.css';
 import { defaultLocale } from '../../../translation/defaultLocale';
-import ClientProviders from '../_providers/clientProviders';
+import ClientLayout from '../clientLayout';
 import getServerIntl from '../intl';
 
 import { MainWrapper } from 'components/layout/wrapper';
@@ -15,12 +15,6 @@ import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
-
-// TODO:
-// SessionProvider
-// Google Tag Manager
-// Other imports to _app and _document
-// Page Wrapper
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -114,7 +108,7 @@ const RootLayout = (props: PropsWithChildren<Props>) => {
         <meta name='theme-color' content='#161919' />
       </head>
       <body>
-        <ClientProviders
+        <ClientLayout
           intlProps={{
             locale: intl.locale,
             messages: intl.messages as Record<string, string>,
@@ -123,7 +117,7 @@ const RootLayout = (props: PropsWithChildren<Props>) => {
           <Header />
           <MainWrapper>{props.children}</MainWrapper>
           <Footer />
-        </ClientProviders>
+        </ClientLayout>
       </body>
     </html>
   );

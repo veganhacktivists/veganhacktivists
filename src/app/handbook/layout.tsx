@@ -3,7 +3,7 @@ import React from 'react';
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../../styles/fonts.css';
-import ClientProviders from '../_providers/clientProviders';
+import ClientProviders from '../clientLayout';
 import { defaultLocale } from '../../../translation/defaultLocale';
 import getServerIntl from '../intl';
 
