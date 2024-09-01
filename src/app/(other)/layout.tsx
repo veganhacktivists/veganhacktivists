@@ -13,6 +13,7 @@ import Footer from 'components/layout/footer';
 
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
+<<<<<<< Updated upstream
 import type ReactAxe from '@axe-core/react';
 import type { ReactDOM } from 'react';
 
@@ -26,6 +27,8 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
     console.error('Error loading @axe-core/react', error);
   });
 }
+=======
+>>>>>>> Stashed changes
 
 interface Props {
   params: { locale: string };

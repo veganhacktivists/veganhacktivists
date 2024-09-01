@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import { useIntl } from 'react-intl';
 
-import ErrorPage from 'components/layout/errorPage';
+// import ErrorPage from 'components/layout/errorPage';
 
 const Error = ({
   error,
@@ -28,7 +28,7 @@ const Error = ({
           defaultMessage: 'Whoops!',
         })}
       />
-      <ErrorPage error={error} reset={() => {}} />
+      {/* <ErrorPage error={error} reset={() => {}} /> */}
     </>
   );
 };

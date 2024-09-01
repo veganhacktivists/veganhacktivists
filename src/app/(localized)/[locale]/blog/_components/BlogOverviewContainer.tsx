@@ -57,6 +57,7 @@ export const BlogOverviewContainer: React.FC<Props> = ({
     updateSearchParam,
   } = useBlogSearch(blogs);
   const intl = useIntl();
+
   return (
     <>
       <BlogsHeader
@@ -128,6 +129,15 @@ export const BlogOverviewContainer: React.FC<Props> = ({
           </>
         )}
         <div className='flex flex-row justify-center gap-10 p-16 mx-auto'>
+          <DarkButton
+            className='mb-10 text-center w-fit md:w-72'
+            onClick={() => {
+              throw new Error('Error 123');
+            }}
+            type='button'
+          >
+            crash
+          </DarkButton>
           <DarkButton
             onClick={useCallback(() => {
               decreasePageParam();

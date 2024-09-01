@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../decoration/buttons';
-import useErrorStore from '../../lib/stores/errorStore';
 import errorTypeImage from '../../../public/images/VH-error-type.png';
 import {
   avocado,
@@ -19,22 +18,14 @@ import {
 import CustomImage from 'components/decoration/customImage';
 import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
-import type { FallbackProps } from 'react-error-boundary';
 import type { NextPage } from 'next';
 
-export interface ErrorProps
-  extends Omit<FallbackProps, 'error' | 'resetErrorBoundary'> {
-  error?: FallbackProps['error'] & {
-    statusCode?: number;
-  };
+export interface ErrorProps {
+  error: Error & { statusCode?: number };
   reset?: () => void;
-  resetErrorBoundary?: FallbackProps['resetErrorBoundary'];
 }
 
-const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary, reset }) => {
-  // reset is passed by next app router, resetErrorBoundary is passed by react-error-boundary
-  reset ??= resetErrorBoundary;
-
+const Error: NextPage<ErrorProps> = ({ error, reset }) => {
   const intl = useIntl();
   const pathname = usePathnameWithoutLocale();
 
@@ -44,15 +35,33 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary, reset }) => {
     };
   }, [reset]);
 
-  const { setErrorData, generateErrorMessage } = useErrorStore();
-
   if (pathname === null) {
     return null;
   }
 
   const handleContactClick = () => {
     reset?.();
-    setErrorData({ pageThatErrored: pathname, error });
+  };
+
+  const generateErrorMessage = (context: {
+    pageThatErrored?: string;
+    error: Error & { statusCode?: number };
+  }): string => {
+    const { pageThatErrored, error } = context;
+    const thenHappened = error?.statusCode
+      ? `I found a ${error?.statusCode} error`
+      : 'a client error happened';
+
+    const defaultErrorMessage = pageThatErrored
+      ? `[Please tell us what you were doing prior to the error occurring...]
+
+...then ${thenHappened} at ${pageThatErrored}${
+          error?.name ? `: ${error.name}. ${error.message}` : ''
+        }.
+
+Thanks!`
+      : '';
+    return defaultErrorMessage;
   };
 
   const contactPageError: string | boolean = pathname === '/contact';
@@ -122,7 +131,12 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary, reset }) => {
               ) : (
                 <DarkButton
                   className='w-52'
-                  href='/contact'
+                  href={`/contact?message=${btoa(
+                    generateErrorMessage({
+                      pageThatErrored: pathname,
+                      error,
+                    }),
+                  )}`}
                   onClick={handleContactClick}
                 >
                   Let us know!
