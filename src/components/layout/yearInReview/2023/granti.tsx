@@ -1,0 +1,76 @@
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import GrantiLogo from '../../../../../public/images/yearInReview/2023/granti.png';
+import GrantiScreenshot from '../../../../../public/images/yearInReview/2023/granti-screenshot.jpg';
+
+import SquareField from 'components/decoration/squares';
+import { DarkButton } from 'components/decoration/buttons';
+import { SectionHeader } from 'components/decoration/textBlocks';
+import CustomImage from 'components/decoration/customImage';
+
+const TOP_DECORATION_SQUARES = [{ color: 'grey', size: 16, right: 0, top: 0 }];
+
+const Granti: React.FC = () => {
+  const intl = useIntl();
+
+  const buttonLabel = intl.formatMessage({
+    id: 'page.year-in-review.2023.section.granti.label',
+    defaultMessage:
+      'Reach our to join <no-localization>Granti</no-localization>',
+  });
+
+  return (
+    <>
+      <SquareField
+        squares={TOP_DECORATION_SQUARES}
+        className='hidden md:block'
+      />
+
+      <div className='flex flex-col md:flex-row text-left bg-[#DDDDDD]'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start pb-0 py-10 px-10 md:p-10'>
+          <div className='flex-grow max-w-3xl flex items-center justify-center'>
+            <CustomImage alt='Granti screenshot' src={GrantiScreenshot} />
+          </div>
+        </div>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pb-0'>
+          <div className='flex-grow max-w-4xl flex justify-center p-10'>
+            <div className='lg:w-[35.25rem] md:py-16'>
+              <div className='max-w-sm pb-10'>
+                <CustomImage alt='Granti logo' src={GrantiLogo} />
+              </div>
+              <SectionHeader
+                header={intl.formatMessage({
+                  id: 'page.year-in-review.2023.section.granti.heading',
+                  defaultMessage: '<b>GRANT-MAKING TURNED SIMPLE</b>',
+                })}
+                stackEntries
+              />
+              <div className='text-lg pt-8 pb-4'>
+                <FormattedMessage
+                  id='page.year-in-review.2023.section.granti.content'
+                  defaultMessage="After conducting several interviews with major funders in the space, it was clear to us that a grantee/funder tool was well-needed in our movement. We tackled this issue head-on by building a tool that would allow better management and facilitation of grants for both advocates and funders alike. We were thrilled to onboard the first funders onto the platform, and publicly announced its launch at the end of the year!{break}{break}Grantees often struggle to keep track of their grant submissions, both current and past. Funders face similar challenges, as it's rare to have all the necessary information in one easy-to-understand and accessible format. Like grantees, funders deal with a lot of administrative work and often use multiple platforms to manage submissions. Our system, <no-localization>Granti</no-localization>, brings everyone together, simplifying the grant process for all.{break}{break}Since its launch, <no-localization>Granti</no-localization> has made a huge impact, helping distribute tens of millions of dollars. <no-localization>Granti</no-localization> makes everything easier—from handling applications to updating records and managing finances. It's become a powerful tool, and we intend to extend its use far beyond what we initially envisioned.{break}{break}<b>Are you a funder or grantmaker in the space? Looking for a streamlined way to manage your grants?</b>"
+                  values={{
+                    b: (chunks) => <b>{chunks}</b>,
+                    break: <br />,
+                  }}
+                />
+              </div>
+              <div className='flex flex-row justify-between mt-4'>
+                <DarkButton
+                  capitalize={false}
+                  className='md:max-w-72 h-fit'
+                  href='https://granti.org/login'
+                  newTab
+                >
+                  {buttonLabel}
+                </DarkButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Granti;

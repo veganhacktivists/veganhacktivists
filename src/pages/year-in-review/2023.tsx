@@ -8,6 +8,9 @@ import Intro from '../../components/layout/yearInReview/2023/intro';
 import heroBackground from '../../../public/images/yearInReview/2023/2023-hero.jpg';
 import heroTagline from '../../../public/images/yearInReview/2023/2023-type.png';
 
+import VioletStudios from 'components/layout/yearInReview/2023/violetStudios';
+import Granti from 'components/layout/yearInReview/2023/granti';
+
 const YearInReview2023: React.FC = ({}) => {
   const intl = useIntl();
   return (
@@ -58,6 +61,8 @@ const YearInReview2023: React.FC = ({}) => {
           }
         />
         <Intro />
+        <VioletStudios />
+        <Granti />
       </div>
     </>
   );
