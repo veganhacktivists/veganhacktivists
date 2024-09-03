@@ -10,6 +10,7 @@ import heroTagline from '../../../public/images/yearInReview/2023/2023-type.png'
 
 import VioletStudios from 'components/layout/yearInReview/2023/violetStudios';
 import Granti from 'components/layout/yearInReview/2023/granti';
+import TodayForAnimals from 'components/layout/yearInReview/2023/today-for-animals';
 
 const YearInReview2023: React.FC = ({}) => {
   const intl = useIntl();
@@ -63,6 +64,7 @@ const YearInReview2023: React.FC = ({}) => {
         <Intro />
         <VioletStudios />
         <Granti />
+        <TodayForAnimals />
       </div>
     </>
   );

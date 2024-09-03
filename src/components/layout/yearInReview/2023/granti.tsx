@@ -8,7 +8,9 @@ import { DarkButton } from 'components/decoration/buttons';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import CustomImage from 'components/decoration/customImage';
 
-const TOP_DECORATION_SQUARES = [{ color: 'grey', size: 16, right: 0, top: 0 }];
+const TOP_DECORATION_SQUARES = [
+  { color: 'grey-darker', size: 16, left: 0, top: 0 },
+];
 
 const Granti: React.FC = () => {
   const intl = useIntl();
@@ -25,16 +27,15 @@ const Granti: React.FC = () => {
         squares={TOP_DECORATION_SQUARES}
         className='hidden md:block'
       />
-
       <div className='flex flex-col md:flex-row text-left bg-[#DDDDDD]'>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start pb-0 py-10 px-10 md:p-10'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pb-0 p-10 md:pb-10'>
           <div className='flex-grow max-w-3xl flex items-center justify-center'>
             <CustomImage alt='Granti screenshot' src={GrantiScreenshot} />
           </div>
         </div>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pb-0'>
-          <div className='flex-grow max-w-4xl flex justify-center p-10'>
-            <div className='lg:w-[35.25rem] md:py-16'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start p-10'>
+          <div className='flex-grow max-w-3xl flex justify-center'>
+            <div className='md:py-16'>
               <div className='max-w-sm pb-10'>
                 <CustomImage alt='Granti logo' src={GrantiLogo} />
               </div>
