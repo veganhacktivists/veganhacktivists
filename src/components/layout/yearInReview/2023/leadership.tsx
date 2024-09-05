@@ -16,7 +16,7 @@ const Leadership: React.FC = () => {
 
   return (
     <>
-      <div className='flex flex-col md:flex-row text-left bg-[#DDDDDD]'>
+      <div className='flex flex-col md:flex-row text-left bg-white'>
         <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pb-0 p-10 md:pb-10'>
           <div className='flex-grow max-w-3xl flex justify-center'>
             <div className='md:py-16'>

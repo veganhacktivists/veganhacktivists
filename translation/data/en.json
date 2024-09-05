@@ -1973,6 +1973,27 @@
   "page.year-in-review.2023.next-seo.title": {
     "message": "2023 in Review"
   },
+  "page.year-in-review.2023.section.collaborations.1.content": {
+    "message": "This year, we partnered with <no-localization>AAC</no-localization> by winding down their skilled volunteer board's activities and guiding those eager to volunteer or seeking volunteer positions towards <no-localization>VH Playground</no-localization>. Likewise, <no-localization>Playground</no-localization> began to advocate <no-localization>AAC's</no-localization> career opportunities within our volunteer community for individuals aspiring to pursue a more career-oriented role."
+  },
+  "page.year-in-review.2023.section.collaborations.1.heading": {
+    "message": "Collaboration for <b>EFFECTIVE REDIRECTION</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.2.content": {
+    "message": "We partnered with <no-localization>Sentient Media’s Writers’ Collective</no-localization> to train and mentor new writers focused on topics like animal welfare, plant-based diets, social justice, and the environment. By guiding almost 200+ writer applicants to their program, we support enriching these important conversations."
+  },
+  "page.year-in-review.2023.section.collaborations.2.heading": {
+    "message": "Partnership for <b>ADVANCED CONVERSATIONS</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.3.content": {
+    "message": "Together with <no-localization>Stray Dog Institute</no-localization>, we hosted two webinars on AI, covering ground on topics such as accelerating change through AI, its role in scaling, optimizing campaigns, and supplementing our advocacy as a whole. As capacity builders, we prioritize equipping advocates with the resources needed to boost their efficiency and impact. AI undoubtedly serves as a tool for this very purpose."
+  },
+  "page.year-in-review.2023.section.collaborations.3.heading": {
+    "message": "Advancing <b>ANIMAL ADVOCACY WITH AI</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.header": {
+    "message": "2023 was marked by collaborations that focused on arguably one of the most important building blocks in the movement: <b>acquiring and cultivating talent and skill</b>."
+  },
   "page.year-in-review.2023.section.fta.content": {
     "message": "Towards the end of 2023, we were excited to introduce <no-localization>Today For Animals</no-localization>, a user-friendly web app that simplifies animal advocacy for everyone, from seasoned activists to newcomers. <no-localization>Today For Animals</no-localization> provides a spectrum of actions, from quick daily tasks to more challenging efforts, aimed at improving the lives of animals.{break}{break}Users can engage in \"micro-activism\" like leaving reviews for vegan eateries, sharing recipes, or signing petitions. Participants in the app earn recognition and climb the leaderboard as they complete tasks. They can also collect beautifully crafted badges for their profiles and maintain a daily activity streak by checking into the app each day. This gamified approach keeps our community engaged and helps everyone continuously contribute to animal advocacy.{break}{break}The launch of this project was met with great reception, and garnered 269 sign ups just within a couple of weeks. But we didn’t stop there! Our team is consistently improving the app, to keep the users curious, active, and motivated to make a difference even in the most mundane.{break}{break}<b>Have you helped the animals today?</b>"
   },
@@ -2010,7 +2031,7 @@
     "message": "Read the Announcement"
   },
   "page.year-in-review.2023.section.partnership.content": {
-    "message": "Creating <bold>partnerships</bold> & creating <bold>impact</bold>"
+    "message": "Creating <b>partnerships</b> & creating <b>impact</b>"
   },
   "page.year-in-review.2023.section.playground.content": {
     "message": "After the immense success of <no-localization>Playground</no-localization> since its launch in 2021, we continued to strive for ways to improve it. The platform, comprising over 2,500 vegan volunteers who have collectively contributed over thousands of hours of work for the movement, has established itself as the go-to place to connect with organizations.{break}{break}We witnessed the growth of <no-localization>Playground’s</no-localization> community by nearly 1,000 new volunteers, handling 93 diverse requests like data analysis and marketing in this year alone.{break}{break}In 2023, we decided to take <no-localization>Playground</no-localization> to the next level. We learned a lot and started working on implementing changes to enhance user experience. By providing more control for those seeking support, and a much more enjoyable (and even fun!) process for fulfilling requests, <no-localization>Playground's</no-localization> upgrade is set to boost both experience and impact for animals.{break}{break}<no-localization>Playground</no-localization> is separate from the <no-localization>Vegan Hacktivists</no-localization> team, and aims to increase the capacity in which we can support work for the animals. In preparation of <no-localization>Playground V2</no-localization>, we’ve released an introductory video about the current platform.{break}{break}<b>Haven’t seen the video yet?</b>"

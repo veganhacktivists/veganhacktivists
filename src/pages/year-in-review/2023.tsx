@@ -14,6 +14,7 @@ import TodayForAnimals from 'components/layout/yearInReview/2023/today-for-anima
 import Playground from 'components/layout/yearInReview/2023/playground';
 import Leadership from 'components/layout/yearInReview/2023/leadership';
 import Partnerships from 'components/layout/yearInReview/2023/partnerships';
+import Collaborations from 'components/layout/yearInReview/2023/collaborations';
 
 const YearInReview2023: React.FC = ({}) => {
   const intl = useIntl();
@@ -71,6 +72,7 @@ const YearInReview2023: React.FC = ({}) => {
         <Playground />
         <Leadership />
         <Partnerships />
+        <Collaborations />
       </div>
     </>
   );
