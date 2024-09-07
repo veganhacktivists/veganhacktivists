@@ -35,6 +35,7 @@ interface SectionHeaderProps
   stackEntries?: boolean;
   className?: string;
   rootClassName?: string;
+  smallOnMobile?: boolean;
 }
 
 // TODO: this file is a mess, I wanna speak to Kate and determine all the headers we might need,
@@ -45,6 +46,7 @@ export const SectionHeader = ({
   className,
   rootClassName,
   children,
+  smallOnMobile,
   ...props
 }: SectionHeaderProps) => {
   const boldStart = '<b>';
@@ -60,11 +62,12 @@ export const SectionHeader = ({
     .filter(Boolean)
     .filter((component) => component !== boldStart && component !== boldEnd);
 
-  const boldClasses =
-    'text-5xl md:text-6xl font-mono font-semibold uppercase mx-1';
+  const boldClasses = `${
+    smallOnMobile ? 'text-4xl' : 'text-5xl'
+  } md:text-6xl font-mono font-semibold uppercase mx-1`;
   const italicClasses = classNames(
-    'font-serif italic text-4xl mx-1',
-    'font-bold',
+    `${smallOnMobile ? 'text-3xl md:' : ''}text-4xl font-serif italic  mx-1',
+    'font-bold`,
   );
 
   return (

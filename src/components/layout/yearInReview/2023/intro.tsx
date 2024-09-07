@@ -1,4 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import SectionContainer from '../sectionContainer';
 import { HighlightBlock } from '../highlightBlock';
@@ -6,8 +6,6 @@ import { HighlightBlock } from '../highlightBlock';
 import SquareField from 'components/decoration/squares';
 
 const Intro: React.FC = () => {
-  const intl = useIntl();
-
   return (
     <>
       <SquareField

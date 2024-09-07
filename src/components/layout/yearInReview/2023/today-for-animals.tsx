@@ -30,7 +30,7 @@ const TodayForAnimals: React.FC = () => {
         className='hidden md:block'
       />
       <div className='flex flex-col md:flex-row text-left bg-white'>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pb-0 p-10'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pt-10 md:pt-20 px-5 md:px-10'>
           <div className='flex-grow max-w-3xl flex items-center justify-center'>
             <CustomImage
               className='shadow-[0_4px_10px_0_rgba(0,0,0,0.15)]'
@@ -39,9 +39,9 @@ const TodayForAnimals: React.FC = () => {
             />
           </div>
         </div>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start p-10'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start py-10 md:py-20 px-5 md:px-10'>
           <div className='flex-grow max-w-3xl flex justify-center'>
-            <div className='md:py-16'>
+            <div>
               <div className='pb-10'>
                 <CustomImage alt='Today for Animals logo' src={FTALogo} />
               </div>
