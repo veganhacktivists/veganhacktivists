@@ -19,6 +19,8 @@ import Knowledge from 'components/layout/yearInReview/2023/knowledge';
 import TechAndData from 'components/layout/yearInReview/2023/tech-and-data';
 import TheoryOfChange from 'components/layout/yearInReview/2023/theoryOfChange';
 import BigImpact from 'components/layout/yearInReview/2023/bigImpact';
+import MovingForward from 'components/layout/yearInReview/2023/movingForward';
+import ByTheNumbers from 'components/layout/yearInReview/2023/byTheNumbers';
 
 const YearInReview2023: React.FC = ({}) => {
   const intl = useIntl();
@@ -81,6 +83,8 @@ const YearInReview2023: React.FC = ({}) => {
         <TechAndData />
         <TheoryOfChange />
         <BigImpact />
+        <ByTheNumbers />
+        <MovingForward />
       </div>
     </>
   );
