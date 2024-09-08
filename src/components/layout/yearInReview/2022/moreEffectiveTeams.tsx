@@ -8,8 +8,7 @@ import SectionContainer from '../sectionContainer';
 import teamCommunication from '../../../../../public/images/yearInReview/2022/team-peach.png';
 import teamCore from '../../../../../public/images/yearInReview/2022/team-apple.png';
 import teamPlayground from '../../../../../public/images/yearInReview/2022/team-banana.png';
-
-import TeamBlock from './teamBlock';
+import TeamBlock from '../teamBlock';
 
 const MoreEffectiveTeams: React.FC = () => {
   const intl = useIntl();

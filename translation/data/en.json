@@ -1973,6 +1973,45 @@
   "page.year-in-review.2023.next-seo.title": {
     "message": "2023 in Review"
   },
+  "page.year-in-review.2023.section.big-impact.501c3.content": {
+    "message": "In 2023, we took a big step and initiated the process to obtain <no-localization>501(c)(3)</no-localization> status in the United States. This change promises to open up new opportunities for our organization to grow and make an even greater impact!"
+  },
+  "page.year-in-review.2023.section.big-impact.501c3.heading": {
+    "message": "We’re becoming a <no-localization>501(c)3</no-localization>!"
+  },
+  "page.year-in-review.2023.section.big-impact.all-hands-meeting.content": {
+    "message": "In 2023, we held our very first All Hands meeting, where we established objectives aimed at improving our capacity-building services, reflected on our progress, and discussed ways to run our teams at a sustainable, collaboration-focused pace."
+  },
+  "page.year-in-review.2023.section.big-impact.all-hands-meeting.heading": {
+    "message": "Our First All Hands Meeting"
+  },
+  "page.year-in-review.2023.section.big-impact.heading": {
+    "message": "Minor actions with <b>BIG IMPACT</b>"
+  },
+  "page.year-in-review.2023.section.big-impact.new-advisor.content": {
+    "message": "We warmly welcomed <no-localization>Abigail Penny</no-localization>, the Executive Director of <no-localization>Animal Equality UK</no-localization>, to our advisory board this year. Her leadership has led to mainstream media attention and significant changes for farmed animals in the UK. <no-localization>Abigail's</no-localization> expertise holds tremendous value as she joins other leaders to guide our efforts toward a better world for animals."
+  },
+  "page.year-in-review.2023.section.big-impact.new-advisor.heading": {
+    "message": "New Advisor"
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-director.content": {
+    "message": "This year we also welcomed <no-localization>Gabrielė</no-localization>, our new Communications Director, to the team. Bringing in her background in comms and experience in campaign work, <no-localization>Gabrielė</no-localization> quickly re-adjusted to the realm of capacity building. Besides creating content for <no-localization>Vegan Hacktivists</no-localization> and <no-localization>Violet Studios</no-localization>, she's also helping other advocates strengthen their skills in communications and social media."
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-director.heading": {
+    "message": "New Director of Communications"
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-manager.content": {
+    "message": "In 2023, we welcomed <no-localization>Jess</no-localization> as our new Community Director at <no-localization>Vegan Hacktivists</no-localization>. With a decade of nonprofit experience and a passion for animal advocacy, <no-localization>Jess</no-localization> has proven to be perfectly suited to lead and expand Playground, our community of vegan volunteers. They’ve quickly become not only an integral part of <no-localization>Playground’s</no-localization> revamp but also a cherished member of our team."
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-manager.heading": {
+    "message": "New Community Manager"
+  },
+  "page.year-in-review.2023.section.big-impact.wellness-survey.content": {
+    "message": "Activists are prone to burnout, so we conducted a survey to better support our team. It revealed that while many team members enjoy their work and feel supported by their managers, they balance work and life differently. The survey highlighted areas for improvement, such as better work guidance, collaboration opportunities, and access to mental health resources, as well as a need for more community-building and feedback on how each member’s work impacts the organization."
+  },
+  "page.year-in-review.2023.section.big-impact.wellness-survey.heading": {
+    "message": "<no-localization>VH’s</no-localization> Wellness Survey"
+  },
   "page.year-in-review.2023.section.collaborations.1.content": {
     "message": "This year, we partnered with <no-localization>AAC</no-localization> by winding down their skilled volunteer board's activities and guiding those eager to volunteer or seeking volunteer positions towards <no-localization>VH Playground</no-localization>. Likewise, <no-localization>Playground</no-localization> began to advocate <no-localization>AAC's</no-localization> career opportunities within our volunteer community for individuals aspiring to pursue a more career-oriented role."
   },
@@ -2104,6 +2143,18 @@
   },
   "page.year-in-review.2023.section.providing-value.we-ventured.paragraph": {
     "message": "<b>We leaned into our strength of harnessing technology and building communities</b> to help animals, and shared our expertise across a multitude of events. From speaking about volunteer management to leading talks on utilizing AI in advocacy work, we stepped forward to ensure that more organizations could use this knowledge for change."
+  },
+  "page.year-in-review.2023.section.tech-and-data.content": {
+    "message": "In August 2023, we took a significant step forward by releasing a comprehensive report on the integration of technology and data within the animal advocacy movement. Our 50-page study revealed critical insights into how technology is currently utilized and the potential it holds to further our cause. We delved into various aspects including workforce tech skills, the use of websites and applications, social media strategies, data collection practices, and security measures.{break}{break}Our findings underscore the necessity for a more tech-savvy approach in our activities and advocacy. To aid in this transition, we have formulated several recommendations aimed at leaders, activists, and funders. These guidelines are designed to foster a more technology-forward and data-driven approach, enhancing our effectiveness in animal protection.{break}{break}By sharing these insights and recommendations, we aim to catalyze a shift towards better utilization of technology across the movement. This report is not just a reflection of where we stand, but a roadmap for where we need to go, ensuring we leverage every tool available to advocate for animal welfare more efficiently.{break}{break}<b>Haven’t read the study yet?</b>"
+  },
+  "page.year-in-review.2023.section.tech-and-data.heading": {
+    "message": "The launch of <b>TECH & DATA IN THE MOVEMENT</b>"
+  },
+  "page.year-in-review.2023.section.tech-and-data.label": {
+    "message": "Check it out here"
+  },
+  "page.year-in-review.2023.section.theory-of-change.label": {
+    "message": "Take a closer look"
   },
   "page.year-in-review.2023.section.violet-studios.content": {
     "message": "Over time, we noticed several areas in need of capacity-building work, with design being at the forefront. Our design work expanded rapidly, taking on a life of its own—and became deserving of its own organization.{break}{break}We started working on the new program to help the movement shine brighter, aiming for the big launch on a special date—<no-localization>VH’s</no-localization> 5th anniversary. After careful preparations of everything that comes along with a launch of a new organization (its branding, strategy, website, and social media—the list goes on!), the team was all set for the launch on January 1st.{break}{break}Now, our sister organization, <no-localization>Violet Studios</no-localization>, continues to provide authentic design services for activists and organizations at no cost. Whether it’s branding, web design, or other high-impact areas, <no-localization>Violet</no-localization> is here to help advocates build trust, influence perceptions, and put their best foot forward.{break}{break}<b>Want to learn more?</b>"
