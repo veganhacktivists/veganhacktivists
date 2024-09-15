@@ -214,9 +214,18 @@ const Knowledge: React.FC = () => {
             >
               <FormattedMessage
                 id='page.year-in-review.2023.section.knowledge.aquatic-life-con.content'
-                defaultMessage='CONTENT NEEDED'
+                defaultMessage='At the 4th <no-localization>Annual Aquatic Life Conference</no-localization>, organized by the <no-localization>Aquatic Life Institute</no-localization>, our Executive Director <no-localization>James Morgan</no-localization> discussed using <no-localization>ChatGPT</no-localization> for aquatic life protection. In his talk, <no-localization>James</no-localization> outlined AI definitions, its opportunities in animal advocacy, and the risks and limitations associated with AI use. You can watch the talk <a>right here</a>.'
                 values={{
-                  b: (chunks) => <b>{chunks}</b>,
+                  a: (chunks) => (
+                    <a
+                      href='https://www.youtube.com/watch?v=EYgys5ay67A&t=2900s'
+                      target='_blank'
+                      rel='noreferrer'
+                      className='underline'
+                    >
+                      {chunks}
+                    </a>
+                  ),
                 }}
               />
             </Item>
