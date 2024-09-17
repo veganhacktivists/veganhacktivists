@@ -31,7 +31,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
           <Circle yAlign='bottom' radius={34} opacity={0.2} />
         </div>
       )}
-      {header ? <div className='pb-10'>{header}</div> : ''}
+      {header && <div className='pb-10'>{header}</div>}
       <div>{children}</div>
     </div>
   );

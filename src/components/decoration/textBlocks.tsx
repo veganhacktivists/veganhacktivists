@@ -46,7 +46,7 @@ export const SectionHeader = ({
   className,
   rootClassName,
   children,
-  smallOnMobile,
+  smallOnMobile = false,
   ...props
 }: SectionHeaderProps) => {
   const boldStart = '<b>';

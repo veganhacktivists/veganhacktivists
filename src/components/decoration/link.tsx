@@ -19,7 +19,7 @@ const CustomLink: React.FC<LinkProps> = ({
   const url = typeof href === 'string' ? href : href.pathname;
 
   const linkClassNames = `${
-    disableMagenta ? 'text-magenta active:text-magenta-light ' : ''
+    disableMagenta ? '' : 'text-magenta active:text-magenta-light '
   } hover:underline `;
 
   const classes = classNames(linkClassNames, className);

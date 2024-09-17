@@ -36,6 +36,7 @@ interface ToolTipProps {
 }
 
 const Tooltip = ({ children, linkUrl }: ToolTipProps) => {
+  const intl = useIntl();
   const isClicked = useRef(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -94,8 +95,12 @@ const Tooltip = ({ children, linkUrl }: ToolTipProps) => {
             <CustomLink
               className='underline text-black hover:text-grey'
               href={linkUrl}
+              disableMagenta={true}
             >
-              Learn more
+              {intl.formatMessage({
+                id: 'page.year-in-review.2023.section.by-the-numbers.learn-more',
+                defaultMessage: 'Learn more',
+              })}
             </CustomLink>
           </div>
         </div>
@@ -130,10 +135,10 @@ const ByTheNumbers: React.FC = () => {
               number={133}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.services.heading'
-              defaultMessage='Organizations Served'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.services.heading',
+              defaultMessage: 'Organizations Served',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -141,15 +146,16 @@ const ByTheNumbers: React.FC = () => {
               number={25}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.services.1'
-              defaultMessage='BIPGM-led'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.services.1',
+              defaultMessage: 'BIPGM-led',
+            })}
             <Tooltip linkUrl='https://faunalytics.org/glossary/'>
-              <FormattedMessage
-                id='page.year-in-review.2023.section.by-the-numbers.services.1.tooltip'
-                defaultMessage='BIPGM stands for Black, Indigenous, and People of the Global Majority.'
-              />
+              {intl.formatMessage({
+                id: 'page.year-in-review.2023.section.by-the-numbers.services.1.tooltip',
+                defaultMessage:
+                  'BIPGM stands for Black, Indigenous, and People of the Global Majority.',
+              })}
             </Tooltip>
           </Stat>
           <Stat>
@@ -158,15 +164,16 @@ const ByTheNumbers: React.FC = () => {
               number={29}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.services.2'
-              defaultMessage='EA-aligned'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.services.2',
+              defaultMessage: 'EA-aligned',
+            })}
             <Tooltip linkUrl='https://www.effectivealtruism.org/articles/cause-profile-animal-welfare'>
-              <FormattedMessage
-                id='page.year-in-review.2023.section.by-the-numbers.services.2.tooltip'
-                defaultMessage='EA stands for Effective Altruism – groups who are focused on animal welfare.'
-              />
+              {intl.formatMessage({
+                id: 'page.year-in-review.2023.section.by-the-numbers.services.2.tooltip',
+                defaultMessage:
+                  'EA stands for Effective Altruism – groups who are focused on animal welfare.',
+              })}
             </Tooltip>
           </Stat>
           <Stat>
@@ -175,10 +182,10 @@ const ByTheNumbers: React.FC = () => {
               number={50}
               suffix={'+ '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.services.3'
-              defaultMessage='Different countries'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.services.3',
+              defaultMessage: 'Different countries',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -186,10 +193,10 @@ const ByTheNumbers: React.FC = () => {
               number={220}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.services.4'
-              defaultMessage='Services provided'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.services.4',
+              defaultMessage: 'Services provided',
+            })}
           </Stat>
         </div>
         <div className='pb-10'>
@@ -200,10 +207,10 @@ const ByTheNumbers: React.FC = () => {
               className='text-4xl md:text-6xl'
               number={750}
             />{' '}
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.cost-saved.heading'
-              defaultMessage='Saved for the Movement'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.cost-saved.heading',
+              defaultMessage: 'Saved for the Movement',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -212,10 +219,10 @@ const ByTheNumbers: React.FC = () => {
               prefix={'$'}
               suffix={'k '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.cost-saved.1'
-              defaultMessage='Minimum'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.cost-saved.1',
+              defaultMessage: 'Minimum',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -224,10 +231,10 @@ const ByTheNumbers: React.FC = () => {
               prefix={'$'}
               suffix={'k '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.cost-saved.2'
-              defaultMessage='On Average'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.cost-saved.2',
+              defaultMessage: 'On Average',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -236,10 +243,10 @@ const ByTheNumbers: React.FC = () => {
               prefix={'$'}
               suffix={'k '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.cost-saved.3'
-              defaultMessage='Maximum'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.cost-saved.3',
+              defaultMessage: 'Maximum',
+            })}
           </Stat>
         </div>
         <div>
@@ -258,10 +265,10 @@ const ByTheNumbers: React.FC = () => {
               number={126}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.grant-program.1'
-              defaultMessage='Applicants'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.grant-program.1',
+              defaultMessage: 'Applicants',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -269,10 +276,10 @@ const ByTheNumbers: React.FC = () => {
               number={30}
               suffix={' '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.grant-program.2'
-              defaultMessage='Applications approved'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.grant-program.2',
+              defaultMessage: 'Applications approved',
+            })}
           </Stat>
           <Stat>
             <AnimatedNumber
@@ -280,10 +287,10 @@ const ByTheNumbers: React.FC = () => {
               number={39}
               suffix={'k '}
             />
-            <FormattedMessage
-              id='page.year-in-review.2023.section.by-the-numbers.grant-program.3'
-              defaultMessage='Given in seed grants'
-            />
+            {intl.formatMessage({
+              id: 'page.year-in-review.2023.section.by-the-numbers.grant-program.3',
+              defaultMessage: 'Given in seed grants',
+            })}
           </Stat>
         </div>
       </SectionContainer>

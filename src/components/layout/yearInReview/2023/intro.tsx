@@ -19,6 +19,7 @@ const Intro: React.FC = () => {
       <SectionContainer>
         <div>
           <HighlightBlock
+            fullWidthOnMobile={true}
             borderColor='magenta'
             headerStart='We ventured out to'
             headerBold='share what we know'
@@ -32,6 +33,7 @@ const Intro: React.FC = () => {
             />
           </HighlightBlock>
           <HighlightBlock
+            fullWidthOnMobile={true}
             borderColor='yellow'
             headerStart='We built projects to'
             headerBold='grow and expend the movement'
@@ -45,6 +47,7 @@ const Intro: React.FC = () => {
             />
           </HighlightBlock>
           <HighlightBlock
+            fullWidthOnMobile={true}
             borderColor='green'
             headerStart='We commited to'
             headerBold='major changes'
