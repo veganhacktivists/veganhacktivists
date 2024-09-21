@@ -3,7 +3,6 @@ import { useIntl } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
 import { SectionHeader } from '../../../decoration/textBlocks';
-import SectionContainer from '../sectionContainer';
 import Apple from '../../../../../public/images/yearInReview/2023/fruit-and-vegetables/apple.png';
 import Avocado from '../../../../../public/images/yearInReview/2023/fruit-and-vegetables/avocado.png';
 import Banana from '../../../../../public/images/yearInReview/2023/fruit-and-vegetables/banana.png';
@@ -24,19 +23,17 @@ const BigImpact: React.FC = () => {
         ]}
         className='hidden md:block z-10'
       />
-      <SectionContainer
-        header={
+      <div className='bg-grey-dark pt-16 pb-1 md:pb-6 md:pt-24 px-5 md:px-10'>
+        <div className='max-w-6xl mx-auto'>
           <SectionHeader
             header={intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.heading',
               defaultMessage: 'Minor actions with <b>BIG IMPACT</b>',
             })}
+            className='text-white'
           />
-        }
-        color='grey-dark'
-        className='text-white relative'
-      >
-        <div className='max-w-4xl mx-auto mb-20'>
+        </div>
+        <div className='max-w-4xl mx-auto mb-20 pt-10'>
           <TeamBlock
             team={intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.501c3.heading',
@@ -124,7 +121,7 @@ const BigImpact: React.FC = () => {
             })}
           </TeamBlock>
         </div>
-      </SectionContainer>
+      </div>
     </>
   );
 };

@@ -17,7 +17,7 @@ const Leadership: React.FC = () => {
   return (
     <>
       <div className='flex flex-col md:flex-row text-left bg-white'>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pt-10 md:py-20 px-5 md:px-10'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pt-16 md:py-24 px-5 md:px-10'>
           <div className='flex-grow max-w-3xl flex justify-center'>
             <div>
               <SectionHeader
@@ -50,7 +50,7 @@ const Leadership: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start items-center py-10 md:py-20 px-5 md:px-10'>
+        <div className='basis-full md:basis-1/2 flex justify-center md:justify-start items-center pt-10 pb-16 md:py-24 px-5 md:px-10'>
           <div className='max-w-3xl relative'>
             <div className='absolute bg-orange-dark w-10 h-10 lg:w-20 lg:h-20 bottom-0 left-0' />
             <div className='absolute bg-pink w-10 h-10 lg:w-20 lg:h-20 bottom-10 lg:bottom-20 left-0' />

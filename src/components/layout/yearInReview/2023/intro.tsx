@@ -1,9 +1,9 @@
 import { FormattedMessage } from 'react-intl';
 
-import SectionContainer from '../sectionContainer';
 import { HighlightBlock } from '../highlightBlock';
 
 import SquareField from 'components/decoration/squares';
+import Sprite, { rooster } from 'components/decoration/sprite';
 
 const Intro: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const Intro: React.FC = () => {
         ]}
         className='hidden md:block z-10'
       />
-      <SectionContainer>
+      <div className='p-16 md:pt-24 pb-16 px-5'>
         <div>
           <HighlightBlock
             fullWidthOnMobile={true}
@@ -62,7 +62,8 @@ const Intro: React.FC = () => {
             />
           </HighlightBlock>
         </div>
-      </SectionContainer>
+      </div>
+      <Sprite image={rooster} />
     </>
   );
 };

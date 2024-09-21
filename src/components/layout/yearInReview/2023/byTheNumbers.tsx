@@ -3,7 +3,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import AnimatedNumber from '../../../decoration/animatedNumber';
 import { SectionHeader } from '../../../decoration/textBlocks';
-import SectionContainer from '../sectionContainer';
 
 import SquareField from 'components/decoration/squares';
 import CustomLink from 'components/decoration/link';
@@ -117,17 +116,13 @@ const ByTheNumbers: React.FC = () => {
         squares={TOP_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <SectionContainer
-        color='white'
-        header={
-          <SectionHeader
-            header={intl.formatMessage({
-              id: 'page.year-in-review.2023.section.by-the-numbers.heading',
-              defaultMessage: '<b>By the numbers</b>',
-            })}
-          />
-        }
-      >
+      <div className='pt-16 pb-12 md:pt-24 md:pb-20 px-5 md:px-10'>
+        <SectionHeader
+          header={intl.formatMessage({
+            id: 'page.year-in-review.2023.section.by-the-numbers.heading',
+            defaultMessage: '<b>By the numbers</b>',
+          })}
+        />
         <div className='pb-10'>
           <Stat color={'green'} isHeading={true}>
             <AnimatedNumber
@@ -293,7 +288,7 @@ const ByTheNumbers: React.FC = () => {
             })}
           </Stat>
         </div>
-      </SectionContainer>
+      </div>
     </>
   );
 };

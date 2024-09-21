@@ -8,6 +8,7 @@ import SentientLogo from './sentientLogo';
 import { SectionHeader } from 'components/decoration/textBlocks';
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
+import Sprite, { cow } from 'components/decoration/sprite';
 
 const Collaborations: React.FC = () => {
   const intl = useIntl();
@@ -22,7 +23,7 @@ const Collaborations: React.FC = () => {
         squares={TOP_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <div className='py-10 md:py-20 px-5 md:px-10'>
+      <div className='py-16 md:py-24 px-5 md:px-10'>
         <div className='max-w-6xl mx-auto text-2xl sm:text-4xl pb-10'>
           <FormattedMessage
             id='page.year-in-review.2023.section.collaborations.header'
@@ -122,6 +123,7 @@ const Collaborations: React.FC = () => {
           </div>
         </div>
       </div>
+      <Sprite image={cow} />
     </>
   );
 };

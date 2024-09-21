@@ -26,7 +26,7 @@ const TheoryOfChange: React.FC = () => {
         squares={TOP_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <div className='flex flex-col text-left bg-white justify-center items-center py-10 md:py-20 px-5 md:px-10'>
+      <div className='flex flex-col text-left bg-white justify-center items-center py-16 md:py-24 px-5 md:px-10'>
         <CustomImage
           alt='Theory of Change graphic showing inputs, short-term actions, long-term actions, and their impacts. Download the accessible PDF below'
           src={TheoryOfChangeImg}

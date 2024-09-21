@@ -31,7 +31,7 @@ const VioletStudios: React.FC = () => {
 
       <div className='flex flex-col-reverse md:flex-row text-left'>
         <div className='basis-full md:basis-1/2 bg-[#454545] text-white flex justify-center md:justify-end pb-0'>
-          <div className='flex-grow max-w-4xl flex justify-center py-10 md:py-20 px-5 md:px-10'>
+          <div className='flex-grow max-w-4xl flex justify-center py-16 md:py-24 px-5 md:px-10'>
             <div className='lg:w-[35.25rem]'>
               <SectionHeader
                 header={intl.formatMessage({
@@ -64,7 +64,7 @@ const VioletStudios: React.FC = () => {
           </div>
         </div>
 
-        <div className='basis-full md:basis-1/2 bg-[#171919] flex justify-center md:justify-start py-10 md:py-20 px-5 md:px-10'>
+        <div className='basis-full md:basis-1/2 bg-[#171919] flex justify-center md:justify-start py-16 md:py-20 px-5 md:px-10'>
           <div className='flex-grow max-w-3xl flex items-center justify-center'>
             <Player
               autoplay

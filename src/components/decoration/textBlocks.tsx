@@ -66,8 +66,8 @@ export const SectionHeader = ({
     smallOnMobile ? 'text-4xl' : 'text-5xl'
   } md:text-6xl font-mono font-semibold uppercase mx-1`;
   const italicClasses = classNames(
-    `${smallOnMobile ? 'text-3xl md:' : ''}text-4xl font-serif italic  mx-1',
-    'font-bold`,
+    `${smallOnMobile ? 'text-3xl md:' : ''}text-4xl font-serif italic  mx-1`,
+    'font-bold',
   );
 
   return (

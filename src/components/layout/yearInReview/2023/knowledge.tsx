@@ -64,7 +64,7 @@ const Knowledge: React.FC = () => {
         squares={TOP_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <div className='bg-grey-dark py-10 md:py-20 px-5 md:px-10'>
+      <div className='bg-grey-dark py-16 md:py-24 px-5 md:px-10'>
         <div className='max-w-6xl mx-auto'>
           <SectionHeader
             header={intl.formatMessage({
@@ -82,7 +82,7 @@ const Knowledge: React.FC = () => {
               }}
             />
           </div>
-          <div className='flex flex-col lg:grid grid-cols-3 gap-5'>
+          <div className='flex flex-col lg:grid grid-cols-3 gap-10 lg:gap-5'>
             <Item
               color='green'
               hasSubGrid={false}

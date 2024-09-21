@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({
       tagline.image.height) *
       taglineHeight;
 
-  const objectPositionMap = {
+  const objectPositionMap: Record<string, string> = {
     top: 'object-top',
     right: 'object-right',
     left: 'object-left',
@@ -103,11 +103,8 @@ const Hero: React.FC<HeroProps> = ({
           !classNameMapping?.backgroundImage?.includes('object-') &&
             (main
               ? 'object-top'
-              : imageAlignment === 'right' ||
-                  imageAlignment === 'left' ||
-                  imageAlignment === 'center'
-                ? objectPositionMap[imageAlignment]
-                : `object-[${imageAlignment}]`),
+              : objectPositionMap[imageAlignment] ??
+                `object-[${imageAlignment}]`),
         )}
       />
 
