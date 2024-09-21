@@ -1,11 +1,11 @@
-'use client';
-
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import { StatusCodes } from 'http-status-codes';
 import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../decoration/buttons';
+import useErrorStore from '../../lib/stores/errorStore';
 import errorTypeImage from '../../../public/images/VH-error-type.png';
 import {
   avocado,
@@ -16,69 +16,40 @@ import {
 } from '../../images/teams';
 
 import CustomImage from 'components/decoration/customImage';
-import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
+import type { FallbackProps } from 'react-error-boundary';
 import type { NextPage } from 'next';
 
-export interface ErrorProps {
-  error: Error & { statusCode?: number };
-  reset?: () => void;
+export interface ErrorProps extends Omit<FallbackProps, 'error'> {
+  error?: FallbackProps['error'] & {
+    statusCode?: number;
+  };
 }
 
-const Error: NextPage<ErrorProps> = ({ error, reset }) => {
-  const intl = useIntl();
-  const pathname = usePathnameWithoutLocale();
+const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
+  const router = useRouter();
 
   useEffect(() => {
     return () => {
-      reset?.();
+      resetErrorBoundary?.();
     };
-  }, [reset]);
+  }, [resetErrorBoundary]);
 
-  if (pathname === null) {
-    return null;
-  }
+  const { setErrorData, generateErrorMessage } = useErrorStore();
 
   const handleContactClick = () => {
-    reset?.();
+    resetErrorBoundary?.();
+    setErrorData({ pageThatErrored: router.asPath, error });
   };
 
-  const generateErrorMessage = (context: {
-    pageThatErrored?: string;
-    error: Error & { statusCode?: number };
-  }): string => {
-    const { pageThatErrored, error } = context;
-    const thenHappened = error?.statusCode
-      ? `I found a ${error?.statusCode} error`
-      : 'a client error happened';
-
-    const defaultErrorMessage = pageThatErrored
-      ? `[Please tell us what you were doing prior to the error occurring...]
-
-...then ${thenHappened} at ${pageThatErrored}${
-          error?.name ? `: ${error.name}. ${error.message}` : ''
-        }.
-
-Thanks!`
-      : '';
-    return defaultErrorMessage;
-  };
-
-  const contactPageError: string | boolean = pathname === '/contact';
+  const contactPageError: string | boolean = router.asPath === '/contact';
 
   const message =
-    error?.statusCode === StatusCodes.NOT_FOUND
-      ? intl.formatMessage({
-          id: 'page.not-found.next-seo.title',
-          defaultMessage: 'Page not found',
-        })
-      : intl.formatMessage({
-          id: 'page.error.next-seo.title',
-          defaultMessage: 'Whoops!',
-        });
+    error?.statusCode === StatusCodes.NOT_FOUND ? 'Page not found.' : 'Whoops!';
 
   return (
     <>
+      <NextSeo noindex title={message} />
       <article className='min-h-[40rem] flex flex-col justify-center items-center p-4'>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col justify-start gap-12 md:flex-row'>
@@ -116,7 +87,7 @@ Thanks!`
                       query: {
                         subject: 'Website error!',
                         body: generateErrorMessage({
-                          pageThatErrored: pathname,
+                          pageThatErrored: router.asPath,
                           error,
                         }),
                       },
@@ -131,12 +102,7 @@ Thanks!`
               ) : (
                 <DarkButton
                   className='w-52'
-                  href={`/contact?message=${btoa(
-                    generateErrorMessage({
-                      pageThatErrored: pathname,
-                      error,
-                    }),
-                  )}`}
+                  href='/contact'
                   onClick={handleContactClick}
                 >
                   Let us know!

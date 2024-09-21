@@ -34,11 +34,9 @@ const useErrorStore = create<ErrorStoreProps & ErrorStoreMethods>(
 
       const defaultErrorMessage = pageThatErrored
         ? `[Please tell us what you were doing prior to the error occurring...]
-
 ...then ${thenHappened} at ${pageThatErrored}${
             error?.name ? `: ${error.name}. ${error.message}` : ''
           }.
-
 Thanks!`
         : undefined;
       return defaultErrorMessage;

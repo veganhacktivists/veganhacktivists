@@ -12,19 +12,6 @@ import { MainWrapper } from 'components/layout/wrapper';
 
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
-import type ReactAxe from '@axe-core/react';
-import type { ReactDOM } from 'react';
-
-if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const ReactDOM = require('react-dom') as ReactDOM;
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const axe = require('@axe-core/react') as typeof ReactAxe;
-  axe(React, ReactDOM, 1000).catch((error) => {
-    // eslint-disable-next-line no-console
-    console.error('Error loading @axe-core/react', error);
-  });
-}
 
 export function generateMetadata(): Metadata {
   const intl = getServerIntl(defaultLocale);

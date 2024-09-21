@@ -57,6 +57,7 @@ export const BlogOverviewContainer: React.FC<Props> = ({
     updateSearchParam,
   } = useBlogSearch(blogs);
   const intl = useIntl();
+
   return (
     <>
       <BlogsHeader
