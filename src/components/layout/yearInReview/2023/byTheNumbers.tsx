@@ -40,7 +40,8 @@ const Tooltip = ({ children, linkUrl }: ToolTipProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const clickToolTip = () => {
-    isClicked.current = !isClicked.current;
+    // Only allow the click functionality on devices smaller than desktop
+    if (window.innerWidth < 1024) isClicked.current = !isClicked.current;
   };
 
   const hoverToolTip = () => {
@@ -78,10 +79,10 @@ const Tooltip = ({ children, linkUrl }: ToolTipProps) => {
         </svg>
       </button>
       {isVisible && (
-        <div className='z-10 w-full sm:w-auto absolute lg:pl-[45px] font-large lg:left-2/3 left-1/2 bottom-full -translate-x-1/2 lg:translate-x-0 lg:top-3'>
+        <div className='z-10 w-full sm:w-auto absolute lg:pl-[40px] font-large left-1/2 bottom-full -translate-x-1/2 lg:translate-x-0 lg:top-3'>
           <div
-            className='border-solid top-0 absolute left-[15px] hidden lg:inline'
-            // Tailwind was misbehaving with the border color and widths
+            className='border-solid top-0 absolute left-[10px] hidden lg:inline translate-x-1'
+            // Tailwind was misbehaving with the border color and widths so I am styling inline
             style={{
               borderWidth: '0 30px 30px 0',
               borderColor: `transparent ${getThemeColor(
