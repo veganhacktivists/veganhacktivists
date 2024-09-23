@@ -17,7 +17,7 @@ const TeamBlock: React.FC<TeamBlockProps> = ({
   children,
 }) => {
   return (
-    <div className='flex flex-col md:flex-row gap-10 mb-10'>
+    <div className='flex flex-col md:flex-row gap-5 md:gap-10 mb-10'>
       <div className='flex justify-center'>
         <div className='bg-grey h-[175px] w-[175px]'>
           <SquareField
@@ -34,8 +34,8 @@ const TeamBlock: React.FC<TeamBlockProps> = ({
         </div>
       </div>
       <div className='text-white text-center md:text-left'>
-        <h2 className='text-4xl font-bold'>{team}</h2>
-        <div className='text-base'>{children}</div>
+        <h2 className='text-4xl font-bold pb-2'>{team}</h2>
+        <div className='text-lg'>{children}</div>
       </div>
     </div>
   );

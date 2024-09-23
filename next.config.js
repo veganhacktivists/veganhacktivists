@@ -63,7 +63,7 @@ const nextConfig = {
       },
       {
         source: '/year-in-review',
-        destination: '/year-in-review/2022',
+        destination: '/year-in-review/2023',
         permanent: false,
       },
       {
