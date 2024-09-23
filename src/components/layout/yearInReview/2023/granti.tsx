@@ -60,7 +60,7 @@ const Granti: React.FC = () => {
                 <DarkButton
                   capitalize={false}
                   className='md:max-w-72 h-fit'
-                  href='https://granti.org/login'
+                  href='/services#contact-us'
                   newTab
                 >
                   {buttonLabel}
