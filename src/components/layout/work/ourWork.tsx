@@ -201,7 +201,7 @@ const OurWork: React.FC = () => {
             >
               <FormattedMessage
                 id='page.our-work.section.our-work.section-header.content'
-                defaultMessage='We’ve worked with over <b>200+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
+                defaultMessage='We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
