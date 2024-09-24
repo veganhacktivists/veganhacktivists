@@ -71,12 +71,14 @@ const Modal: React.FC<ModalProps> = ({
     >
       <div
         className={className}
-        style={{ position: 'relative', paddingTop: 'env(safe-area-inset-top)' }}
+        style={{
+          position: 'relative',
+          height: 'calc(100vh - env(safe-area-inset-top))',
+        }}
       >
         {onClose && (
           <div
             onClick={closeModal}
-            style={{ top: 'env(safe-area-inset-top)' }}
             className='absolute right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]'
           >
             &#10005;
