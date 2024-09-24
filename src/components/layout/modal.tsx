@@ -69,11 +69,15 @@ const Modal: React.FC<ModalProps> = ({
       shouldCloseOnEsc={!!onClose}
       shouldCloseOnOverlayClick={!!onClose}
     >
-      <div className={className}>
+      <div
+        className={className}
+        style={{ position: 'relative', paddingTop: 'env(safe-area-inset-top)' }}
+      >
         {onClose && (
           <div
             onClick={closeModal}
-            className='absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]'
+            style={{ top: 'env(safe-area-inset-top)' }}
+            className='absolute right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]'
           >
             &#10005;
           </div>
