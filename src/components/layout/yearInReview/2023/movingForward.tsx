@@ -32,7 +32,7 @@ const MovingForward: React.FC = () => {
               })}
             </h2>
           </div>
-          <p>
+          <p className='max-w-screen-lg m-auto'>
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.moving-forward.content',
               defaultMessage:
