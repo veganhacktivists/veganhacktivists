@@ -32,7 +32,7 @@ const YearInReviewButtons: React.FC<YearInReviewButtonProps> = ({
           'mb-10': currentYear === 2020 || currentYear === 2021,
         })}
       >
-        {[2021, 2022, 2023].map((year) => (
+        {[2020, 2021, 2022, 2023].map((year) => (
           <YearButton key={year} year={year} />
         ))}
       </div>

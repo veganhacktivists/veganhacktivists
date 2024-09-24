@@ -24,12 +24,14 @@ export const HighlightBlock: React.FC<HighlightBlockProps> = ({
         fullWidthOnMobile ? '' : ' w-4/5'
       }`}
     >
-      <h1
-        className='md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase'
+      <div
+        className='flex items-center md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase'
         style={{ borderColor: getThemeColor(borderColor) }}
       >
-        {headerStart} <b>{headerBold}</b> {headerEnd}
-      </h1>
+        <h1>
+          {headerStart} <b>{headerBold}</b> {headerEnd}
+        </h1>
+      </div>
       <p className='text-center md:text-left flex-1 text-2xl p-10 bg-grey-background'>
         {children}
       </p>
