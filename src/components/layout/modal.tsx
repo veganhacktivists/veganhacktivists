@@ -56,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({
       isOpen={isOpen}
       className={classNames(
         modalClassName,
-        'overflow-y-auto max-h-screen fixed w-full md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 z-[9999] transition-all motion-reduce:transition-none duration-700',
+        'overflow-y-auto max-h-screen fixed w-full my-12 sm:my-0 md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 z-[9999] transition-all motion-reduce:transition-none duration-700',
         transitionClasses,
       )}
       overlayClassName={classNames(
