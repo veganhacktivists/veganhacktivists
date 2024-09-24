@@ -70,7 +70,8 @@ const Modal: React.FC<ModalProps> = ({
       shouldCloseOnOverlayClick={!!onClose}
       style={{
         content: {
-          maxHeight: 'calc(100vh - env(safe-area-inset-top))',
+          maxHeight:
+            'calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))',
         },
       }}
     >
