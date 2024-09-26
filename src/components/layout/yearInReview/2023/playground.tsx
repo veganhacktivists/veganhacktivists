@@ -30,12 +30,12 @@ const Playground: React.FC = () => {
       />
       <div className='flex flex-col md:flex-row text-left bg-grey-darker text-white'>
         <div className='basis-full md:basis-1/2 flex justify-center md:justify-end pt-16 md:pt-24 px-5 md:px-10'>
-          <div className='flex-grow max-w-3xl flex items-center justify-center'>
+          <div className='flex-grow max-w-xl flex items-center justify-center'>
             <CustomImage alt='Playground screenshot' src={screenshot} />
           </div>
         </div>
         <div className='basis-full md:basis-1/2 flex justify-center md:justify-start pt-10 pb-16 md:py-24 px-5 md:px-10'>
-          <div className='flex-grow max-w-3xl flex justify-center'>
+          <div className='flex-grow max-w-xl flex justify-center'>
             <div>
               <div className='pb-10'>
                 <CustomImage alt='Playground logo' src={logo} />
