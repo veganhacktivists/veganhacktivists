@@ -37,7 +37,6 @@ const YearInReview2023: React.FC = ({}) => {
           year={2023}
           hero={
             <Hero
-              imageAlignment='65%_25%'
               imageBackground={heroBackground}
               tagline={{
                 image: heroTagline,
@@ -49,6 +48,7 @@ const YearInReview2023: React.FC = ({}) => {
               alignment='left'
               classNameMapping={{
                 container: 'bg-center',
+                backgroundImage: 'object-[67%_25%]',
               }}
             />
           }
