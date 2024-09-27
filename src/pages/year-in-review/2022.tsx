@@ -47,6 +47,7 @@ const YearInReview2022: React.FC = ({}) => {
               alignment='left'
               classNameMapping={{
                 container: 'bg-center',
+                backgroundImage: 'object-[72%_40%]',
               }}
             />
           }

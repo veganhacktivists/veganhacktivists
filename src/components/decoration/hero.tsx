@@ -24,7 +24,7 @@ interface HeroProps extends React.PropsWithChildren {
     biggerOnMobile?: boolean;
   };
   alignment: 'right' | 'left' | 'center';
-  /**Enter 'right' | 'left' | 'center', or use a custom percentage like '65%_25%' */
+  /**Enter 'right' | 'left' | 'center', or use classNameMapping to set a specific value like: `classNameMapping={{ backgroundImage: 'object-[80%_40%]'}}` */
   imageAlignment?: string;
   classNameMapping?: HeroClassNames;
   main?: boolean;
@@ -101,10 +101,7 @@ const Hero: React.FC<HeroProps> = ({
           'object-cover',
           classNameMapping?.backgroundImage,
           !classNameMapping?.backgroundImage?.includes('object-') &&
-            (main
-              ? 'object-top'
-              : objectPositionMap[imageAlignment] ??
-                `object-[${imageAlignment}]`),
+            (main ? 'object-top' : objectPositionMap[imageAlignment]),
         )}
       />
 

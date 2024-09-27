@@ -189,6 +189,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             alignment='left'
             classNameMapping={{
               container: 'bg-center',
+              backgroundImage: 'object-[80%_40%]',
             }}
           />
         }
