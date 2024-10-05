@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
@@ -170,13 +171,13 @@ const NavbarItems: React.FC = () => {
 
 const RightSide: React.FC = () => {
   const router = useRouter();
-
   const menuInputCheckRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (!menuInputCheckRef.current) return;
-      menuInputCheckRef.current.checked = false;
+      if (menuInputCheckRef.current) {
+        menuInputCheckRef.current.checked = false;
+      }
     };
 
     router.events.on('routeChangeStart', handleRouteChange);
@@ -185,11 +186,34 @@ const RightSide: React.FC = () => {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const inputRef = menuInputCheckRef.current;
+
+    const handleScrollLock = () => {
+      if (inputRef?.checked) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    };
+
+    if (inputRef) {
+      inputRef.addEventListener('change', handleScrollLock);
+    }
+
+    return () => {
+      if (inputRef) {
+        inputRef.removeEventListener('change', handleScrollLock);
+      }
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   const buttonMenuId = 'menu-button';
 
   return (
     <>
-      <div className='flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
+      <div className='block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
         <input
           type='checkbox'
           hidden
@@ -197,24 +221,33 @@ const RightSide: React.FC = () => {
           id={buttonMenuId}
           className='peer'
         />
-        <label
-          htmlFor={buttonMenuId}
-          className='cursor-pointer'
-          aria-haspopup
-          aria-controls='mobile-menu'
-        >
+        <label htmlFor={buttonMenuId} className='cursor-pointer'>
           <FontAwesomeIcon icon={faBars} size='2x' />
         </label>
+
         <div
           id='mobile-menu'
-          className='z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex'
+          className={classNames(
+            'fixed inset-0 z-30 w-full bg-black text-white transition-all',
+            'peer-checked:translate-y-0',
+            'translate-y-full',
+          )}
         >
-          <div className='absolute z-30 flex flex-col bg-black left-10 right-10'>
+          <button
+            type='button'
+            className='absolute top-4 right-4 text-3xl sm:text-6xl'
+            onClick={() => (menuInputCheckRef.current!.checked = false)}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+
+          <div className='flex flex-col justify-center h-full w-full font-mono text-3xl sm:text-6xl font-semibold text-right text-white uppercase align-middle bg-black'>
             <NavbarItems />
           </div>
         </div>
       </div>
-      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black xl:flex flex-nowrap'>
+
+      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black'>
         <NavbarItems />
       </div>
     </>
@@ -223,7 +256,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className='z-20 flex w-full'>
+    <nav className='z-20 flex w-full bg-black justify-between'>
       <LeftSide />
       <RightSide />
     </nav>
