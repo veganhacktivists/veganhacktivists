@@ -214,7 +214,7 @@ const RightSide: React.FC = () => {
         <div
           id='mobile-menu'
           className={classNames(
-            'fixed inset-0 z-30 w-full bg-black text-white transition-all',
+            'fixed inset-0 w-full bg-black text-white transition-all',
             isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
@@ -233,7 +233,7 @@ const RightSide: React.FC = () => {
         </div>
       </div>
 
-      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black'>
+      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle xl:bg-black'>
         <NavbarItems />
       </div>
     </>
@@ -242,7 +242,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className='z-20 flex w-full bg-black justify-between'>
+    <nav className='bg-black xl:bg-transparent z-[101] flex w-full justify-between'>
       <LeftSide />
       <RightSide />
     </nav>
