@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
@@ -171,13 +171,11 @@ const NavbarItems: React.FC = () => {
 
 const RightSide: React.FC = () => {
   const router = useRouter();
-  const menuInputCheckRef = useRef<HTMLInputElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (menuInputCheckRef.current) {
-        menuInputCheckRef.current.checked = false;
-      }
+      setIsMenuOpen(false); // Close menu on route change
     };
 
     router.events.on('routeChangeStart', handleRouteChange);
@@ -187,61 +185,49 @@ const RightSide: React.FC = () => {
   }, [router.events]);
 
   useEffect(() => {
-    const inputRef = menuInputCheckRef.current;
-
-    const handleScrollLock = () => {
-      if (inputRef?.checked) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
-    };
-
-    if (inputRef) {
-      inputRef.addEventListener('change', handleScrollLock);
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
     }
 
     return () => {
-      if (inputRef) {
-        inputRef.removeEventListener('change', handleScrollLock);
-      }
-      document.body.style.overflow = '';
+      document.body.classList.remove('overflow-hidden');
     };
-  }, []);
+  }, [isMenuOpen]);
 
-  const buttonMenuId = 'menu-button';
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
-      <div className='block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
-        <input
-          type='checkbox'
-          hidden
-          ref={menuInputCheckRef}
-          id={buttonMenuId}
-          className='peer'
-        />
-        <label htmlFor={buttonMenuId} className='cursor-pointer'>
+      <div className='block p-5 text-right text-white bg-black cursor-pointer xl:hidden my-auto'>
+        <button
+          type='button'
+          onClick={toggleMenu}
+          aria-label='Open navigation menu'
+        >
           <FontAwesomeIcon icon={faBars} size='2x' />
-        </label>
+        </button>
 
         <div
           id='mobile-menu'
           className={classNames(
             'fixed inset-0 z-30 w-full bg-black text-white transition-all',
-            'peer-checked:translate-y-0',
-            'translate-y-full',
+            isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
           <button
             type='button'
-            className='absolute top-4 right-4 text-3xl sm:text-6xl'
-            onClick={() => (menuInputCheckRef.current!.checked = false)}
+            className='absolute top-4 right-4 text-3xl sm:text-4xl'
+            onClick={() => setIsMenuOpen(false)}
+            aria-label='Close navigation menu'
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
 
-          <div className='flex flex-col justify-center h-full w-full font-mono text-3xl sm:text-6xl font-semibold text-right text-white uppercase align-middle bg-black'>
+          <div className='flex flex-col justify-center h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
             <NavbarItems />
           </div>
         </div>
