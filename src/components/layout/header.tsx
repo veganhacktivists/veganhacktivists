@@ -242,7 +242,7 @@ const RightSide: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <nav className='bg-black xl:bg-transparent z-[101] flex w-full justify-between'>
+    <nav className='bg-black xl:bg-[#00000000] z-[101] flex w-full justify-between'>
       <LeftSide />
       <RightSide />
     </nav>
