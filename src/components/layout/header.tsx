@@ -16,10 +16,12 @@ import { LocaleSelector } from './localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
 
-const LeftSide: React.FC = () => {
+interface LeftSideProps {
+  isRootPage: boolean;
+}
+
+const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
   const ratio = 0.5;
-  const { pathname } = useRouter();
-  const isRootPage = pathname === '/';
 
   return (
     <div
@@ -116,11 +118,14 @@ const NavbarItems: React.FC = () => {
         Object.keys(
           navItemRouteLabelMapping,
         ) as (keyof typeof navItemRouteLabelMapping)[]
-      ).map((menuElem) => (
+      ).map((menuElem, index) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
-          className='hover:bg-gray-dark'
+          className={classNames(
+            'hover:bg-gray-dark',
+            index === 0 ? 'pt-0 xl:pt-6' : '',
+          )}
         >
           {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
@@ -169,7 +174,11 @@ const NavbarItems: React.FC = () => {
   );
 };
 
-const RightSide: React.FC = () => {
+interface RightSideProps {
+  isRootPage: boolean;
+}
+
+const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -218,14 +227,16 @@ const RightSide: React.FC = () => {
             isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
-          <button
-            type='button'
-            className='mr-0 p-5 text-4xl'
-            onClick={() => setIsMenuOpen(false)}
-            aria-label='Close navigation menu'
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
+          <div className={classNames({ 'h-40 flex justify-end': isRootPage })}>
+            <button
+              type='button'
+              className='mr-0 p-5 text-4xl'
+              onClick={() => setIsMenuOpen(false)}
+              aria-label='Close navigation menu'
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
 
           <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
             <NavbarItems />
@@ -241,10 +252,18 @@ const RightSide: React.FC = () => {
 };
 
 const Header: React.FC = () => {
+  const { pathname } = useRouter();
+  const isRootPage = pathname === '/';
+
   return (
-    <nav className='bg-black xl:bg-[#00000000] z-[101] flex w-full justify-between'>
-      <LeftSide />
-      <RightSide />
+    <nav
+      className={classNames(
+        'bg-black xl:bg-[#00000000] z-[101] flex w-full justify-between',
+        { 'h-40 lg:h-auto': isRootPage },
+      )}
+    >
+      <LeftSide isRootPage={isRootPage} />
+      <RightSide isRootPage={isRootPage} />
     </nav>
   );
 };
