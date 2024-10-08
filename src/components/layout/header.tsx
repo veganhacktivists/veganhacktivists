@@ -214,20 +214,20 @@ const RightSide: React.FC = () => {
         <div
           id='mobile-menu'
           className={classNames(
-            'fixed inset-0 w-full bg-black text-white transition-all',
+            'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto',
             isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
           <button
             type='button'
-            className='absolute top-4 right-4 text-3xl sm:text-4xl'
+            className='mr-0 p-5 text-4xl'
             onClick={() => setIsMenuOpen(false)}
             aria-label='Close navigation menu'
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
 
-          <div className='flex flex-col justify-center h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
             <NavbarItems />
           </div>
         </div>
