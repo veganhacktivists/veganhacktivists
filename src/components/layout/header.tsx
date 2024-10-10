@@ -124,7 +124,7 @@ const NavbarItems: React.FC = () => {
           href={`/${menuElem}`}
           className={classNames(
             'hover:bg-gray-dark',
-            index === 0 ? 'pt-0 xl:pt-6' : '',
+            index === 0 ? 'xl:pt-6' : '',
           )}
         >
           {navItemRouteLabelMapping[menuElem]}
@@ -211,7 +211,7 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
 
   return (
     <>
-      <div className='block p-5 text-right text-white bg-black cursor-pointer xl:hidden my-auto'>
+      <div className='block p-5 text-right text-white bg-black xl:hidden my-auto'>
         <button
           type='button'
           onClick={toggleMenu}
@@ -227,18 +227,20 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
             isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
-          <div className={classNames({ 'h-40 flex justify-end': isRootPage })}>
-            <button
-              type='button'
-              className='mr-0 p-5 text-4xl'
-              onClick={() => setIsMenuOpen(false)}
-              aria-label='Close navigation menu'
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </button>
-          </div>
-
           <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+            <div
+              className={classNames({ 'h-40 flex justify-end': isRootPage })}
+            >
+              <button
+                type='button'
+                className='mr-0 p-5 text-4xl cursor-pointer'
+                onClick={() => setIsMenuOpen(false)}
+                aria-label='Close navigation menu'
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+
             <NavbarItems />
           </div>
         </div>
