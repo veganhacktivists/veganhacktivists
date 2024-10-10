@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../public/images/VH_Logo_Loop.json';
@@ -15,10 +16,12 @@ import { LocaleSelector } from './localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
 
-const LeftSide: React.FC = () => {
+interface LeftSideProps {
+  isRootPage: boolean;
+}
+
+const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
   const ratio = 0.5;
-  const { pathname } = useRouter();
-  const isRootPage = pathname === '/';
 
   return (
     <div
@@ -115,11 +118,14 @@ const NavbarItems: React.FC = () => {
         Object.keys(
           navItemRouteLabelMapping,
         ) as (keyof typeof navItemRouteLabelMapping)[]
-      ).map((menuElem) => (
+      ).map((menuElem, index) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
-          className='hover:bg-gray-dark'
+          className={classNames(
+            'hover:bg-gray-dark',
+            index === 0 ? 'xl:pt-6' : '',
+          )}
         >
           {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
@@ -168,15 +174,17 @@ const NavbarItems: React.FC = () => {
   );
 };
 
-const RightSide: React.FC = () => {
-  const router = useRouter();
+interface RightSideProps {
+  isRootPage: boolean;
+}
 
-  const menuInputCheckRef = useRef<HTMLInputElement>(null);
+const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
+  const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (!menuInputCheckRef.current) return;
-      menuInputCheckRef.current.checked = false;
+      setIsMenuOpen(false); // Close menu on route change
     };
 
     router.events.on('routeChangeStart', handleRouteChange);
@@ -185,36 +193,60 @@ const RightSide: React.FC = () => {
     };
   }, [router.events]);
 
-  const buttonMenuId = 'menu-button';
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
-      <div className='flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
-        <input
-          type='checkbox'
-          hidden
-          ref={menuInputCheckRef}
-          id={buttonMenuId}
-          className='peer'
-        />
-        <label
-          htmlFor={buttonMenuId}
-          className='cursor-pointer'
-          aria-haspopup
-          aria-controls='mobile-menu'
+      <div className='block p-5 text-right text-white bg-black xl:hidden my-auto'>
+        <button
+          type='button'
+          onClick={toggleMenu}
+          aria-label='Open navigation menu'
         >
           <FontAwesomeIcon icon={faBars} size='2x' />
-        </label>
+        </button>
+
         <div
           id='mobile-menu'
-          className='z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex'
+          className={classNames(
+            'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto',
+            isMenuOpen ? 'translate-y-0' : 'translate-y-full',
+          )}
         >
-          <div className='absolute z-30 flex flex-col bg-black left-10 right-10'>
+          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+            <div
+              className={classNames({ 'h-40 flex justify-end': isRootPage })}
+            >
+              <button
+                type='button'
+                className='mr-0 p-5 text-4xl cursor-pointer'
+                onClick={() => setIsMenuOpen(false)}
+                aria-label='Close navigation menu'
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+
             <NavbarItems />
           </div>
         </div>
       </div>
-      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black xl:flex flex-nowrap'>
+
+      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle xl:bg-black'>
         <NavbarItems />
       </div>
     </>
@@ -222,10 +254,18 @@ const RightSide: React.FC = () => {
 };
 
 const Header: React.FC = () => {
+  const { pathname } = useRouter();
+  const isRootPage = pathname === '/';
+
   return (
-    <nav className='z-20 flex w-full'>
-      <LeftSide />
-      <RightSide />
+    <nav
+      className={classNames(
+        'bg-black xl:bg-[#00000000] z-[101] flex w-full justify-between',
+        { 'h-40 lg:h-auto': isRootPage },
+      )}
+    >
+      <LeftSide isRootPage={isRootPage} />
+      <RightSide isRootPage={isRootPage} />
     </nav>
   );
 };
