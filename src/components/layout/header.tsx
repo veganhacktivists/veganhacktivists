@@ -224,24 +224,36 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
           id='mobile-menu'
           className={classNames(
             'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto',
-            isMenuOpen ? 'translate-y-0' : 'translate-y-full',
+            isMenuOpen ? 'translate-y-0' : '-translate-y-full',
           )}
         >
-          <div
-            className={classNames('fixed right-0', {
-              'top-10': isRootPage,
-            })}
-          >
-            <button
-              type='button'
-              className='mr-0 p-5 text-4xl cursor-pointer'
-              onClick={() => setIsMenuOpen(false)}
-              aria-label='Close navigation menu'
+          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+            <div
+              className={classNames({
+                'h-40 flex justify-between p-5 pr-0': isRootPage,
+              })}
             >
-              <FontAwesomeIcon icon={faTimes} />
-            </button>
-          </div>
-          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black pt-6'>
+              <Link href='/' className={classNames({ hidden: !isRootPage })}>
+                <Player
+                  autoplay
+                  loop
+                  src={logoBig}
+                  style={{
+                    maxWidth: '344px',
+                    maxHeight: '113.5px',
+                  }}
+                />
+              </Link>
+              <button
+                type='button'
+                className='mr-0 p-5 text-4xl cursor-pointer'
+                onClick={() => setIsMenuOpen(false)}
+                aria-label='Close navigation menu'
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+
             <NavbarItems />
           </div>
         </div>
