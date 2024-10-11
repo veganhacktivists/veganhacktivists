@@ -223,7 +223,7 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
         <div
           id='mobile-menu'
           className={classNames(
-            'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto',
+            'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto duration-300',
             isMenuOpen ? 'translate-y-0' : '-translate-y-full',
           )}
         >
