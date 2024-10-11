@@ -227,20 +227,21 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
             isMenuOpen ? 'translate-y-0' : 'translate-y-full',
           )}
         >
-          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
-            <div
-              className={classNames({ 'h-40 flex justify-end': isRootPage })}
+          <div
+            className={classNames('fixed right-0', {
+              'top-10': isRootPage,
+            })}
+          >
+            <button
+              type='button'
+              className='mr-0 p-5 text-4xl cursor-pointer'
+              onClick={() => setIsMenuOpen(false)}
+              aria-label='Close navigation menu'
             >
-              <button
-                type='button'
-                className='mr-0 p-5 text-4xl cursor-pointer'
-                onClick={() => setIsMenuOpen(false)}
-                aria-label='Close navigation menu'
-              >
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-            </div>
-
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
+          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black pt-6'>
             <NavbarItems />
           </div>
         </div>
