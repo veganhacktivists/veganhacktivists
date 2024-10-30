@@ -94,7 +94,7 @@ const Support: React.FC = () => {
               defaultMessage='For one-time, smaller donations'
             />
           </DonationCard>
-          <DonorBoxCard color='orange' large />
+          <DonorBoxCard color='orange' />
           <DonationCard
             color='green'
             image={HeartLogo}
