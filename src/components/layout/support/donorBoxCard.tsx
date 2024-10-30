@@ -10,7 +10,6 @@ import type { StaticImageData } from 'next/image';
 interface DonorCardProps extends React.PropsWithChildren {
   color: string;
   image?: StaticImageData;
-  large?: boolean;
 }
 
 interface DonorBoxIframeProps
@@ -21,17 +20,12 @@ const DonorBoxIframe: React.FC<DonorBoxIframeProps> = ({ ...props }) => {
   return <iframe {...props} />;
 };
 
-const DonorBoxCard: React.FC<DonorCardProps> = ({ image, color, large }) => {
+const DonorBoxCard: React.FC<DonorCardProps> = ({ image, color }) => {
   const backgroundColor = getThemeColor(color);
   const scriptProps = { paypalExpress: 'false' };
 
   return (
-    <div
-      style={{
-        width: `${large ? '400px' : '300px'}`,
-      }}
-      className='flex flex-col bg-white'
-    >
+    <div className='flex flex-col bg-white w-[400px] h-[625px]'>
       {image && (
         <div style={{ backgroundColor }}>
           <div className={'absolute w-8 h-8 transparent'} />
