@@ -96,7 +96,7 @@ const GrantsCallToAction: React.FC<{ locale: string }> = ({ locale }) => {
           boxicon={pixelFlower}
           title={intl.formatMessage({
             id: 'section.grants-cta.visit-year-review.heading',
-            defaultMessage: 'See our 2022 impact review',
+            defaultMessage: 'See our 2023 impact review',
           })}
           backgroundColor='grey-over-background'
           button={{

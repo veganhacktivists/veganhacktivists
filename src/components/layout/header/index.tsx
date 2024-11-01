@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { usePathname } from 'next/navigation';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import logoOneLine from '../../../../public/images/VH-logo-white-text.png';
 import logoBig from '../../../../public/images/VH_Logo_Loop.json';
@@ -16,11 +17,12 @@ import { LocaleSelector } from '../localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
 
-const LeftSide: React.FC = () => {
+interface LeftSideProps {
+  isRootPage: boolean;
+}
+
+const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
   const ratio = 0.5;
-  const pathname = usePathname();
-  const locale = useIntl().locale;
-  const isRootPage = pathname === '/' || pathname === `/${locale}`;
 
   return (
     <div
@@ -72,7 +74,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   const active = pathname?.startsWith(href);
 
   const classes = classNames(
-    'p-5 py-6 transition duration-500 text-center whitespace-nowrap xl:max-w-[15rem] truncate',
+    'p-5 py-6 transition duration-500 text-center whitespace-nowrap xl:max-w-[15rem]',
     className,
   );
 
@@ -117,11 +119,14 @@ const NavbarItems: React.FC = () => {
         Object.keys(
           navItemRouteLabelMapping,
         ) as (keyof typeof navItemRouteLabelMapping)[]
-      ).map((menuElem) => (
+      ).map((menuElem, index) => (
         <NavBarItem
           key={menuElem}
           href={`/${menuElem}`}
-          className='hover:bg-gray-dark'
+          className={classNames(
+            'hover:bg-gray-dark',
+            index === 0 ? 'xl:pt-6' : '',
+          )}
         >
           {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
@@ -170,50 +175,85 @@ const NavbarItems: React.FC = () => {
   );
 };
 
-const RightSide: React.FC = () => {
-  const menuInputCheckRef = useRef<HTMLInputElement>(null);
+interface RightSideProps {
+  isRootPage: boolean;
+}
 
+const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (
-      menuInputCheckRef.current &&
-      menuInputCheckRef.current.checked !== false
-    ) {
-      menuInputCheckRef.current.checked = false;
-    }
+    setIsMenuOpen(false);
   }, [pathname]);
 
-  const buttonMenuId = 'menu-button';
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
-      <div className='flex-1 block p-5 text-right text-white bg-black cursor-pointer xl:hidden'>
-        <input
-          type='checkbox'
-          hidden
-          ref={menuInputCheckRef}
-          id={buttonMenuId}
-          className='peer'
-        />
-        <label
-          htmlFor={buttonMenuId}
-          className='cursor-pointer'
-          aria-haspopup
-          aria-controls='mobile-menu'
+      <div className='block p-5 text-right text-white bg-black xl:hidden my-auto'>
+        <button
+          type='button'
+          onClick={toggleMenu}
+          aria-label='Open navigation menu'
         >
           <FontAwesomeIcon icon={faBars} size='2x' />
-        </label>
+        </button>
+
         <div
           id='mobile-menu'
-          className='z-20 flex-col items-stretch flex-grow hidden w-64 h-full m-auto ml-auto font-mono text-2xl font-semibold text-white uppercase align-middle max-w-min peer-checked:flex'
+          className={classNames(
+            'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto duration-300',
+            isMenuOpen ? 'translate-y-0' : '-translate-y-full',
+          )}
         >
-          <div className='absolute z-30 flex flex-col bg-black left-10 right-10'>
+          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+            <div
+              className={classNames({
+                'h-40 flex justify-between p-5 pr-0': isRootPage,
+              })}
+            >
+              <Link href='/' className={classNames({ hidden: !isRootPage })}>
+                <Player
+                  autoplay
+                  loop
+                  src={logoBig}
+                  style={{
+                    maxWidth: '344px',
+                    maxHeight: '113.5px',
+                  }}
+                />
+              </Link>
+              <button
+                type='button'
+                className='mr-0 p-5 text-4xl cursor-pointer'
+                onClick={() => setIsMenuOpen(false)}
+                aria-label='Close navigation menu'
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+
             <NavbarItems />
           </div>
         </div>
       </div>
-      <div className='justify-end flex-1 hidden h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle bg-black xl:flex flex-nowrap'>
+
+      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle xl:bg-black'>
         <NavbarItems />
       </div>
     </>
@@ -221,10 +261,14 @@ const RightSide: React.FC = () => {
 };
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+  const locale = useIntl().locale;
+  const isRootPage = pathname === '/' || pathname === `/${locale}`;
+
   return (
-    <nav className='relative z-20 flex w-full'>
-      <LeftSide />
-      <RightSide />
+    <nav className='z-20 flex w-full'>
+      <LeftSide isRootPage={isRootPage} />
+      <RightSide isRootPage={isRootPage} />
     </nav>
   );
 };

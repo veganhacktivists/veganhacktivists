@@ -26,7 +26,8 @@ interface HeroProps extends React.PropsWithChildren {
     biggerOnMobile?: boolean;
   };
   alignment: 'right' | 'left' | 'center';
-  imageAlignment?: 'right' | 'left' | 'center';
+  /**Enter 'right' | 'left' | 'center', or use classNameMapping to set a specific value like: `classNameMapping={{ backgroundImage: 'object-[80%_40%]'}}` */
+  imageAlignment?: string;
   classNameMapping?: HeroClassNames;
   main?: boolean;
 }
@@ -82,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({
       tagline.image.height) *
       taglineHeight;
 
-  const objectPositionMap = {
+  const objectPositionMap: Record<string, string> = {
     top: 'object-top',
     right: 'object-right',
     left: 'object-left',

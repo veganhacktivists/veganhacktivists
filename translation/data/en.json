@@ -1985,6 +1985,258 @@
   "page.year-in-review.2022.section.state-of-data.paragraph": {
     "message": "During the second half of the year, we launched the first-of-its-kind study on the state of data and technology in animal protection. With support and partnership from Faunalytics with the design of this study, our team of researchers are seeking to understand what are the challenges and opportunities among organizations working in various fields and industries within our broad movement. The forthcoming report will provide recommendations to stakeholders and help drive our organizational roadmap."
   },
+  "page.year-in-review.2023.next-seo.title": {
+    "message": "2023 in Review"
+  },
+  "page.year-in-review.2023.section.big-impact.501c3.content": {
+    "message": "In 2023, we took a big step and initiated the process to obtain <no-localization>501(c)(3)</no-localization> status in the United States. This change promises to open up new opportunities for our organization to grow and make an even greater impact!"
+  },
+  "page.year-in-review.2023.section.big-impact.501c3.heading": {
+    "message": "We’re becoming a <no-localization>501(c)3</no-localization>!"
+  },
+  "page.year-in-review.2023.section.big-impact.all-hands-meeting.content": {
+    "message": "In 2023, we held our very first All Hands meeting, where we established objectives aimed at improving our capacity-building services, reflected on our progress, and discussed ways to run our teams at a sustainable, collaboration-focused pace."
+  },
+  "page.year-in-review.2023.section.big-impact.all-hands-meeting.heading": {
+    "message": "Our First All Hands Meeting"
+  },
+  "page.year-in-review.2023.section.big-impact.heading": {
+    "message": "Minor actions with <b>BIG IMPACT</b>"
+  },
+  "page.year-in-review.2023.section.big-impact.new-advisor.content": {
+    "message": "We warmly welcomed <no-localization>Abigail Penny</no-localization>, the Executive Director of <no-localization>Animal Equality UK</no-localization>, to our advisory board this year. Her leadership has led to mainstream media attention and significant changes for farmed animals in the UK. <no-localization>Abigail's</no-localization> expertise holds tremendous value as she joins other leaders to guide our efforts toward a better world for animals."
+  },
+  "page.year-in-review.2023.section.big-impact.new-advisor.heading": {
+    "message": "New Advisor"
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-director.content": {
+    "message": "This year we also welcomed <no-localization>Gabrielė</no-localization>, our new Communications Director, to the team. Bringing in her background in comms and experience in campaign work, <no-localization>Gabrielė</no-localization> quickly re-adjusted to the realm of capacity building. Besides creating content for <no-localization>Vegan Hacktivists</no-localization> and <no-localization>Violet Studios</no-localization>, she's also helping other advocates strengthen their skills in communications and social media."
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-director.heading": {
+    "message": "New Director of Communications"
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-manager.content": {
+    "message": "In 2023, we welcomed <no-localization>Jess</no-localization> as our new Community Director at <no-localization>Vegan Hacktivists</no-localization>. With a decade of nonprofit experience and a passion for animal advocacy, <no-localization>Jess</no-localization> has proven to be perfectly suited to lead and expand Playground, our community of vegan volunteers. They’ve quickly become not only an integral part of <no-localization>Playground’s</no-localization> revamp but also a cherished member of our team."
+  },
+  "page.year-in-review.2023.section.big-impact.new-comms-manager.heading": {
+    "message": "New Community Manager"
+  },
+  "page.year-in-review.2023.section.big-impact.wellness-survey.content": {
+    "message": "Activists are prone to burnout, so we conducted a survey to better support our team. It revealed that while many team members enjoy their work and feel supported by their managers, they balance work and life differently. The survey highlighted areas for improvement, such as better work guidance, collaboration opportunities, and access to mental health resources, as well as a need for more community-building and feedback on how each member’s work impacts the organization."
+  },
+  "page.year-in-review.2023.section.big-impact.wellness-survey.heading": {
+    "message": "<no-localization>VH’s</no-localization> Wellness Survey"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.cost-saved.1": {
+    "message": "Minimum"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.cost-saved.2": {
+    "message": "On Average"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.cost-saved.3": {
+    "message": "Maximum"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.cost-saved.heading": {
+    "message": "Saved for the Movement"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.grant-program.1": {
+    "message": "Applicants"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.grant-program.2": {
+    "message": "Applications approved"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.grant-program.3": {
+    "message": "Given in seed grants"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.grant-program.heading": {
+    "message": "<b>Grant</b> Program"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.heading": {
+    "message": "<b>By the numbers</b>"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.learn-more": {
+    "message": "Learn more"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.1": {
+    "message": "BIPGM-led"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.1.tooltip": {
+    "message": "BIPGM stands for Black, Indigenous, and People of the Global Majority."
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.2": {
+    "message": "EA-aligned"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.2.tooltip": {
+    "message": "EA stands for Effective Altruism – groups who are focused on animal welfare."
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.3": {
+    "message": "Different countries"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.4": {
+    "message": "Services provided"
+  },
+  "page.year-in-review.2023.section.by-the-numbers.services.heading": {
+    "message": "Organizations Served"
+  },
+  "page.year-in-review.2023.section.collaborations.1.content": {
+    "message": "This year, we partnered with <no-localization>AAC</no-localization> by winding down their skilled volunteer board's activities and guiding those eager to volunteer or seeking volunteer positions towards <no-localization>VH Playground</no-localization>. Likewise, <no-localization>Playground</no-localization> began to advocate <no-localization>AAC's</no-localization> career opportunities within our volunteer community for individuals aspiring to pursue a more career-oriented role."
+  },
+  "page.year-in-review.2023.section.collaborations.1.heading": {
+    "message": "Collaboration for <b>EFFECTIVE REDIRECTION</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.2.content": {
+    "message": "We partnered with <no-localization>Sentient Media’s Writers’ Collective</no-localization> to train and mentor new writers focused on topics like animal welfare, plant-based diets, social justice, and the environment. By guiding almost 200+ writer applicants to their program, we support enriching these important conversations."
+  },
+  "page.year-in-review.2023.section.collaborations.2.heading": {
+    "message": "Partnership for <b>ADVANCED CONVERSATIONS</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.3.content": {
+    "message": "Together with <no-localization>Stray Dog Institute</no-localization>, we hosted two webinars on AI, covering ground on topics such as accelerating change through AI, its role in scaling, optimizing campaigns, and supplementing our advocacy as a whole. As capacity builders, we prioritize equipping advocates with the resources needed to boost their efficiency and impact. AI undoubtedly serves as a tool for this very purpose."
+  },
+  "page.year-in-review.2023.section.collaborations.3.heading": {
+    "message": "Advancing <b>ANIMAL ADVOCACY WITH AI</b>"
+  },
+  "page.year-in-review.2023.section.collaborations.header": {
+    "message": "2023 was marked by collaborations that focused on arguably one of the most important building blocks in the movement: <b>acquiring and cultivating talent and skill</b>."
+  },
+  "page.year-in-review.2023.section.fta.content": {
+    "message": "Towards the end of 2023, we were excited to introduce <no-localization>Today For Animals</no-localization>, a user-friendly web app that simplifies animal advocacy for everyone, from seasoned activists to newcomers. <no-localization>Today For Animals</no-localization> provides a spectrum of actions, from quick daily tasks to more challenging efforts, aimed at improving the lives of animals.<no-localization>{break}{break}</no-localization>Users can engage in \"micro-activism\" like leaving reviews for vegan eateries, sharing recipes, or signing petitions. Participants in the app earn recognition and climb the leaderboard as they complete tasks. They can also collect beautifully crafted badges for their profiles and maintain a daily activity streak by checking into the app each day. This gamified approach keeps our community engaged and helps everyone continuously contribute to animal advocacy.<no-localization>{break}{break}</no-localization>The launch of this project was met with great reception, and garnered 269 sign ups just within a couple of weeks. But we didn’t stop there! Our team is consistently improving the app, to keep the users curious, active, and motivated to make a difference even in the most mundane.<no-localization>{break}{break}</no-localization><b>Have you helped the animals today?</b>"
+  },
+  "page.year-in-review.2023.section.fta.heading": {
+    "message": "<b>MAKING DAILY ACTIVISM FUN</b>"
+  },
+  "page.year-in-review.2023.section.fta.label": {
+    "message": "Head to <no-localization>Today For Animals</no-localization>"
+  },
+  "page.year-in-review.2023.section.granti.content": {
+    "message": "After conducting several interviews with major funders in the space, it was clear to us that a grantee/funder tool was well-needed in our movement. We tackled this issue head-on by building a tool that would allow better management and facilitation of grants for both advocates and funders alike. We were thrilled to onboard the first funders onto the platform, and publicly announced its launch at the end of the year!<no-localization>{break}{break}</no-localization>Grantees often struggle to keep track of their grant submissions, both current and past. Funders face similar challenges, as it's rare to have all the necessary information in one easy-to-understand and accessible format. Like grantees, funders deal with a lot of administrative work and often use multiple platforms to manage submissions. Our system, <no-localization>Granti</no-localization>, brings everyone together, simplifying the grant process for all.<no-localization>{break}{break}</no-localization>Since its launch, <no-localization>Granti</no-localization> has made a huge impact, helping distribute tens of millions of dollars. <no-localization>Granti</no-localization> makes everything easier—from handling applications to updating records and managing finances. It's become a powerful tool, and we intend to extend its use far beyond what we initially envisioned.<no-localization>{break}{break}</no-localization><b>Are you a funder or grantmaker in the space? Looking for a streamlined way to manage your grants?</b>"
+  },
+  "page.year-in-review.2023.section.granti.heading": {
+    "message": "<b>GRANT-MAKING TURNED SIMPLE</b>"
+  },
+  "page.year-in-review.2023.section.granti.label": {
+    "message": "Reach our to join <no-localization>Granti</no-localization>"
+  },
+  "page.year-in-review.2023.section.header.content": {
+    "message": "In <no-localization>2023</no-localization>, we strengthened our role as capacity builders, saving the movement the largest amount of funds in our history. By serving over <no-localization>130</no-localization> organizations this year alone with our tech, design, and advisory services, we managed to save the movement a staggering <no-localization>$750k</no-localization>. As we continue through <no-localization>2024</no-localization>, we maintain our focus on leveraging the solid foundation we've built in <no-localization>2023</no-localization> to continue addressing the existing gaps within our movement and making the animal advocacy space more powerful than before."
+  },
+  "page.year-in-review.2023.section.header.image.alt-text": {
+    "message": "2023 year in review"
+  },
+  "page.year-in-review.2023.section.header.title": {
+    "message": "Serving Our Movement with New Tools & Technology"
+  },
+  "page.year-in-review.2023.section.knowledge.aquatic-life-con.content": {
+    "message": "At the 4th <no-localization>Annual Aquatic Life Conference</no-localization>, organized by the <no-localization>Aquatic Life Institute</no-localization>, our Executive Director <no-localization>James Morgan</no-localization> discussed using <no-localization>ChatGPT</no-localization> for aquatic life protection. In his talk, <no-localization>James</no-localization> outlined AI definitions, its opportunities in animal advocacy, and the risks and limitations associated with AI use. You can watch the talk <a>right here</a>."
+  },
+  "page.year-in-review.2023.section.knowledge.aquatic-life-con.heading": {
+    "message": "Leveraging AI for Aquatic Animals: <b>Aquatic Life Conference</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.asia-farm.content": {
+    "message": "Towards the end of 2023, <no-localization>David van Beveren</no-localization>, <no-localization>Ryuji Chua</no-localization>, and <no-localization>Seb Alex</no-localization> attended the first in-person <no-localization>Asia Farm Animal Day</no-localization> in Kuala Lumpur, co-organized by the Asia for <no-localization>Animals Farm Animal Coalition</no-localization> and the <no-localization>Animal & Vegan Advocacy Summit</no-localization>. We spoke with organizations dedicated to animal protection in Asia and ensured that our capacity-building services are within their reach. Additionally, board Director <no-localization>Ryuji Chua</no-localization> served as the opening keynote speaker and shared tips on effective communication!"
+  },
+  "page.year-in-review.2023.section.knowledge.asia-farm.heading": {
+    "message": "Ensuring Our Support in Asia: <b>Asia Farm Animal Day</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.ava-summit.content": {
+    "message": "We also attended the <no-localization>AVA Summit</no-localization> in <no-localization>LA</no-localization>, where <no-localization>David</no-localization> shared his insights on volunteer management and empowerment in the movement. He highlighted how volunteers amplify our impact and discussed the importance of branding, clarity, and setting expectations for attracting top volunteers. Board Members <no-localization>Ryuji Chua</no-localization> and <no-localization>Seb Alex</no-localization> gave talks on mass communication and advocacy in the Middle East. At the Summit, we collaborated with <no-localization>Andrea Gunn</no-localization> and <no-localization>David Coman-Hidy</no-localization> from <no-localization>Sharpen Strategy</no-localization> to refine our strategy and operating model, addressing uncertainties and potential pivots. Additionally, we co-hosted a career fair with <no-localization>Animal Advocacy Careers</no-localization>!"
+  },
+  "page.year-in-review.2023.section.knowledge.ava-summit.heading": {
+    "message": "Recognizing Volunteers as Catalysts: <b>AVA Summit in LA</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.erasmus.content": {
+    "message": "In spring, <no-localization>James Morgan</no-localization> spoke about wild animal suffering at <no-localization>Erasmus University</no-localization> in Rotterdam, thanks to <no-localization>PISE</no-localization> Rotterdam, a student group aligned with <no-localization>Effective Altruism</no-localization>! We're incredibly grateful for the opportunity, and the insightful questions the students raised during the discussion."
+  },
+  "page.year-in-review.2023.section.knowledge.erasmus.heading": {
+    "message": "Why Wild Animal Suffering Matters: <b>Erasmus University Rotterdam</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.farm.content": {
+    "message": "In 2023, our Executive Director <no-localization>James Morgan</no-localization> took a balanced look at using AI in advocacy work during an interview with the <no-localization>Farm Animal Rights Movement (FARM)</no-localization>. He talked about AI’s merits and pitfalls, encouraged advocates to use AI tools in daily tasks, and highlighted how AI can boost the efficiency and effectiveness of our efforts. You can watch the interview right here."
+  },
+  "page.year-in-review.2023.section.knowledge.farm.heading": {
+    "message": "Uncovering the Merits and Risks of AI: <b>Interview with FARM</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.intro.content": {
+    "message": "Our year was highlighted by events where we sought knowledge and impact in different regions and areas in the space. We gave talks about best practices for managing volunteers, and the foundations of leveraging AI to advance our advocacy. We also seized the opportunity to strengthen connections, and acquire more skills in leading and growing our organization."
+  },
+  "page.year-in-review.2023.section.knowledge.intro.heading": {
+    "message": "Sharing & gaining for <b>Knowledge</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.lead-conference.content": {
+    "message": "In summer 2023, <no-localization>David</no-localization> and board members <no-localization>Seb Alex</no-localization> and <no-localization>Ryuji Chua</no-localization> attended the <no-localization>LEAD</no-localization> conference. They joined a workshop that revealed six core needs of people in organizations. These needs neatly fit into the acronym <no-localization>\"BICEPS\"</no-localization>, as pictured above!"
+  },
+  "page.year-in-review.2023.section.knowledge.lead-conference.heading": {
+    "message": "Thriving in an Organization: <b>LEAD Conference</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.liberation-conference.content": {
+    "message": "In Berkeley, CA, our Board Director <no-localization>Ryuji Chua</no-localization> spoke at the world's largest grassroots animal rights conference. His workshop, 'How to Talk about Animal Rights: Principles of Effective Communication for Educators & Content Creators', explored how to create engaging media, capture and retain attention, and offer an alternative perspective on the world in an engaging and memorable way."
+  },
+  "page.year-in-review.2023.section.knowledge.liberation-conference.heading": {
+    "message": "The Path to Effective Communication: <b>Animal Liberation Conference</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.making-connections.content": {
+    "message": "Towards the end of summer 2023, we attended the <no-localization>CARE Conference</no-localization> in Warsaw, Poland, where <no-localization>David</no-localization> spoke with over 40 organizations. Additionally, we enriched our knowledge in digital marketing at a session led by <no-localization>Ana Bradley</no-localization>, Executive Director at <no-localization>Sentient Media</no-localization>, where <no-localization>VH</no-localization> was recognized for our partnership in implementing technical SEO changes!"
+  },
+  "page.year-in-review.2023.section.knowledge.making-connections.heading": {
+    "message": "Making Connections: <b>CARE Conference</b>"
+  },
+  "page.year-in-review.2023.section.leadership.content": {
+    "message": "Mid-summer this year, we decided to refine the way we build capacity with changes in our leadership. <no-localization>David van Beveren</no-localization>, who founded <no-localization>Vegan Hacktivists</no-localization> in 2019, transitioned to the role of Founder and President, now overseeing the organization's long-term vision and broader impact.<no-localization>{break}{break}</no-localization>Under <no-localization>David’s</no-localization> guidance <no-localization>Vegan Hacktivists</no-localization> grew significantly: what started as a one-person team turned into an organization of over 50 active volunteers, 4 full-time employees, 8 stipend volunteers, and 2,500 volunteers within our <no-localization>Playground</no-localization> network. Since the transition, <no-localization>David</no-localization> has been focusing on the overall direction and strategy, building partnerships and representing the organization in various events and capacities.<no-localization>{break}{break}</no-localization>On the other side of the exchange, <no-localization>James Morgan</no-localization> stepped up as our new Executive Director, bringing his commitment to the cause and expertise in product management to the forefront of our operations. Since joining <no-localization>VH</no-localization>, <no-localization>James</no-localization> has played a pivotal role in enhancing our processes and supporting our growth, originally starting as a volunteer and quickly becoming indispensable as our Director of Operations. He helped lay the foundation of what <no-localization>VH</no-localization> is today, and now, both of our leaders continue to work in synergy to advance our mission and support the movement with innovative tech solutions, strengthening advocacy for animals worldwide.<no-localization>{break}{break}</no-localization><b>First time hearing the news?</b>"
+  },
+  "page.year-in-review.2023.section.leadership.heading": {
+    "message": "New horizons in <b>OUR LEADERSHIP</b>"
+  },
+  "page.year-in-review.2023.section.leadership.label": {
+    "message": "Read the Announcement"
+  },
+  "page.year-in-review.2023.section.moving-forward.btn.cta": {
+    "message": "Support our work"
+  },
+  "page.year-in-review.2023.section.moving-forward.content": {
+    "message": "2023 was a year of development and transformation for our organization. We enhanced our capacity-building services by embracing new leadership roles and preparing our design team to branch out into a sister organization. Our newly launched tools quickly stood out, earning recognition and proving their worth by streamlining funding processes and mobilizing major funders in the space. We kicked off exciting new projects and mapped out our priorities for the ones ahead. Our visibility grew through leading talks at conferences, appearances in documentary credits, and numerous collaboration requests. Looking forward, we aim to broaden the array of groups we support through capacity building, propel organizational growth, and continuously improve our built tools for greater impact. We are immensely grateful to all our supporters and are excited to see where 2024 takes us next."
+  },
+  "page.year-in-review.2023.section.moving-forward.heading": {
+    "message": "Forward & Onward"
+  },
+  "page.year-in-review.2023.section.partnership.content": {
+    "message": "Creating <b>partnerships</b> & creating <b>impact</b>"
+  },
+  "page.year-in-review.2023.section.playground.content": {
+    "message": "After the immense success of <no-localization>Playground</no-localization> since its launch in 2021, we continued to strive for ways to improve it. The platform, comprising over 2,500 vegan volunteers who have collectively contributed over thousands of hours of work for the movement, has established itself as the go-to place to connect with organizations.<no-localization>{break}{break}</no-localization>We witnessed the growth of <no-localization>Playground’s</no-localization> community by nearly 1,000 new volunteers, handling 93 diverse requests like data analysis and marketing in this year alone.<no-localization>{break}{break}</no-localization>In 2023, we decided to take <no-localization>Playground</no-localization> to the next level. We learned a lot and started working on implementing changes to enhance user experience. By providing more control for those seeking support, and a much more enjoyable (and even fun!) process for fulfilling requests, <no-localization>Playground's</no-localization> upgrade is set to boost both experience and impact for animals.<no-localization>{break}{break}</no-localization><no-localization>Playground</no-localization> is separate from the <no-localization>Vegan Hacktivists</no-localization> team, and aims to increase the capacity in which we can support work for the animals. In preparation of <no-localization>Playground V2</no-localization>, we’ve released an introductory video about the current platform.<no-localization>{break}{break}</no-localization><b>Haven’t seen the video yet?</b>"
+  },
+  "page.year-in-review.2023.section.playground.heading": {
+    "message": "<b>FROM STRENGTH TO STRENGTH</b>"
+  },
+  "page.year-in-review.2023.section.playground.label": {
+    "message": "Watch it here"
+  },
+  "page.year-in-review.2023.section.providing-value.we-built.paragraph": {
+    "message": "<b>2023 was the year we finalized projects long awaiting their spotlight.</b> We targeted vegans eager to get active for animals in their everyday lives and launched a tool that transformed grantmaking processes crucial for organizations to sustain and advance their work."
+  },
+  "page.year-in-review.2023.section.providing-value.we-committed.paragraph": {
+    "message": "<b>With shifts in our leadership and plans for new programs</b>, we dived into a new chapter at <no-localization>VH</no-localization>. This entailed welcoming a new Executive Director for <no-localization>VH</no-localization>, as well as preparing for the evolution of one of our teams into a realm of stronger branding and focus."
+  },
+  "page.year-in-review.2023.section.providing-value.we-ventured.paragraph": {
+    "message": "<b>We leaned into our strength of harnessing technology and building communities</b> to help animals, and shared our expertise across a multitude of events. From speaking about volunteer management to leading talks on utilizing AI in advocacy work, we stepped forward to ensure that more organizations could use this knowledge for change."
+  },
+  "page.year-in-review.2023.section.tech-and-data.content": {
+    "message": "In August 2023, we took a significant step forward by releasing a comprehensive report on the integration of technology and data within the animal advocacy movement. Our 50-page study revealed critical insights into how technology is currently utilized and the potential it holds to further our cause. We delved into various aspects including workforce tech skills, the use of websites and applications, social media strategies, data collection practices, and security measures.<no-localization>{break}{break}</no-localization>Our findings underscore the necessity for a more tech-savvy approach in our activities and advocacy. To aid in this transition, we have formulated several recommendations aimed at leaders, activists, and funders. These guidelines are designed to foster a more technology-forward and data-driven approach, enhancing our effectiveness in animal protection.<no-localization>{break}{break}</no-localization>By sharing these insights and recommendations, we aim to catalyze a shift towards better utilization of technology across the movement. This report is not just a reflection of where we stand, but a roadmap for where we need to go, ensuring we leverage every tool available to advocate for animal welfare more efficiently.<no-localization>{break}{break}</no-localization><b>Haven’t read the study yet?</b>"
+  },
+  "page.year-in-review.2023.section.tech-and-data.heading": {
+    "message": "The launch of <b>TECH & DATA IN THE MOVEMENT</b>"
+  },
+  "page.year-in-review.2023.section.tech-and-data.label": {
+    "message": "Check it out here"
+  },
+  "page.year-in-review.2023.section.theory-of-change.label": {
+    "message": "Take a closer look"
+  },
+  "page.year-in-review.2023.section.violet-studios.content": {
+    "message": "Over time, we noticed several areas in need of capacity-building work, with design being at the forefront. Our design work expanded rapidly, taking on a life of its own—and became deserving of its own organization.<no-localization>{break}{break}</no-localization>We started working on the new program to help the movement shine brighter, aiming for the big launch on a special date—<no-localization>VH’s</no-localization> 5th anniversary. After careful preparations of everything that comes along with a launch of a new organization (its branding, strategy, website, and social media—the list goes on!), the team was all set for the launch on January 1st.<no-localization>{break}{break}</no-localization>Now, our sister organization, <no-localization>Violet Studios</no-localization>, continues to provide authentic design services for activists and organizations at no cost. Whether it’s branding, web design, or other high-impact areas, <no-localization>Violet</no-localization> is here to help advocates build trust, influence perceptions, and put their best foot forward.<no-localization>{break}{break}</no-localization><b>Want to learn more?</b>"
+  },
+  "page.year-in-review.2023.section.violet-studios.heading": {
+    "message": "The launch of <b>Violet Studios</b>"
+  },
   "page.year-in-review.section.header.content": {
     "message": "We're so happy to release our <no-localization>{year}</no-localization> Year in Review! Scroll down to read all of our accomplishments thanks to your generous support, our partners, and most of all our amazing volunteers."
   },
@@ -2073,7 +2325,7 @@
     "message": "See our impact"
   },
   "section.grants-cta.visit-year-review.heading": {
-    "message": "See our 2022 impact review"
+    "message": "See our 2023 impact review"
   },
   "section.grants-cta.visit-year-review.paragraph": {
     "message": "Read our annual impact review and see what we've accomplished last year."

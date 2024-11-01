@@ -69,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
       shouldCloseOnEsc={!!onClose}
       shouldCloseOnOverlayClick={!!onClose}
     >
-      <div className={className}>
+      <div className={classNames(className, 'my-12 sm:my-0 relative')}>
         {onClose && (
           <div
             onClick={closeModal}

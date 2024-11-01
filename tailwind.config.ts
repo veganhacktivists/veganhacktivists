@@ -113,9 +113,9 @@ const config = {
       fuchsia: colors.magenta,
     },
     fontFamily: {
-      mono: ['Rajdhani', 'monospace'],
-      sans: 'PT Sans',
-      serif: 'Bitter',
+      mono: ['var(--font-rajdhani)', 'monospace'],
+      sans: 'var(--font-ptsans)',
+      serif: 'var(--font-bitter)',
     },
   },
   variants: {
