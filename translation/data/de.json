@@ -6,10 +6,10 @@
     "message": "Teilen"
   },
   "component.translatable-contentful-entry-field.translate-button.label": {
-    "message": "Seite automatisch übersetzen"
+    "message": "Automatisch übersetzte Inhalte anzeigen"
   },
   "component.translatable-contentful-entry-field.translate-button.show-original": {
-    "message": "Original Seite anzeigen"
+    "message": "Inhalt in der Originalsprache anzeigen"
   },
   "dialog.share.headline": {
     "message": "Dieses Projekt <b>teilen</b> "
