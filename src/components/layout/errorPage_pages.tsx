@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
-import errorTypeImage from '../../../public/images/VH-error-type.png';
 import {
   avocado,
   mango,
@@ -19,6 +18,8 @@ import CustomImage from 'components/decoration/customImage';
 
 import type { FallbackProps } from 'react-error-boundary';
 import type { NextPage } from 'next';
+
+import errorTypeImage from '~images/VH-error-type.png';
 
 export interface ErrorProps extends Omit<FallbackProps, 'error'> {
   error?: FallbackProps['error'] & {

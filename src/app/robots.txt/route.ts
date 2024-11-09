@@ -1,6 +1,6 @@
 import HttpCodes from 'http-status-codes';
 
-import i18nConfig from '../../../i18nConfig.js';
+import { locales } from '../../../i18nConfig';
 
 export const dynamic = 'force-static';
 
@@ -11,7 +11,7 @@ export function GET() {
 User-agent: *
 
 # ignore pages with locale prefix for now
-${i18nConfig.locales.map((locale) => `Disallow: /${locale}/*`).join('\n')}
+${locales.map((locale) => `Disallow: /${locale}/*`).join('\n')}
 `,
     { status: HttpCodes.OK },
   );

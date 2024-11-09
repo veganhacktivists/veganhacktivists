@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 
-import { defaultLocale } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
 import Spinner from 'components/decoration/spinner';
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';

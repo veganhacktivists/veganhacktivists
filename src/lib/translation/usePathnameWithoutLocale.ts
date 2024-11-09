@@ -1,21 +1,24 @@
 import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
 import { locales } from '../../../i18nConfig';
 
-export const usePathnameWithoutLocale = () => {
+export const usePathnameWithoutLocale = (): string | null => {
   const pathname = usePathname();
 
-  if (pathname === null) {
-    return null;
-  }
+  return useMemo(() => {
+    if (pathname === null) {
+      return null;
+    }
 
-  const pathSegments = pathname.split('/').filter(Boolean);
+    const pathSegments = pathname.split('/').filter(Boolean);
 
-  if (!locales.includes(pathSegments[0])) {
-    return pathname;
-  }
+    if (!locales.includes(pathSegments[0])) {
+      return pathname;
+    }
 
-  const pathnameWithoutLocale = '/' + pathSegments.slice(1).join('/');
+    const pathnameWithoutLocale = '/' + pathSegments.slice(1).join('/');
 
-  return pathnameWithoutLocale;
+    return pathnameWithoutLocale;
+  }, [pathname]);
 };

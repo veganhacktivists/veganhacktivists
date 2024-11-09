@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { defaultLocale } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { api } from 'trpc/server';
 

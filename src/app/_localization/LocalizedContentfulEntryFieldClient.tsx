@@ -2,7 +2,7 @@
 
 import { type FC } from 'react';
 
-import { defaultLocale } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
 import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';

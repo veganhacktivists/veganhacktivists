@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import useDocsStore from '../../../lib/stores/docsStore';
 import getThemeColor from '../../../lib/helpers/theme';
+import { defaultLocale } from '../../../../translation/defaultLocale';
 
 import SearchBar from './searchBar';
 
@@ -36,7 +37,9 @@ const Documentation: React.FC<DocumentationProps> = ({
 
   return (
     <li>
-      <Link href={`/handbook/${categorySlug}/${sectionSlug}/#${slug}`}>
+      <Link
+        href={`/${defaultLocale}/handbook/${categorySlug}/${sectionSlug}/#${slug}`}
+      >
         <div
           onClick={() => {
             setCurrentDocSlug(slug);
@@ -91,7 +94,7 @@ const Section: React.FC<SectionProps> = ({
       style={{ borderColor: isSelected ? color : lightGrey }}
       ref={sectionRef}
     >
-      <Link href={`/handbook/${categorySlug}/${slug}`}>
+      <Link href={`/${defaultLocale}/handbook/${categorySlug}/${slug}`}>
         <div className='py-1 text-xl font-bold cursor-pointer'>{title}</div>
       </Link>
 

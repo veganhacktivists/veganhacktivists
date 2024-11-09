@@ -5,9 +5,8 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import {
   verificationMail,
   verifyRequestEmail,
-} from '../../../../components/layout/mail/emailTemplates';
-import { OUR_EMAIL_FROM_FORMATTED } from '../../../../lib/mail/router';
-
+} from 'components/layout/mail/emailTemplates';
+import { OUR_EMAIL_FROM_FORMATTED } from 'lib/mail/router';
 import emailClient from 'lib/mail';
 import prisma from 'lib/db/prisma';
 

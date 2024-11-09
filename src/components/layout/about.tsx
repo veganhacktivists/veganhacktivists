@@ -4,13 +4,14 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { NavButton } from '../decoration/buttons';
 import Hero from '../decoration/hero';
 import SquareField from '../decoration/squares';
-import heroBackground from '../../../public/images/VH-pigs-hero.jpg';
-import heroTagline from '../../../public/images/about/hero-tagline.png';
 import Sprite, { goat } from '../decoration/sprite';
 
 import GrantsCallToAction from './grants/grantsCallToAction_pages';
 
 import type { Layout } from '../../types/persistentLayout';
+
+import heroTagline from '~images/about/hero-tagline.png';
+import heroBackground from '~images/VH-pigs-hero.jpg';
 
 const AboutButtons: React.FC = () => {
   return (

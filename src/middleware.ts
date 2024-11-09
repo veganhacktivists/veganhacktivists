@@ -4,8 +4,8 @@ import { i18nRouter } from 'next-i18n-router';
 import { NextResponse } from 'next/server';
 import { StatusCodes } from 'http-status-codes';
 
-import i18nConfig from '../i18nConfig';
 import { createRedirectMap } from '../redirects';
+import i18nConfig from '../i18nConfig';
 
 import type { NextRequestWithAuth } from 'next-auth/middleware';
 import type { NextMiddleware } from 'next/server';
@@ -26,10 +26,6 @@ const middleware: NextMiddleware = async (request, event) => {
         ? StatusCodes.MOVED_PERMANENTLY
         : StatusCodes.MOVED_TEMPORARILY,
     });
-  }
-
-  if (request.nextUrl.pathname.startsWith('/handbook')) {
-    return NextResponse.next();
   }
 
   // There are no translations for the playground pages,
@@ -57,6 +53,6 @@ export default middleware;
 
 export const config = {
   matcher: [
-    '/((?!api|fonts|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt|handbook).*)',
+    '/((?!api|fonts|_next/static|_next/image|favicon.ico|apple-touch-icon.png|favicon-32x32.png|favicon-16x16.png|robots.txt).*)',
   ],
 };

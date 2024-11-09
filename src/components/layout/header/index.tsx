@@ -15,12 +15,12 @@ import logoBig from '../../../../public/images/VH_Logo_Loop.json';
 import { LocaleSelector } from '../localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
+import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
 const LeftSide: React.FC = () => {
   const ratio = 0.5;
-  const pathname = usePathname();
-  const locale = useIntl().locale;
-  const isRootPage = pathname === '/' || pathname === `/${locale}`;
+  const pathname = usePathnameWithoutLocale();
+  const isRootPage = pathname === '/';
 
   return (
     <div
@@ -67,7 +67,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
   href,
   className = '',
 }) => {
-  const pathname = usePathname();
+  const pathname = usePathnameWithoutLocale();
 
   const active = pathname?.startsWith(href);
 

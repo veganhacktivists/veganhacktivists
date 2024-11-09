@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../decoration/buttons';
-import errorTypeImage from '../../../public/images/VH-error-type.png';
 import {
   avocado,
   mango,
@@ -19,6 +18,8 @@ import CustomImage from 'components/decoration/customImage';
 import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
 import type { NextPage } from 'next';
+
+import errorTypeImage from '~images/VH-error-type.png';
 
 export interface ErrorProps {
   error: Error & { statusCode?: number };

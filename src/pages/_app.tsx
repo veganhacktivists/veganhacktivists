@@ -103,16 +103,7 @@ const DefaultLayout: React.FC<
   React.PropsWithChildren<{
     pathname: string;
   }>
-> = ({ pathname, children }) => {
-  if (pathname === '/handbook' || pathname.startsWith('/handbook/')) {
-    return (
-      <>
-        <Header />
-        <MainWrapper>{children}</MainWrapper>
-      </>
-    );
-  }
-
+> = ({ children }) => {
   return (
     <>
       <Header />

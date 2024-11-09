@@ -3,11 +3,12 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { usePathname } from 'next/navigation';
 
 import CookiesCTA from '../cookiesCTA';
 
 import NewsletterPopup from './newsletterPopup';
+
+import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -37,7 +38,7 @@ const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
 export const MainWrapper: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const pathname = usePathname();
+  const pathname = usePathnameWithoutLocale();
 
   const hideNewsletter =
     pathname === '/handbook' || pathname?.startsWith('/handbook/');

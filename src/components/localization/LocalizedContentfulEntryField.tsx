@@ -2,7 +2,7 @@
 
 import { type FC, useEffect } from 'react';
 
-import { defaultLocale } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { api } from 'trpc/react';
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';

@@ -3,7 +3,9 @@ import { resolve } from 'path';
 
 import { z } from 'zod';
 
-import { defaultLocale, locales } from '../i18nConfig.js';
+import { locales } from '../i18nConfig';
+
+import { defaultLocale } from './defaultLocale';
 
 export const filesGlob = 'src/**/*.tsx';
 export { defaultLocale, locales };

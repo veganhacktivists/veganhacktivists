@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 
-import { defaultLocale } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
 import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';
