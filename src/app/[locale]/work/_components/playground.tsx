@@ -61,7 +61,10 @@ const Playground: React.FC<PlaygroundProps> = ({ locale }: PlaygroundProps) => {
             <PlaygroundStats skipOpenRequests />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 md:w-fit mx-auto gap-9 pt-4'>
-            <LightButton href='/playground' className='mx-auto w-full md:w-fit'>
+            <LightButton
+              href={`/${locale}/playground`}
+              className='mx-auto w-full md:w-fit'
+            >
               <span className='px-4'>
                 {intl.formatMessage({
                   id: 'page.our-work.section.playground.playground.cta-button.label',
@@ -70,7 +73,7 @@ const Playground: React.FC<PlaygroundProps> = ({ locale }: PlaygroundProps) => {
               </span>
             </LightButton>
             <LightButton
-              href='/playground/submit'
+              href={`/${locale}/playground/submit`}
               className='mx-auto w-full md:w-fit'
             >
               <span className='px-4'>

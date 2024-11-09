@@ -28,7 +28,7 @@ const LeftSide: React.FC = () => {
     >
       {/* non root pages */}
       <Link
-        href='/'
+        href={`/${locale}`}
         className={classNames('flex items-center', { hidden: isRootPage })}
       >
         <CustomImage
@@ -73,6 +73,7 @@ const NavBarItem: React.FC<NavbarItemProps> = ({
 
 const NavbarItems: React.FC = () => {
   const intl = useIntl();
+  const locale = intl.locale;
 
   const navItemRouteLabelMapping = {
     about: intl.formatMessage({
@@ -106,14 +107,14 @@ const NavbarItems: React.FC = () => {
       ).map((menuElem) => (
         <NavBarItem
           key={menuElem}
-          href={`/${menuElem}`}
+          href={`/${locale}/${menuElem}`}
           className='hover:bg-gray-dark'
         >
           {navItemRouteLabelMapping[menuElem]}
         </NavBarItem>
       ))}
       <NavBarItem
-        href={'/join'}
+        href={`/${locale}/join`}
         className='font-bold bg-gray hover:bg-gray-dark'
       >
         <FormattedMessage
@@ -122,7 +123,7 @@ const NavbarItems: React.FC = () => {
         />
       </NavBarItem>
       <NavBarItem
-        href={'/support'}
+        href={`/${locale}/support`}
         className='font-bold bg-pink hover:bg-pink-dark'
       >
         <FormattedMessage
@@ -131,7 +132,7 @@ const NavbarItems: React.FC = () => {
         />
       </NavBarItem>
       <NavBarItem
-        href={'/playground'}
+        href={`/${locale}/playground`}
         className='font-bold bg-green hover:bg-green-dark'
       >
         <FormattedMessage

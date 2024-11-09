@@ -51,7 +51,9 @@ const getFaqEntries = (intl: IntlShape) =>
           values={{
             p: (chunk) => <p>{chunk}</p>,
             link: (chunk) => (
-              <CustomLink href='/playground'>{chunk}</CustomLink>
+              <CustomLink href={`/${intl.locale}/playground`}>
+                {chunk}
+              </CustomLink>
             ),
           }}
         />

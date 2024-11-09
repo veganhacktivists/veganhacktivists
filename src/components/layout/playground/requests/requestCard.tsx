@@ -279,8 +279,8 @@ const PlaygroundRequestCard: React.FC<
           {canEdit && (
             <GreyButton
               href={{
-                pathname: '/playground/request/edit/[id]',
-                query: { id },
+                pathname: '[locale]/playground/request/edit/[id]',
+                query: { id, locale: intl.locale },
               }}
               className='flex-grow w-1/2 text-md text-center'
               disabled={disabled}

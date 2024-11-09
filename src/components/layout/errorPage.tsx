@@ -29,6 +29,7 @@ export interface ErrorProps {
 const Error: NextPage<ErrorProps> = ({ error, reset }) => {
   const intl = useIntl();
   const pathname = usePathnameWithoutLocale();
+  const locale = useIntl().locale;
 
   useEffect(() => {
     return () => {
@@ -132,7 +133,7 @@ Thanks!`
               ) : (
                 <DarkButton
                   className='w-52'
-                  href={`/contact?message=${btoa(
+                  href={`/${locale}/contact?message=${btoa(
                     generateErrorMessage({
                       pageThatErrored: pathname,
                       error,

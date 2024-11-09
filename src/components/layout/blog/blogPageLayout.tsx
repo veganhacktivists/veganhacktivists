@@ -42,7 +42,7 @@ export const Sidebar: React.FC<{
             className='p-5 w-full lg:w-96'
           >
             <div className='mb-4'>
-              <Link href={`/blog/${slug}`}>
+              <Link href={`/${locale}/blog/${slug}`}>
                 <ContentfulImage image={featuredImage} alt='' />
                 <div className='font-bold text-xl md:text-2xl text-left line-clamp-3 mt-5'>
                   <LocalizedContentfulEntryField
@@ -55,7 +55,7 @@ export const Sidebar: React.FC<{
               </Link>
             </div>
 
-            <DarkButton href={`/blog/${slug}`} className='w-full'>
+            <DarkButton href={`/${locale}/blog/${slug}`} className='w-full'>
               {intl.formatMessage({
                 id: 'page.blog.section.blog-page.btn.read-more',
                 defaultMessage: 'Read more',

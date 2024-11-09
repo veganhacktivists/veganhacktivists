@@ -110,7 +110,7 @@ const Home: React.FC<HomeProps> = async ({ params: { locale } }) => {
           })}
         </div>
         <div className='relative mx-auto mt-10'>
-          <LightButton href='/about'>
+          <LightButton href={`/${intl.locale}/about`}>
             {intl.formatMessage({
               id: 'page.index.section.stage.cta',
               defaultMessage: 'Learn More',
@@ -263,7 +263,7 @@ const Home: React.FC<HomeProps> = async ({ params: { locale } }) => {
             ))}
           </div>
           <div className='relative pb-16 mx-auto mt-10 md:w-1/3'>
-            <DarkButton href='/work' className='font-mono'>
+            <DarkButton href={`/${intl.locale}/work`} className='font-mono'>
               {intl.formatMessage({
                 id: 'page.index.section.projects.cta',
                 defaultMessage: 'See Our Work',

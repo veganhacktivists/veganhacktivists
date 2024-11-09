@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 import { PlaygroundRequestOrganizationType } from '@prisma/client';
+import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../../decoration/buttons';
 import Spinner from '../../decoration/spinner';
@@ -98,6 +99,7 @@ interface SubmitRequestFormParam {
 }
 
 const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
+  const intl = useIntl();
   const { data: session, status: sessionStatus } = useSession();
   const utils = api.useUtils();
 
@@ -830,7 +832,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
         >
           I agree to the{' '}
           <span className='text-green'>
-            <Link href={'/playground/terms-and-conditions'}>
+            <Link href={`/${intl.locale}/playground/terms-and-conditions`}>
               VH: Playground terms and conditions
             </Link>
           </span>

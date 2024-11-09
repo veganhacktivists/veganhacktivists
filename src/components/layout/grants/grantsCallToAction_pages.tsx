@@ -80,7 +80,7 @@ const GrantsCallToAction: React.FC = () => {
               id: 'section.grants-cta.apply.cta',
               defaultMessage: 'Apply Now',
             }),
-            href: '/grants',
+            href: `/${intl.locale}/grants`,
           }}
         >
           {intl.formatMessage({
@@ -102,7 +102,7 @@ const GrantsCallToAction: React.FC = () => {
               id: 'section.grants-cta.visit-year-review.cta',
               defaultMessage: 'See our impact',
             }),
-            href: '/year-in-review/2022',
+            href: `/${intl.locale}/year-in-review/2022`,
           }}
         >
           {intl.formatMessage({

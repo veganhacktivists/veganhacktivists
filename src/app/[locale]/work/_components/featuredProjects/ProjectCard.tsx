@@ -68,7 +68,7 @@ const ProjectCard: React.FC<{
                   -{' '}
                   <Link
                     href={{
-                      pathname: '/people/team',
+                      pathname: `/${locale}/people/team`,
                       hash: team.fields.isInactive ? null : team.fields.slug,
                     }}
                     scroll={true}

@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import React from 'react';
 import classNames from 'classnames';
 import { UserRole } from '@prisma/client';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroFishImage from '../../../../public/images/playground/fishHero.png';
 import heroCrabImage from '../../../../public/images/playground/crabHero.jpg';
@@ -201,6 +201,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
   const router = useRouter();
   const showRequests = router.pathname === '/playground';
   const { data: session, status } = useSession();
+  const intl = useIntl();
 
   return (
     <PlaygroundLayout>
@@ -214,7 +215,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
               capitalize={false}
               className='w-full uppercase'
               active={showRequests}
-              href='/playground'
+              href={`/${intl.locale}/playground`}
               linkProps={{ scroll: false }}
             >
               <FormattedMessage
@@ -226,7 +227,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
               capitalize={false}
               className='w-full uppercase'
               active={!showRequests}
-              href='/playground/submit'
+              href={`/${intl.locale}/playground/submit`}
               linkProps={{ scroll: false }}
             >
               <FormattedMessage
@@ -238,7 +239,7 @@ export const PlaygroundLandingLayout: Layout = ({ children }) => {
               session.user?.role === UserRole.Admin && (
                 <DarkButton
                   className='w-full uppercase'
-                  href='/playground/admin'
+                  href={`/${intl.locale}/playground/admin`}
                 >
                   Admin
                 </DarkButton>

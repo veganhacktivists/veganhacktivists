@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { StatusCodes } from 'http-status-codes';
 import { useEffect } from 'react';
+import { useIntl } from 'react-intl';
 
 import { DarkButton } from '../decoration/buttons';
 import useErrorStore from '../../lib/stores/errorStore';
@@ -29,6 +30,7 @@ export interface ErrorProps extends Omit<FallbackProps, 'error'> {
 
 const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
   const router = useRouter();
+  const locale = useIntl().locale;
 
   useEffect(() => {
     return () => {
@@ -103,7 +105,7 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
               ) : (
                 <DarkButton
                   className='w-52'
-                  href='/contact'
+                  href={`/${locale}/contact`}
                   onClick={handleContactClick}
                 >
                   Let us know!

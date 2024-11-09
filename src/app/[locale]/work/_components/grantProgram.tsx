@@ -58,7 +58,10 @@ const GrantProgram: React.FC<GrantProgramProps> = ({
                           'Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date.',
                       })}
                     </p>
-                    <DarkButton href='/grants' className='w-full lg:w-1/2'>
+                    <DarkButton
+                      href={`/${locale}/grants`}
+                      className='w-full lg:w-1/2'
+                    >
                       {intl.formatMessage({
                         id: 'page.our-work.section.grant-program.section-header.learn-more.cta-button.label',
                         defaultMessage: 'Learn more',

@@ -46,7 +46,10 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[]; locale: string }> = ({
       <div className='bg-grey w-full relative h-32 bottom-32 -z-10' />
       <div className='bg-grey relative bottom-32 -pb-32 -mb-32'>
         <div className='relative mx-auto pt-10 md:w-1/3 pb-16 sm:px-24 px-20'>
-          <LightButton href='/blog' className='font-mono font-semibold'>
+          <LightButton
+            href={`/${locale}/blog`}
+            className='font-mono font-semibold'
+          >
             {intl.formatMessage({
               id: 'section.blog-teaser.cta',
               defaultMessage: 'See All Posts',

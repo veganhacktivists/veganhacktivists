@@ -59,12 +59,12 @@ export const LocaleSelector = () => {
           <div className='absolute top-0 px-4 w-full h-full flex items-center justify-center transition duration-300 ease-in-out opacity-100 group-focus-within:opacity-0'>
             <FontAwesomeIcon icon={faLanguage} fixedWidth />
           </div>
-          <div className='z-30 absolute top-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100'>
-            <div className='overflow-y-hidden h-0 group-focus-within:overflow-visible group-focus-within:h-auto flex flex-col center'>
+          <div className='z-30 absolute top-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100 bg-black'>
+            <div className='overflow-y-hidden h-0 group-focus-within:overflow-visible group-focus-within:h-auto flex flex-col center bg-black'>
               {localeOptions.map((locale) => {
                 const href = `/${locale}${pathnameWithoutLocale}`;
                 return (
-                  <Link key={href} href={href} className='px-4'>
+                  <Link key={href} href={href} className='p-4'>
                     {languageDisplayNames[locale]}
                   </Link>
                 );

@@ -35,7 +35,10 @@ const BlogEntrySummaryClient = ({
   const date = new Date(blog.fields.publishDate || blog.sys.createdAt);
 
   const LinkToBlog: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <Link href={`/blog/${blog.fields.slug}`} aria-label={blog.fields.title}>
+    <Link
+      href={`/${locale}/blog/${blog.fields.slug}`}
+      aria-label={blog.fields.title}
+    >
       {children}
     </Link>
   );
@@ -92,7 +95,7 @@ const BlogEntrySummaryClient = ({
           </div>
         </div>
         {heading || (
-          <DarkButton className='mb-0' href={`/blog/${slug}`}>
+          <DarkButton className='mb-0' href={`/${locale}/blog/${slug}`}>
             {intl.formatMessage({
               id: 'page.blog.section.blog-summary.read-more',
               defaultMessage: 'Read More',

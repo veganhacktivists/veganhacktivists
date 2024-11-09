@@ -35,7 +35,7 @@ const JoinTheTeam: React.FC<Props> = ({}) => {
         </p>
         <div className='flex justify-center flex-wrap'>
           <LightButton
-            href='/people/team'
+            href={`/${intl.locale}/people/team`}
             className='m-5 font-mono font-semibold'
           >
             {intl.formatMessage({
@@ -43,7 +43,10 @@ const JoinTheTeam: React.FC<Props> = ({}) => {
               defaultMessage: 'Meet the Team',
             })}
           </LightButton>
-          <LightButton href='/join' className='m-5 font-mono font-semibold'>
+          <LightButton
+            href={`/${intl.locale}/join`}
+            className='m-5 font-mono font-semibold'
+          >
             {intl.formatMessage({
               id: 'section.join-the-team.cta.join',
               defaultMessage: 'Apply to Join',

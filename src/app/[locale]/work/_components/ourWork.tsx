@@ -211,19 +211,25 @@ const OurWork: React.FC<{ locale: string }> = ({ locale }) => {
           </div>
           <Autoscroll items={imageRows} />
           <div className='mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5'>
-            <DarkButton href='/services' className='font-mono md:w-fit'>
+            <DarkButton
+              href={`/${locale}/services`}
+              className='font-mono md:w-fit'
+            >
               {intl.formatMessage({
                 id: 'page.our-work.section.our-work.cta.services',
                 defaultMessage: 'Explore our services',
               })}
             </DarkButton>
-            <DarkButton href='/join' className='font-mono md:w-fit'>
+            <DarkButton href={`/${locale}/join`} className='font-mono md:w-fit'>
               {intl.formatMessage({
                 id: 'page.our-work.section.our-work.cta.join',
                 defaultMessage: 'Volunteer with us',
               })}
             </DarkButton>
-            <DarkButton href='/support' className='font-mono md:w-fit'>
+            <DarkButton
+              href={`/${locale}/support`}
+              className='font-mono md:w-fit'
+            >
               {intl.formatMessage({
                 id: 'page.our-work.section.our-work.cta.support',
                 defaultMessage: 'Support our work',

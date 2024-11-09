@@ -120,7 +120,7 @@ const Content: React.FC<{
           </span>
           <span className='hidden md:inline'> | </span>
           <Link
-            href='/contact'
+            href={`/${defaultLocale}/contact`}
             className='underline opacity-100 text-green hover:opacity-70'
           >
             Suggest Updates

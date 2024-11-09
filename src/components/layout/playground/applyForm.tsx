@@ -16,6 +16,7 @@ import {
   UserRole,
 } from '@prisma/client';
 import Link from 'next/link';
+import { useIntl } from 'react-intl';
 
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '../../../../prisma/constants';
 
@@ -288,6 +289,7 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
 type FormInput = z.infer<typeof applyToRequestSchemaClient>;
 
 const MainForm: React.FC<RequestProps> = ({ request }) => {
+  const intl = useIntl();
   const { data: session, status: sessionStatus } = useSession();
   const storedForm = usePlaygroundApplyStore((state) =>
     state.getForm(request.id),
@@ -695,7 +697,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             >
               I agree to the{' '}
               <span className='text-green'>
-                <Link href={'/playground/terms-and-conditions'}>
+                <Link href={`/${intl.locale}/playground/terms-and-conditions`}>
                   VH: Playground terms and conditions
                 </Link>
               </span>
