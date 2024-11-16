@@ -106,7 +106,7 @@ const Support: React.FC = () => {
               id: 'page.support.section.support-us.donation-card.2.button-label',
               defaultMessage: 'contact us',
             })}
-            buttonHref='https://veganhacktivists.org/contact'
+            buttonHref={`/${intl.locale}/contact`}
           >
             <FormattedMessage
               id='page.support.section.support-us.donation-card.2.content'

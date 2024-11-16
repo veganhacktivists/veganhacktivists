@@ -2,6 +2,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useCallback } from 'react';
 import { ApplicationStatus, RequestStatus } from '@prisma/client';
 import { NextSeo } from 'next-seo';
+import { useIntl } from 'react-intl';
 
 import {
   DarkButton,
@@ -18,6 +19,7 @@ import Spinner from 'components/decoration/spinner';
 import type { NextPage } from 'next';
 
 const AdminPage: NextPage = ({}) => {
+  const intl = useIntl();
   const utils = api.useUtils();
   const {
     data,
@@ -61,7 +63,10 @@ const AdminPage: NextPage = ({}) => {
             .filter((status) => status !== RequestStatus.Rejected)
             .map((status) => (
               <OutlineButton
-                href={{ pathname: '/playground/admin', query: { status } }}
+                href={{
+                  pathname: `/${intl.locale}/playground/admin`,
+                  query: { status },
+                }}
                 key={status}
               >
                 {status === RequestStatus.Accepted ? 'Live' : status} requests
@@ -74,7 +79,10 @@ const AdminPage: NextPage = ({}) => {
           >
             See applications
           </OutlineButton>
-          <LogoutButton href='/auth/signout' className='mx-5 w-fit'>
+          <LogoutButton
+            href={`/${intl.locale}/auth/signout`}
+            className='mx-5 w-fit'
+          >
             Logout
           </LogoutButton>
         </div>

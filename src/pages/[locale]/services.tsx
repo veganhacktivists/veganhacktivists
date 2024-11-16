@@ -66,7 +66,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.0.button-label',
         defaultMessage: 'Apply for a free website',
       }),
-      href: 'https://veganhacktivists.org/playground',
+      href: `/${intl.locale}/playground`,
     },
   },
   {
@@ -129,7 +129,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.3.button-label',
         defaultMessage: 'Learn about our grant program',
       }),
-      href: '/grants',
+      href: `/${intl.locale}/grants`,
     },
   },
   {

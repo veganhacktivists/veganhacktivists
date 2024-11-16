@@ -58,7 +58,10 @@ const OurStory: PageWithLayout = () => {
             defaultMessage='Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization.'
             values={{
               link: (chunks) => (
-                <Link href='/people/team' className='hover:text-grey'>
+                <Link
+                  href={`/${intl.locale}/people/team`}
+                  className='hover:text-grey'
+                >
                   {chunks}
                 </Link>
               ),

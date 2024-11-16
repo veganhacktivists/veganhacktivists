@@ -70,7 +70,7 @@ const FeaturedInterviews: React.FC<FeaturedInterviewsProps> = ({
             })}
         </div>
         <div className='flex justify-center pb-20'>
-          <DarkButton className='mb-0' href={'/blog'}>
+          <DarkButton className='mb-0' href={`/${intl.locale}/blog`}>
             <FormattedMessage
               id='page.year-in-review.2022.section.featured-interviews.btn.cta'
               defaultMessage='Read More on the Blog'

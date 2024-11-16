@@ -731,13 +731,14 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 };
 
 const RequestApplicationBlocked: React.FC = () => {
+  const intl = useIntl();
   return (
     <>
       <div className='text-5xl'>⚠️</div>
       <h1 className='text-2xl my-5'>
         Please contact us before submitting another application.
       </h1>
-      <DarkButton className='w-fit m-auto' href='/contact'>
+      <DarkButton className='w-fit m-auto' href={`/${intl.locale}/contact`}>
         Contact
       </DarkButton>
     </>

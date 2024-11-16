@@ -252,7 +252,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
           defaultMessage="We're incredibly thankful to now have a team of experienced vegan advisors to lean on such as <no-localization>Seb Alex</no-localization>, <no-localization>Ryuji Chua</no-localization>, <no-localization>Leah Doellinger</no-localization> and <no-localization>Michael Dearborn</no-localization>. Browse more of our advisors, <link>click here!</link>"
           values={{
             link: (chunks) => (
-              <CustomLink href='https://veganhacktivists.org/people/advisors'>
+              <CustomLink href={`/${intl.locale}/people/advisors`}>
                 {chunks}
               </CustomLink>
             ),
@@ -398,7 +398,9 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             defaultMessage="We've <link>started up a new team</link> dedicated to collecting and analyzing data not only on the projects that we build, but <no-localization>Vegan Hacktivists</no-localization> as an organization. This team marks our commitment to data, a commitment to making sure that everything we do makes a big impact, and that we're able to learn from our work in the past, as well as shaping the work we do in the future."
             values={{
               link: (chunks) => (
-                <CustomLink href='https://veganhacktivists.org/blog/were-assembling-a-data-and-analytics-team'>
+                <CustomLink
+                  href={`/${intl.locale}/blog/were-assembling-a-data-and-analytics-team`}
+                >
                   {chunks}
                 </CustomLink>
               ),
@@ -411,7 +413,9 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
             defaultMessage="<no-localization>Suan Chin</no-localization> is leading this team with 7 other data scientists. See the entire team by visiting the <link>team page here</link>. We're excited to see how this team will shape the future of the work we do!"
             values={{
               link: (chunks) => (
-                <CustomLink href='/people/team'>{chunks}</CustomLink>
+                <CustomLink href={`/${intl.locale}/people/team`}>
+                  {chunks}
+                </CustomLink>
               ),
             }}
           />
@@ -751,7 +755,7 @@ const YearInReview2020: React.FC<YearInReviewProps> = ({
         />
       </SubSection>
       <div className='flex justify-center my-16 mb-36'>
-        <DarkButton href='/support'>
+        <DarkButton href={`/${intl.locale}/support`}>
           <FormattedMessage
             id='page.year-in-review.2020.section.moving-forward.btn.text'
             defaultMessage='Support our work!'

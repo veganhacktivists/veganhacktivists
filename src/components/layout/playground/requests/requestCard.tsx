@@ -257,8 +257,7 @@ const PlaygroundRequestCard: React.FC<
         >
           <DarkButton
             href={{
-              pathname: '/[locale]/playground/request/[id]',
-              query: { id, locale: intl.locale },
+              pathname: `/${intl.locale}/playground/request/${id}`,
             }}
             className={`text-center text-md flex-grow ${
               canEdit ? 'w-1/2' : ''
@@ -279,8 +278,7 @@ const PlaygroundRequestCard: React.FC<
           {canEdit && (
             <GreyButton
               href={{
-                pathname: '[locale]/playground/request/edit/[id]',
-                query: { id, locale: intl.locale },
+                pathname: `/${intl.locale}/playground/request/edit/${id}`,
               }}
               className='flex-grow w-1/2 text-md text-center'
               disabled={disabled}

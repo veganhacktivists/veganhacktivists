@@ -139,7 +139,10 @@ const Playground: PageWithLayout = ({}) => {
               defaultMessage='Check out the requests below to find volunteer or paid opportunities to help the animals. Are you an individual or organization seeking support for your work? <link>Submit a request</link> of your own!'
               values={{
                 link: (chunk) => (
-                  <CustomLink className='font-bold' href='/playground/submit'>
+                  <CustomLink
+                    className='font-bold'
+                    href={`/${intl.locale}/playground/submit`}
+                  >
                     {chunk}
                   </CustomLink>
                 ),
@@ -243,7 +246,10 @@ const Playground: PageWithLayout = ({}) => {
               defaultMessage='If you are an individual or organization that needs help with your work in helping the animals, you can apply to receive free support from our Playground community.'
             />
           </div>
-          <LightButton href='/playground/submit' className='mx-auto w-fit'>
+          <LightButton
+            href={`/${intl.locale}/playground/submit`}
+            className='mx-auto w-fit'
+          >
             <FormattedMessage
               id='page.playground.section.get-support.cta-button.label'
               defaultMessage='Submit your request'

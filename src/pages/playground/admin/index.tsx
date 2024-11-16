@@ -3,6 +3,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { RequestStatus } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useIntl } from 'react-intl';
 
 import {
   DenyButton,
@@ -24,6 +25,7 @@ import type { NextPage } from 'next';
 const STATES_TO_HIDE: RequestStatus[] = [RequestStatus.Rejected];
 
 const AdminPage: NextPage = () => {
+  const intl = useIntl();
   const utils = api.useUtils();
   const router = useRouter();
   const [statusFilter, setStatusFilter] = useState<RequestStatus>(
@@ -133,7 +135,10 @@ const AdminPage: NextPage = () => {
           >
             See applications
           </OutlineButton>
-          <LogoutButton href='/auth/signout' className='mx-5 w-fit'>
+          <LogoutButton
+            href={`/${intl.locale}/auth/signout`}
+            className='mx-5 w-fit'
+          >
             Logout
           </LogoutButton>
         </div>

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import TextInput from '../../../components/forms/inputs/textInput';
 import { DarkButton } from '../../../components/decoration/buttons';
@@ -29,6 +29,7 @@ const signInSchema = z.object({
 const resolver = zodResolver(signInSchema);
 
 const SignIn: NextPage = () => {
+  const intl = useIntl();
   const [isLoading, setIsLoading] = useState(true);
   const { status } = useSession();
   const router = useRouter();
@@ -84,7 +85,9 @@ const SignIn: NextPage = () => {
           defaultMessage='You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>'
           values={{
             button: (chunks) => (
-              <NavButton href='/playground'>{chunks}</NavButton>
+              <NavButton href={`/${intl.locale}/playground`}>
+                {chunks}
+              </NavButton>
             ),
           }}
         />

@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
+import { useIntl } from 'react-intl';
 
 import {
   SubSection,
@@ -12,6 +13,7 @@ import { PlaygroundLandingLayout } from 'components/layout/playground/layout';
 import type PageWithLayout from '../../../types/persistentLayout';
 
 const TermsAndConditions: PageWithLayout = () => {
+  const intl = useIntl();
   return (
     <>
       <NextSeo title='Terms And Conditions' />
@@ -44,7 +46,7 @@ const TermsAndConditions: PageWithLayout = () => {
               <li>
                 <b>Website</b> refers to{' '}
                 <span className='text-green'>
-                  <Link href={'https://www.veganhacktivists.org/playground'}>
+                  <Link href={`/${intl.locale}/playground`}>
                     veganhacktivists.org/playground
                   </Link>
                 </span>
