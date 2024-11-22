@@ -6,8 +6,9 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 
 import { locales } from '../../../i18nConfig';
+import { defaultLocale } from '../../../translation/defaultLocale';
 
-import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 import { usePathnameWithoutLocale } from 'lib/translation/usePathnameWithoutLocale';
 
 /**
@@ -30,7 +31,7 @@ export const LocaleSelector = () => {
     [],
   );
 
-  const currentLocale = useRouterLocale();
+  const currentLocale = usePathnameLocale() ?? defaultLocale;
 
   const localeOptions = useMemo(
     () => locales && locales.filter((locale) => locale !== currentLocale),

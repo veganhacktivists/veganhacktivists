@@ -6,7 +6,7 @@ import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { api } from 'trpc/react';
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
-import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 
 export const useLocalizedContentfulEntryField = ({
   contentfulId,
@@ -17,12 +17,13 @@ export const useLocalizedContentfulEntryField = ({
   fieldId: string;
   contentType: string;
 }): string => {
-  const currentLocale = useRouterLocale();
+  const currentLocale = usePathnameLocale();
 
   const { showLocalizedContent, registerChildLoadState } =
     useDynamicTranslationStore();
 
-  const requestLocale = showLocalizedContent ? currentLocale : defaultLocale;
+  const requestLocale =
+    (showLocalizedContent && currentLocale) || defaultLocale;
 
   const localizedHTML = api.translation.getLocalizedHTML.useQuery(
     {

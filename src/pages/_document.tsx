@@ -1,12 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-const Document = ({
-  __NEXT_DATA__: {
-    query: { locale },
-  },
-}: {
-  __NEXT_DATA__: { query: { locale: string } };
-}) => {
+import { defaultLocale } from '../../translation/defaultLocale';
+
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
+
+const Document = () => {
+  const locale = usePathnameLocale() ?? defaultLocale;
+
   return (
     <Html lang={locale}>
       <Head>

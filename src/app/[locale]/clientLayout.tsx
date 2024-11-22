@@ -12,13 +12,6 @@ import useOnce from 'hooks/useOnce';
 import type { ReactDOM } from 'react';
 import type ReactAxe from '@axe-core/react';
 
-interface Props {
-  intlProps: {
-    locale: string;
-    messages: Record<string, string>;
-  };
-}
-
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const ReactDOM = require('react-dom') as ReactDOM;
@@ -28,6 +21,13 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.error('Error loading @axe-core/react', error);
   });
+}
+
+interface Props {
+  intlProps: {
+    locale: string;
+    messages: Record<string, string>;
+  };
 }
 
 const ClientLayout = ({
@@ -41,8 +41,6 @@ const ClientLayout = ({
       });
     }
   });
-
-  console.log('locale', locale);
 
   return (
     <TRPCReactProvider>

@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import { defaultLocale } from '../../../../../../translation/defaultLocale';
+
 import ContentfulImage from 'components/layout/contentfulImage';
 import ShareDialog from 'components/layout/shareDialog';
 import { DarkButton, ShareButton } from 'components/decoration/buttons';
-import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 import LocalizedContentfulEntryFieldClient from 'app/_localization/LocalizedContentfulEntryFieldClient';
 
 import type { IProject } from 'types/generated/contentful';
@@ -36,7 +38,7 @@ const ProjectCard: React.FC<{
     setShareDialogOpen(true);
   }, []);
 
-  const locale = useAppRouterLocale();
+  const locale = usePathnameLocale() ?? defaultLocale;
 
   const isRetired = !!retiredInfo;
 

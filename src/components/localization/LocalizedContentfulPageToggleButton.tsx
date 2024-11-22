@@ -10,7 +10,7 @@ import { defaultLocale } from '../../../translation/defaultLocale';
 
 import Spinner from 'components/decoration/spinner';
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
-import { useRouterLocale } from 'lib/translation/useRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 
 const LocalizedContentfulPageToggleButton = ({
   className,
@@ -21,8 +21,8 @@ const LocalizedContentfulPageToggleButton = ({
   const { showLocalizedContent, setShowLocalizedContent, loadingChildren } =
     useDynamicTranslationStore();
 
-  const currentLocale = useRouterLocale();
-  const enabled = currentLocale !== defaultLocale;
+  const currentLocale = usePathnameLocale();
+  const enabled = currentLocale && currentLocale !== defaultLocale;
 
   const buttonLabel = showLocalizedContent
     ? intl.formatMessage({

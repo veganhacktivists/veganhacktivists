@@ -18,21 +18,31 @@ const authMiddleware = withAuth({
 
 const redirectMap = createRedirectMap();
 
+const withPathnameHeader = (nextResponse: NextResponse, pathname: string) => {
+  nextResponse.headers.set('x-pathname', pathname);
+  return nextResponse;
+};
+
 const middleware: NextMiddleware = async (request, event) => {
-  const redirect = redirectMap[request.nextUrl.pathname];
+  const pathname = request.nextUrl.pathname;
+
+  const redirect = redirectMap[pathname];
   if (redirect) {
-    return NextResponse.redirect(redirect.destination, {
-      status: redirect.permanent
-        ? StatusCodes.MOVED_PERMANENTLY
-        : StatusCodes.MOVED_TEMPORARILY,
-    });
+    return withPathnameHeader(
+      NextResponse.redirect(redirect.destination, {
+        status: redirect.permanent
+          ? StatusCodes.MOVED_PERMANENTLY
+          : StatusCodes.MOVED_TEMPORARILY,
+      }),
+      pathname,
+    );
   }
 
   // There are no translations for the playground pages,
   // so the i18n router middleware is not needed there but runs on all other pages.
   // Is there a clean way to run multiple middlewares?
   if (
-    request.nextUrl.pathname.startsWith('/playground/admin') &&
+    pathname.startsWith('/playground/admin') &&
     typeof authMiddleware === 'function'
   ) {
     const autMwResponse = await authMiddleware(
@@ -41,12 +51,13 @@ const middleware: NextMiddleware = async (request, event) => {
     );
 
     if (autMwResponse) {
-      return autMwResponse as NextResponse;
+      return withPathnameHeader(autMwResponse as NextResponse, pathname);
     }
-    return NextResponse.next();
+
+    return withPathnameHeader(NextResponse.next(), pathname);
   }
 
-  return i18nRouter(request, i18nConfig);
+  return withPathnameHeader(i18nRouter(request, i18nConfig), pathname);
 };
 
 export default middleware;

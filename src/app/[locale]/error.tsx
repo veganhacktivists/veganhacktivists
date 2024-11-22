@@ -1,4 +1,4 @@
-'use client'; // Error components must be Client Components
+'use client'; // Error boundaries must be Client Components: https://nextjs.org/docs/app/api-reference/file-conventions/error
 
 import { useEffect } from 'react';
 import { NextSeo } from 'next-seo';

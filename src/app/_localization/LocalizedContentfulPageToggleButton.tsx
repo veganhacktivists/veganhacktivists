@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
-import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 
 const LocalizedContentfulPageToggleButton = ({
   className,
@@ -19,8 +19,8 @@ const LocalizedContentfulPageToggleButton = ({
   const { showLocalizedContent, setShowLocalizedContent } =
     useDynamicTranslationStore();
 
-  const currentLocale = useAppRouterLocale();
-  const enabled = currentLocale !== defaultLocale;
+  const currentLocale = usePathnameLocale();
+  const enabled = currentLocale && currentLocale !== defaultLocale;
 
   const buttonLabel = showLocalizedContent
     ? intl.formatMessage({

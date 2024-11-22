@@ -5,16 +5,17 @@ import { type FC } from 'react';
 import { defaultLocale } from '../../../translation/defaultLocale';
 
 import { useDynamicTranslationStore } from 'lib/stores/dynamicTranslationStore';
-import { useAppRouterLocale } from 'lib/translation/useAppRouterLocale';
+import { usePathnameLocale } from 'lib/translation/usePathnameLocale';
 
 export const useLocalizedContentfulEntryFieldClient = (
   translatedEntryField: Record<string, string>,
 ) => {
-  const currentLocale = useAppRouterLocale();
+  const currentLocale = usePathnameLocale();
 
   const { showLocalizedContent } = useDynamicTranslationStore();
 
-  const requestLocale = showLocalizedContent ? currentLocale : defaultLocale;
+  const requestLocale =
+    (showLocalizedContent && currentLocale) || defaultLocale;
 
   return translatedEntryField[requestLocale];
 };

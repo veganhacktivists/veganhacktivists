@@ -2,10 +2,9 @@ import React from 'react';
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../../styles/fonts.css';
-import { notFound } from 'next/navigation';
 
+import { defaultLocale } from '../../../translation/defaultLocale';
 import getServerIntl from '../intl';
-import i18nConfig from '../../../i18nConfig';
 
 import ClientLayout from './clientLayout';
 
@@ -24,11 +23,7 @@ interface Props {
 export const revalidate = 60 * 60; // revalidate at most every hour
 
 export function generateMetadata({ params: { locale } }: Props): Metadata {
-  if (!i18nConfig.locales.includes(locale)) {
-    return {};
-  }
-
-  const intl = getServerIntl(locale);
+  const intl = getServerIntl(locale ?? defaultLocale);
 
   const host = process.env.URL ?? 'https://veganhacktivists.org';
 
@@ -71,13 +66,9 @@ export function generateMetadata({ params: { locale } }: Props): Metadata {
 }
 
 const RootLayout = ({
-  params: { locale },
   children,
+  params: { locale },
 }: PropsWithChildren<Props>) => {
-  if (!i18nConfig.locales.includes(locale)) {
-    notFound();
-  }
-
   const intl = getServerIntl(locale);
 
   return (
