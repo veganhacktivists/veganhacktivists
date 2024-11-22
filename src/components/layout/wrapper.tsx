@@ -3,7 +3,6 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import { Rajdhani, PT_Sans, Bitter } from 'next/font/google';
 import classNames from 'classnames';
 
 import useErrorStore from '../../lib/stores/errorStore';
@@ -11,6 +10,7 @@ import ErrorPage from '../../pages/_error';
 import CookiesCTA from '../cookiesCTA';
 
 import NewsletterPopup from './newsletterPopup';
+import { bitter, ptSans, rajdhani } from './fonts';
 
 // http://web-accessibility.carnegiemuseums.org/code/skip-link/
 const JumpToContent: React.FC = () => {
@@ -24,23 +24,6 @@ const JumpToContent: React.FC = () => {
     </a>
   );
 };
-
-const ptSans = PT_Sans({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-ptsans',
-});
-const rajdhani = Rajdhani({
-  weight: ['300', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-rajdhani',
-});
-const bitter = Bitter({
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  variable: '--font-bitter',
-});
 
 const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

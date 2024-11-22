@@ -87,7 +87,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
           })}
         />
       </h1>
-      <div className='mx-auto mb-8 text-2xl text-center'>
+      <div className='mx-auto mb-8 text-2xl text-center font-serif'>
         <FormattedMessage
           id='page.blog.section.newsletter.intro'
           defaultMessage='Sign up for our newsletter now and never miss an update!<no-localization>{br}</no-localization>Every month, you will receive...'
@@ -131,7 +131,7 @@ const Newsletter: React.FC<NewsletterProps> = ({
 
       <form className='text-2xl' onSubmit={handleSubmit(onSubmit)}>
         <div className='flex flex-col items-center justify-center space-x-2 gap-y-8'>
-          <div className='w-2/3 xl:w-1/2'>
+          <div className='w-2/3 xl:w-1/2 font-serif'>
             <TextInput
               {...register('email', {
                 required: intl.formatMessage({
