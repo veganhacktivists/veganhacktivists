@@ -91,8 +91,14 @@ Thanks!`
               <h1 className='w-full font-mono font-bold text-red'>{message}</h1>
               <div className='w-full font-mono'>
                 {contactPageError
-                  ? 'Please contact us at'
-                  : 'If you believe this is a mistake'}
+                  ? intl.formatMessage({
+                      id: 'page.not-found.contact.contact-page-error.cta-email',
+                      defaultMessage: 'Please contact us at',
+                    })
+                  : intl.formatMessage({
+                      id: 'page.not-found.contact.cta-label',
+                      defaultMessage: 'If you believe this is a mistake',
+                    })}
                 &hellip;
               </div>
             </div>
@@ -132,7 +138,6 @@ Thanks!`
                 </span>
               ) : (
                 <DarkButton
-                  className='w-52'
                   href={`/${locale}/contact?message=${btoa(
                     generateErrorMessage({
                       pageThatErrored: pathname,
@@ -141,7 +146,10 @@ Thanks!`
                   )}`}
                   onClick={handleContactClick}
                 >
-                  Let us know!
+                  {intl.formatMessage({
+                    id: 'page.not-found.contact.cta-button.label',
+                    defaultMessage: 'Let us know!',
+                  })}
                 </DarkButton>
               )}
             </div>

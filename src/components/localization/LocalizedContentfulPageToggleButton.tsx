@@ -27,11 +27,11 @@ const LocalizedContentfulPageToggleButton = ({
   const buttonLabel = showLocalizedContent
     ? intl.formatMessage({
         id: 'component.translatable-contentful-entry-field.translate-button.show-original',
-        defaultMessage: 'Show original page',
+        defaultMessage: 'Show content in original language',
       })
     : intl.formatMessage({
         id: 'component.translatable-contentful-entry-field.translate-button.label',
-        defaultMessage: 'Automatic page translation',
+        defaultMessage: 'Show automatically translated content',
       });
 
   const isLoading = useMemo(

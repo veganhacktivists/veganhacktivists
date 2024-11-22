@@ -665,6 +665,15 @@
   "page.newsletter.next-seo.title": {
     "message": "Unser Newsletter"
   },
+  "page.not-found.contact.contact-page-error.cta-email": {
+    "message": "Bitte kontaktieren Sie uns unter"
+  },
+  "page.not-found.contact.cta-button.label": {
+    "message": "Lassen Sie es uns wissen!"
+  },
+  "page.not-found.contact.cta-label": {
+    "message": "Wenn Sie glauben, dass dies ein Fehler ist"
+  },
   "page.not-found.error-message": {
     "message": "Die von Ihnen angeforderte Seite existiert nicht"
   },
