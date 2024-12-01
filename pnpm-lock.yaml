@@ -163,7 +163,7 @@ importers:
         version: 3.16.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-qr-code:
         specifier: ^2.0.8
-        version: 2.0.8(react@18.2.0)
+        version: 2.0.15(react@18.2.0)
       react-select:
         specifier: ^5.6.1
         version: 5.6.1(@babel/core@7.20.2)(@types/react@18.0.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -5164,14 +5164,10 @@ packages:
       react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
       react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
 
-  react-qr-code@2.0.8:
-    resolution: {integrity: sha512-zYO9EAPQU8IIeD6c6uAle7NlKOiVKs8ji9hpbWPTGxO+FLqBN2on+XCXQvnhm91nrRd306RvNXUkUNcXXSfhWA==}
+  react-qr-code@2.0.15:
+    resolution: {integrity: sha512-MkZcjEXqVKqXEIMVE0mbcGgDpkfSdd8zhuzXEl9QzYeNcw8Hq2oVIzDLWuZN2PQBwM5PWjc2S31K8Q1UbcFMfw==}
     peerDependencies:
-      react: ^16.x || ^17.x || ^18.x
-      react-native-svg: '*'
-    peerDependenciesMeta:
-      react-native-svg:
-        optional: true
+      react: '*'
 
   react-select@5.6.1:
     resolution: {integrity: sha512-dYNRswtxUHW+F1Sc0HnxO5ryecPIAsG0+Cwyq5EIXZJBxCxUG2hFfQz41tc++30/2ISuuPglDikc4hEb4NsiuA==}
@@ -12183,7 +12179,7 @@ snapshots:
       react-lifecycles-compat: 3.0.4
       warning: 4.0.3
 
-  react-qr-code@2.0.8(react@18.2.0):
+  react-qr-code@2.0.15(react@18.2.0):
     dependencies:
       prop-types: 15.8.1
       qr.js: 0.0.0
