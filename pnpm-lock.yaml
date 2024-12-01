@@ -21,8 +21,8 @@ importers:
         specifier: ^6.3.6
         version: 6.3.6
       '@formkit/auto-animate':
-        specifier: 1.0.0-beta.6
-        version: 1.0.0-beta.6
+        specifier: 1.0.0-pre-alpha.3
+        version: 1.0.0-pre-alpha.3(react@18.2.0)
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.2.0
         version: 6.2.0
@@ -1204,8 +1204,16 @@ packages:
       ts-jest:
         optional: true
 
-  '@formkit/auto-animate@1.0.0-beta.6':
-    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
+  '@formkit/auto-animate@1.0.0-pre-alpha.3':
+    resolution: {integrity: sha512-lMVZ3LFUIu0RIxCEwmV8nUUJQ46M2bv2NDU3hrhZivViuR1EheC8Mj5sx/ACqK5QLK8XB8z7GDIZBUGdU/9OZQ==}
+    peerDependencies:
+      react: ^16.8.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
 
   '@fortawesome/fontawesome-common-types@6.2.0':
     resolution: {integrity: sha512-rBevIsj2nclStJ7AxTdfsa3ovHb1H+qApwrxcTVo+NNdeJiB9V75hsKfrkG5AwNcRUNxrPPiScGYCNmLMoh8pg==}
@@ -7428,7 +7436,9 @@ snapshots:
       tslib: 2.6.2
       typescript: 5.3.2
 
-  '@formkit/auto-animate@1.0.0-beta.6': {}
+  '@formkit/auto-animate@1.0.0-pre-alpha.3(react@18.2.0)':
+    optionalDependencies:
+      react: 18.2.0
 
   '@fortawesome/fontawesome-common-types@6.2.0': {}
 
