@@ -130,13 +130,15 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ blog, otherBlogs }) => {
             publishedTime: date.toISOString(),
             tags: blog.fields.tags?.map((tag) => tag.fields.name),
           },
-          images: [
-            {
-              url: `https:${featuredImage.fields.file.url}`,
-              height: featuredImage.fields.file.details.image?.height,
-              width: featuredImage.fields.file.details.image?.width,
-            },
-          ],
+          images: featuredImage
+            ? [
+                {
+                  url: `https:${featuredImage.fields.file.url}`,
+                  height: featuredImage.fields.file.details.image?.height,
+                  width: featuredImage.fields.file.details.image?.width,
+                },
+              ]
+            : [],
         }}
         titleTemplate='%s | Vegan Hacktivists Blog'
       />
