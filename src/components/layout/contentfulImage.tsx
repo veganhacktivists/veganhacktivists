@@ -5,7 +5,7 @@ import type { ImageProps } from 'next/image';
 
 interface ContentfulImageProps
   extends Partial<Omit<ImageProps, 'src' | 'alt' | 'layout'>> {
-  image: Asset;
+  image?: Asset;
   alt: string;
   ratio?: number;
   downloadwidth?: number;
@@ -17,6 +17,10 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
   alt,
   ...props
 }) => {
+  if (!image) {
+    return null;
+  }
+
   const { url, details } = image.fields.file;
 
   if (!details.image) {
