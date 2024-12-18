@@ -24,7 +24,7 @@ const Collaborations: React.FC = () => {
         className='hidden md:block'
       />
       <div className='py-16 md:py-24 px-5 md:px-10'>
-        <div className='max-w-screen-lg mx-auto text-2xl sm:text-4xl pb-10'>
+        <div className='max-w-screen-lg mx-auto text-2xl pb-16 md:pb-24'>
           <FormattedMessage
             id='page.year-in-review.2023.section.collaborations.header'
             defaultMessage='2023 was marked by collaborations that focused on arguably one of the most important building blocks in the movement: <b>acquiring and cultivating talent and skill</b>.'
