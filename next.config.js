@@ -37,8 +37,13 @@ const nextConfig = {
     return [
       {
         source: '/research',
-        destination: '/tech-and-data-in-the-movement.pdf',
+        destination: '/resources/tech-and-data-in-the-movement.pdf',
         permanent: false,
+      },
+      {
+        source: '/tech-and-data-in-the-movement.pdf',
+        destination: '/resources/tech-and-data-in-the-movement.pdf',
+        permanent: true,
       },
       {
         source: '/about',
