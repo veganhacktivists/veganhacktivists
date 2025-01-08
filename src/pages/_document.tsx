@@ -12,6 +12,14 @@ const Document = ({ locale }: { locale: string }) => {
   return (
     <Html lang={locale}>
       <Head>
+        {process.env.NODE_ENV === 'production' &&
+          process.env.ANALYTICS_WEBSITE_ID && (
+            <script
+              defer
+              src='https://analytics.veganhacktivists.org/script.js'
+              data-website-id={process.env.ANALYTICS_WEBSITE_ID}
+            />
+          )}
         <link
           rel='apple-touch-icon'
           sizes='180x180'

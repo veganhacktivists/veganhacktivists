@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import { CookiesProvider } from 'react-cookie';
-import TagManager from 'react-gtm-module';
 import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
 import { useIntl } from 'react-intl';
@@ -108,14 +107,6 @@ const MyApp: React.FC<AppPropsWithLayout> = ({
   pageProps: { session, ...pageProps },
   router,
 }) => {
-  useOnce(() => {
-    if (process.env.NODE_ENV === 'production') {
-      TagManager.initialize({
-        gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID || '',
-      });
-    }
-  });
-
   const Layout: React.FC<React.PropsWithChildren> = ({ children }) => (
     <DefaultLayout pathname={router.pathname}>
       {Component.Layout ? (
