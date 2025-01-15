@@ -49,7 +49,7 @@ const Intro: React.FC = () => {
           <HighlightBlock
             fullWidthOnMobile={true}
             borderColor='green'
-            headerStart='We comitted to'
+            headerStart='We committed to'
             headerBold='major changes'
             headerEnd='within our org'
           >
