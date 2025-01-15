@@ -36,7 +36,7 @@ const Intro: React.FC = () => {
             fullWidthOnMobile={true}
             borderColor='yellow'
             headerStart='We built projects to'
-            headerBold='grow and expend the movement'
+            headerBold='grow and expand the movement'
           >
             <FormattedMessage
               id='page.year-in-review.2023.section.providing-value.we-built.paragraph'
@@ -49,7 +49,7 @@ const Intro: React.FC = () => {
           <HighlightBlock
             fullWidthOnMobile={true}
             borderColor='green'
-            headerStart='We commited to'
+            headerStart='We comitted to'
             headerBold='major changes'
             headerEnd='within our org'
           >
