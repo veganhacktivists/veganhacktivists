@@ -65,6 +65,7 @@ export async function getTranslationsFromFile(
 
     return validationSchemaInternal.parse(JSON.parse(contents));
   } catch {
+    console.log(`Failed to read and parse translations from file: ${path}`);
     return {};
   }
 }

@@ -65,7 +65,7 @@ const Granti: React.FC<Props> = ({ locale }) => {
               <div className='flex flex-row justify-between mt-4'>
                 <DarkButton
                   capitalize={false}
-                  className='md:max-w-72 h-fit'
+                  className='md:w-fit h-fit'
                   href='/services#contact-us'
                   newTab
                 >

@@ -25,7 +25,10 @@ const Intro: React.FC<Props> = ({ locale }) => {
         <div>
           <HighlightBlock
             borderColor='magenta'
-            header='We ventured out to <b>share what we know</b>'
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2023.section.providing-value.we-ventured.header',
+              defaultMessage: 'We ventured out to <b>share what we know</b>',
+            })}
           >
             {intl.formatMessage(
               {
@@ -40,7 +43,11 @@ const Intro: React.FC<Props> = ({ locale }) => {
           </HighlightBlock>
           <HighlightBlock
             borderColor='yellow'
-            header='We built projects to <b>grow and expand the movement</b>'
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2023.section.providing-value.we-built.header',
+              defaultMessage:
+                'We built projects to <b>grow and expand the movement</b>',
+            })}
           >
             {intl.formatMessage(
               {
@@ -55,7 +62,11 @@ const Intro: React.FC<Props> = ({ locale }) => {
           </HighlightBlock>
           <HighlightBlock
             borderColor='green'
-            header='We committed to <b>major changes</b> within our org'
+            header={intl.formatMessage({
+              id: 'page.year-in-review.2023.section.providing-value.we-committed.header',
+              defaultMessage:
+                'We committed to <b>major changes</b> within our org',
+            })}
           >
             {intl.formatMessage(
               {

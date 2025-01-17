@@ -21,7 +21,7 @@ export const HighlightBlock: React.FC<HighlightBlockProps> = ({
   return (
     <div className='flex flex-col md:flex-row xl:w-2/3 2xl:w-2/3 mx-auto mb-8 w-4/5'>
       <h1
-        className='md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase'
+        className='md:leading-[1.3] md:w-1/2 text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase break-words'
         style={{ borderColor: getThemeColor(borderColor) }}
       >
         {splitTextComponents.map((content, i) => {

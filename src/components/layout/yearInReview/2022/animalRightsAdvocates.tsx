@@ -71,13 +71,19 @@ const AnimalRightsAdvocates: React.FC<Props> = ({ locale }) => {
                 })}
               </span>
               <div className='flex flex-col sm:flex-row justify-start md:justify-left mt-12 gap-10'>
-                <LightButton href='https://discord.gg/animalrights'>
+                <LightButton
+                  className='w-fit'
+                  href='https://discord.gg/animalrights'
+                >
                   {intl.formatMessage({
                     id: 'page.year-in-review.2022.section.animal-rights-advocates.btn.community.cta',
                     defaultMessage: 'Join the Community',
                   })}
                 </LightButton>
-                <LightButton href='https://www.aramovement.org/'>
+                <LightButton
+                  className='w-fit'
+                  href='https://www.aramovement.org/'
+                >
                   {intl.formatMessage({
                     id: 'page.year-in-review.2022.section.animal-rights-advocates.btn.website.cta',
                     defaultMessage: 'Visit Website',

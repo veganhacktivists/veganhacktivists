@@ -1262,6 +1262,9 @@
   "page.work.next-seo.title": {
     "message": "Unsere Arbeit"
   },
+  "page.year-in-review.2020.next-seo.title": {
+    "message": "Das Jahr 2020 im Rückblick"
+  },
   "page.year-in-review.2020.section.big-impact-changes.apple.paragraph": {
     "message": "Wir haben Bot-Benachrichtigungen für Community-Events und -Aktionen aktiviert."
   },
@@ -1409,8 +1412,14 @@
   "page.year-in-review.2020.section.we-grew.advisory-team.content": {
     "message": "Wir sind unglaublich dankbar, dass wir jetzt ein Team von erfahrenen veganen Beratern haben, auf die wir uns stützen können, wie <no-localization>Seb Alex</no-localization>, <no-localization>Ryuji Chua</no-localization>, <no-localization>Leah Doellinger</no-localization> und <no-localization>Michael Dearborn</no-localization>. <link>Klicken Sie hier</link>, um mehr von unseren Beratern zu erfahren <link>!</link>"
   },
+  "page.year-in-review.2020.section.we-grew.advisory-team.header": {
+    "message": "WIR HABEN JETZT EIN <b>BERATERTEAM</b> VON VEGAN-EXPERTEN"
+  },
   "page.year-in-review.2020.section.we-grew.expanded.content": {
     "message": "Wir sind von 3 Teams mit 28 Freiwilligen auf 7 Teams mit 80 Freiwilligen angewachsen! Wir konnten mehr Stellen schaffen, unter anderem für die Erstellung von Inhalten, Animatoren, Soziales, Marketing und Werbung!"
+  },
+  "page.year-in-review.2020.section.we-grew.expanded.header": {
+    "message": "WIR HABEN UNSER TEAM VON <b>28 AUF 80 FREIWILLIGE</b> ERWEITERT"
   },
   "page.year-in-review.2020.section.we-grew.heading": {
     "message": "Wir sind als Community stark gewachsen"
@@ -1420,6 +1429,9 @@
   },
   "page.year-in-review.2020.section.we-grew.launched.content": {
     "message": "Vier davon waren einzigartige Projektideen von uns selbst! Wir hatten auch das Glück, an Projekten mit <no-localization>Animal Rebellion</no-localization>, <no-localization>Animal Save Movement</no-localization>, <no-localization>Lebanese Vegans</no-localization> und <no-localization>Excelsior 4</no-localization> zu arbeiten."
+  },
+  "page.year-in-review.2020.section.we-grew.launched.header": {
+    "message": "HABEN WIR <b>ACHT PROJEKTE</b> FÜR DIE BEWEGUNG GESTARTET"
   },
   "page.year-in-review.2020.section.working-with-organizations.animal-rebellion.heading": {
     "message": "<no-localization>Animal Rebellion</no-localization>"
@@ -1457,8 +1469,11 @@
   "page.year-in-review.2021.section.advisory-service.headline": {
     "message": "Unser neuer <b>Beratungsdienst</b>"
   },
-  "page.year-in-review.2021.section.advisory-service.paragraph": {
-    "message": "<p>Wir haben unseren neuesten Dienst gestartet, um Menschen mit unserem Expertenteam zu verbinden, das über ein breites Spektrum an Erfahrungen und Fähigkeiten verfügt. Wir heißen vegane Aktivisten und Organisationen willkommen, die uns als Ressource für ihre Technik, Organisationsstruktur, Strategie, Marketing, Zuschussanträge und mehr nutzen wollen.</p> <p>Wir sind sehr zufrieden mit diesem Start und haben mehr als 100 Beratungsanfragen erhalten! Wir waren in der Lage, Organisationen wie <no-localization>Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates</no-localization> zu unterstützen, neben vielen anderen.</p>"
+  "page.year-in-review.2021.section.advisory-service.paragraph1": {
+    "message": "Wir haben unseren neuesten Dienst gestartet, um Menschen mit unserem Expertenteam zu verbinden, das über ein breites Spektrum an Erfahrungen und Fähigkeiten verfügt. Wir heißen vegane Aktivisten und Organisationen willkommen, die uns als Ressource für ihre Technik, Organisationsstruktur, Strategie, Marketing, Zuschussanträge und mehr nutzen wollen."
+  },
+  "page.year-in-review.2021.section.advisory-service.paragraph2": {
+    "message": "Wir sind sehr zufrieden mit diesem Start und haben mehr als 100 Beratungsanfragen erhalten! Wir konnten Organisationen wie Sinergia Animal, The Humane League, Vegan Tokyo, Mercy for Animals, PETA, Animal Rights Advocates und viele andere unterstützen."
   },
   "page.year-in-review.2021.section.big-impact.headline": {
     "message": "Kleine Änderungen mit <b>großer Wirkung</b>"
@@ -1703,6 +1718,9 @@
   "page.year-in-review.2021.section.videos.paragraph": {
     "message": "Wir haben uns mit <no-localization><link>Expanded Circle Collective</link></no-localization> zusammengetan, um zwei animierte Einführungsvideos für <no-localization>Activist Hub</no-localization> und <no-localization>Vegan Bootcamp</no-localization> zu produzieren! Diese Videos sind fantastische Hilfsmittel für die Betrachter, um sich schnell mit unserer Arbeit vertraut zu machen. Wir freuen uns darauf, im neuen Jahr mit ihnen zusammenzuarbeiten."
   },
+  "page.year-in-review.2021.section.we-grew.advisory-team.heading": {
+    "message": "Wir <b>haben unser Beraterteam</b> von Vegan-Experten <b>erweitert</b> "
+  },
   "page.year-in-review.2021.section.we-grew.advisory-team.paragraph": {
     "message": "<b>Wir sind so dankbar, dass wir weitere Berater haben, auf die wir uns stützen</b> können, wie z. B. <no-localization>Katie</no-localization> von <no-localization>Animal Equality</no-localization>, <no-localization>Chris</no-localization> von <no-localization>APEX Advocacy</no-localization>, <no-localization>Tessa</no-localization> von <no-localization>Pollination Project</no-localization> und <no-localization>Casey</no-localization> von <no-localization>Faunalytics</no-localization>. Wenn Sie mehr von unseren Beratern sehen möchten, <link>klicken Sie hier</link>."
   },
@@ -1712,8 +1730,14 @@
   "page.year-in-review.2021.section.we-grew.intro.paragraph": {
     "message": "In diesem Jahr haben wir unsere Ziele verfeinert und Projekte entwickelt, die sich in erster Linie darauf konzentrieren, bestehende Lücken in unserer Bewegung zu schließen. Wir bauten mehr bedeutende Partnerschaften auf und verbesserten unser Branding, unser Designteam und unser Dienstleistungsangebot. Wir freuen uns, Ihnen im Folgenden zu zeigen, was wir erreicht haben!"
   },
+  "page.year-in-review.2021.section.we-grew.new-teams.heading": {
+    "message": "Wir expandierten mit <b>5 neuen Teams</b> in nur 6 Monaten"
+  },
   "page.year-in-review.2021.section.we-grew.new-teams.paragraph": {
     "message": "<b>Mehr Teams, mehr Wirkung!</b> Wir freuen uns, das Wachstum unserer Community mit fünf neuen Teams bekannt geben zu können. Bitte begrüßen Sie das Team Avocado, das Team Mango, das Team Wassermelone und das Team Süßkartoffel."
+  },
+  "page.year-in-review.2021.section.we-grew.projects.heading": {
+    "message": "Wir haben <b>8 neue Projekte</b> für die Bewegung gestartet"
   },
   "page.year-in-review.2021.section.we-grew.projects.paragraph": {
     "message": "<b>Vier davon waren interne Projekte.</b> Wir hatten auch das Glück, an Projekten mit <no-localization>Sehati Animal Sanctuary</no-localization>, <no-localization>Animal Alliance Asia</no-localization>, <no-localization>Vegan Japan Consulting</no-localization> und vielen anderen zu arbeiten."
@@ -1838,9 +1862,6 @@
   "page.year-in-review.2022.section.featured-interviews.headline": {
     "message": "Ausgewählte <b>Interviews</b>"
   },
-  "page.year-in-review.2022.section.featured-interviews.loading-spinner": {
-    "message": "Laden"
-  },
   "page.year-in-review.2022.section.featured-interviews.paragraph": {
     "message": "Anfang des Jahres hatten wir die Ehre, uns mit verschiedenen führenden Persönlichkeiten des Tierschutzes zusammenzusetzen. Wir waren inspiriert von ihren Entstehungsgeschichten, ihren weisen Worten und ihrer Offenheit und Aufrichtigkeit, mit der sie ihre Erfahrungen mit uns teilten - und hoffen, dass Sie das auch tun."
   },
@@ -1943,6 +1964,9 @@
   "page.year-in-review.2022.section.playground.paragraph.2": {
     "message": "Bei diesen Freiwilligen handelt es sich nicht nur um Entwickler oder Designer, sondern auch um Datenwissenschaftler*innen, Videofilmer*innen, Marketingexperten, Sicherheitsexperten, Forscher*innen und viele andere Rollen."
   },
+  "page.year-in-review.2022.section.providing-value.building-projects.headline": {
+    "message": "<b>Bauprojekte, Forschung und Gemeinschaft</b> im Jahr 2022"
+  },
   "page.year-in-review.2022.section.providing-value.building-projects.paragraph": {
     "message": "<b>Neben der Entwicklung von Technologien</b> arbeiten wir hart daran, Lücken in unserer Bewegung zu finden und zu schließen. Dazu gehört nicht nur der Aufbau unserer Projekte, sondern auch die Durchführung unserer Forschungsstudie, die Teilnahme an verschiedenen internationalen Konferenzen und die Investition in das Wachstum von Gemeinschaften."
   },
@@ -1967,8 +1991,14 @@
   "page.year-in-review.2022.section.providing-value.numbers.total-value": {
     "message": "Gesamtwert der bisher für die Tierschutzbewegung <span>entwickelten Technologie</span> "
   },
+  "page.year-in-review.2022.section.providing-value.we-expanded.headline": {
+    "message": "Wir haben unser Netzwerk um mehr als <b>1500 Freiwillige</b> erweitert"
+  },
   "page.year-in-review.2022.section.providing-value.we-expanded.paragraph": {
     "message": "<b>Innerhalb unserer Playground-Community</b> konnten wir unser Netzwerk von Freiwilligen auf über 1500 Personen ausbauen, die Fähigkeiten wie Entwickler*innen, Designer*innen, Autor*innen, Redakteur*innen, Forscher*innen, Vermarkter*innen, Datenwissenschaftler*innen und viele andere Funktionen nutzen."
+  },
+  "page.year-in-review.2022.section.providing-value.we-partnered.headline": {
+    "message": "Wir arbeiten mit <b>10 Tierschutzorganisationen</b> zusammen"
   },
   "page.year-in-review.2022.section.providing-value.we-partnered.paragraph": {
     "message": "<b>Wir sind sehr dankbar</b> für die Möglichkeit, mit anderen Organisationen, die sich dem Tierschutz verschrieben haben, wie <no-localization>Sentient Media</no-localization>, <no-localization>Open Sanctuary</no-localization>, <no-localization>Animal Advocacy Careers</no-localization> und <no-localization>Animal Defense Partnerships</no-localization>, und anderen, zusammenzuarbeiten."
@@ -2153,11 +2183,17 @@
   "page.year-in-review.2023.section.knowledge.ava-summit.heading": {
     "message": "Anerkennung von Freiwilligen als Katalysatoren: <b>AVA-Gipfel in LA</b>"
   },
+  "page.year-in-review.2023.section.knowledge.ava-summit.image.alt": {
+    "message": "Das VH-Team auf dem AVA-Gipfel in LA"
+  },
   "page.year-in-review.2023.section.knowledge.erasmus.content": {
     "message": "Im Frühjahr sprach <no-localization>James Morgan</no-localization> auf <no-localization>Erasmus University</no-localization> in Rotterdam über das Leiden von Wildtieren, dank <no-localization>PISE</no-localization> Rotterdam, einer Studentengruppe, die mit <no-localization>Effective Altruism</no-localization> zusammenarbeitet! Wir sind sehr dankbar für diese Gelegenheit und die aufschlussreichen Fragen, die die Studenten während der Diskussion stellten."
   },
   "page.year-in-review.2023.section.knowledge.erasmus.heading": {
     "message": "Warum das Leiden von Wildtieren wichtig ist: <b>Erasmus-Universität Rotterdam</b>"
+  },
+  "page.year-in-review.2023.section.knowledge.erasmus.image.alt": {
+    "message": "Foto von James bei Erasmus"
   },
   "page.year-in-review.2023.section.knowledge.farm.content": {
     "message": "Im Jahr 2023 hat unser Exekutivdirektor <no-localization>James Morgan</no-localization> in einem Interview mit <no-localization>Farm Animal Rights Movement (FARM)</no-localization> einen ausgewogenen Blick auf den Einsatz von KI in der Advocacy-Arbeit geworfen. Er sprach über die Vorzüge und Fallstricke von KI, ermutigte Advocates, KI-Tools bei ihren täglichen Aufgaben einzusetzen, und hob hervor, wie KI die Effizienz und Effektivität unserer Bemühungen steigern kann. Sie können sich das Interview hier ansehen."
@@ -2177,6 +2213,9 @@
   "page.year-in-review.2023.section.knowledge.lead-conference.heading": {
     "message": "Gedeihen in einer Organisation: <b>LEAD-Konferenz</b>"
   },
+  "page.year-in-review.2023.section.knowledge.lead-conference.image.alt": {
+    "message": "Foto von der LEAD-Konferenz"
+  },
   "page.year-in-review.2023.section.knowledge.liberation-conference.content": {
     "message": "In Berkeley, Kalifornien, sprach unser Vorstandsmitglied <no-localization>Ryuji Chua</no-localization> auf der weltweit größten Basis-Tierrechtskonferenz. Sein Workshop \"How to Talk about Animal Rights: Principles of Effective Communication for Educators &amp; Content Creators\" (Prinzipien effektiver Kommunikation für Pädagogen und Autoren von Inhalten), untersuchte, wie man ansprechende Medien erstellt, die Aufmerksamkeit auf sich zieht und behält und eine alternative Perspektive auf die Welt auf ansprechende und einprägsame Weise vermittelt."
   },
@@ -2193,7 +2232,7 @@
     "message": "Im Hochsommer dieses Jahres haben wir beschlossen, die Art und Weise, wie wir Kapazitäten aufbauen, durch Veränderungen in unserer Führung zu verfeinern. <no-localization>David van Beveren</no-localization> Der Gründer von <no-localization>Vegan Hacktivists</no-localization> im Jahr 2019 übernahm die Rolle des Gründers und Präsidenten und ist nun für die langfristige Vision und die breitere Wirkung der Organisation verantwortlich.<no-localization>{break}{break}</no-localization>Unter der Leitung von <no-localization>David’s</no-localization> wuchs <no-localization>Vegan Hacktivists</no-localization> erheblich: Aus einem Ein-Mann-Team wurde eine Organisation mit über 50 aktiven Freiwilligen, vier Vollzeitmitarbeitern, acht Stipendiaten und 2.500 Freiwilligen in unserem <no-localization>Playground</no-localization> -Netzwerk. Seit dem Übergang konzentriert sich <no-localization>David</no-localization> auf die Gesamtausrichtung und -strategie, den Aufbau von Partnerschaften und die Vertretung der Organisation bei verschiedenen Veranstaltungen und in verschiedenen Funktionen.<no-localization>{break}{break}</no-localization>Auf der anderen Seite des Austauschs trat <no-localization>James Morgan</no-localization> als unser neuer Exekutivdirektor auf und brachte sein Engagement für die Sache und sein Fachwissen im Bereich Produktmanagement in den Vordergrund unserer Aktivitäten. Seit seinem Beitritt zu <no-localization>VH</no-localization> hat <no-localization>James</no-localization> eine entscheidende Rolle bei der Verbesserung unserer Prozesse und der Unterstützung unseres Wachstums gespielt, wobei er ursprünglich als Freiwilliger begann und sich schnell als unser Betriebsleiter unentbehrlich machte. Er trug dazu bei, den Grundstein für das zu legen, was <no-localization>VH</no-localization> heute ist, und nun arbeiten unsere beiden Führungskräfte weiterhin gemeinsam daran, unsere Mission voranzutreiben und die Bewegung mit innovativen technischen Lösungen zu unterstützen, um den Einsatz für Tiere weltweit zu stärken.<no-localization>{break}{break}</no-localization><b>Sie hören zum ersten Mal von den Neuigkeiten?</b>"
   },
   "page.year-in-review.2023.section.leadership.heading": {
-    "message": "Neue Horizonte in <b>OUR LEADERSHIP</b>"
+    "message": "Neue Horizonte in <b>UNSERER LEITUNG</b>"
   },
   "page.year-in-review.2023.section.leadership.label": {
     "message": "Lesen Sie die Ankündigung"
@@ -2211,7 +2250,7 @@
     "message": "<b>Partnerschaften</b> schaffen &amp; <b>Wirkung</b> erzielen"
   },
   "page.year-in-review.2023.section.playground.content": {
-    "message": "Nach dem großen Erfolg von <no-localization>Playground</no-localization> seit dem Start im Jahr 2021 haben wir weiter nach Möglichkeiten gesucht, die Plattform zu verbessern. Die Plattform, die mehr als 2.500 vegane Freiwillige umfasst, die zusammen über Tausende von Arbeitsstunden für die Bewegung geleistet haben, hat sich als erste Anlaufstelle für die Kontaktaufnahme mit Organisationen etabliert.<no-localization>{break}{break}</no-localization>Wir konnten beobachten, wie die Community von <no-localization>Playground’s</no-localization> um fast 1.000 neue Freiwillige wuchs, die allein in diesem Jahr 93 verschiedene Anfragen wie Datenanalyse und Marketing bearbeiteten.<no-localization>{break}{break}</no-localization>Im Jahr 2023 beschlossen wir, <no-localization>Playground</no-localization> auf die nächste Stufe zu heben. Wir lernten eine Menge und begannen mit der Umsetzung von Änderungen, um die Benutzerfreundlichkeit zu verbessern. Durch mehr Kontrolle für die Hilfesuchenden und einen viel angenehmeren (und sogar spaßigen!) Prozess für die Erfüllung von Anfragen wird das <no-localization>Playground's</no-localization> Upgrade sowohl die Erfahrung als auch die Wirkung für die Tiere steigern.<no-localization>{break}{break}</no-localization><no-localization>Playground</no-localization> ist vom <no-localization>Vegan Hacktivists</no-localization> Team getrennt und zielt darauf ab, die Kapazität zu erhöhen, mit der wir die Arbeit für die Tiere unterstützen können. Zur Vorbereitung von <no-localization>Playground V2</no-localization> haben wir ein Einführungsvideo über die aktuelle Plattform veröffentlicht.<no-localization>{break}{break}</no-localization> Sie haben<b>das Video noch nicht gesehen?</b>"
+    "message": "Nach dem großen Erfolg von <no-localization>Playground</no-localization> seit dem Start im Jahr 2021 haben wir weiter nach Möglichkeiten gesucht, die Plattform zu verbessern. Die Plattform, die mehr als 2.500 vegane Freiwillige umfasst, die zusammen über Tausende von Arbeitsstunden für die Bewegung geleistet haben, hat sich als erste Anlaufstelle für die Kontaktaufnahme mit Organisationen etabliert.<no-localization>{break}{break}</no-localization>Wir konnten beobachten, wie die Community von <no-localization>Playground’s</no-localization> um fast 1.000 neue Freiwillige wuchs, die allein in diesem Jahr 93 verschiedene Anfragen wie Datenanalyse und Marketing bearbeiteten.<no-localization>{break}{break}</no-localization>Im Jahr 2023 beschlossen wir, <no-localization>Playground</no-localization> auf die nächste Stufe zu heben. Wir lernten eine Menge und begannen mit der Umsetzung von Änderungen, um die Benutzerfreundlichkeit zu verbessern. Durch mehr Kontrolle für die Hilfesuchenden und einen viel angenehmeren (und sogar spaßigen!) Prozess für die Erfüllung von Anfragen wird das <no-localization>Playground's</no-localization> Upgrade sowohl die Erfahrung als auch die Wirkung für die Tiere steigern.<no-localization>{break}{break}</no-localization><no-localization>Playground</no-localization> ist vom <no-localization>Vegan Hacktivists</no-localization> Team getrennt und zielt darauf ab, die Kapazität zu erhöhen, mit der wir die Arbeit für die Tiere unterstützen können. Zur Vorbereitung von <no-localization>Playground V2</no-localization> haben wir ein Einführungsvideo über die aktuelle Plattform veröffentlicht.<no-localization>{break}{break}</no-localization> Sie haben<b> das Video noch nicht gesehen?</b>"
   },
   "page.year-in-review.2023.section.playground.heading": {
     "message": "<b>VON STÄRKE ZU STÄRKE</b>"
@@ -2219,11 +2258,20 @@
   "page.year-in-review.2023.section.playground.label": {
     "message": "Hier anschauen"
   },
+  "page.year-in-review.2023.section.providing-value.we-built.header": {
+    "message": "Wir haben Projekte aufgebaut, um <b>die Bewegung zu vergrößern und auszuweiten</b>"
+  },
   "page.year-in-review.2023.section.providing-value.we-built.paragraph": {
     "message": "<b>2023 war das Jahr, in dem wir Projekte zum Abschluss brachten, die schon lange auf ihr Rampenlicht warteten.</b> Wir sprachen Veganer an, die sich in ihrem Alltag für Tiere engagieren wollen, und führten ein Tool ein, das den Prozess der Zuschussvergabe verändert hat, der für Organisationen entscheidend ist, um ihre Arbeit zu unterstützen und voranzubringen."
   },
+  "page.year-in-review.2023.section.providing-value.we-committed.header": {
+    "message": "Wir haben uns zu <b>größeren Veränderungen</b> innerhalb unserer Organisation verpflichtet"
+  },
   "page.year-in-review.2023.section.providing-value.we-committed.paragraph": {
     "message": "<b>Mit den Veränderungen in unserer Führung und den Plänen für neue Programme</b> haben wir bei <no-localization>VH</no-localization> ein neues Kapitel aufgeschlagen. Dies bedeutete, dass wir einen neuen Exekutivdirektor für <no-localization>VH</no-localization> willkommen hießen und uns auf die Entwicklung eines unserer Teams hin zu einem stärkeren Markenauftritt und Fokus vorbereiteten."
+  },
+  "page.year-in-review.2023.section.providing-value.we-ventured.header": {
+    "message": "Wir haben uns aufgemacht um <b>unser Wissen weiterzugeben</b>"
   },
   "page.year-in-review.2023.section.providing-value.we-ventured.paragraph": {
     "message": "<b>Wir haben uns auf unsere Stärken bei der Nutzung von Technologien und dem Aufbau von Gemeinschaften gestützt</b>, um Tieren zu helfen, und haben unser Fachwissen bei einer Vielzahl von Veranstaltungen weitergegeben. Von Vorträgen über das Management von Freiwilligen bis hin zu Vorträgen über den Einsatz von KI in der Advocacy-Arbeit - wir haben uns dafür eingesetzt, dass mehr Organisationen dieses Wissen für Veränderungen nutzen können."
