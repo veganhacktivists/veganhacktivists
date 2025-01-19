@@ -1,91 +1,89 @@
-import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
-
-import callImage from '../../../../public/images/grants/call.jpg';
-import squarespaceImage from '../../../../public/images/grants/squarespace.jpg';
-import contentImage from '../../../../public/images/grants/content.jpg';
-import designerImage from '../../../../public/images/grants/designer.jpg';
 import { pixelHeart } from '../../../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
-import useOnce from 'hooks/useOnce';
+import getServerIntl from 'app/intl';
 
+import type { IntlShape } from 'react-intl';
 import type { StaticImageData } from 'next/image';
+
+import callImage from '~images/grants/call.jpg';
+import squarespaceImage from '~images/grants/squarespace.jpg';
+import contentImage from '~images/grants/content.jpg';
+import designerImage from '~images/grants/designer.jpg';
 
 type PerkProps = React.PropsWithChildren<{
   image: StaticImageData;
   title: React.ReactNode;
 }>;
 
-const PERKS: PerkProps[] = [
+const getPerks: (intl: IntlShape) => PerkProps[] = (intl) => [
   {
     image: squarespaceImage,
-    title: (
-      <FormattedMessage
-        id='page.grants.section.perks.squarespace.heading'
-        defaultMessage='<no-localization>Squarespace</no-localization> Website Subscription'
-      />
-    ),
+    title: intl.formatMessage({
+      id: 'page.grants.section.perks.squarespace.heading',
+      defaultMessage:
+        '<no-localization>Squarespace</no-localization> Website Subscription',
+    }),
     children: (
       <>
-        <FormattedMessage
-          id='page.grants.section.perks.squarespace.paragraph'
-          defaultMessage='<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>'
-          values={{
+        {intl.formatMessage(
+          {
+            id: 'page.grants.section.perks.squarespace.paragraph',
+            defaultMessage:
+              '<div>Valued at $200, we cover the subscription cost for the first year.</div> <div>You own it, and we help you design and maintain it.</div> <div>Easy to update with little to no experience.</div>',
+          },
+          {
             div: (chunks) => <div>{chunks}</div>,
-          }}
-        />
+          },
+        )}
       </>
     ),
   },
   {
     image: designerImage,
-    title: (
-      <FormattedMessage
-        id='page.grants.section.perks.design-creation.heading'
-        defaultMessage='Design Creation'
-      />
-    ),
+    title: intl.formatMessage({
+      id: 'page.grants.section.perks.design-creation.heading',
+      defaultMessage: 'Design Creation',
+    }),
     children: (
       <>
-        <FormattedMessage
-          id='page.grants.section.perks.design-creation.paragraph'
-          defaultMessage='Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website.'
-        />
+        {intl.formatMessage({
+          id: 'page.grants.section.perks.design-creation.paragraph',
+          defaultMessage:
+            'Depending on your needs, we design (or redesign) the branding and logo for your organization or project. We also provide digital assets, such as banners, icons, and any custom elements, for social media and your website.',
+        })}
       </>
     ),
   },
   {
     image: contentImage,
-    title: (
-      <FormattedMessage
-        id='page.grants.section.perks.content-dev.heading'
-        defaultMessage='Content Development'
-      />
-    ),
+    title: intl.formatMessage({
+      id: 'page.grants.section.perks.content-dev.heading',
+      defaultMessage: 'Content Development',
+    }),
     children: (
       <>
-        <FormattedMessage
-          id='page.grants.section.perks.content-dev.paragraph'
-          defaultMessage='We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work.'
-        />
+        {intl.formatMessage({
+          id: 'page.grants.section.perks.content-dev.paragraph',
+          defaultMessage:
+            'We help craft any public-facing messages, including website copy. We offer our writing and editing skills at any stage of the process: from initial brainstorming to reviewing copy that helps promote your work.',
+        })}
       </>
     ),
   },
   {
     image: callImage,
-    title: (
-      <FormattedMessage
-        id='page.grants.section.perks.check-ins.heading'
-        defaultMessage='Monthly Advisory Check-ins'
-      />
-    ),
+    title: intl.formatMessage({
+      id: 'page.grants.section.perks.check-ins.heading',
+      defaultMessage: 'Monthly Advisory Check-ins',
+    }),
     children: (
       <>
-        <FormattedMessage
-          id='page.grants.section.perks.check-ins.paragraph'
-          defaultMessage="A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development."
-        />
+        {intl.formatMessage({
+          id: 'page.grants.section.perks.check-ins.paragraph',
+          defaultMessage:
+            "A monthly 30-minute <no-localization>Zoom</no-localization> call to help advise you and your team. Topics include but are not limited to technology, marketing, strategy, and other aspects of your organization's growth and development.",
+        })}
       </>
     ),
   },
@@ -105,12 +103,13 @@ const Perk: React.FC<PerkProps> = ({ image, title, children }) => {
   );
 };
 
-const GrantsPerks: React.FC = () => {
-  const intl = useIntl();
-  const [perks, setPerks] = useState<PerkProps[]>([]);
-  useOnce(() => {
-    setPerks(PERKS);
-  });
+interface Props {
+  locale: string;
+}
+
+const GrantsPerks: React.FC<Props> = ({ locale }) => {
+  const intl = getServerIntl(locale);
+
   return (
     <div className='max-w-screen-lg p-0 px-5 pt-12 mx-auto mt-10 md:p-12 lg:p-0'>
       <CustomImage
@@ -123,14 +122,15 @@ const GrantsPerks: React.FC = () => {
         })}
       />
       <h3 className='p-4 mt-12 mb-10 text-4xl font-semibold md:p-0'>
-        <FormattedMessage
-          id='page.grants.section.perks.heading'
-          defaultMessage='In addition to seed funding, succesful applicants can receive:'
-        />
+        {intl.formatMessage({
+          id: 'page.grants.section.perks.heading',
+          defaultMessage:
+            'In addition to seed funding, successful applicants can receive:',
+        })}
       </h3>
 
       <div className='text-center md:text-left'>
-        {perks.map(({ image, title, children }, i) => (
+        {getPerks(intl).map(({ image, title, children }, i) => (
           <Perk key={i} image={image} title={title}>
             {children}
           </Perk>

@@ -1,11 +1,10 @@
-import { FormattedMessage } from 'react-intl';
-
-import number1 from '../../../../public/images/grants/VH-grant-number-1.png';
-import number2 from '../../../../public/images/grants/VH-grant-number-2.png';
-
 import CustomImage from 'components/decoration/customImage';
+import getServerIntl from 'app/intl';
 
 import type { StaticImageData } from 'next/image';
+
+import number1 from '~images/grants/VH-grant-number-1.png';
+import number2 from '~images/grants/VH-grant-number-2.png';
 
 interface INumberIcons {
   [key: string]: StaticImageData;
@@ -41,51 +40,68 @@ const GrantsQualificationsStep: React.FC<GrantsQualificationsStepProps> = ({
   );
 };
 
-const GrantsQualifications: React.FC = () => {
+interface Props {
+  locale: string;
+}
+
+const GrantsQualifications: React.FC<Props> = ({ locale }) => {
+  const intl = getServerIntl(locale);
+
   return (
     <div className='p-12 bg-gray-dark'>
       <div className='max-w-screen-md mx-auto text-white'>
         <h3 className='text-3xl font-semibold mb-10 mt-12'>
-          <FormattedMessage
-            id='page.grants.section.qualifications.heading'
-            defaultMessage='Before applying, make sure you meet these qualifications:'
-          />
+          {intl.formatMessage({
+            id: 'page.grants.section.qualifications.heading',
+            defaultMessage:
+              'Before applying, make sure you meet these qualifications:',
+          })}
         </h3>
         <GrantsQualificationsStep step='1'>
-          <FormattedMessage
-            id='page.grants.section.qualifications.steps.paragraph.0'
-            defaultMessage='<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year.'
-            values={{
+          {intl.formatMessage(
+            {
+              id: 'page.grants.section.qualifications.steps.paragraph.0',
+              defaultMessage:
+                '<b> Your primary goal </b> should focus on reducing farmed animal suffering. Factory farming causes over 100 billion animals to suffer deprivation, fear, and pain every year.',
+            },
+            {
               b: (chunks) => <b>{chunks}</b>,
-            }}
-          />
+            },
+          )}
         </GrantsQualificationsStep>
         <GrantsQualificationsStep step='2'>
-          <FormattedMessage
-            id='page.grants.section.qualifications.steps.paragraph.1'
-            defaultMessage="<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity."
-            values={{
+          {intl.formatMessage(
+            {
+              id: 'page.grants.section.qualifications.steps.paragraph.1',
+              defaultMessage:
+                "<b> You must have </b> prior activism experience, whether in animal rights or other social movements. We're looking for people who have worked on and contributed to grassroots campaigns and/or projects, in a paid or volunteer capacity.",
+            },
+            {
               b: (chunks) => <b>{chunks}</b>,
-            }}
-          />
+            },
+          )}
         </GrantsQualificationsStep>
         <p className='mt-12 text-2xl font-thin'>
           <i>
-            <FormattedMessage
-              id='page.grants.section.qualifications.cta.paragraph.0'
-              defaultMessage="<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders."
-              values={{
+            {intl.formatMessage(
+              {
+                id: 'page.grants.section.qualifications.cta.paragraph.0',
+                defaultMessage:
+                  "<b>Don't meet the qualifications above?</b> You may still be eligible for funding! Apply and we'll forward your application to other potential funders.",
+              },
+              {
                 b: (chunks) => <b>{chunks}</b>,
-              }}
-            />
+              },
+            )}
           </i>
         </p>
         <p className='mt-10 mb-4 text-2xl'>
           <b>
-            <FormattedMessage
-              id='page.grants.section.qualifications.cta.paragraph.1'
-              defaultMessage='If you meet the qualifications, fill out the application form below.'
-            />
+            {intl.formatMessage({
+              id: 'page.grants.section.qualifications.cta.paragraph.1',
+              defaultMessage:
+                'If you meet the qualifications, fill out the application form below.',
+            })}
           </b>
         </p>
       </div>

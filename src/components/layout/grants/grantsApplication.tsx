@@ -1,8 +1,9 @@
+'use client';
+
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 import React, { useCallback } from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -61,8 +62,6 @@ const GrantsApplication: React.FC = () => {
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<GrantsForm>({});
 
-  const { reload } = useRouter();
-
   const onSubmit = useCallback<(data: GrantsForm) => Promise<void>>(
     async (data) => {
       const submit = async () => axios.post('/api/grant-request', data);
@@ -88,11 +87,11 @@ const GrantsApplication: React.FC = () => {
         .then(() => {
           reset();
           setTimeout(() => {
-            reload();
+            window.location.reload();
           }, 5000);
         });
     },
-    [reload, reset, intl],
+    [reset, intl],
   );
   return (
     <div className='pt-10 pb-1 bg-gray-background'>
