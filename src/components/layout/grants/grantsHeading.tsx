@@ -1,11 +1,15 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
-import bee from '../../../../public/images/grants/VH-icon-bee.png';
-
 import CustomImage from 'components/decoration/customImage';
+import getServerIntl from 'app/intl';
 
-const GrantsHeading: React.FC = () => {
-  const intl = useIntl();
+import bee from '~images/grants/VH-icon-bee.png';
+
+interface Props {
+  locale: string;
+}
+
+const GrantsHeading: React.FC<Props> = ({ locale }) => {
+  const intl = getServerIntl(locale);
+
   return (
     <div className='p-12'>
       <CustomImage
@@ -19,10 +23,10 @@ const GrantsHeading: React.FC = () => {
         priority
       />
       <h2 className='text-5xl mt-4 font-medium text-gray font-mono uppercase'>
-        <FormattedMessage
-          id='page.grants.section.heading.text'
-          defaultMessage='Seed Funding Grants'
-        />
+        {intl.formatMessage({
+          id: 'page.grants.section.heading.text',
+          defaultMessage: 'Seed Funding Grants',
+        })}
       </h2>
     </div>
   );
