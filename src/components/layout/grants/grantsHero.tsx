@@ -1,11 +1,17 @@
-import { useIntl } from 'react-intl';
-
 import Hero from '../../decoration/hero';
-import heroBackground from '../../../../public/images/grants/VH-hero-grants.jpg';
-import heroTagline from '../../../../public/images/grants/VH-grants-hero-text.png';
 
-const GrantsHero: React.FC = () => {
-  const intl = useIntl();
+import getServerIntl from 'app/intl';
+
+import heroTagline from '~images/grants/VH-grants-hero-text.png';
+import heroBackground from '~images/grants/VH-hero-grants.jpg';
+
+interface Props {
+  locale: string;
+}
+
+const GrantsHero: React.FC<Props> = ({ locale }) => {
+  const intl = getServerIntl(locale);
+
   return (
     <Hero
       imageBackground={heroBackground}
