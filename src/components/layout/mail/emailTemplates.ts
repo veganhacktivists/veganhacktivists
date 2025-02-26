@@ -362,7 +362,7 @@ Please make sure your requests include clear information about your project and 
 <br /><br />
 If you'd like to resubmit the same request, you can click below.
 <br /><br />
-If you have any questions and/or would like to provide feedback to us, please email Jess at jess@veganhacktivists.org.
+If you have any questions and/or would like to provide feedback to us, please email playground@veganhacktivists.org.
 <br /><br />
 Resubmit your request: ${createNewRequestUrl}
 `;
@@ -374,7 +374,7 @@ Resubmit your request: ${createNewRequestUrl}
 <mj-text>We're sorry that we couldn't find any volunteers to support you at this time but our platform is growing and improving, so we encourage you to continue submitting requests on Playground.</mj-text>
 <mj-text>Please make sure your requests include clear information about your project and the tasks you need help with, and please be thoughtful about your desired due date, as our volunteers often have full-time jobs and are helping out during their spare time.</mj-text>
 <mj-text>If you'd like to resubmit the same request, you can click below.</mj-text>
-<mj-text>If you have any questions and/or would like to provide feedback to us, please email Jess at jess@veganhacktivists.org.</mj-text>
+<mj-text>If you have any questions and/or would like to provide feedback to us, please email playground@veganhacktivists.org.</mj-text>
 <mj-button href="${createNewRequestUrl}">Resubmit your request</mj-button>
 `;
   return mjml2html(mail(body, false)).html ?? '';
@@ -390,9 +390,9 @@ export const playgroundRequestCompletedSurvey = (
   if (textonly) {
     return `Hey ${request.name}!
 <br /><br />
-We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with! 
+We just closed your request "${request.title}" opened in "VH: Playground" which (hopefully) means that our volunteers have completed the project/task you needed help with!
 <br /><br />
-We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals. 
+We would be very grateful if you could spend 5 minutes to complete a short survey to rate your experience with Playground. Your feedback is vital in helping us enhance the platform and create a better experience for everyone and ultimately help more animals.
 <br /><br />
 Rest assured that your responses will remain confidential, and your personal information will not be shared with any third parties.
 <br /><br />
