@@ -48,7 +48,7 @@ async function translateLocalMessages() {
             };
           } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error);
+            console.error('Translation api call failed', error);
           }
 
           await writeTranslationFile(translationFile, locale);
