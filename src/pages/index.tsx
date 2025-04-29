@@ -33,9 +33,7 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const PROJECT_DECORATION_SQUARES = [
-  { color: 'gray-background', size: 16, left: 0, bottom: 0 },
   { color: 'grey', size: 16, left: 32, top: 0 },
-  { color: 'gray-background', size: 16, right: 0, bottom: 0 },
   { color: 'grey', size: 16, right: 0, top: 0 },
 ];
 
@@ -157,58 +155,9 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       </div>
       <Sprite image={cow} />
       <SquareField
-        squares={[
-          { left: 0, bottom: 0, color: 'gray' },
-          { right: 0, top: 0, color: 'white' },
-          { right: 16, top: 16, color: 'white' },
-        ]}
+        squares={[{ left: 0, bottom: 0, color: 'gray' }]}
         className='hidden md:block'
       />
-      <div className='relative w-full overflow-hidden text-2xl text-white bg-gray'>
-        <Circle
-          xAlign='left'
-          yAlign='bottom'
-          color='grey-light'
-          radius={25}
-          opacity={0.1}
-        />
-        <Circle
-          xAlign='right'
-          yAlign='top'
-          color='grey-dark'
-          radius={50}
-          opacity={0.6}
-        />
-        <div className='relative flex flex-col px-2 py-20 mx-auto md:w-1/2 gap-y-8'>
-          <SectionHeader
-            className='mb-2'
-            header={intl.formatMessage({
-              id: 'page.index.section.video.headline',
-              defaultMessage: 'Watch our <b>intro video</b>',
-            })}
-          />
-          <div className='py-2'>
-            <YoutubeVideo id='jaW8n1pd97U' />
-          </div>
-          <div>
-            <FormattedMessage
-              id='page.index.section.video.subline'
-              defaultMessage='Watch our videos to learn more about us and our work:'
-            />
-          </div>
-          <div className='mx-auto w-fit'>
-            <LightButton
-              className=''
-              href='https://www.youtube.com/c/VeganHacktivists'
-            >
-              <FormattedMessage
-                id='page.index.section.video.cta'
-                defaultMessage='Visit our channel'
-              />
-            </LightButton>
-          </div>
-        </div>
-      </div>
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
         className='hidden md:block'
