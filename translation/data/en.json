@@ -87,7 +87,7 @@
     "message": "Data-Driven Activism"
   },
   "page.about.section.navigation.button.label.mission": {
-    "message": "OUR MISSION, VISION"
+    "message": "OUR MISSION & VISION"
   },
   "page.about.section.navigation.button.label.story": {
     "message": "OUR STORY"
@@ -96,7 +96,7 @@
     "message": "OUR VALUES"
   },
   "page.about.section.our-mission.next-seo.title": {
-    "message": "Our Mission, Vision"
+    "message": "Our Mission & Vision"
   },
   "page.about.section.our-mission.section-header.content": {
     "message": "We empower animal protection organizations worldwide by providing expert capacity-building services – including technology, creative, and advisory support – at no cost, enabling them to amplify their impact and drive positive change for animals around the world."
@@ -164,9 +164,6 @@
   "page.about.section.our-values.next-seo.title": {
     "message": "Our Values"
   },
-  "page.about.section.our-values.section-header.content": {
-    "message": "We embrace strong core values for our organization, which drive what we do, how we do it, and how we build community."
-  },
   "page.about.section.our-values.section-header.heading": {
     "message": "Our <b>values</b>"
   },
@@ -174,40 +171,22 @@
     "message": "Our values"
   },
   "page.about.section.our-values.subsection-0.heading": {
-    "message": "Animal Liberation"
+    "message": "Commitment to Excellence"
   },
   "page.about.section.our-values.subsection-0.paragraph": {
-    "message": "We value and respect the lives of all animals and denounce all forms of violence and exploitation against them. We believe animals have the right to be free, and we fight for that with our (digital) activism."
+    "message": "We strive for the highest standards in all our services, ensuring that our partner organizations receive top-quality support to maximize their advocacy efforts."
   },
   "page.about.section.our-values.subsection-1.heading": {
-    "message": "Non-violence"
+    "message": "Collaboration and Partnership"
   },
   "page.about.section.our-values.subsection-1.paragraph": {
-    "message": "We practice a love-based, community-first organizational approach. We exercise empathy, compassion, and non-violence. We encourage every member to communicate openly and kindly with each other."
+    "message": "We believe in the power of working together and building strong relationships with animal rights groups to achieve shared goals and create lasting impact."
   },
   "page.about.section.our-values.subsection-2.heading": {
-    "message": "Safe Community"
+    "message": "Integrity and Transparency"
   },
   "page.about.section.our-values.subsection-2.paragraph": {
-    "message": "We believe in building and fostering safe and inclusive communities regardless of race, gender, species, age, sexual orientation, or political affiliation. We strive to be diverse and representative of the communities we serve and work with."
-  },
-  "page.about.section.our-values.subsection-3.heading": {
-    "message": "Farmed Animals"
-  },
-  "page.about.section.our-values.subsection-3.paragraph": {
-    "message": "We believe farmed animals are in most need of our support, which is why we focus primarily on farmed animal liberation as an organization."
-  },
-  "page.about.section.our-values.subsection-4.heading": {
-    "message": "Open Feedback"
-  },
-  "page.about.section.our-values.subsection-4.paragraph": {
-    "message": "We value different viewpoints and constructive feedback from every person. We believe everyone has something of value to contribute to the discussion. We always listen first, then respond constructively."
-  },
-  "page.about.section.our-values.subsection-5.heading": {
-    "message": "Anti-Oppression"
-  },
-  "page.about.section.our-values.subsection-5.paragraph": {
-    "message": "We do not support or enable the exploitation or oppression of any group. We believe that the oppression of humans and non-human animals are interlinked, and the work to eradicate all forms of oppression is necessary."
+    "message": "We uphold honesty, ethical practices, and open communication in all our interactions, fostering trust and accountability within the animal rights community."
   },
   "page.blog.next-seo.title": {
     "message": "Blog"

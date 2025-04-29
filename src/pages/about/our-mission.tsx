@@ -19,7 +19,7 @@ const OurMission: PageWithLayout = () => {
       <NextSeo
         title={intl.formatMessage({
           id: 'page.about.section.our-mission.next-seo.title',
-          defaultMessage: 'Our Mission, Vision',
+          defaultMessage: 'Our Mission & Vision',
         })}
       />
       <FirstSubSection>
