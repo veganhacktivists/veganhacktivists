@@ -25,7 +25,7 @@ const LastBlogEntries: React.FC<{ entries: IBlogEntry[] }> = ({ entries }) => {
         <p className='pb-16'>
           <FormattedMessage
             id='section.blog-teaser.paragraph'
-            defaultMessage='Read our blog post for project updates, announcements, interviews, guest editorials, and much more.'
+            defaultMessage='Read our blog for useful tips, project updates, announcements, and much more.'
           />
         </p>
       </div>
