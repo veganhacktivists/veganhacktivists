@@ -19,6 +19,7 @@ import { pixelHeart } from '../images/separators';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 
 import CustomImage from 'components/decoration/customImage';
+import PlaygroundSupportCta from 'components/layout/playgroundSupportCta';
 
 import type { GetStaticProps } from 'next';
 import type { IBlogEntry, IProject } from '../types/generated/contentful';
@@ -87,7 +88,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           alt: intl.formatMessage({
             id: 'page.index.section.stage.hero.alt',
             defaultMessage:
-              '<no-localization>Compassion, Creativity, Code</no-localization>',
+              '<no-localization>Compassion, Creativity, Code</no-localization>', // should be updated to match the text in the image
           }),
         }}
         alignment='right'
@@ -175,7 +176,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <p>
             <FormattedMessage
               id='page.index.section.projects.paragraph'
-              defaultMessage="Every tool we release is <b>100% free for the animal advocacy movement</b>. Here's a sample of what we developed in our first five years!"
+              defaultMessage='Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values.'
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
@@ -207,7 +208,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         squares={JOIN_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <JoinTheTeam />
+      <PlaygroundSupportCta />
       <SquareField
         squares={BLOG_DECORATION_SQUARES}
         className='hidden md:block'

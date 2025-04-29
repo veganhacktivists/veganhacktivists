@@ -527,15 +527,6 @@
   "page.index.section.stage.hero.alt": {
     "message": "<no-localization>Compassion, Creativity, Code</no-localization>"
   },
-  "page.index.section.video.cta": {
-    "message": "Visit our channel"
-  },
-  "page.index.section.video.headline": {
-    "message": "Watch our <b>intro video</b>"
-  },
-  "page.index.section.video.subline": {
-    "message": "Watch our videos to learn more about us and our work:"
-  },
   "page.join.hero.image-alt": {
     "message": "You are their voice"
   },
@@ -2341,6 +2332,18 @@
   },
   "section.playground-stats.stat.requests-supported.label": {
     "message": "Requests supported"
+  },
+  "section.playground-support-cta.content": {
+    "message": "Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>"
+  },
+  "section.playground-support-cta.cta.browse-requests": {
+    "message": "Browse Requests"
+  },
+  "section.playground-support-cta.cta.submit-request": {
+    "message": "Submit a Request"
+  },
+  "section.playground-support-cta.headline": {
+    "message": "USE YOUR SKILLS TO HELP ANIMALS"
   },
   "section.support-progess-bar.current.label": {
     "message": "Current monthly donations"
