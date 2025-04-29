@@ -19,20 +19,40 @@ const OurMission: PageWithLayout = () => {
       <NextSeo
         title={intl.formatMessage({
           id: 'page.about.section.our-mission.next-seo.title',
-          defaultMessage: 'Our Mission',
+          defaultMessage: 'Our Mission, Vision',
         })}
       />
-      <FirstSubSection
-        header={intl.formatMessage({
-          id: 'page.about.section.our-mission.section-header.heading',
-          defaultMessage: 'Our <b>mission</b>',
-        })}
-      >
-        <FormattedMessage
-          id='page.about.section.our-mission.section-header.content'
-          defaultMessage='Our mission is to build data-driven, disruptive, and innovative projects to help see an end to animal exploitation. We believe the animal protection movement has five fundamental areas for improvement, which we aim to solve through our work.'
-        />
+      <FirstSubSection>
+        <h1 className='text-5xl md:text-6xl'>
+          <span className='text-4xl font-serif italic  mx-1 font-bold'>
+            Our
+          </span>{' '}
+          <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+            Mission
+          </span>
+        </h1>
+        <p>
+          <FormattedMessage
+            id='page.about.section.our-mission.section-header.content'
+            defaultMessage='We empower animal protection organizations worldwide by providing expert capacity-building services – including technology, creative, and advisory support – at no cost, enabling them to amplify their impact and drive positive change for animals around the world.'
+          />
+        </p>
+        <h1 className='text-5xl md:text-6xl mt-10 mb-5'>
+          <span className='text-4xl font-serif italic  mx-1 font-bold'>
+            Our
+          </span>{' '}
+          <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+            Vision
+          </span>
+        </h1>
+        <p>
+          <FormattedMessage
+            id='page.about.section.our-mission.section-header.vision.content'
+            defaultMessage='A world where every animal protection organization has the tools and support needed to effectively advocate for animals, fostering a global culture of compassion and respect for all living beings.'
+          />
+        </p>
       </FirstSubSection>
+
       <div className='pb-10 m-10'>
         <div className='pb-5'>
           <CustomImage

@@ -18,7 +18,7 @@ const AboutButtons: React.FC = () => {
       <NavButton href='/about/our-mission'>
         <FormattedMessage
           id='page.about.section.navigation.button.label.mission'
-          defaultMessage='OUR MISSION'
+          defaultMessage='OUR MISSION, VISION'
         />
       </NavButton>
       <NavButton href='/about/our-story'>
