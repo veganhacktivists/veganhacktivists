@@ -175,7 +175,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           <p>
             <FormattedMessage
               id='page.index.section.projects.paragraph'
-              defaultMessage='Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values.'
+              defaultMessage="Every tool we release is <b>100% free for the animal advocacy movement</b>. Here's a sample of what we developed in our first five years!"
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
