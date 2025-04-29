@@ -101,41 +101,8 @@
   "page.about.section.our-mission.section-header.content": {
     "message": "We empower animal protection organizations worldwide by providing expert capacity-building services – including technology, creative, and advisory support – at no cost, enabling them to amplify their impact and drive positive change for animals around the world."
   },
-  "page.about.section.our-mission.section-header.image.alt-text": {
-    "message": "Our mission"
-  },
   "page.about.section.our-mission.section-header.vision.content": {
     "message": "A world where every animal protection organization has the tools and support needed to effectively advocate for animals, fostering a global culture of compassion and respect for all living beings."
-  },
-  "page.about.section.our-mission.subsection-0.heading": {
-    "message": "1. We need more data in our movement."
-  },
-  "page.about.section.our-mission.subsection-0.paragraph": {
-    "message": "To determine effectiveness in projects, campaigns, and our work as a whole, meaningful data needs to be tracked and collected. We strongly believe that a data-driven movement will accelerate and elevate our work, which is why we prioritize identifying, gathering, and analyzing data, as well as making it accessible to others."
-  },
-  "page.about.section.our-mission.subsection-1.heading": {
-    "message": "2. We need more competition, too."
-  },
-  "page.about.section.our-mission.subsection-1.paragraph": {
-    "message": "We strongly believe competition is not only healthy but vital in improving our movement's effectiveness. Competition applies healthy pressure on organizations and projects to keep improving and iterating - and this gives us more information on what works."
-  },
-  "page.about.section.our-mission.subsection-2.heading": {
-    "message": "3. We need to be more innovative."
-  },
-  "page.about.section.our-mission.subsection-2.paragraph": {
-    "message": "We believe the movement has the potential to be more innovative in its approaches. We promote outside-the-box thinking and make innovation a core consideration of every part of our work and our processes."
-  },
-  "page.about.section.our-mission.subsection-3.heading": {
-    "message": "4. And we need to start collaborating."
-  },
-  "page.about.section.our-mission.subsection-3.paragraph": {
-    "message": "We aim to help organizations and individuals connect and collaborate in more meaningful ways. We need to leverage our knowledge and network with each other to support our shared goals, whether that means sharing research or data, resources, or generally supporting each other overcome organizational challenges."
-  },
-  "page.about.section.our-mission.subsection-4.heading": {
-    "message": "5. Finally, we need more vegans to become active."
-  },
-  "page.about.section.our-mission.subsection-4.paragraph": {
-    "message": "Only a tiny percentage of the world is vegan, and a fraction within are active. Many organizations encourage non-vegans to adopt veganism through health, environmental, or ethical reasons. We believe that we can also be effective by creating tools to help, inspire, and motivate more vegans to become advocates for the animals."
   },
   "page.about.section.our-story.image.alt-text": {
     "message": "Our story"
@@ -166,9 +133,6 @@
   },
   "page.about.section.our-values.section-header.heading": {
     "message": "Our <b>values</b>"
-  },
-  "page.about.section.our-values.section-header.image.alt-text": {
-    "message": "Our values"
   },
   "page.about.section.our-values.subsection-0.heading": {
     "message": "Commitment to Excellence"
