@@ -500,17 +500,20 @@
   "page.index.next-seo.title-template": {
     "message": "<no-localization>%s | Compassion, Creativity, Code!</no-localization>"
   },
+  "page.index.section.introduction.cta": {
+    "message": "Learn More About Us"
+  },
   "page.index.section.introduction.headline": {
     "message": "We are <no-localization><b>VEGAN HACKTIVISTS</b></no-localization>"
   },
   "page.index.section.introduction.paragraph.1": {
-    "message": "We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations."
+    "message": "We are a global group of animal advocates offering our tech and creative skills for the animal protection movement. Our team is composed of highly-skilled professional software engineers, designers, content creators, and organizational strategists."
   },
   "page.index.section.introduction.paragraph.2": {
-    "message": "Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental."
+    "message": "We empower advocates worldwide by providing innovative, high-quality capacity-building services – including technology, design and advisory support – all at no cost."
   },
   "page.index.section.introduction.paragraph.3": {
-    "message": "Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services."
+    "message": "Since 2019, we have served hundreds of organizations worldwide that are creating change for animals. By providing tailored advisory services, we’ve helped their projects succeed while preventing costly mistakes – saving them time and money."
   },
   "page.index.section.projects.cta": {
     "message": "See Our Work"

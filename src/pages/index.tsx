@@ -129,24 +129,31 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         <p className='pb-5'>
           <FormattedMessage
             id='page.index.section.introduction.paragraph.1'
-            defaultMessage='We are a global community of passionate animal advocates offering our skills in building technology for the animal protection movement through <b>design, development, and data</b>. As capacity builders, we deliver innovative and quality services at no cost to advocates and organizations.'
+            defaultMessage='We are a global group of animal advocates offering our tech and creative skills for the animal protection movement. Our team is composed of highly-skilled professional software engineers, designers, content creators, and organizational strategists.'
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p className='pb-5'>
           <FormattedMessage
             id='page.index.section.introduction.paragraph.2'
-            defaultMessage='Our team is composed of highly-skilled and professional software engineers, designers, data scientists, and content creators. By leveraging our diverse background and skill sets, we design and build <b>data-driven projects</b> that aim to be effective and experimental.'
+            defaultMessage='We empower advocates worldwide by providing innovative, high-quality capacity-building services – including technology, design and advisory support – all at no cost.'
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p>
           <FormattedMessage
             id='page.index.section.introduction.paragraph.3'
-            defaultMessage='Our <b>capacity-building services</b> are how we contribute to the movement. Leveraging our vast network of volunteers, we collaborate with individuals and organizations to offer web development, branding, and advisory services.'
+            defaultMessage='Since 2019, we have served hundreds of organizations worldwide that are creating change for animals. By providing tailored advisory services, we’ve helped their projects succeed while preventing costly mistakes – saving them time and money.'
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
+
+        <DarkButton href='/about' className='w-fit my-8 mx-auto'>
+          <FormattedMessage
+            id='page.index.section.introduction.cta'
+            defaultMessage='Learn More About Us'
+          />
+        </DarkButton>
       </div>
       <Sprite image={cow} />
       <SquareField
