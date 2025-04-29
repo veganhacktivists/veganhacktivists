@@ -521,14 +521,8 @@
   "page.index.section.projects.paragraph": {
     "message": "Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
   },
-  "page.index.section.stage.cta": {
-    "message": "Learn More"
-  },
   "page.index.section.stage.hero.alt": {
     "message": "<no-localization>Compassion, Creativity, Code</no-localization>"
-  },
-  "page.index.section.stage.subline": {
-    "message": "<no-localization>Building for the animal protection movement since 2019</no-localization>"
   },
   "page.index.section.video.cta": {
     "message": "Visit our channel"

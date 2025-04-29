@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
-import heroTagline from '../../public/images/VH-hero-tagline.png';
+import heroTagline from '../../public/images/VH-hero-tagline.svg';
 import { DarkButton, LightButton } from '../components/decoration/buttons';
 import Circle from '../components/decoration/circle';
 import Hero from '../components/decoration/hero';
@@ -95,22 +95,16 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
         alignment='right'
         classNameMapping={{
           container: 'bg-center',
+          content: 'items-center',
+          tagline: 'px-8 max-w-[500px] my-[-1.5rem]',
         }}
       >
-        <div className='relative mx-auto text-2xl text-white md:w-1/2'>
+        {/* <div className='relative mx-auto text-2xl text-white md:w-1/2'>
           <FormattedMessage
             id='page.index.section.stage.subline'
-            defaultMessage='<no-localization>Building for the animal protection movement since 2019</no-localization>'
+            defaultMessage='Strengthening the movement through expert CAPACITY-BUILDING SERVICES'
           />
-        </div>
-        <div className='relative mx-auto mt-10'>
-          <LightButton href='/about'>
-            <FormattedMessage
-              id='page.index.section.stage.cta'
-              defaultMessage='Learn More'
-            />
-          </LightButton>
-        </div>
+        </div> */}
       </Hero>
       <SquareField
         squares={HERO_DECORATION_SQUARES}
