@@ -8,6 +8,7 @@ import type { RequestWithBudget } from 'lib/services/playground/admin';
 import type { Submission } from 'snoowrap';
 
 declare module 'snoowrap' {
+  // @ts-expect-error 2300
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   class RedditContent<T> {
     then: undefined;
