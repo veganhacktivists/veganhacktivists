@@ -5,8 +5,6 @@ import { SessionProvider } from 'next-auth/react';
 import { DefaultSeo } from 'next-seo';
 import { useIntl } from 'react-intl';
 
-import useOnce from '../hooks/useOnce';
-
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 import PageWrapper, { MainWrapper } from 'components/layout/wrapper';

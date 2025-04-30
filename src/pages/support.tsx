@@ -10,13 +10,11 @@ import Hero from '../components/decoration/hero';
 import Sprite, { pig } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { PlainHeader } from '../components/decoration/textBlocks';
-import CustomLink from '../components/decoration/link';
 import DonationCard from '../components/layout/support/donationCard';
 import Crypto from '../components/layout/support/crypto';
 import DonorBoxCard from '../components/layout/support/donorBoxCard';
 
 import ThankYouSection from 'components/layout/support/thankYouSection';
-import VioletStudios from 'components/layout/support/violetStudios';
 import { DarkButton } from 'components/decoration/buttons';
 
 const HERO_DECORATION_SQUARES = [

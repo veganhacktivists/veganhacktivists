@@ -1,15 +1,9 @@
-import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import {
-  FirstSubSection,
-  SubSection,
-} from '../../components/decoration/textBlocks';
+import { FirstSubSection } from '../../components/decoration/textBlocks';
 import AboutLayout from '../../components/layout/about';
-import { pixelPig } from '../../images/separators';
 
-import CustomImage from 'components/decoration/customImage';
 import { DarkButton } from 'components/decoration/buttons';
 
 import type PageWithLayout from '../../types/persistentLayout';

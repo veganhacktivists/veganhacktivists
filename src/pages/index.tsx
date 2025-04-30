@@ -4,17 +4,14 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import heroBackground from '../../public/images/VH-hero-bg.jpg';
 import heroTagline from '../../public/images/VH-hero-tagline.svg';
-import { DarkButton, LightButton } from '../components/decoration/buttons';
-import Circle from '../components/decoration/circle';
+import { DarkButton } from '../components/decoration/buttons';
 import Hero from '../components/decoration/hero';
 import Sprite, { cow, goat } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
 import { SectionHeader } from '../components/decoration/textBlocks';
-import YoutubeVideo from '../components/decoration/youtubeVideo';
 import { GrantsCallToAction } from '../components/layout/grants';
 import FeaturedProject from '../components/layout/index/featuredProject';
 import LastBlogEntries from '../components/layout/index/lastBlogEntries';
-import JoinTheTeam from '../components/layout/joinTheTeam';
 import { pixelHeart } from '../images/separators';
 import { getBlogEntries, getFeaturedProjects } from '../lib/cms/helpers';
 
