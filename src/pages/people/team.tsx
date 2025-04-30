@@ -1,18 +1,13 @@
 import { NextSeo } from 'next-seo';
 import React, { useMemo } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import PeopleLayout from '../../components/layout/people';
-import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { getContents } from '../../lib/cms';
-import SquareField from '../../components/decoration/squares';
 import { getActiveTeams } from '../../lib/cms/helpers';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import RichText from '../../components/decoration/richText';
 import SocialLinks from '../../components/layout/team/socialLinks';
-import { pixelHeart } from '../../images/separators';
-
-import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamFields } from '../../types/generated/contentful';
@@ -192,13 +187,6 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   );
 };
 
-const TEAM_SQUARES = [
-  { color: 'grey-light', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-lighter', size: 16, left: 16, top: 0 },
-  { color: 'grey-light', size: 16, right: 0, bottom: 0 },
-  { color: 'white', size: 16, right: 0, top: 0 },
-];
-
 interface TeamProps {
   teams: ITeam[];
   members: ITeamMember[];
@@ -216,29 +204,6 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
       />
       <div className='m-10'>
         <MemberList members={members} teams={teams} />
-      </div>
-      <SquareField squares={TEAM_SQUARES} className='hidden md:block' />
-      <div className='px-10 pt-16 pb-10 bg-gray-background'>
-        <CustomImage
-          src={pixelHeart.src}
-          width={pixelHeart.width / 3}
-          height={pixelHeart.height / 3}
-          alt={intl.formatMessage({
-            id: 'page.people.section.team.community.image.alt-text',
-            defaultMessage: 'Our community',
-          })}
-        />
-        <FirstSubSection
-          header={intl.formatMessage({
-            id: 'page.people.section.team.community.heading',
-            defaultMessage: 'Our <b>community</b>',
-          })}
-        >
-          <FormattedMessage
-            id='page.people.section.team.community.paragraph'
-            defaultMessage='We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more.'
-          />
-        </FirstSubSection>
       </div>
     </>
   );

@@ -8,8 +8,6 @@ import heroBackground from '../../../public/images/people/VH-cow-hero-nocircles.
 import heroTagline from '../../../public/images/people/VH-team-hero-text.png';
 import Sprite, { duck } from '../decoration/sprite';
 
-import JoinTheTeam from './joinTheTeam';
-
 import type { Layout } from '../../types/persistentLayout';
 
 export enum Site {
@@ -106,7 +104,7 @@ const PeopleLayout: Layout = ({ children }) => {
         ]}
         className='hidden md:block'
       />
-      <JoinTheTeam />
+      {/* <JoinTheTeam /> */}
     </>
   );
 };

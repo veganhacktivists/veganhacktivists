@@ -2,26 +2,15 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import SquareField from '../../components/decoration/squares';
 import PeopleLayout from '../../components/layout/people';
 import { FirstSubSection } from '../../components/decoration/textBlocks';
 import { getContents } from '../../lib/cms';
 import ContentfulImage from '../../components/layout/contentfulImage';
 import SocialLinks from '../../components/layout/team/socialLinks';
-import { pixelHeart } from '../../images/separators';
-
-import CustomImage from 'components/decoration/customImage';
 
 import type PageWithLayout from '../../types/persistentLayout';
 import type { ITeamMember } from '../../types/generated/contentful';
 import type { GetStaticProps } from 'next';
-
-const TEAM_SQUARES = [
-  { color: 'grey-light', size: 16, left: 0, bottom: 0 },
-  { color: 'grey-lighter', size: 16, left: 16, top: 0 },
-  { color: 'grey-light', size: 16, right: 0, bottom: 0 },
-  { color: 'white', size: 16, right: 0, top: 0 },
-];
 
 export const getStaticProps: GetStaticProps = async () => {
   const advisors = await getContents<ITeamMember>({
@@ -93,29 +82,6 @@ const Advisors: PageWithLayout<AdvisorsProps> = ({ advisors }) => {
             </div>
           ))}
         </div>
-      </div>
-      <SquareField squares={TEAM_SQUARES} className='hidden md:block' />
-      <div className='pt-16 pb-10 bg-grey-light'>
-        <CustomImage
-          src={pixelHeart.src}
-          width={pixelHeart.width / 3}
-          height={pixelHeart.height / 3}
-          alt={intl.formatMessage({
-            id: 'page.people.section.advisors.community.image.alt-text',
-            defaultMessage: 'Our community',
-          })}
-        />
-        <FirstSubSection
-          header={intl.formatMessage({
-            id: 'page.people.section.advisors.community.heading',
-            defaultMessage: 'Our <b>community</b>',
-          })}
-        >
-          <FormattedMessage
-            id='page.people.section.advisors.community.paragraph'
-            defaultMessage='We are more than a group of volunteers; we are a community tethered by shared values and invested in a vision of a better world for animals. We believe in a community-first approach: one that is supportive, growth-oriented, and accountable to each other. If this resonates with you, scroll down to learn more.'
-          />
-        </FirstSubSection>
       </div>
     </>
   );
