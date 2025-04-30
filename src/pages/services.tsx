@@ -251,7 +251,7 @@ const Services: React.FC = () => {
             />
           </p>
         </FirstSubSection>
-        <div className='flex flex-col items-center mx-auto mb-32 text-2xl md:space-y-20'>
+        <div className='flex flex-col items-center mx-auto mb-32 text-2xl md:space-y-20 max-w-[95rem]'>
           {getServiceBlockProps(intl).map((service, index) => (
             <Service
               key={service.title}
