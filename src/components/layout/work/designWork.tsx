@@ -39,7 +39,7 @@ const DesignWork: React.FC = () => {
               <div className='text-lg pt-8 pb-4'>
                 <FormattedMessage
                   id='page.our-work.section.design-work.content'
-                  defaultMessage='Our sister organization, <highlight><no-localization>Violet Studios</no-localization></highlight>, provides design services at no charge for animal advocates and organizations. Whether it’s branding, document design, web design, or other high-impact areas of design, we’re here to help vegan organizations look sharp, build trust, increase reputation, and unite people.'
+                  defaultMessage='Our sister organization <highlight><no-localization>Violet Studios</no-localization></highlight> offers free design services for animal advocates and organizations. From branding and web design to motion and document design, Violet is here to help organizations look sharp, build trust, and engage their audiences.'
                   values={{
                     highlight: (chunk) => (
                       <span className='underline font-bold'>{chunk}</span>

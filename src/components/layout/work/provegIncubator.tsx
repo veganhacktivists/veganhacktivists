@@ -6,7 +6,6 @@ import ProvegIncubatorImage from '../../../../public/images/work/PV_Incubator_Lo
 import CustomImage from 'components/decoration/customImage';
 import SquareField from 'components/decoration/squares';
 import { SectionHeader } from 'components/decoration/textBlocks';
-import { DarkButton } from 'components/decoration/buttons';
 
 const TOP_DECORATION_SQUARES = [
   { color: 'yellow', size: 16, right: 0, top: 0 },
@@ -30,29 +29,17 @@ const ProvegIncubator: React.FC = () => {
               <SectionHeader
                 header={intl.formatMessage({
                   id: 'page.our-work.section.proveg-incubator.section-header.headline',
-                  defaultMessage: '<b>ACCELERATE YOUR AI IDEA FOR ANIMALS</b>',
+                  defaultMessage: '<b>ALL EYES ON AI</b>',
                 })}
                 rootClassName='text-left mx-auto text-center lg:text-left w-full mb-0'
               >
                 <p className='text-xl'>
                   <FormattedMessage
                     id='page.our-work.section.proveg-incubator.content'
-                    defaultMessage='Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!'
-                    values={{ break: <br /> }}
+                    defaultMessage='In 2024, we partnered with ProVeg Incubator to support the development of impactful AI solutions for the animal advocacy movement. By combining our expertise, we worked to identify and accelerate the most promising ideas using AI to transform the food system and improve the lives of animals. Together, we reviewed applications, advised participants, and continue to support select projects into 2025.'
                   />
                 </p>
               </SectionHeader>
-
-              <DarkButton
-                href='https://provegincubator.com/kickstartingforgood/'
-                newTab
-                className='w-fit mx-auto lg:mx-0'
-              >
-                <FormattedMessage
-                  id='page.our-work.section.proveg-incubator.cta'
-                  defaultMessage='Apply now'
-                />
-              </DarkButton>
             </div>
             <div className='px-10 lg:p-0 lg:basis-[50%]'>
               <CustomImage

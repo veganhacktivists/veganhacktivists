@@ -3,10 +3,9 @@ import { useIntl } from 'react-intl';
 
 import WorkHero from 'components/layout/work/workHero';
 import OurWork from 'components/layout/work/ourWork';
-import FeaturedProjects from 'components/layout/work/featuredProjects';
+import LegacyProjects from 'components/layout/work/legacyProjects';
 import OtherProjects from 'components/layout/work/otherProjects';
 import DesignWork from 'components/layout/work/designWork';
-import HoursVolunteered from 'components/layout/work/hoursVolunteered';
 import KindWords from 'components/layout/work/kindWords';
 import OurCommunities from 'components/layout/work/ourCommunities';
 import StateOfData from 'components/layout/work/stateOfData';
@@ -67,13 +66,11 @@ const Work = ({
 
       <OurWork />
 
-      <FeaturedProjects featuredProjects={featuredProjects} />
+      <LegacyProjects featuredProjects={featuredProjects} />
 
       <OtherProjects projects={otherProjects} />
 
       <DesignWork />
-
-      <HoursVolunteered />
 
       <KindWords />
 

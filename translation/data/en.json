@@ -606,16 +606,16 @@
     "message": "Visit <no-localization>violetstudios.org</no-localization>"
   },
   "page.our-work.section.design-work.content": {
-    "message": "Our sister organization, <highlight><no-localization>Violet Studios</no-localization></highlight>, provides design services at no charge for animal advocates and organizations. Whether it’s branding, document design, web design, or other high-impact areas of design, we’re here to help vegan organizations look sharp, build trust, increase reputation, and unite people."
+    "message": "Our sister organization <highlight><no-localization>Violet Studios</no-localization></highlight> offers free design services for animal advocates and organizations. From branding and web design to motion and document design, Violet is here to help organizations look sharp, build trust, and engage their audiences."
   },
   "page.our-work.section.design-work.headline": {
     "message": "Our <b>Design Work</b>"
   },
   "page.our-work.section.featured-projects.section-header.content": {
-    "message": "Here are just a few of the projects we’ve built for the movement and in collaboration with other partners."
+    "message": "Since its inception, VH has continuously evolved to meet the movement’s needs. What began as a modest idea to leverage tech for animals soon grew into an organization exploring novel projects and ideas. Over time, that work became the foundation for who we are today: a trusted provider of high-tech services within the movement. These early legacy projects helped shape VH into what it is now."
   },
   "page.our-work.section.featured-projects.section-header.headline": {
-    "message": "Featured <b>PROJECTS</b>"
+    "message": "Legacy <b>PROJECTS</b>"
   },
   "page.our-work.section.featured-projects.section.button.visit-project-page.label": {
     "message": "Visit"
@@ -627,7 +627,7 @@
     "message": "Applicants"
   },
   "page.our-work.section.grant-program.section-header.content": {
-    "message": "Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date."
+    "message": "Since 2021, we've been partnering with The Pollination Project to offer seed funding to independent activists and organizations. Here's what we've accomplished to date."
   },
   "page.our-work.section.grant-program.section-header.headline": {
     "message": "Our seed funding <b>GRANT PROGRAM</b>"
@@ -714,16 +714,10 @@
     "message": "<no-localization>{count}</no-localization> members"
   },
   "page.our-work.section.our-communities.section-header.content": {
-    "message": "We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism"
-  },
-  "page.our-work.section.our-work.cta.join": {
-    "message": "Volunteer with us"
+    "message": "We manage these online vegan communities with over 2 million members, fostering positive spaces for connection, support, and activism."
   },
   "page.our-work.section.our-work.cta.services": {
     "message": "Explore our services"
-  },
-  "page.our-work.section.our-work.cta.support": {
-    "message": "Support our work"
   },
   "page.our-work.section.our-work.section-header.content": {
     "message": "We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services."
@@ -738,13 +732,10 @@
     "message": "Volunteer"
   },
   "page.our-work.section.proveg-incubator.content": {
-    "message": "Vegan Hacktivists and Violet Studios is collaborating with ProVeg’s Kickstarting for Good incubator to leverage Artificial Intelligence (AI) for transforming our food system. Together, we are looking for the most impactful approaches and best talent in this area! {break}{break}Join us if you’re ready to bring to life ideas that can significantly enhance the global food ecosystem. Applications for our 2024 cohort are now open until May 26th!"
-  },
-  "page.our-work.section.proveg-incubator.cta": {
-    "message": "Apply now"
+    "message": "In 2024, we partnered with ProVeg Incubator to support the development of impactful AI solutions for the animal advocacy movement. By combining our expertise, we worked to identify and accelerate the most promising ideas using AI to transform the food system and improve the lives of animals. Together, we reviewed applications, advised participants, and continue to support select projects into 2025."
   },
   "page.our-work.section.proveg-incubator.section-header.headline": {
-    "message": "<b>ACCELERATE YOUR AI IDEA FOR ANIMALS</b>"
+    "message": "<b>ALL EYES ON AI</b>"
   },
   "page.our-work.section.sharing-knowledge-and-support.conferences.1.caption": {
     "message": "<no-localization>James Morgan</no-localization> at <no-localization>Erasmus University</no-localization> in Rotterdam"
@@ -759,7 +750,7 @@
     "message": "Capacity Building Meetup"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "message": "We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
+    "message": "We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on Instagram to stay updated on where we’ll be next!"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.headline": {
     "message": "Sharing Our <b>knowledge & support</b>"

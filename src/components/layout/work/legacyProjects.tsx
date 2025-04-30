@@ -119,7 +119,7 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
   );
 };
 
-const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
+const LegacyProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
   const intl = useIntl();
 
   return (
@@ -135,13 +135,13 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
             className='mb-2'
             header={intl.formatMessage({
               id: 'page.our-work.section.featured-projects.section-header.headline',
-              defaultMessage: 'Featured <b>PROJECTS</b>',
+              defaultMessage: 'Legacy <b>PROJECTS</b>',
             })}
           >
             <p className='text-xl'>
               <FormattedMessage
                 id='page.our-work.section.featured-projects.section-header.content'
-                defaultMessage='Here are just a few of the projects we’ve built for the movement and in collaboration with other partners.'
+                defaultMessage='Since its inception, VH has continuously evolved to meet the movement’s needs. What began as a modest idea to leverage tech for animals soon grew into an organization exploring novel projects and ideas. Over time, that work became the foundation for who we are today: a trusted provider of high-tech services within the movement. These early legacy projects helped shape VH into what it is now.'
               />
             </p>
           </SectionHeader>
@@ -168,4 +168,4 @@ const FeaturedProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
   );
 };
 
-export default FeaturedProjects;
+export default LegacyProjects;

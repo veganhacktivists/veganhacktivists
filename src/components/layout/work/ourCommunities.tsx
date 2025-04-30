@@ -55,7 +55,7 @@ const OurCommunities: React.FC = () => {
           <p className='text-xl'>
             <FormattedMessage
               id='page.our-work.section.our-communities.section-header.content'
-              defaultMessage='We manage these large communities of passionate vegans and activists, helping us empower a new age of volunteers and activism'
+              defaultMessage='We manage these online vegan communities with over 2 million members, fostering positive spaces for connection, support, and activism.'
             />
           </p>
         </SectionHeader>

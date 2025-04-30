@@ -47,7 +47,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               <p className='text-xl max-w-prose'>
                 <FormattedMessage
                   id='page.our-work.section.sharing-knowledge-and-support.section-header.content'
-                  defaultMessage="We're often speaking at animal protection and <no-localization>EA</no-localization> related conferences every year and around the world! Be sure to look out for our booth or speakers, we'd love to meet you and see where we might be able to support your work. Follow us on <no-localization><link>Instagram</link></no-localization> to see where we'll be next!"
+                  defaultMessage='We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on Instagram to stay updated on where we’ll be next!'
                   values={{
                     link: (chunk) => (
                       <CustomLink href='https://instagram.com/veganhacktivists'>

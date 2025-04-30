@@ -216,18 +216,6 @@ const OurWork: React.FC = () => {
                 defaultMessage='Explore our services'
               />
             </DarkButton>
-            <DarkButton href='/join' className='font-mono md:w-fit'>
-              <FormattedMessage
-                id='page.our-work.section.our-work.cta.join'
-                defaultMessage='Volunteer with us'
-              />
-            </DarkButton>
-            <DarkButton href='/support' className='font-mono md:w-fit'>
-              <FormattedMessage
-                id='page.our-work.section.our-work.cta.support'
-                defaultMessage='Support our work'
-              />
-            </DarkButton>
           </div>
         </div>
       </div>

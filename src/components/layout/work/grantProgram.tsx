@@ -48,7 +48,7 @@ const GrantProgram: React.FC = () => {
                     <p className='text-xl text-left'>
                       <FormattedMessage
                         id='page.our-work.section.grant-program.section-header.content'
-                        defaultMessage='Last year, we announced a partnership with <no-localization>The Pollination Project</no-localization> to offer seed funding to individuals and grassroots organizations. Here’s what we’ve accomplished to date.'
+                        defaultMessage="Since 2021, we've been partnering with The Pollination Project to offer seed funding to independent activists and organizations. Here's what we've accomplished to date."
                       />
                     </p>
                     <DarkButton href='/grants' className='w-full lg:w-1/2'>
