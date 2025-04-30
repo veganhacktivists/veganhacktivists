@@ -104,29 +104,41 @@
   "page.about.section.our-mission.section-header.vision.content": {
     "message": "A world where every animal protection organization has the tools and support needed to effectively advocate for animals, fostering a global culture of compassion and respect for all living beings."
   },
-  "page.about.section.our-story.image.alt-text": {
-    "message": "Our story"
+  "page.about.section.our-story.cta-services": {
+    "message": "Learn about our services"
   },
-  "page.about.section.our-story.intro.heading": {
+  "page.about.section.our-story.heading": {
     "message": "Our <b>story</b>"
-  },
-  "page.about.section.our-story.intro.paragraph": {
-    "message": "In 2019, we launched our first project with a few volunteers who were passionate about activism. We’ve since grown into a community of highly-skilled and professional software engineers, designers, data scientists, and content creators supporting the movement. We started with the hopes of catalyzing people to action and inspiring them to become advocates for animals — and we are committed to this founding principle. Our digital skills fuel our activism."
   },
   "page.about.section.our-story.next-seo.title": {
     "message": "Our Story"
   },
-  "page.about.section.our-story.paragraph.0": {
-    "message": "We are the <no-localization>Vegan Hacktivists</no-localization>. Our skill sets — whether it’s writing code, creating a brand identity, or analyzing data — are as diverse as the areas where we come from and where we live. We collaborate with each other to build projects that are data-driven, experimental, and effective. Our core team consists of director and senior-level team members who have experience and expertise in engineering, architecture, design, data, operations, and communications. Our volunteer base consists of teams managed by leads; each team has ownership of a project in which they are actively building and maintaining."
-  },
   "page.about.section.our-story.paragraph.1": {
-    "message": "Our organization takes a community-first approach. Given that our work requires patience and commitment, we energize our volunteers by creating a supportive environment that enables them to be engaged, effective, and impactful. As a distributed organization, we want to build a sense of community aligned by values and connected through meaningful and playful interactions. Each team is represented with a <link>fruit or vegetable</link> (taking plant-based to another level), and we balance our work with games, get-togethers, and community calls. Our volunteers are, after all, at the heart of our organization."
+    "message": "In just over five years, Vegan Hacktivists (VH) has grown into a leading capacity-building organization, providing free, high-quality tech and creative services for the animal advocacy movement."
   },
   "page.about.section.our-story.paragraph.2": {
-    "message": "Over the years, our organization has changed with the needs of our movement. While we now primarily focus on providing capacity-building services, we continue to build technology that we believe to be innovative and highly needed in the movement. Now, we work extensively with advocates, organizations, and those working at the frontlines to help improve their day-to-day operations, brand and identity, and technology. In doing so, we are helping to amplify their message and elevate their work to a wider audience."
+    "message": "As the movement’s needs evolve, so does VH’s work – which is why you may know us for many different projects."
   },
   "page.about.section.our-story.paragraph.3": {
-    "message": "Through it all, our North Star remains the same: <no-localization>{break}</no-localization> we do it for the animals."
+    "message": "We began by building innovative tools to support vegans in their outreach, and have since grown into a team that develops expert services for the movement. While building technology remains a core part of our work, our focus has shifted toward solutions that address the movement’s most pressing needs."
+  },
+  "page.about.section.our-story.paragraph.4.heading": {
+    "message": "Today, we’re especially proud of the flagship programs we’ve designed and continue to manage, including:"
+  },
+  "page.about.section.our-story.paragraph.4.list.0": {
+    "message": "Violet Studios, our sister organization, which offers authentic design and branding services to the movement at no cost."
+  },
+  "page.about.section.our-story.paragraph.4.list.1": {
+    "message": "Granti, a platform that streamlines grantmaking for both funders and grantees."
+  },
+  "page.about.section.our-story.paragraph.4.list.2": {
+    "message": "Playground, a platform that connects professional animal advocates with skilled volunteers."
+  },
+  "page.about.section.our-story.paragraph.4.list.3": {
+    "message": "Our growth has been driven by innovation, ability to adapt, and the dedication of our incredible volunteers."
+  },
+  "page.about.section.our-story.paragraph.5": {
+    "message": "Many of our team members began as volunteers and have since become part of our core teams at VH and Violet, contributing their skills in expanded and ongoing roles. We're also proud to work with over 2,600 volunteers across our internal and Playground networks. Since 2019, we’ve supported hundreds of organizations worldwide – improving their operations, elevating their brands, and helping them reach wider audiences through advanced digital tools."
   },
   "page.about.section.our-values.next-seo.title": {
     "message": "Our Values"
