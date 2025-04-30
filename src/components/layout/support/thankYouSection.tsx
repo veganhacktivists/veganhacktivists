@@ -135,18 +135,18 @@ const getOrgs = (intl: IntlShape): Org[] => [
   {
     title: intl.formatMessage({
       id: 'page.support.section.thank-you.organizations.7.title',
-      defaultMessage: '<no-localization>Builders Vision</no-localization>',
+      defaultMessage: '<no-localization>Navigation Fund</no-localization>',
     }),
     description: intl.formatMessage({
       id: 'page.support.section.thank-you.organizations.7.description',
       defaultMessage:
-        'Builders Vision is an impact platform that supports a range of philanthropic and investment efforts. Builders Vision aims to collaborate with innovative thinkers and organizations to drive positive change in these areas.',
+        'The Navigation Fund offers grants to high-impact organizations and projects that are taking bold action and making significant changes in key areas, such as open science, farmed animal welfare, criminal justice, digital sentience, and climate change.',
     }),
     linkLabel: intl.formatMessage({
       id: 'page.support.section.thank-you.organizations.7.link-label',
       defaultMessage: 'Learn more',
     }),
-    linkUrl: 'https://www.buildersvision.com/',
+    linkUrl: 'https://www.navigation.org/',
   },
   {
     title: intl.formatMessage({
@@ -258,7 +258,7 @@ const ThankYouSection: React.FC = () => {
         <Paragraph>
           <FormattedMessage
             id='page.support.section.thank-you.introduction'
-            defaultMessage='We want to take a moment to thank the organizations below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work.'
+            defaultMessage='We’re incredibly grateful for the organizations who support our work. Thank you for believing in our mission and making this work possible.'
           />
         </Paragraph>
 

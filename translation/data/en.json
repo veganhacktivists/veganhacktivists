@@ -963,19 +963,16 @@
     "message": "Other"
   },
   "page.support.section.support-us.header.content": {
-    "message": "If you believe in the work we do and would like to support us, please consider making a donation. With your gift, we can make a greater impact and change the world for our animal friends."
+    "message": "Equip the animal advocacy movement with the support it needs – technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals."
   },
   "page.support.section.support-us.header.title": {
-    "message": "Support Us"
-  },
-  "page.support.section.support-us.subtitle": {
-    "message": "We prefer a <bold>monthly donation via Donorbox</bold> as that gives us the most stability, but we also appreciate one-time donations! If you would like to make a larger contribution of $1,000 or more (thanks!), please <contact-link>contact us</contact-link> for tax deductible options via our fiscal sponsor."
+    "message": "Donate to strengthen our movement"
   },
   "page.support.section.thank-you.headline": {
     "message": "Thank You"
   },
   "page.support.section.thank-you.introduction": {
-    "message": "We want to take a moment to thank the organizations below for their support—for those who have awarded us grants or contributed donations, whether one-time or recurring. We are grateful for your belief in our vision and support for our work."
+    "message": "We’re incredibly grateful for the organizations who support our work. Thank you for believing in our mission and making this work possible."
   },
   "page.support.section.thank-you.organizations.0.description": {
     "message": "Stray Dog Institute focuses on cultivating dignity, justice, and sustainability in the food system, providing funding, strategic research, and collaboration opportunities for a more compassionate world for people, animals, and the environment."
@@ -1041,13 +1038,13 @@
     "message": "<no-localization>EA Animal Welfare Fund</no-localization>"
   },
   "page.support.section.thank-you.organizations.7.description": {
-    "message": "Builders Vision is an impact platform that supports a range of philanthropic and investment efforts. Builders Vision aims to collaborate with innovative thinkers and organizations to drive positive change in these areas."
+    "message": "The Navigation Fund offers grants to high-impact organizations and projects that are taking bold action and making significant changes in key areas, such as open science, farmed animal welfare, criminal justice, digital sentience, and climate change."
   },
   "page.support.section.thank-you.organizations.7.link-label": {
     "message": "Learn more"
   },
   "page.support.section.thank-you.organizations.7.title": {
-    "message": "<no-localization>Builders Vision</no-localization>"
+    "message": "<no-localization>Navigation Fund</no-localization>"
   },
   "page.support.section.thank-you.organizations.8.description": {
     "message": "Phauna funds and seeds ambitious animal rights organizations and individuals working to end human exploitation of other species. Their focus includes increasing the capacity, endurance, and power of the animal rights movement, with a particular interest in liberation and culture change."
