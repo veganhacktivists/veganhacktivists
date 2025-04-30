@@ -116,7 +116,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.2.button-label',
         defaultMessage: 'Contact us for advice',
       }),
-      href: '#contact-us',
+      href: 'https://www.violetstudios.org/apply-for-support',
     },
   },
   {
@@ -158,7 +158,7 @@ const getServiceBlockProps = (
         id: 'page.services.section.service-block.4.button-label',
         defaultMessage: "Let's chat about your idea",
       }),
-      href: 'https://www.violetstudios.org/apply-for-support',
+      href: '#contact-us',
     },
   },
 ];
