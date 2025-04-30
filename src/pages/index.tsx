@@ -85,7 +85,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           alt: intl.formatMessage({
             id: 'page.index.section.stage.hero.alt',
             defaultMessage:
-              '<no-localization>Compassion, Creativity, Code</no-localization>', // should be updated to match the text in the image
+              '<no-localization>Empowering the movement through expert tech services</no-localization>',
           }),
         }}
         alignment='right'
@@ -94,14 +94,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           content: 'items-center',
           tagline: 'px-8 max-w-[500px] my-[-1.5rem]',
         }}
-      >
-        {/* <div className='relative mx-auto text-2xl text-white md:w-1/2'>
-          <FormattedMessage
-            id='page.index.section.stage.subline'
-            defaultMessage='Strengthening the movement through expert CAPACITY-BUILDING SERVICES'
-          />
-        </div> */}
-      </Hero>
+      />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
         className='hidden md:block'
