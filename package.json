@@ -70,7 +70,7 @@
     "react-error-boundary": "^3.1.4",
     "react-highlight-words": "^0.18.0",
     "react-hook-form": "^7.39.4",
-    "react-intl": "^6.5.5",
+    "react-intl": "^7.1.11",
     "react-modal": "^3.16.1",
     "react-qr-code": "^2.0.8",
     "react-select": "^5.6.1",
@@ -130,7 +130,7 @@
     "prisma": "5.6.0",
     "tailwind-scrollbar": "^3.0.4",
     "ts-node": "^10.9.1",
-    "typescript": "5.3.2"
+    "typescript": "5.8.3"
   },
   "optionalDependencies": {
     "contentful-management": "^10.20.1",

@@ -948,16 +948,19 @@
     "message": "Services"
   },
   "page.services.section.contact.content": {
-    "message": "If you'd like to discuss any of our service offerings, please use our our contact form to get in touch. We do our best to promptly respond to every inquiry."
+    "message": "If you’d like to learn more about how we can support your work, reach out via our contact form. We aim to respond to all inquiries as quickly as possible."
   },
   "page.services.section.hero.image-alt": {
     "message": "Supporting the Animal Protection Movement"
   },
   "page.services.section.our-services.content.0": {
-    "message": "As capacity builders, we offer our skills and services to the animal protection movement. From development and design to content creation, volunteers, and operational advice, we're here to help elevate your work for the animals."
+    "message": "Whether you’re looking for pro-bono hands-on support, strategic guidance, or reassurance that you’re on the right track in your work for animals, we’re here to help."
   },
   "page.services.section.our-services.content.1": {
-    "message": "Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget."
+    "message": "By leveraging our specialized expertise and understanding of the movement from within, we can help you work more efficiently, save time and money, and further your mission."
+  },
+  "page.services.section.our-services.content.2": {
+    "message": "We offer a range of free services tailored to your needs through VH and our independent programs."
   },
   "page.services.section.our-services.header.text": {
     "message": "Our <b>services</b>"
@@ -966,16 +969,13 @@
     "message": "Apply for a free website"
   },
   "page.services.section.service-block.0.content": {
-    "message": "If you're an independent activist or organization with little to no funding, you're the ones we want to help! We support advocates who have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves."
+    "message": "If you're an independent advocate or organization with limited or no funding, we're here to help. We provide free website design and development support for those who may not have the resources, time, or expertise to build it themselves."
   },
   "page.services.section.service-block.0.title": {
     "message": "Websites"
   },
-  "page.services.section.service-block.1.button-label": {
-    "message": "Apply for free design support"
-  },
   "page.services.section.service-block.1.content": {
-    "message": "Our sister organization, Violet Studios, offers several design services across branding, web design, document design, and more. They collaborate closely with you to understand who you are and what your needs are, so that they can best curate your digital presence."
+    "message": "Our sister organization, <link>Violet Studios</link>, offers free design services tailored to your needs. From branding and web design to animation, social media support, and document design, Violet works closely with you to create visuals that align with your mission and engage your audience."
   },
   "page.services.section.service-block.1.title": {
     "message": "Design"
@@ -984,16 +984,16 @@
     "message": "Let's chat about your idea"
   },
   "page.services.section.service-block.2.content": {
-    "message": "Do you have an idea that would help bring us closer to a vegan world? Whether it's an app, event, or media that you are interested in producing, we'll help get the resources you need to get your idea off the ground. If the concept is aligned with our work, we'd be happy to explore partnerships."
+    "message": "If you have an online or tech-focused idea for the movement that isn’t covered above, we might be able to help!"
   },
   "page.services.section.service-block.2.title": {
-    "message": "Projects"
+    "message": "Additional Projects"
   },
   "page.services.section.service-block.3.button-label": {
     "message": "Learn about our grant program"
   },
   "page.services.section.service-block.3.content": {
-    "message": "We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals."
+    "message": "We connect you with funders providing up to $1,000 in seed funding for your advocacy. We’re looking for individuals and groups whose primary purpose is to end the suffering and exploitation of farmed animals."
   },
   "page.services.section.service-block.3.title": {
     "message": "Funding"
@@ -1002,7 +1002,7 @@
     "message": "Contact us for advice"
   },
   "page.services.section.service-block.4.content": {
-    "message": "Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising."
+    "message": "Our team brings expertise in tech, design, communications, and nonprofit operations to support advocates and organizations. Whether you need strategic guidance on technology, marketing, fundraising, or overall strategy, we're here to help you navigate challenges and succeed – all at no cost."
   },
   "page.services.section.service-block.4.title": {
     "message": "Advice"

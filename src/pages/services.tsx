@@ -16,9 +16,8 @@ import fundingIcon from '../../public/images/services/Services-icon-funding.png'
 import projectIcon from '../../public/images/services/Services-icon-project.png';
 import webIcon from '../../public/images/services/Services-icon-web.png';
 import designIcon from '../../public/images/services/Services-icon-design.png';
-import PixelBulb from '../../public/images/VH_PixelBulb.png';
 
-import CustomImage from 'components/decoration/customImage';
+import CustomLink from 'components/decoration/link';
 
 import type { IntlShape } from 'react-intl';
 import type { StaticImageData } from 'next/image';
@@ -56,7 +55,7 @@ const getServiceBlockProps = (
     content: intl.formatMessage({
       id: 'page.services.section.service-block.0.content',
       defaultMessage:
-        "If you're an independent activist or organization with little to no funding, you're the ones we want to help! We support advocates who have few resources dedicated to website design, development, and/or have limited knowledge or time to build it themselves.",
+        "If you're an independent advocate or organization with limited or no funding, we're here to help. We provide free website design and development support for those who may not have the resources, time, or expertise to build it themselves.",
     }),
     icon: webIcon,
     iconBgColor: 'magenta',
@@ -74,39 +73,41 @@ const getServiceBlockProps = (
       id: 'page.services.section.service-block.1.title',
       defaultMessage: 'Design',
     }),
-    content: intl.formatMessage({
-      id: 'page.services.section.service-block.1.content',
-      defaultMessage:
-        'Our sister organization, Violet Studios, offers several design services across branding, web design, document design, and more. They collaborate closely with you to understand who you are and what your needs are, so that they can best curate your digital presence.',
-    }),
+    content: intl.formatMessage(
+      {
+        id: 'page.services.section.service-block.1.content',
+        defaultMessage:
+          'Our sister organization, <link>Violet Studios</link>, offers free design services tailored to your needs. From branding and web design to animation, social media support, and document design, Violet works closely with you to create visuals that align with your mission and engage your audience.',
+      },
+      {
+        link: (chunks) => (
+          <CustomLink href='https://www.violetstudios.org/'>
+            {chunks}
+          </CustomLink>
+        ),
+      },
+    ),
     icon: designIcon,
     iconBgColor: 'yellow-dark',
     iconAccentColor: 'yellow-orange',
-    button: {
-      text: intl.formatMessage({
-        id: 'page.services.section.service-block.1.button-label',
-        defaultMessage: 'Apply for free design support',
-      }),
-      href: 'https://violetstudios.org',
-    },
   },
   {
     title: intl.formatMessage({
-      id: 'page.services.section.service-block.2.title',
-      defaultMessage: 'Projects',
+      id: 'page.services.section.service-block.4.title',
+      defaultMessage: 'Advice',
     }),
     content: intl.formatMessage({
-      id: 'page.services.section.service-block.2.content',
+      id: 'page.services.section.service-block.4.content',
       defaultMessage:
-        "Do you have an idea that would help bring us closer to a vegan world? Whether it's an app, event, or media that you are interested in producing, we'll help get the resources you need to get your idea off the ground. If the concept is aligned with our work, we'd be happy to explore partnerships.",
+        "Our team brings expertise in tech, design, communications, and nonprofit operations to support advocates and organizations. Whether you need strategic guidance on technology, marketing, fundraising, or overall strategy, we're here to help you navigate challenges and succeed – all at no cost.",
     }),
-    icon: projectIcon,
-    iconBgColor: 'green',
-    iconAccentColor: 'green-dark',
+    icon: adviceIcon,
+    iconBgColor: 'orange',
+    iconAccentColor: 'orange-dark',
     button: {
       text: intl.formatMessage({
-        id: 'page.services.section.service-block.2.button-label',
-        defaultMessage: "Let's chat about your idea",
+        id: 'page.services.section.service-block.4.button-label',
+        defaultMessage: 'Contact us for advice',
       }),
       href: '#contact-us',
     },
@@ -119,7 +120,7 @@ const getServiceBlockProps = (
     content: intl.formatMessage({
       id: 'page.services.section.service-block.3.content',
       defaultMessage:
-        'We connect you with funders providing up to $1,000 USD in seed funding for animal rights activism! We seek individual and groups whose primary purpose is to help reduce suffering for farmed animals.',
+        'We connect you with funders providing up to $1,000 in seed funding for your advocacy. We’re looking for individuals and groups whose primary purpose is to end the suffering and exploitation of farmed animals.',
     }),
     icon: fundingIcon,
     iconBgColor: 'yellow',
@@ -134,21 +135,21 @@ const getServiceBlockProps = (
   },
   {
     title: intl.formatMessage({
-      id: 'page.services.section.service-block.4.title',
-      defaultMessage: 'Advice',
+      id: 'page.services.section.service-block.2.title',
+      defaultMessage: 'Additional Projects',
     }),
     content: intl.formatMessage({
-      id: 'page.services.section.service-block.4.content',
+      id: 'page.services.section.service-block.2.content',
       defaultMessage:
-        'Our advisory and core team members have a plethora of experience in tech, design, and nonprofit management. We are happy to advise individuals and organizations to the best of our abilities, whether it be technology, organizational strategy, marketing, or fundraising.',
+        'If you have an online or tech-focused idea for the movement that isn’t covered above, we might be able to help!',
     }),
-    icon: adviceIcon,
-    iconBgColor: 'orange',
-    iconAccentColor: 'orange-dark',
+    icon: projectIcon,
+    iconBgColor: 'green',
+    iconAccentColor: 'green-dark',
     button: {
       text: intl.formatMessage({
-        id: 'page.services.section.service-block.4.button-label',
-        defaultMessage: 'Contact us for advice',
+        id: 'page.services.section.service-block.2.button-label',
+        defaultMessage: "Let's chat about your idea",
       }),
       href: '#contact-us',
     },
@@ -222,12 +223,28 @@ const Services: React.FC = () => {
             defaultMessage: 'Our <b>services</b>',
           })}
         >
-          <FormattedMessage
-            id='page.services.section.our-services.content.0'
-            defaultMessage="As capacity builders, we offer our skills and services to the animal protection movement. From development and design to content creation, volunteers, and operational advice, we're here to help elevate your work for the animals."
-          />
+          <p className='pb-8'>
+            <FormattedMessage
+              id='page.services.section.our-services.content.0'
+              defaultMessage='Whether you’re looking for pro-bono hands-on support, strategic guidance, or reassurance that you’re on the right track in your work for animals, we’re here to help.'
+            />
+          </p>
+
+          <p className='pb-8'>
+            <FormattedMessage
+              id='page.services.section.our-services.content.1'
+              defaultMessage='By leveraging our specialized expertise and understanding of the movement from within, we can help you work more efficiently, save time and money, and further your mission.'
+            />
+          </p>
+
+          <p className='pb-8'>
+            <FormattedMessage
+              id='page.services.section.our-services.content.2'
+              defaultMessage='We offer a range of free services tailored to your needs through VH and our independent programs.'
+            />
+          </p>
         </FirstSubSection>
-        <div className='flex flex-col items-center mx-auto mb-20 text-2xl md:space-y-20'>
+        <div className='flex flex-col items-center mx-auto mb-32 text-2xl md:space-y-20'>
           {getServiceBlockProps(intl).map((service, index) => (
             <Service
               key={service.title}
@@ -235,21 +252,6 @@ const Services: React.FC = () => {
               {...service}
             />
           ))}
-        </div>
-        <div className='flex flex-col items-center justify-center w-full mx-auto mb-20 text-2xl gap-y-4 xl:w-3/5'>
-          <CustomImage
-            src={PixelBulb}
-            alt=''
-            height={PixelBulb.height / 3}
-            width={PixelBulb.width / 3}
-          />
-
-          <div className='px-3 text-center text-grey-darker md:w-2/3'>
-            <FormattedMessage
-              id='page.services.section.our-services.content.1'
-              defaultMessage='Given our capacity and your organizational needs, we may consider taking on paid projects that need dedicated or priority support. If this is your situation, please contact us below and we will explore how best to scope the work to fit within your budget.'
-            />
-          </div>
         </div>
       </div>
       <Sprite image={pig} pixelsLeft={3} pixelsRight={1} />
@@ -266,7 +268,7 @@ const Services: React.FC = () => {
         <div className='py-5 mx-auto text-xl md:w-1/2 text-grey-dark'>
           <FormattedMessage
             id='page.services.section.contact.content'
-            defaultMessage="If you'd like to discuss any of our service offerings, please use our our contact form to get in touch. We do our best to promptly respond to every inquiry."
+            defaultMessage='If you’d like to learn more about how we can support your work, reach out via our contact form. We aim to respond to all inquiries as quickly as possible.'
           />
         </div>
         <ContactUsForm />
