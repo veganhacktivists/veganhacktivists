@@ -35,13 +35,13 @@ const LikeWhatYouSee: React.FC = () => {
           </div>
 
           <div className='grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9'>
-            <LightButton className='w-full md:w-40' href='/donate'>
+            <LightButton className='w-full md:w-40' href='/support'>
               <FormattedMessage
                 id='page.our-work.section.like-what-you-see.donate.cta-button.label'
                 defaultMessage='Donate'
               />
             </LightButton>
-            <LightButton className='w-full md:w-40' href='/support'>
+            <LightButton className='w-full md:w-40' href='/playground'>
               <FormattedMessage
                 id='page.our-work.section.like-what-you-see.get-support.cta-button.label'
                 defaultMessage='Get support'
