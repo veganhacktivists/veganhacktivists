@@ -12,7 +12,10 @@ import resumeLogo from '../../public/images/joinUs/VH-join-mini-icon-resume.png'
 import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { chicks } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
-import { FirstSubSection } from '../components/decoration/textBlocks';
+import {
+  FirstSubSection,
+  PlainHeader,
+} from '../components/decoration/textBlocks';
 import { pixelFlower } from '../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
@@ -89,10 +92,10 @@ const Join: React.FC = () => {
         squares={HERO_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <FirstSubSection
+      <PlainHeader
         header={intl.formatMessage({
           id: 'page.join.section.join-our-team.headline',
-          defaultMessage: '<b>Use your skills to help animals</b>',
+          defaultMessage: 'Use your skills to help animals',
         })}
       >
         <p className='pb-8'>
@@ -190,7 +193,7 @@ const Join: React.FC = () => {
             defaultMessage='Browse available requests'
           />
         </DarkButton>
-      </FirstSubSection>
+      </PlainHeader>
 
       <Sprite image={chicks} pixelsLeft={1} pixelsRight={1} />
     </>
