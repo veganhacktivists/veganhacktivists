@@ -68,6 +68,7 @@ export const postPlaygroundRequestOnReddit = async (
 
   try {
     for await (const subreddit of subredditsToPost) {
+      // @ts-expect-error 1062
       const submission = await r.submitSelfpost({
         subredditName: subreddit,
         title:
@@ -79,10 +80,12 @@ export const postPlaygroundRequestOnReddit = async (
         text: message,
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       submissions.push(submission);
     }
   } catch (err) {
     for await (const submission of submissions) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       await submission.delete();
     }
     throw err;

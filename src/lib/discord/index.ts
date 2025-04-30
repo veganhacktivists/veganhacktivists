@@ -87,10 +87,12 @@ export class DiscordSendMessagesError extends Error {
     this.messages = messages;
   }
   getOkMessages() {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return this.messages.filter((m) => !!m) as Message[];
   }
 
   getErroredMessages() {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return this.messages.filter((m) => !m) as false[];
   }
 }

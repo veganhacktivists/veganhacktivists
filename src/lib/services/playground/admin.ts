@@ -395,6 +395,7 @@ export const repostRequest = async ({
           },
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
@@ -417,6 +418,7 @@ export const repostRequest = async ({
   } catch (e) {
     try {
       for await (const redditSubmission of redditSubmissions) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         await redditSubmission.delete().catch();
       }
       for await (const discordMessage of discordMessages) {
@@ -493,6 +495,7 @@ export const setRequestStatus = async ({
 
         if (shouldPost) {
           console.info('Trying to post to reddit and discord', id, Date.now());
+          // eslint-disable-next-line @typescript-eslint/no-floating-promises
           redditSubmissions =
             await postPlaygroundRequestOnReddit(updatedRequest);
           console.info('Successfully posted request to reddit', id, Date.now());
@@ -532,6 +535,7 @@ export const setRequestStatus = async ({
   } catch (e) {
     try {
       for await (const redditSubmission of redditSubmissions) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         await redditSubmission.delete().catch();
       }
       for await (const discordMessage of discordMessages) {
