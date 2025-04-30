@@ -67,10 +67,12 @@ const Support: React.FC = () => {
             defaultMessage: 'Donate to strengthen our movement',
           })}
         >
-          <FormattedMessage
-            id='page.support.section.support-us.header.content'
-            defaultMessage='Equip the animal advocacy movement with the support it needs – technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals.'
-          />
+          <p className='mt-8'>
+            <FormattedMessage
+              id='page.support.section.support-us.header.content'
+              defaultMessage='Equip the animal advocacy movement with the support it needs – technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals.'
+            />
+          </p>
         </PlainHeader>
       </div>
       <div className='mx-auto my-16 md:w-fit'>

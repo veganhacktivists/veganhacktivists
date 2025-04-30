@@ -19,10 +19,13 @@ const PlaygroundSupportCta: React.FC = () => {
         <p className='pb-5 mt-4 text-white'>
           <FormattedMessage
             id='section.playground-support-cta.content'
-            defaultMessage='Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>'
+            defaultMessage='Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>'
             values={{
               browseRequests: (
-                <LightButton href='/playground' className='w-fit mx-auto my-4'>
+                <LightButton
+                  href='/playground'
+                  className='w-fit mx-auto mt-8 mb-12'
+                >
                   <FormattedMessage
                     id='section.playground-support-cta.cta.browse-requests'
                     defaultMessage='Browse Requests'
@@ -32,7 +35,7 @@ const PlaygroundSupportCta: React.FC = () => {
               submitRequest: (
                 <LightButton
                   href='/playground/submit'
-                  className='w-fit mx-auto mt-4'
+                  className='w-fit mx-auto mt-8 mb-12'
                 >
                   <FormattedMessage
                     id='section.playground-support-cta.cta.submit-request'

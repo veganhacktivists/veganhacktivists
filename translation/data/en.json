@@ -495,7 +495,7 @@
     "message": "Browse available requests"
   },
   "page.join.section.join-our-team.headline": {
-    "message": "Use your skills to help animals"
+    "message": "<b>Use your skills to help animals</b>"
   },
   "page.join.section.join-our-team.paragraph.0": {
     "message": "You want to do more for animals – and you’re not alone. Maybe you’ve been looking for a way to team up with like-minded people who share your values. Maybe you're ready to take the next step but haven’t found the right opportunity. Or maybe you know exactly what you’re capable of, and you’re just waiting for the moment to use your skills where they matter most – fighting for a better world for animals."
@@ -540,10 +540,10 @@
     "message": "Committed to a vegan lifestyle"
   },
   "page.join.section.requirements.1": {
-    "message": "Eager to work with advocates and organizations on projects that align with your passions"
+    "message": "Able to show your skills through a portfolio, resume, or past work"
   },
   "page.join.section.requirements.2": {
-    "message": "Able to show your skills through a portfolio, resume, or past work"
+    "message": "Eager to work with advocates and organizations on projects that align with your passions"
   },
   "page.newsletter.next-seo.title": {
     "message": "Our Newsletter"
@@ -893,6 +893,9 @@
   "page.services.section.service-block.0.title": {
     "message": "Websites"
   },
+  "page.services.section.service-block.1.button-label": {
+    "message": "Apply For Free Design Services"
+  },
   "page.services.section.service-block.1.content": {
     "message": "Our sister organization, <link>Violet Studios</link>, offers free design services tailored to your needs. From branding and web design to animation, social media support, and document design, Violet works closely with you to create visuals that align with your mission and engage your audience."
   },
@@ -900,13 +903,13 @@
     "message": "Design"
   },
   "page.services.section.service-block.2.button-label": {
-    "message": "Let's chat about your idea"
+    "message": "Contact us for advice"
   },
   "page.services.section.service-block.2.content": {
-    "message": "If you have an online or tech-focused idea for the movement that isn’t covered above, we might be able to help!"
+    "message": "Our team brings expertise in tech, design, communications, and nonprofit operations to support advocates and organizations. Whether you need strategic guidance on technology, marketing, fundraising, or overall strategy, we're here to help you navigate challenges and succeed – all at no cost."
   },
   "page.services.section.service-block.2.title": {
-    "message": "Additional Projects"
+    "message": "Advice"
   },
   "page.services.section.service-block.3.button-label": {
     "message": "Learn about our grant program"
@@ -918,13 +921,13 @@
     "message": "Funding"
   },
   "page.services.section.service-block.4.button-label": {
-    "message": "Contact us for advice"
+    "message": "Let's chat about your idea"
   },
   "page.services.section.service-block.4.content": {
-    "message": "Our team brings expertise in tech, design, communications, and nonprofit operations to support advocates and organizations. Whether you need strategic guidance on technology, marketing, fundraising, or overall strategy, we're here to help you navigate challenges and succeed – all at no cost."
+    "message": "If you have an online or tech-focused idea for the movement that isn’t covered above, we might be able to help!"
   },
   "page.services.section.service-block.4.title": {
-    "message": "Advice"
+    "message": "Additional Projects"
   },
   "page.sign-in.already-signed-in.content": {
     "message": "You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>"
@@ -2205,7 +2208,7 @@
     "message": "Requests supported"
   },
   "section.playground-support-cta.content": {
-    "message": "Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>"
+    "message": "Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>"
   },
   "section.playground-support-cta.cta.browse-requests": {
     "message": "Browse Requests"

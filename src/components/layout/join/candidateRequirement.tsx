@@ -24,7 +24,7 @@ const CandidateRequirement: React.FC<CandidateRequirementProps> = ({
     <div className='flex flex-col md:flex-row items-center gap-10 px-2 md:px-0'>
       <div style={{ backgroundColor }} className='p-3'>
         <CustomImage
-          className='w-16 max-w-16'
+          className='w-16 max-w-16 min-w-16'
           src={image}
           alt=''
           width={iconSize}

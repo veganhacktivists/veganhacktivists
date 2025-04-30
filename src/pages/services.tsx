@@ -90,14 +90,21 @@ const getServiceBlockProps = (
     icon: designIcon,
     iconBgColor: 'yellow-dark',
     iconAccentColor: 'yellow-orange',
+    button: {
+      text: intl.formatMessage({
+        id: 'page.services.section.service-block.1.button-label',
+        defaultMessage: 'Apply For Free Design Services',
+      }),
+      href: '#contact-us',
+    },
   },
   {
     title: intl.formatMessage({
-      id: 'page.services.section.service-block.4.title',
+      id: 'page.services.section.service-block.2.title',
       defaultMessage: 'Advice',
     }),
     content: intl.formatMessage({
-      id: 'page.services.section.service-block.4.content',
+      id: 'page.services.section.service-block.2.content',
       defaultMessage:
         "Our team brings expertise in tech, design, communications, and nonprofit operations to support advocates and organizations. Whether you need strategic guidance on technology, marketing, fundraising, or overall strategy, we're here to help you navigate challenges and succeed – all at no cost.",
     }),
@@ -106,7 +113,7 @@ const getServiceBlockProps = (
     iconAccentColor: 'orange-dark',
     button: {
       text: intl.formatMessage({
-        id: 'page.services.section.service-block.4.button-label',
+        id: 'page.services.section.service-block.2.button-label',
         defaultMessage: 'Contact us for advice',
       }),
       href: '#contact-us',
@@ -135,11 +142,11 @@ const getServiceBlockProps = (
   },
   {
     title: intl.formatMessage({
-      id: 'page.services.section.service-block.2.title',
+      id: 'page.services.section.service-block.4.title',
       defaultMessage: 'Additional Projects',
     }),
     content: intl.formatMessage({
-      id: 'page.services.section.service-block.2.content',
+      id: 'page.services.section.service-block.4.content',
       defaultMessage:
         'If you have an online or tech-focused idea for the movement that isn’t covered above, we might be able to help!',
     }),
@@ -148,10 +155,10 @@ const getServiceBlockProps = (
     iconAccentColor: 'green-dark',
     button: {
       text: intl.formatMessage({
-        id: 'page.services.section.service-block.2.button-label',
+        id: 'page.services.section.service-block.4.button-label',
         defaultMessage: "Let's chat about your idea",
       }),
-      href: '#contact-us',
+      href: 'https://www.violetstudios.org/apply-for-support',
     },
   },
 ];

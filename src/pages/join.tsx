@@ -33,7 +33,7 @@ const getCandidateRequirementProps = (
   },
   {
     description: intl.formatMessage({
-      id: 'page.join.section.requirements.2',
+      id: 'page.join.section.requirements.1',
       defaultMessage:
         'Able to show your skills through a portfolio, resume, or past work',
     }),
@@ -42,7 +42,7 @@ const getCandidateRequirementProps = (
   },
   {
     description: intl.formatMessage({
-      id: 'page.join.section.requirements.1',
+      id: 'page.join.section.requirements.2',
       defaultMessage:
         'Eager to work with advocates and organizations on projects that align with your passions',
     }),
@@ -92,7 +92,7 @@ const Join: React.FC = () => {
       <FirstSubSection
         header={intl.formatMessage({
           id: 'page.join.section.join-our-team.headline',
-          defaultMessage: 'Use your skills to help animals',
+          defaultMessage: '<b>Use your skills to help animals</b>',
         })}
       >
         <p className='pb-8'>
@@ -102,7 +102,7 @@ const Join: React.FC = () => {
           />
         </p>
 
-        <p className='pb-8 text-left'>
+        <p className='pb-8'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.1'
             defaultMessage='<b>Playground</b> is our platform where mission-aligned people like you use their skills to make a difference – and collaborate with professional animal advocates and organizations all around the world.'
@@ -114,7 +114,7 @@ const Join: React.FC = () => {
           />
         </p>
 
-        <p className='pb-4 text-left'>
+        <p className='pb-4'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.2'
             defaultMessage='If you are:'
@@ -131,21 +131,21 @@ const Join: React.FC = () => {
           </div>
         </div>
 
-        <p className='pt-4 pb-8 text-left'>
+        <p className='pt-4 pb-8'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.3'
             defaultMessage='Then this is your place.'
           />
         </p>
 
-        <p className='font-bold text-left pb-8'>
+        <p className='font-bold pb-8'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.4'
             defaultMessage='Browse available requests and leverage your skills for animals.'
           />
         </p>
 
-        <DarkButton href='/playground' className='w-fit mb-20'>
+        <DarkButton href='/playground' className='w-fit mx-auto mb-20'>
           <FormattedMessage
             id='page.join.section.join-our-team.cta'
             defaultMessage='Head to Playground'

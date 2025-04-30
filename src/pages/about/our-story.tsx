@@ -43,13 +43,13 @@ const OurStory: PageWithLayout = () => {
           />
         </p>
         <div>
-          <h4 className='text-2xl font-bold pb-4 text-left'>
+          <h4 className='text-2xl font-bold pb-4'>
             <FormattedMessage
               id='page.about.section.our-story.paragraph.4.heading'
               defaultMessage='Today, we’re especially proud of the flagship programs we’ve designed and continue to manage, including:'
             />
           </h4>
-          <ul className='list-disc pl-8 pb-4 text-left'>
+          <ul className='list-disc pl-8 pb-4'>
             <li>
               <FormattedMessage
                 id='page.about.section.our-story.paragraph.4.list.0'
@@ -69,7 +69,7 @@ const OurStory: PageWithLayout = () => {
               />
             </li>
           </ul>
-          <h4 className='text-2xl font-bold pb-8 text-left'>
+          <h4 className='text-2xl font-bold pb-8'>
             <FormattedMessage
               id='page.about.section.our-story.paragraph.4.list.3'
               defaultMessage='Our growth has been driven by innovation, ability to adapt, and the dedication of our incredible volunteers.'
