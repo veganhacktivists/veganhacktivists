@@ -158,7 +158,7 @@ const Join: React.FC = () => {
           height={pixelFlower.height / 3}
           alt=''
         />
-        <p className='pb-8'>
+        <p className='py-8'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.5'
             defaultMessage='There’s an endless need for skilled support in the animal advocacy movement, with countless requests coming in, each reflecting the movement’s diverse needs. While we can’t fulfill them all, we created Playground to help the movement achieve more – together with incredible volunteers like you.'
