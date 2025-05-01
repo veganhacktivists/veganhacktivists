@@ -12,10 +12,7 @@ import resumeLogo from '../../public/images/joinUs/VH-join-mini-icon-resume.png'
 import { DarkButton } from '../components/decoration/buttons';
 import Sprite, { chicks } from '../components/decoration/sprite';
 import SquareField from '../components/decoration/squares';
-import {
-  FirstSubSection,
-  PlainHeader,
-} from '../components/decoration/textBlocks';
+import { PlainHeader } from '../components/decoration/textBlocks';
 import { pixelFlower } from '../images/separators';
 
 import CustomImage from 'components/decoration/customImage';
