@@ -49,7 +49,7 @@ const OurStory: PageWithLayout = () => {
               defaultMessage='Today, we’re especially proud of the flagship programs we’ve designed and continue to manage, including:'
             />
           </h4>
-          <ul className='list-inside list-disc pl-8 pb-4'>
+          <ul className='list-none pl-8 pb-4'>
             <li>
               <FormattedMessage
                 id='page.about.section.our-story.paragraph.4.list.0'
