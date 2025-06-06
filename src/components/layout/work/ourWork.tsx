@@ -5,7 +5,6 @@ import { Autoscroll } from 'components/decoration/autoscroll';
 import { DarkButton } from 'components/decoration/buttons';
 import Sprite, { goat } from 'components/decoration/sprite';
 import SquareField from 'components/decoration/squares';
-import { SectionHeader } from 'components/decoration/textBlocks';
 
 import aaa from '~images/work/orgs/aaa.png';
 import aaasia from '~images/work/orgs/aaasia.png';
@@ -192,13 +191,16 @@ const OurWork: React.FC = () => {
       <div className='w-full bg-white'>
         <div className='flex flex-col py-20'>
           <div className='md:w-1/2 mx-auto -mb-10 px-5'>
-            <SectionHeader
-              className='mb-2'
-              header={intl.formatMessage({
-                id: 'page.our-work.section.introduction.headline',
-                defaultMessage: 'Our <b>WORK</b>',
-              })}
-            >
+            <h1 className='text-5xl md:text-6xl mb-5 text-grey'>
+              <span className='text-4xl font-serif italic mx-1 font-bold'>
+                Our
+              </span>{' '}
+              <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+                WORK
+              </span>
+            </h1>
+
+            <p className='mb-16 text-2xl'>
               <FormattedMessage
                 id='page.our-work.section.our-work.section-header.content'
                 defaultMessage='We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
@@ -206,7 +208,7 @@ const OurWork: React.FC = () => {
                   b: (chunks) => <b>{chunks}</b>,
                 }}
               />
-            </SectionHeader>
+            </p>
           </div>
           <Autoscroll items={imageRows} />
           <div className='mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5'>

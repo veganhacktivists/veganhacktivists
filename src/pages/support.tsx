@@ -64,13 +64,13 @@ const Support: React.FC = () => {
         <PlainHeader
           header={intl.formatMessage({
             id: 'page.support.section.support-us.header.title',
-            defaultMessage: 'Donate to strengthen our movement',
+            defaultMessage: 'Donate to strengthen the movement',
           })}
         >
           <p className='mt-8'>
             <FormattedMessage
               id='page.support.section.support-us.header.content'
-              defaultMessage='Equip the animal advocacy movement with the support it needs – technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals.'
+              defaultMessage='Equip the animal advocacy movement with the support it needs: technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals.'
             />
           </p>
         </PlainHeader>

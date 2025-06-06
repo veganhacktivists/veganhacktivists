@@ -18,12 +18,13 @@ const OurStory: PageWithLayout = () => {
           defaultMessage: 'Our Story',
         })}
       />
-      <FirstSubSection
-        header={intl.formatMessage({
-          id: 'page.about.section.our-story.heading',
-          defaultMessage: 'Our <b>story</b>',
-        })}
-      >
+      <FirstSubSection>
+        <h1 className='text-5xl md:text-6xl mb-5'>
+          <span className='text-4xl font-serif italic mx-1 font-bold'>Our</span>{' '}
+          <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+            Story
+          </span>
+        </h1>
         <p className='pb-8'>
           <FormattedMessage
             id='page.about.section.our-story.paragraph.1'
@@ -46,29 +47,19 @@ const OurStory: PageWithLayout = () => {
           <h4 className='text-2xl font-bold pb-4'>
             <FormattedMessage
               id='page.about.section.our-story.paragraph.4.heading'
-              defaultMessage='Today, we’re especially proud of the flagship programs we’ve designed and continue to manage, including:'
+              defaultMessage="Today, we're especially proud of the flagship programs we've designed and continue to manage."
             />
           </h4>
-          <ul className='list-none pl-8 pb-4'>
-            <li>
-              <FormattedMessage
-                id='page.about.section.our-story.paragraph.4.list.0'
-                defaultMessage='Violet Studios, our sister organization, which offers authentic design and branding services to the movement at no cost.'
-              />
-            </li>
-            <li>
-              <FormattedMessage
-                id='page.about.section.our-story.paragraph.4.list.1'
-                defaultMessage='Granti, a platform that streamlines grantmaking for both funders and grantees.'
-              />
-            </li>
-            <li>
-              <FormattedMessage
-                id='page.about.section.our-story.paragraph.4.list.2'
-                defaultMessage='Playground, a platform that connects professional animal advocates with skilled volunteers.'
-              />
-            </li>
-          </ul>
+
+          <p className='pb-8'>
+            These programs address different critical needs:{' '}
+            <b>Violet Studios</b>, our sister organization, provides authentic
+            design and branding services at no cost, while our platforms{' '}
+            <b>Granti</b>
+            and <b>Playground</b> streamline grantmaking and connect advocates
+            with skilled volunteers.
+          </p>
+
           <h4 className='text-2xl font-bold pb-8'>
             <FormattedMessage
               id='page.about.section.our-story.paragraph.4.list.3'

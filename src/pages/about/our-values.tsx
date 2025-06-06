@@ -19,13 +19,15 @@ const OurValues: PageWithLayout = () => {
           defaultMessage: 'Our Values',
         })}
       />
-      <FirstSubSection
-        header={intl.formatMessage({
-          id: 'page.about.section.our-values.section-header.heading',
-          defaultMessage: 'Our <b>values</b>',
-        })}
-      >
-        <div className='pb-10 m-10'>
+      <FirstSubSection>
+        <h1 className='text-5xl md:text-6xl mb-5'>
+          <span className='text-4xl font-serif italic mx-1 font-bold'>Our</span>{' '}
+          <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+            Values
+          </span>
+        </h1>
+
+        <div className='pb-10 m-10 mt-0'>
           <SubSection
             header={intl.formatMessage({
               id: 'page.about.section.our-values.subsection-0.heading',

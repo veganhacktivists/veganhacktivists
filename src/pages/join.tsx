@@ -89,12 +89,12 @@ const Join: React.FC = () => {
         squares={HERO_DECORATION_SQUARES}
         className='hidden md:block'
       />
-      <PlainHeader
-        header={intl.formatMessage({
-          id: 'page.join.section.join-our-team.headline',
-          defaultMessage: 'Use your skills to help animals',
-        })}
-      >
+      <PlainHeader>
+        <h1 className='text-5xl md:text-6xl mb-5'>
+          <span className='text-5xl md:text-6xl text-black font-mono font-semibold uppercase mx-1'>
+            USE YOUR SKILLS TO HELP ANIMALS
+          </span>
+        </h1>
         <p className='pb-8'>
           <FormattedMessage
             id='page.join.section.join-our-team.paragraph.0'

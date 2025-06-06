@@ -107,9 +107,6 @@
   "page.about.section.our-story.cta-services": {
     "message": "Learn about our services"
   },
-  "page.about.section.our-story.heading": {
-    "message": "Our <b>story</b>"
-  },
   "page.about.section.our-story.next-seo.title": {
     "message": "Our Story"
   },
@@ -123,16 +120,7 @@
     "message": "We began by building innovative tools to support vegans in their outreach, and have since grown into a team that develops expert services for the movement. While building technology remains a core part of our work, our focus has shifted toward solutions that address the movement’s most pressing needs."
   },
   "page.about.section.our-story.paragraph.4.heading": {
-    "message": "Today, we’re especially proud of the flagship programs we’ve designed and continue to manage, including:"
-  },
-  "page.about.section.our-story.paragraph.4.list.0": {
-    "message": "Violet Studios, our sister organization, which offers authentic design and branding services to the movement at no cost."
-  },
-  "page.about.section.our-story.paragraph.4.list.1": {
-    "message": "Granti, a platform that streamlines grantmaking for both funders and grantees."
-  },
-  "page.about.section.our-story.paragraph.4.list.2": {
-    "message": "Playground, a platform that connects professional animal advocates with skilled volunteers."
+    "message": "Today, we're especially proud of the flagship programs we've designed and continue to manage."
   },
   "page.about.section.our-story.paragraph.4.list.3": {
     "message": "Our growth has been driven by innovation, ability to adapt, and the dedication of our incredible volunteers."
@@ -142,9 +130,6 @@
   },
   "page.about.section.our-values.next-seo.title": {
     "message": "Our Values"
-  },
-  "page.about.section.our-values.section-header.heading": {
-    "message": "Our <b>values</b>"
   },
   "page.about.section.our-values.subsection-0.heading": {
     "message": "Commitment to Excellence"
@@ -494,9 +479,6 @@
   "page.join.section.join-our-team.cta-browse-requests": {
     "message": "Browse available requests"
   },
-  "page.join.section.join-our-team.headline": {
-    "message": "Use your skills to help animals"
-  },
   "page.join.section.join-our-team.paragraph.0": {
     "message": "You want to do more for animals – and you’re not alone. Maybe you’ve been looking for a way to team up with like-minded people who share your values. Maybe you're ready to take the next step but haven’t found the right opportunity. Or maybe you know exactly what you’re capable of, and you’re just waiting for the moment to use your skills where they matter most – fighting for a better world for animals."
   },
@@ -595,9 +577,6 @@
   },
   "page.our-work.section.hours-volunteered-banner.content": {
     "message": "<hours>Hours</hours> <right>volunteered in 2022 for the animal protection movement</right>"
-  },
-  "page.our-work.section.introduction.headline": {
-    "message": "Our <b>WORK</b>"
   },
   "page.our-work.section.kind-words[0].author": {
     "message": "<no-localization>Courtney Dillard</no-localization>"
@@ -705,13 +684,13 @@
     "message": "Capacity Building Meetup"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.content": {
-    "message": "We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on Instagram to stay updated on where we’ll be next!"
+    "message": "We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on <link>Instagram</link> to stay updated on where we’ll be next!"
   },
   "page.our-work.section.sharing-knowledge-and-support.section-header.headline": {
     "message": "Sharing Our <b>knowledge & support</b>"
   },
   "page.our-work.section.state-of-data.content": {
-    "message": "We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from <no-localization>Faunalytics</no-localization> and research conducted by <no-localization>Animetrics</no-localization>, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement."
+    "message": "With guidance from Faunalytics and research conducted by Animetrics, we launched the first-of-its-kind study to understand how our movement leverages technology. Our 50-page report explores challenges and opportunities across various topics including workforce and employment, digital platforms and applications, social media, data analytics, and security, providing actionable solutions for stakeholders and community members."
   },
   "page.our-work.section.state-of-data.cta": {
     "message": "Read the report"
@@ -881,9 +860,6 @@
   "page.services.section.our-services.content.2": {
     "message": "We offer a range of free services tailored to your needs through VH and our independent programs."
   },
-  "page.services.section.our-services.header.text": {
-    "message": "Our <b>services</b>"
-  },
   "page.services.section.service-block.0.button-label": {
     "message": "Apply for a free website"
   },
@@ -966,10 +942,10 @@
     "message": "Other"
   },
   "page.support.section.support-us.header.content": {
-    "message": "Equip the animal advocacy movement with the support it needs – technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals."
+    "message": "Equip the animal advocacy movement with the support it needs: technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals."
   },
   "page.support.section.support-us.header.title": {
-    "message": "Donate to strengthen our movement"
+    "message": "Donate to strengthen the movement"
   },
   "page.support.section.thank-you.headline": {
     "message": "Thank You"
@@ -2208,7 +2184,7 @@
     "message": "Requests supported"
   },
   "section.playground-support-cta.content": {
-    "message": "Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals?{br}{br}Explore available requests on Playground – the platform where we match skilled volunteers like you with professional animal advocates – and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>"
+    "message": "Are you a developer, writer, designer, or data analyst looking to leverage your skills to help animals? Explore available requests on Playground and collaborate on meaningful projects from anywhere in the world!<no-localization>{browseRequests}</no-localization>Are you a professional advocate or organization looking for skilled volunteer support? Submit a request and we’ll match you with the right talent for your project!<no-localization>{submitRequest}</no-localization>"
   },
   "section.playground-support-cta.cta.browse-requests": {
     "message": "Browse Requests"

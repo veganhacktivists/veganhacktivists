@@ -138,7 +138,7 @@ const LegacyProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
               defaultMessage: 'Legacy <b>PROJECTS</b>',
             })}
           >
-            <p className='text-xl'>
+            <p className='text-xl md:w-1/2 mx-auto'>
               <FormattedMessage
                 id='page.our-work.section.featured-projects.section-header.content'
                 defaultMessage='Since its inception, VH has continuously evolved to meet the movement’s needs. What began as a modest idea to leverage tech for animals soon grew into an organization exploring novel projects and ideas. Over time, that work became the foundation for who we are today: a trusted provider of high-tech services within the movement. These early legacy projects helped shape VH into what it is now.'

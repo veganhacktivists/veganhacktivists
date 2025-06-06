@@ -52,7 +52,7 @@ const StateOfData: React.FC = () => {
                 <p className='text-xl'>
                   <FormattedMessage
                     id='page.our-work.section.state-of-data.content'
-                    defaultMessage='We launched the first-of-its-kind study to understand how our movement leverages technology. With guidance from <no-localization>Faunalytics</no-localization> and research conducted by <no-localization>Animetrics</no-localization>, our 50-page report explores challenges and opportunities across various topics such as employment and workforce, websites and applications, social media, data collection and analysis, and security. Our recommendations are meant to provide actionable solutions for stakeholders and community members on how we can become a more technological, data-driven movement.'
+                    defaultMessage='With guidance from Faunalytics and research conducted by Animetrics, we launched the first-of-its-kind study to understand how our movement leverages technology. Our 50-page report explores challenges and opportunities across various topics including workforce and employment, digital platforms and applications, social media, data analytics, and security, providing actionable solutions for stakeholders and community members.'
                   />
                 </p>
 

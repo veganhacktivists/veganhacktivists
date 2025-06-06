@@ -224,12 +224,16 @@ const Services: React.FC = () => {
           squares={HERO_DECORATION_SQUARES}
           className='hidden md:block'
         />
-        <FirstSubSection
-          header={intl.formatMessage({
-            id: 'page.services.section.our-services.header.text',
-            defaultMessage: 'Our <b>services</b>',
-          })}
-        >
+        <FirstSubSection>
+          <h1 className='text-5xl md:text-6xl mb-5'>
+            <span className='text-4xl font-serif italic mx-1 font-bold'>
+              Our
+            </span>{' '}
+            <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+              services
+            </span>
+          </h1>
+
           <p className='pb-8'>
             <FormattedMessage
               id='page.services.section.our-services.content.0'
