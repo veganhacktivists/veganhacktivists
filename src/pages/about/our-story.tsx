@@ -55,9 +55,8 @@ const OurStory: PageWithLayout = () => {
             These programs address different critical needs:{' '}
             <b>Violet Studios</b>, our sister organization, provides authentic
             design and branding services at no cost, while our platforms{' '}
-            <b>Granti</b>
-            and <b>Playground</b> streamline grantmaking and connect advocates
-            with skilled volunteers.
+            <b>Granti</b> and <b>Playground</b> streamline grantmaking and
+            connect advocates with skilled volunteers.
           </p>
 
           <h4 className='text-2xl font-bold pb-8'>
