@@ -42,8 +42,8 @@ importers:
         specifier: ^2.9.10
         version: 2.9.10(react-hook-form@7.39.4(react@18.2.0))
       '@lottiefiles/react-lottie-player':
-        specifier: ^3.4.7
-        version: 3.4.7(react@18.2.0)
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
       '@mailchimp/mailchimp_marketing':
         specifier: ^3.0.80
         version: 3.0.80
@@ -1479,10 +1479,10 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@lottiefiles/react-lottie-player@3.4.7':
-    resolution: {integrity: sha512-KqkwRiCQPDNzimsXnNSgeJjJlZQ6Fr9JE3OtZdOaGrXovZJ+zDeZNxIwxID8Up0eAdm4zJjudOSc5EJSiGw9RA==}
+  '@lottiefiles/react-lottie-player@3.6.0':
+    resolution: {integrity: sha512-WK5TriLJT93VF3w4IjSVyveiedraZCnDhKzCPhpbeLgQeMi6zufxa3dXNc4HmAFRXq+LULPAy+Idv1rAfkReMA==}
     peerDependencies:
-      react: 16 - 18
+      react: 16 - 19
 
   '@mailchimp/mailchimp_marketing@3.0.80':
     resolution: {integrity: sha512-Cgz0xPb+1DUjmrl5whAsmqfAChBko+Wf4/PLQE4RvwfPlcq2agfHr1QFiXEhZ8e+GQwQ3hZQn9iLGXwIXwxUCg==}
@@ -4353,8 +4353,8 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
-  lottie-web@5.9.6:
-    resolution: {integrity: sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==}
+  lottie-web@5.13.0:
+    resolution: {integrity: sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==}
 
   loud-rejection@2.2.0:
     resolution: {integrity: sha512-S0FayMXku80toa5sZ6Ro4C+s+EtFDCsyJNG/AzFMfX3AxD5Si4dZsgzm/kKnbOxHl5Cv8jBlno8+3XYIh2pNjQ==}
@@ -7758,9 +7758,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  '@lottiefiles/react-lottie-player@3.4.7(react@18.2.0)':
+  '@lottiefiles/react-lottie-player@3.6.0(react@18.2.0)':
     dependencies:
-      lottie-web: 5.9.6
+      lottie-web: 5.13.0
       react: 18.2.0
 
   '@mailchimp/mailchimp_marketing@3.0.80':
@@ -11176,7 +11176,7 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  lottie-web@5.9.6: {}
+  lottie-web@5.13.0: {}
 
   loud-rejection@2.2.0:
     dependencies:
