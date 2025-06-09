@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 import type { NextPageContext } from 'next';
 
@@ -14,10 +15,13 @@ const Document = ({ locale }: { locale: string }) => {
       <Head>
         {process.env.NODE_ENV === 'production' &&
           process.env.ANALYTICS_WEBSITE_ID && (
-            <script
-              defer
+            <Script
               src='https://analytics.veganhacktivists.org/script.js'
+              strategy='lazyOnload'
               data-website-id={process.env.ANALYTICS_WEBSITE_ID}
+              onError={(e) => {
+                console.error('Analytics script failed to load', e);
+              }}
             />
           )}
         <link
