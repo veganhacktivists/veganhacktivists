@@ -1,17 +1,8 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { FormattedMessage } from 'react-intl';
-
-import VSLogoLottieFile from '../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 import { LightButton } from 'components/decoration/buttons';
-
-const Player = dynamic(
-  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
-  {
-    ssr: false,
-  },
-);
 
 const VioletStudios: React.FC = () => {
   return (
@@ -43,10 +34,10 @@ const VioletStudios: React.FC = () => {
           </LightButton>
         </div>
         <div className='basis-[calc(50%-1rem)] lg:basis-1/2 flex items-center justify-center'>
-          <Player
+          <DotLottieReact
             autoplay
             loop
-            src={VSLogoLottieFile}
+            src='/images/VS_logoAnim_Minimal.json'
             className='w-3/5 md:w-[290px]'
           />
         </div>

@@ -5,23 +5,15 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import dynamic from 'next/dynamic';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 import logoOneLine from '../../../public/images/VH-logo-white-text.png';
-import logoBig from '../../../public/images/VH_Logo_Loop.json';
 
 import { LocaleSelector } from './localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
-
-const Player = dynamic(
-  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
-  {
-    ssr: false,
-  },
-);
 
 interface LeftSideProps {
   isRootPage: boolean;
@@ -38,10 +30,10 @@ const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
     >
       {/* root */}
       <Link href='/' className={classNames({ hidden: !isRootPage })}>
-        <Player
+        <DotLottieReact
           autoplay
           loop
-          src={logoBig}
+          src='/images/VH_Logo_Loop.json'
           style={{
             maxWidth: '344px',
             maxHeight: '113.5px',
@@ -241,10 +233,10 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
               })}
             >
               <Link href='/' className={classNames({ hidden: !isRootPage })}>
-                <Player
+                <DotLottieReact
                   autoplay
                   loop
-                  src={logoBig}
+                  src='/lottie/vegan-hacktivists-logo.json'
                   style={{
                     maxWidth: '344px',
                     maxHeight: '113.5px',

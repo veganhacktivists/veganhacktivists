@@ -1,19 +1,11 @@
-import dynamic from 'next/dynamic';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import VSLogoLottieFile from '../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 import SquareField from 'components/decoration/squares';
 import { DarkButton, LightButton } from 'components/decoration/buttons';
 import { SectionHeader } from 'components/decoration/textBlocks';
 
 const TOP_DECORATION_SQUARES = [{ color: 'grey', size: 16, right: 0, top: 0 }];
-const Player = dynamic(
-  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
-  {
-    ssr: false,
-  },
-);
 
 const DesignWork: React.FC = () => {
   const intl = useIntl();
@@ -77,10 +69,10 @@ const DesignWork: React.FC = () => {
 
         <div className='basis-full md:basis-1/2 bg-[#171919] flex justify-center md:justify-start pt-20 pb-10 md:py-0'>
           <div className='flex-grow max-w-3xl flex items-center justify-center'>
-            <Player
+            <DotLottieReact
               autoplay
               loop
-              src={VSLogoLottieFile}
+              src='/lottiefiles/VS_logoAnim_Minimal.json'
               className='w-3/5 md:w-[290px]'
             />
           </div>
