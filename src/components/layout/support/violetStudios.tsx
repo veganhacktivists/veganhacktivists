@@ -1,10 +1,17 @@
 import React from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import { FormattedMessage } from 'react-intl';
 
 import VSLogoLottieFile from '../../../../public/lottiefiles/VS_logoAnim_Minimal.json';
 
 import { LightButton } from 'components/decoration/buttons';
+
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  {
+    ssr: false,
+  },
+);
 
 const VioletStudios: React.FC = () => {
   return (

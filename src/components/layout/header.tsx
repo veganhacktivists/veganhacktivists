@@ -5,7 +5,7 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,6 +15,13 @@ import logoBig from '../../../public/images/VH_Logo_Loop.json';
 import { LocaleSelector } from './localeSelector';
 
 import CustomImage from 'components/decoration/customImage';
+
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  {
+    ssr: false,
+  },
+);
 
 interface LeftSideProps {
   isRootPage: boolean;
