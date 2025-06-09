@@ -138,7 +138,7 @@
   },
   "engines": {
     "pnpm": ">=9.11.0",
-    "node": "23"
+    "node": "22"
   },
   "packageManager": "pnpm@9.11.0+sha256.1c0e33f70e5df9eede84a357bdfa0b1f9dba6e58194628d48a1055756f553754"
 }
