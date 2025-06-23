@@ -4,13 +4,12 @@ import { FormattedMessage } from 'react-intl';
 import {
   ExternalLinkButton,
   InstagramButton,
-  PatreonButton,
   YoutubeButton,
 } from '../../decoration/buttons';
 
 const Social: React.FC = () => {
   return (
-    <div className='pt-10 text-left'>
+    <div className='pt-10 md:pt-0 text-center md:text-left'>
       <div className='text-4xl font-semibold uppercase mb-1'>
         <code>
           <FormattedMessage
@@ -28,9 +27,8 @@ const Social: React.FC = () => {
       <div className='font-bold pt-5 text-lg'>
         <Link href='/contact'>hello@veganhacktivists.org</Link>
       </div>
-      <div className='flex gap-x-2 pt-5'>
+      <div className='flex w-fit md:w-auto mx-auto md:mx-0 gap-x-2 pt-5'>
         <InstagramButton href='https://www.instagram.com/veganhacktivists/' />
-        <PatreonButton href='https://www.patreon.com/veganhacktivists' />
         <YoutubeButton href='https://www.youtube.com/c/VeganHacktivists' />
       </div>
       <div className='pt-10 text-center'>

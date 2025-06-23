@@ -17,29 +17,6 @@ const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
       defaultMessage: 'About',
     }),
     href: '/about',
-    links: [
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.about.our-story.label',
-          defaultMessage: 'Our Story',
-        }),
-        href: '/about/our-story',
-      },
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.about.our-values.label',
-          defaultMessage: 'Our Values',
-        }),
-        href: '/about/our-values',
-      },
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.about.our-mission.label',
-          defaultMessage: 'Our Mission',
-        }),
-        href: '/about/our-mission',
-      },
-    ],
   },
   {
     label: intl.formatMessage({
@@ -61,22 +38,6 @@ const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
       defaultMessage: 'People',
     }),
     href: '/people',
-    links: [
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.people.team.label',
-          defaultMessage: 'Our Team',
-        }),
-        href: '/people/team',
-      },
-      {
-        label: intl.formatMessage({
-          id: 'layout.footer.navigation-item.people.advisors.label',
-          defaultMessage: 'Advisors',
-        }),
-        href: '/people/advisors',
-      },
-    ],
   },
   {
     label: intl.formatMessage({
@@ -136,7 +97,7 @@ const Links: React.FC = () => {
   const intl = useIntl();
 
   return (
-    <ul className='text-xl text-left'>
+    <ul className='pt-10 md:pt-0 text-xl text-center md:text-left'>
       {getLinks(intl).map((link, i) => (
         <MyLink key={i} {...link} />
       ))}
