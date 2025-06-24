@@ -34,6 +34,8 @@ const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
           autoplay
           loop
           src='/images/VH_Logo_Loop.json'
+          height='113.5px'
+          width='344px'
           style={{
             maxWidth: '344px',
             maxHeight: '113.5px',
@@ -237,6 +239,8 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
                   autoplay
                   loop
                   src='/lottie/vegan-hacktivists-logo.json'
+                  height='113.5px'
+                  width='344px'
                   style={{
                     maxWidth: '344px',
                     maxHeight: '113.5px',
