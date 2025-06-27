@@ -1,6 +1,13 @@
+import React from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
+
+import VH_footer_candid_guidestar_badge from '../../../../public/images/footer/VH_footer_candid_guidestar_badge.png';
+import VH_one_percent_for_the_planet_badge from '../../../../public/images/footer/VH_one_percent_for_the_planet_badge.png';
+
+import CustomImage from 'components/decoration/customImage';
+import CustomLink from 'components/decoration/link';
 
 import type { IntlShape } from 'react-intl';
 
@@ -93,15 +100,49 @@ const MyLink: React.FC<ILinks & { level?: number }> = ({
   );
 };
 
+const Badges: React.FC = () => {
+  return (
+    <div className='pt-10 md:pt-[1.7rem] flex flex-row gap-8 w-fit md:w-auto mx-auto md:mx-0'>
+      <div>
+        <CustomLink href='https://www.guidestar.org/profile/92-3997981'>
+          <CustomImage
+            src={VH_footer_candid_guidestar_badge}
+            alt='Badge: Platinum Transparency 2025 - Candid.'
+            width={Math.floor(VH_footer_candid_guidestar_badge.width * 0.371)}
+            height={Math.floor(VH_footer_candid_guidestar_badge.height * 0.371)}
+          />
+        </CustomLink>
+      </div>
+      <div>
+        <CustomLink href='https://directories.onepercentfortheplanet.org/profile/vegan-hacktivists'>
+          <CustomImage
+            src={VH_one_percent_for_the_planet_badge}
+            alt='Badge: one percent for the Planet'
+            width={Math.floor(
+              VH_one_percent_for_the_planet_badge.width * 0.14575,
+            )}
+            height={Math.floor(
+              VH_one_percent_for_the_planet_badge.height * 0.14575,
+            )}
+          />
+        </CustomLink>
+      </div>
+    </div>
+  );
+};
+
 const Links: React.FC = () => {
   const intl = useIntl();
 
   return (
-    <ul className='pt-10 md:pt-0 text-xl text-center md:text-left'>
-      {getLinks(intl).map((link, i) => (
-        <MyLink key={i} {...link} />
-      ))}
-    </ul>
+    <div className='pt-10 md:pt-0 text-xl text-center md:text-left'>
+      <ul>
+        {getLinks(intl).map((link, i) => (
+          <MyLink key={i} {...link} />
+        ))}
+      </ul>
+      <Badges />
+    </div>
   );
 };
 export default Links;
