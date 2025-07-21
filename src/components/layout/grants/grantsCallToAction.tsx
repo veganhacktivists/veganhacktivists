@@ -95,7 +95,7 @@ const GrantsCallToAction: React.FC = () => {
           boxicon={pixelFlower}
           title={intl.formatMessage({
             id: 'section.grants-cta.visit-year-review.heading',
-            defaultMessage: 'See our 2023 impact review',
+            defaultMessage: 'See our 2024 year in review',
           })}
           backgroundColor='grey-over-background'
           button={{
@@ -105,7 +105,7 @@ const GrantsCallToAction: React.FC = () => {
                 defaultMessage='See our impact'
               />
             ),
-            href: '/year-in-review/2023',
+            href: '/year-in-review/2024',
           }}
         >
           <FormattedMessage

@@ -32,6 +32,14 @@ const nextConfig = {
     // disable localeDetection to avoid automatic redirects until the translation feature is fully integrated
     localeDetection: false,
   },
+  rewrites() {
+    return [
+      {
+        source: '/year-in-review/2024',
+        destination: '/resources/year-in-review-2024.pdf',
+      },
+    ];
+  },
   redirects() {
     return [
       {
