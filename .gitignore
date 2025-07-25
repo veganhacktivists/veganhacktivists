@@ -43,3 +43,6 @@ yarn-error.log*
 
 # generated
 /translation/data/compiled*
+
+# tsconfig
+/tsconfig.tsbuildinfo
