@@ -52,7 +52,7 @@
     "crypto-js": "^4.2.0",
     "decimal.js": "^10.4.2",
     "discord.js": "14.11.0",
-    "form-data": "^4.0.0",
+    "form-data": "^4.0.4",
     "fuse.js": "^6.6.2",
     "glob": "^8.0.3",
     "http-status-codes": "^2.2.0",
