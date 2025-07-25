@@ -34,7 +34,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
   const [floating, setFloating] = useState(false);
   const [left, setLeft] = useState(0.0);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     if (float && !floating) {
       setFloating(true);

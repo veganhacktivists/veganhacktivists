@@ -57,7 +57,7 @@ const Sprite = ({
 
   // When the screen size changes, reset the animation position to avoid it overflowing
   const [reset, setReset] = useState(false);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     setReset(true);
     setReverse(false);

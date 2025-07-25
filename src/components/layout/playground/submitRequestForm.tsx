@@ -354,7 +354,7 @@ const SubmitRequestForm: React.FC<SubmitRequestFormParam> = ({ requestId }) => {
   ]);
 
   // reset category specific values
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     setValue('devRequestWebsiteExists', undefined);
     setValue('devRequestWebsiteUrl', undefined);
