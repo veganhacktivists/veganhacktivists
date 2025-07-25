@@ -66,4 +66,4 @@ jobs:
 
       - name: Lint project
         id: lint
-        run: pnpm lint
+        run: pnpm biome ci
