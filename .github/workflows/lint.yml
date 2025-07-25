@@ -63,6 +63,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --no-optional
+          pnpm install @biomejs/cli-linux-x64
           pnpm prisma generate
 
       - name: Lint project
