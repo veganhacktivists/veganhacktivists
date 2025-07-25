@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -81,7 +81,7 @@ const getServiceBlockProps = (
       },
       {
         link: (chunks) => (
-          <CustomLink href='https://www.violetstudios.org/'>
+          <CustomLink href="https://www.violetstudios.org/">
             {chunks}
           </CustomLink>
         ),
@@ -182,9 +182,9 @@ const Service: React.FC<ServiceProps> = ({
         iconAccentColor={iconAccentColor}
         align={align}
       >
-        <p className='mt-3 mb-7'>{content}</p>
+        <p className="mt-3 mb-7">{content}</p>
         {button && (
-          <DarkButton className='max-w-sm' href={button.href}>
+          <DarkButton className="max-w-sm" href={button.href}>
             {button.text}
           </DarkButton>
         )}
@@ -214,7 +214,7 @@ const Services: React.FC = () => {
               defaultMessage: 'Supporting the Animal Protection Movement',
             }),
           }}
-          alignment='left'
+          alignment="left"
           classNameMapping={{
             container: 'bg-center',
             backgroundImage: 'object-[75%_0] md:object-center',
@@ -222,40 +222,40 @@ const Services: React.FC = () => {
         />
         <SquareField
           squares={HERO_DECORATION_SQUARES}
-          className='hidden md:block'
+          className="hidden md:block"
         />
         <FirstSubSection>
-          <h1 className='text-5xl md:text-6xl mb-5'>
-            <span className='text-4xl font-serif italic mx-1 font-bold'>
+          <h1 className="text-5xl md:text-6xl mb-5">
+            <span className="text-4xl font-serif italic mx-1 font-bold">
               Our
             </span>{' '}
-            <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+            <span className="text-5xl md:text-6xl font-mono font-semibold uppercase mx-1">
               services
             </span>
           </h1>
 
-          <p className='pb-8'>
+          <p className="pb-8">
             <FormattedMessage
-              id='page.services.section.our-services.content.0'
-              defaultMessage='Whether you’re looking for pro-bono hands-on support, strategic guidance, or reassurance that you’re on the right track in your work for animals, we’re here to help.'
+              id="page.services.section.our-services.content.0"
+              defaultMessage="Whether you’re looking for pro-bono hands-on support, strategic guidance, or reassurance that you’re on the right track in your work for animals, we’re here to help."
             />
           </p>
 
-          <p className='pb-8'>
+          <p className="pb-8">
             <FormattedMessage
-              id='page.services.section.our-services.content.1'
-              defaultMessage='By leveraging our specialized expertise and understanding of the movement from within, we can help you work more efficiently, save time and money, and further your mission.'
+              id="page.services.section.our-services.content.1"
+              defaultMessage="By leveraging our specialized expertise and understanding of the movement from within, we can help you work more efficiently, save time and money, and further your mission."
             />
           </p>
 
-          <p className='pb-8'>
+          <p className="pb-8">
             <FormattedMessage
-              id='page.services.section.our-services.content.2'
-              defaultMessage='We offer a range of free services tailored to your needs through VH and our independent programs.'
+              id="page.services.section.our-services.content.2"
+              defaultMessage="We offer a range of free services tailored to your needs through VH and our independent programs."
             />
           </p>
         </FirstSubSection>
-        <div className='flex flex-col items-center mx-auto mb-32 text-2xl md:space-y-20 max-w-[95rem]'>
+        <div className="flex flex-col items-center mx-auto mb-32 text-2xl md:space-y-20 max-w-[95rem]">
           {getServiceBlockProps(intl).map((service, index) => (
             <Service
               key={service.title}
@@ -273,13 +273,13 @@ const Services: React.FC = () => {
           { size: 16, color: 'grey-background', bottom: 0, right: 0 },
           { size: 16, color: 'white', top: 0, right: 0 },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
-      <div className='px-10 pt-10 bg-grey-background md:px-0'>
-        <div className='py-5 mx-auto text-xl md:w-1/2 text-grey-dark'>
+      <div className="px-10 pt-10 bg-grey-background md:px-0">
+        <div className="py-5 mx-auto text-xl md:w-1/2 text-grey-dark">
           <FormattedMessage
-            id='page.services.section.contact.content'
-            defaultMessage='If you’d like to learn more about how we can support your work, reach out via our contact form. We aim to respond to all inquiries as quickly as possible.'
+            id="page.services.section.contact.content"
+            defaultMessage="If you’d like to learn more about how we can support your work, reach out via our contact form. We aim to respond to all inquiries as quickly as possible."
           />
         </div>
         <ContactUsForm />

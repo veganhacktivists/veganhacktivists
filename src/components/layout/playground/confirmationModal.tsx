@@ -12,12 +12,12 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   type,
 }) => {
   return (
-    <Modal isOpen={isOpen} className='p-10 overflow-x-hidden bg-white'>
-      <div className='mb-10 text-xl text-center'>
-        <div className='font-bold'>Thanks for submitting your {type}!</div>
+    <Modal isOpen={isOpen} className="p-10 overflow-x-hidden bg-white">
+      <div className="mb-10 text-xl text-center">
+        <div className="font-bold">Thanks for submitting your {type}!</div>
         <div>We will get back to you soon.</div>
       </div>
-      <DarkButton href='/playground' className='mx-auto w-fit'>
+      <DarkButton href="/playground" className="mx-auto w-fit">
         Go back
       </DarkButton>
     </Modal>

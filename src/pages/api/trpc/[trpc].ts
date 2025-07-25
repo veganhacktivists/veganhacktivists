@@ -8,7 +8,6 @@ export default trpcNext.createNextApiHandler({
   createContext,
   onError: ({ error }) => {
     if (error.code === 'INTERNAL_SERVER_ERROR') {
-      // eslint-disable-next-line no-console
       console.error(error);
     }
   },

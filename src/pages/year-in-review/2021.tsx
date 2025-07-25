@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import type React from 'react';
 import { useIntl } from 'react-intl';
 
 import Hero from '../../components/decoration/hero';
@@ -144,7 +144,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
           defaultMessage: '2021 in Review',
         })}
       />
-      <div className='text-2xl'>
+      <div className="text-2xl">
         <YearInReviewHeader
           year={2021}
           hero={
@@ -157,7 +157,7 @@ const YearInReview2021: React.FC<YearInReviewProps> = ({
                   defaultMessage: '2021 year in review',
                 }),
               }}
-              alignment='left'
+              alignment="left"
               classNameMapping={{
                 container: 'bg-center',
                 backgroundImage: 'object-[63%_50%]',

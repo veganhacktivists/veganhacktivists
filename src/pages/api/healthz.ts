@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import HttpCodes from 'http-status-codes';
 
 import prisma from '../../lib/db/prisma';

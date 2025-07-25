@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
-import React, { useEffect, useMemo, useState } from 'react';
+import type React from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import PeopleLayout from '../../components/layout/people';
@@ -63,10 +64,10 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
   const { name: teamName } = team!.fields;
 
   return (
-    <div className='w-64'>
-      <div className='flex justify-end h-64 mb-2 bg-grey w-100 group'>
+    <div className="w-64">
+      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
-          <div className='relative w-full filter grayscale group-hover:grayscale-0'>
+          <div className="relative w-full filter grayscale group-hover:grayscale-0">
             <ContentfulImage
               downloadwidth={500}
               image={image}
@@ -88,18 +89,18 @@ const TeamMemberCard: React.FC<{ member: ITeamMember; teamColor: string }> = ({
           className={'absolute w-8 h-8'}
         />
       </div>
-      <div className='font-bold'>{name}</div>
+      <div className="font-bold">{name}</div>
       <div>
-        <span className='mx-1'>{position}</span>
-        <div style={{ color: teamColor }} className='font-bold uppercase'>
+        <span className="mx-1">{position}</span>
+        <div style={{ color: teamColor }} className="font-bold uppercase">
           {teamName}
         </div>
       </div>
       {socialLinks && (
-        <div className='mt-2'>
+        <div className="mt-2">
           <SocialLinks
             socialLinks={socialLinks.fields}
-            className='justify-center'
+            className="justify-center"
           />
         </div>
       )}
@@ -121,7 +122,7 @@ const TeamSelector: React.FC<{
   };
 
   return (
-    <div className='flex flex-wrap justify-center max-w-6xl m-auto mb-10'>
+    <div className="flex flex-wrap justify-center max-w-6xl m-auto mb-10">
       {teams
         .map((t) => t.fields)
         .map(({ name, color, icon, sprite, slug }) => (
@@ -144,7 +145,7 @@ const TeamSelector: React.FC<{
                 priority
               />
             ) : (
-              <div className='text-4xl'>{icon}</div>
+              <div className="text-4xl">{icon}</div>
             )}
           </Link>
         ))}
@@ -170,10 +171,10 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   }, [teams]);
 
   return (
-    <div className='md:mx-auto md:w-4/6'>
-      <div className='flex flex-wrap justify-center'>
+    <div className="md:mx-auto md:w-4/6">
+      <div className="flex flex-wrap justify-center">
         {members.map((m) => (
-          <div className='m-5' key={m.sys.id}>
+          <div className="m-5" key={m.sys.id}>
             <TeamMemberCard
               member={m}
               teamColor={colorMap[m.fields.team!.fields.name]}
@@ -262,25 +263,25 @@ const Team: PageWithLayout<TeamProps> = ({ teams, teamMembers }) => {
         })}
       >
         <FormattedMessage
-          id='page.people.section.volunteers.intro.paragraph'
-          defaultMessage='Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>'
+          id="page.people.section.volunteers.intro.paragraph"
+          defaultMessage="Our volunteer community is at the heart of our organization, and enables us to build innovative projects and contribute to the movement in meaningful ways. <b>Click on an icon to meet the volunteers in each team!</b>"
           values={{
             b: (chunks) => <b>{chunks}</b>,
           }}
         />
       </FirstSubSection>
-      <div className='m-10'>
+      <div className="m-10">
         <TeamSelector selectedTeam={team} teams={teamStore.teamOrder} />
         <MemberList members={members} teams={teams} />
         {members.length < totalMembers && (
-          <div className='mt-10 flex justify-center'>
+          <div className="mt-10 flex justify-center">
             <WhiteButton
-              className='content-center font-mono text-2xl'
+              className="content-center font-mono text-2xl"
               onClick={() => viewMore()}
             >
               <FormattedMessage
-                id='page.people.section.volunteers.button.load-more'
-                defaultMessage='Load more'
+                id="page.people.section.volunteers.button.load-more"
+                defaultMessage="Load more"
               />
             </WhiteButton>
           </div>

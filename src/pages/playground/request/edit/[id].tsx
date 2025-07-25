@@ -15,7 +15,7 @@ import type PageWithLayout from 'types/persistentLayout';
 const Header: React.FC = () => {
   return (
     <div>
-      <SectionHeader className='-mb-10' header='<b>Edit request</b>'>
+      <SectionHeader className="-mb-10" header="<b>Edit request</b>">
         Update your request information in the form below.
       </SectionHeader>
     </div>
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 
 const idSchema = z.string().cuid({ message: 'The request ID is invalid' });
 
-const EditRequestPage: PageWithLayout = ({}) => {
+const EditRequestPage: PageWithLayout = () => {
   const router = useRouter();
   useOnce(
     async () => {
@@ -40,7 +40,7 @@ const EditRequestPage: PageWithLayout = ({}) => {
   );
   return (
     <>
-      <NextSeo title='Submit Your Request' />
+      <NextSeo title="Submit Your Request" />
       <Header />
       <SquareField
         squares={[
@@ -48,7 +48,7 @@ const EditRequestPage: PageWithLayout = ({}) => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <SubmitRequestForm
         requestId={`${

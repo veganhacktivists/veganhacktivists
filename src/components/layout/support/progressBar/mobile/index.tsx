@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../../decoration/squares';
@@ -14,58 +14,58 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
   goal,
 }) => {
   return (
-    <div className='overflow-hidden py-2'>
-      <div className='md:hidden relative h-[650px] flex flex-row justify-center'>
-        <div className='flex flex-col-reverse h-full w-40'>
+    <div className="overflow-hidden py-2">
+      <div className="md:hidden relative h-[650px] flex flex-row justify-center">
+        <div className="flex flex-col-reverse h-full w-40">
           <PatreonGoal
             goalAmount={250}
-            goalColor='yellow'
+            goalColor="yellow"
             goalOrder={1}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.mobile.goal.0.label'
-              defaultMessage='This will cover some of our most basic needs!'
+              id="section.support-progess-bar.mobile.goal.0.label"
+              defaultMessage="This will cover some of our most basic needs!"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={500}
             previousAmount={250}
-            goalColor='yellow-orange'
+            goalColor="yellow-orange"
             goalOrder={2}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.mobile.goal.1.label'
-              defaultMessage='We can utilize more useful services and tech'
+              id="section.support-progess-bar.mobile.goal.1.label"
+              defaultMessage="We can utilize more useful services and tech"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={750}
             previousAmount={500}
-            goalColor='orange'
+            goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.mobile.goal.2.label'
-              defaultMessage='We can ramp up value and services offered'
+              id="section.support-progess-bar.mobile.goal.2.label"
+              defaultMessage="We can ramp up value and services offered"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={1000}
             previousAmount={750}
-            goalColor='magenta'
+            goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.mobile.goal.3.label'
+              id="section.support-progess-bar.mobile.goal.3.label"
               defaultMessage="We've hit our monthly contribution goal, thanks!"
             />
           </PatreonGoal>
         </div>
-        <div className='h-full w-[15vw] bg-grey relative'>
+        <div className="h-full w-[15vw] bg-grey relative">
           <AnimatedBar current={currentAmount} goal={goal} />
           <SquareField
             squares={[
@@ -74,11 +74,11 @@ const MobileProgressBar: React.FC<ProgressBarProps> = ({
               { top: 0, right: 0, color: 'black', size: 5, opacity: 30 },
               { bottom: 0, left: 0, color: 'black', size: 5, opacity: 30 },
             ]}
-            className='relative z-10 h-full'
+            className="relative z-10 h-full"
           />
           <TickMarks />
         </div>
-        <div className='w-36' />
+        <div className="w-36" />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { runHourlyTasks } from 'lib/cron/hour';
 
 import type { NextApiHandler } from 'next';
 
-const handler: NextApiHandler = async function (req, res) {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method !== 'GET') {
     return res
       .status(HttpCodes.METHOD_NOT_ALLOWED)

@@ -63,8 +63,8 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         <a
           key={key}
           href={key === 'email' ? 'mailto:' + value : value}
-          target='_blank'
-          rel='noreferrer'
+          target="_blank"
+          rel="noreferrer"
         >
           <div
             className={classNames(
@@ -76,7 +76,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
             {key === 'activistHub' ? (
               <CustomImage
                 src={ahIcon as StaticImageData}
-                alt=''
+                alt=""
                 width={30}
                 height={24}
               />

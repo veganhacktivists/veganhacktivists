@@ -345,6 +345,7 @@ const postRequestOnDiscord = async (request: RequestWithBudget) => {
           : typeof err === 'string'
             ? new Error(err)
             : new Error(JSON.stringify(err));
+      // biome-ignore lint/correctness/noUnsafeFinally:
       throw new Error(`Failed to send Playground message. ${cause.message}`, {
         cause,
       });
@@ -395,7 +396,6 @@ export const repostRequest = async ({
           },
         });
 
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
@@ -418,7 +418,6 @@ export const repostRequest = async ({
   } catch (e) {
     try {
       for await (const redditSubmission of redditSubmissions) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         await redditSubmission.delete().catch();
       }
       for await (const discordMessage of discordMessages) {
@@ -431,6 +430,7 @@ export const repostRequest = async ({
           : typeof e === 'string'
             ? new Error(e)
             : new Error(JSON.stringify(e));
+      // biome-ignore lint/correctness/noUnsafeFinally:
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }
@@ -495,7 +495,6 @@ export const setRequestStatus = async ({
 
         if (shouldPost) {
           console.info('Trying to post to reddit and discord', id, Date.now());
-          // eslint-disable-next-line @typescript-eslint/no-floating-promises
           redditSubmissions =
             await postPlaygroundRequestOnReddit(updatedRequest);
           console.info('Successfully posted request to reddit', id, Date.now());
@@ -535,7 +534,6 @@ export const setRequestStatus = async ({
   } catch (e) {
     try {
       for await (const redditSubmission of redditSubmissions) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         await redditSubmission.delete().catch();
       }
       for await (const discordMessage of discordMessages) {
@@ -548,6 +546,7 @@ export const setRequestStatus = async ({
           : typeof e === 'string'
             ? new Error(e)
             : new Error(JSON.stringify(e));
+      // biome-ignore lint/correctness/noUnsafeFinally:
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', cause });
     }
   }

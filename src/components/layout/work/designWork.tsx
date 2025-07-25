@@ -20,13 +20,13 @@ const DesignWork: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='flex flex-col-reverse md:flex-row text-left'>
-        <div className='basis-full md:basis-1/2 bg-[#171919] md:bg-[#DDDDDD] text-white md:text-black flex justify-center md:justify-end pb-32 md:pb-0'>
-          <div className='flex-grow max-w-4xl flex justify-center px-10'>
-            <div className='md:py-36 lg:w-[27.25rem]'>
+      <div className="flex flex-col-reverse md:flex-row text-left">
+        <div className="basis-full md:basis-1/2 bg-[#171919] md:bg-[#DDDDDD] text-white md:text-black flex justify-center md:justify-end pb-32 md:pb-0">
+          <div className="flex-grow max-w-4xl flex justify-center px-10">
+            <div className="md:py-36 lg:w-[27.25rem]">
               <SectionHeader
                 header={intl.formatMessage({
                   id: 'page.our-work.section.design-work.headline',
@@ -34,30 +34,30 @@ const DesignWork: React.FC = () => {
                 })}
                 stackEntries
               />
-              <div className='text-lg pt-8 pb-4'>
+              <div className="text-lg pt-8 pb-4">
                 <FormattedMessage
-                  id='page.our-work.section.design-work.content'
-                  defaultMessage='Our sister organization <highlight><no-localization>Violet Studios</no-localization></highlight> offers free design services for animal advocates and organizations. From branding and web design to motion and document design, Violet is here to help organizations look sharp, build trust, and engage their audiences.'
+                  id="page.our-work.section.design-work.content"
+                  defaultMessage="Our sister organization <highlight><no-localization>Violet Studios</no-localization></highlight> offers free design services for animal advocates and organizations. From branding and web design to motion and document design, Violet is here to help organizations look sharp, build trust, and engage their audiences."
                   values={{
                     highlight: (chunk) => (
-                      <span className='underline font-bold'>{chunk}</span>
+                      <span className="underline font-bold">{chunk}</span>
                     ),
                   }}
                 />
               </div>
-              <div className='text-center mt-8'>
+              <div className="text-center mt-8">
                 <DarkButton
                   capitalize={false}
-                  className='hidden md:block'
-                  href='https://violetstudios.org/'
+                  className="hidden md:block"
+                  href="https://violetstudios.org/"
                   newTab
                 >
                   {visitVioletStudiosButtonLabel}
                 </DarkButton>
                 <LightButton
                   capitalize={false}
-                  className='md:hidden'
-                  href='https://violetstudios.org/'
+                  className="md:hidden"
+                  href="https://violetstudios.org/"
                   newTab
                 >
                   {visitVioletStudiosButtonLabel}
@@ -67,13 +67,13 @@ const DesignWork: React.FC = () => {
           </div>
         </div>
 
-        <div className='basis-full md:basis-1/2 bg-[#171919] flex justify-center md:justify-start pt-20 pb-10 md:py-0'>
-          <div className='flex-grow max-w-3xl flex items-center justify-center'>
+        <div className="basis-full md:basis-1/2 bg-[#171919] flex justify-center md:justify-start pt-20 pb-10 md:py-0">
+          <div className="flex-grow max-w-3xl flex items-center justify-center">
             <DotLottieReact
               autoplay
               loop
-              src='/lottiefiles/VS_logoAnim_Minimal.json'
-              className='w-3/5 md:w-[290px]'
+              src="/lottiefiles/VS_logoAnim_Minimal.json"
+              className="w-3/5 md:w-[290px]"
             />
           </div>
         </div>

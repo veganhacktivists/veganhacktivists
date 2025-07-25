@@ -64,7 +64,6 @@ export async function rejectOldRequestsWithoutApplicantsTask() {
 
         return true;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(
           'rejectOldRequestsWithoutApplicantsTask: status update failed for request',
           request,
@@ -96,7 +95,6 @@ const sendAutomaticallyRejectedEmail = async (
 
     return true;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(
       'rejectOldRequestsWithoutApplicantsTask: sendAutomaticallyRejectedEmail failed for request',
       request,

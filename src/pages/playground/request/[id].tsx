@@ -23,7 +23,7 @@ import type PageWithLayout from 'types/persistentLayout';
 
 const idSchema = z.string().cuid({ message: 'The request ID is invalid' });
 
-const PlaygroundRequest: PageWithLayout = ({}) => {
+const PlaygroundRequest: PageWithLayout = () => {
   const router = useRouter();
   const session = useSession();
 
@@ -65,23 +65,23 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         description={truncatedDescription}
         openGraph={{ title: request?.title }}
       />
-      <div className='mt-24'>
-        <div className='m-10 mb-5 ml-10 w-fit text-grey md:ml-20'>
+      <div className="mt-24">
+        <div className="m-10 mb-5 ml-10 w-fit text-grey md:ml-20">
           <DarkButton
-            href='/playground'
-            className='flex font-mono uppercase place-items-center'
+            href="/playground"
+            className="flex font-mono uppercase place-items-center"
           >
-            <FontAwesomeIcon icon={leftArrow} size='xs' />
-            <span className='block pl-3'>Go Back</span>
+            <FontAwesomeIcon icon={leftArrow} size="xs" />
+            <span className="block pl-3">Go Back</span>
           </DarkButton>
           {session.data?.user?.role === UserRole.Admin && (
-            <div className='mt-2 text-left'>
+            <div className="mt-2 text-left">
               <DarkButton
-                href='/playground/admin'
-                className='flex font-mono uppercase place-items-center'
+                href="/playground/admin"
+                className="flex font-mono uppercase place-items-center"
               >
-                <FontAwesomeIcon icon={leftArrow} size='xs' />
-                <span className='block pl-3'>Review requests</span>
+                <FontAwesomeIcon icon={leftArrow} size="xs" />
+                <span className="block pl-3">Review requests</span>
               </DarkButton>
             </div>
           )}
@@ -94,7 +94,7 @@ const PlaygroundRequest: PageWithLayout = ({}) => {
         )}
         {status === 'error' && (
           <>
-            <h1 className='text-3xl text-red font-bold'>
+            <h1 className="text-3xl text-red font-bold">
               This request has been taken
             </h1>
           </>

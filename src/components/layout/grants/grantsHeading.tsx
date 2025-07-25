@@ -7,7 +7,7 @@ import CustomImage from 'components/decoration/customImage';
 const GrantsHeading: React.FC = () => {
   const intl = useIntl();
   return (
-    <div className='p-12'>
+    <div className="p-12">
       <CustomImage
         src={bee.src}
         width={bee.width * 0.5}
@@ -18,10 +18,10 @@ const GrantsHeading: React.FC = () => {
         })}
         priority
       />
-      <h2 className='text-5xl mt-4 font-medium text-gray font-mono uppercase'>
+      <h2 className="text-5xl mt-4 font-medium text-gray font-mono uppercase">
         <FormattedMessage
-          id='page.grants.section.heading.text'
-          defaultMessage='Seed Funding Grants'
+          id="page.grants.section.heading.text"
+          defaultMessage="Seed Funding Grants"
         />
       </h2>
     </div>

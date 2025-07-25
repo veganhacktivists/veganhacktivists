@@ -61,11 +61,11 @@ const VerifyLogin: React.FC = () => {
           { size: 16, top: 16, left: 16, color: 'grey-light' },
           { size: 24, top: 0, right: 0, color: 'grey' },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <form method='post' action={verifyEndpointUrl}>
-        <div className='flex flex-col items-center'>
+      <form method="post" action={verifyEndpointUrl}>
+        <div className="flex flex-col items-center">
           <FirstSubSection
             header={intl.formatMessage({
               id: 'page.verify-login.headline',
@@ -73,15 +73,15 @@ const VerifyLogin: React.FC = () => {
             })}
           >
             <FormattedMessage
-              id='page.verify-login.intro'
-              defaultMessage='Click the button below to verify your login'
+              id="page.verify-login.intro"
+              defaultMessage="Click the button below to verify your login"
             />
           </FirstSubSection>
 
-          <DarkButton type='submit'>
+          <DarkButton type="submit">
             <FormattedMessage
-              id='page.verify-login.button.verify'
-              defaultMessage='Verify'
+              id="page.verify-login.button.verify"
+              defaultMessage="Verify"
             />
           </DarkButton>
         </div>

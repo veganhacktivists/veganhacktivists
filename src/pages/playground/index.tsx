@@ -37,7 +37,7 @@ const isValidPlaygroundRequestCategoryValue = (
   return value in PlaygroundRequestCategory;
 };
 
-const Playground: PageWithLayout = ({}) => {
+const Playground: PageWithLayout = () => {
   const intl = useIntl();
 
   const router = useRouter();
@@ -126,9 +126,9 @@ const Playground: PageWithLayout = ({}) => {
 
   return (
     <>
-      <NextSeo title='Requests' />
+      <NextSeo title="Requests" />
       <div>
-        <div className='lg:mx-12 2xl:mx-44 xl:mx-36'>
+        <div className="lg:mx-12 2xl:mx-44 xl:mx-36">
           <SectionHeader
             header={intl.formatMessage({
               id: 'page.playground.section.open-requests.introduction.headline',
@@ -136,11 +136,11 @@ const Playground: PageWithLayout = ({}) => {
             })}
           >
             <FormattedMessage
-              id='page.playground.section.open-requests.introduction.content'
-              defaultMessage='Check out the requests below to find volunteer or paid opportunities to help the animals. Are you an individual or organization seeking support for your work? <link>Submit a request</link> of your own!'
+              id="page.playground.section.open-requests.introduction.content"
+              defaultMessage="Check out the requests below to find volunteer or paid opportunities to help the animals. Are you an individual or organization seeking support for your work? <link>Submit a request</link> of your own!"
               values={{
                 link: (chunk) => (
-                  <CustomLink className='font-bold' href='/playground/submit'>
+                  <CustomLink className="font-bold" href="/playground/submit">
                     {chunk}
                   </CustomLink>
                 ),
@@ -149,12 +149,12 @@ const Playground: PageWithLayout = ({}) => {
           </SectionHeader>
         </div>
         <div
-          className='mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36'
+          className="mb-20 -mt-10 lg:mx-12 2xl:mx-44 xl:mx-36"
           ref={requestContainer}
         >
           <RequestFilters onChange={updateFilterHandler} filters={filters} />
           <div
-            className='grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2'
+            className="grid grid-cols-1 gap-8 mx-5 mt-10 md:grid-cols-2"
             ref={animatedRef}
           >
             {paginatedRequests?.map((request) => (
@@ -162,16 +162,16 @@ const Playground: PageWithLayout = ({}) => {
             ))}
           </div>
           {requests?.length === 0 ? (
-            <div className='mx-auto text-center text-gray-500'>
+            <div className="mx-auto text-center text-gray-500">
               <FormattedMessage
-                id='page.playground.section.open-requests.no-requests-available'
-                defaultMessage='There are no requests matching your criteria'
+                id="page.playground.section.open-requests.no-requests-available"
+                defaultMessage="There are no requests matching your criteria"
               />
             </div>
           ) : (
-            <div className='flex flex-row justify-center gap-10 p-16 mx-auto'>
+            <div className="flex flex-row justify-center gap-10 p-16 mx-auto">
               <DarkButton
-                className='flex font-mono font-bold uppercase'
+                className="flex font-mono font-bold uppercase"
                 onClick={() => {
                   decreasePageParam();
                   setPreviousPage();
@@ -182,17 +182,17 @@ const Playground: PageWithLayout = ({}) => {
                 disabled={!previousEnabled}
               >
                 <div>
-                  <FontAwesomeIcon icon={leftArrow} size='xs' />
+                  <FontAwesomeIcon icon={leftArrow} size="xs" />
                 </div>
-                <span className='hidden pl-3 md:block'>
+                <span className="hidden pl-3 md:block">
                   <FormattedMessage
-                    id='page.playground.section.open-requests.previous-page-button.label'
-                    defaultMessage='Previous'
+                    id="page.playground.section.open-requests.previous-page-button.label"
+                    defaultMessage="Previous"
                   />
                 </span>
               </DarkButton>
               <DarkButton
-                className='font-mono font-bold uppercase'
+                className="font-mono font-bold uppercase"
                 onClick={() => {
                   increasePageParam();
                   setNextPage();
@@ -202,15 +202,15 @@ const Playground: PageWithLayout = ({}) => {
                 }}
                 disabled={!nextEnabled}
               >
-                <div className='flex'>
-                  <span className='hidden pr-3 md:block'>
+                <div className="flex">
+                  <span className="hidden pr-3 md:block">
                     <FormattedMessage
-                      id='page.playground.section.open-requests.next-page-button.label'
-                      defaultMessage='Next'
+                      id="page.playground.section.open-requests.next-page-button.label"
+                      defaultMessage="Next"
                     />
                   </span>
                   <div>
-                    <FontAwesomeIcon icon={rightArrow} size='xs' />
+                    <FontAwesomeIcon icon={rightArrow} size="xs" />
                   </div>
                 </div>
               </DarkButton>
@@ -218,36 +218,36 @@ const Playground: PageWithLayout = ({}) => {
           )}
         </div>
         <SquareField
-          className='hidden md:block'
+          className="hidden md:block"
           squares={[
             { bottom: 0, left: 0, color: 'grey', size: 16 },
             { top: 0, right: 0, color: 'white', size: 16 },
             { top: 16, right: 16, color: 'white', size: 16 },
           ]}
         />
-        <div className='space-y-5 text-white py-14 bg-grey'>
+        <div className="space-y-5 text-white py-14 bg-grey">
           <div>
-            <div className='w-20 mx-auto'>
-              <CustomImage src={pixelHeart} alt='' />
+            <div className="w-20 mx-auto">
+              <CustomImage src={pixelHeart} alt="" />
             </div>
-            <h2 className='text-2xl font-bold'>
+            <h2 className="text-2xl font-bold">
               <FormattedMessage
-                id='page.playground.section.get-support.headline'
-                defaultMessage='Need support?'
+                id="page.playground.section.get-support.headline"
+                defaultMessage="Need support?"
               />
             </h2>
           </div>
 
-          <div className='px-10 pt-4 pb-4 mx-auto text-xl md:w-1/2'>
+          <div className="px-10 pt-4 pb-4 mx-auto text-xl md:w-1/2">
             <FormattedMessage
-              id='page.playground.section.get-support.content'
-              defaultMessage='If you are an individual or organization that needs help with your work in helping the animals, you can apply to receive free support from our Playground community.'
+              id="page.playground.section.get-support.content"
+              defaultMessage="If you are an individual or organization that needs help with your work in helping the animals, you can apply to receive free support from our Playground community."
             />
           </div>
-          <LightButton href='/playground/submit' className='mx-auto w-fit'>
+          <LightButton href="/playground/submit" className="mx-auto w-fit">
             <FormattedMessage
-              id='page.playground.section.get-support.cta-button.label'
-              defaultMessage='Submit your request'
+              id="page.playground.section.get-support.cta-button.label"
+              defaultMessage="Submit your request"
             />
           </LightButton>
         </div>

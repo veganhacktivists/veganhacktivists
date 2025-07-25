@@ -50,15 +50,15 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
   return (
     <>
       <NextSeo noindex title={message} />
-      <article className='min-h-[40rem] flex flex-col justify-center items-center p-4'>
-        <div className='flex flex-col gap-4'>
-          <div className='flex flex-col justify-start gap-12 md:flex-row'>
-            <div className='w-80'>
-              <CustomImage src={errorTypeImage} alt='ERROR' priority />
+      <article className="min-h-[40rem] flex flex-col justify-center items-center p-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col justify-start gap-12 md:flex-row">
+            <div className="w-80">
+              <CustomImage src={errorTypeImage} alt="ERROR" priority />
             </div>
-            <div className='flex flex-col items-start gap-3 text-2xl text-center justify-evenly md:gap-0 md:text-left'>
-              <h1 className='w-full font-mono font-bold text-red'>{message}</h1>
-              <div className='w-full font-mono'>
+            <div className="flex flex-col items-start gap-3 text-2xl text-center justify-evenly md:gap-0 md:text-left">
+              <h1 className="w-full font-mono font-bold text-red">{message}</h1>
+              <div className="w-full font-mono">
                 {contactPageError
                   ? 'Please contact us at'
                   : 'If you believe this is a mistake'}
@@ -66,21 +66,21 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
               </div>
             </div>
           </div>
-          <div className='flex flex-col-reverse justify-start gap-12 md:flex-row'>
-            <div className='md:-mt-3'>
+          <div className="flex flex-col-reverse justify-start gap-12 md:flex-row">
+            <div className="md:-mt-3">
               {[avocado, mango, peach, sweetPotato, watermelon].map((fruit) => (
                 <CustomImage
                   key={fruit.src}
                   src={fruit}
-                  height='64'
-                  width='64'
-                  alt=''
+                  height="64"
+                  width="64"
+                  alt=""
                 />
               ))}
             </div>
-            <div className='flex justify-center w-full md:w-min'>
+            <div className="flex justify-center w-full md:w-min">
               {contactPageError ? (
-                <span className='font-mono text-2xl font-bold md:text-left'>
+                <span className="font-mono text-2xl font-bold md:text-left">
                   <Link
                     href={{
                       pathname: 'mailto:hello@veganhacktivists.org',
@@ -93,16 +93,16 @@ const Error: NextPage<ErrorProps> = ({ error, resetErrorBoundary }) => {
                       },
                     }}
                     passHref
-                    target='_blank'
-                    rel='noreferrer'
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     hello@veganhacktivists.org
                   </Link>
                 </span>
               ) : (
                 <DarkButton
-                  className='w-52'
-                  href='/contact'
+                  className="w-52"
+                  href="/contact"
                   onClick={handleContactClick}
                 >
                   Let us know!

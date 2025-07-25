@@ -179,7 +179,6 @@ const SelectInput = <T,>({
       {creatable ? (
         <CreatableSelect
           {...commonProps}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ref={ref as any}
           onCreateOption={(value) => {
             const newOption = { label: value, value: value as T };
@@ -188,13 +187,9 @@ const SelectInput = <T,>({
           }}
         />
       ) : (
-        <Select
-          {...commonProps}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          ref={ref as any}
-        />
+        <Select {...commonProps} ref={ref as any} />
       )}
-      {error && <div className='text-red'>⚠ {error}</div>}
+      {error && <div className="text-red">⚠ {error}</div>}
     </>
   );
 };

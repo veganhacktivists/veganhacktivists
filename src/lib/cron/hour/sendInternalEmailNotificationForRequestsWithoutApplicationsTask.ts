@@ -66,7 +66,6 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
 
         return true;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(
           'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: update db noApplicationsNotificationEmailSent failed for request',
           request,
@@ -82,7 +81,6 @@ export async function sendInternalEmailNotificationForRequestsWithoutApplication
   const failedRejections = results.length - successfulRejections;
 
   if (failedRejections > 0) {
-    // eslint-disable-next-line no-console
     console.error(
       `sendInternalEmailNotificationForRequestsWithoutApplicationsTask: failed to send ${failedRejections} emails`,
     );
@@ -125,7 +123,6 @@ const sendInternalEmailForRequestsWithoutApplications = async (
 
     return true;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(
       'sendInternalEmailNotificationForRequestsWithoutApplicationsTask: sendInternalEmailForRequestsWithoutApplications failed for request',
       request,

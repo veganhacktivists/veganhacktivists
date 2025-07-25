@@ -99,7 +99,7 @@ const removeEntriesWithoutFields: <T>(entry: Entry<T>) => Entry<T> | null = (
   const entries = entry.fields
     ? Object.entries(entry.fields)
         .map(([key, value]) => {
-          let filteredValue;
+          let filteredValue: unknown;
           if (Array.isArray(value)) {
             if (typeof value[0] !== 'object' || !Array.isArray(value)) {
               filteredValue = value;

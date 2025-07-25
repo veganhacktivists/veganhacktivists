@@ -24,13 +24,13 @@ const Partnership: React.FC<PartnershipProps> = ({
 }) => {
   return (
     <div>
-      <div className='flex flex-col md:flex-row gap-x-10'>
-        <div className='w-2/3 mx-auto md:w-40'>
-          <CustomImage src={image} alt='' />
+      <div className="flex flex-col md:flex-row gap-x-10">
+        <div className="w-2/3 mx-auto md:w-40">
+          <CustomImage src={image} alt="" />
         </div>
-        <div className='flex flex-col md:text-left flex-1'>
-          <div className='font-bold text-4xl pb-5'>{title}</div>
-          <div className='space-y-5'>{children}</div>
+        <div className="flex flex-col md:text-left flex-1">
+          <div className="font-bold text-4xl pb-5">{title}</div>
+          <div className="space-y-5">{children}</div>
         </div>
       </div>
     </div>
@@ -49,16 +49,16 @@ const Partnerships: React.FC = () => {
               id: 'page.year-in-review.2021.section.partnerships.intro.headline',
               defaultMessage: 'Building meaningful <b>partnerships</b>',
             })}
-            className='text-grey'
+            className="text-grey"
           >
             <FormattedMessage
-              id='page.year-in-review.2021.section.partnerships.intro.paragraph'
-              defaultMessage='This year we looked back at our previous partnerships and brainstormed together on how our future partnerships could lead to more effective and long-lasting relationships. We wanted our partnerships to extend with more complexity and with more impact for both them, and us.'
+              id="page.year-in-review.2021.section.partnerships.intro.paragraph"
+              defaultMessage="This year we looked back at our previous partnerships and brainstormed together on how our future partnerships could lead to more effective and long-lasting relationships. We wanted our partnerships to extend with more complexity and with more impact for both them, and us."
             />
           </SectionHeader>
         }
       >
-        <div className='md:w-3/4 mx-auto space-y-20 mt-10'>
+        <div className="md:w-3/4 mx-auto space-y-20 mt-10">
           <Partnership
             image={pollinationPartner}
             title={intl.formatMessage({
@@ -69,11 +69,11 @@ const Partnerships: React.FC = () => {
           >
             <p>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.pollination-project.paragraph.0'
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.0"
                 defaultMessage="We were very happy to <link>announce a partnership</link> in where we're able to offer up to $1000 USD in seed funding grants for outstanding, and effective, animal rights activism! Specifically we're looking for individual or grassroots groups whose primary purpose is to help reduce suffering for non-human farmed animals."
                 values={{
                   link: (chunks) => (
-                    <CustomLink href='https://veganhacktivists.org/people/advisors'>
+                    <CustomLink href="https://veganhacktivists.org/people/advisors">
                       {chunks}
                     </CustomLink>
                   ),
@@ -82,17 +82,17 @@ const Partnerships: React.FC = () => {
             </p>
             <p>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.pollination-project.paragraph.1'
-                defaultMessage='In our first month alone, we averaged one grant request per day received by various activists and organizations. Grant requests were for a wide variety of forms of activism, including: Singing, Virtual Reality, Drawing, Photography, Videography, Baking, Fundraising, Welfare Awareness, Child Education, Youth Skills, Capacity Building, Farming, Campaigning, Printing, Litigation, Animal Rescue, Wild Animal Advocacy and more!'
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.1"
+                defaultMessage="In our first month alone, we averaged one grant request per day received by various activists and organizations. Grant requests were for a wide variety of forms of activism, including: Singing, Virtual Reality, Drawing, Photography, Videography, Baking, Fundraising, Welfare Awareness, Child Education, Youth Skills, Capacity Building, Farming, Campaigning, Printing, Litigation, Animal Rescue, Wild Animal Advocacy and more!"
               />
             </p>
             <p>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.pollination-project.paragraph.2'
+                id="page.year-in-review.2021.section.partnerships.pollination-project.paragraph.2"
                 defaultMessage="We're excited to see where this partnership leads us in the future as we work together with <link>The Pollination Project</link> to get these activists funded as much as possible."
                 values={{
                   link: (chunks) => (
-                    <CustomLink href='https://thepollinationproject.org/'>
+                    <CustomLink href="https://thepollinationproject.org/">
                       {chunks}
                     </CustomLink>
                   ),
@@ -110,17 +110,17 @@ const Partnerships: React.FC = () => {
           >
             <p>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.0'
-                defaultMessage='<no-localization>Anonymous for the Voiceless (AV)</no-localization> is a not-for-profit animal rights organisation specializing in using conversation and standard practice footage to edify the public about animal exploitation. They hold street activism events worldwide to edify the public towards supporting animal rights, living vegan and speaking up for the animals.'
+                id="page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.0"
+                defaultMessage="<no-localization>Anonymous for the Voiceless (AV)</no-localization> is a not-for-profit animal rights organisation specializing in using conversation and standard practice footage to edify the public about animal exploitation. They hold street activism events worldwide to edify the public towards supporting animal rights, living vegan and speaking up for the animals."
               />
             </p>
             <p>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1'
+                id="page.year-in-review.2021.section.partnerships.anonymous-for-the-voiceless.paragraph.1"
                 defaultMessage="Traditionally, it's been very hard to track the effectiveness of street outreach. We're excited to have partnered up with <no-localization>AV</no-localization> in order to be able to provide them the tools they need to monitor and track the effectiveness of each group with <link>Activist Hub</link>."
                 values={{
                   link: (chunks) => (
-                    <CustomLink href='https://activisthub.org'>
+                    <CustomLink href="https://activisthub.org">
                       {chunks}
                     </CustomLink>
                   ),
@@ -136,36 +136,36 @@ const Partnerships: React.FC = () => {
             })}
           >
             <p>
-              <CustomLink href='https://veganoutreach.org'>
-                <span className='block md:inline'>
+              <CustomLink href="https://veganoutreach.org">
+                <span className="block md:inline">
                   <b>
                     <FormattedMessage
-                      id='page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading'
-                      defaultMessage='<no-localization>Vegan Outreach</no-localization>'
+                      id="page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.heading"
+                      defaultMessage="<no-localization>Vegan Outreach</no-localization>"
                     />
                   </b>
                 </span>
               </CustomLink>
-              <span className='hidden md:inline'>&nbsp;&mdash;&nbsp;</span>
+              <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph'
+                id="page.year-in-review.2021.section.partnerships.other-partnerships.vegan-outreach.paragraph"
                 defaultMessage="We partnered with <no-localization>Vegan Outreach's</no-localization> Vegan Mentorship Program in order to provide completely free mentorship access to all <no-localization>Vegan Bootcamp</no-localization> and <no-localization>3Movies.org</no-localization> participants."
               />
             </p>
-            <p className='pb-20'>
-              <CustomLink href='https://www.legalimpactforchickens.org/'>
-                <span className='block md:inline'>
+            <p className="pb-20">
+              <CustomLink href="https://www.legalimpactforchickens.org/">
+                <span className="block md:inline">
                   <b>
                     <FormattedMessage
-                      id='page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading'
-                      defaultMessage='<no-localization>Legal Impact for Chickens</no-localization>'
+                      id="page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.heading"
+                      defaultMessage="<no-localization>Legal Impact for Chickens</no-localization>"
                     />
                   </b>
                 </span>
               </CustomLink>
-              <span className='hidden md:inline'>&nbsp;&mdash;&nbsp;</span>
+              <span className="hidden md:inline">&nbsp;&mdash;&nbsp;</span>
               <FormattedMessage
-                id='page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph'
+                id="page.year-in-review.2021.section.partnerships.other-partnerships.legal-impact-for-chickens.paragraph"
                 defaultMessage="We partnered with <no-localization>Legal Impact for Chickens</no-localization> for our upcoming project, <no-localization>Start Pressuring!</no-localization> We'll be able to provide successful pressure campaigns launched on our platform with free legal support!"
               />
             </p>
@@ -173,7 +173,7 @@ const Partnerships: React.FC = () => {
         </div>
       </SectionContainer>
       <SquareField
-        className='hidden md:block'
+        className="hidden md:block"
         squares={[
           { color: 'grey-background', left: 0, bottom: 0 },
           { color: 'white', left: 32, top: 0 },

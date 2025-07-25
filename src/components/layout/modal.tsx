@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 
 import useReduceMotion from '../../hooks/useReduceMotion';
@@ -78,7 +79,7 @@ const Modal: React.FC<ModalProps> = ({
         {onClose && (
           <div
             onClick={closeModal}
-            className='absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]'
+            className="absolute top-0 right-0 bg-green px-3 py-1 text-2xl text-white font-bold cursor-pointer z-[10000]"
           >
             &#10005;
           </div>

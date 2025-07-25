@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { NavButton } from '../decoration/buttons';
@@ -29,23 +29,23 @@ export interface SocialLink {
 
 const PeopleButtons: React.FC = () => {
   return (
-    <div className='flex flex-wrap justify-center mt-10 mb-5'>
-      <NavButton href='/people/team'>
+    <div className="flex flex-wrap justify-center mt-10 mb-5">
+      <NavButton href="/people/team">
         <FormattedMessage
-          id='page.people.section.navigation.button.label.team'
-          defaultMessage='OUR TEAM'
+          id="page.people.section.navigation.button.label.team"
+          defaultMessage="OUR TEAM"
         />
       </NavButton>
-      <NavButton href='/people/volunteers'>
+      <NavButton href="/people/volunteers">
         <FormattedMessage
-          id='page.people.section.navigation.button.label.volunteers'
-          defaultMessage='OUR VOLUNTEERS'
+          id="page.people.section.navigation.button.label.volunteers"
+          defaultMessage="OUR VOLUNTEERS"
         />
       </NavButton>
-      <NavButton href='/people/advisors'>
+      <NavButton href="/people/advisors">
         <FormattedMessage
-          id='page.people.section.navigation.button.label.advisors'
-          defaultMessage='OUR ADVISORS'
+          id="page.people.section.navigation.button.label.advisors"
+          defaultMessage="OUR ADVISORS"
         />
       </NavButton>
     </div>
@@ -74,7 +74,7 @@ const PeopleHero: React.FC = () => {
             defaultMessage: 'Our Community of Passionate Activists',
           }),
         }}
-        alignment='left'
+        alignment="left"
         classNameMapping={{
           container: 'bg-center',
           backgroundImage: 'object-[75%_0] md:object-center',
@@ -82,7 +82,7 @@ const PeopleHero: React.FC = () => {
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );
@@ -102,7 +102,7 @@ const PeopleLayout: Layout = ({ children }) => {
           { color: 'grey-darker', size: 16, right: 0, bottom: 0 },
           { color: 'grey', size: 16, right: 16, top: 0 },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       {/* <JoinTheTeam /> */}
     </>

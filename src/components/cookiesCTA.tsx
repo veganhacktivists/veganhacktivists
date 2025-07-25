@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 import { DarkButton } from './decoration/buttons';
@@ -42,30 +43,30 @@ const CookiesCTA: React.FC = () => {
 
   return (
     <div
-      id='cookies'
-      className='fixed bottom-0 z-50 px-8 pt-8 translate-x-1/2 right-1/2 md:translate-x-0 md:right-0 md:pb-8'
+      id="cookies"
+      className="fixed bottom-0 z-50 px-8 pt-8 translate-x-1/2 right-1/2 md:translate-x-0 md:right-0 md:pb-8"
     >
-      <SubtleBorder className='bg-white relative p-8 pb-4 max-w-full w-screen md:w-[400px]'>
+      <SubtleBorder className="bg-white relative p-8 pb-4 max-w-full w-screen md:w-[400px]">
         <div
           onClick={() => {
             setShow(false);
           }}
-          className='absolute top-0 right-0 px-3 py-1 text-2xl font-bold text-white cursor-pointer bg-green'
+          className="absolute top-0 right-0 px-3 py-1 text-2xl font-bold text-white cursor-pointer bg-green"
         >
           &#10005;
         </div>
-        <p className='mb-3 font-mono text-3xl font-semibold'>Hey there!</p>
-        <p className='font-mono text-xl mb-7'>
+        <p className="mb-3 font-mono text-3xl font-semibold">Hey there!</p>
+        <p className="font-mono text-xl mb-7">
           This website uses cookies to enhance your browsing experience.
         </p>
-        <div className='flex justify-center'>
-          <DarkButton className='w-3/4 mb-4' onClick={() => onChange(true)}>
+        <div className="flex justify-center">
+          <DarkButton className="w-3/4 mb-4" onClick={() => onChange(true)}>
             Accept cookies
           </DarkButton>
         </div>
         <p
           onClick={() => onChange(false)}
-          className='font-mono underline cursor-pointer'
+          className="font-mono underline cursor-pointer"
         >
           No cookies, please
         </p>

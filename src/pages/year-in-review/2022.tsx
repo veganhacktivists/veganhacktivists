@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import type React from 'react';
 import { useIntl } from 'react-intl';
 
 import Hero from '../../components/decoration/hero';
@@ -21,7 +21,7 @@ import AnimalRightsAdvocates from 'components/layout/yearInReview/2022/animalRig
 import StateOfData from 'components/layout/yearInReview/2022/stateOfData';
 import BonusProjects from 'components/layout/yearInReview/2022/bonusProjects';
 
-const YearInReview2022: React.FC = ({}) => {
+const YearInReview2022: React.FC = () => {
   const intl = useIntl();
   return (
     <>
@@ -31,7 +31,7 @@ const YearInReview2022: React.FC = ({}) => {
           defaultMessage: '2022 in Review',
         })}
       />
-      <div className='text-2xl'>
+      <div className="text-2xl">
         <YearInReviewHeader
           year={2022}
           hero={
@@ -44,7 +44,7 @@ const YearInReview2022: React.FC = ({}) => {
                   defaultMessage: '2022 year in review',
                 }),
               }}
-              alignment='left'
+              alignment="left"
               classNameMapping={{
                 container: 'bg-center',
                 backgroundImage: 'object-[72%_40%]',

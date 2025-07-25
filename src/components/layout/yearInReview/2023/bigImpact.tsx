@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { useIntl } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
@@ -21,19 +21,19 @@ const BigImpact: React.FC = () => {
           { size: 16, left: 0, bottom: 0, color: 'grey-light' },
           { size: 16, left: 0, top: 0, color: 'grey' },
         ]}
-        className='hidden md:block z-10'
+        className="hidden md:block z-10"
       />
-      <div className='bg-grey-dark pt-16 pb-1 md:pb-6 md:pt-24 px-5 md:px-10'>
-        <div className='max-w-6xl mx-auto'>
+      <div className="bg-grey-dark pt-16 pb-1 md:pb-6 md:pt-24 px-5 md:px-10">
+        <div className="max-w-6xl mx-auto">
           <SectionHeader
             header={intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.heading',
               defaultMessage: 'Minor actions with <b>BIG IMPACT</b>',
             })}
-            className='text-white'
+            className="text-white"
           />
         </div>
-        <div className='max-w-4xl mx-auto mb-20 pt-10'>
+        <div className="max-w-4xl mx-auto mb-20 pt-10">
           <TeamBlock
             team={intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.501c3.heading',
@@ -41,7 +41,7 @@ const BigImpact: React.FC = () => {
                 'We’re becoming a <no-localization>501(c)3</no-localization>!',
             })}
             image={Peach}
-            color='orange'
+            color="orange"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.501c3.content',
@@ -56,7 +56,7 @@ const BigImpact: React.FC = () => {
                 '<no-localization>VH’s</no-localization> Wellness Survey',
             })}
             image={Apple}
-            color='red'
+            color="red"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.wellness-survey.content',
@@ -70,7 +70,7 @@ const BigImpact: React.FC = () => {
               defaultMessage: 'Our First All Hands Meeting',
             })}
             image={Banana}
-            color='yellow'
+            color="yellow"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.all-hands-meeting.content',
@@ -84,7 +84,7 @@ const BigImpact: React.FC = () => {
               defaultMessage: 'New Community Manager',
             })}
             image={Avocado}
-            color='green-light'
+            color="green-light"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.new-comms-manager.content',
@@ -98,7 +98,7 @@ const BigImpact: React.FC = () => {
               defaultMessage: 'New Advisor',
             })}
             image={Blueberry}
-            color='blue'
+            color="blue"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.new-advisor.content',
@@ -112,7 +112,7 @@ const BigImpact: React.FC = () => {
               defaultMessage: 'New Director of Communications',
             })}
             image={Brocolli}
-            color='green'
+            color="green"
           >
             {intl.formatMessage({
               id: 'page.year-in-review.2023.section.big-impact.new-comms-director.content',

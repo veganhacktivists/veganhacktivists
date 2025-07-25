@@ -7,7 +7,6 @@ const nextConfig = z
   .object({
     i18n: z.object({ locales: z.array(z.string()), defaultLocale: z.string() }),
   })
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   .parse(require('../next.config.js'));
 
 export const filesGlob = 'src/**/*.tsx';

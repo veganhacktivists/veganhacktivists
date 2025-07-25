@@ -159,7 +159,7 @@ const imageRows = [...new Array(numberOfRows)].map((_, i) => {
   return images
     .slice(i * itemsPerRow, (i + 1) * itemsPerRow)
     .map((image) => (
-      <CustomImage priority key={image.src} src={image} alt='' />
+      <CustomImage priority key={image.src} src={image} alt="" />
     ));
 });
 
@@ -185,25 +185,25 @@ const OurWork: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='w-full bg-white'>
-        <div className='flex flex-col py-20'>
-          <div className='md:w-1/2 mx-auto -mb-10 px-5'>
-            <h1 className='text-5xl md:text-6xl mb-5 text-grey'>
-              <span className='text-4xl font-serif italic mx-1 font-bold'>
+      <div className="w-full bg-white">
+        <div className="flex flex-col py-20">
+          <div className="md:w-1/2 mx-auto -mb-10 px-5">
+            <h1 className="text-5xl md:text-6xl mb-5 text-grey">
+              <span className="text-4xl font-serif italic mx-1 font-bold">
                 Our
               </span>{' '}
-              <span className='text-5xl md:text-6xl font-mono font-semibold uppercase mx-1'>
+              <span className="text-5xl md:text-6xl font-mono font-semibold uppercase mx-1">
                 WORK
               </span>
             </h1>
 
-            <p className='mb-16 text-2xl'>
+            <p className="mb-16 text-2xl">
               <FormattedMessage
-                id='page.our-work.section.our-work.section-header.content'
-                defaultMessage='We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services.'
+                id="page.our-work.section.our-work.section-header.content"
+                defaultMessage="We’ve worked with over <b>300+ organizations</b> in the animal protection movement, through our development, design and advisory services."
                 values={{
                   b: (chunks) => <b>{chunks}</b>,
                 }}
@@ -211,11 +211,11 @@ const OurWork: React.FC = () => {
             </p>
           </div>
           <Autoscroll items={imageRows} />
-          <div className='mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5'>
-            <DarkButton href='/services' className='font-mono md:w-fit'>
+          <div className="mt-24 mx-auto flex flex-col md:flex-row gap-9 w-full md:w-fit px-5">
+            <DarkButton href="/services" className="font-mono md:w-fit">
               <FormattedMessage
-                id='page.our-work.section.our-work.cta.services'
-                defaultMessage='Explore our services'
+                id="page.our-work.section.our-work.cta.services"
+                defaultMessage="Explore our services"
               />
             </DarkButton>
           </div>
@@ -226,7 +226,7 @@ const OurWork: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );

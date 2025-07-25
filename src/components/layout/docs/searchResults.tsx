@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import type React from 'react';
 import Highlighter from 'react-highlight-words';
 
 import useFuse from '../../../hooks/useFuse';
@@ -58,7 +58,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         res.map((item) => {
           return (
             <div
-              className='hover:bg-grey-background active:bg-grey-light'
+              className="hover:bg-grey-background active:bg-grey-light"
               key={
                 item.subsection
                   ? item.subsection.fields.slug
@@ -88,7 +88,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                       ? ' -> ' + item.subsection.fields.title
                       : '')
                   }
-                  highlightTag='b'
+                  highlightTag="b"
                 />
               </Link>
             </div>

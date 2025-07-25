@@ -8,10 +8,10 @@ it('should render correctly', () => {
   const { asFragment } = render(
     <JobRole
       image={codeLogo}
-      color='red'
-      title='foo'
-      description='bar'
-      href='#'
+      color="red"
+      title="foo"
+      description="bar"
+      href="#"
     />,
   );
   expect(asFragment()).toMatchSnapshot();

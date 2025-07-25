@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import SquareField from '../../../decoration/squares';
@@ -16,63 +16,63 @@ export interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({ currentAmount, goal }) => {
   return (
     <>
-      <div className='hidden md:block max-w-6xl mx-8 xl:mx-auto relative mb-48'>
-        <div className='h-24 w-full bg-grey absolute bottom-0'>
+      <div className="hidden md:block max-w-6xl mx-8 xl:mx-auto relative mb-48">
+        <div className="h-24 w-full bg-grey absolute bottom-0">
           <SquareField
             squares={[
               { top: 0, left: 0, color: 'black', size: 10, opacity: 30 },
               { top: 0, right: 0, color: 'black', size: 10, opacity: 30 },
             ]}
-            className='relative z-10'
+            className="relative z-10"
           />
           <AnimatedBar current={currentAmount} goal={1000} />
         </div>
         <TickMarks />
-        <div className='flex flex-row items-end w-full'>
+        <div className="flex flex-row items-end w-full">
           <PatreonGoal
             goalAmount={250}
-            goalColor='yellow'
+            goalColor="yellow"
             goalOrder={1}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.goal.0.label'
-              defaultMessage='This will cover some of our most basic needs!'
+              id="section.support-progess-bar.goal.0.label"
+              defaultMessage="This will cover some of our most basic needs!"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={500}
             previousAmount={250}
-            goalColor='yellow-orange'
+            goalColor="yellow-orange"
             goalOrder={2}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.goal.1.label'
-              defaultMessage='We can utilize more useful services and tech'
+              id="section.support-progess-bar.goal.1.label"
+              defaultMessage="We can utilize more useful services and tech"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={750}
             previousAmount={500}
-            goalColor='orange'
+            goalColor="orange"
             goalOrder={3}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.goal.2.label'
-              defaultMessage='We can ramp up value and services offered'
+              id="section.support-progess-bar.goal.2.label"
+              defaultMessage="We can ramp up value and services offered"
             />
           </PatreonGoal>
           <PatreonGoal
             goalAmount={1000}
             previousAmount={750}
-            goalColor='magenta'
+            goalColor="magenta"
             goalOrder={4}
             totalAmount={goal}
           >
             <FormattedMessage
-              id='section.support-progess-bar.goal.3.label'
+              id="section.support-progess-bar.goal.3.label"
               defaultMessage="We've hit our monthly contribution goal, thanks!"
             />
           </PatreonGoal>

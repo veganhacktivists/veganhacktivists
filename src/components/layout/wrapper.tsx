@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,9 +16,9 @@ import { bitter, ptSans, rajdhani } from './fonts';
 const JumpToContent: React.FC = () => {
   return (
     <a
-      role='button'
-      className='absolute top-0 z-30 px-3 py-2 text-center text-white transition-transform -translate-x-1/2 -translate-y-full rounded-md left-1/2 sm:left-2/3 xl:left-1/3 focus:translate-y-22 md:focus:translate-y-2'
-      href='#main'
+      role="button"
+      className="absolute top-0 z-30 px-3 py-2 text-center text-white transition-transform -translate-x-1/2 -translate-y-full rounded-md left-1/2 sm:left-2/3 xl:left-1/3 focus:translate-y-22 md:focus:translate-y-2"
+      href="#main"
     >
       Jump to content
     </a>
@@ -39,7 +39,7 @@ const PageWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
       >
         {children}
       </div>
-      <ToastContainer position='bottom-right' />
+      <ToastContainer position="bottom-right" />
     </>
   );
 };
@@ -54,7 +54,7 @@ export const MainWrapper: React.FC<React.PropsWithChildren> = ({
     error || asPath === '/handbook' || asPath.startsWith('/handbook/');
 
   return (
-    <main id='main' className='text-center min-h-[40rem]' tabIndex={-1}>
+    <main id="main" className="text-center min-h-[40rem]" tabIndex={-1}>
       <ErrorBoundary
         fallbackRender={(props) => {
           return <ErrorPage {...props} />;

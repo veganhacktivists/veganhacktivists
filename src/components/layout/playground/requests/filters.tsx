@@ -1,4 +1,5 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { PlaygroundRequestCategory } from '@prisma/client';
 import classNames from 'classnames';
 
@@ -56,8 +57,8 @@ const FilterBy: React.FC<{
       {isOpen && (
         <div>
           <div>
-            <div className='mb-2 font-bold'>Category</div>
-            <div className='flex flex-row flex-wrap gap-2'>
+            <div className="mb-2 font-bold">Category</div>
+            <div className="flex flex-row flex-wrap gap-2">
               {Object.keys(PlaygroundRequestCategory).map((category) => {
                 const isSelected = localFilters.categories?.includes(
                   category as PlaygroundRequestCategory,
@@ -109,8 +110,8 @@ const FilterBy: React.FC<{
             </div>
           </div>
           <div>
-            <div className='my-2 font-bold'>Job Type</div>
-            <div className='flex flex-row flex-wrap gap-2 '>
+            <div className="my-2 font-bold">Job Type</div>
+            <div className="flex flex-row flex-wrap gap-2 ">
               <div
                 className={classNames(
                   'px-2 py-1 border cursor-pointer bg-yellow border-yellow',
@@ -150,9 +151,9 @@ const FilterBy: React.FC<{
                 Paid
               </div>
             </div>
-            <div className='flex flex-col justify-end gap-2 mt-5 sm:flex-row place-items-center'>
+            <div className="flex flex-col justify-end gap-2 mt-5 sm:flex-row place-items-center">
               <div
-                className='cursor-pointer'
+                className="cursor-pointer"
                 onClick={() => {
                   setLocalFilters({});
                 }}
@@ -164,7 +165,7 @@ const FilterBy: React.FC<{
                   onFiltersChange(localFilters);
                   setIsOpen(false);
                 }}
-                className='text-lg'
+                className="text-lg"
               >
                 Apply
               </GreyButton>
@@ -237,7 +238,7 @@ const SortBy: React.FC<{
   };
   return (
     <SelectInput
-      className='max-w-fit'
+      className="max-w-fit"
       current={sortOption}
       options={sortOptions}
       onChange={(option) => {

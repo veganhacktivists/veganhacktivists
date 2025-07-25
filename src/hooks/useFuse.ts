@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import Fuse from 'fuse.js';
+import Fuse, { type IFuseOptions } from 'fuse.js';
 
 const fuzzySearch: <T>(params: {
   fuse: Fuse<T>;
@@ -12,7 +12,7 @@ const fuzzySearch: <T>(params: {
 
 const useFuse: <T>(params: {
   data: T[];
-  options?: Fuse.IFuseOptions<T>;
+  options?: IFuseOptions<T>;
   term?: string;
   sort?: boolean;
 }) => T[] = ({ data, options = {}, term = '', sort = false }) => {

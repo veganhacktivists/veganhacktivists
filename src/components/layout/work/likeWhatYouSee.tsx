@@ -14,49 +14,49 @@ const LikeWhatYouSee: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
-        <div className='relative flex flex-col items-center px-2 py-20 gap-y-8'>
+      <div className="relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]">
+        <div className="relative flex flex-col items-center px-2 py-20 gap-y-8">
           <SectionHeader
-            className='mb-2'
+            className="mb-2"
             header={intl.formatMessage({
               id: 'page.our-work.section.like-what-you-see.headline',
               defaultMessage: '<b>LIKE WHAT YOU SEE?</b>',
             })}
           />
 
-          <div className='text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4'>
+          <div className="text-xl md:w-1/2 xl:w-1/2 mx-auto pb-4">
             <FormattedMessage
-              id='page.our-work.section.like-what-you-see.introduction'
-              defaultMessage='Get in touch if you’d like to volunteer, support our work, or make use of our services!'
+              id="page.our-work.section.like-what-you-see.introduction"
+              defaultMessage="Get in touch if you’d like to volunteer, support our work, or make use of our services!"
             />
           </div>
 
-          <div className='grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9'>
-            <LightButton className='w-full md:w-40' href='/support'>
+          <div className="grid grid-cols-1 grid-rows-2 md:grid-rows-1 grid-flow-row sm:grid-flow-col gap-9">
+            <LightButton className="w-full md:w-40" href="/support">
               <FormattedMessage
-                id='page.our-work.section.like-what-you-see.donate.cta-button.label'
-                defaultMessage='Donate'
+                id="page.our-work.section.like-what-you-see.donate.cta-button.label"
+                defaultMessage="Donate"
               />
             </LightButton>
-            <LightButton className='w-full md:w-40' href='/playground'>
+            <LightButton className="w-full md:w-40" href="/playground">
               <FormattedMessage
-                id='page.our-work.section.like-what-you-see.get-support.cta-button.label'
-                defaultMessage='Get support'
+                id="page.our-work.section.like-what-you-see.get-support.cta-button.label"
+                defaultMessage="Get support"
               />
             </LightButton>
-            <LightButton className='w-full md:w-40' href='/services'>
+            <LightButton className="w-full md:w-40" href="/services">
               <FormattedMessage
-                id='page.our-work.section.like-what-you-see.services.cta-button.label'
-                defaultMessage='Services'
+                id="page.our-work.section.like-what-you-see.services.cta-button.label"
+                defaultMessage="Services"
               />
             </LightButton>
-            <LightButton className='w-full md:w-40' href='/contact'>
+            <LightButton className="w-full md:w-40" href="/contact">
               <FormattedMessage
-                id='page.our-work.section.like-what-you-see.contact.cta-button.label'
-                defaultMessage='Contact us'
+                id="page.our-work.section.like-what-you-see.contact.cta-button.label"
+                defaultMessage="Contact us"
               />
             </LightButton>
           </div>

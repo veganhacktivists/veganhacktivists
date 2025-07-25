@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 import getThemeColor from '../../../lib/helpers/theme';
 
@@ -25,14 +25,14 @@ export const HighlightBlock: React.FC<HighlightBlockProps> = ({
       }`}
     >
       <div
-        className='flex items-center md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase'
+        className="flex items-center md:leading-[1.3] text-left flex-1 font-mono bg-black text-white text-4xl md:text-5xl p-10 border-l-16 uppercase"
         style={{ borderColor: getThemeColor(borderColor) }}
       >
         <h1>
           {headerStart} <b>{headerBold}</b> {headerEnd}
         </h1>
       </div>
-      <p className='text-center md:text-left flex-1 text-2xl p-10 bg-grey-background'>
+      <p className="text-center md:text-left flex-1 text-2xl p-10 bg-grey-background">
         {children}
       </p>
     </div>

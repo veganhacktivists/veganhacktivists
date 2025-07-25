@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import type React from 'react';
 import { useIntl } from 'react-intl';
 
 import Hero from '../../components/decoration/hero';
@@ -22,7 +22,7 @@ import BigImpact from 'components/layout/yearInReview/2023/bigImpact';
 import MovingForward from 'components/layout/yearInReview/2023/movingForward';
 import ByTheNumbers from 'components/layout/yearInReview/2023/byTheNumbers';
 
-const YearInReview2023: React.FC = ({}) => {
+const YearInReview2023: React.FC = () => {
   const intl = useIntl();
   return (
     <>
@@ -32,7 +32,7 @@ const YearInReview2023: React.FC = ({}) => {
           defaultMessage: '2023 in Review',
         })}
       />
-      <div className='text-2xl'>
+      <div className="text-2xl">
         <YearInReviewHeader
           year={2023}
           hero={
@@ -45,7 +45,7 @@ const YearInReview2023: React.FC = ({}) => {
                   defaultMessage: '2023 year in review',
                 }),
               }}
-              alignment='left'
+              alignment="left"
               classNameMapping={{
                 container: 'bg-center',
                 backgroundImage: 'object-[67%_25%]',
@@ -53,8 +53,8 @@ const YearInReview2023: React.FC = ({}) => {
             />
           }
           customMainSection={
-            <div className='text-center text-xl md:w-3/4 pb-10 mx-auto space-y-5 mt-12 px-5 max-w-4xl'>
-              <h2 className='text-5xl font-mono font-bold'>
+            <div className="text-center text-xl md:w-3/4 pb-10 mx-auto space-y-5 mt-12 px-5 max-w-4xl">
+              <h2 className="text-5xl font-mono font-bold">
                 {intl.formatMessage({
                   id: 'page.year-in-review.2023.section.header.title',
                   defaultMessage:

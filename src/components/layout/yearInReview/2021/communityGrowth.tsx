@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { SectionHeader } from '../../../decoration/textBlocks';
@@ -20,14 +20,14 @@ const growthPoints: {
     image: docImage,
     header: (
       <FormattedMessage
-        id='page.year-in-review.2021.section.community-growth.documentation.heading'
-        defaultMessage='Documentation'
+        id="page.year-in-review.2021.section.community-growth.documentation.heading"
+        defaultMessage="Documentation"
       />
     ),
     content: (
       <>
         <FormattedMessage
-          id='page.year-in-review.2021.section.community-growth.documentation.paragraph'
+          id="page.year-in-review.2021.section.community-growth.documentation.paragraph"
           defaultMessage="Growth doesn't just come in numbers, it comes in structure. We combined our organization documentation from four different platforms into one user-friendly section of our new website."
         />
       </>
@@ -37,14 +37,14 @@ const growthPoints: {
     image: techImage,
     header: (
       <FormattedMessage
-        id='page.year-in-review.2021.section.community-growth.technology.heading'
-        defaultMessage='Technology'
+        id="page.year-in-review.2021.section.community-growth.technology.heading"
+        defaultMessage="Technology"
       />
     ),
     content: (
       <>
         <FormattedMessage
-          id='page.year-in-review.2021.section.community-growth.technology.paragraph'
+          id="page.year-in-review.2021.section.community-growth.technology.paragraph"
           defaultMessage="We've embraced new technologies to improve the overall quality and robustness of our projects, as well as meet our developers where they're at."
         />
       </>
@@ -54,15 +54,15 @@ const growthPoints: {
     image: safetyImage,
     header: (
       <FormattedMessage
-        id='page.year-in-review.2021.section.community-growth.safety.heading'
-        defaultMessage='Safety'
+        id="page.year-in-review.2021.section.community-growth.safety.heading"
+        defaultMessage="Safety"
       />
     ),
     content: (
       <>
         <FormattedMessage
-          id='page.year-in-review.2021.section.community-growth.safety.paragraph'
-          defaultMessage='We now have a Code of Conduct for our growing community, and ask all volunteers to complete our Effective Communication, Unconscious Bias, and Consent training courses in order to foster a healthy and inclusive environment.'
+          id="page.year-in-review.2021.section.community-growth.safety.paragraph"
+          defaultMessage="We now have a Code of Conduct for our growing community, and ask all volunteers to complete our Effective Communication, Unconscious Bias, and Consent training courses in order to foster a healthy and inclusive environment."
         />
       </>
     ),
@@ -82,30 +82,30 @@ const CommunityGrowth: React.FC = () => {
               id: 'page.year-in-review.2021.section.community-growth.headline',
               defaultMessage: 'Encouraging <b>community growth</b>',
             })}
-            className='text-grey'
+            className="text-grey"
           />
         }
       >
         <div>
-          <div className='mx-auto md:w-2/3 pb-10'>
+          <div className="mx-auto md:w-2/3 pb-10">
             {growthPoints.map(({ image, header, content }) => (
               <div
                 key={image.src}
-                className='flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0 pt-10'
+                className="flex flex-col md:flex-row gap-x-10 mb-10 last:mb-0 pt-10"
               >
                 <div className={'shrink-0'}>
                   <CustomImage
                     src={image}
-                    alt=''
+                    alt=""
                     height={imageDimension}
                     width={imageDimension}
                   />
                 </div>
-                <div className='md:text-left'>
-                  <h2 className='text-4xl font-bold text-grey mb-4'>
+                <div className="md:text-left">
+                  <h2 className="text-4xl font-bold text-grey mb-4">
                     {header}
                   </h2>
-                  <div className='text-2xl'>{content}</div>
+                  <div className="text-2xl">{content}</div>
                 </div>
               </div>
             ))}

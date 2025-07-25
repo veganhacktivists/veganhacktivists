@@ -9,8 +9,8 @@ import type { Submission } from 'snoowrap';
 
 declare module 'snoowrap' {
   // @ts-expect-error 2300
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   class RedditContent<T> {
+    // biome-ignore lint/suspicious/noThenProperty:
     then: undefined;
     catch: undefined;
     finally: undefined;
@@ -81,12 +81,10 @@ export const postPlaygroundRequestOnReddit = async (
         text: message,
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       submissions.push(submission);
     }
   } catch (err) {
     for await (const submission of submissions) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       await submission.delete();
     }
     throw err;

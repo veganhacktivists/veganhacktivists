@@ -62,15 +62,15 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
 
   return (
     <>
-      <div className='flex flex-col lg:max-xl:flex-row gap-4 md:justify-start'>
-        <div className='aspect-square relative w-64 md:w-80 flex-shrink-0 text-center md:text-left mx-auto md:mr-auto'>
+      <div className="flex flex-col lg:max-xl:flex-row gap-4 md:justify-start">
+        <div className="aspect-square relative w-64 md:w-80 flex-shrink-0 text-center md:text-left mx-auto md:mr-auto">
           <ContentfulImage image={image} alt={name} />
         </div>
-        <div className='space-y-4 xl:max-w-sm'>
-          <h2 className='text-4xl font-bold'>{name}</h2>
+        <div className="space-y-4 xl:max-w-sm">
+          <h2 className="text-4xl font-bold">{name}</h2>
           <div>
-            <span className='font-bold'>
-              <span className='text-grey'>{date}</span>
+            <span className="font-bold">
+              <span className="text-grey">{date}</span>
               {team && (
                 <>
                   {' '}
@@ -91,14 +91,14 @@ const ProjectCard: React.FC<{ project: IProject }> = ({
               )}
             </span>
           </div>
-          <div className='text-lg'>
+          <div className="text-lg">
             <RichText document={description} />
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
-            <DarkButton href={url} capitalize={false} className='text-center'>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
+            <DarkButton href={url} capitalize={false} className="text-center">
               <FormattedMessage
-                id='page.our-work.section.featured-projects.section.button.visit-project-page.label'
-                defaultMessage='Visit'
+                id="page.our-work.section.featured-projects.section.button.visit-project-page.label"
+                defaultMessage="Visit"
               />
             </DarkButton>
             <ShareButton
@@ -126,30 +126,30 @@ const LegacyProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='relative w-full overflow-hidden text-xl bg-grey-background'>
-        <div className='relative px-5 py-20 mx-auto gap-y-8'>
+      <div className="relative w-full overflow-hidden text-xl bg-grey-background">
+        <div className="relative px-5 py-20 mx-auto gap-y-8">
           <SectionHeader
-            className='mb-2'
+            className="mb-2"
             header={intl.formatMessage({
               id: 'page.our-work.section.featured-projects.section-header.headline',
               defaultMessage: 'Legacy <b>PROJECTS</b>',
             })}
           >
-            <p className='text-xl md:w-1/2 mx-auto'>
+            <p className="text-xl md:w-1/2 mx-auto">
               <FormattedMessage
-                id='page.our-work.section.featured-projects.section-header.content'
-                defaultMessage='Since its inception, VH has continuously evolved to meet the movement’s needs. What began as a modest idea to leverage tech for animals soon grew into an organization exploring novel projects and ideas. Over time, that work became the foundation for who we are today: a trusted provider of high-tech services within the movement. These early legacy projects helped shape VH into what it is now.'
+                id="page.our-work.section.featured-projects.section-header.content"
+                defaultMessage="Since its inception, VH has continuously evolved to meet the movement’s needs. What began as a modest idea to leverage tech for animals soon grew into an organization exploring novel projects and ideas. Over time, that work became the foundation for who we are today: a trusted provider of high-tech services within the movement. These early legacy projects helped shape VH into what it is now."
               />
             </p>
           </SectionHeader>
-          <ul className='grid grid-cols-1 xl:grid-cols-3 mx-auto w-fit gap-20 gap-y-20'>
+          <ul className="grid grid-cols-1 xl:grid-cols-3 mx-auto w-fit gap-20 gap-y-20">
             {featuredProjects.map((project) => (
               <li
                 key={project.sys.id}
-                className='mx-auto lg:even:mr-auto lg:odd:ml-auto'
+                className="mx-auto lg:even:mr-auto lg:odd:ml-auto"
               >
                 <ProjectCard project={project} />
               </li>
@@ -162,7 +162,7 @@ const LegacyProjects = ({ featuredProjects }: FeaturedProjectsProps) => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );

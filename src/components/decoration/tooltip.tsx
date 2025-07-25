@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import type React from 'react';
+import { useRef, useState } from 'react';
 import {
   offset,
   useFloating,
@@ -36,7 +37,9 @@ const Tooltip: React.FC<TooltipProps> = ({
     reference,
     floating,
     strategy,
-    middlewareData: { arrow: { x: arrowX, y: arrowY, centerOffset = 0 } = {} },
+    middlewareData: {
+      arrow: { x: arrowX, y: arrowY, centerOffset = 0 } = {},
+    },
     placement: floatingPlacement,
     context,
   } = useFloating({
@@ -62,7 +65,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     <>
       <span
         {...getReferenceProps({ ref: reference })}
-        className='relative cursor-pointer'
+        className="relative cursor-pointer"
       >
         {children}
       </span>
@@ -80,7 +83,7 @@ const Tooltip: React.FC<TooltipProps> = ({
             },
           })}
         >
-          <div className='z-10'>{content}</div>
+          <div className="z-10">{content}</div>
           <div
             ref={arrowRef}
             style={{

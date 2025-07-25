@@ -29,19 +29,19 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]'>
-        <div className='relative flex flex-col px-2 py-20 gap-y-8'>
+      <div className="relative w-full overflow-hidden text-xl text-white bg-[#3D3D3D]">
+        <div className="relative flex flex-col px-2 py-20 gap-y-8">
           <SectionHeader
-            className='mb-2'
+            className="mb-2"
             header={intl.formatMessage({
               id: 'page.our-work.section.other-projects.headline',
               defaultMessage: 'Other <b>projects</b>',
             })}
           />
-          <div className='mx-auto'>
+          <div className="mx-auto">
             <Carousel
               pageWidth={5}
               items={projects.map(
@@ -61,7 +61,7 @@ const OtherProjects = ({ projects }: OtherProjectsProps) => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );

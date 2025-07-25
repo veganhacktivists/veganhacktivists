@@ -1,6 +1,0 @@
-src/types/generated/*
-node_modules
-.next
-.github
-__mocks__
-/public

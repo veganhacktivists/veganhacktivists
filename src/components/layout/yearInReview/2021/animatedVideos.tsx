@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import CustomLink from '../../../decoration/link';
@@ -17,24 +17,24 @@ const AnimatedVideos: React.FC = () => {
           { color: 'white', top: 0, left: 0, size: 24 },
           { color: 'grey-background', bottom: 0, right: 0, size: 24 },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <SectionContainer
-        color='grey-background'
+        color="grey-background"
         header={
           <SectionHeader
-            className='text-grey'
+            className="text-grey"
             header={intl.formatMessage({
               id: 'page.year-in-review.2021.section.videos.headline',
               defaultMessage: 'Our new <b>animated videos</b>',
             })}
           >
             <FormattedMessage
-              id='page.year-in-review.2021.section.videos.paragraph'
+              id="page.year-in-review.2021.section.videos.paragraph"
               defaultMessage="We've partnered with <no-localization><link>Expanded Circle Collective</link></no-localization> in order to produce two animated introductory videos for <no-localization>Activist Hub</no-localization> and <no-localization>Vegan Bootcamp</no-localization>! These videos are fantastic resources for viewers to quickly get familiar with our work. We look forward to collaborating with them in the new year."
               values={{
                 link: (chunks) => (
-                  <CustomLink href='https://expandedcircle.org/'>
+                  <CustomLink href="https://expandedcircle.org/">
                     {chunks}
                   </CustomLink>
                 ),
@@ -44,17 +44,17 @@ const AnimatedVideos: React.FC = () => {
         }
       >
         <div>
-          <div className='flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10 mb-10'>
-            <div className='w-full'>
+          <div className="flex flex-col md:flex-row mx-auto gap-y-10 gap-x-10 md:w-2/3 mt-10 mb-10">
+            <div className="w-full">
               <YoutubeVideo
-                id='9W_nU_znBQk'
+                id="9W_nU_znBQk"
                 title="Activist Hub - World's first animal rights social network and outreach dashboard!"
               />
             </div>
-            <div className='w-full'>
+            <div className="w-full">
               <YoutubeVideo
-                id='D9svDr0UhqI'
-                title='Vegan Bootcamp - Free 30 day vegan challenge program!'
+                id="D9svDr0UhqI"
+                title="Vegan Bootcamp - Free 30 day vegan challenge program!"
               />
             </div>
           </div>

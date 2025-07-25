@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { useIntl } from 'react-intl';
 
 import SquareField from '../../decoration/squares';
@@ -50,19 +50,19 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
             { top: 16, left: 16, color: 'grey-lighter', size: 10 },
           ]}
         />
-        <div className='w-full p-8 mx-auto bg-grey-background text-grey'>
-          <div className='flex flex-col justify-center pt-24 gap-x-10 md:flex-row md:pt-24 md:gap-x-8'>
-            <div className='w-1/2 mx-auto md:w-1/3 md:m-0'>
+        <div className="w-full p-8 mx-auto bg-grey-background text-grey">
+          <div className="flex flex-col justify-center pt-24 gap-x-10 md:flex-row md:pt-24 md:gap-x-8">
+            <div className="w-1/2 mx-auto md:w-1/3 md:m-0">
               <ContentfulImage
                 priority
                 image={shareInfo.image}
                 alt={`${shareInfo.title} logo`}
               />
             </div>
-            <div className='flex items-center mx-auto mt-5 md:m-0'>
+            <div className="flex items-center mx-auto mt-5 md:m-0">
               <div>
-                <h1 className='mb-8 text-center'>
-                  <span className='text-4xl font-bold'>
+                <h1 className="mb-8 text-center">
+                  <span className="text-4xl font-bold">
                     <SectionHeader
                       header={intl.formatMessage({
                         id: 'dialog.share.headline',
@@ -71,7 +71,7 @@ const ShareDialog: React.FC<ShareDialogProps> = ({
                     />
                   </span>
                 </h1>
-                <div className='grid grid-cols-4 gap-4 align-middle gap-y-8 place-items-center auto-cols-min'>
+                <div className="grid grid-cols-4 gap-4 align-middle gap-y-8 place-items-center auto-cols-min">
                   <EmailButton onClick={onClose} shareInfo={shareInfo} />
                   <FacebookButton onClick={onClose} shareInfo={shareInfo} />
                   <TwitterButton onClick={onClose} shareInfo={shareInfo} />

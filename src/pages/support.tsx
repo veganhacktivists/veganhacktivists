@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { NextSeo } from 'next-seo';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -28,7 +28,7 @@ const HERO_DECORATION_SQUARES = [
 ];
 
 const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <p className='px-10 mx-auto mb-4 text-xl md:w-3/4'>{children}</p>
+  <p className="px-10 mx-auto mb-4 text-xl md:w-3/4">{children}</p>
 );
 
 const Support: React.FC = () => {
@@ -51,34 +51,34 @@ const Support: React.FC = () => {
             defaultMessage: 'You are their voice',
           }),
         }}
-        alignment='left'
+        alignment="left"
         classNameMapping={{
           backgroundImage: 'object-[75%_0] md:object-center',
         }}
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
-      <div className='px-10'>
+      <div className="px-10">
         <PlainHeader
           header={intl.formatMessage({
             id: 'page.support.section.support-us.header.title',
             defaultMessage: 'Donate to strengthen the movement',
           })}
         >
-          <p className='mt-8'>
+          <p className="mt-8">
             <FormattedMessage
-              id='page.support.section.support-us.header.content'
-              defaultMessage='Equip the animal advocacy movement with the support it needs: technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals.'
+              id="page.support.section.support-us.header.content"
+              defaultMessage="Equip the animal advocacy movement with the support it needs: technically, creatively, and strategically. Your donation ensures we can support more advocacy groups and expand the free, high-impact services we offer, so that more teams have the tools and infrastructure they need to build a better world for animals."
             />
           </p>
         </PlainHeader>
       </div>
-      <div className='mx-auto my-16 md:w-fit'>
-        <div className='flex flex-wrap items-end justify-center gap-10 mb-5'>
+      <div className="mx-auto my-16 md:w-fit">
+        <div className="flex flex-wrap items-end justify-center gap-10 mb-5">
           <DonationCard
-            color='blue'
+            color="blue"
             image={PayPalLogo}
             title={intl.formatMessage({
               id: 'page.support.section.support-us.donation-card.0.title',
@@ -88,16 +88,16 @@ const Support: React.FC = () => {
               id: 'page.support.section.support-us.donation-card.0.button-label',
               defaultMessage: 'donate',
             })}
-            buttonHref='https://paypal.me/veganhacktivists'
+            buttonHref="https://paypal.me/veganhacktivists"
           >
             <FormattedMessage
-              id='page.support.section.support-us.donation-card.0.content'
-              defaultMessage='For one-time, smaller donations'
+              id="page.support.section.support-us.donation-card.0.content"
+              defaultMessage="For one-time, smaller donations"
             />
           </DonationCard>
-          <DonorBoxCard color='orange' />
+          <DonorBoxCard color="orange" />
           <DonationCard
-            color='green'
+            color="green"
             image={HeartLogo}
             title={intl.formatMessage({
               id: 'page.support.section.support-us.donation-card.2.title',
@@ -107,11 +107,11 @@ const Support: React.FC = () => {
               id: 'page.support.section.support-us.donation-card.2.button-label',
               defaultMessage: 'contact us',
             })}
-            buttonHref='https://veganhacktivists.org/contact'
+            buttonHref="https://veganhacktivists.org/contact"
           >
             <FormattedMessage
-              id='page.support.section.support-us.donation-card.2.content'
-              defaultMessage='For larger donations (US tax-deductible)'
+              id="page.support.section.support-us.donation-card.2.content"
+              defaultMessage="For larger donations (US tax-deductible)"
             />
           </DonationCard>
         </div>
@@ -128,7 +128,7 @@ const Support: React.FC = () => {
         Don’t hesitate to reach out if you have any questions.
       </Paragraph>
 
-      <DarkButton href='/contact' className='w-fit mx-auto mb-20'>
+      <DarkButton href="/contact" className="w-fit mx-auto mb-20">
         Contact us
       </DarkButton>
 
@@ -139,13 +139,13 @@ const Support: React.FC = () => {
           { color: 'white', size: 16, top: 0, left: 0 },
           { color: 'white', size: 16, top: 0, right: 0 },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
       <ThankYouSection />
       <SquareField
         squares={[{ color: 'grey-light', size: 16, bottom: 0, left: 0 }]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <Sprite image={pig} pixelsLeft={1} pixelsRight={1} />
     </>

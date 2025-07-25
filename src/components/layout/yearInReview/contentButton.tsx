@@ -1,7 +1,7 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import React from 'react';
+import type React from 'react';
 
 import ContentfulImage from '../contentfulImage';
 import getThemeColor from '../../../lib/helpers/theme';
@@ -54,7 +54,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         }
       }}
     >
-      <div className='cursor-pointer select-none'>
+      <div className="cursor-pointer select-none">
         <div
           className={`text-2xl font-semibold font-mono text-${
             active ? 'white' : 'black'
@@ -68,7 +68,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
           }
         >
           <FontAwesomeIcon
-            size='lg'
+            size="lg"
             icon={faChevronDown}
             color={active ? 'white' : 'black'}
             className={`transition-transform duration-700 ${
@@ -78,7 +78,7 @@ export const ContentButton: React.FC<ContentButtonProps> = ({
         </div>
       </div>
       <div
-        className='absolute -bottom-80 w-80 h-80 border-t-4'
+        className="absolute -bottom-80 w-80 h-80 border-t-4"
         style={{ borderColor }}
       >
         {isContentfulImage(content.image) ? (

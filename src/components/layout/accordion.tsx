@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import React, { useCallback, useMemo, useState } from 'react';
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
@@ -42,7 +43,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
   });
 
   return (
-    <div className='w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0' ref={animatedRef}>
+    <div className="w-5/6 sm:w-4/7 mt-1.5 first-of-type:mt-0" ref={animatedRef}>
       <div
         className={classNames(
           'flex text-black items-center justify-between h-15 px-5 p-2.5 cursor-pointer',
@@ -50,7 +51,7 @@ const AccordionEntry: React.FC<AccordionEntryProps> = ({
         )}
         onClick={onExpandedChange}
       >
-        <span className='font-serif text-xl font-medium text-black select-none'>
+        <span className="font-serif text-xl font-medium text-black select-none">
           {title}
         </span>
         <FontAwesomeIcon icon={expanded ? faAngleUp : faAngleDown} />
@@ -106,7 +107,7 @@ const Accordion: React.FC<AccordionProps> = ({ entries, design }) => {
   }
 
   return (
-    <div className='flex flex-col items-center content-center justify-center'>
+    <div className="flex flex-col items-center content-center justify-center">
       {accordionEntries}
     </div>
   );

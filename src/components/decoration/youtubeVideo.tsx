@@ -7,10 +7,10 @@ interface YoutubeVideoProps extends HTMLAttributes<HTMLIFrameElement> {
 const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ id, ...props }) => {
   return (
     <iframe
-      className='w-full aspect-video'
+      className="w-full aspect-video"
       src={`https://www.youtube-nocookie.com/embed/${id}`}
       seamless
-      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       {...props}
     />
