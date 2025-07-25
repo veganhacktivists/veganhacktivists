@@ -31,7 +31,7 @@ async function main() {
     cwd: repoDirectory,
   });
 
-  const resultAsString = await extract(files, {});
+  const resultAsString = await extract(files as string[], {});
 
   const extractedTranslations = mapFormatJSTranslationsToInternalFormat(
     validationSchemaFormatJS.parse(JSON.parse(resultAsString)),
@@ -101,7 +101,6 @@ function addNewTranslationsToCurrent(
 
   const changedTranslationsEntries = Object.entries(changedTranslations);
   if (changedTranslationsEntries.length) {
-    // eslint-disable-next-line no-console
     console.error(
       `message of existing translation(s) changed:\n${changedTranslationsEntries
         .map(

@@ -30,27 +30,27 @@ const SharingKnowledgeAndSupport: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='xl:w-2/3 mx-auto mt-20 px-5'>
-        <div className='flex flex-col md:flex-row justify-between'>
+      <div className="xl:w-2/3 mx-auto mt-20 px-5">
+        <div className="flex flex-col md:flex-row justify-between">
           <div>
             <SectionHeader
               header={intl.formatMessage({
                 id: 'page.our-work.section.sharing-knowledge-and-support.section-header.headline',
                 defaultMessage: 'Sharing Our <b>knowledge & support</b>',
               })}
-              rootClassName='text-left mx-auto text-center md:text-left'
+              rootClassName="text-left mx-auto text-center md:text-left"
               stackEntries
             >
-              <p className='text-xl max-w-prose'>
+              <p className="text-xl max-w-prose">
                 <FormattedMessage
-                  id='page.our-work.section.sharing-knowledge-and-support.section-header.content'
-                  defaultMessage='We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on <link>Instagram</link> to stay updated on where we’ll be next!'
+                  id="page.our-work.section.sharing-knowledge-and-support.section-header.content"
+                  defaultMessage="We regularly attend animal advocacy and EA-related conferences around the world each year! Keep an eye out for our booth or speakers—we’d love to connect and explore how we can support your work. Follow us on <link>Instagram</link> to stay updated on where we’ll be next!"
                   values={{
                     link: (chunk) => (
-                      <CustomLink href='https://www.instagram.com/veganhacktivists/'>
+                      <CustomLink href="https://www.instagram.com/veganhacktivists/">
                         {chunk}
                       </CustomLink>
                     ),
@@ -61,11 +61,11 @@ const SharingKnowledgeAndSupport: React.FC = () => {
           </div>
         </div>
 
-        <div className='flex flex-col md:flex-row gap-10 pb-20'>
-          <div className='flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-10 justify-start md:justify-between'>
-            <div className='flex'>
+        <div className="flex flex-col md:flex-row gap-10 pb-20">
+          <div className="flex flex-col flex-1 min-w-[29%] lg:min-w-[25%] xl:min-w-[27%] 2xl:min-w-[32%] 3xl:min-w-[34%] gap-5 md:gap-1 lg:gap-10 justify-start md:justify-between">
+            <div className="flex">
               <ImageWithCaption
-                bgColor='yellow'
+                bgColor="yellow"
                 image={jamesErasmusUniversity}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.1.caption',
@@ -78,9 +78,9 @@ const SharingKnowledgeAndSupport: React.FC = () => {
                 })}
               />
             </div>
-            <div className='flex'>
+            <div className="flex">
               <ImageWithCaption
-                bgColor='green'
+                bgColor="green"
                 image={avaKateAndJames}
                 caption={intl.formatMessage({
                   id: 'page.our-work.section.sharing-knowledge-and-support.conferences.2.caption',
@@ -94,11 +94,11 @@ const SharingKnowledgeAndSupport: React.FC = () => {
               />
             </div>
           </div>
-          <div className='flex flex-grow'>
-            <div className='flex flex-grow items-center justify-end'>
+          <div className="flex flex-grow">
+            <div className="flex flex-grow items-center justify-end">
               <CustomImage
                 src={team}
-                alt='Vegan Hacktivists team at the Animal & Vegan Advocacy Summit'
+                alt="Vegan Hacktivists team at the Animal & Vegan Advocacy Summit"
               />
             </div>
           </div>
@@ -107,7 +107,7 @@ const SharingKnowledgeAndSupport: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );
@@ -133,11 +133,11 @@ const ImageWithCaption: React.FC<ImageWithCaptionTypes> = ({
         className={'text-left flex-x-grow flex-x-shrink flex flex-col h-auto'}
       >
         <div className={`bg-${bgColor} items-center`}>
-          <div className='p-5 md:p-3 lg:p-5'>
-            <span className='font-bold text-xl leading-5 md:text-lg md:leading-4 lg:text-xl lg:leading-5 block pb-2'>
+          <div className="p-5 md:p-3 lg:p-5">
+            <span className="font-bold text-xl leading-5 md:text-lg md:leading-4 lg:text-xl lg:leading-5 block pb-2">
               {caption}
             </span>
-            <span className='italic text-lg leading-5 md:text-base md:leading-4 lg:text-lg lg:leading-5 block'>
+            <span className="italic text-lg leading-5 md:text-base md:leading-4 lg:text-lg lg:leading-5 block">
               {subcaption}
             </span>
           </div>

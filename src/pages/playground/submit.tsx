@@ -16,22 +16,22 @@ const Header: React.FC = () => {
   return (
     <div>
       <SectionHeader
-        className='-mb-10'
+        className="-mb-10"
         header={intl.formatMessage({
           id: 'page.playground.section.submit-request.form.headline',
           defaultMessage: '<b>Need support? Let us know!</b>',
         })}
       >
         <FormattedMessage
-          id='page.playground.section.submit-request.form.subline'
-          defaultMessage='Please fill in the form below.'
+          id="page.playground.section.submit-request.form.subline"
+          defaultMessage="Please fill in the form below."
         />
       </SectionHeader>
     </div>
   );
 };
 
-const SubmitRequestPage: PageWithLayout = ({}) => {
+const SubmitRequestPage: PageWithLayout = () => {
   const intl = useIntl();
   const router = useRouter();
   return (
@@ -49,7 +49,7 @@ const SubmitRequestPage: PageWithLayout = ({}) => {
           { size: 16, top: -16, right: 0, color: 'grey-background' },
           { size: 16, top: 0, right: 0, color: 'white' },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <SubmitRequestForm
         requestId={`${

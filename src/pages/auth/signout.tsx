@@ -29,12 +29,12 @@ const SignOut: NextPage = () => {
   }, [router]);
 
   return (
-    <div className='p-10 bg-grey-background'>
+    <div className="p-10 bg-grey-background">
       {status === 'authenticated' && (
         <DarkButton disabled={isLoading} onClick={handleSignOut}>
           <FormattedMessage
-            id='page.sign-in.button.sign-out'
-            defaultMessage='Sign out!'
+            id="page.sign-in.button.sign-out"
+            defaultMessage="Sign out!"
           />
         </DarkButton>
       )}

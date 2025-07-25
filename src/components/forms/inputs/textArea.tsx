@@ -21,7 +21,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         </Label>
         <textarea
           id={props.id || name}
-          wrap='soft'
+          wrap="soft"
           className={classNames(inputClassNames, 'resize-y w-full', {
             'ring-2 ring-red': error,
           })}
@@ -30,7 +30,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           name={name}
           ref={ref}
         />
-        {error && <div className='text-red'>⚠ {error}</div>}
+        {error && <div className="text-red">⚠ {error}</div>}
       </div>
     );
   },

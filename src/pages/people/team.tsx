@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
-import React, { useMemo } from 'react';
+import type React from 'react';
+import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
 
 import PeopleLayout from '../../components/layout/people';
@@ -48,10 +49,10 @@ const TeamMemberCardPhoto: React.FC<{
   const { name, image, isTeamLeader } = member.fields;
 
   return (
-    <div className='flex-none w-64 h-64'>
-      <div className='flex justify-end h-64 mb-2 bg-grey w-100 group'>
+    <div className="flex-none w-64 h-64">
+      <div className="flex justify-end h-64 mb-2 bg-grey w-100 group">
         {image && (
-          <div className='relative w-full filter'>
+          <div className="relative w-full filter">
             <ContentfulImage
               downloadwidth={500}
               image={image}
@@ -82,19 +83,19 @@ const TeamMemberCardBody: React.FC<{
   const { name: teamName, sprite: teamSprite } = team!.fields;
 
   return (
-    <div className='grow shrink lg:text-left justify-center lg:justify-start'>
-      <div className='text-2xl mb-[-6px] font-bold text-grey'>{name}</div>
+    <div className="grow shrink lg:text-left justify-center lg:justify-start">
+      <div className="text-2xl mb-[-6px] font-bold text-grey">{name}</div>
       <div>
         <div
           className={
             'flex flex-row justify-center lg:justify-start items-center'
           }
         >
-          <span className='flex flex-col lg:flex-row items-center'>
-            <span className='font-bold float-left text-lg uppercase text-grey text-opacity-80'>
+          <span className="flex flex-col lg:flex-row items-center">
+            <span className="font-bold float-left text-lg uppercase text-grey text-opacity-80">
               {position}
             </span>
-            <span className='mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative'>
+            <span className="mx-1 ml-3 hidden lg:block float-left text-lg text-grey-light relative">
               &bull;
             </span>
             <div className={'ml-[-2px] float-left'}>
@@ -110,13 +111,13 @@ const TeamMemberCardBody: React.FC<{
             </div>
           </span>
         </div>
-        <div className='mt-2 text-justify lg:text-left'>
+        <div className="mt-2 text-justify lg:text-left">
           {bio && <RichText document={bio} />}
         </div>
       </div>
       {socialLinks && (
         <div className={'mt-6'}>
-          <SocialLinks socialLinks={socialLinks.fields} className='mt-2' />
+          <SocialLinks socialLinks={socialLinks.fields} className="mt-2" />
         </div>
       )}
     </div>
@@ -172,9 +173,9 @@ const MemberList: React.FC<{ members: ITeamMember[]; teams: ITeam[] }> = ({
   }, [teams]);
 
   return (
-    <div className='md:mx-auto md:w-4/6'>
+    <div className="md:mx-auto md:w-4/6">
       {members.map((m, index) => (
-        <div className='m-5' key={m.sys.id}>
+        <div className="m-5" key={m.sys.id}>
           <TeamMemberCard
             member={m}
             teamColor={colorMap[m.fields.team!.fields.name]}
@@ -202,7 +203,7 @@ const Team: PageWithLayout<TeamProps> = ({ teams, members }) => {
           defaultMessage: 'Our Team',
         })}
       />
-      <div className='m-10'>
+      <div className="m-10">
         <MemberList members={members} teams={teams} />
       </div>
     </>

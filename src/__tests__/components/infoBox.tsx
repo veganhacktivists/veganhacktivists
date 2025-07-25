@@ -8,10 +8,10 @@ import lampImage from '../../public/images/Services-icon-project.png';
 it('should display the title correctly', () => {
   const { getByText } = render(
     <InfoBox
-      title='Have an idea for a project?'
+      title="Have an idea for a project?"
       icon={lampImage}
-      iconBgColor='green'
-      iconAccentColor='green-dark'
+      iconBgColor="green"
+      iconAccentColor="green-dark"
     >
       Lorem impsum dolor etc.
     </InfoBox>,
@@ -24,10 +24,10 @@ it('should display the title correctly', () => {
 it('should display the content correctly', () => {
   const { getByText } = render(
     <InfoBox
-      title='Have an idea for a project?'
+      title="Have an idea for a project?"
       icon={lampImage}
-      iconBgColor='green'
-      iconAccentColor='green-dark'
+      iconBgColor="green"
+      iconAccentColor="green-dark"
     >
       <h1>Content</h1>
       <p>In the form of HTML, instead of a string</p>
@@ -41,11 +41,11 @@ it('should display the content correctly', () => {
 it('should align the info box correctly', () => {
   const { container } = render(
     <InfoBox
-      title='Have an idea for a project?'
+      title="Have an idea for a project?"
       icon={lampImage}
-      iconBgColor='green'
-      iconAccentColor='green-dark'
-      align='right'
+      iconBgColor="green"
+      iconAccentColor="green-dark"
+      align="right"
     >
       Blablabla
     </InfoBox>,

@@ -42,35 +42,35 @@ const OurCommunities: React.FC = () => {
     <>
       <SquareField
         squares={TOP_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
 
-      <div className='relative w-full overflow-hidden text-xl text-white bg-[#292929] py-20  px-5'>
+      <div className="relative w-full overflow-hidden text-xl text-white bg-[#292929] py-20  px-5">
         <SectionHeader
           header={intl.formatMessage({
             id: 'page.our-work.section.communities.headline',
             defaultMessage: 'Our <b>COMMUNITIES</b>',
           })}
         >
-          <p className='text-xl'>
+          <p className="text-xl">
             <FormattedMessage
-              id='page.our-work.section.our-communities.section-header.content'
-              defaultMessage='We manage these online vegan communities with over 2 million members, fostering positive spaces for connection, support, and activism.'
+              id="page.our-work.section.our-communities.section-header.content"
+              defaultMessage="We manage these online vegan communities with over 2 million members, fostering positive spaces for connection, support, and activism."
             />
           </p>
         </SectionHeader>
-        <div className='relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8'>
-          <div className='grid grid-cols-1 md:grid-cols-2 text-left gap-10 xl:gap-10 w-full'>
+        <div className="relative flex flex-col mx-auto max-w-md md:max-w-screen-lg gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 text-left gap-10 xl:gap-10 w-full">
             <div>
-              <a href={redditLink} target='_blank' rel='noreferrer'>
-                <CustomImage src={reddit} alt='Reddit' />
+              <a href={redditLink} target="_blank" rel="noreferrer">
+                <CustomImage src={reddit} alt="Reddit" />
               </a>
 
-              <div className='font-bold'>
-                <a href={redditLink} target='_blank' rel='noreferrer'>
+              <div className="font-bold">
+                <a href={redditLink} target="_blank" rel="noreferrer">
                   <FormattedMessage
-                    id='page.our-work.section.our-communities.cta.reddit'
-                    defaultMessage='Vegans of <no-localization>Reddit</no-localization>'
+                    id="page.our-work.section.our-communities.cta.reddit"
+                    defaultMessage="Vegans of <no-localization>Reddit</no-localization>"
                   />
                 </a>
               </div>
@@ -78,15 +78,15 @@ const OurCommunities: React.FC = () => {
             </div>
             <div>
               <div>
-                <a href={discordLink} target='_blank' rel='noreferrer'>
-                  <CustomImage src={ara} alt='Animal Rights Advocates' />
+                <a href={discordLink} target="_blank" rel="noreferrer">
+                  <CustomImage src={ara} alt="Animal Rights Advocates" />
                 </a>
               </div>
-              <div className='font-bold'>
-                <a href={discordLink} target='_blank' rel='noreferrer'>
+              <div className="font-bold">
+                <a href={discordLink} target="_blank" rel="noreferrer">
                   <FormattedMessage
-                    id='page.our-work.section.our-communities.cta.animal-rights-advocates'
-                    defaultMessage='<no-localization>Animal Rights Advocates</no-localization>'
+                    id="page.our-work.section.our-communities.cta.animal-rights-advocates"
+                    defaultMessage="<no-localization>Animal Rights Advocates</no-localization>"
                   />
                 </a>
               </div>
@@ -98,7 +98,7 @@ const OurCommunities: React.FC = () => {
 
       <SquareField
         squares={BOTTOM_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );

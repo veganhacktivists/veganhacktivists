@@ -102,7 +102,7 @@ const BaseButton = React.forwardRef<HTMLElement, ButtonProps>(
           </Link>
         ) : (
           <button
-            type='button'
+            type="button"
             {...props}
             className={classes}
             ref={ref as Ref<HTMLButtonElement>}
@@ -122,7 +122,7 @@ const LightButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base='white' fill='green' disabled={props.disabled}>
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton
         {...props}
         className={classNames(
@@ -260,7 +260,7 @@ const ExternalLinkButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground disabled={props.disabled} base='magenta' fill='pink-dark'>
+    <FillBackground disabled={props.disabled} base="magenta" fill="pink-dark">
       <BaseButton
         {...props}
         className={classNames(
@@ -282,15 +282,15 @@ const IconButton: React.FC<ButtonProps> = (props) => {
 const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label='Support us on Patreon!'
+      aria-label="Support us on Patreon!"
       {...props}
       className={classNames(
         'bg-white hover:bg-green-dark text-grey hover:text-white rounded-full px-2 py-2',
         className,
       )}
     >
-      <div className='flex items-center justify-center w-8 h-8'>
-        <FontAwesomeIcon size='2x' fixedWidth icon={faPatreon} />
+      <div className="flex items-center justify-center w-8 h-8">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faPatreon} />
       </div>
     </IconButton>
   );
@@ -299,15 +299,15 @@ const PatreonButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label='Subscribe to our Youtube channel!'
+      aria-label="Subscribe to our Youtube channel!"
       {...props}
       className={classNames(
         'bg-white hover:bg-red text-grey hover:text-white rounded-full px-2 py-2',
         className,
       )}
     >
-      <div className='flex items-center justify-center w-8 h-8'>
-        <FontAwesomeIcon size='2x' fixedWidth icon={faYoutube} />
+      <div className="flex items-center justify-center w-8 h-8">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faYoutube} />
       </div>
     </IconButton>
   );
@@ -316,15 +316,15 @@ const YoutubeButton: React.FC<ButtonProps> = ({ className, ...props }) => {
 const InstagramButton: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <IconButton
-      aria-label='Follow us on Instagram!'
+      aria-label="Follow us on Instagram!"
       {...props}
       className={classNames(
         'bg-white hover:bg-blue text-grey hover:text-white rounded-full px-2 py-2',
         className,
       )}
     >
-      <div className='flex items-center justify-center w-8 h-8'>
-        <FontAwesomeIcon size='2x' fixedWidth icon={faInstagram} />
+      <div className="flex items-center justify-center w-8 h-8">
+        <FontAwesomeIcon size="2x" fixedWidth icon={faInstagram} />
       </div>
     </IconButton>
   );
@@ -362,12 +362,12 @@ const ShareButton: React.FC<
       }}
       linkProps={{ scroll: false }}
     >
-      <div className='flex items-center justify-center gap-2'>
-        <FontAwesomeIcon size='1x' fixedWidth icon={faShare} />
+      <div className="flex items-center justify-center gap-2">
+        <FontAwesomeIcon size="1x" fixedWidth icon={faShare} />
         <div>
           <FormattedMessage
-            id='component.button.share.label'
-            defaultMessage='Share'
+            id="component.button.share.label"
+            defaultMessage="Share"
           />
         </div>
       </div>
@@ -391,7 +391,7 @@ const WhiteButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <FillBackground base='white' fill='green' disabled={props.disabled}>
+    <FillBackground base="white" fill="green" disabled={props.disabled}>
       <BaseButton {...props}>
         <div className={classes}>{children}</div>
       </BaseButton>
@@ -449,7 +449,7 @@ const LogoutButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FillBackground base='white' fill='#FF1A18' disabled={props.disabled}>
+    <FillBackground base="white" fill="#FF1A18" disabled={props.disabled}>
       <BaseButton
         {...props}
         className={classNames(

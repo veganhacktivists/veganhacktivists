@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { useRouter } from 'next/dist/client/router';
@@ -29,13 +30,13 @@ const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
       )}
     >
       {/* root */}
-      <Link href='/' className={classNames({ hidden: !isRootPage })}>
+      <Link href="/" className={classNames({ hidden: !isRootPage })}>
         <DotLottieReact
           autoplay
           loop
-          src='/images/VH_Logo_Loop.json'
-          height='113.5px'
-          width='344px'
+          src="/images/VH_Logo_Loop.json"
+          height="113.5px"
+          width="344px"
           style={{
             maxWidth: '344px',
             maxHeight: '113.5px',
@@ -44,12 +45,12 @@ const LeftSide: React.FC<LeftSideProps> = ({ isRootPage }) => {
       </Link>
       {/* others */}
       <Link
-        href='/'
+        href="/"
         className={classNames('flex items-center', { hidden: isRootPage })}
       >
         <CustomImage
           src={logoOneLine}
-          alt='Vegan Hacktivists Logo'
+          alt="Vegan Hacktivists Logo"
           width={logoOneLine.width * ratio}
           height={logoOneLine.height * ratio}
           priority
@@ -133,36 +134,36 @@ const NavbarItems: React.FC = () => {
       ))}
       <NavBarItem
         href={'/join'}
-        className='font-bold bg-gray hover:bg-gray-dark'
+        className="font-bold bg-gray hover:bg-gray-dark"
       >
         <FormattedMessage
-          id='layout.header.navigation-item.join.label'
-          defaultMessage='Join'
+          id="layout.header.navigation-item.join.label"
+          defaultMessage="Join"
         />
       </NavBarItem>
       <NavBarItem
         href={'/support'}
-        className='font-bold bg-pink hover:bg-pink-dark'
+        className="font-bold bg-pink hover:bg-pink-dark"
       >
         <FormattedMessage
-          id='layout.header.navigation-item.donate.label'
-          defaultMessage='Donate'
+          id="layout.header.navigation-item.donate.label"
+          defaultMessage="Donate"
         />
       </NavBarItem>
       <NavBarItem
         href={'/playground'}
-        className='font-bold bg-green hover:bg-green-dark'
+        className="font-bold bg-green hover:bg-green-dark"
       >
         <FormattedMessage
-          id='layout.header.navigation-item.playground.label'
-          defaultMessage='Get Help'
+          id="layout.header.navigation-item.playground.label"
+          defaultMessage="Get Help"
         />
       </NavBarItem>
       <a
-        className='p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark'
-        href='https://www.instagram.com/veganhacktivists/'
-        target='_blank'
-        rel='noreferrer'
+        className="p-5 py-6 flex justify-center items-center transition duration-500 hover:bg-gray-dark"
+        href="https://www.instagram.com/veganhacktivists/"
+        target="_blank"
+        rel="noreferrer"
         aria-label={intl.formatMessage({
           id: 'layout.header.navigation-item.instagram.aria-label',
           defaultMessage: 'Follow us on Instagram',
@@ -212,35 +213,35 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
 
   return (
     <>
-      <div className='block p-5 text-right text-white bg-black xl:hidden my-auto'>
+      <div className="block p-5 text-right text-white bg-black xl:hidden my-auto">
         <button
-          type='button'
+          type="button"
           onClick={toggleMenu}
-          aria-label='Open navigation menu'
+          aria-label="Open navigation menu"
         >
-          <FontAwesomeIcon icon={faBars} size='2x' />
+          <FontAwesomeIcon icon={faBars} size="2x" />
         </button>
 
         <div
-          id='mobile-menu'
+          id="mobile-menu"
           className={classNames(
             'fixed inset-0 w-full bg-black text-white transition-all overflow-y-auto duration-300',
             isMenuOpen ? 'translate-y-0' : '-translate-y-full',
           )}
         >
-          <div className='flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black'>
+          <div className="flex flex-col justify-start h-full w-full font-mono text-3xl sm:text-4xl font-semibold text-right text-white uppercase align-middle bg-black">
             <div
               className={classNames({
                 'h-40 flex justify-between p-5 pr-0': isRootPage,
               })}
             >
-              <Link href='/' className={classNames({ hidden: !isRootPage })}>
+              <Link href="/" className={classNames({ hidden: !isRootPage })}>
                 <DotLottieReact
                   autoplay
                   loop
-                  src='/lottie/vegan-hacktivists-logo.json'
-                  height='113.5px'
-                  width='344px'
+                  src="/lottie/vegan-hacktivists-logo.json"
+                  height="113.5px"
+                  width="344px"
                   style={{
                     maxWidth: '344px',
                     maxHeight: '113.5px',
@@ -248,10 +249,10 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
                 />
               </Link>
               <button
-                type='button'
-                className='mr-0 p-5 text-4xl cursor-pointer'
+                type="button"
+                className="mr-0 p-5 text-4xl cursor-pointer"
                 onClick={() => setIsMenuOpen(false)}
-                aria-label='Close navigation menu'
+                aria-label="Close navigation menu"
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
@@ -262,7 +263,7 @@ const RightSide: React.FC<RightSideProps> = ({ isRootPage }) => {
         </div>
       </div>
 
-      <div className='hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle xl:bg-black'>
+      <div className="hidden xl:flex flex-1 justify-end h-full ml-auto font-mono text-2xl font-semibold text-right text-white uppercase align-middle xl:bg-black">
         <NavbarItems />
       </div>
     </>

@@ -80,11 +80,11 @@ const SignIn: NextPage = () => {
     return (
       <div>
         <FormattedMessage
-          id='page.sign-in.already-signed-in.content'
-          defaultMessage='You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>'
+          id="page.sign-in.already-signed-in.content"
+          defaultMessage="You are already logged in. No <no-localization>callbackUrl</no-localization> provided. <button>Go to <no-localization>Playground</no-localization></button>"
           values={{
             button: (chunks) => (
-              <NavButton href='/playground'>{chunks}</NavButton>
+              <NavButton href="/playground">{chunks}</NavButton>
             ),
           }}
         />
@@ -97,20 +97,20 @@ const SignIn: NextPage = () => {
   }
 
   return (
-    <div className='p-10 bg-grey-background'>
-      <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-        <div className='w-1/2 mx-auto'>
-          <TextInput {...register('email')} type='email'>
+    <div className="p-10 bg-grey-background">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div className="w-1/2 mx-auto">
+          <TextInput {...register('email')} type="email">
             <FormattedMessage
-              id='page.sign-in.input.email'
-              defaultMessage='Email'
+              id="page.sign-in.input.email"
+              defaultMessage="Email"
             />
           </TextInput>
         </div>
-        <DarkButton type='submit' disabled={isLoading}>
+        <DarkButton type="submit" disabled={isLoading}>
           <FormattedMessage
-            id='page.sign-in.button.sign-in'
-            defaultMessage='Sign in!'
+            id="page.sign-in.button.sign-in"
+            defaultMessage="Sign in!"
           />
         </DarkButton>
       </form>

@@ -42,24 +42,24 @@ export const LocaleSelector = () => {
   return (
     <div>
       <div
-        className='relative group text-xl h-full w-full flex flex-col items-center justify-center py-6'
+        className="relative group text-xl h-full w-full flex flex-col items-center justify-center py-6"
         tabIndex={0}
       >
-        <div className='flex flex-col items-center justify-center cursor-pointer group-focus-within:cursor-default'>
-          <div className='px-4 w-full h-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100 text-center'>
+        <div className="flex flex-col items-center justify-center cursor-pointer group-focus-within:cursor-default">
+          <div className="px-4 w-full h-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100 text-center">
             {languageDisplayNames[currentLocale]}
           </div>
-          <div className='absolute top-0 px-4 w-full h-full flex items-center justify-center transition duration-300 ease-in-out opacity-100 group-focus-within:opacity-0'>
+          <div className="absolute top-0 px-4 w-full h-full flex items-center justify-center transition duration-300 ease-in-out opacity-100 group-focus-within:opacity-0">
             <FontAwesomeIcon icon={faLanguage} fixedWidth />
           </div>
-          <div className='absolute top-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100'>
-            <div className='overflow-y-hidden h-0 group-focus-within:overflow-visible group-focus-within:h-auto flex flex-col center'>
+          <div className="absolute top-full transition duration-300 ease-in-out opacity-0 group-focus-within:opacity-100">
+            <div className="overflow-y-hidden h-0 group-focus-within:overflow-visible group-focus-within:h-auto flex flex-col center">
               {localeOptions.map((locale) => (
                 <Link
                   key={locale + router.pathname}
                   href={router.pathname}
                   locale={locale}
-                  className='py-2 px-4 text-center bg-black'
+                  className="py-2 px-4 text-center bg-black"
                 >
                   {languageDisplayNames[locale]}
                 </Link>
@@ -67,13 +67,13 @@ export const LocaleSelector = () => {
             </div>
           </div>
           {/* clone of above locale selection dropdown, invisible with height 0, to respect the width of the widest element */}
-          <div className='h-0 overflow-y-hidden flex flex-col center'>
+          <div className="h-0 overflow-y-hidden flex flex-col center">
             {localeOptions.map((locale) => (
               <Link
                 key={locale + router.pathname}
                 href={router.pathname}
                 locale={locale}
-                className='px-4'
+                className="px-4"
               >
                 {languageDisplayNames[locale]}
               </Link>

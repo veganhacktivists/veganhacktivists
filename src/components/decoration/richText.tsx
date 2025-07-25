@@ -1,7 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import Link from 'next/link';
-import React from 'react';
+import type React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
@@ -31,7 +31,7 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
     const { language, content } = (node.data.target as ICodeBlock).fields;
 
     return (
-      <div className='border-2 w-min border-grey-lighter'>
+      <div className="border-2 w-min border-grey-lighter">
         <SyntaxHighlighter showLineNumbers language={language}>
           {documentToPlainTextString(content, '\n')}
         </SyntaxHighlighter>
@@ -42,7 +42,7 @@ const embeddedAssetRenderer: Partial<Record<CONTENT_TYPE, NodeRenderer>> = {
     const { id } = (node.data.target as IYoutubeVideo).fields;
 
     return (
-      <div className='w-full mx-auto my-10 md:w-4/5'>
+      <div className="w-full mx-auto my-10 md:w-4/5">
         <YoutubeVideo id={id} />
       </div>
     );
@@ -58,12 +58,12 @@ const defaultRichTextOptions: Options = {
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const imageData = node.data.target as Asset;
-      const { title, description } = imageData?.fields;
+      const { title, description } = imageData.fields;
       return (
         <figure>
           <ContentfulImage image={imageData} alt={title} />
           {description && (
-            <figcaption className='text-base italic text-gray-dark'>
+            <figcaption className="text-base italic text-gray-dark">
               {description}
             </figcaption>
           )}
@@ -71,39 +71,39 @@ const defaultRichTextOptions: Options = {
       );
     },
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className='pt-10 text-3xl font-bold'>{children}</h1>
+      <h1 className="pt-10 text-3xl font-bold">{children}</h1>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className='text-2xl font-bold pt-7'>{children}</h2>
+      <h2 className="text-2xl font-bold pt-7">{children}</h2>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h3 className='pt-5 text-xl font-bold'>{children}</h3>
+      <h3 className="pt-5 text-xl font-bold">{children}</h3>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className='mt-5 ml-5 list-disc'>{children}</ul>
+      <ul className="mt-5 ml-5 list-disc">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ul className='mt-5 ml-5 list-disc'>{children}</ul>
+      <ul className="mt-5 ml-5 list-disc">{children}</ul>
     ),
     [BLOCKS.LIST_ITEM]: (node, children) => (
-      <li className='mt-2'>{children}</li>
+      <li className="mt-2">{children}</li>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <div className='px-3 mt-5 border-l-4 border-l-grey-light max-w-fit'>
+      <div className="px-3 mt-5 border-l-4 border-l-grey-light max-w-fit">
         {children}
       </div>
     ),
-    [BLOCKS.HR]: () => <hr className='mt-5' />,
+    [BLOCKS.HR]: () => <hr className="mt-5" />,
     [INLINES.HYPERLINK]: (node, children) => (
       <Link
         href={(node as Hyperlink).data.uri}
-        className='font-semibold underline hover:text-grey visited:text-grey'
+        className="font-semibold underline hover:text-grey visited:text-grey"
       >
         {children}
       </Link>
     ),
     [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className='mt-5 first:mt-0'>{children}</p>
+      <p className="mt-5 first:mt-0">{children}</p>
     ),
   },
   renderMark: {},

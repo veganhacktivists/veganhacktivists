@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { Fragment } from 'react';
+import type React from 'react';
+import { Fragment } from 'react';
 
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
@@ -94,7 +95,7 @@ export const SectionHeader = ({
           })}
         </div>
       </h2>
-      {children && <div className='mt-5 mb-20 text-2xl'>{children}</div>}
+      {children && <div className="mt-5 mb-20 text-2xl">{children}</div>}
     </div>
   );
 };
@@ -120,7 +121,7 @@ const HeaderContainer: React.FC<
         className,
       )}
     >
-      <h1 className='mb-10'>{children}</h1>
+      <h1 className="mb-10">{children}</h1>
     </div>
   );
 };
@@ -145,7 +146,7 @@ export const PlainHeader: React.FC<SubSectionContent> = ({
   return (
     <HeaderContainer>
       <BoldHeaderText>{header}</BoldHeaderText>
-      <p className='text-2xl'>{children}</p>
+      <p className="text-2xl">{children}</p>
     </HeaderContainer>
   );
 };

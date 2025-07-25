@@ -57,6 +57,7 @@ const Sprite = ({
 
   // When the screen size changes, reset the animation position to avoid it overflowing
   const [reset, setReset] = useState(false);
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     setReset(true);
     setReverse(false);
@@ -87,7 +88,7 @@ const Sprite = ({
   return (
     <>
       <animated.div
-        className='absolute z-20 cursor-pointer select-none'
+        className="absolute z-20 cursor-pointer select-none"
         style={{
           ...spring,
           height: image.height * scale,
@@ -110,20 +111,20 @@ const Sprite = ({
             src={image}
             height={image.height * scale}
             width={image.width * scale}
-            alt=''
+            alt=""
           />
         </div>
       </animated.div>
-      <FloatingHeart position={spring.left} size='md' float={jumping} />
+      <FloatingHeart position={spring.left} size="md" float={jumping} />
       <FloatingHeart
         position={spring.left}
-        size='lg'
+        size="lg"
         float={jumping}
         delay={300}
       />
       <FloatingHeart
         position={spring.left}
-        size='md'
+        size="md"
         float={jumping}
         delay={600}
       />

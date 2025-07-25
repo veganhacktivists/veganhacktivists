@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { SessionProvider } from 'next-auth/react';
@@ -16,16 +15,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { NextPage } from 'next';
 import type { DefaultSeoProps } from 'next-seo';
 import type ReactAxe from '@axe-core/react';
-import type { ReactDOM } from 'react';
 import type { AppProps } from 'next/app';
 import type { Session } from 'next-auth';
 import type { IntlShape } from 'react-intl';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
-  const ReactDOM = require('react-dom') as ReactDOM;
+  const ReactDOM = require('react-dom');
   const axe = require('@axe-core/react') as typeof ReactAxe;
   axe(React, ReactDOM, 1000).catch((error) => {
-    // eslint-disable-next-line no-console
     console.error('Error loading @axe-core/react', error);
   });
 }

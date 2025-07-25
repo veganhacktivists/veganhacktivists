@@ -1,6 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useMemo, useState } from 'react';
+import type React from 'react';
+import { useMemo, useState } from 'react';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 import TextInput from '../../forms/inputs/textInput';
@@ -42,12 +43,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
   }, [categories]);
 
   return (
-    <div className='flex pb-4 pl-5'>
-      <div className='relative flex flex-row w-full h-12'>
-        <div className='w-4/5'>
+    <div className="flex pb-4 pl-5">
+      <div className="relative flex flex-row w-full h-12">
+        <div className="w-4/5">
           <TextInput
-            className='h-full'
-            placeholder='Search'
+            className="h-full"
+            placeholder="Search"
             onInput={(e) => {
               setSearchTerm(e.currentTarget.value);
             }}
@@ -56,16 +57,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ categories }) => {
             Search
           </TextInput>
         </div>
-        <FillBackground base='grey-dark' fill='green'>
+        <FillBackground base="grey-dark" fill="green">
           <button
-            type='button'
-            className='flex items-center justify-center h-12 w-14'
+            type="button"
+            className="flex items-center justify-center h-12 w-14"
           >
-            <FontAwesomeIcon icon={faSearch} size='lg' color='white' />
+            <FontAwesomeIcon icon={faSearch} size="lg" color="white" />
           </button>
         </FillBackground>
         <SearchResults
-          className='absolute bg-white top-12'
+          className="absolute bg-white top-12"
           searchItems={searchItems}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -27,9 +27,8 @@ const CustomLink: React.FC<LinkProps> = ({
   return url?.startsWith('http://') || url?.startsWith('https://') ? (
     <a
       className={classes}
-      target='_blank'
-      rel='noreferrer'
-      // eslint-disable-next-line
+      target="_blank"
+      rel="noreferrer"
       href={href.toString()}
       {...props}
     >

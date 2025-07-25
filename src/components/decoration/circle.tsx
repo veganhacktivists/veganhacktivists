@@ -24,15 +24,15 @@ const Circle: React.FC<CircleProps> = ({
   let xTransform = 'translate-x-1/4';
   let yTransform = 'translate-y-2/4 lg:translate-y-3/4';
 
-  if (xAlign == 'left') xTransform = '-translate-x-1/4';
-  if (yAlign == 'top') yTransform = '-translate-y-2/4 lg:-translate-y-3/4';
+  if (xAlign === 'left') xTransform = '-translate-x-1/4';
+  if (yAlign === 'top') yTransform = '-translate-y-2/4 lg:-translate-y-3/4';
 
   const themeColor = getThemeColor(color);
 
   const style = {
     color: themeColor,
-    [xAlign == 'left' ? 'left' : 'right']: 0,
-    [yAlign == 'top' ? 'top' : 'bottom']: 0,
+    [xAlign === 'left' ? 'left' : 'right']: 0,
+    [yAlign === 'top' ? 'top' : 'bottom']: 0,
   };
 
   return (

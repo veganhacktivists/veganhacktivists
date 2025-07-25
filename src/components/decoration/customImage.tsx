@@ -8,7 +8,7 @@ import type { ImageProps } from 'next/image';
 const CustomImage: React.FC<ImageProps> = (props) => {
   return (
     <Image
-      loading='eager'
+      loading="eager"
       {...props}
       className={classNames(props.className, 'max-w-full h-auto inline-block')}
     />

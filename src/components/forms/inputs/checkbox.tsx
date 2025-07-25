@@ -42,8 +42,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               : 'flex-row justify-start',
           )}
         >
-          <div className='w-fit'>
-            <Label className='mt-2' htmlFor={name}>
+          <div className="w-fit">
+            <Label className="mt-2" htmlFor={name}>
               {children}
             </Label>
           </div>
@@ -68,11 +68,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {...props}
             name={name}
             id={props.id || name}
-            type='checkbox'
+            type="checkbox"
           />
         </div>
-        <div className='text-left'>{description}</div>
-        {error && <div className='text-red'>⚠ {error}</div>}
+        <div className="text-left">{description}</div>
+        {error && <div className="text-red">⚠ {error}</div>}
       </div>
     );
   },

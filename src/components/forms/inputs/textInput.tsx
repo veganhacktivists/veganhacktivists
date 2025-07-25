@@ -43,7 +43,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           name={name}
           id={props.id || name}
         />
-        {error && <div className='text-red'>⚠ {error}</div>}
+        {error && <div className="text-red">⚠ {error}</div>}
       </div>
     );
   },

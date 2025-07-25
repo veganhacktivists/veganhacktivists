@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Hero from '../components/decoration/hero';
@@ -80,50 +80,50 @@ const Join: React.FC = () => {
             defaultMessage: 'You are their voice',
           }),
         }}
-        alignment='left'
+        alignment="left"
         classNameMapping={{
           backgroundImage: 'object-[75%_0] md:object-center',
         }}
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <PlainHeader>
-        <h1 className='text-5xl md:text-6xl mb-5'>
-          <span className='text-5xl md:text-6xl text-black font-mono font-semibold uppercase mx-1'>
+        <h1 className="text-5xl md:text-6xl mb-5">
+          <span className="text-5xl md:text-6xl text-black font-mono font-semibold uppercase mx-1">
             USE YOUR SKILLS TO HELP ANIMALS
           </span>
         </h1>
-        <p className='pb-8'>
+        <p className="pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.0'
+            id="page.join.section.join-our-team.paragraph.0"
             defaultMessage="You want to do more for animals – and you’re not alone. Maybe you’ve been looking for a way to team up with like-minded people who share your values. Maybe you're ready to take the next step but haven’t found the right opportunity. Or maybe you know exactly what you’re capable of, and you’re just waiting for the moment to use your skills where they matter most – fighting for a better world for animals."
           />
         </p>
 
-        <p className='pb-8'>
+        <p className="pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.1'
-            defaultMessage='<b>Playground</b> is our platform where mission-aligned people like you use their skills to make a difference – and collaborate with professional animal advocates and organizations all around the world.'
+            id="page.join.section.join-our-team.paragraph.1"
+            defaultMessage="<b>Playground</b> is our platform where mission-aligned people like you use their skills to make a difference – and collaborate with professional animal advocates and organizations all around the world."
             values={{
               b: (chunks: React.ReactNode) => (
-                <span className='font-bold'>{chunks}</span>
+                <span className="font-bold">{chunks}</span>
               ),
             }}
           />
         </p>
 
-        <p className='pb-4'>
+        <p className="pb-4">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.2'
-            defaultMessage='If you are:'
+            id="page.join.section.join-our-team.paragraph.2"
+            defaultMessage="If you are:"
           />
         </p>
 
         <div>
-          <div className='p-8 bg-gray-background content-center text-2xl text-left'>
-            <div className='flex flex-col gap-4'>
+          <div className="p-8 bg-gray-background content-center text-2xl text-left">
+            <div className="flex flex-col gap-4">
               {getCandidateRequirementProps(intl).map((requirement, i) => (
                 <CandidateRequirement key={i} {...requirement} />
               ))}
@@ -131,24 +131,24 @@ const Join: React.FC = () => {
           </div>
         </div>
 
-        <p className='pt-4 pb-8'>
+        <p className="pt-4 pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.3'
-            defaultMessage='Then this is your place.'
+            id="page.join.section.join-our-team.paragraph.3"
+            defaultMessage="Then this is your place."
           />
         </p>
 
-        <p className='font-bold pb-8'>
+        <p className="font-bold pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.4'
-            defaultMessage='Browse available requests and leverage your skills for animals.'
+            id="page.join.section.join-our-team.paragraph.4"
+            defaultMessage="Browse available requests and leverage your skills for animals."
           />
         </p>
 
-        <DarkButton href='/playground' className='w-fit mx-auto mb-20'>
+        <DarkButton href="/playground" className="w-fit mx-auto mb-20">
           <FormattedMessage
-            id='page.join.section.join-our-team.cta'
-            defaultMessage='Head to Playground'
+            id="page.join.section.join-our-team.cta"
+            defaultMessage="Head to Playground"
           />
         </DarkButton>
 
@@ -156,38 +156,38 @@ const Join: React.FC = () => {
           src={pixelFlower.src}
           width={pixelFlower.width / 3}
           height={pixelFlower.height / 3}
-          alt=''
+          alt=""
         />
-        <p className='py-8'>
+        <p className="py-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.5'
-            defaultMessage='There’s an endless need for skilled support in the animal advocacy movement, with countless requests coming in, each reflecting the movement’s diverse needs. While we can’t fulfill them all, we created Playground to help the movement achieve more – together with incredible volunteers like you.'
+            id="page.join.section.join-our-team.paragraph.5"
+            defaultMessage="There’s an endless need for skilled support in the animal advocacy movement, with countless requests coming in, each reflecting the movement’s diverse needs. While we can’t fulfill them all, we created Playground to help the movement achieve more – together with incredible volunteers like you."
           />
         </p>
 
-        <p className='pb-8'>
+        <p className="pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.6'
-            defaultMessage='<b>Playground</b> is a VH program designed to support the high volume of requests from advocates and organizations around the world.'
+            id="page.join.section.join-our-team.paragraph.6"
+            defaultMessage="<b>Playground</b> is a VH program designed to support the high volume of requests from advocates and organizations around the world."
             values={{
               b: (chunks: React.ReactNode) => (
-                <span className='font-bold'>{chunks}</span>
+                <span className="font-bold">{chunks}</span>
               ),
             }}
           />
         </p>
 
-        <p className='pb-8'>
+        <p className="pb-8">
           <FormattedMessage
-            id='page.join.section.join-our-team.paragraph.7'
-            defaultMessage='When you volunteer through Playground, you create a tangible impact for animals, advance your expertise in the movement, and collaborate on projects that align with your skills and passions.'
+            id="page.join.section.join-our-team.paragraph.7"
+            defaultMessage="When you volunteer through Playground, you create a tangible impact for animals, advance your expertise in the movement, and collaborate on projects that align with your skills and passions."
           />
         </p>
 
-        <DarkButton href='/playground' className='w-fit mx-auto'>
+        <DarkButton href="/playground" className="w-fit mx-auto">
           <FormattedMessage
-            id='page.join.section.join-our-team.cta-browse-requests'
-            defaultMessage='Browse available requests'
+            id="page.join.section.join-our-team.cta-browse-requests"
+            defaultMessage="Browse available requests"
           />
         </DarkButton>
       </PlainHeader>

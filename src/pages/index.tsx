@@ -88,7 +88,7 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
               '<no-localization>Empowering the movement through expert tech services</no-localization>',
           }),
         }}
-        alignment='right'
+        alignment="right"
         classNameMapping={{
           container: 'bg-center',
           content: 'items-center',
@@ -97,16 +97,16 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
-      <div className='content-center px-5 mx-auto my-24 text-2xl md:w-1/2'>
+      <div className="content-center px-5 mx-auto my-24 text-2xl md:w-1/2">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
-          alt='Compassion, Creativity, Code'
+          alt="Compassion, Creativity, Code"
         />
-        <div className='mb-16 text-grey-dark'>
+        <div className="mb-16 text-grey-dark">
           <SectionHeader
             header={intl.formatMessage({
               id: 'page.index.section.introduction.headline',
@@ -115,47 +115,47 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
             })}
           />
         </div>
-        <p className='pb-5'>
+        <p className="pb-5">
           <FormattedMessage
-            id='page.index.section.introduction.paragraph.1'
-            defaultMessage='We are a global group of animal advocates offering our tech and creative skills for the animal protection movement. Our team is composed of highly-skilled professional software engineers, designers, content creators, and organizational strategists.'
+            id="page.index.section.introduction.paragraph.1"
+            defaultMessage="We are a global group of animal advocates offering our tech and creative skills for the animal protection movement. Our team is composed of highly-skilled professional software engineers, designers, content creators, and organizational strategists."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
-        <p className='pb-5'>
+        <p className="pb-5">
           <FormattedMessage
-            id='page.index.section.introduction.paragraph.2'
-            defaultMessage='We empower advocates worldwide by providing innovative, high-quality capacity-building services – including technology, design and advisory support – all at no cost.'
+            id="page.index.section.introduction.paragraph.2"
+            defaultMessage="We empower advocates worldwide by providing innovative, high-quality capacity-building services – including technology, design and advisory support – all at no cost."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
         <p>
           <FormattedMessage
-            id='page.index.section.introduction.paragraph.3'
-            defaultMessage='Since 2019, we have served hundreds of organizations worldwide that are creating change for animals. By providing tailored advisory services, we’ve helped their projects succeed while preventing costly mistakes – saving them time and money.'
+            id="page.index.section.introduction.paragraph.3"
+            defaultMessage="Since 2019, we have served hundreds of organizations worldwide that are creating change for animals. By providing tailored advisory services, we’ve helped their projects succeed while preventing costly mistakes – saving them time and money."
             values={{ b: (chunks) => <b>{chunks}</b> }}
           />
         </p>
 
-        <DarkButton href='/about' className='w-fit my-8 mx-auto'>
+        <DarkButton href="/about" className="w-fit my-8 mx-auto">
           <FormattedMessage
-            id='page.index.section.introduction.cta'
-            defaultMessage='Learn More About Us'
+            id="page.index.section.introduction.cta"
+            defaultMessage="Learn More About Us"
           />
         </DarkButton>
       </div>
       <Sprite image={cow} />
       <SquareField
         squares={[{ left: 0, bottom: 0, color: 'gray' }]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
-      <div className='bg-grey-background'>
-        <div className='content-center px-5 pt-16 mx-auto text-2xl md:w-1/2'>
-          <div className='pb-5 text-grey-dark'>
+      <div className="bg-grey-background">
+        <div className="content-center px-5 pt-16 mx-auto text-2xl md:w-1/2">
+          <div className="pb-5 text-grey-dark">
             <SectionHeader
               header={intl.formatMessage({
                 id: 'page.index.section.projects.headline',
@@ -165,8 +165,8 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
           </div>
           <p>
             <FormattedMessage
-              id='page.index.section.projects.paragraph'
-              defaultMessage='Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values.'
+              id="page.index.section.projects.paragraph"
+              defaultMessage="Every project we release is <b>100% free for everyone</b>. We believe in accessibility and transparency, and our projects reflect those values."
               values={{
                 b: (chunks) => <b>{chunks}</b>,
               }}
@@ -184,11 +184,11 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
               <FeaturedProject key={project.sys.id} {...project.fields} />
             ))}
           </div>
-          <div className='relative pb-16 mx-auto mt-10 md:w-1/3'>
-            <DarkButton href='/work' className='font-mono'>
+          <div className="relative pb-16 mx-auto mt-10 md:w-1/3">
+            <DarkButton href="/work" className="font-mono">
               <FormattedMessage
-                id='page.index.section.projects.cta'
-                defaultMessage='See Our Work'
+                id="page.index.section.projects.cta"
+                defaultMessage="See Our Work"
               />
             </DarkButton>
           </div>
@@ -196,17 +196,17 @@ const Home: React.FC<HomeProps> = ({ featuredProjects, lastBlogEntries }) => {
       </div>
       <SquareField
         squares={JOIN_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <PlaygroundSupportCta />
       <SquareField
         squares={BLOG_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <LastBlogEntries entries={lastBlogEntries} />
       <SquareField
         squares={PROJECT_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <GrantsCallToAction />
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />

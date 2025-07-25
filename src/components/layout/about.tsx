@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { NavButton } from '../decoration/buttons';
@@ -14,23 +14,23 @@ import type { Layout } from '../../types/persistentLayout';
 
 const AboutButtons: React.FC = () => {
   return (
-    <div className='flex flex-wrap justify-center mt-10 mb-5'>
-      <NavButton href='/about/our-mission'>
+    <div className="flex flex-wrap justify-center mt-10 mb-5">
+      <NavButton href="/about/our-mission">
         <FormattedMessage
-          id='page.about.section.navigation.button.label.mission'
-          defaultMessage='OUR MISSION & VISION'
+          id="page.about.section.navigation.button.label.mission"
+          defaultMessage="OUR MISSION & VISION"
         />
       </NavButton>
-      <NavButton href='/about/our-story'>
+      <NavButton href="/about/our-story">
         <FormattedMessage
-          id='page.about.section.navigation.button.label.story'
-          defaultMessage='OUR STORY'
+          id="page.about.section.navigation.button.label.story"
+          defaultMessage="OUR STORY"
         />
       </NavButton>
-      <NavButton href='/about/our-values'>
+      <NavButton href="/about/our-values">
         <FormattedMessage
-          id='page.about.section.navigation.button.label.values'
-          defaultMessage='OUR VALUES'
+          id="page.about.section.navigation.button.label.values"
+          defaultMessage="OUR VALUES"
         />
       </NavButton>
     </div>
@@ -59,7 +59,7 @@ const AboutHero: React.FC = () => {
             defaultMessage: 'Data-Driven Activism',
           }),
         }}
-        alignment='left'
+        alignment="left"
         classNameMapping={{
           container: 'bg-center',
           backgroundImage: 'object-[75%_0] md:object-center',
@@ -68,7 +68,7 @@ const AboutHero: React.FC = () => {
       />
       <SquareField
         squares={HERO_DECORATION_SQUARES}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );
@@ -88,7 +88,7 @@ const AboutLayout: Layout = ({ children }) => {
           { color: 'grey-background', size: 16, bottom: 0, right: 16 },
           { color: 'white', size: 16, top: 0, right: 16 },
         ]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <GrantsCallToAction />
       <Sprite image={goat} pixelsLeft={1} pixelsRight={0} />

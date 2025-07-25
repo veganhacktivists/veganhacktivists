@@ -24,30 +24,28 @@ export const getDocCategoryPreviewBySlug: (
   return response.items[0] as IDocsCategory;
 };
 
-export const getBlogPreviewBySlug: (
-  slug: string,
-) => Promise<IBlogEntry> = async (slug) => {
-  const response = await previewClient.getEntries({
-    'fields.slug': slug,
-    content_type: 'blogEntry',
-    include: 3,
-  });
+export const getBlogPreviewBySlug: (slug: string) => Promise<IBlogEntry> =
+  async (slug) => {
+    const response = await previewClient.getEntries({
+      'fields.slug': slug,
+      content_type: 'blogEntry',
+      include: 3,
+    });
 
-  return response.items[0] as IBlogEntry;
-};
+    return response.items[0] as IBlogEntry;
+  };
 
-export const getAllBlogSlugs: () => Promise<
-  IBlogEntry['fields']['slug'][]
-> = async () => {
-  const entries = await client.getEntries({
-    content_type: 'blogEntry',
-    select: 'fields.slug',
-  });
+export const getAllBlogSlugs: () => Promise<IBlogEntry['fields']['slug'][]> =
+  async () => {
+    const entries = await client.getEntries({
+      content_type: 'blogEntry',
+      select: 'fields.slug',
+    });
 
-  return (entries.items as Entry<IBlogEntryFields>[]).map(
-    (entry) => entry.fields.slug,
-  );
-};
+    return (entries.items as Entry<IBlogEntryFields>[]).map(
+      (entry) => entry.fields.slug,
+    );
+  };
 
 export const getActiveTeams: () => Promise<Entry<ITeamFields>[]> = async () => {
   const teams = await getContents<ITeamFields>({

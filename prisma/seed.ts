@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   BudgetType,
   PlaygroundRequestCategory,
@@ -213,7 +212,7 @@ const seedDataDashboardData = async (n: number) => {
       ];
       const data: Prisma.DataDashboardDataCreateInput = {
         timestamp: new Date(
-          DateTime.fromISO(faker.date.recent(365).toISOString()).toISODate(),
+          DateTime.fromISO(faker.date.recent(365).toISOString()).toISODate()!,
         ),
         values: {
           createMany: {

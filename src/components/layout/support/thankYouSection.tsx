@@ -183,7 +183,7 @@ const getOrgs = (intl: IntlShape): Org[] => [
 ];
 
 const Paragraph: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <p className='px-10 mx-auto mb-20 text-xl'>{children}</p>
+  <p className="px-10 mx-auto mb-20 text-xl">{children}</p>
 );
 
 const OrganizationCard: React.FC<Org> = ({
@@ -193,14 +193,15 @@ const OrganizationCard: React.FC<Org> = ({
   linkUrl,
 }: Org) => {
   return (
-    <div className='bg-white basis-full lg:basis-[calc(50%-0.5rem)] p-[40px] text-left flex gap-4 flex-col'>
-      <h3 className='text-2xl font-bold'>{title}</h3>
-      <div className='text-lg'>
+    <div className="bg-white basis-full lg:basis-[calc(50%-0.5rem)] p-[40px] text-left flex gap-4 flex-col">
+      <h3 className="text-2xl font-bold">{title}</h3>
+      <div className="text-lg">
         {description}{' '}
         <a
           href={linkUrl}
-          target='_blank'
-          className='text-magenta underline font-bold'
+          target="_blank"
+          className="text-magenta underline font-bold"
+          rel="noreferrer"
         >
           {linkLabel}
         </a>
@@ -213,7 +214,7 @@ const OrganizationCardContainer: React.FC<React.PropsWithChildren> = ({
   children,
 }: PropsWithChildren) => {
   return (
-    <div className='m-auto w-full flex flex-row gap-4 flex-wrap mb-32'>
+    <div className="m-auto w-full flex flex-row gap-4 flex-wrap mb-32">
       {children}
     </div>
   );
@@ -227,12 +228,13 @@ const ThankYouSection: React.FC = () => {
   const accordionEntries = orgs.map((org) => ({
     title: org.title,
     children: (
-      <div className='text-lg'>
+      <div className="text-lg">
         {org.description}{' '}
         <a
           href={org.linkUrl}
-          target='_blank'
-          className='text-magenta underline font-bold'
+          target="_blank"
+          className="text-magenta underline font-bold"
+          rel="noreferrer"
         >
           {org.linkLabel}
         </a>
@@ -241,28 +243,28 @@ const ThankYouSection: React.FC = () => {
   }));
 
   return (
-    <div className='pt-10 pb-20 mx-auto bg-gray-background'>
-      <div className='max-w-7xl m-auto'>
+    <div className="pt-10 pb-20 mx-auto bg-gray-background">
+      <div className="max-w-7xl m-auto">
         <CustomImage
           src={pixelHeart.src}
           width={pixelHeart.width / 3}
           height={pixelHeart.height / 3}
-          alt='Our community'
+          alt="Our community"
         />
-        <h2 className='mb-8 mt-4 text-4xl font-bold'>
+        <h2 className="mb-8 mt-4 text-4xl font-bold">
           <FormattedMessage
-            id='page.support.section.thank-you.headline'
-            defaultMessage='Thank You'
+            id="page.support.section.thank-you.headline"
+            defaultMessage="Thank You"
           />
         </h2>
         <Paragraph>
           <FormattedMessage
-            id='page.support.section.thank-you.introduction'
-            defaultMessage='We’re incredibly grateful for the organizations who support our work. Thank you for believing in our mission and making this work possible.'
+            id="page.support.section.thank-you.introduction"
+            defaultMessage="We’re incredibly grateful for the organizations who support our work. Thank you for believing in our mission and making this work possible."
           />
         </Paragraph>
 
-        <div className='hidden lg:block px-10'>
+        <div className="hidden lg:block px-10">
           <OrganizationCardContainer>
             {orgs.map((org) => (
               <OrganizationCard key={org.title} {...org} />
@@ -270,7 +272,7 @@ const ThankYouSection: React.FC = () => {
           </OrganizationCardContainer>
         </div>
 
-        <div className='block lg:hidden'>
+        <div className="block lg:hidden">
           <Accordion entries={accordionEntries} />
         </div>
       </div>

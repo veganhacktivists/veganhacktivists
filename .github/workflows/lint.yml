@@ -13,14 +13,6 @@ jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
-    # Only run if triggered manually OR the PR isn't a draft and it's not a linting PR (and not a fork)
-    if: |
-      github.event_name != 'pull_request' ||
-      (
-        github.event.pull_request.draft == false &&
-        startsWith(github.head_ref, 'autofix/') == false &&
-        github.event.pull_request.head.repo.full_name == github.repository
-      )
     # Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     permissions:
       pull-requests: write
@@ -48,13 +40,14 @@ jobs:
 
       - name: Get pnpm store directory
         id: pnpm-cache
+        shell: bash
         run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
@@ -62,8 +55,9 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --no-optional
+          pnpm install @biomejs/cli-linux-x64
           pnpm prisma generate
 
       - name: Lint project
         id: lint
-        run: pnpm lint
+        run: pnpm biome ci

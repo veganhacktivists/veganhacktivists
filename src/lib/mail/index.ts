@@ -25,7 +25,6 @@ class EmailClient {
     if (process.env.NODE_ENV !== 'production') {
       this.sendMail = async (options) => {
         const data = options as EmailDev;
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return await this.nm.sendMail(data);
       };
     } else {
@@ -79,7 +78,7 @@ const emailClient = new EmailClient(
   }),
   nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
-    port: parseInt(process.env.EMAIL_SERVER_PORT ?? '25'),
+    port: Number.parseInt(process.env.EMAIL_SERVER_PORT ?? '25'),
     secure: process.env.EMAIL_SERVER_TLS?.toLowerCase() === 'true',
     tls: {
       rejectUnauthorized: false,

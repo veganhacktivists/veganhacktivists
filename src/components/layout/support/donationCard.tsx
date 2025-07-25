@@ -31,22 +31,22 @@ const DonationCard: React.FC<DonationCardProps> = ({
         width: `${large ? '400px' : '300px'}`,
         height: `${large ? '540px' : '460px'}`,
       }}
-      className='flex flex-col bg-gray-lighter'
+      className="flex flex-col bg-gray-lighter"
     >
       <div style={{ backgroundColor }}>
         <div className={'absolute w-8 h-8 transparent'} />
-        <div className='p-12'>
+        <div className="p-12">
           <CustomImage
             src={image.src}
             width={image.width / 3}
             height={image.height / 3}
-            alt='Our community'
+            alt="Our community"
           />
         </div>
       </div>
-      <div className='px-4 py-8 basis-full flex flex-col justify-between'>
-        <h1 className='pb-5 font-mono text-3xl font-bold'>{title}</h1>
-        <p className='mx-auto mb-8 text-xl'>{children}</p>
+      <div className="px-4 py-8 basis-full flex flex-col justify-between">
+        <h1 className="pb-5 font-mono text-3xl font-bold">{title}</h1>
+        <p className="mx-auto mb-8 text-xl">{children}</p>
         <LightButton href={buttonHref}>{buttonText}</LightButton>
       </div>
     </div>

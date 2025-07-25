@@ -17,7 +17,7 @@ export const useFAQDetect = () => {
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setMessage(e.target.value);
     },
-    [setMessage],
+    [],
   );
 
   useEffect(() => {

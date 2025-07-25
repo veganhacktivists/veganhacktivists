@@ -1,4 +1,5 @@
-import React, { useCallback, useRef } from 'react';
+import type React from 'react';
+import { useCallback, useRef } from 'react';
 import classNames from 'classnames';
 
 import Circle from './circle';
@@ -91,12 +92,12 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <div className={containerClasses} ref={ref}>
       <CustomImage
-        alt=''
+        alt=""
         src={imageBackground}
         priority
         {...backgroundImageProps}
         fill
-        sizes='100vw'
+        sizes="100vw"
         className={classNames(
           'object-cover',
           classNameMapping?.backgroundImage,
@@ -123,16 +124,16 @@ const Hero: React.FC<HeroProps> = ({
                 height: `${taglineHeight}px`,
                 width: `${tagLineWidth}px`,
               }}
-              className='object-contain'
+              className="object-contain"
             />
           </div>
         )}
         {children}
       </h1>
       {main && <ScrollDownIndicator onClick={scrollToContent} />}
-      <div className='absolute inset-0 overflow-hidden'>
-        <Circle xAlign='right' radius={30} opacity={0.1} />
-        <Circle yAlign='bottom' radius={34} opacity={0.2} />
+      <div className="absolute inset-0 overflow-hidden">
+        <Circle xAlign="right" radius={30} opacity={0.1} />
+        <Circle yAlign="bottom" radius={34} opacity={0.2} />
       </div>
     </div>
   );

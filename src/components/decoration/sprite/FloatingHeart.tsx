@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import smHeart from '../../../../public/images/VH_Pixel_Heart_Small.png';
@@ -33,11 +34,12 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
   const [floating, setFloating] = useState(false);
   const [left, setLeft] = useState(0.0);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     if (float && !floating) {
       setFloating(true);
       setTimeout(() => {
-        setLeft(parseFloat(position.get()));
+        setLeft(Number.parseFloat(position.get()));
       }, delay);
     }
   }, [float, delay, position]);
@@ -61,7 +63,7 @@ const FloatingHeart: React.FC<FloatingHeartProps> = ({
           src={heartImg.src}
           height={heartImg.height / 3}
           width={heartImg.width / 3}
-          alt=''
+          alt=""
         />
       </div>
     </div>

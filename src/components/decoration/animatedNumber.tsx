@@ -1,6 +1,7 @@
 import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
-import React, { useMemo, useState } from 'react';
+import type React from 'react';
+import { useMemo, useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 
 import useReduceMotion from '../../hooks/useReduceMotion';

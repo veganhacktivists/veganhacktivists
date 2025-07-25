@@ -21,10 +21,10 @@ const AdminCallout: React.FC = () => {
   );
 
   return (
-    <div className='flex flex-col gap-4 p-10 py-5 mx-auto divide-y w-fit bg-grey-over-background'>
+    <div className="flex flex-col gap-4 p-10 py-5 mx-auto divide-y w-fit bg-grey-over-background">
       <div>
         <div>You&apos;re an admin!</div>
-        <DarkButton href='/playground/admin'>Enter review mode</DarkButton>
+        <DarkButton href="/playground/admin">Enter review mode</DarkButton>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -33,7 +33,7 @@ const AdminCallout: React.FC = () => {
         <TextArea {...register('message')} rows={2}>
           Message
         </TextArea>
-        <DarkButton type='submit'>Send!</DarkButton>
+        <DarkButton type="submit">Send!</DarkButton>
       </form>
     </div>
   );

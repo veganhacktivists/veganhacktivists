@@ -61,7 +61,6 @@ export async function requestPlaygroundApplicantFeedbackTask() {
     applicationsReadyForFeedback.length - successfulFeedbackRequests;
 
   if (failedFeedbackRequests > 0) {
-    // eslint-disable-next-line no-console
     console.error(
       `requestPlaygroundApplicantFeedbackTask: failed to send ${failedFeedbackRequests} emails`,
     );

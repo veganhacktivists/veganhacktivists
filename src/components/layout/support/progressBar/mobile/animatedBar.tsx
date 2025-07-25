@@ -1,5 +1,6 @@
 import { animated, useSpring, config } from '@react-spring/web';
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 import { FormattedMessage } from 'react-intl';
 
@@ -23,26 +24,26 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
   });
   return (
     <>
-      <div className='flex flex-col-reverse absolute h-full w-[15vw]'>
+      <div className="flex flex-col-reverse absolute h-full w-[15vw]">
         <animated.div
           style={{
             height: currentAmount.to((num) => `${(num / goal) * 100}%`),
           }}
-          className='relative bg-green border-green border-t-[3px]'
+          className="relative bg-green border-green border-t-[3px]"
         >
-          <div className='flex flex-col space-y-2 text-right items-end h-40 w-36 absolute top-[-3px] -right-36 z-30 border-green border-t-[3px] pl-4 bg-grey-darker'>
-            <div className='flex flex-row'>
-              <h1 className='font-mono text-4xl text-green'>&#36;</h1>
-              <animated.h1 className='font-mono text-4xl text-green'>
+          <div className="flex flex-col space-y-2 text-right items-end h-40 w-36 absolute top-[-3px] -right-36 z-30 border-green border-t-[3px] pl-4 bg-grey-darker">
+            <div className="flex flex-row">
+              <h1 className="font-mono text-4xl text-green">&#36;</h1>
+              <animated.h1 className="font-mono text-4xl text-green">
                 {currentAmount.to((num) => {
                   return Math.floor(num).toLocaleString('en-US');
                 })}
               </animated.h1>
             </div>
-            <p className='w-full text-lg text-left text-white md:text-xl'>
+            <p className="w-full text-lg text-left text-white md:text-xl">
               <FormattedMessage
-                id='section.support-progess-bar.mobile.current.label'
-                defaultMessage='Current monthly donations'
+                id="section.support-progess-bar.mobile.current.label"
+                defaultMessage="Current monthly donations"
               />
             </p>
           </div>
@@ -53,14 +54,14 @@ const AnimatedBar: React.FC<AnimatedBarProps> = ({ current, goal }) => {
           />
         </animated.div>
         <div
-          className='flex items-end justify-center'
+          className="flex items-end justify-center"
           style={{ transform: 'rotateY(180deg)' }}
         >
           <CustomImage
             src={chicken.src}
             height={chicken.height * 0.5}
             width={chicken.width * 0.5}
-            alt=''
+            alt=""
           />
         </div>
       </div>

@@ -134,12 +134,12 @@ const MinorChangesBigImpact: React.FC = () => {
     <>
       <SquareField
         squares={[{ color: 'grey', size: 16, right: 0, bottom: 0 }]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
       <SectionContainer
         circles
-        color='grey-dark'
-        className='text-white'
+        color="grey-dark"
+        className="text-white"
         header={
           <SectionHeader
             header={intl.formatMessage({
@@ -149,21 +149,21 @@ const MinorChangesBigImpact: React.FC = () => {
           />
         }
       >
-        <div className='mx-auto text-2xl md:w-2/3 space-y-3 mt-20 mb-20'>
+        <div className="mx-auto text-2xl md:w-2/3 space-y-3 mt-20 mb-20">
           {getChanges(intl).map(({ icon, text }) => (
             <div
               key={icon}
-              className='flex flex-col md:flex-row gap-x-2 w-full justify-start'
+              className="flex flex-col md:flex-row gap-x-2 w-full justify-start"
             >
-              <div className='text-3xl'>{icon}</div>
-              <div className='md:text-left'>{text}</div>
+              <div className="text-3xl">{icon}</div>
+              <div className="md:text-left">{text}</div>
             </div>
           ))}
         </div>
       </SectionContainer>
       <SquareField
         squares={[{ color: 'grey', size: 16, left: 0, top: 0 }]}
-        className='hidden md:block'
+        className="hidden md:block"
       />
     </>
   );

@@ -64,7 +64,7 @@ const Field: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 }) => {
   return (
     <div>
-      <div className='font-bold uppercase'>{title}</div>
+      <div className="font-bold uppercase">{title}</div>
       {children}
     </div>
   );
@@ -113,8 +113,8 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
   }, [request?.budget]);
 
   return (
-    <div className='px-10 mb-5 md:px-40'>
-      <div className='flex flex-row justify-start gap-5'>
+    <div className="px-10 mb-5 md:px-40">
+      <div className="flex flex-row justify-start gap-5">
         {request.status !== RequestStatus.Accepted && (
           <div
             className={classNames('px-3 py-1 ml-0 border w-fit mb-5', {
@@ -128,29 +128,29 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
         )}
       </div>
 
-      <div className='relative flex flex-col-reverse justify-between gap-2 mb-4 font-mono text-xl text-left md:flex-row'>
-        <div className='prose prose-p:max-w-prose md:prose-xl max-w-none prose-p:leading-6 prose-headings:leading-none'>
+      <div className="relative flex flex-col-reverse justify-between gap-2 mb-4 font-mono text-xl text-left md:flex-row">
+        <div className="prose prose-p:max-w-prose md:prose-xl max-w-none prose-p:leading-6 prose-headings:leading-none">
           <div
-            className='absolute w-16 -translate-x-full -left-5 aspect-square'
+            className="absolute w-16 -translate-x-full -left-5 aspect-square"
             style={{
               backgroundColor: CATEGORY_COLORS[request.category],
             }}
           />
-          <Field title='Title'>
-            <h1 className='text-2xl font-bold' title={request.title}>
+          <Field title="Title">
+            <h1 className="text-2xl font-bold" title={request.title}>
               {request.title}
             </h1>
           </Field>
-          <Field title='Description'>
-            <div className='font-sans break-words'>
-              <div className='inline-block'>
+          <Field title="Description">
+            <div className="font-sans break-words">
+              <div className="inline-block">
                 {description.split('\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
                 {!isExpanded && (
-                  <div className='flex justify-center my-14'>
+                  <div className="flex justify-center my-14">
                     <WhiteButton
-                      className='font-mono text-2xl'
+                      className="font-mono text-2xl"
                       onClick={() => setIsExpanded(true)}
                     >
                       Read more
@@ -160,22 +160,24 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               </div>
             </div>
           </Field>
-          <Field title='About the organization'>
-            <div className='font-sans break-words'>
-              <div className='inline-block'>
+          <Field title="About the organization">
+            <div className="font-sans break-words">
+              <div className="inline-block">
                 {request.organizationDescription
                   ?.split('\n')
-                  .map((paragraph, i) => <p key={i}>{paragraph}</p>)}
+                  .map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
               </div>
             </div>
           </Field>
 
-          <Field title='Skills required'>
+          <Field title="Skills required">
             <div>{request.requiredSkills.join(', ')}</div>
           </Field>
         </div>
-        <SubtleBorder className='flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit'>
-          <Field title='Category'>{CATEGORY_LABELS[request.category]}</Field>
+        <SubtleBorder className="flex flex-col gap-1 p-8 min-w-fit bg-grey-background h-fit">
+          <Field title="Category">{CATEGORY_LABELS[request.category]}</Field>
           <Field
             title={`${
               hasNoDue
@@ -189,7 +191,7 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           >
             {hasNoDue ? 'None' : timeUntilDue ? dueDateFormatted : 'Today'}
           </Field>
-          <Field title='Compensation'>
+          <Field title="Compensation">
             {request.budget ? (
               <div>
                 {formattedBudget} {request.budget.type.toLowerCase()}
@@ -198,14 +200,14 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
               'Volunteer role'
             )}
           </Field>
-          <Field title='Website'>{request.website}</Field>
+          <Field title="Website">{request.website}</Field>
           {request.category === PlaygroundRequestCategory.Designer && (
             <>
-              <Field title='Current design exists'>
+              <Field title="Current design exists">
                 {request.designRequestCurrentDesignExists ? 'Yes' : 'No'}
               </Field>
               {request.designRequestType && (
-                <Field title='Design request type'>
+                <Field title="Design request type">
                   {request.designRequestType}
                 </Field>
               )}
@@ -213,30 +215,30 @@ export const RequestDetails: React.FC<RequestProps> = ({ request }) => {
           )}
           {request.category === PlaygroundRequestCategory.Developer && (
             <>
-              <Field title='Website exists'>
+              <Field title="Website exists">
                 {request.devRequestWebsiteExists ? 'Yes' : 'No'}
               </Field>
               {request.devRequestWebsiteUrl && (
-                <Field title='Concerned website url'>
+                <Field title="Concerned website url">
                   {request.devRequestWebsiteUrl}
                 </Field>
               )}
             </>
           )}
           {request.organization && (
-            <Field title='Organization name'>{request.organization}</Field>
+            <Field title="Organization name">{request.organization}</Field>
           )}
           {session?.user?.role === UserRole.Admin && (
             <>
-              <Field title='Provided email'>{request.providedEmail}</Field>
-              <Field title='Registered email'>
+              <Field title="Provided email">{request.providedEmail}</Field>
+              <Field title="Registered email">
                 {request.requester.email ?? ''}
               </Field>
             </>
           )}
         </SubtleBorder>
       </div>
-      <div className='font-serif italic text-left text-grey-light'>
+      <div className="font-serif italic text-left text-grey-light">
         <FontAwesomeIcon icon={faClock} /> Posted{' '}
         {timeSinceCreated ? `${timeSinceCreated} ago` : 'today'}
       </div>
@@ -255,21 +257,21 @@ const FormSidebar: React.FC<RequestProps> = ({ request }) => {
   }, [request.name]);
 
   return (
-    <aside className='text-center truncate lg:text-left'>
-      <div className='font-bold uppercase'>About the Requestor</div>
-      <div className='grid content-center w-32 mx-auto mt-4 mb-4 rounded-full place-content-center aspect-square bg-red lg:ml-0'>
-        <div className='font-bold text-white text-7xl w-fit'>{initials}</div>
+    <aside className="text-center truncate lg:text-left">
+      <div className="font-bold uppercase">About the Requestor</div>
+      <div className="grid content-center w-32 mx-auto mt-4 mb-4 rounded-full place-content-center aspect-square bg-red lg:ml-0">
+        <div className="font-bold text-white text-7xl w-fit">{initials}</div>
       </div>
       <div>
-        <div className='text-lg font-bold truncate'>{request.name}</div>
-        <div title={request.organization || undefined} className='truncate'>
+        <div className="text-lg font-bold truncate">{request.name}</div>
+        <div title={request.organization || undefined} className="truncate">
           {request.organization}
         </div>
-        <div className='truncate'>
+        <div className="truncate">
           <a
-            target='_blank'
-            rel='noreferrer'
-            className='font-bold underline truncate hover:text-grey visited:text-grey'
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold underline truncate hover:text-grey visited:text-grey"
             href={
               request.website.match(/^https?:\/\//)
                 ? request.website
@@ -335,7 +337,6 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         ...options,
         onChange: (value) => {
           options?.onChange?.(value);
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           onChangeValue(name)(value.currentTarget.value);
         },
       });
@@ -374,9 +375,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       if (!lastApplication) return;
 
       Object.entries(lastApplication).forEach(([key, value]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (value && !watch(key as any)) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           setValue(key as any, value);
         }
       });
@@ -431,78 +430,78 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
       <form
         ref={setFormRef}
         onSubmit={handleSubmit(onSubmit)}
-        className='grid grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6'
+        className="grid grid-cols-1 gap-5 mx-auto text-left align-bottom md:grid-cols-6"
       >
-        <div className='font-serif text-2xl italic font-medium col-span-full'>
+        <div className="font-serif text-2xl italic font-medium col-span-full">
           Interested in applying to help with this project?
         </div>
         <TextInput
           showRequiredMark
-          className='col-span-full'
+          className="col-span-full"
           error={errors.name?.message}
           {...myRegister('name')}
-          placeholder='Your name'
+          placeholder="Your name"
         >
           Name
         </TextInput>
         <TextInput
-          className='col-span-full'
+          className="col-span-full"
           error={errors.pronouns?.message}
           {...myRegister('pronouns')}
-          placeholder='Your pronouns'
+          placeholder="Your pronouns"
         >
           Pronouns
         </TextInput>
         <TextInput
           showRequiredMark
-          className='flex flex-col md:col-span-3'
+          className="flex flex-col md:col-span-3"
           error={errors.providedEmail?.message}
           {...myRegister('providedEmail')}
-          placeholder='name@example.com'
+          placeholder="name@example.com"
         >
           Email
         </TextInput>
         <TextInput
           showRequiredMark
-          className='md:col-span-3'
+          className="md:col-span-3"
           error={errors.portfolioLink?.message}
           {...myRegister('portfolioLink')}
-          placeholder='yourwebsite.com'
+          placeholder="yourwebsite.com"
         >
-          <span className='hidden lg:inline'>Personal website or p</span>
-          <span className='inline lg:hidden'>P</span>ortfolio link
+          <span className="hidden lg:inline">Personal website or p</span>
+          <span className="inline lg:hidden">P</span>ortfolio link
         </TextInput>
         <TextInput
-          className='md:col-span-2'
+          className="md:col-span-2"
           error={errors.twitterUrl?.message}
           {...myRegister('twitterUrl')}
-          placeholder='@yourhandle'
+          placeholder="@yourhandle"
         >
           Twitter
         </TextInput>
         <TextInput
-          className='md:col-span-2'
+          className="md:col-span-2"
           error={errors.instagramUrl?.message}
           {...myRegister('instagramUrl')}
-          placeholder='@yourhandle'
+          placeholder="@yourhandle"
         >
           Instagram
         </TextInput>
         <TextInput
-          className='md:col-span-2'
+          className="md:col-span-2"
           error={errors.linkedinUrl?.message}
           {...myRegister('linkedinUrl')}
-          placeholder='linkedin.com/in/'
+          placeholder="linkedin.com/in/"
         >
           LinkedIn
         </TextInput>
-        <div className='flex flex-col justify-start gap-5 md:flex-row col-span-full'>
-          <div className='font-bold'>
+        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
+          <div className="font-bold">
             Have you applied for a Playground project in the past?
           </div>
           <Controller
             control={control}
-            name='hasAppliedInThePast'
+            name="hasAppliedInThePast"
             render={({ field: { value, onChange } }) => (
               <>
                 <RadioButton
@@ -511,7 +510,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                     onChange(true);
                   }}
                   checked={value === true}
-                  label='Yes'
+                  label="Yes"
                 />
                 <RadioButton
                   onChange={() => {
@@ -520,10 +519,10 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                     onChange(false);
                   }}
                   checked={value === false}
-                  label='No'
+                  label="No"
                 />
                 {errors.hasAppliedInThePast?.message && (
-                  <span className='text-red'>
+                  <span className="text-red">
                     {errors.hasAppliedInThePast.message}
                   </span>
                 )}
@@ -531,11 +530,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
             )}
           />
         </div>
-        <div className='flex flex-col justify-start gap-5 md:flex-row col-span-full'>
-          <div className='font-bold'>Are you vegan?</div>
+        <div className="flex flex-col justify-start gap-5 md:flex-row col-span-full">
+          <div className="font-bold">Are you vegan?</div>
           <Controller
             control={control}
-            name='isVegan'
+            name="isVegan"
             render={({ field: { value, onChange } }) => (
               <>
                 <RadioButton
@@ -544,7 +543,7 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                     onChange(true);
                   }}
                   checked={value === true}
-                  label='Yes'
+                  label="Yes"
                 />
                 <RadioButton
                   onChange={() => {
@@ -552,26 +551,26 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
                     onChange(false);
                   }}
                   checked={value === false}
-                  label='No'
+                  label="No"
                 />
                 {errors.isVegan?.message && (
-                  <span className='text-red'>{errors.isVegan.message}</span>
+                  <span className="text-red">{errors.isVegan.message}</span>
                 )}
               </>
             )}
           />
         </div>
         <TextInput
-          className='col-span-full md:col-span-3'
+          className="col-span-full md:col-span-3"
           error={errors.calendlyUrl?.message}
           {...myRegister('calendlyUrl')}
-          placeholder='calendly.com/yourname'
+          placeholder="calendly.com/yourname"
         >
           Calendly link (or alternative scheduling link)
         </TextInput>
-        <div className='relative bottom-0 self-end col-span-full md:col-span-3'>
+        <div className="relative bottom-0 self-end col-span-full md:col-span-3">
           <Label
-            htmlFor='availableTimePerWeek'
+            htmlFor="availableTimePerWeek"
             error={errors.availableTimePerWeek?.message}
             showRequiredMark
           >
@@ -579,11 +578,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           </Label>
           <Controller
             control={control}
-            name='availableTimePerWeek'
+            name="availableTimePerWeek"
             render={({ field: { value: current, onChange, ...field } }) => (
               <SelectInput
                 {...field}
-                placeholder='Select an option'
+                placeholder="Select an option"
                 onChange={(value) => {
                   setFormData({
                     availableTimePerWeek: value?.value as TimePerWeek,
@@ -600,27 +599,27 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           />
         </div>
         <TextInput
-          className='col-span-full'
-          type='number'
-          inputMode='numeric'
+          className="col-span-full"
+          type="number"
+          inputMode="numeric"
           min={1}
-          placeholder='Days'
+          placeholder="Days"
           {...myRegister('estimatedTimeDays', { valueAsNumber: true })}
           error={errors.estimatedTimeDays?.message}
         >
           Estimated time commitment
-          <span className='text-red'>*</span>&nbsp;
-          <span className='font-thin'>
+          <span className="text-red">*</span>&nbsp;
+          <span className="font-thin">
             Please give a rough estimate of how long do you think this should
             take
           </span>
         </TextInput>
-        <div className='col-span-full'>
-          <Label error={errors.source?.message} htmlFor='source'>
+        <div className="col-span-full">
+          <Label error={errors.source?.message} htmlFor="source">
             Where did you hear about Playground?
           </Label>
           <Controller
-            name='source'
+            name="source"
             control={control}
             render={({ field: { value, onChange, ...field } }) => (
               <SelectInput
@@ -645,26 +644,26 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         <TextArea
           error={errors.moreInfo?.message}
           showRequiredMark
-          className='col-span-full'
+          className="col-span-full"
           rows={5}
           {...myRegister('moreInfo')}
-          placeholder='e.g. What skill you have relating to this project, why do you want to help, etc.'
+          placeholder="e.g. What skill you have relating to this project, why do you want to help, etc."
         >
           Please tell us a little bit more about yourself and why you&apos;d be
           a good fit for this request
         </TextArea>
         <Controller
           control={control}
-          name='commitToHelping'
+          name="commitToHelping"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
-              labelPosition='right'
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
                 onChange(checked);
               }}
-              className='col-span-full'
+              className="col-span-full"
               error={errors.commitToHelping?.message}
               {...field}
             >
@@ -676,21 +675,21 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         />
         <Controller
           control={control}
-          name='agreeToTerms'
+          name="agreeToTerms"
           render={({ field: { value, onChange, ...field } }) => (
             <Checkbox
-              labelPosition='right'
+              labelPosition="right"
               checked={value}
               onChange={(checked) => {
                 setFormData({ [field.name]: checked });
                 onChange(checked);
               }}
-              className='col-span-full'
+              className="col-span-full"
               error={errors.agreeToTerms?.message}
               {...field}
             >
               I agree to the{' '}
-              <span className='text-green'>
+              <span className="text-green">
                 <Link href={'/playground/terms-and-conditions'}>
                   VH: Playground terms and conditions
                 </Link>
@@ -700,8 +699,8 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
         />
         <DarkButton
           disabled={isLoading || isSuccess || request.userAlreadyApplied}
-          type='submit'
-          className='w-full px-10 mx-auto col-span-full md:ml-0 md:w-fit'
+          type="submit"
+          className="w-full px-10 mx-auto col-span-full md:ml-0 md:w-fit"
         >
           {isLoading ? (
             <Spinner />
@@ -712,10 +711,10 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
           )}
         </DarkButton>
       </form>
-      <ConfirmationModal isOpen={isSuccess} type='application' />
+      <ConfirmationModal isOpen={isSuccess} type="application" />
       <SignInPrompt
         isOpen={isSignInModalOpen}
-        type='application'
+        type="application"
         onClose={onModalClose}
         email={watch('providedEmail')}
         submitOnVerify
@@ -727,11 +726,11 @@ const MainForm: React.FC<RequestProps> = ({ request }) => {
 const RequestApplicationBlocked: React.FC = () => {
   return (
     <>
-      <div className='text-5xl'>⚠️</div>
-      <h1 className='text-2xl my-5'>
+      <div className="text-5xl">⚠️</div>
+      <h1 className="text-2xl my-5">
         Please contact us before submitting another application.
       </h1>
-      <DarkButton className='w-fit m-auto' href='/contact'>
+      <DarkButton className="w-fit m-auto" href="/contact">
         Contact
       </DarkButton>
     </>
@@ -746,17 +745,17 @@ export const RequestApplyForm: React.FC<RequestProps> = ({ request }) => {
     });
 
   return (
-    <div className='flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5'>
+    <div className="flex flex-col-reverse justify-between px-10 py-10 divide-white bg-grey-background lg:flex-row lg:divide-x-2 gap-y-5">
       {lastApplication?.status === ApplicationStatus.Blocked ? (
-        <div className='max-w-lg mx-auto xl:max-w-sm'>
+        <div className="max-w-lg mx-auto xl:max-w-sm">
           <RequestApplicationBlocked />
         </div>
       ) : (
         <>
-          <div className='flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20'>
+          <div className="flex-grow max-w-lg mx-auto xl:max-w-2xl lg:translate-x-20">
             <MainForm request={request} />
           </div>
-          <div className='mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max'>
+          <div className="mx-auto lg:mx-0 lg:px-10 xl:pl-20 lg:max-w-sm w-max">
             <FormSidebar request={request} />
           </div>
         </>

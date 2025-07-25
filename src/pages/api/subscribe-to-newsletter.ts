@@ -4,7 +4,6 @@ import { subscribeToNewsletter } from '../../lib/mailchimp';
 import { errorBody } from '../../lib/helpers/api';
 
 import type { NextApiHandler } from 'next';
-import type { MemberErrorResponse } from '@mailchimp/mailchimp_marketing';
 
 interface NewsletterSubscriptionQuery {
   email: string;
@@ -27,7 +26,7 @@ const handler: NextApiHandler = async (req, res) => {
   try {
     await subscribeToNewsletter(email);
   } catch (e: unknown) {
-    const error = e as MemberErrorResponse;
+    const error = e as any;
     return res.status(error.status).json(errorBody(error.status));
   }
 

@@ -79,22 +79,22 @@ const SignInPrompt: React.FC<SignInPromptProps> = ({
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose}>
-      <div className='p-10 bg-grey-background'>
+      <div className="p-10 bg-grey-background">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='mb-5'>
-            <div className='font-bold'>Just one more thing</div>
+          <div className="mb-5">
+            <div className="font-bold">Just one more thing</div>
             <div>
               Before submitting your {type}, please verify your email address,
               so we can reach out to you.
             </div>
           </div>
-          <div className='flex flex-col gap-5'>
+          <div className="flex flex-col gap-5">
             <TextInput
               error={errors.email?.message}
-              type='email'
+              type="email"
               {...register('email')}
             />
-            <DarkButton disabled={isLoading} type='submit'>
+            <DarkButton disabled={isLoading} type="submit">
               Verify!
             </DarkButton>
           </div>

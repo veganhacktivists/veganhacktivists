@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import type React from 'react';
 
 import getThemeColor from '../../../lib/helpers/theme';
 import Circle from '../../decoration/circle';
@@ -26,12 +26,12 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
   return (
     <div className={classes} style={{ backgroundColor }}>
       {circles && (
-        <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-          <Circle xAlign='right' radius={30} opacity={0.1} />
-          <Circle yAlign='bottom' radius={34} opacity={0.2} />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <Circle xAlign="right" radius={30} opacity={0.1} />
+          <Circle yAlign="bottom" radius={34} opacity={0.2} />
         </div>
       )}
-      {header && <div className='pb-10'>{header}</div>}
+      {header && <div className="pb-10">{header}</div>}
       <div>{children}</div>
     </div>
   );
