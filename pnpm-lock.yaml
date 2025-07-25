@@ -49,7 +49,7 @@ importers:
         version: 3.0.80
       '@next-auth/prisma-adapter':
         specifier: ^1.0.5
-        version: 1.0.5(@prisma/client@5.6.0(prisma@5.6.0))(next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        version: 1.0.5(@prisma/client@5.6.0(prisma@5.6.0))(next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.9.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@nivo/core':
         specifier: ^0.80.0
         version: 0.80.0(@nivo/tooltip@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -124,7 +124,7 @@ importers:
         version: 14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1)
       next-auth:
         specifier: ^4.23.2
-        version: 4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.9.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next-pwa:
         specifier: ^5.6.0
         version: 5.6.0(@babel/core@7.20.2)(@types/babel__core@7.1.20)(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(webpack@5.90.0)
@@ -132,8 +132,8 @@ importers:
         specifier: ^5.14.1
         version: 5.14.1(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       nodemailer:
-        specifier: ^6.8.0
-        version: 6.8.0
+        specifier: ^6.9.9
+        version: 6.9.9
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -4740,8 +4740,8 @@ packages:
   node-releases@2.0.18:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
 
-  nodemailer@6.8.0:
-    resolution: {integrity: sha512-EjYvSmHzekz6VNkNd12aUqAco+bOkRe3Of5jVhltqKhEsjw/y0PYPJfp83+s9Wzh1dspYAkUW/YNQ350NATbSQ==}
+  nodemailer@6.9.9:
+    resolution: {integrity: sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==}
     engines: {node: '>=6.0.0'}
 
   nopt@6.0.0:
@@ -7841,10 +7841,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@next-auth/prisma-adapter@1.0.5(@prisma/client@5.6.0(prisma@5.6.0))(next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+  '@next-auth/prisma-adapter@1.0.5(@prisma/client@5.6.0(prisma@5.6.0))(next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.9.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@prisma/client': 5.6.0(prisma@5.6.0)
-      next-auth: 4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      next-auth: 4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.9.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
   '@next/env@14.2.25': {}
 
@@ -11783,7 +11783,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  next-auth@4.24.5(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(nodemailer@6.9.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.23.2
       '@panva/hkdf': 1.0.2
@@ -11798,7 +11798,7 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       uuid: 8.3.2
     optionalDependencies:
-      nodemailer: 6.8.0
+      nodemailer: 6.9.9
 
   next-pwa@5.6.0(@babel/core@7.20.2)(@types/babel__core@7.1.20)(next@14.2.25(@babel/core@7.20.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.56.1))(webpack@5.90.0):
     dependencies:
@@ -11862,7 +11862,7 @@ snapshots:
 
   node-releases@2.0.18: {}
 
-  nodemailer@6.8.0: {}
+  nodemailer@6.9.9: {}
 
   nopt@6.0.0:
     dependencies:
