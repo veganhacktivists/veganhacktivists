@@ -1,7 +1,7 @@
 export function getServerSideProps() {
   return {
     redirect: {
-      destination: 'https://flockwork.org/request-help',
+      destination: 'https://flockwork.org/request-help?source=playground',
       permanent: true,
     },
   };
