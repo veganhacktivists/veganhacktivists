@@ -43,7 +43,7 @@ const FlockworkModal = () => {
                 </WhiteButton>
                 <DarkButton
                   className='text-2xl flex-1 flex items-center justify-center'
-                  href='https://flockwork.org'
+                  href='https://flockwork.org?source=playground'
                 >
                   Take me there
                 </DarkButton>
