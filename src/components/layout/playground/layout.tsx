@@ -17,12 +17,17 @@ import checkmarkIcon from '../../../../public/images/playground/icons/checkmark.
 import heartIcon from '../../../../public/images/playground/icons/heart.svg';
 import resumeIcon from '../../../../public/images/playground/icons/resume.svg';
 import clockIcon from '../../../../public/images/playground/icons/clock.svg';
+import FlockworkModal from '../flockworkModal';
 
 import FaqSection from './faqSection';
 
 import CustomImage from 'components/decoration/customImage';
 import Hero from 'components/decoration/hero';
-import { DarkButton, OutlineButton } from 'components/decoration/buttons';
+import {
+  DarkButton,
+  OutlineButton,
+  WhiteButton,
+} from 'components/decoration/buttons';
 import { trpc } from 'lib/client/trpc';
 import Spinner from 'components/decoration/spinner';
 import { JOIN_PLAYGROUND_URL } from 'lib/discord/constants';
@@ -62,6 +67,7 @@ const PlaygroundLayout: Layout = ({ children }) => {
 
   return (
     <>
+      <FlockworkModal />
       <NextSeo {...playgroundSEO} />
       <div>
         <Hero
