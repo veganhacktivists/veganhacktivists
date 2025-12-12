@@ -135,6 +135,13 @@
     "contentful-management": "^10.20.1",
     "contentful-typescript-codegen": "^3.2.3"
   },
+  "pnpm": {
+    "overrides": {
+      "braces": "^3.0.3",
+      "cross-spawn": "^7.0.5",
+      "rollup": "^2.79.2"
+    }
+  },
   "engines": {
     "pnpm": ">=9.11.0",
     "node": "22"
