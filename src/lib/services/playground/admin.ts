@@ -25,9 +25,7 @@ import { sendDiscordMessage } from 'lib/discord';
 import emailClient from 'lib/mail';
 import { ROLE_ID_BY_CATEGORY } from 'lib/discord/constants';
 import { getListFromEnv } from 'lib/helpers/env';
-import { postPlaygroundRequestOnReddit } from 'lib/reddit';
 
-import type { Submission } from 'snoowrap';
 import type { deleteRequestSchema, repostRequestSchema } from './schemas';
 import type { Message } from 'discord.js';
 import type { PlaygroundRequest, Prisma } from '@prisma/client';
@@ -377,7 +375,6 @@ export const repostRequest = async ({
     return;
   }
   let discordMessages: Message[] = [];
-  let redditSubmissions: Submission[] = [];
 
   try {
     const updatedRequest = await prisma.$transaction(
@@ -396,7 +393,6 @@ export const repostRequest = async ({
         });
 
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        redditSubmissions = await postPlaygroundRequestOnReddit(updatedRequest);
         discordMessages = await postRequestOnDiscord(updatedRequest);
         updatedRequest = await prisma.playgroundRequest.update({
           where: { id },
@@ -417,10 +413,6 @@ export const repostRequest = async ({
     return updatedRequest;
   } catch (e) {
     try {
-      for await (const redditSubmission of redditSubmissions) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        await redditSubmission.delete().catch();
-      }
       for await (const discordMessage of discordMessages) {
         await discordMessage.delete().catch();
       }
@@ -468,7 +460,6 @@ export const setRequestStatus = async ({
     status === RequestStatus.Completed;
 
   let discordMessages: Message[] = [];
-  let redditSubmissions: Submission[] = [];
 
   try {
     const updatedRequest = await prisma.$transaction(
@@ -494,11 +485,8 @@ export const setRequestStatus = async ({
         });
 
         if (shouldPost) {
-          console.info('Trying to post to reddit and discord', id, Date.now());
+          console.info('Trying to post to discord', id, Date.now());
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
-          redditSubmissions =
-            await postPlaygroundRequestOnReddit(updatedRequest);
-          console.info('Successfully posted request to reddit', id, Date.now());
           discordMessages = await postRequestOnDiscord(updatedRequest);
           console.info(
             'Successfully posted request to discord',
@@ -534,10 +522,6 @@ export const setRequestStatus = async ({
     return updatedRequest;
   } catch (e) {
     try {
-      for await (const redditSubmission of redditSubmissions) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        await redditSubmission.delete().catch();
-      }
       for await (const discordMessage of discordMessages) {
         await discordMessage.delete().catch();
       }
