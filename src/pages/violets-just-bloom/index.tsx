@@ -10,27 +10,145 @@ const COLORS = [
   { r: 255, g: 240, b: 150, a: 0.3 },
 ];
 
-class Planet {
+const PLANET_IMAGES = [
+  '/images/planets/planet1.png',
+  '/images/planets/planet2.png',
+  '/images/planets/planet3.png',
+];
+
+const MUSHROOM_IMAGES = [
+  '/images/mushrooms/mushroom1.png',
+  '/images/mushrooms/mushroom2.png',
+  '/images/mushrooms/mushroom3.png',
+  '/images/mushrooms/mushroom4.png',
+];
+
+const STAR_IMAGE = '/images/star.png';
+
+interface PositionedObject {
   x: number;
   y: number;
-  size: number;
-  angle: number;
-  color: { r: number; g: number; b: number; a: number };
-  ring: boolean;
-  swayAngle: number;
+  scale: number;
+  getCollisionSize(): { width: number; height: number };
+  getFloatAmplitude(): number;
+}
 
-  constructor(width: number, height: number) {
-    this.x = Math.random() * width;
-    this.y = Math.random() * (height * 0.2);
-    this.size = 5 + Math.random() * 12;
-    this.angle = Math.random() * Math.PI * 2;
-    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.ring = Math.random() > 0.5;
-    this.swayAngle = 0;
+function checkOverlap(
+  obj1: PositionedObject,
+  obj2: PositionedObject,
+  minDistance: number = 50,
+): boolean {
+  const size1 = obj1.getCollisionSize();
+  const size2 = obj2.getCollisionSize();
+
+  const amplitude1 = obj1.getFloatAmplitude();
+  const amplitude2 = obj2.getFloatAmplitude();
+
+  const radius1 = Math.max(size1.width, size1.height) / 2 + amplitude1;
+  const radius2 = Math.max(size2.width, size2.height) / 2 + amplitude2;
+
+  const dx = obj1.x - obj2.x;
+  const dy = obj1.y - obj2.y;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  return distance < radius1 + radius2 + minDistance;
+}
+
+class Planet implements PositionedObject {
+  x: number;
+  y: number;
+  scale: number;
+  image: HTMLImageElement;
+  imageLoaded: boolean;
+  index: number;
+  baseY: number;
+  floatOffset: number;
+  floatSpeed: number;
+  hoverAmount: number;
+
+  constructor(
+    width: number,
+    height: number,
+    imagePath: string,
+    index: number,
+    total: number,
+    existingObjects: PositionedObject[] = [],
+  ) {
+    this.index = index;
+    this.x = 0;
+    this.y = 0;
+    this.baseY = 0;
+    const padding = 50;
+    this.scale = 0.15 + Math.random() * 0.25;
+
+    this.image = new Image();
+    this.imageLoaded = false;
+    this.image.src = imagePath;
+    this.image.onload = () => {
+      this.imageLoaded = true;
+    };
+
+    const side = index % 2 === 0 ? 'left' : 'right';
+    const verticalSection = (height * 0.4) / total;
+
+    let attempts = 0;
+    const maxAttempts = 100;
+    let validPosition = false;
+
+    while (!validPosition && attempts < maxAttempts) {
+      if (side === 'left') {
+        const leftWidth = width * 0.3;
+        this.x = padding + Math.random() * (leftWidth - padding);
+      } else {
+        const rightStart = width * 0.7;
+        this.x = rightStart + Math.random() * (width * 0.3 - padding);
+      }
+
+      this.baseY =
+        padding +
+        index * verticalSection +
+        Math.random() * (verticalSection * 0.9);
+      this.y = this.baseY;
+
+      validPosition = true;
+      for (const obj of existingObjects) {
+        if (checkOverlap(this, obj, 80)) {
+          validPosition = false;
+          break;
+        }
+      }
+      attempts++;
+    }
+
+    this.floatOffset = Math.random() * Math.PI * 2;
+    this.floatSpeed = 0.0008 + Math.random() * 0.004;
+    this.hoverAmount = 0;
+  }
+
+  getSize(): { width: number; height: number } {
+    if (!this.imageLoaded || !this.image.naturalWidth) {
+      return { width: 100 * this.scale, height: 100 * this.scale };
+    }
+    return {
+      width: this.image.naturalWidth * this.scale,
+      height: this.image.naturalHeight * this.scale,
+    };
+  }
+
+  getCollisionSize(): { width: number; height: number } {
+    const approximateSize = 400;
+    return {
+      width: approximateSize * this.scale,
+      height: approximateSize * this.scale,
+    };
+  }
+
+  getFloatAmplitude(): number {
+    return 15 + 30;
   }
 
   update() {
-    this.angle += 0.01;
+    this.floatOffset += this.floatSpeed;
   }
 
   draw(
@@ -38,97 +156,98 @@ class Planet {
     mouseX: number | null,
     mouseY: number | null,
   ) {
-    let targetSway = Math.sin(Date.now() * 0.001 + this.x) * 0.08;
+    if (!this.imageLoaded) return;
+
+    const imgWidth = this.image.naturalWidth * this.scale;
+    const imgHeight = this.image.naturalHeight * this.scale;
+
+    let targetHoverAmount = 0;
     if (mouseX != null && mouseY != null) {
       const dx = mouseX - this.x;
       const dy = mouseY - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 150) targetSway = (dx / 150) * 0.6;
+      const hoverRadius = Math.max(imgWidth, imgHeight) * 1.2;
+      if (dist < hoverRadius) {
+        targetHoverAmount = 1 - dist / hoverRadius;
+      }
     }
-    this.swayAngle += (targetSway - this.swayAngle) * 0.1;
+    this.hoverAmount += (targetHoverAmount - this.hoverAmount) * 0.06;
+
+    const baseAmplitude = 15;
+    const hoverAmplitude = 30;
+    const amplitude = baseAmplitude + this.hoverAmount * hoverAmplitude;
+    const floatY = Math.sin(this.floatOffset) * amplitude;
+
+    this.y = this.baseY + floatY;
+
+    const hoverScale = 1 + this.hoverAmount * 0.08;
+    const rotation =
+      Math.sin(this.floatOffset * 0.5) * 0.05 * (1 + this.hoverAmount);
 
     ctx.save();
     ctx.translate(this.x, this.y);
-    ctx.rotate(this.swayAngle);
+    ctx.rotate(rotation);
+    ctx.scale(hoverScale, hoverScale);
 
-    ctx.beginPath();
-    ctx.fillStyle = `rgba(${this.color.r * 0.6}, ${this.color.g * 0.6}, ${
-      this.color.b * 0.6
-    }, 0.9)`;
-    ctx.arc(0, 0, this.size, 0, Math.PI * 2);
-    ctx.fill();
-
-    if (this.ring) {
-      ctx.beginPath();
-      ctx.strokeStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.3)`;
-      ctx.ellipse(0, 0, this.size * 2, this.size * 0.6, 0.3, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-}
-
-class Bird {
-  x: number;
-  y: number;
-  speed: number;
-  size: number;
-  wingStep: number;
-  width: number;
-
-  constructor(width: number, height: number) {
-    this.width = width;
-    this.x = Math.random() * width;
-    this.y = Math.random() * (height * 0.4);
-    this.speed = Math.random() * 0.5 + 0.3;
-    this.size = Math.random() * 12 + 10;
-    this.wingStep = Math.random() * Math.PI * 2;
-  }
-
-  init(height: number) {
-    this.x = -100;
-    this.y = Math.random() * (height * 0.4);
-    this.speed = Math.random() * 0.5 + 0.3;
-    this.size = Math.random() * 12 + 10;
-    this.wingStep = Math.random() * Math.PI * 2;
-  }
-
-  update(height: number) {
-    this.x += this.speed;
-    this.wingStep += 0.04;
-    if (this.x > this.width + 100) this.init(height);
-  }
-
-  draw(ctx: CanvasRenderingContext2D) {
-    const wing = Math.sin(this.wingStep) * this.size;
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(150, 130, 200, 0.4)';
-    ctx.lineWidth = 2;
-    ctx.moveTo(this.x - this.size, this.y - wing);
-    ctx.quadraticCurveTo(
-      this.x,
-      this.y + wing * 0.3,
-      this.x + this.size,
-      this.y - wing,
+    ctx.globalAlpha = 0.9 + this.hoverAmount * 0.1;
+    ctx.drawImage(
+      this.image,
+      -imgWidth / 2,
+      -imgHeight / 2,
+      imgWidth,
+      imgHeight,
     );
-    ctx.stroke();
+    ctx.restore();
   }
 }
 
 class Mushroom {
   x: number;
   y: number;
-  size: number;
-  color: string;
+  scale: number;
   swayAngle: number;
+  image: HTMLImageElement;
+  imageLoaded: boolean;
+  index: number;
 
-  constructor(width: number, height: number) {
-    this.x = Math.random() * width;
-    this.y = height;
-    this.size = 18 + Math.random() * 22;
-    this.color =
-      Math.random() > 0.5 ? 'rgba(180, 40, 60, 0.6)' : 'rgba(90, 60, 180, 0.5)';
+  constructor(
+    width: number,
+    height: number,
+    imagePath: string,
+    index: number,
+    total: number,
+  ) {
+    this.index = index;
+    const padding = 50;
+    const side = index % 2 === 0 ? 'left' : 'right';
+
+    const sectionWidth = (width * 0.3) / Math.ceil(total / 2);
+
+    if (side === 'left') {
+      const leftIndex = Math.floor(index / 2);
+      this.x =
+        padding +
+        leftIndex * sectionWidth +
+        Math.random() * (sectionWidth * 0.7);
+    } else {
+      const rightStart = width * 0.7;
+      const rightIndex = Math.floor(index / 2);
+      this.x =
+        rightStart +
+        rightIndex * sectionWidth +
+        Math.random() * (sectionWidth * 0.7);
+    }
+
+    this.y = height + 3;
+    this.scale = 0.2 + Math.random() * 0.3;
     this.swayAngle = 0;
+
+    this.image = new Image();
+    this.imageLoaded = false;
+    this.image.src = imagePath;
+    this.image.onload = () => {
+      this.imageLoaded = true;
+    };
   }
 
   draw(
@@ -136,10 +255,15 @@ class Mushroom {
     mouseX: number | null,
     mouseY: number | null,
   ) {
+    if (!this.imageLoaded) return;
+
+    const imgWidth = this.image.naturalWidth * this.scale;
+    const imgHeight = this.image.naturalHeight * this.scale;
+
     let targetSway = Math.sin(Date.now() * 0.001 + this.x) * 0.05;
     if (mouseX != null && mouseY != null) {
       const dx = mouseX - this.x;
-      const dy = mouseY - (this.y - this.size);
+      const dy = mouseY - (this.y - imgHeight);
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 120) targetSway = (dx / 120) * 0.4;
     }
@@ -148,12 +272,141 @@ class Mushroom {
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.rotate(this.swayAngle);
-    ctx.fillStyle = 'rgba(100, 100, 100, 0.1)';
-    ctx.fillRect(-this.size / 10, -this.size, this.size / 5, this.size);
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.ellipse(0, -this.size, this.size, this.size / 1.5, 0, Math.PI, 0);
-    ctx.fill();
+
+    ctx.globalAlpha = 0.9;
+    ctx.drawImage(this.image, -imgWidth / 2, -imgHeight, imgWidth, imgHeight);
+
+    ctx.restore();
+  }
+}
+
+class Star implements PositionedObject {
+  x: number;
+  y: number;
+  scale: number;
+  baseY: number;
+  sizeOffset: number;
+  sizeSpeed: number;
+  image: HTMLImageElement;
+  imageLoaded: boolean;
+  index: number;
+
+  constructor(
+    width: number,
+    height: number,
+    index: number,
+    total: number,
+    existingObjects: PositionedObject[] = [],
+  ) {
+    this.index = index;
+    this.baseY = height;
+    const padding = 50;
+    this.y = this.baseY;
+    this.x = 0;
+    this.scale = 0.1 + Math.random() * 0.2;
+    this.sizeOffset = Math.random() * Math.PI * 2;
+    this.sizeSpeed = 0.0008 + Math.random() * 0.004;
+
+    this.image = new Image();
+    this.imageLoaded = false;
+    this.image.src = STAR_IMAGE;
+    this.image.onload = () => {
+      this.imageLoaded = true;
+    };
+
+    const side = index % 2 === 0 ? 'left' : 'right';
+    const verticalSection = (height * 0.4) / total;
+
+    let attempts = 0;
+    const maxAttempts = 100;
+    let validPosition = false;
+
+    while (!validPosition && attempts < maxAttempts) {
+      if (side === 'left') {
+        const leftWidth = width * 0.3;
+        this.x = padding + Math.random() * (leftWidth - padding);
+      } else {
+        const rightStart = width * 0.7;
+        this.x = rightStart + Math.random() * (width * 0.3 - padding);
+      }
+
+      this.baseY =
+        padding +
+        index * verticalSection +
+        Math.random() * (verticalSection * 0.9);
+      this.y = this.baseY;
+
+      validPosition = true;
+      for (const obj of existingObjects) {
+        if (checkOverlap(this, obj, 80)) {
+          validPosition = false;
+          break;
+        }
+      }
+      attempts++;
+    }
+  }
+
+  getSize(): { width: number; height: number } {
+    if (!this.imageLoaded || !this.image.naturalWidth) {
+      return { width: 80 * this.scale, height: 80 * this.scale };
+    }
+    return {
+      width: this.image.naturalWidth * this.scale,
+      height: this.image.naturalHeight * this.scale,
+    };
+  }
+
+  getCollisionSize(): { width: number; height: number } {
+    const approximateSize = 300;
+    return {
+      width: approximateSize * this.scale,
+      height: approximateSize * this.scale,
+    };
+  }
+
+  getFloatAmplitude(): number {
+    return 10;
+  }
+
+  update() {
+    this.sizeOffset += this.sizeSpeed;
+  }
+
+  draw(
+    ctx: CanvasRenderingContext2D,
+    mouseX: number | null,
+    mouseY: number | null,
+  ) {
+    if (!this.imageLoaded) return;
+
+    const imgWidth = this.image.naturalWidth * this.scale;
+    const imgHeight = this.image.naturalHeight * this.scale;
+
+    ctx.globalAlpha = 0.85;
+    let targetHoverAmount = 0;
+    if (mouseX != null && mouseY != null) {
+      const dx = mouseX - this.x;
+      const dy = mouseY - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const hoverRadius = Math.max(imgWidth, imgHeight) * 1.2;
+      if (dist < hoverRadius) {
+        targetHoverAmount = 1 - dist / hoverRadius;
+      }
+    }
+
+    const resize = Math.sin(this.sizeOffset) * 10;
+
+    ctx.save();
+    ctx.translate(this.x, this.y);
+
+    ctx.drawImage(
+      this.image,
+      -imgWidth / 2,
+      -imgHeight / 2,
+      imgWidth + resize,
+      imgHeight + resize,
+    );
     ctx.restore();
   }
 }
@@ -204,55 +457,6 @@ class Vine {
   }
 }
 
-class Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  baseColor: string;
-  width: number;
-  height: number;
-
-  constructor(width: number, height: number) {
-    this.width = width;
-    this.height = height;
-    this.x = Math.random() * width;
-    this.y = Math.random() * height;
-    this.vx = (Math.random() - 0.5) * 0.15;
-    this.vy = (Math.random() - 0.5) * 0.15;
-    this.size = Math.random() * 1.5 + 1;
-    const c = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.baseColor = `rgba(${c.r}, ${c.g}, ${c.b}, ${c.a})`;
-  }
-
-  update(mouseX: number | null, mouseY: number | null) {
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0) this.x = this.width;
-    if (this.x > this.width) this.x = 0;
-    if (this.y < 0) this.y = this.height;
-    if (this.y > this.height) this.y = 0;
-    if (mouseX != null && mouseY != null) {
-      const dx = mouseX - this.x;
-      const dy = mouseY - this.y;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 180) {
-        const f = (180 - d) / 180;
-        this.vx -= (dx / d) * f * 0.02;
-        this.vy -= (dy / d) * f * 0.02;
-      }
-    }
-  }
-
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.baseColor;
-    ctx.fill();
-  }
-}
-
 const VioletsJustBloom: PageWithLayout = () => {
   const bgCanvasRef = useRef<HTMLCanvasElement>(null);
   const vineCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -265,11 +469,10 @@ const VioletsJustBloom: PageWithLayout = () => {
     y: null,
   });
 
-  const particlesRef = useRef<Particle[]>([]);
   const vinesRef = useRef<Vine[]>([]);
-  const birdsRef = useRef<Bird[]>([]);
   const mushroomsRef = useRef<Mushroom[]>([]);
   const planetsRef = useRef<Planet[]>([]);
+  const starsRef = useRef<Star[]>([]);
 
   const contextsRef = useRef<{
     bg: CanvasRenderingContext2D | null;
@@ -321,23 +524,38 @@ const VioletsJustBloom: PageWithLayout = () => {
       }
     }
 
-    particlesRef.current = Array.from(
-      { length: 50 },
-      () => new Particle(width, height),
-    );
     vinesRef.current = Array.from(
       { length: 12 },
       () => new Vine(width, height),
     );
-    birdsRef.current = Array.from({ length: 4 }, () => new Bird(width, height));
-    mushroomsRef.current = Array.from(
-      { length: 12 },
-      () => new Mushroom(width, height),
+    mushroomsRef.current = MUSHROOM_IMAGES.map(
+      (imagePath, index) =>
+        new Mushroom(width, height, imagePath, index, MUSHROOM_IMAGES.length),
     );
-    planetsRef.current = Array.from(
-      { length: 6 },
-      () => new Planet(width, height),
-    );
+
+    const planets: Planet[] = [];
+    for (let i = 0; i < PLANET_IMAGES.length; i++) {
+      const planet = new Planet(
+        width,
+        height,
+        PLANET_IMAGES[i],
+        i,
+        PLANET_IMAGES.length,
+        planets,
+      );
+      planets.push(planet);
+    }
+    planetsRef.current = planets;
+
+    const starCount = 3;
+    const stars: Star[] = [];
+    const allExistingObjects: PositionedObject[] = [...planets];
+    for (let i = 0; i < starCount; i++) {
+      const star = new Star(width, height, i, starCount, allExistingObjects);
+      stars.push(star);
+      allExistingObjects.push(star);
+    }
+    starsRef.current = stars;
   }, []);
 
   const animate = useCallback(() => {
@@ -358,12 +576,6 @@ const VioletsJustBloom: PageWithLayout = () => {
     ctx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
     lctx.clearRect(0, 0, lifeCanvas.width, lifeCanvas.height);
 
-    const particles = particlesRef.current;
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update(mouseX, mouseY);
-      particles[i].draw(ctx);
-    }
-
     const vines = vinesRef.current;
     for (let i = 0; i < vines.length; i++) {
       vines[i].update();
@@ -376,10 +588,10 @@ const VioletsJustBloom: PageWithLayout = () => {
       planets[i].draw(lctx, mouseX, mouseY);
     }
 
-    const birds = birdsRef.current;
-    for (let i = 0; i < birds.length; i++) {
-      birds[i].update(bgCanvas.height);
-      birds[i].draw(lctx);
+    const stars = starsRef.current;
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].update();
+      stars[i].draw(lctx, mouseX, mouseY);
     }
 
     const mushrooms = mushroomsRef.current;
@@ -463,6 +675,7 @@ const VioletsJustBloom: PageWithLayout = () => {
             left: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             margin: 0;
             padding: 0;
           }
@@ -475,7 +688,7 @@ const VioletsJustBloom: PageWithLayout = () => {
         style={{
           backgroundColor: '#fdfbff',
           backgroundImage:
-            "radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(240, 230, 255, 0.5) 100%), url('/images/paper-fibers.png')",
+            "radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(240, 230, 255, 0.5) 100%), url('/images/paper-fibers.jpg')",
           perspective: '1200px',
         }}
         onMouseMove={handleMouseMove}
@@ -516,9 +729,9 @@ const VioletsJustBloom: PageWithLayout = () => {
               className='block rounded-3xl border-2'
               style={{
                 maxWidth: '90vw',
-                maxHeight: '85vh',
+                maxHeight: '85dvh',
                 width: 'auto',
-                height: '80vh',
+                height: '80dvh',
                 objectFit: 'contain',
                 borderColor: 'rgba(255, 255, 255, 0.9)',
                 boxShadow:
@@ -544,6 +757,5 @@ const VioletsJustBloomLayout: Layout = ({ children }) => {
 };
 
 VioletsJustBloom.Layout = VioletsJustBloomLayout;
-// VioletsJustBloom.prop
 
 export default VioletsJustBloom;
