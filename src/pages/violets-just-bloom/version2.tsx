@@ -549,7 +549,7 @@ const VioletsJustBloomV2: PageWithLayout = () => {
 
     const starCount = 3;
     const stars: Star[] = [];
-    const allExistingObjects = [...planets];
+    const allExistingObjects: PositionedObject[] = [...planets];
     for (let i = 0; i < starCount; i++) {
       const star = new Star(width, height, i, starCount, allExistingObjects);
       stars.push(star);
