@@ -82,7 +82,7 @@ const DefaultLayout: React.FC<
     pathname: string;
   }>
 > = ({ pathname, children }) => {
-  if (pathname === '/violets-just-bloom') {
+  if (pathname.startsWith('/violets-just-bloom')) {
     return <>{children}</>;
   }
   if (pathname === '/handbook' || pathname.startsWith('/handbook/')) {
