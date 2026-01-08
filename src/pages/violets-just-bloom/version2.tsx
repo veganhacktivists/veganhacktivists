@@ -75,6 +75,9 @@ class Planet implements PositionedObject {
     existingObjects: PositionedObject[] = [],
   ) {
     this.index = index;
+    this.x = 0;
+    this.y = 0;
+    this.baseY = 0;
     const padding = 50;
     this.scale = 0.15 + Math.random() * 0.25;
 
