@@ -44,7 +44,7 @@ const getLinks: (intl: IntlShape) => ILinks[] = (intl) => [
       id: 'layout.footer.navigation-item.people.label',
       defaultMessage: 'People',
     }),
-    href: '/people',
+    href: '/people/team',
   },
   {
     label: intl.formatMessage({
