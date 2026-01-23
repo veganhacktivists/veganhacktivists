@@ -1,3 +1,6 @@
+[phases.setup]
+nixpkgsArchive = 'be5afa0fcb31f0a96bf9ecba05a516c66fcd8114'
+
 [phases.build]
 cmds = [
   "pnpm prisma generate",
